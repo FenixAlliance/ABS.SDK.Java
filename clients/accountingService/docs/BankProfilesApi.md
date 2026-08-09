@@ -10,7 +10,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getBankProfiles"></a>
 # **getBankProfiles**
-> BankProfileDtoListEnvelope getBankProfiles(tenantId, apiVersion, xApiVersion)
+> BankProfileDtoListEnvelope getBankProfiles(tenantId, apiVersion, xApiVersion, bankProfileDtoCollectionQueryParameters)
 
 Get all bank profiles for a tenant
 
@@ -34,8 +34,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankProfileDtoCollectionQueryParameters bankProfileDtoCollectionQueryParameters = new BankProfileDtoCollectionQueryParameters(); // BankProfileDtoCollectionQueryParameters | 
     try {
-      BankProfileDtoListEnvelope result = apiInstance.getBankProfiles(tenantId, apiVersion, xApiVersion);
+      BankProfileDtoListEnvelope result = apiInstance.getBankProfiles(tenantId, apiVersion, xApiVersion, bankProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankProfilesApi#getBankProfiles");
@@ -55,6 +56,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankProfileDtoCollectionQueryParameters** | [**BankProfileDtoCollectionQueryParameters**](BankProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -78,7 +80,7 @@ No authorization required
 
 <a id="getBankProfilesCount"></a>
 # **getBankProfilesCount**
-> Int32Envelope getBankProfilesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBankProfilesCount(tenantId, apiVersion, xApiVersion, bankProfileDtoCollectionQueryParameters)
 
 Get bank profiles count
 
@@ -102,8 +104,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankProfileDtoCollectionQueryParameters bankProfileDtoCollectionQueryParameters = new BankProfileDtoCollectionQueryParameters(); // BankProfileDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBankProfilesCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBankProfilesCount(tenantId, apiVersion, xApiVersion, bankProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankProfilesApi#getBankProfilesCount");
@@ -123,6 +126,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankProfileDtoCollectionQueryParameters** | [**BankProfileDtoCollectionQueryParameters**](BankProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -134,7 +138,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

@@ -233,7 +233,7 @@ No authorization required
 
 <a id="getCurriculumsAsync"></a>
 # **getCurriculumsAsync**
-> CurriculumDtoListEnvelope getCurriculumsAsync(socialProfileId, tenantId, apiVersion, xApiVersion)
+> CurriculumDtoListEnvelope getCurriculumsAsync(socialProfileId, tenantId, apiVersion, xApiVersion, curriculumDtoCollectionQueryParameters)
 
 Get curricula
 
@@ -258,8 +258,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CurriculumDtoCollectionQueryParameters curriculumDtoCollectionQueryParameters = new CurriculumDtoCollectionQueryParameters(); // CurriculumDtoCollectionQueryParameters | 
     try {
-      CurriculumDtoListEnvelope result = apiInstance.getCurriculumsAsync(socialProfileId, tenantId, apiVersion, xApiVersion);
+      CurriculumDtoListEnvelope result = apiInstance.getCurriculumsAsync(socialProfileId, tenantId, apiVersion, xApiVersion, curriculumDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CurriculumsApi#getCurriculumsAsync");
@@ -280,6 +281,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **curriculumDtoCollectionQueryParameters** | [**CurriculumDtoCollectionQueryParameters**](CurriculumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -291,7 +293,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -303,7 +305,7 @@ No authorization required
 
 <a id="getCurriculumsCountAsync"></a>
 # **getCurriculumsCountAsync**
-> Int32Envelope getCurriculumsCountAsync(socialProfileId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getCurriculumsCountAsync(socialProfileId, tenantId, apiVersion, xApiVersion, curriculumDtoCollectionQueryParameters)
 
 Count curricula
 
@@ -328,8 +330,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CurriculumDtoCollectionQueryParameters curriculumDtoCollectionQueryParameters = new CurriculumDtoCollectionQueryParameters(); // CurriculumDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getCurriculumsCountAsync(socialProfileId, tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getCurriculumsCountAsync(socialProfileId, tenantId, apiVersion, xApiVersion, curriculumDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CurriculumsApi#getCurriculumsCountAsync");
@@ -350,6 +353,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **curriculumDtoCollectionQueryParameters** | [**CurriculumDtoCollectionQueryParameters**](CurriculumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -361,7 +365,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -373,7 +377,7 @@ No authorization required
 
 <a id="patchCurriculumAsync"></a>
 # **patchCurriculumAsync**
-> EmptyEnvelope patchCurriculumAsync(socialProfileId, curriculumId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCurriculumAsync(socialProfileId, curriculumId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a curriculum
 
@@ -399,9 +403,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCurriculumAsync(socialProfileId, curriculumId, tenantId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCurriculumAsync(socialProfileId, curriculumId, tenantId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CurriculumsApi#patchCurriculumAsync");
@@ -423,7 +427,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

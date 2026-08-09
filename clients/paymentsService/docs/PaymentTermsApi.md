@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getPaymentTermsAsync"></a>
 # **getPaymentTermsAsync**
-> PaymentTermDtoIReadOnlyListEnvelope getPaymentTermsAsync(tenantId, apiVersion, xApiVersion)
+> PaymentTermDtoIReadOnlyListEnvelope getPaymentTermsAsync(tenantId, apiVersion, xApiVersion, paymentTermDtoCollectionQueryParameters)
 
 Retrieves all payment terms
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentTermDtoCollectionQueryParameters paymentTermDtoCollectionQueryParameters = new PaymentTermDtoCollectionQueryParameters(); // PaymentTermDtoCollectionQueryParameters | 
     try {
-      PaymentTermDtoIReadOnlyListEnvelope result = apiInstance.getPaymentTermsAsync(tenantId, apiVersion, xApiVersion);
+      PaymentTermDtoIReadOnlyListEnvelope result = apiInstance.getPaymentTermsAsync(tenantId, apiVersion, xApiVersion, paymentTermDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentTermsApi#getPaymentTermsAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentTermDtoCollectionQueryParameters** | [**PaymentTermDtoCollectionQueryParameters**](PaymentTermDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getPaymentTermsCountAsync"></a>
 # **getPaymentTermsCountAsync**
-> Int32Envelope getPaymentTermsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPaymentTermsCountAsync(tenantId, apiVersion, xApiVersion, paymentTermDtoCollectionQueryParameters)
 
 Counts payment terms
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentTermDtoCollectionQueryParameters paymentTermDtoCollectionQueryParameters = new PaymentTermDtoCollectionQueryParameters(); // PaymentTermDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getPaymentTermsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getPaymentTermsCountAsync(tenantId, apiVersion, xApiVersion, paymentTermDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentTermsApi#getPaymentTermsCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentTermDtoCollectionQueryParameters** | [**PaymentTermDtoCollectionQueryParameters**](PaymentTermDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchPaymentTermAsync"></a>
 # **patchPaymentTermAsync**
-> EmptyEnvelope patchPaymentTermAsync(tenantId, paymentTermId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchPaymentTermAsync(tenantId, paymentTermId, apiVersion, xApiVersion, patchOperation)
 
 Patch a payment term
 
@@ -386,9 +390,9 @@ public class Example {
     UUID paymentTermId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchPaymentTermAsync(tenantId, paymentTermId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchPaymentTermAsync(tenantId, paymentTermId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentTermsApi#patchPaymentTermAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **paymentTermId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * SupplierProfileUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:03:54.870086100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:30:21.539900200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SupplierProfileUpdateDto {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)

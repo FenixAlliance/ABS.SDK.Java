@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getTenantUnits"></a>
 # **getTenantUnits**
-> TenantUnitDtoListEnvelope getTenantUnits(tenantId, apiVersion, xApiVersion)
+> TenantUnitDtoListEnvelope getTenantUnits(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters)
 
 Retrieve a list of tenant units
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters = new TenantUnitDtoCollectionQueryParameters(); // TenantUnitDtoCollectionQueryParameters | 
     try {
-      TenantUnitDtoListEnvelope result = apiInstance.getTenantUnits(tenantId, apiVersion, xApiVersion);
+      TenantUnitDtoListEnvelope result = apiInstance.getTenantUnits(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UnitsApi#getTenantUnits");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantUnitDtoCollectionQueryParameters** | [**TenantUnitDtoCollectionQueryParameters**](TenantUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getTenantUnitsCount"></a>
 # **getTenantUnitsCount**
-> Int32Envelope getTenantUnitsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantUnitsCount(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters)
 
 Get the count of tenant units
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters = new TenantUnitDtoCollectionQueryParameters(); // TenantUnitDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantUnitsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantUnitsCount(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UnitsApi#getTenantUnitsCount");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantUnitDtoCollectionQueryParameters** | [**TenantUnitDtoCollectionQueryParameters**](TenantUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchTenantUnit"></a>
 # **patchTenantUnit**
-> EmptyEnvelope patchTenantUnit(tenantId, tenantUnitId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantUnit(tenantId, tenantUnitId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant unit
 
@@ -386,9 +390,9 @@ public class Example {
     UUID tenantUnitId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantUnit(tenantId, tenantUnitId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantUnit(tenantId, tenantUnitId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UnitsApi#patchTenantUnit");
@@ -409,7 +413,7 @@ public class Example {
 | **tenantUnitId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

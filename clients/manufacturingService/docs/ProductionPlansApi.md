@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getProductionPlansAsync"></a>
 # **getProductionPlansAsync**
-> ProductionPlanDtoListEnvelope getProductionPlansAsync(tenantId, apiVersion, xApiVersion)
+> ProductionPlanDtoListEnvelope getProductionPlansAsync(tenantId, apiVersion, xApiVersion, productionPlanDtoCollectionQueryParameters)
 
 Get all production plans
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ProductionPlanDtoCollectionQueryParameters productionPlanDtoCollectionQueryParameters = new ProductionPlanDtoCollectionQueryParameters(); // ProductionPlanDtoCollectionQueryParameters | 
     try {
-      ProductionPlanDtoListEnvelope result = apiInstance.getProductionPlansAsync(tenantId, apiVersion, xApiVersion);
+      ProductionPlanDtoListEnvelope result = apiInstance.getProductionPlansAsync(tenantId, apiVersion, xApiVersion, productionPlanDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProductionPlansApi#getProductionPlansAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **productionPlanDtoCollectionQueryParameters** | [**ProductionPlanDtoCollectionQueryParameters**](ProductionPlanDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getProductionPlansCountAsync"></a>
 # **getProductionPlansCountAsync**
-> Int32Envelope getProductionPlansCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getProductionPlansCountAsync(tenantId, apiVersion, xApiVersion, productionPlanDtoCollectionQueryParameters)
 
 Get production plans count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ProductionPlanDtoCollectionQueryParameters productionPlanDtoCollectionQueryParameters = new ProductionPlanDtoCollectionQueryParameters(); // ProductionPlanDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getProductionPlansCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getProductionPlansCountAsync(tenantId, apiVersion, xApiVersion, productionPlanDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProductionPlansApi#getProductionPlansCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **productionPlanDtoCollectionQueryParameters** | [**ProductionPlanDtoCollectionQueryParameters**](ProductionPlanDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchProductionPlanAsync"></a>
 # **patchProductionPlanAsync**
-> EmptyEnvelope patchProductionPlanAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchProductionPlanAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a production plan
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchProductionPlanAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchProductionPlanAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProductionPlansApi#patchProductionPlanAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

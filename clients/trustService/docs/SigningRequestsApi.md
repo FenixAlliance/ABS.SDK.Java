@@ -491,7 +491,7 @@ No authorization required
 
 <a id="getSigningRequestsAsync"></a>
 # **getSigningRequestsAsync**
-> SigningRequestDtoListEnvelope getSigningRequestsAsync(tenantId, apiVersion, xApiVersion)
+> SigningRequestDtoListEnvelope getSigningRequestsAsync(tenantId, apiVersion, xApiVersion, signingRequestDtoCollectionQueryParameters)
 
 Get all signing requests
 
@@ -513,8 +513,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SigningRequestDtoCollectionQueryParameters signingRequestDtoCollectionQueryParameters = new SigningRequestDtoCollectionQueryParameters(); // SigningRequestDtoCollectionQueryParameters | 
     try {
-      SigningRequestDtoListEnvelope result = apiInstance.getSigningRequestsAsync(tenantId, apiVersion, xApiVersion);
+      SigningRequestDtoListEnvelope result = apiInstance.getSigningRequestsAsync(tenantId, apiVersion, xApiVersion, signingRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningRequestsApi#getSigningRequestsAsync");
@@ -534,6 +535,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signingRequestDtoCollectionQueryParameters** | [**SigningRequestDtoCollectionQueryParameters**](SigningRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -545,7 +547,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -556,7 +558,7 @@ No authorization required
 
 <a id="getSigningRequestsCountAsync"></a>
 # **getSigningRequestsCountAsync**
-> Int32Envelope getSigningRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSigningRequestsCountAsync(tenantId, apiVersion, xApiVersion, signingRequestDtoCollectionQueryParameters)
 
 Get signing requests count
 
@@ -578,8 +580,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SigningRequestDtoCollectionQueryParameters signingRequestDtoCollectionQueryParameters = new SigningRequestDtoCollectionQueryParameters(); // SigningRequestDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSigningRequestsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSigningRequestsCountAsync(tenantId, apiVersion, xApiVersion, signingRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningRequestsApi#getSigningRequestsCountAsync");
@@ -599,6 +602,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signingRequestDtoCollectionQueryParameters** | [**SigningRequestDtoCollectionQueryParameters**](SigningRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -610,7 +614,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

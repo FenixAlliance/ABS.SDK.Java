@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.MerchantDtoCollectionQueryParameters;
 import org.openapitools.client.model.MerchantDtoEnvelope;
 import org.openapitools.client.model.MerchantDtoListEnvelope;
 import java.util.UUID;
@@ -228,6 +229,7 @@ public class MerchantsApi {
      * Build call for getMerchants
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -239,7 +241,7 @@ public class MerchantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMerchantsCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMerchantsCall(String apiVersion, String xApiVersion, MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -253,7 +255,7 @@ public class MerchantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = merchantDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/Merchants";
@@ -282,6 +284,8 @@ public class MerchantsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -293,8 +297,8 @@ public class MerchantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMerchantsValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMerchantsCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMerchantsValidateBeforeCall(String apiVersion, String xApiVersion, MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMerchantsCall(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -303,6 +307,7 @@ public class MerchantsApi {
      * Retrieves all merchants, optionally filtered by OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @return MerchantDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -313,8 +318,8 @@ public class MerchantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public MerchantDtoListEnvelope getMerchants(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<MerchantDtoListEnvelope> localVarResp = getMerchantsWithHttpInfo(apiVersion, xApiVersion);
+    public MerchantDtoListEnvelope getMerchants(String apiVersion, String xApiVersion, MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<MerchantDtoListEnvelope> localVarResp = getMerchantsWithHttpInfo(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -323,6 +328,7 @@ public class MerchantsApi {
      * Retrieves all merchants, optionally filtered by OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;MerchantDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -333,8 +339,8 @@ public class MerchantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MerchantDtoListEnvelope> getMerchantsWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMerchantsValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<MerchantDtoListEnvelope> getMerchantsWithHttpInfo(String apiVersion, String xApiVersion, MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMerchantsValidateBeforeCall(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<MerchantDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -344,6 +350,7 @@ public class MerchantsApi {
      * Retrieves all merchants, optionally filtered by OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -355,9 +362,9 @@ public class MerchantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMerchantsAsync(String apiVersion, String xApiVersion, final ApiCallback<MerchantDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getMerchantsAsync(String apiVersion, String xApiVersion, MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters, final ApiCallback<MerchantDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMerchantsValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMerchantsValidateBeforeCall(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<MerchantDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -366,6 +373,7 @@ public class MerchantsApi {
      * Build call for getMerchantsCount
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -377,7 +385,7 @@ public class MerchantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMerchantsCountCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMerchantsCountCall(String apiVersion, String xApiVersion, MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -391,7 +399,7 @@ public class MerchantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = merchantDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/Merchants/Count";
@@ -420,6 +428,8 @@ public class MerchantsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -431,8 +441,8 @@ public class MerchantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMerchantsCountValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMerchantsCountCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMerchantsCountValidateBeforeCall(String apiVersion, String xApiVersion, MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMerchantsCountCall(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -441,6 +451,7 @@ public class MerchantsApi {
      * Counts the number of merchants, optionally filtered by OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -451,8 +462,8 @@ public class MerchantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getMerchantsCount(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getMerchantsCountWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope getMerchantsCount(String apiVersion, String xApiVersion, MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getMerchantsCountWithHttpInfo(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -461,6 +472,7 @@ public class MerchantsApi {
      * Counts the number of merchants, optionally filtered by OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -471,8 +483,8 @@ public class MerchantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getMerchantsCountWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMerchantsCountValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getMerchantsCountWithHttpInfo(String apiVersion, String xApiVersion, MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMerchantsCountValidateBeforeCall(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -482,6 +494,7 @@ public class MerchantsApi {
      * Counts the number of merchants, optionally filtered by OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param merchantDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -493,9 +506,9 @@ public class MerchantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMerchantsCountAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getMerchantsCountAsync(String apiVersion, String xApiVersion, MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMerchantsCountValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMerchantsCountValidateBeforeCall(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

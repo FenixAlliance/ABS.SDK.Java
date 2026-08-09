@@ -220,7 +220,7 @@ No authorization required
 
 <a id="getShippingRegionsAsync"></a>
 # **getShippingRegionsAsync**
-> ShippingRegionDtoListEnvelope getShippingRegionsAsync(tenantId, apiVersion, xApiVersion)
+> ShippingRegionDtoListEnvelope getShippingRegionsAsync(tenantId, apiVersion, xApiVersion, shippingRegionDtoCollectionQueryParameters)
 
 Get all shipping regions
 
@@ -244,8 +244,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShippingRegionDtoCollectionQueryParameters shippingRegionDtoCollectionQueryParameters = new ShippingRegionDtoCollectionQueryParameters(); // ShippingRegionDtoCollectionQueryParameters | 
     try {
-      ShippingRegionDtoListEnvelope result = apiInstance.getShippingRegionsAsync(tenantId, apiVersion, xApiVersion);
+      ShippingRegionDtoListEnvelope result = apiInstance.getShippingRegionsAsync(tenantId, apiVersion, xApiVersion, shippingRegionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingRegionsApi#getShippingRegionsAsync");
@@ -265,6 +266,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shippingRegionDtoCollectionQueryParameters** | [**ShippingRegionDtoCollectionQueryParameters**](ShippingRegionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -276,7 +278,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -288,7 +290,7 @@ No authorization required
 
 <a id="getShippingRegionsCountAsync"></a>
 # **getShippingRegionsCountAsync**
-> Int32Envelope getShippingRegionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShippingRegionsCountAsync(tenantId, apiVersion, xApiVersion, shippingRegionDtoCollectionQueryParameters)
 
 Get shipping regions count
 
@@ -312,8 +314,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShippingRegionDtoCollectionQueryParameters shippingRegionDtoCollectionQueryParameters = new ShippingRegionDtoCollectionQueryParameters(); // ShippingRegionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getShippingRegionsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getShippingRegionsCountAsync(tenantId, apiVersion, xApiVersion, shippingRegionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingRegionsApi#getShippingRegionsCountAsync");
@@ -333,6 +336,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shippingRegionDtoCollectionQueryParameters** | [**ShippingRegionDtoCollectionQueryParameters**](ShippingRegionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -344,7 +348,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -354,7 +358,7 @@ No authorization required
 
 <a id="patchShippingRegionAsync"></a>
 # **patchShippingRegionAsync**
-> EmptyEnvelope patchShippingRegionAsync(tenantId, regionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShippingRegionAsync(tenantId, regionId, apiVersion, xApiVersion, patchOperation)
 
 Patch a shipping region
 
@@ -379,9 +383,9 @@ public class Example {
     UUID regionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchShippingRegionAsync(tenantId, regionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchShippingRegionAsync(tenantId, regionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingRegionsApi#patchShippingRegionAsync");
@@ -402,7 +406,7 @@ public class Example {
 | **regionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

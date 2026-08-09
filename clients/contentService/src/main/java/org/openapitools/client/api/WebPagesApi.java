@@ -29,14 +29,17 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 import org.openapitools.client.model.WebPageCategoryCreateDto;
+import org.openapitools.client.model.WebPageCategoryDtoCollectionQueryParameters;
 import org.openapitools.client.model.WebPageCategoryDtoListEnvelope;
 import org.openapitools.client.model.WebPageCreateDto;
+import org.openapitools.client.model.WebPageDtoCollectionQueryParameters;
 import org.openapitools.client.model.WebPageDtoEnvelope;
 import org.openapitools.client.model.WebPageDtoListEnvelope;
 import org.openapitools.client.model.WebPageTagCreateDto;
+import org.openapitools.client.model.WebPageTagDtoCollectionQueryParameters;
 import org.openapitools.client.model.WebPageTagDtoListEnvelope;
 import org.openapitools.client.model.WebPageUpdateDto;
 
@@ -88,6 +91,7 @@ public class WebPagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -98,7 +102,7 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countWebPagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countWebPagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,7 +116,7 @@ public class WebPagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = webPageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebPages/Count";
@@ -145,6 +149,8 @@ public class WebPagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -156,13 +162,13 @@ public class WebPagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countWebPagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countWebPagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countWebPagesAsync(Async)");
         }
 
-        return countWebPagesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return countWebPagesAsyncCall(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -172,6 +178,7 @@ public class WebPagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -181,8 +188,8 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countWebPagesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countWebPagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope countWebPagesAsync(UUID tenantId, String apiVersion, String xApiVersion, WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countWebPagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -192,6 +199,7 @@ public class WebPagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -201,8 +209,8 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countWebPagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countWebPagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countWebPagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countWebPagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -213,6 +221,7 @@ public class WebPagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -223,9 +232,9 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countWebPagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countWebPagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countWebPagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countWebPagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -855,6 +864,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -865,7 +875,7 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCategoriesByWebPageAsyncCall(UUID webPageId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCategoriesByWebPageAsyncCall(UUID webPageId, String apiVersion, String xApiVersion, WebPageCategoryDtoCollectionQueryParameters webPageCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -879,7 +889,7 @@ public class WebPagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = webPageCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebPages/{webPageId}/Categories"
@@ -909,6 +919,8 @@ public class WebPagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -920,13 +932,13 @@ public class WebPagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCategoriesByWebPageAsyncValidateBeforeCall(UUID webPageId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCategoriesByWebPageAsyncValidateBeforeCall(UUID webPageId, String apiVersion, String xApiVersion, WebPageCategoryDtoCollectionQueryParameters webPageCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'webPageId' is set
         if (webPageId == null) {
             throw new ApiException("Missing the required parameter 'webPageId' when calling getCategoriesByWebPageAsync(Async)");
         }
 
-        return getCategoriesByWebPageAsyncCall(webPageId, apiVersion, xApiVersion, _callback);
+        return getCategoriesByWebPageAsyncCall(webPageId, apiVersion, xApiVersion, webPageCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -936,6 +948,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageCategoryDtoCollectionQueryParameters  (optional)
      * @return WebPageCategoryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -945,8 +958,8 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WebPageCategoryDtoListEnvelope getCategoriesByWebPageAsync(UUID webPageId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WebPageCategoryDtoListEnvelope> localVarResp = getCategoriesByWebPageAsyncWithHttpInfo(webPageId, apiVersion, xApiVersion);
+    public WebPageCategoryDtoListEnvelope getCategoriesByWebPageAsync(UUID webPageId, String apiVersion, String xApiVersion, WebPageCategoryDtoCollectionQueryParameters webPageCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WebPageCategoryDtoListEnvelope> localVarResp = getCategoriesByWebPageAsyncWithHttpInfo(webPageId, apiVersion, xApiVersion, webPageCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -956,6 +969,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WebPageCategoryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -965,8 +979,8 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebPageCategoryDtoListEnvelope> getCategoriesByWebPageAsyncWithHttpInfo(UUID webPageId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCategoriesByWebPageAsyncValidateBeforeCall(webPageId, apiVersion, xApiVersion, null);
+    public ApiResponse<WebPageCategoryDtoListEnvelope> getCategoriesByWebPageAsyncWithHttpInfo(UUID webPageId, String apiVersion, String xApiVersion, WebPageCategoryDtoCollectionQueryParameters webPageCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCategoriesByWebPageAsyncValidateBeforeCall(webPageId, apiVersion, xApiVersion, webPageCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WebPageCategoryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -977,6 +991,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -987,9 +1002,9 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCategoriesByWebPageAsyncAsync(UUID webPageId, String apiVersion, String xApiVersion, final ApiCallback<WebPageCategoryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCategoriesByWebPageAsyncAsync(UUID webPageId, String apiVersion, String xApiVersion, WebPageCategoryDtoCollectionQueryParameters webPageCategoryDtoCollectionQueryParameters, final ApiCallback<WebPageCategoryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCategoriesByWebPageAsyncValidateBeforeCall(webPageId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCategoriesByWebPageAsyncValidateBeforeCall(webPageId, apiVersion, xApiVersion, webPageCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WebPageCategoryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -999,6 +1014,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageTagDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1009,7 +1025,7 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTagsByWebPageAsyncCall(UUID webPageId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTagsByWebPageAsyncCall(UUID webPageId, String apiVersion, String xApiVersion, WebPageTagDtoCollectionQueryParameters webPageTagDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1023,7 +1039,7 @@ public class WebPagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = webPageTagDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebPages/{webPageId}/Tags"
@@ -1053,6 +1069,8 @@ public class WebPagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1064,13 +1082,13 @@ public class WebPagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTagsByWebPageAsyncValidateBeforeCall(UUID webPageId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTagsByWebPageAsyncValidateBeforeCall(UUID webPageId, String apiVersion, String xApiVersion, WebPageTagDtoCollectionQueryParameters webPageTagDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'webPageId' is set
         if (webPageId == null) {
             throw new ApiException("Missing the required parameter 'webPageId' when calling getTagsByWebPageAsync(Async)");
         }
 
-        return getTagsByWebPageAsyncCall(webPageId, apiVersion, xApiVersion, _callback);
+        return getTagsByWebPageAsyncCall(webPageId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1080,6 +1098,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageTagDtoCollectionQueryParameters  (optional)
      * @return WebPageTagDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1089,8 +1108,8 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WebPageTagDtoListEnvelope getTagsByWebPageAsync(UUID webPageId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WebPageTagDtoListEnvelope> localVarResp = getTagsByWebPageAsyncWithHttpInfo(webPageId, apiVersion, xApiVersion);
+    public WebPageTagDtoListEnvelope getTagsByWebPageAsync(UUID webPageId, String apiVersion, String xApiVersion, WebPageTagDtoCollectionQueryParameters webPageTagDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WebPageTagDtoListEnvelope> localVarResp = getTagsByWebPageAsyncWithHttpInfo(webPageId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1100,6 +1119,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageTagDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WebPageTagDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1109,8 +1129,8 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebPageTagDtoListEnvelope> getTagsByWebPageAsyncWithHttpInfo(UUID webPageId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTagsByWebPageAsyncValidateBeforeCall(webPageId, apiVersion, xApiVersion, null);
+    public ApiResponse<WebPageTagDtoListEnvelope> getTagsByWebPageAsyncWithHttpInfo(UUID webPageId, String apiVersion, String xApiVersion, WebPageTagDtoCollectionQueryParameters webPageTagDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTagsByWebPageAsyncValidateBeforeCall(webPageId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WebPageTagDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1121,6 +1141,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageTagDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1131,9 +1152,9 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTagsByWebPageAsyncAsync(UUID webPageId, String apiVersion, String xApiVersion, final ApiCallback<WebPageTagDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTagsByWebPageAsyncAsync(UUID webPageId, String apiVersion, String xApiVersion, WebPageTagDtoCollectionQueryParameters webPageTagDtoCollectionQueryParameters, final ApiCallback<WebPageTagDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTagsByWebPageAsyncValidateBeforeCall(webPageId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTagsByWebPageAsyncValidateBeforeCall(webPageId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WebPageTagDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1300,6 +1321,7 @@ public class WebPagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1310,7 +1332,7 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebPagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWebPagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1324,7 +1346,7 @@ public class WebPagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = webPageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebPages";
@@ -1357,6 +1379,8 @@ public class WebPagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1368,13 +1392,13 @@ public class WebPagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWebPagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebPagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWebPagesAsync(Async)");
         }
 
-        return getWebPagesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getWebPagesAsyncCall(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1384,6 +1408,7 @@ public class WebPagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageDtoCollectionQueryParameters  (optional)
      * @return WebPageDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1393,8 +1418,8 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WebPageDtoListEnvelope getWebPagesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WebPageDtoListEnvelope> localVarResp = getWebPagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public WebPageDtoListEnvelope getWebPagesAsync(UUID tenantId, String apiVersion, String xApiVersion, WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WebPageDtoListEnvelope> localVarResp = getWebPagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1404,6 +1429,7 @@ public class WebPagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WebPageDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1413,8 +1439,8 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebPageDtoListEnvelope> getWebPagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWebPagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<WebPageDtoListEnvelope> getWebPagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWebPagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WebPageDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1425,6 +1451,7 @@ public class WebPagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webPageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1435,9 +1462,9 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebPagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<WebPageDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWebPagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters, final ApiCallback<WebPageDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWebPagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWebPagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WebPageDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1448,7 +1475,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1459,7 +1486,7 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWebPageAsyncCall(UUID tenantId, UUID webPageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchWebPageAsyncCall(UUID tenantId, UUID webPageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1473,7 +1500,7 @@ public class WebPagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebPages/{webPageId}"
@@ -1520,7 +1547,7 @@ public class WebPagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchWebPageAsyncValidateBeforeCall(UUID tenantId, UUID webPageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchWebPageAsyncValidateBeforeCall(UUID tenantId, UUID webPageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchWebPageAsync(Async)");
@@ -1531,7 +1558,7 @@ public class WebPagesApi {
             throw new ApiException("Missing the required parameter 'webPageId' when calling patchWebPageAsync(Async)");
         }
 
-        return patchWebPageAsyncCall(tenantId, webPageId, apiVersion, xApiVersion, operation, _callback);
+        return patchWebPageAsyncCall(tenantId, webPageId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1542,7 +1569,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1551,8 +1578,8 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public void patchWebPageAsync(UUID tenantId, UUID webPageId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        patchWebPageAsyncWithHttpInfo(tenantId, webPageId, apiVersion, xApiVersion, operation);
+    public void patchWebPageAsync(UUID tenantId, UUID webPageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        patchWebPageAsyncWithHttpInfo(tenantId, webPageId, apiVersion, xApiVersion, patchOperation);
     }
 
     /**
@@ -1562,7 +1589,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1572,8 +1599,8 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> patchWebPageAsyncWithHttpInfo(UUID tenantId, UUID webPageId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchWebPageAsyncValidateBeforeCall(tenantId, webPageId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<Void> patchWebPageAsyncWithHttpInfo(UUID tenantId, UUID webPageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchWebPageAsyncValidateBeforeCall(tenantId, webPageId, apiVersion, xApiVersion, patchOperation, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -1584,7 +1611,7 @@ public class WebPagesApi {
      * @param webPageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1595,9 +1622,9 @@ public class WebPagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWebPageAsyncAsync(UUID tenantId, UUID webPageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call patchWebPageAsyncAsync(UUID tenantId, UUID webPageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchWebPageAsyncValidateBeforeCall(tenantId, webPageId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchWebPageAsyncValidateBeforeCall(tenantId, webPageId, apiVersion, xApiVersion, patchOperation, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

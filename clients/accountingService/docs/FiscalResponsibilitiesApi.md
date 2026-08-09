@@ -155,7 +155,7 @@ No authorization required
 
 <a id="getFiscalResponsibilities"></a>
 # **getFiscalResponsibilities**
-> FiscalResponsibilityDtoListEnvelope getFiscalResponsibilities(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion)
+> FiscalResponsibilityDtoListEnvelope getFiscalResponsibilities(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, fiscalResponsibilityDtoCollectionQueryParameters)
 
 Get fiscal responsibilities for an authority
 
@@ -181,8 +181,9 @@ public class Example {
     String authorityId = "authorityId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalResponsibilityDtoCollectionQueryParameters fiscalResponsibilityDtoCollectionQueryParameters = new FiscalResponsibilityDtoCollectionQueryParameters(); // FiscalResponsibilityDtoCollectionQueryParameters | 
     try {
-      FiscalResponsibilityDtoListEnvelope result = apiInstance.getFiscalResponsibilities(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
+      FiscalResponsibilityDtoListEnvelope result = apiInstance.getFiscalResponsibilities(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, fiscalResponsibilityDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalResponsibilitiesApi#getFiscalResponsibilities");
@@ -204,6 +205,7 @@ public class Example {
 | **authorityId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalResponsibilityDtoCollectionQueryParameters** | [**FiscalResponsibilityDtoCollectionQueryParameters**](FiscalResponsibilityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -215,7 +217,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -227,7 +229,7 @@ No authorization required
 
 <a id="getFiscalResponsibilitiesCount"></a>
 # **getFiscalResponsibilitiesCount**
-> Int32Envelope getFiscalResponsibilitiesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalResponsibilitiesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalResponsibilityDtoCollectionQueryParameters)
 
 Get fiscal responsibilities count
 
@@ -252,8 +254,9 @@ public class Example {
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalResponsibilityDtoCollectionQueryParameters fiscalResponsibilityDtoCollectionQueryParameters = new FiscalResponsibilityDtoCollectionQueryParameters(); // FiscalResponsibilityDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getFiscalResponsibilitiesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFiscalResponsibilitiesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalResponsibilityDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalResponsibilitiesApi#getFiscalResponsibilitiesCount");
@@ -274,6 +277,7 @@ public class Example {
 | **fiscalAuthorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalResponsibilityDtoCollectionQueryParameters** | [**FiscalResponsibilityDtoCollectionQueryParameters**](FiscalResponsibilityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -285,7 +289,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -369,7 +373,7 @@ No authorization required
 
 <a id="patchFiscalResponsibilityAsync"></a>
 # **patchFiscalResponsibilityAsync**
-> EmptyEnvelope patchFiscalResponsibilityAsync(tenantId, fiscalResponsibilityId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalResponsibilityAsync(tenantId, fiscalResponsibilityId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal responsibility
 
@@ -394,9 +398,9 @@ public class Example {
     UUID fiscalResponsibilityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchFiscalResponsibilityAsync(tenantId, fiscalResponsibilityId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchFiscalResponsibilityAsync(tenantId, fiscalResponsibilityId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalResponsibilitiesApi#patchFiscalResponsibilityAsync");
@@ -417,7 +421,7 @@ public class Example {
 | **fiscalResponsibilityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

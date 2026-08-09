@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countBlogPostTagsAsync"></a>
 # **countBlogPostTagsAsync**
-> Int32Envelope countBlogPostTagsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countBlogPostTagsAsync(tenantId, apiVersion, xApiVersion, blogPostTagDtoCollectionQueryParameters)
 
 Count blog post tags
 
@@ -39,8 +39,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlogPostTagDtoCollectionQueryParameters blogPostTagDtoCollectionQueryParameters = new BlogPostTagDtoCollectionQueryParameters(); // BlogPostTagDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countBlogPostTagsAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countBlogPostTagsAsync(tenantId, apiVersion, xApiVersion, blogPostTagDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostTagsApi#countBlogPostTagsAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blogPostTagDtoCollectionQueryParameters** | [**BlogPostTagDtoCollectionQueryParameters**](BlogPostTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getBlogPostTagsAsync"></a>
 # **getBlogPostTagsAsync**
-> BlogPostTagDtoListEnvelope getBlogPostTagsAsync(tenantId, apiVersion, xApiVersion)
+> BlogPostTagDtoListEnvelope getBlogPostTagsAsync(tenantId, apiVersion, xApiVersion, blogPostTagDtoCollectionQueryParameters)
 
 Get blog post tags
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlogPostTagDtoCollectionQueryParameters blogPostTagDtoCollectionQueryParameters = new BlogPostTagDtoCollectionQueryParameters(); // BlogPostTagDtoCollectionQueryParameters | 
     try {
-      BlogPostTagDtoListEnvelope result = apiInstance.getBlogPostTagsAsync(tenantId, apiVersion, xApiVersion);
+      BlogPostTagDtoListEnvelope result = apiInstance.getBlogPostTagsAsync(tenantId, apiVersion, xApiVersion, blogPostTagDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostTagsApi#getBlogPostTagsAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blogPostTagDtoCollectionQueryParameters** | [**BlogPostTagDtoCollectionQueryParameters**](BlogPostTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchBlogPostTagAsync"></a>
 # **patchBlogPostTagAsync**
-> EmptyEnvelope patchBlogPostTagAsync(tenantId, blogPostTagId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBlogPostTagAsync(tenantId, blogPostTagId, apiVersion, xApiVersion, patchOperation)
 
 Patch a blog post tag
 
@@ -386,9 +390,9 @@ public class Example {
     UUID blogPostTagId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBlogPostTagAsync(tenantId, blogPostTagId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBlogPostTagAsync(tenantId, blogPostTagId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostTagsApi#patchBlogPostTagAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **blogPostTagId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -228,7 +228,7 @@ No authorization required
 
 <a id="getEmailTemplatesCountAsync"></a>
 # **getEmailTemplatesCountAsync**
-> Int32Envelope getEmailTemplatesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getEmailTemplatesCountAsync(tenantId, apiVersion, xApiVersion, emailTemplateDtoCollectionQueryParameters)
 
 Get email templates count
 
@@ -252,8 +252,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    EmailTemplateDtoCollectionQueryParameters emailTemplateDtoCollectionQueryParameters = new EmailTemplateDtoCollectionQueryParameters(); // EmailTemplateDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getEmailTemplatesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getEmailTemplatesCountAsync(tenantId, apiVersion, xApiVersion, emailTemplateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailTemplatesApi#getEmailTemplatesCountAsync");
@@ -273,6 +274,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **emailTemplateDtoCollectionQueryParameters** | [**EmailTemplateDtoCollectionQueryParameters**](EmailTemplateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -284,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -297,7 +299,7 @@ No authorization required
 
 <a id="getEmailTemplatesODataAsync"></a>
 # **getEmailTemplatesODataAsync**
-> EmailTemplateDtoListEnvelope getEmailTemplatesODataAsync(tenantId, apiVersion, xApiVersion)
+> EmailTemplateDtoListEnvelope getEmailTemplatesODataAsync(tenantId, apiVersion, xApiVersion, emailTemplateDtoCollectionQueryParameters)
 
 Get email templates
 
@@ -321,8 +323,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    EmailTemplateDtoCollectionQueryParameters emailTemplateDtoCollectionQueryParameters = new EmailTemplateDtoCollectionQueryParameters(); // EmailTemplateDtoCollectionQueryParameters | 
     try {
-      EmailTemplateDtoListEnvelope result = apiInstance.getEmailTemplatesODataAsync(tenantId, apiVersion, xApiVersion);
+      EmailTemplateDtoListEnvelope result = apiInstance.getEmailTemplatesODataAsync(tenantId, apiVersion, xApiVersion, emailTemplateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailTemplatesApi#getEmailTemplatesODataAsync");
@@ -342,6 +345,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **emailTemplateDtoCollectionQueryParameters** | [**EmailTemplateDtoCollectionQueryParameters**](EmailTemplateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -353,7 +357,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -365,7 +369,7 @@ No authorization required
 
 <a id="patchEmailTemplateAsync"></a>
 # **patchEmailTemplateAsync**
-> EmptyEnvelope patchEmailTemplateAsync(tenantId, emailTemplateId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchEmailTemplateAsync(tenantId, emailTemplateId, apiVersion, xApiVersion, patchOperation)
 
 Patch an email template
 
@@ -390,9 +394,9 @@ public class Example {
     UUID emailTemplateId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchEmailTemplateAsync(tenantId, emailTemplateId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchEmailTemplateAsync(tenantId, emailTemplateId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailTemplatesApi#patchEmailTemplateAsync");
@@ -413,7 +417,7 @@ public class Example {
 | **emailTemplateId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

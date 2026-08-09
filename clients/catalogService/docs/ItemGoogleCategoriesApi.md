@@ -150,7 +150,7 @@ No authorization required
 
 <a id="getItemGoogleCategoriesAsync"></a>
 # **getItemGoogleCategoriesAsync**
-> ItemGoogleCategoryDtoListEnvelope getItemGoogleCategoriesAsync(apiVersion, xApiVersion)
+> ItemGoogleCategoryDtoListEnvelope getItemGoogleCategoriesAsync(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters)
 
 Get all Google item categories
 
@@ -173,8 +173,9 @@ public class Example {
     ItemGoogleCategoriesApi apiInstance = new ItemGoogleCategoriesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters = new ItemGoogleCategoryDtoCollectionQueryParameters(); // ItemGoogleCategoryDtoCollectionQueryParameters | 
     try {
-      ItemGoogleCategoryDtoListEnvelope result = apiInstance.getItemGoogleCategoriesAsync(apiVersion, xApiVersion);
+      ItemGoogleCategoryDtoListEnvelope result = apiInstance.getItemGoogleCategoriesAsync(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemGoogleCategoriesApi#getItemGoogleCategoriesAsync");
@@ -193,6 +194,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -204,7 +206,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -216,7 +218,7 @@ No authorization required
 
 <a id="getItemGoogleCategoriesCountAsync"></a>
 # **getItemGoogleCategoriesCountAsync**
-> Int32Envelope getItemGoogleCategoriesCountAsync(apiVersion, xApiVersion)
+> Int32Envelope getItemGoogleCategoriesCountAsync(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters)
 
 Get Google item categories count
 
@@ -239,8 +241,9 @@ public class Example {
     ItemGoogleCategoriesApi apiInstance = new ItemGoogleCategoriesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters = new ItemGoogleCategoryDtoCollectionQueryParameters(); // ItemGoogleCategoryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemGoogleCategoriesCountAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemGoogleCategoriesCountAsync(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemGoogleCategoriesApi#getItemGoogleCategoriesCountAsync");
@@ -259,6 +262,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -270,7 +274,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

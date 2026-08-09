@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getWebsiteThemesAsync"></a>
 # **getWebsiteThemesAsync**
-> WebsiteThemeDtoListEnvelope getWebsiteThemesAsync(tenantId, apiVersion, xApiVersion)
+> WebsiteThemeDtoListEnvelope getWebsiteThemesAsync(tenantId, apiVersion, xApiVersion, websiteThemeDtoCollectionQueryParameters)
 
 Get all website themes
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebsiteThemeDtoCollectionQueryParameters websiteThemeDtoCollectionQueryParameters = new WebsiteThemeDtoCollectionQueryParameters(); // WebsiteThemeDtoCollectionQueryParameters | 
     try {
-      WebsiteThemeDtoListEnvelope result = apiInstance.getWebsiteThemesAsync(tenantId, apiVersion, xApiVersion);
+      WebsiteThemeDtoListEnvelope result = apiInstance.getWebsiteThemesAsync(tenantId, apiVersion, xApiVersion, websiteThemeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebsiteThemesApi#getWebsiteThemesAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **websiteThemeDtoCollectionQueryParameters** | [**WebsiteThemeDtoCollectionQueryParameters**](WebsiteThemeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getWebsiteThemesCountAsync"></a>
 # **getWebsiteThemesCountAsync**
-> Int32Envelope getWebsiteThemesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getWebsiteThemesCountAsync(tenantId, apiVersion, xApiVersion, websiteThemeDtoCollectionQueryParameters)
 
 Get website themes count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebsiteThemeDtoCollectionQueryParameters websiteThemeDtoCollectionQueryParameters = new WebsiteThemeDtoCollectionQueryParameters(); // WebsiteThemeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWebsiteThemesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWebsiteThemesCountAsync(tenantId, apiVersion, xApiVersion, websiteThemeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebsiteThemesApi#getWebsiteThemesCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **websiteThemeDtoCollectionQueryParameters** | [**WebsiteThemeDtoCollectionQueryParameters**](WebsiteThemeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchWebsiteThemeAsync"></a>
 # **patchWebsiteThemeAsync**
-> patchWebsiteThemeAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> patchWebsiteThemeAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a website theme
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchWebsiteThemeAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      apiInstance.patchWebsiteThemeAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebsiteThemesApi#patchWebsiteThemeAsync");
       System.err.println("Status code: " + e.getCode());
@@ -404,7 +408,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

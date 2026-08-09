@@ -16,7 +16,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countSalesLiteraturesAsync"></a>
 # **countSalesLiteraturesAsync**
-> Int32Envelope countSalesLiteraturesAsync(tenantId)
+> Int32Envelope countSalesLiteraturesAsync(tenantId, salesLiteratureDtoCollectionQueryParameters)
 
 Get sales literatures count
 
@@ -38,8 +38,9 @@ public class Example {
 
     SalesLiteraturesApi apiInstance = new SalesLiteraturesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters = new SalesLiteratureDtoCollectionQueryParameters(); // SalesLiteratureDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countSalesLiteraturesAsync(tenantId);
+      Int32Envelope result = apiInstance.countSalesLiteraturesAsync(tenantId, salesLiteratureDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SalesLiteraturesApi#countSalesLiteraturesAsync");
@@ -57,6 +58,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **salesLiteratureDtoCollectionQueryParameters** | [**SalesLiteratureDtoCollectionQueryParameters**](SalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -68,7 +70,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -209,7 +211,7 @@ No authorization required
 
 <a id="getExtendedSalesLiteraturesAsync"></a>
 # **getExtendedSalesLiteraturesAsync**
-> ExtendedSalesLiteratureDtoListEnvelope getExtendedSalesLiteraturesAsync(tenantId)
+> ExtendedSalesLiteratureDtoListEnvelope getExtendedSalesLiteraturesAsync(tenantId, extendedSalesLiteratureDtoCollectionQueryParameters)
 
 Get extended sales literatures
 
@@ -231,8 +233,9 @@ public class Example {
 
     SalesLiteraturesApi apiInstance = new SalesLiteraturesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ExtendedSalesLiteratureDtoCollectionQueryParameters extendedSalesLiteratureDtoCollectionQueryParameters = new ExtendedSalesLiteratureDtoCollectionQueryParameters(); // ExtendedSalesLiteratureDtoCollectionQueryParameters | 
     try {
-      ExtendedSalesLiteratureDtoListEnvelope result = apiInstance.getExtendedSalesLiteraturesAsync(tenantId);
+      ExtendedSalesLiteratureDtoListEnvelope result = apiInstance.getExtendedSalesLiteraturesAsync(tenantId, extendedSalesLiteratureDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SalesLiteraturesApi#getExtendedSalesLiteraturesAsync");
@@ -250,6 +253,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **extendedSalesLiteratureDtoCollectionQueryParameters** | [**ExtendedSalesLiteratureDtoCollectionQueryParameters**](ExtendedSalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -261,7 +265,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -337,7 +341,7 @@ No authorization required
 
 <a id="getSalesLiteraturesAsync"></a>
 # **getSalesLiteraturesAsync**
-> SalesLiteratureDtoListEnvelope getSalesLiteraturesAsync(tenantId)
+> SalesLiteratureDtoListEnvelope getSalesLiteraturesAsync(tenantId, salesLiteratureDtoCollectionQueryParameters)
 
 Get sales literatures
 
@@ -359,8 +363,9 @@ public class Example {
 
     SalesLiteraturesApi apiInstance = new SalesLiteraturesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters = new SalesLiteratureDtoCollectionQueryParameters(); // SalesLiteratureDtoCollectionQueryParameters | 
     try {
-      SalesLiteratureDtoListEnvelope result = apiInstance.getSalesLiteraturesAsync(tenantId);
+      SalesLiteratureDtoListEnvelope result = apiInstance.getSalesLiteraturesAsync(tenantId, salesLiteratureDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SalesLiteraturesApi#getSalesLiteraturesAsync");
@@ -378,6 +383,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **salesLiteratureDtoCollectionQueryParameters** | [**SalesLiteratureDtoCollectionQueryParameters**](SalesLiteratureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -389,7 +395,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -400,7 +406,7 @@ No authorization required
 
 <a id="patchSalesLiteratureAsync"></a>
 # **patchSalesLiteratureAsync**
-> EmptyEnvelope patchSalesLiteratureAsync(tenantId, salesLiteratureId, operation)
+> EmptyEnvelope patchSalesLiteratureAsync(tenantId, salesLiteratureId, patchOperation)
 
 Patch a sales literature
 
@@ -423,9 +429,9 @@ public class Example {
     SalesLiteraturesApi apiInstance = new SalesLiteraturesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID salesLiteratureId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSalesLiteratureAsync(tenantId, salesLiteratureId, operation);
+      EmptyEnvelope result = apiInstance.patchSalesLiteratureAsync(tenantId, salesLiteratureId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SalesLiteraturesApi#patchSalesLiteratureAsync");
@@ -444,7 +450,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **salesLiteratureId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

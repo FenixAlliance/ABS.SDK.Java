@@ -17,7 +17,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countAllServiceLevelsAsync"></a>
 # **countAllServiceLevelsAsync**
-> Int32Envelope countAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
 
 Get all service levels count
 
@@ -41,8 +41,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters = new ServiceLevelDtoCollectionQueryParameters(); // ServiceLevelDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelsApi#countAllServiceLevelsAsync");
@@ -62,6 +63,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -73,7 +75,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -229,7 +231,7 @@ No authorization required
 
 <a id="getAllServiceLevelsAsync"></a>
 # **getAllServiceLevelsAsync**
-> ServiceLevelDtoIReadOnlyListEnvelope getAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion)
+> ServiceLevelDtoIReadOnlyListEnvelope getAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
 
 Get all service levels
 
@@ -253,8 +255,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters = new ServiceLevelDtoCollectionQueryParameters(); // ServiceLevelDtoCollectionQueryParameters | 
     try {
-      ServiceLevelDtoIReadOnlyListEnvelope result = apiInstance.getAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion);
+      ServiceLevelDtoIReadOnlyListEnvelope result = apiInstance.getAllServiceLevelsAsync(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelsApi#getAllServiceLevelsAsync");
@@ -274,6 +277,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -285,7 +289,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -369,7 +373,7 @@ No authorization required
 
 <a id="getServiceLevelsAsync"></a>
 # **getServiceLevelsAsync**
-> ServiceLevelDtoIReadOnlyListEnvelope getServiceLevelsAsync(tenantId, serviceId, apiVersion, xApiVersion)
+> ServiceLevelDtoIReadOnlyListEnvelope getServiceLevelsAsync(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
 
 Get all service levels
 
@@ -394,8 +398,9 @@ public class Example {
     UUID serviceId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters = new ServiceLevelDtoCollectionQueryParameters(); // ServiceLevelDtoCollectionQueryParameters | 
     try {
-      ServiceLevelDtoIReadOnlyListEnvelope result = apiInstance.getServiceLevelsAsync(tenantId, serviceId, apiVersion, xApiVersion);
+      ServiceLevelDtoIReadOnlyListEnvelope result = apiInstance.getServiceLevelsAsync(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelsApi#getServiceLevelsAsync");
@@ -416,6 +421,7 @@ public class Example {
 | **serviceId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -427,7 +433,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -439,7 +445,7 @@ No authorization required
 
 <a id="getServiceLevelsCountAsync"></a>
 # **getServiceLevelsCountAsync**
-> Int32Envelope getServiceLevelsCountAsync(tenantId, serviceId, apiVersion, xApiVersion)
+> Int32Envelope getServiceLevelsCountAsync(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters)
 
 Get service levels count
 
@@ -464,8 +470,9 @@ public class Example {
     UUID serviceId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters = new ServiceLevelDtoCollectionQueryParameters(); // ServiceLevelDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getServiceLevelsCountAsync(tenantId, serviceId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getServiceLevelsCountAsync(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelsApi#getServiceLevelsCountAsync");
@@ -486,6 +493,7 @@ public class Example {
 | **serviceId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceLevelDtoCollectionQueryParameters** | [**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -497,7 +505,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -509,7 +517,7 @@ No authorization required
 
 <a id="patchServiceLevelAsync"></a>
 # **patchServiceLevelAsync**
-> Envelope patchServiceLevelAsync(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, operation)
+> Envelope patchServiceLevelAsync(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, patchOperation)
 
 Patch a service level
 
@@ -535,9 +543,9 @@ public class Example {
     UUID serviceLevelId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      Envelope result = apiInstance.patchServiceLevelAsync(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, operation);
+      Envelope result = apiInstance.patchServiceLevelAsync(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelsApi#patchServiceLevelAsync");
@@ -559,7 +567,7 @@ public class Example {
 | **serviceLevelId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

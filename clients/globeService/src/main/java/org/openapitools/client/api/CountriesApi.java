@@ -27,16 +27,23 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.CityDtoCollectionQueryParameters;
 import org.openapitools.client.model.CityDtoListEnvelope;
+import org.openapitools.client.model.CountryCallingCodeDtoCollectionQueryParameters;
 import org.openapitools.client.model.CountryCallingCodeDtoListEnvelope;
+import org.openapitools.client.model.CountryDtoCollectionQueryParameters;
 import org.openapitools.client.model.CountryDtoEnvelope;
 import org.openapitools.client.model.CountryDtoListEnvelope;
+import org.openapitools.client.model.CountryStateDtoCollectionQueryParameters;
 import org.openapitools.client.model.CountryStateDtoEnvelope;
 import org.openapitools.client.model.CountryStateDtoListEnvelope;
+import org.openapitools.client.model.CountryTopLevelDomainDtoCollectionQueryParameters;
 import org.openapitools.client.model.CountryTopLevelDomainDtoListEnvelope;
+import org.openapitools.client.model.CurrencyDtoCollectionQueryParameters;
 import org.openapitools.client.model.CurrencyDtoListEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.TimezoneDtoCollectionQueryParameters;
 import org.openapitools.client.model.TimezoneDtoListEnvelope;
 
 import java.lang.reflect.Type;
@@ -87,6 +94,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -98,7 +106,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCallingCodesByCountryAsyncCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countCallingCodesByCountryAsyncCall(String countryId, String apiVersion, String xApiVersion, CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,7 +120,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryCallingCodeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/CallingCodes/Count"
@@ -141,6 +149,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -152,13 +161,13 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countCallingCodesByCountryAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countCallingCodesByCountryAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryId' is set
         if (countryId == null) {
             throw new ApiException("Missing the required parameter 'countryId' when calling countCallingCodesByCountryAsync(Async)");
         }
 
-        return countCallingCodesByCountryAsyncCall(countryId, apiVersion, xApiVersion, _callback);
+        return countCallingCodesByCountryAsyncCall(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -168,6 +177,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -178,8 +188,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countCallingCodesByCountryAsync(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countCallingCodesByCountryAsyncWithHttpInfo(countryId, apiVersion, xApiVersion);
+    public Int32Envelope countCallingCodesByCountryAsync(String countryId, String apiVersion, String xApiVersion, CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countCallingCodesByCountryAsyncWithHttpInfo(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -189,6 +199,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -199,8 +210,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countCallingCodesByCountryAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countCallingCodesByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countCallingCodesByCountryAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion, CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countCallingCodesByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -211,6 +222,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -222,9 +234,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCallingCodesByCountryAsyncAsync(String countryId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countCallingCodesByCountryAsyncAsync(String countryId, String apiVersion, String xApiVersion, CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countCallingCodesByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countCallingCodesByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -235,6 +247,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -246,7 +259,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCitiesByStateAsyncCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countCitiesByStateAsyncCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -260,7 +273,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = cityDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities/Count"
@@ -290,6 +303,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -301,7 +315,7 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countCitiesByStateAsyncValidateBeforeCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countCitiesByStateAsyncValidateBeforeCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryStateId' is set
         if (countryStateId == null) {
             throw new ApiException("Missing the required parameter 'countryStateId' when calling countCitiesByStateAsync(Async)");
@@ -312,7 +326,7 @@ public class CountriesApi {
             throw new ApiException("Missing the required parameter 'countryId' when calling countCitiesByStateAsync(Async)");
         }
 
-        return countCitiesByStateAsyncCall(countryStateId, countryId, apiVersion, xApiVersion, _callback);
+        return countCitiesByStateAsyncCall(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -323,6 +337,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -333,8 +348,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countCitiesByStateAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countCitiesByStateAsyncWithHttpInfo(countryStateId, countryId, apiVersion, xApiVersion);
+    public Int32Envelope countCitiesByStateAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion, CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countCitiesByStateAsyncWithHttpInfo(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -345,6 +360,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -355,8 +371,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countCitiesByStateAsyncWithHttpInfo(String countryStateId, String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countCitiesByStateAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countCitiesByStateAsyncWithHttpInfo(String countryStateId, String countryId, String apiVersion, String xApiVersion, CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countCitiesByStateAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -368,6 +384,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -379,9 +396,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCitiesByStateAsyncAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countCitiesByStateAsyncAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion, CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countCitiesByStateAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countCitiesByStateAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -390,6 +407,7 @@ public class CountriesApi {
      * Build call for countCountries
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -401,7 +419,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCountriesCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countCountriesCall(String apiVersion, String xApiVersion, CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -415,7 +433,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/Count";
@@ -443,6 +461,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -454,8 +473,8 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countCountriesValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return countCountriesCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call countCountriesValidateBeforeCall(String apiVersion, String xApiVersion, CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return countCountriesCall(apiVersion, xApiVersion, countryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -464,6 +483,7 @@ public class CountriesApi {
      * Returns the total number of countries, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -474,8 +494,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countCountries(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countCountriesWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope countCountries(String apiVersion, String xApiVersion, CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countCountriesWithHttpInfo(apiVersion, xApiVersion, countryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -484,6 +504,7 @@ public class CountriesApi {
      * Returns the total number of countries, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -494,8 +515,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countCountriesWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countCountriesValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countCountriesWithHttpInfo(String apiVersion, String xApiVersion, CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countCountriesValidateBeforeCall(apiVersion, xApiVersion, countryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -505,6 +526,7 @@ public class CountriesApi {
      * Returns the total number of countries, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -516,9 +538,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCountriesAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countCountriesAsync(String apiVersion, String xApiVersion, CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countCountriesValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countCountriesValidateBeforeCall(apiVersion, xApiVersion, countryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -528,6 +550,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -539,7 +562,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCountryStatesAsyncCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countCountryStatesAsyncCall(String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -553,7 +576,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryStateDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/States/Count"
@@ -582,6 +605,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -593,13 +617,13 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countCountryStatesAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countCountryStatesAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryId' is set
         if (countryId == null) {
             throw new ApiException("Missing the required parameter 'countryId' when calling countCountryStatesAsync(Async)");
         }
 
-        return countCountryStatesAsyncCall(countryId, apiVersion, xApiVersion, _callback);
+        return countCountryStatesAsyncCall(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -609,6 +633,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -619,8 +644,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countCountryStatesAsync(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countCountryStatesAsyncWithHttpInfo(countryId, apiVersion, xApiVersion);
+    public Int32Envelope countCountryStatesAsync(String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countCountryStatesAsyncWithHttpInfo(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -630,6 +655,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -640,8 +666,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countCountryStatesAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countCountryStatesAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countCountryStatesAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countCountryStatesAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -652,6 +678,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -663,9 +690,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCountryStatesAsyncAsync(String countryId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countCountryStatesAsyncAsync(String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countCountryStatesAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countCountryStatesAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -675,6 +702,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -686,7 +714,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countTimezonesByCountryAsyncCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countTimezonesByCountryAsyncCall(String countryId, String apiVersion, String xApiVersion, TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -700,7 +728,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = timezoneDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/Timezones/Count"
@@ -729,6 +757,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -740,13 +769,13 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countTimezonesByCountryAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countTimezonesByCountryAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryId' is set
         if (countryId == null) {
             throw new ApiException("Missing the required parameter 'countryId' when calling countTimezonesByCountryAsync(Async)");
         }
 
-        return countTimezonesByCountryAsyncCall(countryId, apiVersion, xApiVersion, _callback);
+        return countTimezonesByCountryAsyncCall(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -756,6 +785,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -766,8 +796,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countTimezonesByCountryAsync(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countTimezonesByCountryAsyncWithHttpInfo(countryId, apiVersion, xApiVersion);
+    public Int32Envelope countTimezonesByCountryAsync(String countryId, String apiVersion, String xApiVersion, TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countTimezonesByCountryAsyncWithHttpInfo(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -777,6 +807,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -787,8 +818,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countTimezonesByCountryAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countTimezonesByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countTimezonesByCountryAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion, TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countTimezonesByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -799,6 +830,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -810,9 +842,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countTimezonesByCountryAsyncAsync(String countryId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countTimezonesByCountryAsyncAsync(String countryId, String apiVersion, String xApiVersion, TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countTimezonesByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countTimezonesByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -822,6 +854,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -833,7 +866,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countTopLevelDomainsByCountryAsyncCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countTopLevelDomainsByCountryAsyncCall(String countryId, String apiVersion, String xApiVersion, CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -847,7 +880,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryTopLevelDomainDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/TopLevelDomains/Count"
@@ -876,6 +909,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -887,13 +921,13 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countTopLevelDomainsByCountryAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countTopLevelDomainsByCountryAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryId' is set
         if (countryId == null) {
             throw new ApiException("Missing the required parameter 'countryId' when calling countTopLevelDomainsByCountryAsync(Async)");
         }
 
-        return countTopLevelDomainsByCountryAsyncCall(countryId, apiVersion, xApiVersion, _callback);
+        return countTopLevelDomainsByCountryAsyncCall(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -903,6 +937,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -913,8 +948,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countTopLevelDomainsByCountryAsync(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countTopLevelDomainsByCountryAsyncWithHttpInfo(countryId, apiVersion, xApiVersion);
+    public Int32Envelope countTopLevelDomainsByCountryAsync(String countryId, String apiVersion, String xApiVersion, CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countTopLevelDomainsByCountryAsyncWithHttpInfo(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -924,6 +959,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -934,8 +970,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countTopLevelDomainsByCountryAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countTopLevelDomainsByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countTopLevelDomainsByCountryAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion, CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countTopLevelDomainsByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -946,6 +982,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -957,9 +994,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countTopLevelDomainsByCountryAsyncAsync(String countryId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countTopLevelDomainsByCountryAsyncAsync(String countryId, String apiVersion, String xApiVersion, CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countTopLevelDomainsByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countTopLevelDomainsByCountryAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -968,6 +1005,7 @@ public class CountriesApi {
      * Build call for getAllCountries
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -979,7 +1017,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllCountriesCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAllCountriesCall(String apiVersion, String xApiVersion, CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -993,7 +1031,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries";
@@ -1021,6 +1059,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1032,8 +1071,8 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAllCountriesValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getAllCountriesCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getAllCountriesValidateBeforeCall(String apiVersion, String xApiVersion, CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getAllCountriesCall(apiVersion, xApiVersion, countryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1042,6 +1081,7 @@ public class CountriesApi {
      * Retrieves a list of all countries with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @return CountryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1052,8 +1092,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CountryDtoListEnvelope getAllCountries(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CountryDtoListEnvelope> localVarResp = getAllCountriesWithHttpInfo(apiVersion, xApiVersion);
+    public CountryDtoListEnvelope getAllCountries(String apiVersion, String xApiVersion, CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CountryDtoListEnvelope> localVarResp = getAllCountriesWithHttpInfo(apiVersion, xApiVersion, countryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1062,6 +1102,7 @@ public class CountriesApi {
      * Retrieves a list of all countries with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CountryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1072,8 +1113,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CountryDtoListEnvelope> getAllCountriesWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAllCountriesValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<CountryDtoListEnvelope> getAllCountriesWithHttpInfo(String apiVersion, String xApiVersion, CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAllCountriesValidateBeforeCall(apiVersion, xApiVersion, countryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CountryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1083,6 +1124,7 @@ public class CountriesApi {
      * Retrieves a list of all countries with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1094,9 +1136,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllCountriesAsync(String apiVersion, String xApiVersion, final ApiCallback<CountryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAllCountriesAsync(String apiVersion, String xApiVersion, CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters, final ApiCallback<CountryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAllCountriesValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAllCountriesValidateBeforeCall(apiVersion, xApiVersion, countryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CountryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1106,6 +1148,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1117,7 +1160,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCallingCodesByCountryIdAsyncCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCallingCodesByCountryIdAsyncCall(String countryId, String apiVersion, String xApiVersion, CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1131,7 +1174,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryCallingCodeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/CallingCodes"
@@ -1160,6 +1203,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1171,13 +1215,13 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCallingCodesByCountryIdAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCallingCodesByCountryIdAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryId' is set
         if (countryId == null) {
             throw new ApiException("Missing the required parameter 'countryId' when calling getCallingCodesByCountryIdAsync(Async)");
         }
 
-        return getCallingCodesByCountryIdAsyncCall(countryId, apiVersion, xApiVersion, _callback);
+        return getCallingCodesByCountryIdAsyncCall(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1187,6 +1231,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @return CountryCallingCodeDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1197,8 +1242,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CountryCallingCodeDtoListEnvelope getCallingCodesByCountryIdAsync(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CountryCallingCodeDtoListEnvelope> localVarResp = getCallingCodesByCountryIdAsyncWithHttpInfo(countryId, apiVersion, xApiVersion);
+    public CountryCallingCodeDtoListEnvelope getCallingCodesByCountryIdAsync(String countryId, String apiVersion, String xApiVersion, CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CountryCallingCodeDtoListEnvelope> localVarResp = getCallingCodesByCountryIdAsyncWithHttpInfo(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1208,6 +1253,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CountryCallingCodeDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1218,8 +1264,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CountryCallingCodeDtoListEnvelope> getCallingCodesByCountryIdAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCallingCodesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<CountryCallingCodeDtoListEnvelope> getCallingCodesByCountryIdAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion, CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCallingCodesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CountryCallingCodeDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1230,6 +1276,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryCallingCodeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1241,9 +1288,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCallingCodesByCountryIdAsyncAsync(String countryId, String apiVersion, String xApiVersion, final ApiCallback<CountryCallingCodeDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCallingCodesByCountryIdAsyncAsync(String countryId, String apiVersion, String xApiVersion, CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters, final ApiCallback<CountryCallingCodeDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCallingCodesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCallingCodesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CountryCallingCodeDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1254,6 +1301,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1265,7 +1313,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCitiesByCountryStateIdAsyncCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCitiesByCountryStateIdAsyncCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1279,7 +1327,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = cityDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities"
@@ -1309,6 +1357,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1320,7 +1369,7 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCitiesByCountryStateIdAsyncValidateBeforeCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCitiesByCountryStateIdAsyncValidateBeforeCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryStateId' is set
         if (countryStateId == null) {
             throw new ApiException("Missing the required parameter 'countryStateId' when calling getCitiesByCountryStateIdAsync(Async)");
@@ -1331,7 +1380,7 @@ public class CountriesApi {
             throw new ApiException("Missing the required parameter 'countryId' when calling getCitiesByCountryStateIdAsync(Async)");
         }
 
-        return getCitiesByCountryStateIdAsyncCall(countryStateId, countryId, apiVersion, xApiVersion, _callback);
+        return getCitiesByCountryStateIdAsyncCall(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1342,6 +1391,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @return CityDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1352,8 +1402,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CityDtoListEnvelope getCitiesByCountryStateIdAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CityDtoListEnvelope> localVarResp = getCitiesByCountryStateIdAsyncWithHttpInfo(countryStateId, countryId, apiVersion, xApiVersion);
+    public CityDtoListEnvelope getCitiesByCountryStateIdAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion, CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CityDtoListEnvelope> localVarResp = getCitiesByCountryStateIdAsyncWithHttpInfo(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1364,6 +1414,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CityDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1374,8 +1425,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CityDtoListEnvelope> getCitiesByCountryStateIdAsyncWithHttpInfo(String countryStateId, String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCitiesByCountryStateIdAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<CityDtoListEnvelope> getCitiesByCountryStateIdAsyncWithHttpInfo(String countryStateId, String countryId, String apiVersion, String xApiVersion, CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCitiesByCountryStateIdAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CityDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1387,6 +1438,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cityDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1398,9 +1450,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCitiesByCountryStateIdAsyncAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion, final ApiCallback<CityDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCitiesByCountryStateIdAsyncAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion, CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters, final ApiCallback<CityDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCitiesByCountryStateIdAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCitiesByCountryStateIdAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CityDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1558,6 +1610,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1569,7 +1622,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCountryStateByIdAsyncCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCountryStateByIdAsyncCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1583,7 +1636,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryStateDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}"
@@ -1613,6 +1666,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1624,7 +1678,7 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCountryStateByIdAsyncValidateBeforeCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCountryStateByIdAsyncValidateBeforeCall(String countryStateId, String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryStateId' is set
         if (countryStateId == null) {
             throw new ApiException("Missing the required parameter 'countryStateId' when calling getCountryStateByIdAsync(Async)");
@@ -1635,7 +1689,7 @@ public class CountriesApi {
             throw new ApiException("Missing the required parameter 'countryId' when calling getCountryStateByIdAsync(Async)");
         }
 
-        return getCountryStateByIdAsyncCall(countryStateId, countryId, apiVersion, xApiVersion, _callback);
+        return getCountryStateByIdAsyncCall(countryStateId, countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1646,6 +1700,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return CountryStateDtoEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1656,8 +1711,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CountryStateDtoEnvelope getCountryStateByIdAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CountryStateDtoEnvelope> localVarResp = getCountryStateByIdAsyncWithHttpInfo(countryStateId, countryId, apiVersion, xApiVersion);
+    public CountryStateDtoEnvelope getCountryStateByIdAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CountryStateDtoEnvelope> localVarResp = getCountryStateByIdAsyncWithHttpInfo(countryStateId, countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1668,6 +1723,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CountryStateDtoEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1678,8 +1734,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CountryStateDtoEnvelope> getCountryStateByIdAsyncWithHttpInfo(String countryStateId, String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCountryStateByIdAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<CountryStateDtoEnvelope> getCountryStateByIdAsyncWithHttpInfo(String countryStateId, String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCountryStateByIdAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CountryStateDtoEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1691,6 +1747,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1702,9 +1759,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCountryStateByIdAsyncAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion, final ApiCallback<CountryStateDtoEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCountryStateByIdAsyncAsync(String countryStateId, String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters, final ApiCallback<CountryStateDtoEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCountryStateByIdAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCountryStateByIdAsyncValidateBeforeCall(countryStateId, countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CountryStateDtoEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1714,6 +1771,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1725,7 +1783,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCountryStatesAsyncCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCountryStatesAsyncCall(String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1739,7 +1797,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryStateDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/States"
@@ -1768,6 +1826,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1779,13 +1838,13 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCountryStatesAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCountryStatesAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryId' is set
         if (countryId == null) {
             throw new ApiException("Missing the required parameter 'countryId' when calling getCountryStatesAsync(Async)");
         }
 
-        return getCountryStatesAsyncCall(countryId, apiVersion, xApiVersion, _callback);
+        return getCountryStatesAsyncCall(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1795,6 +1854,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return CountryStateDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1805,8 +1865,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CountryStateDtoListEnvelope getCountryStatesAsync(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CountryStateDtoListEnvelope> localVarResp = getCountryStatesAsyncWithHttpInfo(countryId, apiVersion, xApiVersion);
+    public CountryStateDtoListEnvelope getCountryStatesAsync(String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CountryStateDtoListEnvelope> localVarResp = getCountryStatesAsyncWithHttpInfo(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1816,6 +1876,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CountryStateDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1826,8 +1887,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CountryStateDtoListEnvelope> getCountryStatesAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCountryStatesAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<CountryStateDtoListEnvelope> getCountryStatesAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCountryStatesAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CountryStateDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1838,6 +1899,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryStateDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1849,9 +1911,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCountryStatesAsyncAsync(String countryId, String apiVersion, String xApiVersion, final ApiCallback<CountryStateDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCountryStatesAsyncAsync(String countryId, String apiVersion, String xApiVersion, CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters, final ApiCallback<CountryStateDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCountryStatesAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCountryStatesAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CountryStateDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1861,6 +1923,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1872,7 +1935,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEnabledCurrenciesByCountryIdAsyncCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEnabledCurrenciesByCountryIdAsyncCall(String countryId, String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1886,7 +1949,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = currencyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/Currencies"
@@ -1915,6 +1978,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1926,13 +1990,13 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEnabledCurrenciesByCountryIdAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEnabledCurrenciesByCountryIdAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryId' is set
         if (countryId == null) {
             throw new ApiException("Missing the required parameter 'countryId' when calling getEnabledCurrenciesByCountryIdAsync(Async)");
         }
 
-        return getEnabledCurrenciesByCountryIdAsyncCall(countryId, apiVersion, xApiVersion, _callback);
+        return getEnabledCurrenciesByCountryIdAsyncCall(countryId, apiVersion, xApiVersion, currencyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1942,6 +2006,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return CurrencyDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1952,8 +2017,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CurrencyDtoListEnvelope getEnabledCurrenciesByCountryIdAsync(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CurrencyDtoListEnvelope> localVarResp = getEnabledCurrenciesByCountryIdAsyncWithHttpInfo(countryId, apiVersion, xApiVersion);
+    public CurrencyDtoListEnvelope getEnabledCurrenciesByCountryIdAsync(String countryId, String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CurrencyDtoListEnvelope> localVarResp = getEnabledCurrenciesByCountryIdAsyncWithHttpInfo(countryId, apiVersion, xApiVersion, currencyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1963,6 +2028,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CurrencyDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1973,8 +2039,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CurrencyDtoListEnvelope> getEnabledCurrenciesByCountryIdAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getEnabledCurrenciesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<CurrencyDtoListEnvelope> getEnabledCurrenciesByCountryIdAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getEnabledCurrenciesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, currencyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CurrencyDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1985,6 +2051,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1996,9 +2063,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEnabledCurrenciesByCountryIdAsyncAsync(String countryId, String apiVersion, String xApiVersion, final ApiCallback<CurrencyDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getEnabledCurrenciesByCountryIdAsyncAsync(String countryId, String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters, final ApiCallback<CurrencyDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEnabledCurrenciesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getEnabledCurrenciesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, currencyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CurrencyDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2008,6 +2075,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2019,7 +2087,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTimeZonesByCountryIdAsyncCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTimeZonesByCountryIdAsyncCall(String countryId, String apiVersion, String xApiVersion, TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2033,7 +2101,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = timezoneDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/Timezones"
@@ -2062,6 +2130,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2073,13 +2142,13 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTimeZonesByCountryIdAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTimeZonesByCountryIdAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryId' is set
         if (countryId == null) {
             throw new ApiException("Missing the required parameter 'countryId' when calling getTimeZonesByCountryIdAsync(Async)");
         }
 
-        return getTimeZonesByCountryIdAsyncCall(countryId, apiVersion, xApiVersion, _callback);
+        return getTimeZonesByCountryIdAsyncCall(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2089,6 +2158,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return TimezoneDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2099,8 +2169,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TimezoneDtoListEnvelope getTimeZonesByCountryIdAsync(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TimezoneDtoListEnvelope> localVarResp = getTimeZonesByCountryIdAsyncWithHttpInfo(countryId, apiVersion, xApiVersion);
+    public TimezoneDtoListEnvelope getTimeZonesByCountryIdAsync(String countryId, String apiVersion, String xApiVersion, TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TimezoneDtoListEnvelope> localVarResp = getTimeZonesByCountryIdAsyncWithHttpInfo(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2110,6 +2180,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TimezoneDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2120,8 +2191,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TimezoneDtoListEnvelope> getTimeZonesByCountryIdAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTimeZonesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<TimezoneDtoListEnvelope> getTimeZonesByCountryIdAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion, TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTimeZonesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TimezoneDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2132,6 +2203,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timezoneDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2143,9 +2215,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTimeZonesByCountryIdAsyncAsync(String countryId, String apiVersion, String xApiVersion, final ApiCallback<TimezoneDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTimeZonesByCountryIdAsyncAsync(String countryId, String apiVersion, String xApiVersion, TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters, final ApiCallback<TimezoneDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTimeZonesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTimeZonesByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TimezoneDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2155,6 +2227,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2166,7 +2239,7 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTopLevelDomainsByCountryIdAsyncCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTopLevelDomainsByCountryIdAsyncCall(String countryId, String apiVersion, String xApiVersion, CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2180,7 +2253,7 @@ public class CountriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryTopLevelDomainDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Countries/{countryId}/TopLevelDomains"
@@ -2209,6 +2282,7 @@ public class CountriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2220,13 +2294,13 @@ public class CountriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTopLevelDomainsByCountryIdAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTopLevelDomainsByCountryIdAsyncValidateBeforeCall(String countryId, String apiVersion, String xApiVersion, CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'countryId' is set
         if (countryId == null) {
             throw new ApiException("Missing the required parameter 'countryId' when calling getTopLevelDomainsByCountryIdAsync(Async)");
         }
 
-        return getTopLevelDomainsByCountryIdAsyncCall(countryId, apiVersion, xApiVersion, _callback);
+        return getTopLevelDomainsByCountryIdAsyncCall(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2236,6 +2310,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @return CountryTopLevelDomainDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2246,8 +2321,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CountryTopLevelDomainDtoListEnvelope getTopLevelDomainsByCountryIdAsync(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CountryTopLevelDomainDtoListEnvelope> localVarResp = getTopLevelDomainsByCountryIdAsyncWithHttpInfo(countryId, apiVersion, xApiVersion);
+    public CountryTopLevelDomainDtoListEnvelope getTopLevelDomainsByCountryIdAsync(String countryId, String apiVersion, String xApiVersion, CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CountryTopLevelDomainDtoListEnvelope> localVarResp = getTopLevelDomainsByCountryIdAsyncWithHttpInfo(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2257,6 +2332,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CountryTopLevelDomainDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2267,8 +2343,8 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CountryTopLevelDomainDtoListEnvelope> getTopLevelDomainsByCountryIdAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTopLevelDomainsByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, null);
+    public ApiResponse<CountryTopLevelDomainDtoListEnvelope> getTopLevelDomainsByCountryIdAsyncWithHttpInfo(String countryId, String apiVersion, String xApiVersion, CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTopLevelDomainsByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CountryTopLevelDomainDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2279,6 +2355,7 @@ public class CountriesApi {
      * @param countryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryTopLevelDomainDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2290,9 +2367,9 @@ public class CountriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTopLevelDomainsByCountryIdAsyncAsync(String countryId, String apiVersion, String xApiVersion, final ApiCallback<CountryTopLevelDomainDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTopLevelDomainsByCountryIdAsyncAsync(String countryId, String apiVersion, String xApiVersion, CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters, final ApiCallback<CountryTopLevelDomainDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTopLevelDomainsByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTopLevelDomainsByCountryIdAsyncValidateBeforeCall(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CountryTopLevelDomainDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

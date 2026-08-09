@@ -281,7 +281,7 @@ No authorization required
 
 <a id="getPaymentsAsync"></a>
 # **getPaymentsAsync**
-> PaymentDtoListEnvelope getPaymentsAsync(tenantId)
+> PaymentDtoListEnvelope getPaymentsAsync(tenantId, paymentDtoCollectionQueryParameters)
 
 Retrieves all payments
 
@@ -303,8 +303,9 @@ public class Example {
 
     PaymentsApi apiInstance = new PaymentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters = new PaymentDtoCollectionQueryParameters(); // PaymentDtoCollectionQueryParameters | 
     try {
-      PaymentDtoListEnvelope result = apiInstance.getPaymentsAsync(tenantId);
+      PaymentDtoListEnvelope result = apiInstance.getPaymentsAsync(tenantId, paymentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentsApi#getPaymentsAsync");
@@ -322,6 +323,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -333,7 +335,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -346,7 +348,7 @@ No authorization required
 
 <a id="patchPaymentAsync"></a>
 # **patchPaymentAsync**
-> EmptyEnvelope patchPaymentAsync(tenantId, paymentId, operation)
+> EmptyEnvelope patchPaymentAsync(tenantId, paymentId, patchOperation)
 
 Patch a payment
 
@@ -369,9 +371,9 @@ public class Example {
     PaymentsApi apiInstance = new PaymentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID paymentId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchPaymentAsync(tenantId, paymentId, operation);
+      EmptyEnvelope result = apiInstance.patchPaymentAsync(tenantId, paymentId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentsApi#patchPaymentAsync");
@@ -390,7 +392,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **paymentId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

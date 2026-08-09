@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getSupportTicketTypesAsync"></a>
 # **getSupportTicketTypesAsync**
-> SupportTicketTypeDtoListEnvelope getSupportTicketTypesAsync(tenantId, apiVersion, xApiVersion)
+> SupportTicketTypeDtoListEnvelope getSupportTicketTypesAsync(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters)
 
 Retrieve a list of support ticket types
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters = new SupportTicketTypeDtoCollectionQueryParameters(); // SupportTicketTypeDtoCollectionQueryParameters | 
     try {
-      SupportTicketTypeDtoListEnvelope result = apiInstance.getSupportTicketTypesAsync(tenantId, apiVersion, xApiVersion);
+      SupportTicketTypeDtoListEnvelope result = apiInstance.getSupportTicketTypesAsync(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportTicketTypesApi#getSupportTicketTypesAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportTicketTypeDtoCollectionQueryParameters** | [**SupportTicketTypeDtoCollectionQueryParameters**](SupportTicketTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getSupportTicketTypesCountAsync"></a>
 # **getSupportTicketTypesCountAsync**
-> Int32Envelope getSupportTicketTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSupportTicketTypesCountAsync(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters)
 
 Get the count of support ticket types
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters = new SupportTicketTypeDtoCollectionQueryParameters(); // SupportTicketTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSupportTicketTypesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSupportTicketTypesCountAsync(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportTicketTypesApi#getSupportTicketTypesCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportTicketTypeDtoCollectionQueryParameters** | [**SupportTicketTypeDtoCollectionQueryParameters**](SupportTicketTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchSupportTicketTypeAsync"></a>
 # **patchSupportTicketTypeAsync**
-> EmptyEnvelope patchSupportTicketTypeAsync(tenantId, supportTicketTypeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSupportTicketTypeAsync(tenantId, supportTicketTypeId, apiVersion, xApiVersion, patchOperation)
 
 Patch a support ticket type
 
@@ -386,9 +390,9 @@ public class Example {
     UUID supportTicketTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSupportTicketTypeAsync(tenantId, supportTicketTypeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSupportTicketTypeAsync(tenantId, supportTicketTypeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportTicketTypesApi#patchSupportTicketTypeAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **supportTicketTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

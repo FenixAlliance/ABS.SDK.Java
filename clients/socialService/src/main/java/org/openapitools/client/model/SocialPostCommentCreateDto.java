@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * SocialPostCommentCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T12:05:02.483445100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:33:07.422324400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SocialPostCommentCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -191,7 +191,7 @@ public class SocialPostCommentCreateDto {
    * Get message
    * @return message
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getMessage() {
     return message;
   }
@@ -399,7 +399,6 @@ public class SocialPostCommentCreateDto {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("message");
   }
 
   /**
@@ -422,18 +421,11 @@ public class SocialPostCommentCreateDto {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SocialPostCommentCreateDto` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SocialPostCommentCreateDto.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if (!jsonObj.get("message").isJsonPrimitive()) {
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       if ((jsonObj.get("bodyHtml") != null && !jsonObj.get("bodyHtml").isJsonNull()) && !jsonObj.get("bodyHtml").isJsonPrimitive()) {

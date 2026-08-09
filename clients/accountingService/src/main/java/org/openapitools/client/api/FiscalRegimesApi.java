@@ -30,11 +30,12 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.FiscalRegimeCreateDto;
+import org.openapitools.client.model.FiscalRegimeDtoCollectionQueryParameters;
 import org.openapitools.client.model.FiscalRegimeDtoEnvelope;
 import org.openapitools.client.model.FiscalRegimeDtoListEnvelope;
 import org.openapitools.client.model.FiscalRegimeUpdateDto;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -576,6 +577,7 @@ public class FiscalRegimesApi {
      * @param authorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -587,7 +589,7 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFiscalRegimesCall(UUID tenantId, UUID fiscalAuthorityId, String authorityId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFiscalRegimesCall(UUID tenantId, UUID fiscalAuthorityId, String authorityId, String apiVersion, String xApiVersion, FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -601,7 +603,7 @@ public class FiscalRegimesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = fiscalRegimeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Fiscals/Authorities/{authorityId}/FiscalRegimes"
@@ -639,6 +641,8 @@ public class FiscalRegimesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -650,7 +654,7 @@ public class FiscalRegimesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFiscalRegimesValidateBeforeCall(UUID tenantId, UUID fiscalAuthorityId, String authorityId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFiscalRegimesValidateBeforeCall(UUID tenantId, UUID fiscalAuthorityId, String authorityId, String apiVersion, String xApiVersion, FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFiscalRegimes(Async)");
@@ -666,7 +670,7 @@ public class FiscalRegimesApi {
             throw new ApiException("Missing the required parameter 'authorityId' when calling getFiscalRegimes(Async)");
         }
 
-        return getFiscalRegimesCall(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, _callback);
+        return getFiscalRegimesCall(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -678,6 +682,7 @@ public class FiscalRegimesApi {
      * @param authorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @return FiscalRegimeDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -688,8 +693,8 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public FiscalRegimeDtoListEnvelope getFiscalRegimes(UUID tenantId, UUID fiscalAuthorityId, String authorityId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<FiscalRegimeDtoListEnvelope> localVarResp = getFiscalRegimesWithHttpInfo(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
+    public FiscalRegimeDtoListEnvelope getFiscalRegimes(UUID tenantId, UUID fiscalAuthorityId, String authorityId, String apiVersion, String xApiVersion, FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<FiscalRegimeDtoListEnvelope> localVarResp = getFiscalRegimesWithHttpInfo(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -701,6 +706,7 @@ public class FiscalRegimesApi {
      * @param authorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;FiscalRegimeDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -711,8 +717,8 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FiscalRegimeDtoListEnvelope> getFiscalRegimesWithHttpInfo(UUID tenantId, UUID fiscalAuthorityId, String authorityId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFiscalRegimesValidateBeforeCall(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, null);
+    public ApiResponse<FiscalRegimeDtoListEnvelope> getFiscalRegimesWithHttpInfo(UUID tenantId, UUID fiscalAuthorityId, String authorityId, String apiVersion, String xApiVersion, FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getFiscalRegimesValidateBeforeCall(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<FiscalRegimeDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -725,6 +731,7 @@ public class FiscalRegimesApi {
      * @param authorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -736,9 +743,9 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFiscalRegimesAsync(UUID tenantId, UUID fiscalAuthorityId, String authorityId, String apiVersion, String xApiVersion, final ApiCallback<FiscalRegimeDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getFiscalRegimesAsync(UUID tenantId, UUID fiscalAuthorityId, String authorityId, String apiVersion, String xApiVersion, FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters, final ApiCallback<FiscalRegimeDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFiscalRegimesValidateBeforeCall(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFiscalRegimesValidateBeforeCall(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<FiscalRegimeDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -749,6 +756,7 @@ public class FiscalRegimesApi {
      * @param fiscalAuthorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -760,7 +768,7 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFiscalRegimesCountCall(UUID tenantId, UUID fiscalAuthorityId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFiscalRegimesCountCall(UUID tenantId, UUID fiscalAuthorityId, String apiVersion, String xApiVersion, FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -774,7 +782,7 @@ public class FiscalRegimesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = fiscalRegimeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalRegimes/Count"
@@ -808,6 +816,8 @@ public class FiscalRegimesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -819,7 +829,7 @@ public class FiscalRegimesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFiscalRegimesCountValidateBeforeCall(UUID tenantId, UUID fiscalAuthorityId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFiscalRegimesCountValidateBeforeCall(UUID tenantId, UUID fiscalAuthorityId, String apiVersion, String xApiVersion, FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFiscalRegimesCount(Async)");
@@ -830,7 +840,7 @@ public class FiscalRegimesApi {
             throw new ApiException("Missing the required parameter 'fiscalAuthorityId' when calling getFiscalRegimesCount(Async)");
         }
 
-        return getFiscalRegimesCountCall(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, _callback);
+        return getFiscalRegimesCountCall(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -841,6 +851,7 @@ public class FiscalRegimesApi {
      * @param fiscalAuthorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -851,8 +862,8 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getFiscalRegimesCount(UUID tenantId, UUID fiscalAuthorityId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getFiscalRegimesCountWithHttpInfo(tenantId, fiscalAuthorityId, apiVersion, xApiVersion);
+    public Int32Envelope getFiscalRegimesCount(UUID tenantId, UUID fiscalAuthorityId, String apiVersion, String xApiVersion, FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getFiscalRegimesCountWithHttpInfo(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -863,6 +874,7 @@ public class FiscalRegimesApi {
      * @param fiscalAuthorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -873,8 +885,8 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getFiscalRegimesCountWithHttpInfo(UUID tenantId, UUID fiscalAuthorityId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFiscalRegimesCountValidateBeforeCall(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getFiscalRegimesCountWithHttpInfo(UUID tenantId, UUID fiscalAuthorityId, String apiVersion, String xApiVersion, FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getFiscalRegimesCountValidateBeforeCall(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -886,6 +898,7 @@ public class FiscalRegimesApi {
      * @param fiscalAuthorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalRegimeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -897,9 +910,9 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFiscalRegimesCountAsync(UUID tenantId, UUID fiscalAuthorityId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getFiscalRegimesCountAsync(UUID tenantId, UUID fiscalAuthorityId, String apiVersion, String xApiVersion, FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFiscalRegimesCountValidateBeforeCall(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFiscalRegimesCountValidateBeforeCall(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -910,7 +923,7 @@ public class FiscalRegimesApi {
      * @param regimeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -922,7 +935,7 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchFiscalRegimeAsyncCall(UUID tenantId, UUID regimeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchFiscalRegimeAsyncCall(UUID tenantId, UUID regimeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -936,7 +949,7 @@ public class FiscalRegimesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Fiscals/Authorities/FiscalRegimes/{regimeId}"
@@ -983,7 +996,7 @@ public class FiscalRegimesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchFiscalRegimeAsyncValidateBeforeCall(UUID tenantId, UUID regimeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchFiscalRegimeAsyncValidateBeforeCall(UUID tenantId, UUID regimeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchFiscalRegimeAsync(Async)");
@@ -994,7 +1007,7 @@ public class FiscalRegimesApi {
             throw new ApiException("Missing the required parameter 'regimeId' when calling patchFiscalRegimeAsync(Async)");
         }
 
-        return patchFiscalRegimeAsyncCall(tenantId, regimeId, apiVersion, xApiVersion, operation, _callback);
+        return patchFiscalRegimeAsyncCall(tenantId, regimeId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1005,7 +1018,7 @@ public class FiscalRegimesApi {
      * @param regimeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1016,8 +1029,8 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchFiscalRegimeAsync(UUID tenantId, UUID regimeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchFiscalRegimeAsyncWithHttpInfo(tenantId, regimeId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchFiscalRegimeAsync(UUID tenantId, UUID regimeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchFiscalRegimeAsyncWithHttpInfo(tenantId, regimeId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1028,7 +1041,7 @@ public class FiscalRegimesApi {
      * @param regimeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1039,8 +1052,8 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchFiscalRegimeAsyncWithHttpInfo(UUID tenantId, UUID regimeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchFiscalRegimeAsyncValidateBeforeCall(tenantId, regimeId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchFiscalRegimeAsyncWithHttpInfo(UUID tenantId, UUID regimeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchFiscalRegimeAsyncValidateBeforeCall(tenantId, regimeId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1052,7 +1065,7 @@ public class FiscalRegimesApi {
      * @param regimeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1064,9 +1077,9 @@ public class FiscalRegimesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchFiscalRegimeAsyncAsync(UUID tenantId, UUID regimeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchFiscalRegimeAsyncAsync(UUID tenantId, UUID regimeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchFiscalRegimeAsyncValidateBeforeCall(tenantId, regimeId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchFiscalRegimeAsyncValidateBeforeCall(tenantId, regimeId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

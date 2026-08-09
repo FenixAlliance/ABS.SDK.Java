@@ -28,13 +28,14 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.EmailGroupCreateDto;
+import org.openapitools.client.model.EmailGroupDtoCollectionQueryParameters;
 import org.openapitools.client.model.EmailGroupDtoEnvelope;
 import org.openapitools.client.model.EmailGroupDtoListEnvelope;
 import org.openapitools.client.model.EmailGroupUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -581,6 +582,7 @@ public class EmailGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param emailGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -593,7 +595,7 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmailGroupsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEmailGroupsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -607,7 +609,7 @@ public class EmailGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = emailGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/MarketingService/EmailGroups/Count";
@@ -640,6 +642,8 @@ public class EmailGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -651,13 +655,13 @@ public class EmailGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEmailGroupsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailGroupsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getEmailGroupsCountAsync(Async)");
         }
 
-        return getEmailGroupsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getEmailGroupsCountAsyncCall(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -667,6 +671,7 @@ public class EmailGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param emailGroupDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -678,8 +683,8 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getEmailGroupsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getEmailGroupsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getEmailGroupsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getEmailGroupsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -689,6 +694,7 @@ public class EmailGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param emailGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -700,8 +706,8 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getEmailGroupsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getEmailGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getEmailGroupsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getEmailGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -712,6 +718,7 @@ public class EmailGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param emailGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -724,9 +731,9 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmailGroupsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getEmailGroupsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEmailGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getEmailGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -736,6 +743,7 @@ public class EmailGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param emailGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -747,7 +755,7 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmailGroupsODataAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEmailGroupsODataAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -761,7 +769,7 @@ public class EmailGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = emailGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/MarketingService/EmailGroups";
@@ -794,6 +802,8 @@ public class EmailGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -805,13 +815,13 @@ public class EmailGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEmailGroupsODataAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailGroupsODataAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getEmailGroupsODataAsync(Async)");
         }
 
-        return getEmailGroupsODataAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getEmailGroupsODataAsyncCall(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -821,6 +831,7 @@ public class EmailGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param emailGroupDtoCollectionQueryParameters  (optional)
      * @return EmailGroupDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -831,8 +842,8 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmailGroupDtoListEnvelope getEmailGroupsODataAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<EmailGroupDtoListEnvelope> localVarResp = getEmailGroupsODataAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public EmailGroupDtoListEnvelope getEmailGroupsODataAsync(UUID tenantId, String apiVersion, String xApiVersion, EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<EmailGroupDtoListEnvelope> localVarResp = getEmailGroupsODataAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -842,6 +853,7 @@ public class EmailGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param emailGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;EmailGroupDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -852,8 +864,8 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmailGroupDtoListEnvelope> getEmailGroupsODataAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getEmailGroupsODataAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<EmailGroupDtoListEnvelope> getEmailGroupsODataAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getEmailGroupsODataAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<EmailGroupDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -864,6 +876,7 @@ public class EmailGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param emailGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -875,9 +888,9 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmailGroupsODataAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<EmailGroupDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getEmailGroupsODataAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters, final ApiCallback<EmailGroupDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEmailGroupsODataAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getEmailGroupsODataAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<EmailGroupDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -888,7 +901,7 @@ public class EmailGroupsApi {
      * @param emailgroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -900,7 +913,7 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchEmailGroupAsyncCall(UUID tenantId, UUID emailgroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchEmailGroupAsyncCall(UUID tenantId, UUID emailgroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -914,7 +927,7 @@ public class EmailGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/MarketingService/EmailGroups/{emailgroupId}"
@@ -961,7 +974,7 @@ public class EmailGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchEmailGroupAsyncValidateBeforeCall(UUID tenantId, UUID emailgroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchEmailGroupAsyncValidateBeforeCall(UUID tenantId, UUID emailgroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchEmailGroupAsync(Async)");
@@ -972,7 +985,7 @@ public class EmailGroupsApi {
             throw new ApiException("Missing the required parameter 'emailgroupId' when calling patchEmailGroupAsync(Async)");
         }
 
-        return patchEmailGroupAsyncCall(tenantId, emailgroupId, apiVersion, xApiVersion, operation, _callback);
+        return patchEmailGroupAsyncCall(tenantId, emailgroupId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -983,7 +996,7 @@ public class EmailGroupsApi {
      * @param emailgroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -994,8 +1007,8 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchEmailGroupAsync(UUID tenantId, UUID emailgroupId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchEmailGroupAsyncWithHttpInfo(tenantId, emailgroupId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchEmailGroupAsync(UUID tenantId, UUID emailgroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchEmailGroupAsyncWithHttpInfo(tenantId, emailgroupId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1006,7 +1019,7 @@ public class EmailGroupsApi {
      * @param emailgroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1017,8 +1030,8 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchEmailGroupAsyncWithHttpInfo(UUID tenantId, UUID emailgroupId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchEmailGroupAsyncValidateBeforeCall(tenantId, emailgroupId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchEmailGroupAsyncWithHttpInfo(UUID tenantId, UUID emailgroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchEmailGroupAsyncValidateBeforeCall(tenantId, emailgroupId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1030,7 +1043,7 @@ public class EmailGroupsApi {
      * @param emailgroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1042,9 +1055,9 @@ public class EmailGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchEmailGroupAsyncAsync(UUID tenantId, UUID emailgroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchEmailGroupAsyncAsync(UUID tenantId, UUID emailgroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchEmailGroupAsyncValidateBeforeCall(tenantId, emailgroupId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchEmailGroupAsyncValidateBeforeCall(tenantId, emailgroupId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

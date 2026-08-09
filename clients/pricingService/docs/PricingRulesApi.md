@@ -224,7 +224,7 @@ No authorization required
 
 <a id="getPricingRules"></a>
 # **getPricingRules**
-> PricingRuleDtoListEnvelope getPricingRules(tenantId, apiVersion, xApiVersion)
+> PricingRuleDtoListEnvelope getPricingRules(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters)
 
 Get all pricing rules
 
@@ -248,8 +248,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters = new PricingRuleDtoCollectionQueryParameters(); // PricingRuleDtoCollectionQueryParameters | 
     try {
-      PricingRuleDtoListEnvelope result = apiInstance.getPricingRules(tenantId, apiVersion, xApiVersion);
+      PricingRuleDtoListEnvelope result = apiInstance.getPricingRules(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PricingRulesApi#getPricingRules");
@@ -269,6 +270,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **pricingRuleDtoCollectionQueryParameters** | [**PricingRuleDtoCollectionQueryParameters**](PricingRuleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -280,7 +282,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -292,7 +294,7 @@ No authorization required
 
 <a id="getPricingRulesCountAsync"></a>
 # **getPricingRulesCountAsync**
-> Int32Envelope getPricingRulesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPricingRulesCountAsync(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters)
 
 Counts pricing rules
 
@@ -316,8 +318,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters = new PricingRuleDtoCollectionQueryParameters(); // PricingRuleDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getPricingRulesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getPricingRulesCountAsync(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PricingRulesApi#getPricingRulesCountAsync");
@@ -337,6 +340,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **pricingRuleDtoCollectionQueryParameters** | [**PricingRuleDtoCollectionQueryParameters**](PricingRuleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -348,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -359,7 +363,7 @@ No authorization required
 
 <a id="patchPricingRule"></a>
 # **patchPricingRule**
-> patchPricingRule(tenantId, pricingRuleId, apiVersion, xApiVersion, operation)
+> patchPricingRule(tenantId, pricingRuleId, apiVersion, xApiVersion, patchOperation)
 
 Patch a pricing rule
 
@@ -384,9 +388,9 @@ public class Example {
     UUID pricingRuleId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchPricingRule(tenantId, pricingRuleId, apiVersion, xApiVersion, operation);
+      apiInstance.patchPricingRule(tenantId, pricingRuleId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling PricingRulesApi#patchPricingRule");
       System.err.println("Status code: " + e.getCode());
@@ -406,7 +410,7 @@ public class Example {
 | **pricingRuleId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

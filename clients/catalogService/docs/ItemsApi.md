@@ -226,7 +226,7 @@ No authorization required
 
 <a id="countStockItemTagsByItemId"></a>
 # **countStockItemTagsByItemId**
-> Int32Envelope countStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion)
+> Int32Envelope countStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters)
 
 Count tags for a stock item
 
@@ -251,8 +251,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemTagDtoCollectionQueryParameters itemTagDtoCollectionQueryParameters = new ItemTagDtoCollectionQueryParameters(); // ItemTagDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#countStockItemTagsByItemId");
@@ -273,6 +274,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemTagDtoCollectionQueryParameters** | [**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -284,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -296,7 +298,7 @@ No authorization required
 
 <a id="countStockItemsByBusiness"></a>
 # **countStockItemsByBusiness**
-> Int32Envelope countStockItemsByBusiness(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countStockItemsByBusiness(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
 
 Count stock items by business
 
@@ -320,8 +322,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CatalogItemDtoCollectionQueryParameters catalogItemDtoCollectionQueryParameters = new CatalogItemDtoCollectionQueryParameters(); // CatalogItemDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countStockItemsByBusiness(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countStockItemsByBusiness(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#countStockItemsByBusiness");
@@ -341,6 +344,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -352,7 +356,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -707,7 +711,7 @@ No authorization required
 
 <a id="getStockItemAttachmentsByItemId"></a>
 # **getStockItemAttachmentsByItemId**
-> ItemAttachmentDtoListEnvelope getStockItemAttachmentsByItemId(itemId, apiVersion, xApiVersion)
+> ItemAttachmentDtoListEnvelope getStockItemAttachmentsByItemId(itemId, apiVersion, xApiVersion, itemAttachmentDtoCollectionQueryParameters)
 
 Get attachments for a stock item
 
@@ -731,8 +735,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemAttachmentDtoCollectionQueryParameters itemAttachmentDtoCollectionQueryParameters = new ItemAttachmentDtoCollectionQueryParameters(); // ItemAttachmentDtoCollectionQueryParameters | 
     try {
-      ItemAttachmentDtoListEnvelope result = apiInstance.getStockItemAttachmentsByItemId(itemId, apiVersion, xApiVersion);
+      ItemAttachmentDtoListEnvelope result = apiInstance.getStockItemAttachmentsByItemId(itemId, apiVersion, xApiVersion, itemAttachmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemAttachmentsByItemId");
@@ -752,6 +757,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemAttachmentDtoCollectionQueryParameters** | [**ItemAttachmentDtoCollectionQueryParameters**](ItemAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -763,7 +769,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -983,7 +989,7 @@ No authorization required
 
 <a id="getStockItemBrandsByItemId"></a>
 # **getStockItemBrandsByItemId**
-> ItemBrandDtoListEnvelope getStockItemBrandsByItemId(itemId, apiVersion, xApiVersion)
+> ItemBrandDtoListEnvelope getStockItemBrandsByItemId(itemId, apiVersion, xApiVersion, itemBrandDtoCollectionQueryParameters)
 
 Get brands for a stock item
 
@@ -1007,8 +1013,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemBrandDtoCollectionQueryParameters itemBrandDtoCollectionQueryParameters = new ItemBrandDtoCollectionQueryParameters(); // ItemBrandDtoCollectionQueryParameters | 
     try {
-      ItemBrandDtoListEnvelope result = apiInstance.getStockItemBrandsByItemId(itemId, apiVersion, xApiVersion);
+      ItemBrandDtoListEnvelope result = apiInstance.getStockItemBrandsByItemId(itemId, apiVersion, xApiVersion, itemBrandDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemBrandsByItemId");
@@ -1028,6 +1035,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemBrandDtoCollectionQueryParameters** | [**ItemBrandDtoCollectionQueryParameters**](ItemBrandDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1039,7 +1047,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1119,7 +1127,7 @@ No authorization required
 
 <a id="getStockItemCategoriesByItemId"></a>
 # **getStockItemCategoriesByItemId**
-> ItemCategoryDtoListEnvelope getStockItemCategoriesByItemId(itemId, apiVersion, xApiVersion)
+> ItemCategoryDtoListEnvelope getStockItemCategoriesByItemId(itemId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters)
 
 Get categories for a stock item
 
@@ -1143,8 +1151,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemCategoryDtoCollectionQueryParameters itemCategoryDtoCollectionQueryParameters = new ItemCategoryDtoCollectionQueryParameters(); // ItemCategoryDtoCollectionQueryParameters | 
     try {
-      ItemCategoryDtoListEnvelope result = apiInstance.getStockItemCategoriesByItemId(itemId, apiVersion, xApiVersion);
+      ItemCategoryDtoListEnvelope result = apiInstance.getStockItemCategoriesByItemId(itemId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemCategoriesByItemId");
@@ -1164,6 +1173,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemCategoryDtoCollectionQueryParameters** | [**ItemCategoryDtoCollectionQueryParameters**](ItemCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1175,7 +1185,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1257,7 +1267,7 @@ No authorization required
 
 <a id="getStockItemGoogleCategoriesByItemId"></a>
 # **getStockItemGoogleCategoriesByItemId**
-> ItemGoogleCategoryDtoListEnvelope getStockItemGoogleCategoriesByItemId(itemId, apiVersion, xApiVersion)
+> ItemGoogleCategoryDtoListEnvelope getStockItemGoogleCategoriesByItemId(itemId, apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters)
 
 Get Google categories for a stock item
 
@@ -1281,8 +1291,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters = new ItemGoogleCategoryDtoCollectionQueryParameters(); // ItemGoogleCategoryDtoCollectionQueryParameters | 
     try {
-      ItemGoogleCategoryDtoListEnvelope result = apiInstance.getStockItemGoogleCategoriesByItemId(itemId, apiVersion, xApiVersion);
+      ItemGoogleCategoryDtoListEnvelope result = apiInstance.getStockItemGoogleCategoriesByItemId(itemId, apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemGoogleCategoriesByItemId");
@@ -1302,6 +1313,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemGoogleCategoryDtoCollectionQueryParameters** | [**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1313,7 +1325,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1465,7 +1477,7 @@ No authorization required
 
 <a id="getStockItemImagesByItemId"></a>
 # **getStockItemImagesByItemId**
-> ItemImageDtoListEnvelope getStockItemImagesByItemId(itemId, apiVersion, xApiVersion)
+> ItemImageDtoListEnvelope getStockItemImagesByItemId(itemId, apiVersion, xApiVersion, itemImageDtoCollectionQueryParameters)
 
 Get images for a stock item
 
@@ -1489,8 +1501,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemImageDtoCollectionQueryParameters itemImageDtoCollectionQueryParameters = new ItemImageDtoCollectionQueryParameters(); // ItemImageDtoCollectionQueryParameters | 
     try {
-      ItemImageDtoListEnvelope result = apiInstance.getStockItemImagesByItemId(itemId, apiVersion, xApiVersion);
+      ItemImageDtoListEnvelope result = apiInstance.getStockItemImagesByItemId(itemId, apiVersion, xApiVersion, itemImageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemImagesByItemId");
@@ -1510,6 +1523,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemImageDtoCollectionQueryParameters** | [**ItemImageDtoCollectionQueryParameters**](ItemImageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1521,7 +1535,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1741,7 +1755,7 @@ No authorization required
 
 <a id="getStockItemQuestionsByItemId"></a>
 # **getStockItemQuestionsByItemId**
-> ItemQuestionDtoListEnvelope getStockItemQuestionsByItemId(itemId, apiVersion, xApiVersion)
+> ItemQuestionDtoListEnvelope getStockItemQuestionsByItemId(itemId, apiVersion, xApiVersion, itemQuestionDtoCollectionQueryParameters)
 
 Get questions for a stock item
 
@@ -1765,8 +1779,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemQuestionDtoCollectionQueryParameters itemQuestionDtoCollectionQueryParameters = new ItemQuestionDtoCollectionQueryParameters(); // ItemQuestionDtoCollectionQueryParameters | 
     try {
-      ItemQuestionDtoListEnvelope result = apiInstance.getStockItemQuestionsByItemId(itemId, apiVersion, xApiVersion);
+      ItemQuestionDtoListEnvelope result = apiInstance.getStockItemQuestionsByItemId(itemId, apiVersion, xApiVersion, itemQuestionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemQuestionsByItemId");
@@ -1786,6 +1801,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemQuestionDtoCollectionQueryParameters** | [**ItemQuestionDtoCollectionQueryParameters**](ItemQuestionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1797,7 +1813,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1809,7 +1825,7 @@ No authorization required
 
 <a id="getStockItemRefundPoliciesByItemId"></a>
 # **getStockItemRefundPoliciesByItemId**
-> ItemRefundPolicyDtoListEnvelope getStockItemRefundPoliciesByItemId(itemId, apiVersion, xApiVersion)
+> ItemRefundPolicyDtoListEnvelope getStockItemRefundPoliciesByItemId(itemId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters)
 
 Get refund policies for a stock item
 
@@ -1833,8 +1849,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters = new ItemRefundPolicyDtoCollectionQueryParameters(); // ItemRefundPolicyDtoCollectionQueryParameters | 
     try {
-      ItemRefundPolicyDtoListEnvelope result = apiInstance.getStockItemRefundPoliciesByItemId(itemId, apiVersion, xApiVersion);
+      ItemRefundPolicyDtoListEnvelope result = apiInstance.getStockItemRefundPoliciesByItemId(itemId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemRefundPoliciesByItemId");
@@ -1854,6 +1871,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemRefundPolicyDtoCollectionQueryParameters** | [**ItemRefundPolicyDtoCollectionQueryParameters**](ItemRefundPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1865,7 +1883,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1947,7 +1965,7 @@ No authorization required
 
 <a id="getStockItemReturnPoliciesByItemId"></a>
 # **getStockItemReturnPoliciesByItemId**
-> ItemReturnPolicyDtoListEnvelope getStockItemReturnPoliciesByItemId(itemId, apiVersion, xApiVersion)
+> ItemReturnPolicyDtoListEnvelope getStockItemReturnPoliciesByItemId(itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters)
 
 Get return policies for a stock item
 
@@ -1971,8 +1989,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters = new ItemReturnPolicyDtoCollectionQueryParameters(); // ItemReturnPolicyDtoCollectionQueryParameters | 
     try {
-      ItemReturnPolicyDtoListEnvelope result = apiInstance.getStockItemReturnPoliciesByItemId(itemId, apiVersion, xApiVersion);
+      ItemReturnPolicyDtoListEnvelope result = apiInstance.getStockItemReturnPoliciesByItemId(itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemReturnPoliciesByItemId");
@@ -1992,6 +2011,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemReturnPolicyDtoCollectionQueryParameters** | [**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2003,7 +2023,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2155,7 +2175,7 @@ No authorization required
 
 <a id="getStockItemReviewsByItemId"></a>
 # **getStockItemReviewsByItemId**
-> ItemReviewDtoListEnvelope getStockItemReviewsByItemId(itemId, apiVersion, xApiVersion)
+> ItemReviewDtoListEnvelope getStockItemReviewsByItemId(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters)
 
 Get reviews for a stock item
 
@@ -2179,8 +2199,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemReviewDtoCollectionQueryParameters itemReviewDtoCollectionQueryParameters = new ItemReviewDtoCollectionQueryParameters(); // ItemReviewDtoCollectionQueryParameters | 
     try {
-      ItemReviewDtoListEnvelope result = apiInstance.getStockItemReviewsByItemId(itemId, apiVersion, xApiVersion);
+      ItemReviewDtoListEnvelope result = apiInstance.getStockItemReviewsByItemId(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemReviewsByItemId");
@@ -2200,6 +2221,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemReviewDtoCollectionQueryParameters** | [**ItemReviewDtoCollectionQueryParameters**](ItemReviewDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2211,7 +2233,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2223,7 +2245,7 @@ No authorization required
 
 <a id="getStockItemShippingPoliciesByItemId"></a>
 # **getStockItemShippingPoliciesByItemId**
-> ItemShippingPolicyDtoListEnvelope getStockItemShippingPoliciesByItemId(itemId, apiVersion, xApiVersion)
+> ItemShippingPolicyDtoListEnvelope getStockItemShippingPoliciesByItemId(itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
 
 Get shipping policies for a stock item
 
@@ -2247,8 +2269,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemShippingPolicyDtoCollectionQueryParameters itemShippingPolicyDtoCollectionQueryParameters = new ItemShippingPolicyDtoCollectionQueryParameters(); // ItemShippingPolicyDtoCollectionQueryParameters | 
     try {
-      ItemShippingPolicyDtoListEnvelope result = apiInstance.getStockItemShippingPoliciesByItemId(itemId, apiVersion, xApiVersion);
+      ItemShippingPolicyDtoListEnvelope result = apiInstance.getStockItemShippingPoliciesByItemId(itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemShippingPoliciesByItemId");
@@ -2268,6 +2291,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2279,7 +2303,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2433,7 +2457,7 @@ No authorization required
 
 <a id="getStockItemTagsByItemId"></a>
 # **getStockItemTagsByItemId**
-> ItemTagDtoListEnvelope getStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion)
+> ItemTagDtoListEnvelope getStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters)
 
 Get tags for a stock item
 
@@ -2458,8 +2482,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemTagDtoCollectionQueryParameters itemTagDtoCollectionQueryParameters = new ItemTagDtoCollectionQueryParameters(); // ItemTagDtoCollectionQueryParameters | 
     try {
-      ItemTagDtoListEnvelope result = apiInstance.getStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion);
+      ItemTagDtoListEnvelope result = apiInstance.getStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemTagsByItemId");
@@ -2480,6 +2505,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemTagDtoCollectionQueryParameters** | [**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2491,7 +2517,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2503,7 +2529,7 @@ No authorization required
 
 <a id="getStockItemTaxPoliciesByItemId"></a>
 # **getStockItemTaxPoliciesByItemId**
-> ItemTaxPolicyDtoListEnvelope getStockItemTaxPoliciesByItemId(itemId, apiVersion, xApiVersion)
+> ItemTaxPolicyDtoListEnvelope getStockItemTaxPoliciesByItemId(itemId, apiVersion, xApiVersion, itemTaxPolicyDtoCollectionQueryParameters)
 
 Get tax policies for a stock item
 
@@ -2527,8 +2553,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemTaxPolicyDtoCollectionQueryParameters itemTaxPolicyDtoCollectionQueryParameters = new ItemTaxPolicyDtoCollectionQueryParameters(); // ItemTaxPolicyDtoCollectionQueryParameters | 
     try {
-      ItemTaxPolicyDtoListEnvelope result = apiInstance.getStockItemTaxPoliciesByItemId(itemId, apiVersion, xApiVersion);
+      ItemTaxPolicyDtoListEnvelope result = apiInstance.getStockItemTaxPoliciesByItemId(itemId, apiVersion, xApiVersion, itemTaxPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemTaxPoliciesByItemId");
@@ -2548,6 +2575,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemTaxPolicyDtoCollectionQueryParameters** | [**ItemTaxPolicyDtoCollectionQueryParameters**](ItemTaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2559,7 +2587,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2713,7 +2741,7 @@ No authorization required
 
 <a id="getStockItemTypesByItemId"></a>
 # **getStockItemTypesByItemId**
-> ItemTypeDtoListEnvelope getStockItemTypesByItemId(tenantId, itemId, apiVersion, xApiVersion)
+> ItemTypeDtoListEnvelope getStockItemTypesByItemId(tenantId, itemId, apiVersion, xApiVersion, itemTypeDtoCollectionQueryParameters)
 
 Get types for a stock item
 
@@ -2738,8 +2766,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemTypeDtoCollectionQueryParameters itemTypeDtoCollectionQueryParameters = new ItemTypeDtoCollectionQueryParameters(); // ItemTypeDtoCollectionQueryParameters | 
     try {
-      ItemTypeDtoListEnvelope result = apiInstance.getStockItemTypesByItemId(tenantId, itemId, apiVersion, xApiVersion);
+      ItemTypeDtoListEnvelope result = apiInstance.getStockItemTypesByItemId(tenantId, itemId, apiVersion, xApiVersion, itemTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemTypesByItemId");
@@ -2760,6 +2789,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemTypeDtoCollectionQueryParameters** | [**ItemTypeDtoCollectionQueryParameters**](ItemTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2771,7 +2801,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2783,7 +2813,7 @@ No authorization required
 
 <a id="getStockItemWarrantyPoliciesByItemId"></a>
 # **getStockItemWarrantyPoliciesByItemId**
-> ItemWarrantyPolicyDtoListEnvelope getStockItemWarrantyPoliciesByItemId(itemId, apiVersion, xApiVersion)
+> ItemWarrantyPolicyDtoListEnvelope getStockItemWarrantyPoliciesByItemId(itemId, apiVersion, xApiVersion, itemWarrantyPolicyDtoCollectionQueryParameters)
 
 Get warranty policies for a stock item
 
@@ -2807,8 +2837,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemWarrantyPolicyDtoCollectionQueryParameters itemWarrantyPolicyDtoCollectionQueryParameters = new ItemWarrantyPolicyDtoCollectionQueryParameters(); // ItemWarrantyPolicyDtoCollectionQueryParameters | 
     try {
-      ItemWarrantyPolicyDtoListEnvelope result = apiInstance.getStockItemWarrantyPoliciesByItemId(itemId, apiVersion, xApiVersion);
+      ItemWarrantyPolicyDtoListEnvelope result = apiInstance.getStockItemWarrantyPoliciesByItemId(itemId, apiVersion, xApiVersion, itemWarrantyPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemWarrantyPoliciesByItemId");
@@ -2828,6 +2859,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemWarrantyPolicyDtoCollectionQueryParameters** | [**ItemWarrantyPolicyDtoCollectionQueryParameters**](ItemWarrantyPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2839,7 +2871,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2921,7 +2953,7 @@ No authorization required
 
 <a id="getStockItemsOdataMaxPrice"></a>
 # **getStockItemsOdataMaxPrice**
-> MoneyEnvelope getStockItemsOdataMaxPrice(tenantId, apiVersion, xApiVersion)
+> MoneyEnvelope getStockItemsOdataMaxPrice(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
 
 Get max price of stock items
 
@@ -2945,8 +2977,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CatalogItemDtoCollectionQueryParameters catalogItemDtoCollectionQueryParameters = new CatalogItemDtoCollectionQueryParameters(); // CatalogItemDtoCollectionQueryParameters | 
     try {
-      MoneyEnvelope result = apiInstance.getStockItemsOdataMaxPrice(tenantId, apiVersion, xApiVersion);
+      MoneyEnvelope result = apiInstance.getStockItemsOdataMaxPrice(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemsOdataMaxPrice");
@@ -2966,6 +2999,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2977,7 +3011,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2989,7 +3023,7 @@ No authorization required
 
 <a id="getStockItemsOdataMinPrice"></a>
 # **getStockItemsOdataMinPrice**
-> MoneyEnvelope getStockItemsOdataMinPrice(tenantId, apiVersion, xApiVersion)
+> MoneyEnvelope getStockItemsOdataMinPrice(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
 
 Get min price of stock items
 
@@ -3013,8 +3047,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CatalogItemDtoCollectionQueryParameters catalogItemDtoCollectionQueryParameters = new CatalogItemDtoCollectionQueryParameters(); // CatalogItemDtoCollectionQueryParameters | 
     try {
-      MoneyEnvelope result = apiInstance.getStockItemsOdataMinPrice(tenantId, apiVersion, xApiVersion);
+      MoneyEnvelope result = apiInstance.getStockItemsOdataMinPrice(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemsOdataMinPrice");
@@ -3034,6 +3069,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -3045,7 +3081,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -3057,7 +3093,7 @@ No authorization required
 
 <a id="getStockItemsQuery"></a>
 # **getStockItemsQuery**
-> CatalogItemDtoListEnvelope getStockItemsQuery(tenantId, apiVersion, xApiVersion)
+> CatalogItemDtoListEnvelope getStockItemsQuery(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters)
 
 Get all stock items
 
@@ -3081,8 +3117,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CatalogItemDtoCollectionQueryParameters catalogItemDtoCollectionQueryParameters = new CatalogItemDtoCollectionQueryParameters(); // CatalogItemDtoCollectionQueryParameters | 
     try {
-      CatalogItemDtoListEnvelope result = apiInstance.getStockItemsQuery(tenantId, apiVersion, xApiVersion);
+      CatalogItemDtoListEnvelope result = apiInstance.getStockItemsQuery(tenantId, apiVersion, xApiVersion, catalogItemDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemsQuery");
@@ -3102,6 +3139,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **catalogItemDtoCollectionQueryParameters** | [**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -3113,7 +3151,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -3125,7 +3163,7 @@ No authorization required
 
 <a id="patchStockItem"></a>
 # **patchStockItem**
-> patchStockItem(tenantId, itemId, apiVersion, xApiVersion, operation)
+> patchStockItem(tenantId, itemId, apiVersion, xApiVersion, patchOperation)
 
 Patch a stock item
 
@@ -3150,9 +3188,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchStockItem(tenantId, itemId, apiVersion, xApiVersion, operation);
+      apiInstance.patchStockItem(tenantId, itemId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#patchStockItem");
       System.err.println("Status code: " + e.getCode());
@@ -3172,7 +3210,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

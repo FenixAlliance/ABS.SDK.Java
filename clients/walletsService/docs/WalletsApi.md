@@ -616,7 +616,7 @@ No authorization required
 
 <a id="getIncomingPaymentsAsync"></a>
 # **getIncomingPaymentsAsync**
-> PaymentDtoListEnvelope getIncomingPaymentsAsync(walletId, apiVersion, xApiVersion)
+> PaymentDtoListEnvelope getIncomingPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Incoming Payments
 
@@ -640,8 +640,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters = new PaymentDtoCollectionQueryParameters(); // PaymentDtoCollectionQueryParameters | 
     try {
-      PaymentDtoListEnvelope result = apiInstance.getIncomingPaymentsAsync(walletId, apiVersion, xApiVersion);
+      PaymentDtoListEnvelope result = apiInstance.getIncomingPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getIncomingPaymentsAsync");
@@ -661,6 +662,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -672,7 +674,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -684,7 +686,7 @@ No authorization required
 
 <a id="getIncomingPaymentsCountAsync"></a>
 # **getIncomingPaymentsCountAsync**
-> Int32Envelope getIncomingPaymentsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getIncomingPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Incoming Payments Count
 
@@ -708,8 +710,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters = new PaymentDtoCollectionQueryParameters(); // PaymentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getIncomingPaymentsCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getIncomingPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getIncomingPaymentsCountAsync");
@@ -729,6 +732,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -740,7 +744,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -752,7 +756,7 @@ No authorization required
 
 <a id="getIncomingWalletInvoicesAsync"></a>
 # **getIncomingWalletInvoicesAsync**
-> InvoiceDtoListEnvelope getIncomingWalletInvoicesAsync(walletId, apiVersion, xApiVersion)
+> InvoiceDtoListEnvelope getIncomingWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Incoming Wallet Invoices
 
@@ -776,8 +780,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters = new InvoiceDtoCollectionQueryParameters(); // InvoiceDtoCollectionQueryParameters | 
     try {
-      InvoiceDtoListEnvelope result = apiInstance.getIncomingWalletInvoicesAsync(walletId, apiVersion, xApiVersion);
+      InvoiceDtoListEnvelope result = apiInstance.getIncomingWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getIncomingWalletInvoicesAsync");
@@ -797,6 +802,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -808,7 +814,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -820,7 +826,7 @@ No authorization required
 
 <a id="getIncomingWalletInvoicesCountAsync"></a>
 # **getIncomingWalletInvoicesCountAsync**
-> Int32Envelope getIncomingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getIncomingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Incoming Wallet Invoices Count
 
@@ -844,8 +850,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters = new InvoiceDtoCollectionQueryParameters(); // InvoiceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getIncomingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getIncomingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getIncomingWalletInvoicesCountAsync");
@@ -865,6 +872,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -876,7 +884,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -958,7 +966,7 @@ No authorization required
 
 <a id="getLocationsForWalletAsync"></a>
 # **getLocationsForWalletAsync**
-> LocationDtoListEnvelope getLocationsForWalletAsync(walletId, apiVersion, xApiVersion)
+> LocationDtoListEnvelope getLocationsForWalletAsync(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters)
 
 Get Wallet Locations
 
@@ -982,8 +990,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters = new LocationDtoCollectionQueryParameters(); // LocationDtoCollectionQueryParameters | 
     try {
-      LocationDtoListEnvelope result = apiInstance.getLocationsForWalletAsync(walletId, apiVersion, xApiVersion);
+      LocationDtoListEnvelope result = apiInstance.getLocationsForWalletAsync(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getLocationsForWalletAsync");
@@ -1003,6 +1012,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1014,7 +1024,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1026,7 +1036,7 @@ No authorization required
 
 <a id="getLocationsForWalletCountAsync"></a>
 # **getLocationsForWalletCountAsync**
-> Int32Envelope getLocationsForWalletCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getLocationsForWalletCountAsync(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters)
 
 Get Wallet Locations Count
 
@@ -1050,8 +1060,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters = new LocationDtoCollectionQueryParameters(); // LocationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLocationsForWalletCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLocationsForWalletCountAsync(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getLocationsForWalletCountAsync");
@@ -1071,6 +1082,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1082,7 +1094,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1094,7 +1106,7 @@ No authorization required
 
 <a id="getOutgoingPaymentsAsync"></a>
 # **getOutgoingPaymentsAsync**
-> PaymentDtoListEnvelope getOutgoingPaymentsAsync(walletId, apiVersion, xApiVersion)
+> PaymentDtoListEnvelope getOutgoingPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Outgoing Payments
 
@@ -1118,8 +1130,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters = new PaymentDtoCollectionQueryParameters(); // PaymentDtoCollectionQueryParameters | 
     try {
-      PaymentDtoListEnvelope result = apiInstance.getOutgoingPaymentsAsync(walletId, apiVersion, xApiVersion);
+      PaymentDtoListEnvelope result = apiInstance.getOutgoingPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getOutgoingPaymentsAsync");
@@ -1139,6 +1152,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1150,7 +1164,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1162,7 +1176,7 @@ No authorization required
 
 <a id="getOutgoingPaymentsCountAsync"></a>
 # **getOutgoingPaymentsCountAsync**
-> Int32Envelope getOutgoingPaymentsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getOutgoingPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Outgoing Payments Count
 
@@ -1186,8 +1200,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters = new PaymentDtoCollectionQueryParameters(); // PaymentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getOutgoingPaymentsCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getOutgoingPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getOutgoingPaymentsCountAsync");
@@ -1207,6 +1222,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1218,7 +1234,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1230,7 +1246,7 @@ No authorization required
 
 <a id="getOutgoingWalletInvoicesAsync"></a>
 # **getOutgoingWalletInvoicesAsync**
-> InvoiceDtoListEnvelope getOutgoingWalletInvoicesAsync(walletId, apiVersion, xApiVersion)
+> InvoiceDtoListEnvelope getOutgoingWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Outgoing Wallet Invoices
 
@@ -1254,8 +1270,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters = new InvoiceDtoCollectionQueryParameters(); // InvoiceDtoCollectionQueryParameters | 
     try {
-      InvoiceDtoListEnvelope result = apiInstance.getOutgoingWalletInvoicesAsync(walletId, apiVersion, xApiVersion);
+      InvoiceDtoListEnvelope result = apiInstance.getOutgoingWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getOutgoingWalletInvoicesAsync");
@@ -1275,6 +1292,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1286,7 +1304,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1298,7 +1316,7 @@ No authorization required
 
 <a id="getOutgoingWalletInvoicesCountAsync"></a>
 # **getOutgoingWalletInvoicesCountAsync**
-> Int32Envelope getOutgoingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getOutgoingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Outgoing Wallet Invoices Count
 
@@ -1322,8 +1340,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters = new InvoiceDtoCollectionQueryParameters(); // InvoiceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getOutgoingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getOutgoingWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getOutgoingWalletInvoicesCountAsync");
@@ -1343,6 +1362,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1354,7 +1374,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1436,7 +1456,7 @@ No authorization required
 
 <a id="getWalletBankAccountsAsync"></a>
 # **getWalletBankAccountsAsync**
-> BankAccountDtoListEnvelope getWalletBankAccountsAsync(walletId, apiVersion, xApiVersion)
+> BankAccountDtoListEnvelope getWalletBankAccountsAsync(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
 
 Get Wallet Bank Accounts
 
@@ -1460,8 +1480,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters = new BankAccountDtoCollectionQueryParameters(); // BankAccountDtoCollectionQueryParameters | 
     try {
-      BankAccountDtoListEnvelope result = apiInstance.getWalletBankAccountsAsync(walletId, apiVersion, xApiVersion);
+      BankAccountDtoListEnvelope result = apiInstance.getWalletBankAccountsAsync(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletBankAccountsAsync");
@@ -1481,6 +1502,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1492,7 +1514,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1504,7 +1526,7 @@ No authorization required
 
 <a id="getWalletBankAccountsCountAsync"></a>
 # **getWalletBankAccountsCountAsync**
-> Int32Envelope getWalletBankAccountsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletBankAccountsCountAsync(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
 
 Get Wallet Bank Accounts Count
 
@@ -1528,8 +1550,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters = new BankAccountDtoCollectionQueryParameters(); // BankAccountDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletBankAccountsCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWalletBankAccountsCountAsync(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletBankAccountsCountAsync");
@@ -1549,6 +1572,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1560,7 +1584,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1572,7 +1596,7 @@ No authorization required
 
 <a id="getWalletChargebacksAsync"></a>
 # **getWalletChargebacksAsync**
-> PaymentChargebackDtoListEnvelope getWalletChargebacksAsync(walletId, apiVersion, xApiVersion)
+> PaymentChargebackDtoListEnvelope getWalletChargebacksAsync(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters)
 
 Get Wallet Chargebacks
 
@@ -1596,8 +1620,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters = new PaymentChargebackDtoCollectionQueryParameters(); // PaymentChargebackDtoCollectionQueryParameters | 
     try {
-      PaymentChargebackDtoListEnvelope result = apiInstance.getWalletChargebacksAsync(walletId, apiVersion, xApiVersion);
+      PaymentChargebackDtoListEnvelope result = apiInstance.getWalletChargebacksAsync(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletChargebacksAsync");
@@ -1617,6 +1642,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentChargebackDtoCollectionQueryParameters** | [**PaymentChargebackDtoCollectionQueryParameters**](PaymentChargebackDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1628,7 +1654,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1640,7 +1666,7 @@ No authorization required
 
 <a id="getWalletChargebacksCountAsync"></a>
 # **getWalletChargebacksCountAsync**
-> Int32Envelope getWalletChargebacksCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletChargebacksCountAsync(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters)
 
 Get Wallet Chargebacks Count
 
@@ -1664,8 +1690,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters = new PaymentChargebackDtoCollectionQueryParameters(); // PaymentChargebackDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletChargebacksCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWalletChargebacksCountAsync(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletChargebacksCountAsync");
@@ -1685,6 +1712,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentChargebackDtoCollectionQueryParameters** | [**PaymentChargebackDtoCollectionQueryParameters**](PaymentChargebackDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1696,7 +1724,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1776,7 +1804,7 @@ No authorization required
 
 <a id="getWalletExtendedOrdersAsync"></a>
 # **getWalletExtendedOrdersAsync**
-> ExtendedOrderDtoListEnvelope getWalletExtendedOrdersAsync(walletId, apiVersion, xApiVersion)
+> ExtendedOrderDtoListEnvelope getWalletExtendedOrdersAsync(walletId, apiVersion, xApiVersion, extendedOrderDtoCollectionQueryParameters)
 
 Get Wallet Extended Orders
 
@@ -1800,8 +1828,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters = new ExtendedOrderDtoCollectionQueryParameters(); // ExtendedOrderDtoCollectionQueryParameters | 
     try {
-      ExtendedOrderDtoListEnvelope result = apiInstance.getWalletExtendedOrdersAsync(walletId, apiVersion, xApiVersion);
+      ExtendedOrderDtoListEnvelope result = apiInstance.getWalletExtendedOrdersAsync(walletId, apiVersion, xApiVersion, extendedOrderDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletExtendedOrdersAsync");
@@ -1821,6 +1850,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **extendedOrderDtoCollectionQueryParameters** | [**ExtendedOrderDtoCollectionQueryParameters**](ExtendedOrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1832,7 +1862,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1844,7 +1874,7 @@ No authorization required
 
 <a id="getWalletInvoicesAsync"></a>
 # **getWalletInvoicesAsync**
-> InvoiceDtoListEnvelope getWalletInvoicesAsync(walletId, apiVersion, xApiVersion)
+> InvoiceDtoListEnvelope getWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Wallet Invoices
 
@@ -1868,8 +1898,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters = new InvoiceDtoCollectionQueryParameters(); // InvoiceDtoCollectionQueryParameters | 
     try {
-      InvoiceDtoListEnvelope result = apiInstance.getWalletInvoicesAsync(walletId, apiVersion, xApiVersion);
+      InvoiceDtoListEnvelope result = apiInstance.getWalletInvoicesAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletInvoicesAsync");
@@ -1889,6 +1920,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1900,7 +1932,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1912,7 +1944,7 @@ No authorization required
 
 <a id="getWalletInvoicesCountAsync"></a>
 # **getWalletInvoicesCountAsync**
-> Int32Envelope getWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters)
 
 Get Wallet Invoices Count
 
@@ -1936,8 +1968,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters = new InvoiceDtoCollectionQueryParameters(); // InvoiceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWalletInvoicesCountAsync(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletInvoicesCountAsync");
@@ -1957,6 +1990,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1968,7 +2002,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1980,7 +2014,7 @@ No authorization required
 
 <a id="getWalletOrdersAsync"></a>
 # **getWalletOrdersAsync**
-> OrderDtoListEnvelope getWalletOrdersAsync(walletId, apiVersion, xApiVersion)
+> OrderDtoListEnvelope getWalletOrdersAsync(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters)
 
 Get Wallet Orders
 
@@ -2004,8 +2038,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters = new OrderDtoCollectionQueryParameters(); // OrderDtoCollectionQueryParameters | 
     try {
-      OrderDtoListEnvelope result = apiInstance.getWalletOrdersAsync(walletId, apiVersion, xApiVersion);
+      OrderDtoListEnvelope result = apiInstance.getWalletOrdersAsync(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletOrdersAsync");
@@ -2025,6 +2060,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2036,7 +2072,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2048,7 +2084,7 @@ No authorization required
 
 <a id="getWalletOrdersCountAsync"></a>
 # **getWalletOrdersCountAsync**
-> Int32Envelope getWalletOrdersCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletOrdersCountAsync(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters)
 
 Get Wallet Orders Count
 
@@ -2072,8 +2108,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters = new OrderDtoCollectionQueryParameters(); // OrderDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletOrdersCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWalletOrdersCountAsync(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletOrdersCountAsync");
@@ -2093,6 +2130,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2104,7 +2142,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2116,7 +2154,7 @@ No authorization required
 
 <a id="getWalletPaymentsAsync"></a>
 # **getWalletPaymentsAsync**
-> PaymentDtoListEnvelope getWalletPaymentsAsync(walletId, apiVersion, xApiVersion)
+> PaymentDtoListEnvelope getWalletPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Wallet Payments
 
@@ -2140,8 +2178,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters = new PaymentDtoCollectionQueryParameters(); // PaymentDtoCollectionQueryParameters | 
     try {
-      PaymentDtoListEnvelope result = apiInstance.getWalletPaymentsAsync(walletId, apiVersion, xApiVersion);
+      PaymentDtoListEnvelope result = apiInstance.getWalletPaymentsAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletPaymentsAsync");
@@ -2161,6 +2200,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2172,7 +2212,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2184,7 +2224,7 @@ No authorization required
 
 <a id="getWalletPaymentsCountAsync"></a>
 # **getWalletPaymentsCountAsync**
-> Int32Envelope getWalletPaymentsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters)
 
 Get Wallet Payments Count
 
@@ -2208,8 +2248,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters = new PaymentDtoCollectionQueryParameters(); // PaymentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletPaymentsCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWalletPaymentsCountAsync(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletPaymentsCountAsync");
@@ -2229,6 +2270,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2240,7 +2282,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2252,7 +2294,7 @@ No authorization required
 
 <a id="getWalletQuotesAsync"></a>
 # **getWalletQuotesAsync**
-> QuoteDtoListEnvelope getWalletQuotesAsync(walletId, apiVersion, xApiVersion)
+> QuoteDtoListEnvelope getWalletQuotesAsync(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters)
 
 Get Wallet Quotes
 
@@ -2276,8 +2318,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters = new QuoteDtoCollectionQueryParameters(); // QuoteDtoCollectionQueryParameters | 
     try {
-      QuoteDtoListEnvelope result = apiInstance.getWalletQuotesAsync(walletId, apiVersion, xApiVersion);
+      QuoteDtoListEnvelope result = apiInstance.getWalletQuotesAsync(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletQuotesAsync");
@@ -2297,6 +2340,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2308,7 +2352,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2320,7 +2364,7 @@ No authorization required
 
 <a id="getWalletQuotesCountAsync"></a>
 # **getWalletQuotesCountAsync**
-> Int32Envelope getWalletQuotesCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletQuotesCountAsync(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters)
 
 Get Wallet Quotes Count
 
@@ -2344,8 +2388,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters = new QuoteDtoCollectionQueryParameters(); // QuoteDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletQuotesCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWalletQuotesCountAsync(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletQuotesCountAsync");
@@ -2365,6 +2410,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2376,7 +2422,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2388,7 +2434,7 @@ No authorization required
 
 <a id="getWalletRefundsAsync"></a>
 # **getWalletRefundsAsync**
-> PaymentRefundDtoListEnvelope getWalletRefundsAsync(walletId, apiVersion, xApiVersion)
+> PaymentRefundDtoListEnvelope getWalletRefundsAsync(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters)
 
 Get Wallet Refunds
 
@@ -2412,8 +2458,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters = new PaymentRefundDtoCollectionQueryParameters(); // PaymentRefundDtoCollectionQueryParameters | 
     try {
-      PaymentRefundDtoListEnvelope result = apiInstance.getWalletRefundsAsync(walletId, apiVersion, xApiVersion);
+      PaymentRefundDtoListEnvelope result = apiInstance.getWalletRefundsAsync(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletRefundsAsync");
@@ -2433,6 +2480,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentRefundDtoCollectionQueryParameters** | [**PaymentRefundDtoCollectionQueryParameters**](PaymentRefundDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2444,7 +2492,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2456,7 +2504,7 @@ No authorization required
 
 <a id="getWalletRefundsCountAsync"></a>
 # **getWalletRefundsCountAsync**
-> Int32Envelope getWalletRefundsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletRefundsCountAsync(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters)
 
 Get Wallet Refunds Count
 
@@ -2480,8 +2528,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters = new PaymentRefundDtoCollectionQueryParameters(); // PaymentRefundDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletRefundsCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWalletRefundsCountAsync(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletRefundsCountAsync");
@@ -2501,6 +2550,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentRefundDtoCollectionQueryParameters** | [**PaymentRefundDtoCollectionQueryParameters**](PaymentRefundDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2512,7 +2562,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2594,7 +2644,7 @@ No authorization required
 
 <a id="getWalletTokensAsync"></a>
 # **getWalletTokensAsync**
-> PaymentTokenDtoListEnvelope getWalletTokensAsync(walletId, apiVersion, xApiVersion)
+> PaymentTokenDtoListEnvelope getWalletTokensAsync(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters)
 
 Get Wallet Tokens
 
@@ -2618,8 +2668,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters = new PaymentTokenDtoCollectionQueryParameters(); // PaymentTokenDtoCollectionQueryParameters | 
     try {
-      PaymentTokenDtoListEnvelope result = apiInstance.getWalletTokensAsync(walletId, apiVersion, xApiVersion);
+      PaymentTokenDtoListEnvelope result = apiInstance.getWalletTokensAsync(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletTokensAsync");
@@ -2639,6 +2690,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentTokenDtoCollectionQueryParameters** | [**PaymentTokenDtoCollectionQueryParameters**](PaymentTokenDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2650,7 +2702,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2662,7 +2714,7 @@ No authorization required
 
 <a id="getWalletTokensCountAsync"></a>
 # **getWalletTokensCountAsync**
-> Int32Envelope getWalletTokensCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletTokensCountAsync(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters)
 
 Get Wallet Tokens Count
 
@@ -2686,8 +2738,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters = new PaymentTokenDtoCollectionQueryParameters(); // PaymentTokenDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletTokensCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWalletTokensCountAsync(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletTokensCountAsync");
@@ -2707,6 +2760,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentTokenDtoCollectionQueryParameters** | [**PaymentTokenDtoCollectionQueryParameters**](PaymentTokenDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2718,7 +2772,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2730,7 +2784,7 @@ No authorization required
 
 <a id="getWalletWithdrawRequestsAsync"></a>
 # **getWalletWithdrawRequestsAsync**
-> WalletWithdrawRequestDtoListEnvelope getWalletWithdrawRequestsAsync(walletId, apiVersion, xApiVersion)
+> WalletWithdrawRequestDtoListEnvelope getWalletWithdrawRequestsAsync(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters)
 
 Get Wallet Withdraw Requests
 
@@ -2754,8 +2808,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters = new WalletWithdrawRequestDtoCollectionQueryParameters(); // WalletWithdrawRequestDtoCollectionQueryParameters | 
     try {
-      WalletWithdrawRequestDtoListEnvelope result = apiInstance.getWalletWithdrawRequestsAsync(walletId, apiVersion, xApiVersion);
+      WalletWithdrawRequestDtoListEnvelope result = apiInstance.getWalletWithdrawRequestsAsync(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletWithdrawRequestsAsync");
@@ -2775,6 +2830,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **walletWithdrawRequestDtoCollectionQueryParameters** | [**WalletWithdrawRequestDtoCollectionQueryParameters**](WalletWithdrawRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2786,7 +2842,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2798,7 +2854,7 @@ No authorization required
 
 <a id="getWalletWithdrawRequestsCountAsync"></a>
 # **getWalletWithdrawRequestsCountAsync**
-> Int32Envelope getWalletWithdrawRequestsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletWithdrawRequestsCountAsync(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters)
 
 Get Wallet Withdraw Requests Count
 
@@ -2822,8 +2878,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters = new WalletWithdrawRequestDtoCollectionQueryParameters(); // WalletWithdrawRequestDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletWithdrawRequestsCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWalletWithdrawRequestsCountAsync(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletWithdrawRequestsCountAsync");
@@ -2843,6 +2900,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **walletWithdrawRequestDtoCollectionQueryParameters** | [**WalletWithdrawRequestDtoCollectionQueryParameters**](WalletWithdrawRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2854,7 +2912,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2866,7 +2924,7 @@ No authorization required
 
 <a id="getWalletWithdrawsAsync"></a>
 # **getWalletWithdrawsAsync**
-> WalletWithdrawDtoListEnvelope getWalletWithdrawsAsync(walletId, apiVersion, xApiVersion)
+> WalletWithdrawDtoListEnvelope getWalletWithdrawsAsync(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters)
 
 Get Wallet Withdraws
 
@@ -2890,8 +2948,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters = new WalletWithdrawDtoCollectionQueryParameters(); // WalletWithdrawDtoCollectionQueryParameters | 
     try {
-      WalletWithdrawDtoListEnvelope result = apiInstance.getWalletWithdrawsAsync(walletId, apiVersion, xApiVersion);
+      WalletWithdrawDtoListEnvelope result = apiInstance.getWalletWithdrawsAsync(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletWithdrawsAsync");
@@ -2911,6 +2970,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **walletWithdrawDtoCollectionQueryParameters** | [**WalletWithdrawDtoCollectionQueryParameters**](WalletWithdrawDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2922,7 +2982,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2934,7 +2994,7 @@ No authorization required
 
 <a id="getWalletWithdrawsCountAsync"></a>
 # **getWalletWithdrawsCountAsync**
-> Int32Envelope getWalletWithdrawsCountAsync(walletId, apiVersion, xApiVersion)
+> Int32Envelope getWalletWithdrawsCountAsync(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters)
 
 Get Wallet Withdraws Count
 
@@ -2958,8 +3018,9 @@ public class Example {
     UUID walletId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters = new WalletWithdrawDtoCollectionQueryParameters(); // WalletWithdrawDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletWithdrawsCountAsync(walletId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWalletWithdrawsCountAsync(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#getWalletWithdrawsCountAsync");
@@ -2979,6 +3040,7 @@ public class Example {
 | **walletId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **walletWithdrawDtoCollectionQueryParameters** | [**WalletWithdrawDtoCollectionQueryParameters**](WalletWithdrawDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2990,7 +3052,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -3002,7 +3064,7 @@ No authorization required
 
 <a id="patchWalletBankAccountAsync"></a>
 # **patchWalletBankAccountAsync**
-> EmptyEnvelope patchWalletBankAccountAsync(walletId, bankAccountId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWalletBankAccountAsync(walletId, bankAccountId, apiVersion, xApiVersion, patchOperation)
 
 Patch Wallet Bank Account
 
@@ -3027,9 +3089,9 @@ public class Example {
     UUID bankAccountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWalletBankAccountAsync(walletId, bankAccountId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchWalletBankAccountAsync(walletId, bankAccountId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#patchWalletBankAccountAsync");
@@ -3050,7 +3112,7 @@ public class Example {
 | **bankAccountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -3074,7 +3136,7 @@ No authorization required
 
 <a id="patchWalletTokenAsync"></a>
 # **patchWalletTokenAsync**
-> EmptyEnvelope patchWalletTokenAsync(walletId, tokenId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWalletTokenAsync(walletId, tokenId, apiVersion, xApiVersion, patchOperation)
 
 Patch Wallet Token
 
@@ -3099,9 +3161,9 @@ public class Example {
     UUID tokenId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWalletTokenAsync(walletId, tokenId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchWalletTokenAsync(walletId, tokenId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#patchWalletTokenAsync");
@@ -3122,7 +3184,7 @@ public class Example {
 | **tokenId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

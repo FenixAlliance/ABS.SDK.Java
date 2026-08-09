@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countBlogPostCategoriesAsync"></a>
 # **countBlogPostCategoriesAsync**
-> Int32Envelope countBlogPostCategoriesAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countBlogPostCategoriesAsync(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters)
 
 Count blog post categories
 
@@ -39,8 +39,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters = new BlogPostCategoryDtoCollectionQueryParameters(); // BlogPostCategoryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countBlogPostCategoriesAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countBlogPostCategoriesAsync(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostCategoriesApi#countBlogPostCategoriesAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blogPostCategoryDtoCollectionQueryParameters** | [**BlogPostCategoryDtoCollectionQueryParameters**](BlogPostCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -223,7 +225,7 @@ No authorization required
 
 <a id="getBlogPostCategoriesAsync"></a>
 # **getBlogPostCategoriesAsync**
-> BlogPostCategoryDtoListEnvelope getBlogPostCategoriesAsync(tenantId, apiVersion, xApiVersion)
+> BlogPostCategoryDtoListEnvelope getBlogPostCategoriesAsync(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters)
 
 Get blog post categories
 
@@ -247,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters = new BlogPostCategoryDtoCollectionQueryParameters(); // BlogPostCategoryDtoCollectionQueryParameters | 
     try {
-      BlogPostCategoryDtoListEnvelope result = apiInstance.getBlogPostCategoriesAsync(tenantId, apiVersion, xApiVersion);
+      BlogPostCategoryDtoListEnvelope result = apiInstance.getBlogPostCategoriesAsync(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostCategoriesApi#getBlogPostCategoriesAsync");
@@ -268,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blogPostCategoryDtoCollectionQueryParameters** | [**BlogPostCategoryDtoCollectionQueryParameters**](BlogPostCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchBlogPostCategoryAsync"></a>
 # **patchBlogPostCategoryAsync**
-> EmptyEnvelope patchBlogPostCategoryAsync(tenantId, blogPostCategoryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBlogPostCategoryAsync(tenantId, blogPostCategoryId, apiVersion, xApiVersion, patchOperation)
 
 Patch a blog post category
 
@@ -386,9 +390,9 @@ public class Example {
     UUID blogPostCategoryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBlogPostCategoryAsync(tenantId, blogPostCategoryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBlogPostCategoryAsync(tenantId, blogPostCategoryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostCategoriesApi#patchBlogPostCategoryAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **blogPostCategoryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

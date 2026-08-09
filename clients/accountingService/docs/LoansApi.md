@@ -519,7 +519,7 @@ No authorization required
 
 <a id="getLoanApplicationsAsync"></a>
 # **getLoanApplicationsAsync**
-> LoanApplicationDtoIReadOnlyListEnvelope getLoanApplicationsAsync(tenantId, apiVersion, xApiVersion)
+> LoanApplicationDtoIReadOnlyListEnvelope getLoanApplicationsAsync(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters)
 
 Gets all loan applications
 
@@ -543,8 +543,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters = new LoanApplicationDtoCollectionQueryParameters(); // LoanApplicationDtoCollectionQueryParameters | 
     try {
-      LoanApplicationDtoIReadOnlyListEnvelope result = apiInstance.getLoanApplicationsAsync(tenantId, apiVersion, xApiVersion);
+      LoanApplicationDtoIReadOnlyListEnvelope result = apiInstance.getLoanApplicationsAsync(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoansApi#getLoanApplicationsAsync");
@@ -564,6 +565,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **loanApplicationDtoCollectionQueryParameters** | [**LoanApplicationDtoCollectionQueryParameters**](LoanApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -575,7 +577,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -587,7 +589,7 @@ No authorization required
 
 <a id="getLoanApplicationsCountAsync"></a>
 # **getLoanApplicationsCountAsync**
-> Int32Envelope getLoanApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLoanApplicationsCountAsync(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters)
 
 Counts loan applications
 
@@ -611,8 +613,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters = new LoanApplicationDtoCollectionQueryParameters(); // LoanApplicationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLoanApplicationsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLoanApplicationsCountAsync(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoansApi#getLoanApplicationsCountAsync");
@@ -632,6 +635,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **loanApplicationDtoCollectionQueryParameters** | [**LoanApplicationDtoCollectionQueryParameters**](LoanApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -643,7 +647,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -795,7 +799,7 @@ No authorization required
 
 <a id="getLoanTypesAsync"></a>
 # **getLoanTypesAsync**
-> LoanTypeDtoIReadOnlyListEnvelope getLoanTypesAsync(tenantId, apiVersion, xApiVersion)
+> LoanTypeDtoIReadOnlyListEnvelope getLoanTypesAsync(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters)
 
 Gets all loan types
 
@@ -819,8 +823,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters = new LoanTypeDtoCollectionQueryParameters(); // LoanTypeDtoCollectionQueryParameters | 
     try {
-      LoanTypeDtoIReadOnlyListEnvelope result = apiInstance.getLoanTypesAsync(tenantId, apiVersion, xApiVersion);
+      LoanTypeDtoIReadOnlyListEnvelope result = apiInstance.getLoanTypesAsync(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoansApi#getLoanTypesAsync");
@@ -840,6 +845,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **loanTypeDtoCollectionQueryParameters** | [**LoanTypeDtoCollectionQueryParameters**](LoanTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -851,7 +857,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -863,7 +869,7 @@ No authorization required
 
 <a id="getLoanTypesCountAsync"></a>
 # **getLoanTypesCountAsync**
-> Int32Envelope getLoanTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLoanTypesCountAsync(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters)
 
 Counts loan types
 
@@ -887,8 +893,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters = new LoanTypeDtoCollectionQueryParameters(); // LoanTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLoanTypesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLoanTypesCountAsync(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoansApi#getLoanTypesCountAsync");
@@ -908,6 +915,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **loanTypeDtoCollectionQueryParameters** | [**LoanTypeDtoCollectionQueryParameters**](LoanTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -919,7 +927,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -931,7 +939,7 @@ No authorization required
 
 <a id="getLoansAsync"></a>
 # **getLoansAsync**
-> LoanDtoIReadOnlyListEnvelope getLoansAsync(tenantId, apiVersion, xApiVersion)
+> LoanDtoIReadOnlyListEnvelope getLoansAsync(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters)
 
 Gets all loans
 
@@ -955,8 +963,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters = new LoanDtoCollectionQueryParameters(); // LoanDtoCollectionQueryParameters | 
     try {
-      LoanDtoIReadOnlyListEnvelope result = apiInstance.getLoansAsync(tenantId, apiVersion, xApiVersion);
+      LoanDtoIReadOnlyListEnvelope result = apiInstance.getLoansAsync(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoansApi#getLoansAsync");
@@ -976,6 +985,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **loanDtoCollectionQueryParameters** | [**LoanDtoCollectionQueryParameters**](LoanDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -987,7 +997,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -999,7 +1009,7 @@ No authorization required
 
 <a id="getLoansCountAsync"></a>
 # **getLoansCountAsync**
-> Int32Envelope getLoansCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLoansCountAsync(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters)
 
 Counts loans
 
@@ -1023,8 +1033,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters = new LoanDtoCollectionQueryParameters(); // LoanDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLoansCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLoansCountAsync(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoansApi#getLoansCountAsync");
@@ -1044,6 +1055,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **loanDtoCollectionQueryParameters** | [**LoanDtoCollectionQueryParameters**](LoanDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1055,7 +1067,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1067,7 +1079,7 @@ No authorization required
 
 <a id="patchLoanApplicationAsync"></a>
 # **patchLoanApplicationAsync**
-> EmptyEnvelope patchLoanApplicationAsync(tenantId, applicationId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLoanApplicationAsync(tenantId, applicationId, apiVersion, xApiVersion, patchOperation)
 
 Patches a loan application
 
@@ -1092,9 +1104,9 @@ public class Example {
     UUID applicationId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchLoanApplicationAsync(tenantId, applicationId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchLoanApplicationAsync(tenantId, applicationId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoansApi#patchLoanApplicationAsync");
@@ -1115,7 +1127,7 @@ public class Example {
 | **applicationId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1139,7 +1151,7 @@ No authorization required
 
 <a id="patchLoanAsync"></a>
 # **patchLoanAsync**
-> EmptyEnvelope patchLoanAsync(tenantId, loanId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLoanAsync(tenantId, loanId, apiVersion, xApiVersion, patchOperation)
 
 Patches a loan
 
@@ -1164,9 +1176,9 @@ public class Example {
     UUID loanId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchLoanAsync(tenantId, loanId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchLoanAsync(tenantId, loanId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoansApi#patchLoanAsync");
@@ -1187,7 +1199,7 @@ public class Example {
 | **loanId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1211,7 +1223,7 @@ No authorization required
 
 <a id="patchLoanTypeAsync"></a>
 # **patchLoanTypeAsync**
-> EmptyEnvelope patchLoanTypeAsync(tenantId, loanTypeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLoanTypeAsync(tenantId, loanTypeId, apiVersion, xApiVersion, patchOperation)
 
 Patches a loan type
 
@@ -1236,9 +1248,9 @@ public class Example {
     UUID loanTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchLoanTypeAsync(tenantId, loanTypeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchLoanTypeAsync(tenantId, loanTypeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoansApi#patchLoanTypeAsync");
@@ -1259,7 +1271,7 @@ public class Example {
 | **loanTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

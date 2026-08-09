@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ShippingLabelCreateDto;
+import org.openapitools.client.model.ShippingLabelDtoCollectionQueryParameters;
 import org.openapitools.client.model.ShippingLabelDtoEnvelope;
 import org.openapitools.client.model.ShippingLabelDtoListEnvelope;
 import org.openapitools.client.model.ShippingLabelUpdateDto;
@@ -544,6 +545,7 @@ public class ShippingLabelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shippingLabelDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -555,7 +557,7 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShippingLabelsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShippingLabelsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -569,7 +571,7 @@ public class ShippingLabelsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shippingLabelDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ShipmentsService/ShippingLabels";
@@ -602,6 +604,8 @@ public class ShippingLabelsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -613,13 +617,13 @@ public class ShippingLabelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShippingLabelsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShippingLabelsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShippingLabelsAsync(Async)");
         }
 
-        return getShippingLabelsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShippingLabelsAsyncCall(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -629,6 +633,7 @@ public class ShippingLabelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shippingLabelDtoCollectionQueryParameters  (optional)
      * @return ShippingLabelDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -639,8 +644,8 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ShippingLabelDtoListEnvelope getShippingLabelsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ShippingLabelDtoListEnvelope> localVarResp = getShippingLabelsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ShippingLabelDtoListEnvelope getShippingLabelsAsync(UUID tenantId, String apiVersion, String xApiVersion, ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ShippingLabelDtoListEnvelope> localVarResp = getShippingLabelsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -650,6 +655,7 @@ public class ShippingLabelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shippingLabelDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ShippingLabelDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -660,8 +666,8 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShippingLabelDtoListEnvelope> getShippingLabelsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShippingLabelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ShippingLabelDtoListEnvelope> getShippingLabelsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShippingLabelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ShippingLabelDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -672,6 +678,7 @@ public class ShippingLabelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shippingLabelDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -683,9 +690,9 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShippingLabelsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ShippingLabelDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getShippingLabelsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters, final ApiCallback<ShippingLabelDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShippingLabelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShippingLabelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ShippingLabelDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -695,6 +702,7 @@ public class ShippingLabelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shippingLabelDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -704,7 +712,7 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShippingLabelsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShippingLabelsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -718,7 +726,7 @@ public class ShippingLabelsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shippingLabelDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ShipmentsService/ShippingLabels/Count";
@@ -751,6 +759,8 @@ public class ShippingLabelsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -762,13 +772,13 @@ public class ShippingLabelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShippingLabelsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShippingLabelsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShippingLabelsCountAsync(Async)");
         }
 
-        return getShippingLabelsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShippingLabelsCountAsyncCall(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -778,6 +788,7 @@ public class ShippingLabelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shippingLabelDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -786,8 +797,8 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getShippingLabelsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getShippingLabelsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getShippingLabelsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getShippingLabelsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -797,6 +808,7 @@ public class ShippingLabelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shippingLabelDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -805,8 +817,8 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getShippingLabelsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShippingLabelsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getShippingLabelsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShippingLabelsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -817,6 +829,7 @@ public class ShippingLabelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shippingLabelDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -826,9 +839,9 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShippingLabelsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getShippingLabelsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShippingLabelsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShippingLabelsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -839,7 +852,7 @@ public class ShippingLabelsApi {
      * @param labelId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -852,7 +865,7 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShippingLabelAsyncCall(UUID tenantId, UUID labelId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchShippingLabelAsyncCall(UUID tenantId, UUID labelId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -866,7 +879,7 @@ public class ShippingLabelsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ShipmentsService/ShippingLabels/{labelId}"
@@ -913,7 +926,7 @@ public class ShippingLabelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchShippingLabelAsyncValidateBeforeCall(UUID tenantId, UUID labelId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchShippingLabelAsyncValidateBeforeCall(UUID tenantId, UUID labelId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchShippingLabelAsync(Async)");
@@ -924,7 +937,7 @@ public class ShippingLabelsApi {
             throw new ApiException("Missing the required parameter 'labelId' when calling patchShippingLabelAsync(Async)");
         }
 
-        return patchShippingLabelAsyncCall(tenantId, labelId, apiVersion, xApiVersion, operation, _callback);
+        return patchShippingLabelAsyncCall(tenantId, labelId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -935,7 +948,7 @@ public class ShippingLabelsApi {
      * @param labelId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -947,8 +960,8 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchShippingLabelAsync(UUID tenantId, UUID labelId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchShippingLabelAsyncWithHttpInfo(tenantId, labelId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchShippingLabelAsync(UUID tenantId, UUID labelId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchShippingLabelAsyncWithHttpInfo(tenantId, labelId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -959,7 +972,7 @@ public class ShippingLabelsApi {
      * @param labelId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -971,8 +984,8 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchShippingLabelAsyncWithHttpInfo(UUID tenantId, UUID labelId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchShippingLabelAsyncValidateBeforeCall(tenantId, labelId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchShippingLabelAsyncWithHttpInfo(UUID tenantId, UUID labelId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchShippingLabelAsyncValidateBeforeCall(tenantId, labelId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -984,7 +997,7 @@ public class ShippingLabelsApi {
      * @param labelId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -997,9 +1010,9 @@ public class ShippingLabelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShippingLabelAsyncAsync(UUID tenantId, UUID labelId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchShippingLabelAsyncAsync(UUID tenantId, UUID labelId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchShippingLabelAsyncValidateBeforeCall(tenantId, labelId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchShippingLabelAsyncValidateBeforeCall(tenantId, labelId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

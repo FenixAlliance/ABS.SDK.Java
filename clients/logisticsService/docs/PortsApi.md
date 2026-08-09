@@ -222,7 +222,7 @@ No authorization required
 
 <a id="getPortsAsync"></a>
 # **getPortsAsync**
-> PortDtoListEnvelope getPortsAsync(tenantId, apiVersion, xApiVersion)
+> PortDtoListEnvelope getPortsAsync(tenantId, apiVersion, xApiVersion, portDtoCollectionQueryParameters)
 
 Get all ports
 
@@ -246,8 +246,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PortDtoCollectionQueryParameters portDtoCollectionQueryParameters = new PortDtoCollectionQueryParameters(); // PortDtoCollectionQueryParameters | 
     try {
-      PortDtoListEnvelope result = apiInstance.getPortsAsync(tenantId, apiVersion, xApiVersion);
+      PortDtoListEnvelope result = apiInstance.getPortsAsync(tenantId, apiVersion, xApiVersion, portDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PortsApi#getPortsAsync");
@@ -267,6 +268,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **portDtoCollectionQueryParameters** | [**PortDtoCollectionQueryParameters**](PortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -278,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getPortsCountAsync"></a>
 # **getPortsCountAsync**
-> Int32Envelope getPortsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPortsCountAsync(tenantId, apiVersion, xApiVersion, portDtoCollectionQueryParameters)
 
 Get ports count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PortDtoCollectionQueryParameters portDtoCollectionQueryParameters = new PortDtoCollectionQueryParameters(); // PortDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getPortsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getPortsCountAsync(tenantId, apiVersion, xApiVersion, portDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PortsApi#getPortsCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **portDtoCollectionQueryParameters** | [**PortDtoCollectionQueryParameters**](PortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchPortAsync"></a>
 # **patchPortAsync**
-> EmptyEnvelope patchPortAsync(tenantId, portId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchPortAsync(tenantId, portId, apiVersion, xApiVersion, patchOperation)
 
 Patch a port
 
@@ -382,9 +386,9 @@ public class Example {
     UUID portId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchPortAsync(tenantId, portId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchPortAsync(tenantId, portId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PortsApi#patchPortAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **portId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

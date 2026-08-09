@@ -361,7 +361,7 @@ No authorization required
 
 <a id="getDiscountListEntries"></a>
 # **getDiscountListEntries**
-> DiscountDtoListEnvelope getDiscountListEntries(tenantId, discountListId)
+> DiscountDtoListEnvelope getDiscountListEntries(tenantId, discountListId, discountDtoCollectionQueryParameters)
 
 Retrieves discounts in a discount list
 
@@ -384,8 +384,9 @@ public class Example {
     DiscountListsApi apiInstance = new DiscountListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID discountListId = UUID.randomUUID(); // UUID | 
+    DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters = new DiscountDtoCollectionQueryParameters(); // DiscountDtoCollectionQueryParameters | 
     try {
-      DiscountDtoListEnvelope result = apiInstance.getDiscountListEntries(tenantId, discountListId);
+      DiscountDtoListEnvelope result = apiInstance.getDiscountListEntries(tenantId, discountListId, discountDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DiscountListsApi#getDiscountListEntries");
@@ -404,6 +405,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **discountListId** | **UUID**|  | |
+| **discountDtoCollectionQueryParameters** | [**DiscountDtoCollectionQueryParameters**](DiscountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -415,7 +417,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -428,7 +430,7 @@ No authorization required
 
 <a id="getDiscountListEntriesCount"></a>
 # **getDiscountListEntriesCount**
-> Int32Envelope getDiscountListEntriesCount(tenantId, discountListId)
+> Int32Envelope getDiscountListEntriesCount(tenantId, discountListId, discountDtoCollectionQueryParameters)
 
 Counts discounts in a discount list
 
@@ -451,8 +453,9 @@ public class Example {
     DiscountListsApi apiInstance = new DiscountListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID discountListId = UUID.randomUUID(); // UUID | 
+    DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters = new DiscountDtoCollectionQueryParameters(); // DiscountDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getDiscountListEntriesCount(tenantId, discountListId);
+      Int32Envelope result = apiInstance.getDiscountListEntriesCount(tenantId, discountListId, discountDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DiscountListsApi#getDiscountListEntriesCount");
@@ -471,6 +474,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **discountListId** | **UUID**|  | |
+| **discountDtoCollectionQueryParameters** | [**DiscountDtoCollectionQueryParameters**](DiscountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -482,7 +486,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -564,7 +568,7 @@ No authorization required
 
 <a id="getDiscountLists"></a>
 # **getDiscountLists**
-> DiscountListDtoListEnvelope getDiscountLists(tenantId)
+> DiscountListDtoListEnvelope getDiscountLists(tenantId, discountListDtoCollectionQueryParameters)
 
 Retrieves all discount lists
 
@@ -586,8 +590,9 @@ public class Example {
 
     DiscountListsApi apiInstance = new DiscountListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters = new DiscountListDtoCollectionQueryParameters(); // DiscountListDtoCollectionQueryParameters | 
     try {
-      DiscountListDtoListEnvelope result = apiInstance.getDiscountLists(tenantId);
+      DiscountListDtoListEnvelope result = apiInstance.getDiscountLists(tenantId, discountListDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DiscountListsApi#getDiscountLists");
@@ -605,6 +610,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **discountListDtoCollectionQueryParameters** | [**DiscountListDtoCollectionQueryParameters**](DiscountListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -616,7 +622,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -629,7 +635,7 @@ No authorization required
 
 <a id="getDiscountListsCount"></a>
 # **getDiscountListsCount**
-> Int32Envelope getDiscountListsCount(tenantId)
+> Int32Envelope getDiscountListsCount(tenantId, discountListDtoCollectionQueryParameters)
 
 Counts discount lists
 
@@ -651,8 +657,9 @@ public class Example {
 
     DiscountListsApi apiInstance = new DiscountListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters = new DiscountListDtoCollectionQueryParameters(); // DiscountListDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getDiscountListsCount(tenantId);
+      Int32Envelope result = apiInstance.getDiscountListsCount(tenantId, discountListDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DiscountListsApi#getDiscountListsCount");
@@ -670,6 +677,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **discountListDtoCollectionQueryParameters** | [**DiscountListDtoCollectionQueryParameters**](DiscountListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -681,7 +689,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -694,7 +702,7 @@ No authorization required
 
 <a id="patchDiscountList"></a>
 # **patchDiscountList**
-> EmptyEnvelope patchDiscountList(tenantId, discountListId, operation)
+> EmptyEnvelope patchDiscountList(tenantId, discountListId, patchOperation)
 
 Patches a discount list
 
@@ -717,9 +725,9 @@ public class Example {
     DiscountListsApi apiInstance = new DiscountListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID discountListId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchDiscountList(tenantId, discountListId, operation);
+      EmptyEnvelope result = apiInstance.patchDiscountList(tenantId, discountListId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DiscountListsApi#patchDiscountList");
@@ -738,7 +746,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **discountListId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -763,7 +771,7 @@ No authorization required
 
 <a id="patchDiscountListEntry"></a>
 # **patchDiscountListEntry**
-> EmptyEnvelope patchDiscountListEntry(tenantId, discountListId, discountListEntryId, operation)
+> EmptyEnvelope patchDiscountListEntry(tenantId, discountListId, discountListEntryId, patchOperation)
 
 Patches a discount list entry
 
@@ -787,9 +795,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID discountListId = UUID.randomUUID(); // UUID | 
     UUID discountListEntryId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchDiscountListEntry(tenantId, discountListId, discountListEntryId, operation);
+      EmptyEnvelope result = apiInstance.patchDiscountListEntry(tenantId, discountListId, discountListEntryId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DiscountListsApi#patchDiscountListEntry");
@@ -809,7 +817,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **discountListId** | **UUID**|  | |
 | **discountListEntryId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

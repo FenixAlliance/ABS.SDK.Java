@@ -31,10 +31,11 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.ItemRefundPolicyCreateDto;
+import org.openapitools.client.model.ItemRefundPolicyDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemRefundPolicyDtoEnvelope;
 import org.openapitools.client.model.ItemRefundPolicyDtoListEnvelope;
 import org.openapitools.client.model.ItemRefundPolicyUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -403,6 +404,7 @@ public class RefundPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -414,7 +416,7 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRefundPoliciesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRefundPoliciesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -428,7 +430,7 @@ public class RefundPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemRefundPolicyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/RefundPolicies";
@@ -461,6 +463,8 @@ public class RefundPoliciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -472,13 +476,13 @@ public class RefundPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRefundPoliciesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRefundPoliciesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRefundPoliciesAsync(Async)");
         }
 
-        return getRefundPoliciesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getRefundPoliciesAsyncCall(tenantId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -488,6 +492,7 @@ public class RefundPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemRefundPolicyDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -498,8 +503,8 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemRefundPolicyDtoListEnvelope getRefundPoliciesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemRefundPolicyDtoListEnvelope> localVarResp = getRefundPoliciesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ItemRefundPolicyDtoListEnvelope getRefundPoliciesAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemRefundPolicyDtoListEnvelope> localVarResp = getRefundPoliciesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -509,6 +514,7 @@ public class RefundPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemRefundPolicyDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -519,8 +525,8 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemRefundPolicyDtoListEnvelope> getRefundPoliciesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRefundPoliciesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemRefundPolicyDtoListEnvelope> getRefundPoliciesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRefundPoliciesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemRefundPolicyDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -531,6 +537,7 @@ public class RefundPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -542,9 +549,9 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRefundPoliciesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ItemRefundPolicyDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getRefundPoliciesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters, final ApiCallback<ItemRefundPolicyDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRefundPoliciesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRefundPoliciesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemRefundPolicyDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -554,6 +561,7 @@ public class RefundPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -565,7 +573,7 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRefundPoliciesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRefundPoliciesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -579,7 +587,7 @@ public class RefundPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemRefundPolicyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/RefundPolicies/Count";
@@ -612,6 +620,8 @@ public class RefundPoliciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -623,13 +633,13 @@ public class RefundPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRefundPoliciesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRefundPoliciesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRefundPoliciesCountAsync(Async)");
         }
 
-        return getRefundPoliciesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getRefundPoliciesCountAsyncCall(tenantId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -639,6 +649,7 @@ public class RefundPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -649,8 +660,8 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getRefundPoliciesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getRefundPoliciesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getRefundPoliciesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getRefundPoliciesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -660,6 +671,7 @@ public class RefundPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -670,8 +682,8 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getRefundPoliciesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRefundPoliciesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getRefundPoliciesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRefundPoliciesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -682,6 +694,7 @@ public class RefundPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRefundPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -693,9 +706,9 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRefundPoliciesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getRefundPoliciesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemRefundPolicyDtoCollectionQueryParameters itemRefundPolicyDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRefundPoliciesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRefundPoliciesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemRefundPolicyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -867,7 +880,7 @@ public class RefundPoliciesApi {
      * @param refundPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +892,7 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRefundPolicyAsyncCall(UUID tenantId, UUID refundPolicyId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchRefundPolicyAsyncCall(UUID tenantId, UUID refundPolicyId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +906,7 @@ public class RefundPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/RefundPolicies/{refundPolicyId}"
@@ -940,7 +953,7 @@ public class RefundPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchRefundPolicyAsyncValidateBeforeCall(UUID tenantId, UUID refundPolicyId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchRefundPolicyAsyncValidateBeforeCall(UUID tenantId, UUID refundPolicyId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchRefundPolicyAsync(Async)");
@@ -951,7 +964,7 @@ public class RefundPoliciesApi {
             throw new ApiException("Missing the required parameter 'refundPolicyId' when calling patchRefundPolicyAsync(Async)");
         }
 
-        return patchRefundPolicyAsyncCall(tenantId, refundPolicyId, apiVersion, xApiVersion, operation, _callback);
+        return patchRefundPolicyAsyncCall(tenantId, refundPolicyId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -962,7 +975,7 @@ public class RefundPoliciesApi {
      * @param refundPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -973,8 +986,8 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchRefundPolicyAsync(UUID tenantId, UUID refundPolicyId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchRefundPolicyAsyncWithHttpInfo(tenantId, refundPolicyId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchRefundPolicyAsync(UUID tenantId, UUID refundPolicyId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchRefundPolicyAsyncWithHttpInfo(tenantId, refundPolicyId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -985,7 +998,7 @@ public class RefundPoliciesApi {
      * @param refundPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -996,8 +1009,8 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchRefundPolicyAsyncWithHttpInfo(UUID tenantId, UUID refundPolicyId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchRefundPolicyAsyncValidateBeforeCall(tenantId, refundPolicyId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchRefundPolicyAsyncWithHttpInfo(UUID tenantId, UUID refundPolicyId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchRefundPolicyAsyncValidateBeforeCall(tenantId, refundPolicyId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +1022,7 @@ public class RefundPoliciesApi {
      * @param refundPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1021,9 +1034,9 @@ public class RefundPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRefundPolicyAsyncAsync(UUID tenantId, UUID refundPolicyId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchRefundPolicyAsyncAsync(UUID tenantId, UUID refundPolicyId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchRefundPolicyAsyncValidateBeforeCall(tenantId, refundPolicyId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchRefundPolicyAsyncValidateBeforeCall(tenantId, refundPolicyId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getInvoiceEnumerationRanges"></a>
 # **getInvoiceEnumerationRanges**
-> InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRanges(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion)
+> InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRanges(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters)
 
 Get invoice enumeration ranges for an authority
 
@@ -253,8 +253,9 @@ public class Example {
     String authorityId = "authorityId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InvoiceEnumerationRangeDtoCollectionQueryParameters invoiceEnumerationRangeDtoCollectionQueryParameters = new InvoiceEnumerationRangeDtoCollectionQueryParameters(); // InvoiceEnumerationRangeDtoCollectionQueryParameters | 
     try {
-      InvoiceEnumerationRangeDtoListEnvelope result = apiInstance.getInvoiceEnumerationRanges(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
+      InvoiceEnumerationRangeDtoListEnvelope result = apiInstance.getInvoiceEnumerationRanges(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalEnumerationRangesApi#getInvoiceEnumerationRanges");
@@ -276,6 +277,7 @@ public class Example {
 | **authorityId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **invoiceEnumerationRangeDtoCollectionQueryParameters** | [**InvoiceEnumerationRangeDtoCollectionQueryParameters**](InvoiceEnumerationRangeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -287,7 +289,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -299,7 +301,7 @@ No authorization required
 
 <a id="getInvoiceEnumerationRangesCount"></a>
 # **getInvoiceEnumerationRangesCount**
-> Int32Envelope getInvoiceEnumerationRangesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+> Int32Envelope getInvoiceEnumerationRangesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters)
 
 Get invoice enumeration ranges count
 
@@ -324,8 +326,9 @@ public class Example {
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InvoiceEnumerationRangeDtoCollectionQueryParameters invoiceEnumerationRangeDtoCollectionQueryParameters = new InvoiceEnumerationRangeDtoCollectionQueryParameters(); // InvoiceEnumerationRangeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getInvoiceEnumerationRangesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getInvoiceEnumerationRangesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalEnumerationRangesApi#getInvoiceEnumerationRangesCount");
@@ -346,6 +349,7 @@ public class Example {
 | **fiscalAuthorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **invoiceEnumerationRangeDtoCollectionQueryParameters** | [**InvoiceEnumerationRangeDtoCollectionQueryParameters**](InvoiceEnumerationRangeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -357,7 +361,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -369,7 +373,7 @@ No authorization required
 
 <a id="patchFiscalEnumerationRangeAsync"></a>
 # **patchFiscalEnumerationRangeAsync**
-> EmptyEnvelope patchFiscalEnumerationRangeAsync(tenantId, enumerationRangeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalEnumerationRangeAsync(tenantId, enumerationRangeId, apiVersion, xApiVersion, patchOperation)
 
 Patch an invoice enumeration range
 
@@ -394,9 +398,9 @@ public class Example {
     UUID enumerationRangeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchFiscalEnumerationRangeAsync(tenantId, enumerationRangeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchFiscalEnumerationRangeAsync(tenantId, enumerationRangeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalEnumerationRangesApi#patchFiscalEnumerationRangeAsync");
@@ -417,7 +421,7 @@ public class Example {
 | **enumerationRangeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

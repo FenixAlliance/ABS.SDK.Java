@@ -220,7 +220,7 @@ No authorization required
 
 <a id="getShippingCouriersAsync"></a>
 # **getShippingCouriersAsync**
-> ShippingCourierDtoListEnvelope getShippingCouriersAsync(tenantId, apiVersion, xApiVersion)
+> ShippingCourierDtoListEnvelope getShippingCouriersAsync(tenantId, apiVersion, xApiVersion, shippingCourierDtoCollectionQueryParameters)
 
 Get all shipping couriers
 
@@ -244,8 +244,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShippingCourierDtoCollectionQueryParameters shippingCourierDtoCollectionQueryParameters = new ShippingCourierDtoCollectionQueryParameters(); // ShippingCourierDtoCollectionQueryParameters | 
     try {
-      ShippingCourierDtoListEnvelope result = apiInstance.getShippingCouriersAsync(tenantId, apiVersion, xApiVersion);
+      ShippingCourierDtoListEnvelope result = apiInstance.getShippingCouriersAsync(tenantId, apiVersion, xApiVersion, shippingCourierDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingCouriersApi#getShippingCouriersAsync");
@@ -265,6 +266,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shippingCourierDtoCollectionQueryParameters** | [**ShippingCourierDtoCollectionQueryParameters**](ShippingCourierDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -276,7 +278,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -288,7 +290,7 @@ No authorization required
 
 <a id="getShippingCouriersCountAsync"></a>
 # **getShippingCouriersCountAsync**
-> Int32Envelope getShippingCouriersCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShippingCouriersCountAsync(tenantId, apiVersion, xApiVersion, shippingCourierDtoCollectionQueryParameters)
 
 Get shipping couriers count
 
@@ -312,8 +314,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShippingCourierDtoCollectionQueryParameters shippingCourierDtoCollectionQueryParameters = new ShippingCourierDtoCollectionQueryParameters(); // ShippingCourierDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getShippingCouriersCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getShippingCouriersCountAsync(tenantId, apiVersion, xApiVersion, shippingCourierDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingCouriersApi#getShippingCouriersCountAsync");
@@ -333,6 +336,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shippingCourierDtoCollectionQueryParameters** | [**ShippingCourierDtoCollectionQueryParameters**](ShippingCourierDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -344,7 +348,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -355,7 +359,7 @@ No authorization required
 
 <a id="patchShippingCourierAsync"></a>
 # **patchShippingCourierAsync**
-> EmptyEnvelope patchShippingCourierAsync(tenantId, courierId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShippingCourierAsync(tenantId, courierId, apiVersion, xApiVersion, patchOperation)
 
 Patch a shipping courier
 
@@ -380,9 +384,9 @@ public class Example {
     UUID courierId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchShippingCourierAsync(tenantId, courierId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchShippingCourierAsync(tenantId, courierId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingCouriersApi#patchShippingCourierAsync");
@@ -403,7 +407,7 @@ public class Example {
 | **courierId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

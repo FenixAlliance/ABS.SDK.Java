@@ -291,7 +291,7 @@ No authorization required
 
 <a id="getTenantInvitations"></a>
 # **getTenantInvitations**
-> TenantInvitationDtoListEnvelope getTenantInvitations(tenantId, apiVersion, xApiVersion)
+> TenantInvitationDtoListEnvelope getTenantInvitations(tenantId, apiVersion, xApiVersion, tenantInvitationDtoCollectionQueryParameters)
 
 Retrieve a list of tenant invitations
 
@@ -315,8 +315,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantInvitationDtoCollectionQueryParameters tenantInvitationDtoCollectionQueryParameters = new TenantInvitationDtoCollectionQueryParameters(); // TenantInvitationDtoCollectionQueryParameters | 
     try {
-      TenantInvitationDtoListEnvelope result = apiInstance.getTenantInvitations(tenantId, apiVersion, xApiVersion);
+      TenantInvitationDtoListEnvelope result = apiInstance.getTenantInvitations(tenantId, apiVersion, xApiVersion, tenantInvitationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvitationsApi#getTenantInvitations");
@@ -336,6 +337,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantInvitationDtoCollectionQueryParameters** | [**TenantInvitationDtoCollectionQueryParameters**](TenantInvitationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -347,7 +349,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -359,7 +361,7 @@ No authorization required
 
 <a id="getTenantInvitationsCount"></a>
 # **getTenantInvitationsCount**
-> Int32Envelope getTenantInvitationsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantInvitationsCount(tenantId, apiVersion, xApiVersion, tenantInvitationDtoCollectionQueryParameters)
 
 Get the count of tenant invitations
 
@@ -383,8 +385,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantInvitationDtoCollectionQueryParameters tenantInvitationDtoCollectionQueryParameters = new TenantInvitationDtoCollectionQueryParameters(); // TenantInvitationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantInvitationsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantInvitationsCount(tenantId, apiVersion, xApiVersion, tenantInvitationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvitationsApi#getTenantInvitationsCount");
@@ -404,6 +407,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantInvitationDtoCollectionQueryParameters** | [**TenantInvitationDtoCollectionQueryParameters**](TenantInvitationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -415,7 +419,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

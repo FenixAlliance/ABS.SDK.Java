@@ -10,7 +10,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getSecurityCertificatesAsync"></a>
 # **getSecurityCertificatesAsync**
-> SecurityCertificateDtoListEnvelope getSecurityCertificatesAsync(tenantId, apiVersion, xApiVersion)
+> SecurityCertificateDtoListEnvelope getSecurityCertificatesAsync(tenantId, apiVersion, xApiVersion, securityCertificateDtoCollectionQueryParameters)
 
 Get security certificates
 
@@ -34,8 +34,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SecurityCertificateDtoCollectionQueryParameters securityCertificateDtoCollectionQueryParameters = new SecurityCertificateDtoCollectionQueryParameters(); // SecurityCertificateDtoCollectionQueryParameters | 
     try {
-      SecurityCertificateDtoListEnvelope result = apiInstance.getSecurityCertificatesAsync(tenantId, apiVersion, xApiVersion);
+      SecurityCertificateDtoListEnvelope result = apiInstance.getSecurityCertificatesAsync(tenantId, apiVersion, xApiVersion, securityCertificateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityCertificatesApi#getSecurityCertificatesAsync");
@@ -55,6 +56,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **securityCertificateDtoCollectionQueryParameters** | [**SecurityCertificateDtoCollectionQueryParameters**](SecurityCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -78,7 +80,7 @@ No authorization required
 
 <a id="getSecurityCertificatesCountAsync"></a>
 # **getSecurityCertificatesCountAsync**
-> Int32Envelope getSecurityCertificatesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSecurityCertificatesCountAsync(tenantId, apiVersion, xApiVersion, securityCertificateDtoCollectionQueryParameters)
 
 Get security certificates count
 
@@ -102,8 +104,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SecurityCertificateDtoCollectionQueryParameters securityCertificateDtoCollectionQueryParameters = new SecurityCertificateDtoCollectionQueryParameters(); // SecurityCertificateDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSecurityCertificatesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSecurityCertificatesCountAsync(tenantId, apiVersion, xApiVersion, securityCertificateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityCertificatesApi#getSecurityCertificatesCountAsync");
@@ -123,6 +126,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **securityCertificateDtoCollectionQueryParameters** | [**SecurityCertificateDtoCollectionQueryParameters**](SecurityCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -134,7 +138,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

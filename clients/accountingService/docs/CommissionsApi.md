@@ -372,7 +372,7 @@ No authorization required
 
 <a id="getCommissionsAsync"></a>
 # **getCommissionsAsync**
-> CommissionDtoListEnvelope getCommissionsAsync(tenantId, apiVersion, xApiVersion)
+> CommissionDtoListEnvelope getCommissionsAsync(tenantId, apiVersion, xApiVersion, commissionDtoCollectionQueryParameters)
 
 Get all commissions for a tenant
 
@@ -396,8 +396,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CommissionDtoCollectionQueryParameters commissionDtoCollectionQueryParameters = new CommissionDtoCollectionQueryParameters(); // CommissionDtoCollectionQueryParameters | 
     try {
-      CommissionDtoListEnvelope result = apiInstance.getCommissionsAsync(tenantId, apiVersion, xApiVersion);
+      CommissionDtoListEnvelope result = apiInstance.getCommissionsAsync(tenantId, apiVersion, xApiVersion, commissionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CommissionsApi#getCommissionsAsync");
@@ -417,6 +418,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **commissionDtoCollectionQueryParameters** | [**CommissionDtoCollectionQueryParameters**](CommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -428,7 +430,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -440,7 +442,7 @@ No authorization required
 
 <a id="getCommissionsCountAsync"></a>
 # **getCommissionsCountAsync**
-> Int32Envelope getCommissionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getCommissionsCountAsync(tenantId, apiVersion, xApiVersion, commissionDtoCollectionQueryParameters)
 
 Get the count of commissions for a tenant
 
@@ -464,8 +466,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CommissionDtoCollectionQueryParameters commissionDtoCollectionQueryParameters = new CommissionDtoCollectionQueryParameters(); // CommissionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getCommissionsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getCommissionsCountAsync(tenantId, apiVersion, xApiVersion, commissionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CommissionsApi#getCommissionsCountAsync");
@@ -485,6 +488,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **commissionDtoCollectionQueryParameters** | [**CommissionDtoCollectionQueryParameters**](CommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -496,7 +500,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -578,7 +582,7 @@ No authorization required
 
 <a id="getPaymentCommissionsAsync"></a>
 # **getPaymentCommissionsAsync**
-> PaymentCommissionDtoListEnvelope getPaymentCommissionsAsync(tenantId, apiVersion, xApiVersion)
+> PaymentCommissionDtoListEnvelope getPaymentCommissionsAsync(tenantId, apiVersion, xApiVersion, paymentCommissionDtoCollectionQueryParameters)
 
 Get all payment commissions for a tenant
 
@@ -602,8 +606,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentCommissionDtoCollectionQueryParameters paymentCommissionDtoCollectionQueryParameters = new PaymentCommissionDtoCollectionQueryParameters(); // PaymentCommissionDtoCollectionQueryParameters | 
     try {
-      PaymentCommissionDtoListEnvelope result = apiInstance.getPaymentCommissionsAsync(tenantId, apiVersion, xApiVersion);
+      PaymentCommissionDtoListEnvelope result = apiInstance.getPaymentCommissionsAsync(tenantId, apiVersion, xApiVersion, paymentCommissionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CommissionsApi#getPaymentCommissionsAsync");
@@ -623,6 +628,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentCommissionDtoCollectionQueryParameters** | [**PaymentCommissionDtoCollectionQueryParameters**](PaymentCommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -634,7 +640,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -646,7 +652,7 @@ No authorization required
 
 <a id="getPaymentCommissionsCountAsync"></a>
 # **getPaymentCommissionsCountAsync**
-> Int32Envelope getPaymentCommissionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPaymentCommissionsCountAsync(tenantId, apiVersion, xApiVersion, paymentCommissionDtoCollectionQueryParameters)
 
 Get the count of payment commissions for a tenant
 
@@ -670,8 +676,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentCommissionDtoCollectionQueryParameters paymentCommissionDtoCollectionQueryParameters = new PaymentCommissionDtoCollectionQueryParameters(); // PaymentCommissionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getPaymentCommissionsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getPaymentCommissionsCountAsync(tenantId, apiVersion, xApiVersion, paymentCommissionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CommissionsApi#getPaymentCommissionsCountAsync");
@@ -691,6 +698,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentCommissionDtoCollectionQueryParameters** | [**PaymentCommissionDtoCollectionQueryParameters**](PaymentCommissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -702,7 +710,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -714,7 +722,7 @@ No authorization required
 
 <a id="patchCommissionAsync"></a>
 # **patchCommissionAsync**
-> EmptyEnvelope patchCommissionAsync(tenantId, commissionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCommissionAsync(tenantId, commissionId, apiVersion, xApiVersion, patchOperation)
 
 Patch a commission
 
@@ -739,9 +747,9 @@ public class Example {
     UUID commissionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCommissionAsync(tenantId, commissionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCommissionAsync(tenantId, commissionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CommissionsApi#patchCommissionAsync");
@@ -762,7 +770,7 @@ public class Example {
 | **commissionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -786,7 +794,7 @@ No authorization required
 
 <a id="patchPaymentCommissionAsync"></a>
 # **patchPaymentCommissionAsync**
-> EmptyEnvelope patchPaymentCommissionAsync(tenantId, paymentCommissionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchPaymentCommissionAsync(tenantId, paymentCommissionId, apiVersion, xApiVersion, patchOperation)
 
 Patch a payment commission
 
@@ -811,9 +819,9 @@ public class Example {
     UUID paymentCommissionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchPaymentCommissionAsync(tenantId, paymentCommissionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchPaymentCommissionAsync(tenantId, paymentCommissionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CommissionsApi#patchPaymentCommissionAsync");
@@ -834,7 +842,7 @@ public class Example {
 | **paymentCommissionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

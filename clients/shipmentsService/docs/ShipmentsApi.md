@@ -220,7 +220,7 @@ No authorization required
 
 <a id="getShipmentsAsync"></a>
 # **getShipmentsAsync**
-> ShipmentDtoListEnvelope getShipmentsAsync(tenantId, apiVersion, xApiVersion)
+> ShipmentDtoListEnvelope getShipmentsAsync(tenantId, apiVersion, xApiVersion, shipmentDtoCollectionQueryParameters)
 
 Get all shipments
 
@@ -244,8 +244,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShipmentDtoCollectionQueryParameters shipmentDtoCollectionQueryParameters = new ShipmentDtoCollectionQueryParameters(); // ShipmentDtoCollectionQueryParameters | 
     try {
-      ShipmentDtoListEnvelope result = apiInstance.getShipmentsAsync(tenantId, apiVersion, xApiVersion);
+      ShipmentDtoListEnvelope result = apiInstance.getShipmentsAsync(tenantId, apiVersion, xApiVersion, shipmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShipmentsApi#getShipmentsAsync");
@@ -265,6 +266,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shipmentDtoCollectionQueryParameters** | [**ShipmentDtoCollectionQueryParameters**](ShipmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -276,7 +278,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -288,7 +290,7 @@ No authorization required
 
 <a id="getShipmentsCountAsync"></a>
 # **getShipmentsCountAsync**
-> Int32Envelope getShipmentsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShipmentsCountAsync(tenantId, apiVersion, xApiVersion, shipmentDtoCollectionQueryParameters)
 
 Get shipments count
 
@@ -312,8 +314,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShipmentDtoCollectionQueryParameters shipmentDtoCollectionQueryParameters = new ShipmentDtoCollectionQueryParameters(); // ShipmentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getShipmentsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getShipmentsCountAsync(tenantId, apiVersion, xApiVersion, shipmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShipmentsApi#getShipmentsCountAsync");
@@ -333,6 +336,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shipmentDtoCollectionQueryParameters** | [**ShipmentDtoCollectionQueryParameters**](ShipmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -344,7 +348,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -355,7 +359,7 @@ No authorization required
 
 <a id="patchShipmentAsync"></a>
 # **patchShipmentAsync**
-> EmptyEnvelope patchShipmentAsync(tenantId, shipmentId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShipmentAsync(tenantId, shipmentId, apiVersion, xApiVersion, patchOperation)
 
 Patch a shipment
 
@@ -380,9 +384,9 @@ public class Example {
     UUID shipmentId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchShipmentAsync(tenantId, shipmentId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchShipmentAsync(tenantId, shipmentId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShipmentsApi#patchShipmentAsync");
@@ -403,7 +407,7 @@ public class Example {
 | **shipmentId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

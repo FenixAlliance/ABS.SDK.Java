@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemReturnPoliciesAsync"></a>
 # **countItemReturnPoliciesAsync**
-> Int32Envelope countItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters)
 
 Count item return policies
 
@@ -38,8 +38,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters = new ItemReturnPolicyDtoCollectionQueryParameters(); // ItemReturnPolicyDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemReturnPoliciesApi#countItemReturnPoliciesAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemReturnPolicyDtoCollectionQueryParameters** | [**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -83,7 +85,7 @@ No authorization required
 
 <a id="getItemReturnPoliciesAsync"></a>
 # **getItemReturnPoliciesAsync**
-> ItemReturnPolicyDtoListEnvelope getItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+> ItemReturnPolicyDtoListEnvelope getItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters)
 
 Get item return policies
 
@@ -108,8 +110,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters = new ItemReturnPolicyDtoCollectionQueryParameters(); // ItemReturnPolicyDtoCollectionQueryParameters | 
     try {
-      ItemReturnPolicyDtoListEnvelope result = apiInstance.getItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
+      ItemReturnPolicyDtoListEnvelope result = apiInstance.getItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemReturnPoliciesApi#getItemReturnPoliciesAsync");
@@ -130,6 +133,7 @@ public class Example {
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemReturnPolicyDtoCollectionQueryParameters** | [**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -141,7 +145,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

@@ -424,7 +424,7 @@ No authorization required
 
 <a id="getExtendedOrders"></a>
 # **getExtendedOrders**
-> ExtendedOrderDtoListEnvelope getExtendedOrders(tenantId)
+> ExtendedOrderDtoListEnvelope getExtendedOrders(tenantId, extendedOrderDtoCollectionQueryParameters)
 
 Gets a list of extended orders for a tenant.
 
@@ -446,8 +446,9 @@ public class Example {
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters = new ExtendedOrderDtoCollectionQueryParameters(); // ExtendedOrderDtoCollectionQueryParameters | 
     try {
-      ExtendedOrderDtoListEnvelope result = apiInstance.getExtendedOrders(tenantId);
+      ExtendedOrderDtoListEnvelope result = apiInstance.getExtendedOrders(tenantId, extendedOrderDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#getExtendedOrders");
@@ -465,6 +466,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **extendedOrderDtoCollectionQueryParameters** | [**ExtendedOrderDtoCollectionQueryParameters**](ExtendedOrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -476,7 +478,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -619,7 +621,7 @@ No authorization required
 
 <a id="getOrderLines"></a>
 # **getOrderLines**
-> OrderLineDtoListEnvelope getOrderLines(tenantId, orderId, itemId)
+> OrderLineDtoListEnvelope getOrderLines(tenantId, orderId, itemId, orderLineDtoCollectionQueryParameters)
 
 Gets order lines for an order.
 
@@ -643,8 +645,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID orderId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
+    OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters = new OrderLineDtoCollectionQueryParameters(); // OrderLineDtoCollectionQueryParameters | 
     try {
-      OrderLineDtoListEnvelope result = apiInstance.getOrderLines(tenantId, orderId, itemId);
+      OrderLineDtoListEnvelope result = apiInstance.getOrderLines(tenantId, orderId, itemId, orderLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#getOrderLines");
@@ -664,6 +667,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **orderId** | **UUID**|  | |
 | **itemId** | **UUID**|  | [optional] |
+| **orderLineDtoCollectionQueryParameters** | [**OrderLineDtoCollectionQueryParameters**](OrderLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -675,7 +679,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -686,7 +690,7 @@ No authorization required
 
 <a id="getOrderLinesCount"></a>
 # **getOrderLinesCount**
-> Int32Envelope getOrderLinesCount(tenantId, orderId)
+> Int32Envelope getOrderLinesCount(tenantId, orderId, orderLineDtoCollectionQueryParameters)
 
 Gets the count of order lines for an order.
 
@@ -709,8 +713,9 @@ public class Example {
     OrdersApi apiInstance = new OrdersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID orderId = UUID.randomUUID(); // UUID | 
+    OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters = new OrderLineDtoCollectionQueryParameters(); // OrderLineDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getOrderLinesCount(tenantId, orderId);
+      Int32Envelope result = apiInstance.getOrderLinesCount(tenantId, orderId, orderLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#getOrderLinesCount");
@@ -729,6 +734,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **orderId** | **UUID**|  | |
+| **orderLineDtoCollectionQueryParameters** | [**OrderLineDtoCollectionQueryParameters**](OrderLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -740,7 +746,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -751,7 +757,7 @@ No authorization required
 
 <a id="getOrders"></a>
 # **getOrders**
-> OrderDtoListEnvelope getOrders(tenantId)
+> OrderDtoListEnvelope getOrders(tenantId, orderDtoCollectionQueryParameters)
 
 Gets a list of orders for a tenant.
 
@@ -773,8 +779,9 @@ public class Example {
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters = new OrderDtoCollectionQueryParameters(); // OrderDtoCollectionQueryParameters | 
     try {
-      OrderDtoListEnvelope result = apiInstance.getOrders(tenantId);
+      OrderDtoListEnvelope result = apiInstance.getOrders(tenantId, orderDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#getOrders");
@@ -792,6 +799,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -803,7 +811,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -814,7 +822,7 @@ No authorization required
 
 <a id="getOrdersCount"></a>
 # **getOrdersCount**
-> Int32Envelope getOrdersCount(tenantId)
+> Int32Envelope getOrdersCount(tenantId, orderDtoCollectionQueryParameters)
 
 Gets the count of orders for a tenant.
 
@@ -836,8 +844,9 @@ public class Example {
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters = new OrderDtoCollectionQueryParameters(); // OrderDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getOrdersCount(tenantId);
+      Int32Envelope result = apiInstance.getOrdersCount(tenantId, orderDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#getOrdersCount");
@@ -855,6 +864,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **orderDtoCollectionQueryParameters** | [**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -866,7 +876,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -877,7 +887,7 @@ No authorization required
 
 <a id="patchOrder"></a>
 # **patchOrder**
-> EmptyEnvelope patchOrder(tenantId, orderId, operation)
+> EmptyEnvelope patchOrder(tenantId, orderId, patchOperation)
 
 Partially updates an existing order.
 
@@ -900,9 +910,9 @@ public class Example {
     OrdersApi apiInstance = new OrdersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID orderId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchOrder(tenantId, orderId, operation);
+      EmptyEnvelope result = apiInstance.patchOrder(tenantId, orderId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#patchOrder");
@@ -921,7 +931,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **orderId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -944,7 +954,7 @@ No authorization required
 
 <a id="patchOrderLine"></a>
 # **patchOrderLine**
-> EmptyEnvelope patchOrderLine(tenantId, orderId, orderLineId, operation)
+> EmptyEnvelope patchOrderLine(tenantId, orderId, orderLineId, patchOperation)
 
 Partially updates an order line.
 
@@ -968,9 +978,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID orderId = UUID.randomUUID(); // UUID | 
     UUID orderLineId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchOrderLine(tenantId, orderId, orderLineId, operation);
+      EmptyEnvelope result = apiInstance.patchOrderLine(tenantId, orderId, orderLineId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#patchOrderLine");
@@ -990,7 +1000,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **orderId** | **UUID**|  | |
 | **orderLineId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -31,14 +31,16 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.ItemPickListCreateDto;
+import org.openapitools.client.model.ItemPickListDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemPickListDtoEnvelope;
 import org.openapitools.client.model.ItemPickListDtoListEnvelope;
 import org.openapitools.client.model.ItemPickListEntryCreateDto;
+import org.openapitools.client.model.ItemPickListEntryDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemPickListEntryDtoEnvelope;
 import org.openapitools.client.model.ItemPickListEntryDtoListEnvelope;
 import org.openapitools.client.model.ItemPickListEntryUpdateDto;
 import org.openapitools.client.model.ItemPickListUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -887,6 +889,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -896,7 +899,7 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPickListEntriesAsyncCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemPickListEntriesAsyncCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -910,7 +913,7 @@ public class ItemPickListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemPickListEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries"
@@ -944,6 +947,8 @@ public class ItemPickListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -955,7 +960,7 @@ public class ItemPickListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemPickListEntriesAsyncValidateBeforeCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemPickListEntriesAsyncValidateBeforeCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemPickListEntriesAsync(Async)");
@@ -966,7 +971,7 @@ public class ItemPickListsApi {
             throw new ApiException("Missing the required parameter 'pickListId' when calling getItemPickListEntriesAsync(Async)");
         }
 
-        return getItemPickListEntriesAsyncCall(tenantId, pickListId, apiVersion, xApiVersion, _callback);
+        return getItemPickListEntriesAsyncCall(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -977,6 +982,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @return ItemPickListEntryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -985,8 +991,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemPickListEntryDtoListEnvelope getItemPickListEntriesAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemPickListEntryDtoListEnvelope> localVarResp = getItemPickListEntriesAsyncWithHttpInfo(tenantId, pickListId, apiVersion, xApiVersion);
+    public ItemPickListEntryDtoListEnvelope getItemPickListEntriesAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemPickListEntryDtoListEnvelope> localVarResp = getItemPickListEntriesAsyncWithHttpInfo(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -997,6 +1003,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemPickListEntryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1005,8 +1012,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemPickListEntryDtoListEnvelope> getItemPickListEntriesAsyncWithHttpInfo(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemPickListEntriesAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemPickListEntryDtoListEnvelope> getItemPickListEntriesAsyncWithHttpInfo(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemPickListEntriesAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemPickListEntryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1018,6 +1025,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1027,9 +1035,9 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPickListEntriesAsyncAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, final ApiCallback<ItemPickListEntryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemPickListEntriesAsyncAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters, final ApiCallback<ItemPickListEntryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemPickListEntriesAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemPickListEntriesAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemPickListEntryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1040,6 +1048,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1049,7 +1058,7 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPickListEntriesCountAsyncCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemPickListEntriesCountAsyncCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1063,7 +1072,7 @@ public class ItemPickListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemPickListEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/Count"
@@ -1097,6 +1106,8 @@ public class ItemPickListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1108,7 +1119,7 @@ public class ItemPickListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemPickListEntriesCountAsyncValidateBeforeCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemPickListEntriesCountAsyncValidateBeforeCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemPickListEntriesCountAsync(Async)");
@@ -1119,7 +1130,7 @@ public class ItemPickListsApi {
             throw new ApiException("Missing the required parameter 'pickListId' when calling getItemPickListEntriesCountAsync(Async)");
         }
 
-        return getItemPickListEntriesCountAsyncCall(tenantId, pickListId, apiVersion, xApiVersion, _callback);
+        return getItemPickListEntriesCountAsyncCall(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1130,6 +1141,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1138,8 +1150,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getItemPickListEntriesCountAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getItemPickListEntriesCountAsyncWithHttpInfo(tenantId, pickListId, apiVersion, xApiVersion);
+    public Int32Envelope getItemPickListEntriesCountAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getItemPickListEntriesCountAsyncWithHttpInfo(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1150,6 +1162,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1158,8 +1171,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getItemPickListEntriesCountAsyncWithHttpInfo(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemPickListEntriesCountAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getItemPickListEntriesCountAsyncWithHttpInfo(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemPickListEntriesCountAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1171,6 +1184,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1180,9 +1194,9 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPickListEntriesCountAsyncAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getItemPickListEntriesCountAsyncAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemPickListEntriesCountAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemPickListEntriesCountAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1359,6 +1373,7 @@ public class ItemPickListsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1370,7 +1385,7 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPickListsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemPickListsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1384,7 +1399,7 @@ public class ItemPickListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemPickListDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPickLists";
@@ -1417,6 +1432,8 @@ public class ItemPickListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1428,13 +1445,13 @@ public class ItemPickListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemPickListsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemPickListsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemPickListsAsync(Async)");
         }
 
-        return getItemPickListsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getItemPickListsAsyncCall(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1444,6 +1461,7 @@ public class ItemPickListsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @return ItemPickListDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1454,8 +1472,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemPickListDtoListEnvelope getItemPickListsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemPickListDtoListEnvelope> localVarResp = getItemPickListsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ItemPickListDtoListEnvelope getItemPickListsAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemPickListDtoListEnvelope> localVarResp = getItemPickListsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1465,6 +1483,7 @@ public class ItemPickListsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemPickListDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1475,8 +1494,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemPickListDtoListEnvelope> getItemPickListsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemPickListsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemPickListDtoListEnvelope> getItemPickListsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemPickListsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemPickListDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1487,6 +1506,7 @@ public class ItemPickListsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1498,9 +1518,9 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPickListsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ItemPickListDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemPickListsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters, final ApiCallback<ItemPickListDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemPickListsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemPickListsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemPickListDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1510,6 +1530,7 @@ public class ItemPickListsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1519,7 +1540,7 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPickListsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemPickListsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1533,7 +1554,7 @@ public class ItemPickListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemPickListDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPickLists/Count";
@@ -1566,6 +1587,8 @@ public class ItemPickListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1577,13 +1600,13 @@ public class ItemPickListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemPickListsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemPickListsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemPickListsCountAsync(Async)");
         }
 
-        return getItemPickListsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getItemPickListsCountAsyncCall(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1593,6 +1616,7 @@ public class ItemPickListsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1601,8 +1625,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getItemPickListsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getItemPickListsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getItemPickListsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getItemPickListsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1612,6 +1636,7 @@ public class ItemPickListsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1620,8 +1645,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getItemPickListsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemPickListsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getItemPickListsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemPickListsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1632,6 +1657,7 @@ public class ItemPickListsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPickListDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1641,9 +1667,9 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPickListsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getItemPickListsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemPickListsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemPickListsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1654,7 +1680,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1665,7 +1691,7 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemPickListAsyncCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemPickListAsyncCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1679,7 +1705,7 @@ public class ItemPickListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPickLists/{pickListId}"
@@ -1726,7 +1752,7 @@ public class ItemPickListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemPickListAsyncValidateBeforeCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemPickListAsyncValidateBeforeCall(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemPickListAsync(Async)");
@@ -1737,7 +1763,7 @@ public class ItemPickListsApi {
             throw new ApiException("Missing the required parameter 'pickListId' when calling patchItemPickListAsync(Async)");
         }
 
-        return patchItemPickListAsyncCall(tenantId, pickListId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemPickListAsyncCall(tenantId, pickListId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1748,7 +1774,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1758,8 +1784,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchItemPickListAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchItemPickListAsyncWithHttpInfo(tenantId, pickListId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchItemPickListAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchItemPickListAsyncWithHttpInfo(tenantId, pickListId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1770,7 +1796,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1780,8 +1806,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchItemPickListAsyncWithHttpInfo(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemPickListAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchItemPickListAsyncWithHttpInfo(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemPickListAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1793,7 +1819,7 @@ public class ItemPickListsApi {
      * @param pickListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1804,9 +1830,9 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemPickListAsyncAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchItemPickListAsyncAsync(UUID tenantId, UUID pickListId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemPickListAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemPickListAsyncValidateBeforeCall(tenantId, pickListId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1818,7 +1844,7 @@ public class ItemPickListsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1829,7 +1855,7 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemPickListEntryAsyncCall(UUID tenantId, UUID pickListId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemPickListEntryAsyncCall(UUID tenantId, UUID pickListId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1843,7 +1869,7 @@ public class ItemPickListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/{entryId}"
@@ -1891,7 +1917,7 @@ public class ItemPickListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemPickListEntryAsyncValidateBeforeCall(UUID tenantId, UUID pickListId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemPickListEntryAsyncValidateBeforeCall(UUID tenantId, UUID pickListId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemPickListEntryAsync(Async)");
@@ -1907,7 +1933,7 @@ public class ItemPickListsApi {
             throw new ApiException("Missing the required parameter 'entryId' when calling patchItemPickListEntryAsync(Async)");
         }
 
-        return patchItemPickListEntryAsyncCall(tenantId, pickListId, entryId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemPickListEntryAsyncCall(tenantId, pickListId, entryId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1919,7 +1945,7 @@ public class ItemPickListsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1929,8 +1955,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchItemPickListEntryAsync(UUID tenantId, UUID pickListId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchItemPickListEntryAsyncWithHttpInfo(tenantId, pickListId, entryId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchItemPickListEntryAsync(UUID tenantId, UUID pickListId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchItemPickListEntryAsyncWithHttpInfo(tenantId, pickListId, entryId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1942,7 +1968,7 @@ public class ItemPickListsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1952,8 +1978,8 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchItemPickListEntryAsyncWithHttpInfo(UUID tenantId, UUID pickListId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemPickListEntryAsyncValidateBeforeCall(tenantId, pickListId, entryId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchItemPickListEntryAsyncWithHttpInfo(UUID tenantId, UUID pickListId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemPickListEntryAsyncValidateBeforeCall(tenantId, pickListId, entryId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1966,7 +1992,7 @@ public class ItemPickListsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1977,9 +2003,9 @@ public class ItemPickListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemPickListEntryAsyncAsync(UUID tenantId, UUID pickListId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchItemPickListEntryAsyncAsync(UUID tenantId, UUID pickListId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemPickListEntryAsyncValidateBeforeCall(tenantId, pickListId, entryId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemPickListEntryAsyncValidateBeforeCall(tenantId, pickListId, entryId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

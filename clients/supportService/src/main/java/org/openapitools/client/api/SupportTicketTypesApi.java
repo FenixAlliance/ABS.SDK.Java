@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SupportTicketTypeCreateDto;
+import org.openapitools.client.model.SupportTicketTypeDtoCollectionQueryParameters;
 import org.openapitools.client.model.SupportTicketTypeDtoEnvelope;
 import org.openapitools.client.model.SupportTicketTypeDtoListEnvelope;
 import org.openapitools.client.model.SupportTicketTypeUpdateDto;
@@ -564,6 +565,7 @@ public class SupportTicketTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -575,7 +577,7 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupportTicketTypesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSupportTicketTypesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -589,7 +591,7 @@ public class SupportTicketTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = supportTicketTypeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/SupportTicketTypes";
@@ -622,6 +624,8 @@ public class SupportTicketTypesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -633,13 +637,13 @@ public class SupportTicketTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSupportTicketTypesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSupportTicketTypesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSupportTicketTypesAsync(Async)");
         }
 
-        return getSupportTicketTypesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSupportTicketTypesAsyncCall(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -649,6 +653,7 @@ public class SupportTicketTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @return SupportTicketTypeDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -659,8 +664,8 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SupportTicketTypeDtoListEnvelope getSupportTicketTypesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SupportTicketTypeDtoListEnvelope> localVarResp = getSupportTicketTypesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SupportTicketTypeDtoListEnvelope getSupportTicketTypesAsync(UUID tenantId, String apiVersion, String xApiVersion, SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SupportTicketTypeDtoListEnvelope> localVarResp = getSupportTicketTypesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -670,6 +675,7 @@ public class SupportTicketTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SupportTicketTypeDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -680,8 +686,8 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SupportTicketTypeDtoListEnvelope> getSupportTicketTypesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSupportTicketTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<SupportTicketTypeDtoListEnvelope> getSupportTicketTypesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSupportTicketTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SupportTicketTypeDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -692,6 +698,7 @@ public class SupportTicketTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -703,9 +710,9 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupportTicketTypesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SupportTicketTypeDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSupportTicketTypesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters, final ApiCallback<SupportTicketTypeDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSupportTicketTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSupportTicketTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SupportTicketTypeDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -715,6 +722,7 @@ public class SupportTicketTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -726,7 +734,7 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupportTicketTypesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSupportTicketTypesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -740,7 +748,7 @@ public class SupportTicketTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = supportTicketTypeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/SupportTicketTypes/Count";
@@ -773,6 +781,8 @@ public class SupportTicketTypesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -784,13 +794,13 @@ public class SupportTicketTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSupportTicketTypesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSupportTicketTypesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSupportTicketTypesCountAsync(Async)");
         }
 
-        return getSupportTicketTypesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSupportTicketTypesCountAsyncCall(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -800,6 +810,7 @@ public class SupportTicketTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -810,8 +821,8 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSupportTicketTypesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSupportTicketTypesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getSupportTicketTypesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSupportTicketTypesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -821,6 +832,7 @@ public class SupportTicketTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -831,8 +843,8 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSupportTicketTypesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSupportTicketTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSupportTicketTypesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSupportTicketTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -843,6 +855,7 @@ public class SupportTicketTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportTicketTypeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -854,9 +867,9 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupportTicketTypesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSupportTicketTypesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SupportTicketTypeDtoCollectionQueryParameters supportTicketTypeDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSupportTicketTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSupportTicketTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supportTicketTypeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -867,7 +880,7 @@ public class SupportTicketTypesApi {
      * @param supportTicketTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +892,7 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSupportTicketTypeAsyncCall(UUID tenantId, UUID supportTicketTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchSupportTicketTypeAsyncCall(UUID tenantId, UUID supportTicketTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +906,7 @@ public class SupportTicketTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId}"
@@ -940,7 +953,7 @@ public class SupportTicketTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchSupportTicketTypeAsyncValidateBeforeCall(UUID tenantId, UUID supportTicketTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSupportTicketTypeAsyncValidateBeforeCall(UUID tenantId, UUID supportTicketTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchSupportTicketTypeAsync(Async)");
@@ -951,7 +964,7 @@ public class SupportTicketTypesApi {
             throw new ApiException("Missing the required parameter 'supportTicketTypeId' when calling patchSupportTicketTypeAsync(Async)");
         }
 
-        return patchSupportTicketTypeAsyncCall(tenantId, supportTicketTypeId, apiVersion, xApiVersion, operation, _callback);
+        return patchSupportTicketTypeAsyncCall(tenantId, supportTicketTypeId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -962,7 +975,7 @@ public class SupportTicketTypesApi {
      * @param supportTicketTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -973,8 +986,8 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchSupportTicketTypeAsync(UUID tenantId, UUID supportTicketTypeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchSupportTicketTypeAsyncWithHttpInfo(tenantId, supportTicketTypeId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchSupportTicketTypeAsync(UUID tenantId, UUID supportTicketTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchSupportTicketTypeAsyncWithHttpInfo(tenantId, supportTicketTypeId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -985,7 +998,7 @@ public class SupportTicketTypesApi {
      * @param supportTicketTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -996,8 +1009,8 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchSupportTicketTypeAsyncWithHttpInfo(UUID tenantId, UUID supportTicketTypeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchSupportTicketTypeAsyncValidateBeforeCall(tenantId, supportTicketTypeId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchSupportTicketTypeAsyncWithHttpInfo(UUID tenantId, UUID supportTicketTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchSupportTicketTypeAsyncValidateBeforeCall(tenantId, supportTicketTypeId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +1022,7 @@ public class SupportTicketTypesApi {
      * @param supportTicketTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1021,9 +1034,9 @@ public class SupportTicketTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSupportTicketTypeAsyncAsync(UUID tenantId, UUID supportTicketTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchSupportTicketTypeAsyncAsync(UUID tenantId, UUID supportTicketTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchSupportTicketTypeAsyncValidateBeforeCall(tenantId, supportTicketTypeId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchSupportTicketTypeAsyncValidateBeforeCall(tenantId, supportTicketTypeId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -213,7 +213,7 @@ No authorization required
 
 <a id="getMaintenanceVisitsAsync"></a>
 # **getMaintenanceVisitsAsync**
-> MaintenanceVisitDtoListEnvelope getMaintenanceVisitsAsync(tenantId, apiVersion, xApiVersion)
+> MaintenanceVisitDtoListEnvelope getMaintenanceVisitsAsync(tenantId, apiVersion, xApiVersion, maintenanceVisitDtoCollectionQueryParameters)
 
 Retrieve maintenance visits
 
@@ -235,8 +235,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    MaintenanceVisitDtoCollectionQueryParameters maintenanceVisitDtoCollectionQueryParameters = new MaintenanceVisitDtoCollectionQueryParameters(); // MaintenanceVisitDtoCollectionQueryParameters | 
     try {
-      MaintenanceVisitDtoListEnvelope result = apiInstance.getMaintenanceVisitsAsync(tenantId, apiVersion, xApiVersion);
+      MaintenanceVisitDtoListEnvelope result = apiInstance.getMaintenanceVisitsAsync(tenantId, apiVersion, xApiVersion, maintenanceVisitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MaintenanceVisitsApi#getMaintenanceVisitsAsync");
@@ -256,6 +257,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **maintenanceVisitDtoCollectionQueryParameters** | [**MaintenanceVisitDtoCollectionQueryParameters**](MaintenanceVisitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -267,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -277,7 +279,7 @@ No authorization required
 
 <a id="getMaintenanceVisitsCountAsync"></a>
 # **getMaintenanceVisitsCountAsync**
-> Int32Envelope getMaintenanceVisitsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getMaintenanceVisitsCountAsync(tenantId, apiVersion, xApiVersion, maintenanceVisitDtoCollectionQueryParameters)
 
 Get maintenance visits count
 
@@ -299,8 +301,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    MaintenanceVisitDtoCollectionQueryParameters maintenanceVisitDtoCollectionQueryParameters = new MaintenanceVisitDtoCollectionQueryParameters(); // MaintenanceVisitDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getMaintenanceVisitsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getMaintenanceVisitsCountAsync(tenantId, apiVersion, xApiVersion, maintenanceVisitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MaintenanceVisitsApi#getMaintenanceVisitsCountAsync");
@@ -320,6 +323,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **maintenanceVisitDtoCollectionQueryParameters** | [**MaintenanceVisitDtoCollectionQueryParameters**](MaintenanceVisitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -331,7 +335,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -341,7 +345,7 @@ No authorization required
 
 <a id="patchMaintenanceVisitAsync"></a>
 # **patchMaintenanceVisitAsync**
-> EmptyEnvelope patchMaintenanceVisitAsync(tenantId, maintenanceVisitId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchMaintenanceVisitAsync(tenantId, maintenanceVisitId, apiVersion, xApiVersion, patchOperation)
 
 Patch a maintenance visit
 
@@ -366,9 +370,9 @@ public class Example {
     UUID maintenanceVisitId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchMaintenanceVisitAsync(tenantId, maintenanceVisitId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchMaintenanceVisitAsync(tenantId, maintenanceVisitId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MaintenanceVisitsApi#patchMaintenanceVisitAsync");
@@ -389,7 +393,7 @@ public class Example {
 | **maintenanceVisitId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -28,13 +28,14 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AssetTransferCreateDto;
+import org.openapitools.client.model.AssetTransferDtoCollectionQueryParameters;
 import org.openapitools.client.model.AssetTransferDtoEnvelope;
 import org.openapitools.client.model.AssetTransferDtoListEnvelope;
 import org.openapitools.client.model.AssetTransferUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -514,6 +515,7 @@ public class AssetTransfersApi {
     /**
      * Build call for getAssetTransfersAsync
      * @param tenantId  (required)
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -525,7 +527,7 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssetTransfersAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAssetTransfersAsyncCall(UUID tenantId, AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -539,7 +541,7 @@ public class AssetTransfersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = assetTransferDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AssetsService/AssetTransfers";
@@ -564,6 +566,8 @@ public class AssetTransfersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -575,13 +579,13 @@ public class AssetTransfersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAssetTransfersAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAssetTransfersAsyncValidateBeforeCall(UUID tenantId, AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAssetTransfersAsync(Async)");
         }
 
-        return getAssetTransfersAsyncCall(tenantId, _callback);
+        return getAssetTransfersAsyncCall(tenantId, assetTransferDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -589,6 +593,7 @@ public class AssetTransfersApi {
      * Gets a list of asset transfers
      * Retrieves all asset transfers for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return AssetTransferDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -599,8 +604,8 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AssetTransferDtoListEnvelope getAssetTransfersAsync(UUID tenantId) throws ApiException {
-        ApiResponse<AssetTransferDtoListEnvelope> localVarResp = getAssetTransfersAsyncWithHttpInfo(tenantId);
+    public AssetTransferDtoListEnvelope getAssetTransfersAsync(UUID tenantId, AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<AssetTransferDtoListEnvelope> localVarResp = getAssetTransfersAsyncWithHttpInfo(tenantId, assetTransferDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -608,6 +613,7 @@ public class AssetTransfersApi {
      * Gets a list of asset transfers
      * Retrieves all asset transfers for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;AssetTransferDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -618,8 +624,8 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssetTransferDtoListEnvelope> getAssetTransfersAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getAssetTransfersAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<AssetTransferDtoListEnvelope> getAssetTransfersAsyncWithHttpInfo(UUID tenantId, AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAssetTransfersAsyncValidateBeforeCall(tenantId, assetTransferDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<AssetTransferDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -628,6 +634,7 @@ public class AssetTransfersApi {
      * Gets a list of asset transfers (asynchronously)
      * Retrieves all asset transfers for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -639,9 +646,9 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssetTransfersAsyncAsync(UUID tenantId, final ApiCallback<AssetTransferDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAssetTransfersAsyncAsync(UUID tenantId, AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters, final ApiCallback<AssetTransferDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAssetTransfersAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getAssetTransfersAsyncValidateBeforeCall(tenantId, assetTransferDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<AssetTransferDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -649,6 +656,7 @@ public class AssetTransfersApi {
     /**
      * Build call for getAssetTransfersCountAsync
      * @param tenantId  (required)
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -660,7 +668,7 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssetTransfersCountAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAssetTransfersCountAsyncCall(UUID tenantId, AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -674,7 +682,7 @@ public class AssetTransfersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = assetTransferDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AssetsService/AssetTransfers/Count";
@@ -699,6 +707,8 @@ public class AssetTransfersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -710,13 +720,13 @@ public class AssetTransfersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAssetTransfersCountAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAssetTransfersCountAsyncValidateBeforeCall(UUID tenantId, AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAssetTransfersCountAsync(Async)");
         }
 
-        return getAssetTransfersCountAsyncCall(tenantId, _callback);
+        return getAssetTransfersCountAsyncCall(tenantId, assetTransferDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -724,6 +734,7 @@ public class AssetTransfersApi {
      * Gets the count of asset transfers
      * Returns the total number of asset transfers for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -734,8 +745,8 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getAssetTransfersCountAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getAssetTransfersCountAsyncWithHttpInfo(tenantId);
+    public Int32Envelope getAssetTransfersCountAsync(UUID tenantId, AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getAssetTransfersCountAsyncWithHttpInfo(tenantId, assetTransferDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -743,6 +754,7 @@ public class AssetTransfersApi {
      * Gets the count of asset transfers
      * Returns the total number of asset transfers for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -753,8 +765,8 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getAssetTransfersCountAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getAssetTransfersCountAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getAssetTransfersCountAsyncWithHttpInfo(UUID tenantId, AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAssetTransfersCountAsyncValidateBeforeCall(tenantId, assetTransferDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -763,6 +775,7 @@ public class AssetTransfersApi {
      * Gets the count of asset transfers (asynchronously)
      * Returns the total number of asset transfers for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetTransferDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -774,9 +787,9 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssetTransfersCountAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getAssetTransfersCountAsyncAsync(UUID tenantId, AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAssetTransfersCountAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getAssetTransfersCountAsyncValidateBeforeCall(tenantId, assetTransferDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -785,7 +798,7 @@ public class AssetTransfersApi {
      * Build call for patchAssetTransferAsync
      * @param tenantId  (required)
      * @param transferId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -799,7 +812,7 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAssetTransferAsyncCall(UUID tenantId, UUID transferId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchAssetTransferAsyncCall(UUID tenantId, UUID transferId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -813,7 +826,7 @@ public class AssetTransfersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AssetsService/AssetTransfers/{transferId}"
@@ -852,7 +865,7 @@ public class AssetTransfersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchAssetTransferAsyncValidateBeforeCall(UUID tenantId, UUID transferId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchAssetTransferAsyncValidateBeforeCall(UUID tenantId, UUID transferId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchAssetTransferAsync(Async)");
@@ -863,7 +876,7 @@ public class AssetTransfersApi {
             throw new ApiException("Missing the required parameter 'transferId' when calling patchAssetTransferAsync(Async)");
         }
 
-        return patchAssetTransferAsyncCall(tenantId, transferId, operation, _callback);
+        return patchAssetTransferAsyncCall(tenantId, transferId, patchOperation, _callback);
 
     }
 
@@ -872,7 +885,7 @@ public class AssetTransfersApi {
      * Applies a JSON Patch document to an existing asset transfer for the authenticated tenant.
      * @param tenantId  (required)
      * @param transferId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -885,8 +898,8 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchAssetTransferAsync(UUID tenantId, UUID transferId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchAssetTransferAsyncWithHttpInfo(tenantId, transferId, operation);
+    public EmptyEnvelope patchAssetTransferAsync(UUID tenantId, UUID transferId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchAssetTransferAsyncWithHttpInfo(tenantId, transferId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -895,7 +908,7 @@ public class AssetTransfersApi {
      * Applies a JSON Patch document to an existing asset transfer for the authenticated tenant.
      * @param tenantId  (required)
      * @param transferId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -908,8 +921,8 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchAssetTransferAsyncWithHttpInfo(UUID tenantId, UUID transferId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchAssetTransferAsyncValidateBeforeCall(tenantId, transferId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchAssetTransferAsyncWithHttpInfo(UUID tenantId, UUID transferId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchAssetTransferAsyncValidateBeforeCall(tenantId, transferId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -919,7 +932,7 @@ public class AssetTransfersApi {
      * Applies a JSON Patch document to an existing asset transfer for the authenticated tenant.
      * @param tenantId  (required)
      * @param transferId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -933,9 +946,9 @@ public class AssetTransfersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAssetTransferAsyncAsync(UUID tenantId, UUID transferId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchAssetTransferAsyncAsync(UUID tenantId, UUID transferId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchAssetTransferAsyncValidateBeforeCall(tenantId, transferId, operation, _callback);
+        okhttp3.Call localVarCall = patchAssetTransferAsyncValidateBeforeCall(tenantId, transferId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

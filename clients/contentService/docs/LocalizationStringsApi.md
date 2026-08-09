@@ -14,7 +14,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countLocalizationStringsAsync"></a>
 # **countLocalizationStringsAsync**
-> Int32Envelope countLocalizationStringsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countLocalizationStringsAsync(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters)
 
 Count localization strings
 
@@ -38,8 +38,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters = new LocalizationStringDtoCollectionQueryParameters(); // LocalizationStringDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countLocalizationStringsAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countLocalizationStringsAsync(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LocalizationStringsApi#countLocalizationStringsAsync");
@@ -59,6 +60,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **localizationStringDtoCollectionQueryParameters** | [**LocalizationStringDtoCollectionQueryParameters**](LocalizationStringDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -70,7 +72,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -292,7 +294,7 @@ No authorization required
 
 <a id="getLocalizationStringsAsync"></a>
 # **getLocalizationStringsAsync**
-> LocalizationStringDtoListEnvelope getLocalizationStringsAsync(tenantId, apiVersion, xApiVersion)
+> LocalizationStringDtoListEnvelope getLocalizationStringsAsync(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters)
 
 Get localization strings
 
@@ -316,8 +318,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters = new LocalizationStringDtoCollectionQueryParameters(); // LocalizationStringDtoCollectionQueryParameters | 
     try {
-      LocalizationStringDtoListEnvelope result = apiInstance.getLocalizationStringsAsync(tenantId, apiVersion, xApiVersion);
+      LocalizationStringDtoListEnvelope result = apiInstance.getLocalizationStringsAsync(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LocalizationStringsApi#getLocalizationStringsAsync");
@@ -337,6 +340,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **localizationStringDtoCollectionQueryParameters** | [**LocalizationStringDtoCollectionQueryParameters**](LocalizationStringDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -348,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

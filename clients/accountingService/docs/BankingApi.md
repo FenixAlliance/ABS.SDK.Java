@@ -752,7 +752,7 @@ No authorization required
 
 <a id="getBankAccounts"></a>
 # **getBankAccounts**
-> BankAccountDtoListEnvelope getBankAccounts(tenantId, bankId, apiVersion, xApiVersion)
+> BankAccountDtoListEnvelope getBankAccounts(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
 
 Gets the current tenant bank accounts
 
@@ -777,8 +777,9 @@ public class Example {
     UUID bankId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters = new BankAccountDtoCollectionQueryParameters(); // BankAccountDtoCollectionQueryParameters | 
     try {
-      BankAccountDtoListEnvelope result = apiInstance.getBankAccounts(tenantId, bankId, apiVersion, xApiVersion);
+      BankAccountDtoListEnvelope result = apiInstance.getBankAccounts(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#getBankAccounts");
@@ -799,6 +800,7 @@ public class Example {
 | **bankId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -810,7 +812,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -822,7 +824,7 @@ No authorization required
 
 <a id="getBankAccountsCount"></a>
 # **getBankAccountsCount**
-> Int32Envelope getBankAccountsCount(tenantId, bankId, apiVersion, xApiVersion)
+> Int32Envelope getBankAccountsCount(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters)
 
 Gets the current tenant bank accounts count
 
@@ -847,8 +849,9 @@ public class Example {
     UUID bankId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters = new BankAccountDtoCollectionQueryParameters(); // BankAccountDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBankAccountsCount(tenantId, bankId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBankAccountsCount(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#getBankAccountsCount");
@@ -869,6 +872,7 @@ public class Example {
 | **bankId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankAccountDtoCollectionQueryParameters** | [**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -880,7 +884,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -965,7 +969,7 @@ No authorization required
 
 <a id="getBankGuarantees"></a>
 # **getBankGuarantees**
-> BankGuaranteeDtoListEnvelope getBankGuarantees(tenantId, bankId, apiVersion, xApiVersion)
+> BankGuaranteeDtoListEnvelope getBankGuarantees(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters)
 
 Gets the current tenant bank guarantees
 
@@ -990,8 +994,9 @@ public class Example {
     UUID bankId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters = new BankGuaranteeDtoCollectionQueryParameters(); // BankGuaranteeDtoCollectionQueryParameters | 
     try {
-      BankGuaranteeDtoListEnvelope result = apiInstance.getBankGuarantees(tenantId, bankId, apiVersion, xApiVersion);
+      BankGuaranteeDtoListEnvelope result = apiInstance.getBankGuarantees(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#getBankGuarantees");
@@ -1012,6 +1017,7 @@ public class Example {
 | **bankId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankGuaranteeDtoCollectionQueryParameters** | [**BankGuaranteeDtoCollectionQueryParameters**](BankGuaranteeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1023,7 +1029,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1035,7 +1041,7 @@ No authorization required
 
 <a id="getBankGuaranteesCount"></a>
 # **getBankGuaranteesCount**
-> Int32Envelope getBankGuaranteesCount(tenantId, bankId, apiVersion, xApiVersion)
+> Int32Envelope getBankGuaranteesCount(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters)
 
 Gets the current tenant bank guarantees count
 
@@ -1060,8 +1066,9 @@ public class Example {
     UUID bankId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters = new BankGuaranteeDtoCollectionQueryParameters(); // BankGuaranteeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBankGuaranteesCount(tenantId, bankId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBankGuaranteesCount(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#getBankGuaranteesCount");
@@ -1082,6 +1089,7 @@ public class Example {
 | **bankId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankGuaranteeDtoCollectionQueryParameters** | [**BankGuaranteeDtoCollectionQueryParameters**](BankGuaranteeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1093,7 +1101,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1178,7 +1186,7 @@ No authorization required
 
 <a id="getBankTransactions"></a>
 # **getBankTransactions**
-> BankTransactionDtoListEnvelope getBankTransactions(tenantId, bankId, apiVersion, xApiVersion)
+> BankTransactionDtoListEnvelope getBankTransactions(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters)
 
 Gets the current tenant bank transactions
 
@@ -1203,8 +1211,9 @@ public class Example {
     UUID bankId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters = new BankTransactionDtoCollectionQueryParameters(); // BankTransactionDtoCollectionQueryParameters | 
     try {
-      BankTransactionDtoListEnvelope result = apiInstance.getBankTransactions(tenantId, bankId, apiVersion, xApiVersion);
+      BankTransactionDtoListEnvelope result = apiInstance.getBankTransactions(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#getBankTransactions");
@@ -1225,6 +1234,7 @@ public class Example {
 | **bankId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankTransactionDtoCollectionQueryParameters** | [**BankTransactionDtoCollectionQueryParameters**](BankTransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1236,7 +1246,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1248,7 +1258,7 @@ No authorization required
 
 <a id="getBankTransactionsCount"></a>
 # **getBankTransactionsCount**
-> Int32Envelope getBankTransactionsCount(tenantId, bankId, apiVersion, xApiVersion)
+> Int32Envelope getBankTransactionsCount(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters)
 
 Gets the current tenant bank transactions count
 
@@ -1273,8 +1283,9 @@ public class Example {
     UUID bankId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters = new BankTransactionDtoCollectionQueryParameters(); // BankTransactionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBankTransactionsCount(tenantId, bankId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBankTransactionsCount(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#getBankTransactionsCount");
@@ -1295,6 +1306,7 @@ public class Example {
 | **bankId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankTransactionDtoCollectionQueryParameters** | [**BankTransactionDtoCollectionQueryParameters**](BankTransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1306,7 +1318,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1318,7 +1330,7 @@ No authorization required
 
 <a id="getBanks"></a>
 # **getBanks**
-> BankDtoListEnvelope getBanks(tenantId, apiVersion, xApiVersion)
+> BankDtoListEnvelope getBanks(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters)
 
 Gets the current tenant banks
 
@@ -1342,8 +1354,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters = new BankDtoCollectionQueryParameters(); // BankDtoCollectionQueryParameters | 
     try {
-      BankDtoListEnvelope result = apiInstance.getBanks(tenantId, apiVersion, xApiVersion);
+      BankDtoListEnvelope result = apiInstance.getBanks(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#getBanks");
@@ -1363,6 +1376,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankDtoCollectionQueryParameters** | [**BankDtoCollectionQueryParameters**](BankDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1374,7 +1388,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1386,7 +1400,7 @@ No authorization required
 
 <a id="getBanksCount"></a>
 # **getBanksCount**
-> Int32Envelope getBanksCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBanksCount(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters)
 
 Gets the current tenant banks count
 
@@ -1410,8 +1424,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters = new BankDtoCollectionQueryParameters(); // BankDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBanksCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBanksCount(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#getBanksCount");
@@ -1431,6 +1446,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **bankDtoCollectionQueryParameters** | [**BankDtoCollectionQueryParameters**](BankDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1442,7 +1458,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1454,7 +1470,7 @@ No authorization required
 
 <a id="patchBank"></a>
 # **patchBank**
-> EmptyEnvelope patchBank(tenantId, bankId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBank(tenantId, bankId, apiVersion, xApiVersion, patchOperation)
 
 Patches a bank
 
@@ -1479,9 +1495,9 @@ public class Example {
     UUID bankId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBank(tenantId, bankId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBank(tenantId, bankId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#patchBank");
@@ -1502,7 +1518,7 @@ public class Example {
 | **bankId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1528,7 +1544,7 @@ No authorization required
 
 <a id="patchBankAccount"></a>
 # **patchBankAccount**
-> EmptyEnvelope patchBankAccount(tenantId, bankId, accountId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBankAccount(tenantId, bankId, accountId, apiVersion, xApiVersion, patchOperation)
 
 Patches a bank account
 
@@ -1554,9 +1570,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBankAccount(tenantId, bankId, accountId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBankAccount(tenantId, bankId, accountId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#patchBankAccount");
@@ -1578,7 +1594,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1604,7 +1620,7 @@ No authorization required
 
 <a id="patchBankGuarantee"></a>
 # **patchBankGuarantee**
-> EmptyEnvelope patchBankGuarantee(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBankGuarantee(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, patchOperation)
 
 Patches a bank guarantee
 
@@ -1630,9 +1646,9 @@ public class Example {
     UUID guaranteeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBankGuarantee(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBankGuarantee(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#patchBankGuarantee");
@@ -1654,7 +1670,7 @@ public class Example {
 | **guaranteeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1680,7 +1696,7 @@ No authorization required
 
 <a id="patchBankTransaction"></a>
 # **patchBankTransaction**
-> EmptyEnvelope patchBankTransaction(tenantId, bankId, transactionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBankTransaction(tenantId, bankId, transactionId, apiVersion, xApiVersion, patchOperation)
 
 Patches a bank transaction
 
@@ -1706,9 +1722,9 @@ public class Example {
     UUID transactionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBankTransaction(tenantId, bankId, transactionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBankTransaction(tenantId, bankId, transactionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankingApi#patchBankTransaction");
@@ -1730,7 +1746,7 @@ public class Example {
 | **transactionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -558,7 +558,7 @@ No authorization required
 
 <a id="getExtendedQuotes"></a>
 # **getExtendedQuotes**
-> ExtendedQuoteDtoListEnvelope getExtendedQuotes(tenantId)
+> ExtendedQuoteDtoListEnvelope getExtendedQuotes(tenantId, extendedQuoteDtoCollectionQueryParameters)
 
 Get a list of extended quotes.
 
@@ -580,8 +580,9 @@ public class Example {
 
     QuotesApi apiInstance = new QuotesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ExtendedQuoteDtoCollectionQueryParameters extendedQuoteDtoCollectionQueryParameters = new ExtendedQuoteDtoCollectionQueryParameters(); // ExtendedQuoteDtoCollectionQueryParameters | 
     try {
-      ExtendedQuoteDtoListEnvelope result = apiInstance.getExtendedQuotes(tenantId);
+      ExtendedQuoteDtoListEnvelope result = apiInstance.getExtendedQuotes(tenantId, extendedQuoteDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling QuotesApi#getExtendedQuotes");
@@ -599,6 +600,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **extendedQuoteDtoCollectionQueryParameters** | [**ExtendedQuoteDtoCollectionQueryParameters**](ExtendedQuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -610,7 +612,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -753,7 +755,7 @@ No authorization required
 
 <a id="getQuoteLines"></a>
 # **getQuoteLines**
-> QuoteLineDtoListEnvelope getQuoteLines(tenantId, quoteId, itemId)
+> QuoteLineDtoListEnvelope getQuoteLines(tenantId, quoteId, itemId, quoteLineDtoCollectionQueryParameters)
 
 Get quote lines for a quote.
 
@@ -777,8 +779,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID quoteId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
+    QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters = new QuoteLineDtoCollectionQueryParameters(); // QuoteLineDtoCollectionQueryParameters | 
     try {
-      QuoteLineDtoListEnvelope result = apiInstance.getQuoteLines(tenantId, quoteId, itemId);
+      QuoteLineDtoListEnvelope result = apiInstance.getQuoteLines(tenantId, quoteId, itemId, quoteLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling QuotesApi#getQuoteLines");
@@ -798,6 +801,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **quoteId** | **UUID**|  | |
 | **itemId** | **UUID**|  | [optional] |
+| **quoteLineDtoCollectionQueryParameters** | [**QuoteLineDtoCollectionQueryParameters**](QuoteLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -809,7 +813,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -820,7 +824,7 @@ No authorization required
 
 <a id="getQuoteLinesCount"></a>
 # **getQuoteLinesCount**
-> Int32Envelope getQuoteLinesCount(tenantId, quoteId)
+> Int32Envelope getQuoteLinesCount(tenantId, quoteId, quoteLineDtoCollectionQueryParameters)
 
 Get the count of quote lines.
 
@@ -843,8 +847,9 @@ public class Example {
     QuotesApi apiInstance = new QuotesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID quoteId = UUID.randomUUID(); // UUID | 
+    QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters = new QuoteLineDtoCollectionQueryParameters(); // QuoteLineDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getQuoteLinesCount(tenantId, quoteId);
+      Int32Envelope result = apiInstance.getQuoteLinesCount(tenantId, quoteId, quoteLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling QuotesApi#getQuoteLinesCount");
@@ -863,6 +868,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **quoteId** | **UUID**|  | |
+| **quoteLineDtoCollectionQueryParameters** | [**QuoteLineDtoCollectionQueryParameters**](QuoteLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -874,7 +880,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -885,7 +891,7 @@ No authorization required
 
 <a id="getQuotes"></a>
 # **getQuotes**
-> QuoteDtoListEnvelope getQuotes(tenantId)
+> QuoteDtoListEnvelope getQuotes(tenantId, quoteDtoCollectionQueryParameters)
 
 Get a list of quotes.
 
@@ -907,8 +913,9 @@ public class Example {
 
     QuotesApi apiInstance = new QuotesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters = new QuoteDtoCollectionQueryParameters(); // QuoteDtoCollectionQueryParameters | 
     try {
-      QuoteDtoListEnvelope result = apiInstance.getQuotes(tenantId);
+      QuoteDtoListEnvelope result = apiInstance.getQuotes(tenantId, quoteDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling QuotesApi#getQuotes");
@@ -926,6 +933,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -937,7 +945,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -948,7 +956,7 @@ No authorization required
 
 <a id="getQuotesCount"></a>
 # **getQuotesCount**
-> Int32Envelope getQuotesCount(tenantId)
+> Int32Envelope getQuotesCount(tenantId, quoteDtoCollectionQueryParameters)
 
 Get the count of quotes.
 
@@ -970,8 +978,9 @@ public class Example {
 
     QuotesApi apiInstance = new QuotesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters = new QuoteDtoCollectionQueryParameters(); // QuoteDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getQuotesCount(tenantId);
+      Int32Envelope result = apiInstance.getQuotesCount(tenantId, quoteDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling QuotesApi#getQuotesCount");
@@ -989,6 +998,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **quoteDtoCollectionQueryParameters** | [**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1000,7 +1010,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1011,7 +1021,7 @@ No authorization required
 
 <a id="patchQuoteAsync"></a>
 # **patchQuoteAsync**
-> EmptyEnvelope patchQuoteAsync(tenantId, quoteId, operation)
+> EmptyEnvelope patchQuoteAsync(tenantId, quoteId, patchOperation)
 
 Patch an existing quote.
 
@@ -1034,9 +1044,9 @@ public class Example {
     QuotesApi apiInstance = new QuotesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID quoteId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchQuoteAsync(tenantId, quoteId, operation);
+      EmptyEnvelope result = apiInstance.patchQuoteAsync(tenantId, quoteId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling QuotesApi#patchQuoteAsync");
@@ -1055,7 +1065,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **quoteId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1080,7 +1090,7 @@ No authorization required
 
 <a id="patchQuoteLineAsync"></a>
 # **patchQuoteLineAsync**
-> EmptyEnvelope patchQuoteLineAsync(tenantId, quoteId, quoteLineId, operation)
+> EmptyEnvelope patchQuoteLineAsync(tenantId, quoteId, quoteLineId, patchOperation)
 
 Patch a quote line.
 
@@ -1104,9 +1114,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID quoteId = UUID.randomUUID(); // UUID | 
     UUID quoteLineId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchQuoteLineAsync(tenantId, quoteId, quoteLineId, operation);
+      EmptyEnvelope result = apiInstance.patchQuoteLineAsync(tenantId, quoteId, quoteLineId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling QuotesApi#patchQuoteLineAsync");
@@ -1126,7 +1136,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **quoteId** | **UUID**|  | |
 | **quoteLineId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

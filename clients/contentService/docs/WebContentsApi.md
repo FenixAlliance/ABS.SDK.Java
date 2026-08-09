@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countWebContentsAsync"></a>
 # **countWebContentsAsync**
-> Int32Envelope countWebContentsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countWebContentsAsync(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters)
 
 Count web contents
 
@@ -39,8 +39,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters = new WebContentDtoCollectionQueryParameters(); // WebContentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countWebContentsAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countWebContentsAsync(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebContentsApi#countWebContentsAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webContentDtoCollectionQueryParameters** | [**WebContentDtoCollectionQueryParameters**](WebContentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getWebContentsAsync"></a>
 # **getWebContentsAsync**
-> WebContentDtoListEnvelope getWebContentsAsync(tenantId, apiVersion, xApiVersion)
+> WebContentDtoListEnvelope getWebContentsAsync(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters)
 
 Get web contents
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters = new WebContentDtoCollectionQueryParameters(); // WebContentDtoCollectionQueryParameters | 
     try {
-      WebContentDtoListEnvelope result = apiInstance.getWebContentsAsync(tenantId, apiVersion, xApiVersion);
+      WebContentDtoListEnvelope result = apiInstance.getWebContentsAsync(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebContentsApi#getWebContentsAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webContentDtoCollectionQueryParameters** | [**WebContentDtoCollectionQueryParameters**](WebContentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchWebContentAsync"></a>
 # **patchWebContentAsync**
-> EmptyEnvelope patchWebContentAsync(tenantId, webContentId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWebContentAsync(tenantId, webContentId, apiVersion, xApiVersion, patchOperation)
 
 Patch a web content
 
@@ -386,9 +390,9 @@ public class Example {
     UUID webContentId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWebContentAsync(tenantId, webContentId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchWebContentAsync(tenantId, webContentId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebContentsApi#patchWebContentAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **webContentId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -11,10 +11,13 @@ All URIs are relative to *https://absuite.net*
 | [**getExtendedAccountHolderAsync**](UsersApi.md#getExtendedAccountHolderAsync) | **GET** /api/v2/SystemService/Users/{userId}/Extended | Retrieve an extended user by ID |
 | [**getExtendedUsersAsync**](UsersApi.md#getExtendedUsersAsync) | **GET** /api/v2/SystemService/Users/Extended | Retrieve a list of extended users |
 | [**getExtendedUsersCountAsync**](UsersApi.md#getExtendedUsersCountAsync) | **GET** /api/v2/SystemService/Users/Extended/Count | Get the count of extended users |
+| [**getUserAdminDetailAsync**](UsersApi.md#getUserAdminDetailAsync) | **GET** /api/v2/SystemService/Users/{userId}/AdminDetail | Retrieve the admin detail aggregate for a user |
 | [**getUserAsync**](UsersApi.md#getUserAsync) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID |
 | [**getUsersAsync**](UsersApi.md#getUsersAsync) | **GET** /api/v2/SystemService/Users | Retrieve a list of users |
 | [**getUsersCountAsync**](UsersApi.md#getUsersCountAsync) | **GET** /api/v2/SystemService/Users/Count | Get the count of users |
 | [**patchAccountHolderAsync**](UsersApi.md#patchAccountHolderAsync) | **PATCH** /api/v2/SystemService/Users/{userId} | Partially update a user |
+| [**setUserPasswordAsync**](UsersApi.md#setUserPasswordAsync) | **POST** /api/v2/SystemService/Users/{userId}/Password | Set a user&#39;s password |
+| [**updateAccountHolderAdminProfileAsync**](UsersApi.md#updateAccountHolderAdminProfileAsync) | **PUT** /api/v2/SystemService/Users/{userId}/AdminProfile | Update a user&#39;s admin-managed profile |
 | [**updateAccountHolderAsync**](UsersApi.md#updateAccountHolderAsync) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user |
 
 
@@ -362,7 +365,7 @@ No authorization required
 
 <a id="getExtendedUsersAsync"></a>
 # **getExtendedUsersAsync**
-> ExtendedUserDtoListEnvelope getExtendedUsersAsync(apiVersion, xApiVersion)
+> ExtendedUserDtoListEnvelope getExtendedUsersAsync(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters)
 
 Retrieve a list of extended users
 
@@ -385,8 +388,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters = new ExtendedUserDtoCollectionQueryParameters(); // ExtendedUserDtoCollectionQueryParameters | 
     try {
-      ExtendedUserDtoListEnvelope result = apiInstance.getExtendedUsersAsync(apiVersion, xApiVersion);
+      ExtendedUserDtoListEnvelope result = apiInstance.getExtendedUsersAsync(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#getExtendedUsersAsync");
@@ -405,6 +409,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **extendedUserDtoCollectionQueryParameters** | [**ExtendedUserDtoCollectionQueryParameters**](ExtendedUserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -416,7 +421,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -428,7 +433,7 @@ No authorization required
 
 <a id="getExtendedUsersCountAsync"></a>
 # **getExtendedUsersCountAsync**
-> Int32Envelope getExtendedUsersCountAsync(apiVersion, xApiVersion)
+> Int32Envelope getExtendedUsersCountAsync(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters)
 
 Get the count of extended users
 
@@ -451,8 +456,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters = new ExtendedUserDtoCollectionQueryParameters(); // ExtendedUserDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getExtendedUsersCountAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getExtendedUsersCountAsync(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#getExtendedUsersCountAsync");
@@ -471,10 +477,81 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **extendedUserDtoCollectionQueryParameters** | [**ExtendedUserDtoCollectionQueryParameters**](ExtendedUserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
 [**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getUserAdminDetailAsync"></a>
+# **getUserAdminDetailAsync**
+> UserAdminDetailDtoEnvelope getUserAdminDetailAsync(userId, tenantId, apiVersion, xApiVersion)
+
+Retrieve the admin detail aggregate for a user
+
+Returns the user&#39;s orders, external logins, and — for the supplied tenant — the enrollment with its granted roles/permissions and the tenant role/permission catalogs. Global administrators only.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.UsersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    UsersApi apiInstance = new UsersApi(defaultClient);
+    String userId = "userId_example"; // String | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      UserAdminDetailDtoEnvelope result = apiInstance.getUserAdminDetailAsync(userId, tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UsersApi#getUserAdminDetailAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **String**|  | |
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**UserAdminDetailDtoEnvelope**](UserAdminDetailDtoEnvelope.md)
 
 ### Authorization
 
@@ -562,7 +639,7 @@ No authorization required
 
 <a id="getUsersAsync"></a>
 # **getUsersAsync**
-> UserDtoListEnvelope getUsersAsync(apiVersion, xApiVersion)
+> UserDtoListEnvelope getUsersAsync(apiVersion, xApiVersion, userDtoCollectionQueryParameters)
 
 Retrieve a list of users
 
@@ -585,8 +662,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    UserDtoCollectionQueryParameters userDtoCollectionQueryParameters = new UserDtoCollectionQueryParameters(); // UserDtoCollectionQueryParameters | 
     try {
-      UserDtoListEnvelope result = apiInstance.getUsersAsync(apiVersion, xApiVersion);
+      UserDtoListEnvelope result = apiInstance.getUsersAsync(apiVersion, xApiVersion, userDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#getUsersAsync");
@@ -605,6 +683,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **userDtoCollectionQueryParameters** | [**UserDtoCollectionQueryParameters**](UserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -616,7 +695,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -628,7 +707,7 @@ No authorization required
 
 <a id="getUsersCountAsync"></a>
 # **getUsersCountAsync**
-> Int32Envelope getUsersCountAsync(apiVersion, xApiVersion)
+> Int32Envelope getUsersCountAsync(apiVersion, xApiVersion, userDtoCollectionQueryParameters)
 
 Get the count of users
 
@@ -651,8 +730,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    UserDtoCollectionQueryParameters userDtoCollectionQueryParameters = new UserDtoCollectionQueryParameters(); // UserDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getUsersCountAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getUsersCountAsync(apiVersion, xApiVersion, userDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#getUsersCountAsync");
@@ -671,6 +751,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **userDtoCollectionQueryParameters** | [**UserDtoCollectionQueryParameters**](UserDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -682,7 +763,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -694,7 +775,7 @@ No authorization required
 
 <a id="patchAccountHolderAsync"></a>
 # **patchAccountHolderAsync**
-> EmptyEnvelope patchAccountHolderAsync(userId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountHolderAsync(userId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a user
 
@@ -718,9 +799,9 @@ public class Example {
     UUID userId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAccountHolderAsync(userId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchAccountHolderAsync(userId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#patchAccountHolderAsync");
@@ -740,7 +821,148 @@ public class Example {
 | **userId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="setUserPasswordAsync"></a>
+# **setUserPasswordAsync**
+> EmptyEnvelope setUserPasswordAsync(userId, apiVersion, xApiVersion, setUserPasswordDto)
+
+Set a user&#39;s password
+
+Replaces the user&#39;s password with the supplied value. Global administrators only.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.UsersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    UsersApi apiInstance = new UsersApi(defaultClient);
+    UUID userId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    SetUserPasswordDto setUserPasswordDto = new SetUserPasswordDto(); // SetUserPasswordDto | 
+    try {
+      EmptyEnvelope result = apiInstance.setUserPasswordAsync(userId, apiVersion, xApiVersion, setUserPasswordDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UsersApi#setUserPasswordAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **setUserPasswordDto** | [**SetUserPasswordDto**](SetUserPasswordDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **200** | OK |  -  |
+
+<a id="updateAccountHolderAdminProfileAsync"></a>
+# **updateAccountHolderAdminProfileAsync**
+> EmptyEnvelope updateAccountHolderAdminProfileAsync(userId, apiVersion, xApiVersion, userAdminUpdateDto)
+
+Update a user&#39;s admin-managed profile
+
+Updates the identity fields (email/username, re-normalized by Identity) and display fields a global administrator may change on a user, and toggles two-factor and lockout. Normalized email/username and the access-failed count are never accepted. This action is only available for global administrators.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.UsersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    UsersApi apiInstance = new UsersApi(defaultClient);
+    UUID userId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    UserAdminUpdateDto userAdminUpdateDto = new UserAdminUpdateDto(); // UserAdminUpdateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.updateAccountHolderAdminProfileAsync(userId, apiVersion, xApiVersion, userAdminUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UsersApi#updateAccountHolderAdminProfileAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **userAdminUpdateDto** | [**UserAdminUpdateDto**](UserAdminUpdateDto.md)|  | [optional] |
 
 ### Return type
 

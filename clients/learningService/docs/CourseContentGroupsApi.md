@@ -220,7 +220,7 @@ No authorization required
 
 <a id="getCourseContentGroupsAsync"></a>
 # **getCourseContentGroupsAsync**
-> List&lt;CourseContentGroupDto&gt; getCourseContentGroupsAsync(tenantId, apiVersion, xApiVersion)
+> List&lt;CourseContentGroupDto&gt; getCourseContentGroupsAsync(tenantId, apiVersion, xApiVersion, courseContentGroupDtoCollectionQueryParameters)
 
 Get all course content groups
 
@@ -244,8 +244,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseContentGroupDtoCollectionQueryParameters courseContentGroupDtoCollectionQueryParameters = new CourseContentGroupDtoCollectionQueryParameters(); // CourseContentGroupDtoCollectionQueryParameters | 
     try {
-      List<CourseContentGroupDto> result = apiInstance.getCourseContentGroupsAsync(tenantId, apiVersion, xApiVersion);
+      List<CourseContentGroupDto> result = apiInstance.getCourseContentGroupsAsync(tenantId, apiVersion, xApiVersion, courseContentGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseContentGroupsApi#getCourseContentGroupsAsync");
@@ -265,6 +266,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseContentGroupDtoCollectionQueryParameters** | [**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -276,7 +278,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -287,7 +289,7 @@ No authorization required
 
 <a id="getCourseContentGroupsByCourseAsync"></a>
 # **getCourseContentGroupsByCourseAsync**
-> List&lt;CourseContentGroupDto&gt; getCourseContentGroupsByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseContentGroupDto&gt; getCourseContentGroupsByCourseAsync(courseId, apiVersion, xApiVersion, courseContentGroupDtoCollectionQueryParameters)
 
 Get course content groups by course
 
@@ -311,8 +313,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseContentGroupDtoCollectionQueryParameters courseContentGroupDtoCollectionQueryParameters = new CourseContentGroupDtoCollectionQueryParameters(); // CourseContentGroupDtoCollectionQueryParameters | 
     try {
-      List<CourseContentGroupDto> result = apiInstance.getCourseContentGroupsByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseContentGroupDto> result = apiInstance.getCourseContentGroupsByCourseAsync(courseId, apiVersion, xApiVersion, courseContentGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseContentGroupsApi#getCourseContentGroupsByCourseAsync");
@@ -332,6 +335,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseContentGroupDtoCollectionQueryParameters** | [**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -343,7 +347,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -354,7 +358,7 @@ No authorization required
 
 <a id="getCourseContentGroupsByCourseCountAsync"></a>
 # **getCourseContentGroupsByCourseCountAsync**
-> Integer getCourseContentGroupsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseContentGroupsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseContentGroupDtoCollectionQueryParameters)
 
 Get course content groups count by course
 
@@ -378,8 +382,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseContentGroupDtoCollectionQueryParameters courseContentGroupDtoCollectionQueryParameters = new CourseContentGroupDtoCollectionQueryParameters(); // CourseContentGroupDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseContentGroupsByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseContentGroupsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseContentGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseContentGroupsApi#getCourseContentGroupsByCourseCountAsync");
@@ -399,6 +404,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseContentGroupDtoCollectionQueryParameters** | [**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -410,7 +416,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -421,7 +427,7 @@ No authorization required
 
 <a id="getCourseContentGroupsCountAsync"></a>
 # **getCourseContentGroupsCountAsync**
-> Integer getCourseContentGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+> Integer getCourseContentGroupsCountAsync(tenantId, apiVersion, xApiVersion, courseContentGroupDtoCollectionQueryParameters)
 
 Get course content groups count
 
@@ -445,8 +451,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseContentGroupDtoCollectionQueryParameters courseContentGroupDtoCollectionQueryParameters = new CourseContentGroupDtoCollectionQueryParameters(); // CourseContentGroupDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseContentGroupsCountAsync(tenantId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseContentGroupsCountAsync(tenantId, apiVersion, xApiVersion, courseContentGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseContentGroupsApi#getCourseContentGroupsCountAsync");
@@ -466,6 +473,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseContentGroupDtoCollectionQueryParameters** | [**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -477,7 +485,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -488,7 +496,7 @@ No authorization required
 
 <a id="patchCourseContentGroupAsync"></a>
 # **patchCourseContentGroupAsync**
-> EmptyEnvelope patchCourseContentGroupAsync(tenantId, groupId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseContentGroupAsync(tenantId, groupId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course content group
 
@@ -513,9 +521,9 @@ public class Example {
     String groupId = "groupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCourseContentGroupAsync(tenantId, groupId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCourseContentGroupAsync(tenantId, groupId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseContentGroupsApi#patchCourseContentGroupAsync");
@@ -536,7 +544,7 @@ public class Example {
 | **groupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

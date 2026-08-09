@@ -371,7 +371,7 @@ No authorization required
 
 <a id="getItemPickListEntriesAsync"></a>
 # **getItemPickListEntriesAsync**
-> ItemPickListEntryDtoListEnvelope getItemPickListEntriesAsync(tenantId, pickListId, apiVersion, xApiVersion)
+> ItemPickListEntryDtoListEnvelope getItemPickListEntriesAsync(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters)
 
 Get pick list entries
 
@@ -396,8 +396,9 @@ public class Example {
     UUID pickListId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters = new ItemPickListEntryDtoCollectionQueryParameters(); // ItemPickListEntryDtoCollectionQueryParameters | 
     try {
-      ItemPickListEntryDtoListEnvelope result = apiInstance.getItemPickListEntriesAsync(tenantId, pickListId, apiVersion, xApiVersion);
+      ItemPickListEntryDtoListEnvelope result = apiInstance.getItemPickListEntriesAsync(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPickListsApi#getItemPickListEntriesAsync");
@@ -418,6 +419,7 @@ public class Example {
 | **pickListId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemPickListEntryDtoCollectionQueryParameters** | [**ItemPickListEntryDtoCollectionQueryParameters**](ItemPickListEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -429,7 +431,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -439,7 +441,7 @@ No authorization required
 
 <a id="getItemPickListEntriesCountAsync"></a>
 # **getItemPickListEntriesCountAsync**
-> Int32Envelope getItemPickListEntriesCountAsync(tenantId, pickListId, apiVersion, xApiVersion)
+> Int32Envelope getItemPickListEntriesCountAsync(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters)
 
 Get pick list entries count
 
@@ -464,8 +466,9 @@ public class Example {
     UUID pickListId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemPickListEntryDtoCollectionQueryParameters itemPickListEntryDtoCollectionQueryParameters = new ItemPickListEntryDtoCollectionQueryParameters(); // ItemPickListEntryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemPickListEntriesCountAsync(tenantId, pickListId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemPickListEntriesCountAsync(tenantId, pickListId, apiVersion, xApiVersion, itemPickListEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPickListsApi#getItemPickListEntriesCountAsync");
@@ -486,6 +489,7 @@ public class Example {
 | **pickListId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemPickListEntryDtoCollectionQueryParameters** | [**ItemPickListEntryDtoCollectionQueryParameters**](ItemPickListEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -497,7 +501,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -578,7 +582,7 @@ No authorization required
 
 <a id="getItemPickListsAsync"></a>
 # **getItemPickListsAsync**
-> ItemPickListDtoListEnvelope getItemPickListsAsync(tenantId, apiVersion, xApiVersion)
+> ItemPickListDtoListEnvelope getItemPickListsAsync(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters)
 
 Get all item pick lists
 
@@ -602,8 +606,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters = new ItemPickListDtoCollectionQueryParameters(); // ItemPickListDtoCollectionQueryParameters | 
     try {
-      ItemPickListDtoListEnvelope result = apiInstance.getItemPickListsAsync(tenantId, apiVersion, xApiVersion);
+      ItemPickListDtoListEnvelope result = apiInstance.getItemPickListsAsync(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPickListsApi#getItemPickListsAsync");
@@ -623,6 +628,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemPickListDtoCollectionQueryParameters** | [**ItemPickListDtoCollectionQueryParameters**](ItemPickListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -634,7 +640,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -646,7 +652,7 @@ No authorization required
 
 <a id="getItemPickListsCountAsync"></a>
 # **getItemPickListsCountAsync**
-> Int32Envelope getItemPickListsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemPickListsCountAsync(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters)
 
 Get item pick lists count
 
@@ -670,8 +676,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemPickListDtoCollectionQueryParameters itemPickListDtoCollectionQueryParameters = new ItemPickListDtoCollectionQueryParameters(); // ItemPickListDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemPickListsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemPickListsCountAsync(tenantId, apiVersion, xApiVersion, itemPickListDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPickListsApi#getItemPickListsCountAsync");
@@ -691,6 +698,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemPickListDtoCollectionQueryParameters** | [**ItemPickListDtoCollectionQueryParameters**](ItemPickListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -702,7 +710,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -712,7 +720,7 @@ No authorization required
 
 <a id="patchItemPickListAsync"></a>
 # **patchItemPickListAsync**
-> EmptyEnvelope patchItemPickListAsync(tenantId, pickListId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemPickListAsync(tenantId, pickListId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item pick list
 
@@ -737,9 +745,9 @@ public class Example {
     UUID pickListId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemPickListAsync(tenantId, pickListId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemPickListAsync(tenantId, pickListId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPickListsApi#patchItemPickListAsync");
@@ -760,7 +768,7 @@ public class Example {
 | **pickListId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -783,7 +791,7 @@ No authorization required
 
 <a id="patchItemPickListEntryAsync"></a>
 # **patchItemPickListEntryAsync**
-> EmptyEnvelope patchItemPickListEntryAsync(tenantId, pickListId, entryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemPickListEntryAsync(tenantId, pickListId, entryId, apiVersion, xApiVersion, patchOperation)
 
 Patch a pick list entry
 
@@ -809,9 +817,9 @@ public class Example {
     UUID entryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemPickListEntryAsync(tenantId, pickListId, entryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemPickListEntryAsync(tenantId, pickListId, entryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPickListsApi#patchItemPickListEntryAsync");
@@ -833,7 +841,7 @@ public class Example {
 | **entryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

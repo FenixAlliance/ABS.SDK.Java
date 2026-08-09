@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getLicenseAttributesAsync"></a>
 # **getLicenseAttributesAsync**
-> LicenseAttributeDtoListEnvelope getLicenseAttributesAsync(tenantId, apiVersion, xApiVersion)
+> LicenseAttributeDtoListEnvelope getLicenseAttributesAsync(tenantId, apiVersion, xApiVersion, licenseAttributeDtoCollectionQueryParameters)
 
 Get all license attributes
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LicenseAttributeDtoCollectionQueryParameters licenseAttributeDtoCollectionQueryParameters = new LicenseAttributeDtoCollectionQueryParameters(); // LicenseAttributeDtoCollectionQueryParameters | 
     try {
-      LicenseAttributeDtoListEnvelope result = apiInstance.getLicenseAttributesAsync(tenantId, apiVersion, xApiVersion);
+      LicenseAttributeDtoListEnvelope result = apiInstance.getLicenseAttributesAsync(tenantId, apiVersion, xApiVersion, licenseAttributeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicenseAttributesApi#getLicenseAttributesAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **licenseAttributeDtoCollectionQueryParameters** | [**LicenseAttributeDtoCollectionQueryParameters**](LicenseAttributeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getLicenseAttributesCountAsync"></a>
 # **getLicenseAttributesCountAsync**
-> Int32Envelope getLicenseAttributesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLicenseAttributesCountAsync(tenantId, apiVersion, xApiVersion, licenseAttributeDtoCollectionQueryParameters)
 
 Get license attributes count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LicenseAttributeDtoCollectionQueryParameters licenseAttributeDtoCollectionQueryParameters = new LicenseAttributeDtoCollectionQueryParameters(); // LicenseAttributeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLicenseAttributesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLicenseAttributesCountAsync(tenantId, apiVersion, xApiVersion, licenseAttributeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicenseAttributesApi#getLicenseAttributesCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **licenseAttributeDtoCollectionQueryParameters** | [**LicenseAttributeDtoCollectionQueryParameters**](LicenseAttributeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchLicenseAttributeAsync"></a>
 # **patchLicenseAttributeAsync**
-> EmptyEnvelope patchLicenseAttributeAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLicenseAttributeAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a license attribute
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchLicenseAttributeAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchLicenseAttributeAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicenseAttributesApi#patchLicenseAttributeAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

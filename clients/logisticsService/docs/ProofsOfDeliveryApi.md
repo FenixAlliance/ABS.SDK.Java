@@ -657,7 +657,7 @@ No authorization required
 
 <a id="getProofOfDeliveryLinesAsync"></a>
 # **getProofOfDeliveryLinesAsync**
-> ProofOfDeliveryLineDtoListEnvelope getProofOfDeliveryLinesAsync(tenantId, podId, apiVersion, xApiVersion)
+> ProofOfDeliveryLineDtoListEnvelope getProofOfDeliveryLinesAsync(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters)
 
 Get proof of delivery lines
 
@@ -682,8 +682,9 @@ public class Example {
     UUID podId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters = new ProofOfDeliveryLineDtoCollectionQueryParameters(); // ProofOfDeliveryLineDtoCollectionQueryParameters | 
     try {
-      ProofOfDeliveryLineDtoListEnvelope result = apiInstance.getProofOfDeliveryLinesAsync(tenantId, podId, apiVersion, xApiVersion);
+      ProofOfDeliveryLineDtoListEnvelope result = apiInstance.getProofOfDeliveryLinesAsync(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProofsOfDeliveryApi#getProofOfDeliveryLinesAsync");
@@ -704,6 +705,7 @@ public class Example {
 | **podId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **proofOfDeliveryLineDtoCollectionQueryParameters** | [**ProofOfDeliveryLineDtoCollectionQueryParameters**](ProofOfDeliveryLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -715,7 +717,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -726,7 +728,7 @@ No authorization required
 
 <a id="getProofOfDeliveryLinesCountAsync"></a>
 # **getProofOfDeliveryLinesCountAsync**
-> Int32Envelope getProofOfDeliveryLinesCountAsync(tenantId, podId, apiVersion, xApiVersion)
+> Int32Envelope getProofOfDeliveryLinesCountAsync(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters)
 
 Get proof of delivery lines count
 
@@ -751,8 +753,9 @@ public class Example {
     UUID podId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters = new ProofOfDeliveryLineDtoCollectionQueryParameters(); // ProofOfDeliveryLineDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getProofOfDeliveryLinesCountAsync(tenantId, podId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getProofOfDeliveryLinesCountAsync(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProofsOfDeliveryApi#getProofOfDeliveryLinesCountAsync");
@@ -773,6 +776,7 @@ public class Example {
 | **podId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **proofOfDeliveryLineDtoCollectionQueryParameters** | [**ProofOfDeliveryLineDtoCollectionQueryParameters**](ProofOfDeliveryLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -784,7 +788,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -795,7 +799,7 @@ No authorization required
 
 <a id="getProofsOfDeliveryAsync"></a>
 # **getProofsOfDeliveryAsync**
-> ProofOfDeliveryDtoListEnvelope getProofsOfDeliveryAsync(tenantId, apiVersion, xApiVersion)
+> ProofOfDeliveryDtoListEnvelope getProofsOfDeliveryAsync(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters)
 
 Get all proofs of delivery
 
@@ -819,8 +823,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters = new ProofOfDeliveryDtoCollectionQueryParameters(); // ProofOfDeliveryDtoCollectionQueryParameters | 
     try {
-      ProofOfDeliveryDtoListEnvelope result = apiInstance.getProofsOfDeliveryAsync(tenantId, apiVersion, xApiVersion);
+      ProofOfDeliveryDtoListEnvelope result = apiInstance.getProofsOfDeliveryAsync(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProofsOfDeliveryApi#getProofsOfDeliveryAsync");
@@ -840,6 +845,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **proofOfDeliveryDtoCollectionQueryParameters** | [**ProofOfDeliveryDtoCollectionQueryParameters**](ProofOfDeliveryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -851,7 +857,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -863,7 +869,7 @@ No authorization required
 
 <a id="getProofsOfDeliveryCountAsync"></a>
 # **getProofsOfDeliveryCountAsync**
-> Int32Envelope getProofsOfDeliveryCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getProofsOfDeliveryCountAsync(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters)
 
 Get proofs of delivery count
 
@@ -887,8 +893,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters = new ProofOfDeliveryDtoCollectionQueryParameters(); // ProofOfDeliveryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getProofsOfDeliveryCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getProofsOfDeliveryCountAsync(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProofsOfDeliveryApi#getProofsOfDeliveryCountAsync");
@@ -908,6 +915,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **proofOfDeliveryDtoCollectionQueryParameters** | [**ProofOfDeliveryDtoCollectionQueryParameters**](ProofOfDeliveryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -919,7 +927,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -930,7 +938,7 @@ No authorization required
 
 <a id="patchProofOfDeliveryAsync"></a>
 # **patchProofOfDeliveryAsync**
-> EmptyEnvelope patchProofOfDeliveryAsync(tenantId, podId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchProofOfDeliveryAsync(tenantId, podId, apiVersion, xApiVersion, patchOperation)
 
 Patch a proof of delivery
 
@@ -955,9 +963,9 @@ public class Example {
     UUID podId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchProofOfDeliveryAsync(tenantId, podId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchProofOfDeliveryAsync(tenantId, podId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProofsOfDeliveryApi#patchProofOfDeliveryAsync");
@@ -978,7 +986,7 @@ public class Example {
 | **podId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1003,7 +1011,7 @@ No authorization required
 
 <a id="patchProofOfDeliveryLineAsync"></a>
 # **patchProofOfDeliveryLineAsync**
-> EmptyEnvelope patchProofOfDeliveryLineAsync(tenantId, podId, lineId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchProofOfDeliveryLineAsync(tenantId, podId, lineId, apiVersion, xApiVersion, patchOperation)
 
 Patch a proof of delivery line
 
@@ -1029,9 +1037,9 @@ public class Example {
     UUID lineId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchProofOfDeliveryLineAsync(tenantId, podId, lineId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchProofOfDeliveryLineAsync(tenantId, podId, lineId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProofsOfDeliveryApi#patchProofOfDeliveryLineAsync");
@@ -1053,7 +1061,7 @@ public class Example {
 | **lineId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

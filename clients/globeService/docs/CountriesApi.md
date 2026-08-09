@@ -24,7 +24,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countCallingCodesByCountryAsync"></a>
 # **countCallingCodesByCountryAsync**
-> Int32Envelope countCallingCodesByCountryAsync(countryId, apiVersion, xApiVersion)
+> Int32Envelope countCallingCodesByCountryAsync(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters)
 
 Count calling codes for a country
 
@@ -48,8 +48,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters = new CountryCallingCodeDtoCollectionQueryParameters(); // CountryCallingCodeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countCallingCodesByCountryAsync(countryId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countCallingCodesByCountryAsync(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#countCallingCodesByCountryAsync");
@@ -69,6 +70,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryCallingCodeDtoCollectionQueryParameters** | [**CountryCallingCodeDtoCollectionQueryParameters**](CountryCallingCodeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -80,7 +82,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -92,7 +94,7 @@ No authorization required
 
 <a id="countCitiesByStateAsync"></a>
 # **countCitiesByStateAsync**
-> Int32Envelope countCitiesByStateAsync(countryStateId, countryId, apiVersion, xApiVersion)
+> Int32Envelope countCitiesByStateAsync(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters)
 
 Count cities for a state
 
@@ -117,8 +119,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters = new CityDtoCollectionQueryParameters(); // CityDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countCitiesByStateAsync(countryStateId, countryId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countCitiesByStateAsync(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#countCitiesByStateAsync");
@@ -139,6 +142,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **cityDtoCollectionQueryParameters** | [**CityDtoCollectionQueryParameters**](CityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -150,7 +154,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -162,7 +166,7 @@ No authorization required
 
 <a id="countCountries"></a>
 # **countCountries**
-> Int32Envelope countCountries(apiVersion, xApiVersion)
+> Int32Envelope countCountries(apiVersion, xApiVersion, countryDtoCollectionQueryParameters)
 
 Count countries
 
@@ -185,8 +189,9 @@ public class Example {
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters = new CountryDtoCollectionQueryParameters(); // CountryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countCountries(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countCountries(apiVersion, xApiVersion, countryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#countCountries");
@@ -205,6 +210,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryDtoCollectionQueryParameters** | [**CountryDtoCollectionQueryParameters**](CountryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -216,7 +222,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -228,7 +234,7 @@ No authorization required
 
 <a id="countCountryStatesAsync"></a>
 # **countCountryStatesAsync**
-> Int32Envelope countCountryStatesAsync(countryId, apiVersion, xApiVersion)
+> Int32Envelope countCountryStatesAsync(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters)
 
 Count states for a country
 
@@ -252,8 +258,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters = new CountryStateDtoCollectionQueryParameters(); // CountryStateDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countCountryStatesAsync(countryId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countCountryStatesAsync(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#countCountryStatesAsync");
@@ -273,6 +280,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -284,7 +292,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -296,7 +304,7 @@ No authorization required
 
 <a id="countTimezonesByCountryAsync"></a>
 # **countTimezonesByCountryAsync**
-> Int32Envelope countTimezonesByCountryAsync(countryId, apiVersion, xApiVersion)
+> Int32Envelope countTimezonesByCountryAsync(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
 
 Count timezones for a country
 
@@ -320,8 +328,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters = new TimezoneDtoCollectionQueryParameters(); // TimezoneDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countTimezonesByCountryAsync(countryId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countTimezonesByCountryAsync(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#countTimezonesByCountryAsync");
@@ -341,6 +350,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **timezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -352,7 +362,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -364,7 +374,7 @@ No authorization required
 
 <a id="countTopLevelDomainsByCountryAsync"></a>
 # **countTopLevelDomainsByCountryAsync**
-> Int32Envelope countTopLevelDomainsByCountryAsync(countryId, apiVersion, xApiVersion)
+> Int32Envelope countTopLevelDomainsByCountryAsync(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters)
 
 Count top-level domains for a country
 
@@ -388,8 +398,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters = new CountryTopLevelDomainDtoCollectionQueryParameters(); // CountryTopLevelDomainDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countTopLevelDomainsByCountryAsync(countryId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countTopLevelDomainsByCountryAsync(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#countTopLevelDomainsByCountryAsync");
@@ -409,6 +420,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryTopLevelDomainDtoCollectionQueryParameters** | [**CountryTopLevelDomainDtoCollectionQueryParameters**](CountryTopLevelDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -420,7 +432,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -432,7 +444,7 @@ No authorization required
 
 <a id="getAllCountries"></a>
 # **getAllCountries**
-> CountryDtoListEnvelope getAllCountries(apiVersion, xApiVersion)
+> CountryDtoListEnvelope getAllCountries(apiVersion, xApiVersion, countryDtoCollectionQueryParameters)
 
 Get all countries
 
@@ -455,8 +467,9 @@ public class Example {
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryDtoCollectionQueryParameters countryDtoCollectionQueryParameters = new CountryDtoCollectionQueryParameters(); // CountryDtoCollectionQueryParameters | 
     try {
-      CountryDtoListEnvelope result = apiInstance.getAllCountries(apiVersion, xApiVersion);
+      CountryDtoListEnvelope result = apiInstance.getAllCountries(apiVersion, xApiVersion, countryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#getAllCountries");
@@ -475,6 +488,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryDtoCollectionQueryParameters** | [**CountryDtoCollectionQueryParameters**](CountryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -486,7 +500,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -498,7 +512,7 @@ No authorization required
 
 <a id="getCallingCodesByCountryIdAsync"></a>
 # **getCallingCodesByCountryIdAsync**
-> CountryCallingCodeDtoListEnvelope getCallingCodesByCountryIdAsync(countryId, apiVersion, xApiVersion)
+> CountryCallingCodeDtoListEnvelope getCallingCodesByCountryIdAsync(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters)
 
 Get calling codes for a country
 
@@ -522,8 +536,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryCallingCodeDtoCollectionQueryParameters countryCallingCodeDtoCollectionQueryParameters = new CountryCallingCodeDtoCollectionQueryParameters(); // CountryCallingCodeDtoCollectionQueryParameters | 
     try {
-      CountryCallingCodeDtoListEnvelope result = apiInstance.getCallingCodesByCountryIdAsync(countryId, apiVersion, xApiVersion);
+      CountryCallingCodeDtoListEnvelope result = apiInstance.getCallingCodesByCountryIdAsync(countryId, apiVersion, xApiVersion, countryCallingCodeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#getCallingCodesByCountryIdAsync");
@@ -543,6 +558,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryCallingCodeDtoCollectionQueryParameters** | [**CountryCallingCodeDtoCollectionQueryParameters**](CountryCallingCodeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -554,7 +570,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -566,7 +582,7 @@ No authorization required
 
 <a id="getCitiesByCountryStateIdAsync"></a>
 # **getCitiesByCountryStateIdAsync**
-> CityDtoListEnvelope getCitiesByCountryStateIdAsync(countryStateId, countryId, apiVersion, xApiVersion)
+> CityDtoListEnvelope getCitiesByCountryStateIdAsync(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters)
 
 Get cities for a state
 
@@ -591,8 +607,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CityDtoCollectionQueryParameters cityDtoCollectionQueryParameters = new CityDtoCollectionQueryParameters(); // CityDtoCollectionQueryParameters | 
     try {
-      CityDtoListEnvelope result = apiInstance.getCitiesByCountryStateIdAsync(countryStateId, countryId, apiVersion, xApiVersion);
+      CityDtoListEnvelope result = apiInstance.getCitiesByCountryStateIdAsync(countryStateId, countryId, apiVersion, xApiVersion, cityDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#getCitiesByCountryStateIdAsync");
@@ -613,6 +630,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **cityDtoCollectionQueryParameters** | [**CityDtoCollectionQueryParameters**](CityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -624,7 +642,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -704,7 +722,7 @@ No authorization required
 
 <a id="getCountryStateByIdAsync"></a>
 # **getCountryStateByIdAsync**
-> CountryStateDtoEnvelope getCountryStateByIdAsync(countryStateId, countryId, apiVersion, xApiVersion)
+> CountryStateDtoEnvelope getCountryStateByIdAsync(countryStateId, countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters)
 
 Get state by ID
 
@@ -729,8 +747,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters = new CountryStateDtoCollectionQueryParameters(); // CountryStateDtoCollectionQueryParameters | 
     try {
-      CountryStateDtoEnvelope result = apiInstance.getCountryStateByIdAsync(countryStateId, countryId, apiVersion, xApiVersion);
+      CountryStateDtoEnvelope result = apiInstance.getCountryStateByIdAsync(countryStateId, countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#getCountryStateByIdAsync");
@@ -751,6 +770,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -762,7 +782,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -774,7 +794,7 @@ No authorization required
 
 <a id="getCountryStatesAsync"></a>
 # **getCountryStatesAsync**
-> CountryStateDtoListEnvelope getCountryStatesAsync(countryId, apiVersion, xApiVersion)
+> CountryStateDtoListEnvelope getCountryStatesAsync(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters)
 
 Get states for a country
 
@@ -798,8 +818,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryStateDtoCollectionQueryParameters countryStateDtoCollectionQueryParameters = new CountryStateDtoCollectionQueryParameters(); // CountryStateDtoCollectionQueryParameters | 
     try {
-      CountryStateDtoListEnvelope result = apiInstance.getCountryStatesAsync(countryId, apiVersion, xApiVersion);
+      CountryStateDtoListEnvelope result = apiInstance.getCountryStatesAsync(countryId, apiVersion, xApiVersion, countryStateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#getCountryStatesAsync");
@@ -819,6 +840,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryStateDtoCollectionQueryParameters** | [**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -830,7 +852,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -842,7 +864,7 @@ No authorization required
 
 <a id="getEnabledCurrenciesByCountryIdAsync"></a>
 # **getEnabledCurrenciesByCountryIdAsync**
-> CurrencyDtoListEnvelope getEnabledCurrenciesByCountryIdAsync(countryId, apiVersion, xApiVersion)
+> CurrencyDtoListEnvelope getEnabledCurrenciesByCountryIdAsync(countryId, apiVersion, xApiVersion, currencyDtoCollectionQueryParameters)
 
 Get currencies for a country
 
@@ -866,8 +888,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters = new CurrencyDtoCollectionQueryParameters(); // CurrencyDtoCollectionQueryParameters | 
     try {
-      CurrencyDtoListEnvelope result = apiInstance.getEnabledCurrenciesByCountryIdAsync(countryId, apiVersion, xApiVersion);
+      CurrencyDtoListEnvelope result = apiInstance.getEnabledCurrenciesByCountryIdAsync(countryId, apiVersion, xApiVersion, currencyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#getEnabledCurrenciesByCountryIdAsync");
@@ -887,6 +910,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **currencyDtoCollectionQueryParameters** | [**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -898,7 +922,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -910,7 +934,7 @@ No authorization required
 
 <a id="getTimeZonesByCountryIdAsync"></a>
 # **getTimeZonesByCountryIdAsync**
-> TimezoneDtoListEnvelope getTimeZonesByCountryIdAsync(countryId, apiVersion, xApiVersion)
+> TimezoneDtoListEnvelope getTimeZonesByCountryIdAsync(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
 
 Get timezones for a country
 
@@ -934,8 +958,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters = new TimezoneDtoCollectionQueryParameters(); // TimezoneDtoCollectionQueryParameters | 
     try {
-      TimezoneDtoListEnvelope result = apiInstance.getTimeZonesByCountryIdAsync(countryId, apiVersion, xApiVersion);
+      TimezoneDtoListEnvelope result = apiInstance.getTimeZonesByCountryIdAsync(countryId, apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#getTimeZonesByCountryIdAsync");
@@ -955,6 +980,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **timezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -966,7 +992,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -978,7 +1004,7 @@ No authorization required
 
 <a id="getTopLevelDomainsByCountryIdAsync"></a>
 # **getTopLevelDomainsByCountryIdAsync**
-> CountryTopLevelDomainDtoListEnvelope getTopLevelDomainsByCountryIdAsync(countryId, apiVersion, xApiVersion)
+> CountryTopLevelDomainDtoListEnvelope getTopLevelDomainsByCountryIdAsync(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters)
 
 Get top-level domains for a country
 
@@ -1002,8 +1028,9 @@ public class Example {
     String countryId = "countryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryTopLevelDomainDtoCollectionQueryParameters countryTopLevelDomainDtoCollectionQueryParameters = new CountryTopLevelDomainDtoCollectionQueryParameters(); // CountryTopLevelDomainDtoCollectionQueryParameters | 
     try {
-      CountryTopLevelDomainDtoListEnvelope result = apiInstance.getTopLevelDomainsByCountryIdAsync(countryId, apiVersion, xApiVersion);
+      CountryTopLevelDomainDtoListEnvelope result = apiInstance.getTopLevelDomainsByCountryIdAsync(countryId, apiVersion, xApiVersion, countryTopLevelDomainDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CountriesApi#getTopLevelDomainsByCountryIdAsync");
@@ -1023,6 +1050,7 @@ public class Example {
 | **countryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryTopLevelDomainDtoCollectionQueryParameters** | [**CountryTopLevelDomainDtoCollectionQueryParameters**](CountryTopLevelDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1034,7 +1062,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

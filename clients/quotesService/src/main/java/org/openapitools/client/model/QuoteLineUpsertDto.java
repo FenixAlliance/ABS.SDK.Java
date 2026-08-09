@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * QuoteLineUpsertDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:05:58.934060500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:31:51.744654200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class QuoteLineUpsertDto {
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
@@ -486,10 +486,6 @@ public class QuoteLineUpsertDto {
   public static final String SERIALIZED_NAME_UNIT_GROUP_ID = "unitGroupId";
   @SerializedName(SERIALIZED_NAME_UNIT_GROUP_ID)
   private String unitGroupId;
-
-  public static final String SERIALIZED_NAME_FOREX_RATES_SNAPSHOT = "forexRatesSnapshot";
-  @SerializedName(SERIALIZED_NAME_FOREX_RATES_SNAPSHOT)
-  private String forexRatesSnapshot;
 
   public static final String SERIALIZED_NAME_TOTAL_BASE_AMOUNT_IN_USD = "totalBaseAmountInUsd";
   @SerializedName(SERIALIZED_NAME_TOTAL_BASE_AMOUNT_IN_USD)
@@ -2187,25 +2183,6 @@ public class QuoteLineUpsertDto {
   }
 
 
-  public QuoteLineUpsertDto forexRatesSnapshot(String forexRatesSnapshot) {
-    this.forexRatesSnapshot = forexRatesSnapshot;
-    return this;
-  }
-
-  /**
-   * Get forexRatesSnapshot
-   * @return forexRatesSnapshot
-   */
-  @javax.annotation.Nullable
-  public String getForexRatesSnapshot() {
-    return forexRatesSnapshot;
-  }
-
-  public void setForexRatesSnapshot(String forexRatesSnapshot) {
-    this.forexRatesSnapshot = forexRatesSnapshot;
-  }
-
-
   public QuoteLineUpsertDto totalBaseAmountInUsd(Double totalBaseAmountInUsd) {
     this.totalBaseAmountInUsd = totalBaseAmountInUsd;
     return this;
@@ -2850,7 +2827,6 @@ public class QuoteLineUpsertDto {
         Objects.equals(this.priceListItemId, quoteLineUpsertDto.priceListItemId) &&
         Objects.equals(this.unitId, quoteLineUpsertDto.unitId) &&
         Objects.equals(this.unitGroupId, quoteLineUpsertDto.unitGroupId) &&
-        Objects.equals(this.forexRatesSnapshot, quoteLineUpsertDto.forexRatesSnapshot) &&
         Objects.equals(this.totalBaseAmountInUsd, quoteLineUpsertDto.totalBaseAmountInUsd) &&
         Objects.equals(this.totalProfitInUsd, quoteLineUpsertDto.totalProfitInUsd) &&
         Objects.equals(this.totalDetailAmountInUsd, quoteLineUpsertDto.totalDetailAmountInUsd) &&
@@ -2888,7 +2864,7 @@ public class QuoteLineUpsertDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, title, userId, priceListId, description, individualId, paymentTermId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, billingLocationId, shippingLocationId, shippingMethodId, forexRate, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, itemId, itemTitle, itemShortDescription, itemPrimaryImageUrl, shippingPolicyId, quantity, free, freeReason, freeReasonCode, data, dataLabel, data1, data1Label, data2, data2Label, data3, data3Label, data4, data4Label, data5, data5Label, data6, data6Label, data7, data7Label, data8, data8Label, data9, data9Label, itemPriceId, priceListItemId, unitId, unitGroupId, forexRatesSnapshot, totalBaseAmountInUsd, totalProfitInUsd, totalDetailAmountInUsd, totalTaxBaseInUsd, totalDiscountsInUsd, totalTaxesInUsd, totalWithheldTaxesInUsd, totalShippingCostInUsd, totalShippingTaxesInUsd, totalWarrantyCostInUsd, totalReturnCostInUsd, totalRefundCostInUsd, totalSurchargesInUsd, totalAmountInUsd, totalGlobalDiscountsInUsd, totalGlobalSurchargesInUsd, customGlobalSurchargesAmount, customGlobalSurchargesAmountCurrencyId, customGlobalDiscountsAmount, customGlobalDiscountsAmountCurrencyId, returnPolicyId, refundPolicyId, warrantyPolicyId, shipmentPolicyId, locationId, quoteItemRecordId, parentBillingItemRecordId, id, quoteId);
+    return Objects.hash(closed, title, userId, priceListId, description, individualId, paymentTermId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, billingLocationId, shippingLocationId, shippingMethodId, forexRate, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, itemId, itemTitle, itemShortDescription, itemPrimaryImageUrl, shippingPolicyId, quantity, free, freeReason, freeReasonCode, data, dataLabel, data1, data1Label, data2, data2Label, data3, data3Label, data4, data4Label, data5, data5Label, data6, data6Label, data7, data7Label, data8, data8Label, data9, data9Label, itemPriceId, priceListItemId, unitId, unitGroupId, totalBaseAmountInUsd, totalProfitInUsd, totalDetailAmountInUsd, totalTaxBaseInUsd, totalDiscountsInUsd, totalTaxesInUsd, totalWithheldTaxesInUsd, totalShippingCostInUsd, totalShippingTaxesInUsd, totalWarrantyCostInUsd, totalReturnCostInUsd, totalRefundCostInUsd, totalSurchargesInUsd, totalAmountInUsd, totalGlobalDiscountsInUsd, totalGlobalSurchargesInUsd, customGlobalSurchargesAmount, customGlobalSurchargesAmountCurrencyId, customGlobalDiscountsAmount, customGlobalDiscountsAmountCurrencyId, returnPolicyId, refundPolicyId, warrantyPolicyId, shipmentPolicyId, locationId, quoteItemRecordId, parentBillingItemRecordId, id, quoteId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2985,7 +2961,6 @@ public class QuoteLineUpsertDto {
     sb.append("    priceListItemId: ").append(toIndentedString(priceListItemId)).append("\n");
     sb.append("    unitId: ").append(toIndentedString(unitId)).append("\n");
     sb.append("    unitGroupId: ").append(toIndentedString(unitGroupId)).append("\n");
-    sb.append("    forexRatesSnapshot: ").append(toIndentedString(forexRatesSnapshot)).append("\n");
     sb.append("    totalBaseAmountInUsd: ").append(toIndentedString(totalBaseAmountInUsd)).append("\n");
     sb.append("    totalProfitInUsd: ").append(toIndentedString(totalProfitInUsd)).append("\n");
     sb.append("    totalDetailAmountInUsd: ").append(toIndentedString(totalDetailAmountInUsd)).append("\n");
@@ -3120,7 +3095,6 @@ public class QuoteLineUpsertDto {
     openapiFields.add("priceListItemId");
     openapiFields.add("unitId");
     openapiFields.add("unitGroupId");
-    openapiFields.add("forexRatesSnapshot");
     openapiFields.add("totalBaseAmountInUsd");
     openapiFields.add("totalProfitInUsd");
     openapiFields.add("totalDetailAmountInUsd");
@@ -3384,9 +3358,6 @@ public class QuoteLineUpsertDto {
       }
       if ((jsonObj.get("unitGroupId") != null && !jsonObj.get("unitGroupId").isJsonNull()) && !jsonObj.get("unitGroupId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unitGroupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unitGroupId").toString()));
-      }
-      if ((jsonObj.get("forexRatesSnapshot") != null && !jsonObj.get("forexRatesSnapshot").isJsonNull()) && !jsonObj.get("forexRatesSnapshot").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `forexRatesSnapshot` to be a primitive type in the JSON string but got `%s`", jsonObj.get("forexRatesSnapshot").toString()));
       }
       if ((jsonObj.get("customGlobalSurchargesAmountCurrencyId") != null && !jsonObj.get("customGlobalSurchargesAmountCurrencyId").isJsonNull()) && !jsonObj.get("customGlobalSurchargesAmountCurrencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `customGlobalSurchargesAmountCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customGlobalSurchargesAmountCurrencyId").toString()));

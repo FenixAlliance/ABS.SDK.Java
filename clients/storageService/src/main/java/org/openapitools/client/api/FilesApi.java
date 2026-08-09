@@ -1109,6 +1109,15 @@ public class FilesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1120,7 +1129,7 @@ public class FilesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFilesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFilesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, Integer top, Integer skip, Boolean count, String filter, String orderBy, String search, String select, String expand, Boolean isEmpty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1145,6 +1154,42 @@ public class FilesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (top != null) {
+            localVarFormParams.put("top", top);
+        }
+
+        if (skip != null) {
+            localVarFormParams.put("skip", skip);
+        }
+
+        if (count != null) {
+            localVarFormParams.put("count", count);
+        }
+
+        if (filter != null) {
+            localVarFormParams.put("filter", filter);
+        }
+
+        if (orderBy != null) {
+            localVarFormParams.put("orderBy", orderBy);
+        }
+
+        if (search != null) {
+            localVarFormParams.put("search", search);
+        }
+
+        if (select != null) {
+            localVarFormParams.put("select", select);
+        }
+
+        if (expand != null) {
+            localVarFormParams.put("expand", expand);
+        }
+
+        if (isEmpty != null) {
+            localVarFormParams.put("isEmpty", isEmpty);
+        }
+
         if (tenantId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
         }
@@ -1167,6 +1212,7 @@ public class FilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1178,8 +1224,8 @@ public class FilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFilesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getFilesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getFilesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, Integer top, Integer skip, Boolean count, String filter, String orderBy, String search, String select, String expand, Boolean isEmpty, final ApiCallback _callback) throws ApiException {
+        return getFilesAsyncCall(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty, _callback);
 
     }
 
@@ -1189,6 +1235,15 @@ public class FilesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @return FileUploadDtoEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1199,8 +1254,8 @@ public class FilesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public FileUploadDtoEnvelope getFilesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<FileUploadDtoEnvelope> localVarResp = getFilesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public FileUploadDtoEnvelope getFilesAsync(UUID tenantId, String apiVersion, String xApiVersion, Integer top, Integer skip, Boolean count, String filter, String orderBy, String search, String select, String expand, Boolean isEmpty) throws ApiException {
+        ApiResponse<FileUploadDtoEnvelope> localVarResp = getFilesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty);
         return localVarResp.getData();
     }
 
@@ -1210,6 +1265,15 @@ public class FilesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @return ApiResponse&lt;FileUploadDtoEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1220,8 +1284,8 @@ public class FilesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FileUploadDtoEnvelope> getFilesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<FileUploadDtoEnvelope> getFilesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, Integer top, Integer skip, Boolean count, String filter, String orderBy, String search, String select, String expand, Boolean isEmpty) throws ApiException {
+        okhttp3.Call localVarCall = getFilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty, null);
         Type localVarReturnType = new TypeToken<FileUploadDtoEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1232,6 +1296,15 @@ public class FilesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1243,9 +1316,9 @@ public class FilesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFilesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<FileUploadDtoEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getFilesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, Integer top, Integer skip, Boolean count, String filter, String orderBy, String search, String select, String expand, Boolean isEmpty, final ApiCallback<FileUploadDtoEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty, _callback);
         Type localVarReturnType = new TypeToken<FileUploadDtoEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1255,6 +1328,15 @@ public class FilesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1266,7 +1348,7 @@ public class FilesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, Integer top, Integer skip, Boolean count, String filter, String orderBy, String search, String select, String expand, Boolean isEmpty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1291,6 +1373,42 @@ public class FilesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (top != null) {
+            localVarFormParams.put("top", top);
+        }
+
+        if (skip != null) {
+            localVarFormParams.put("skip", skip);
+        }
+
+        if (count != null) {
+            localVarFormParams.put("count", count);
+        }
+
+        if (filter != null) {
+            localVarFormParams.put("filter", filter);
+        }
+
+        if (orderBy != null) {
+            localVarFormParams.put("orderBy", orderBy);
+        }
+
+        if (search != null) {
+            localVarFormParams.put("search", search);
+        }
+
+        if (select != null) {
+            localVarFormParams.put("select", select);
+        }
+
+        if (expand != null) {
+            localVarFormParams.put("expand", expand);
+        }
+
+        if (isEmpty != null) {
+            localVarFormParams.put("isEmpty", isEmpty);
+        }
+
         if (tenantId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
         }
@@ -1313,6 +1431,7 @@ public class FilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1324,8 +1443,8 @@ public class FilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getFilesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getFilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, Integer top, Integer skip, Boolean count, String filter, String orderBy, String search, String select, String expand, Boolean isEmpty, final ApiCallback _callback) throws ApiException {
+        return getFilesCountAsyncCall(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty, _callback);
 
     }
 
@@ -1335,6 +1454,15 @@ public class FilesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @return Long
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1345,8 +1473,8 @@ public class FilesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Long getFilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Long> localVarResp = getFilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Long getFilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, Integer top, Integer skip, Boolean count, String filter, String orderBy, String search, String select, String expand, Boolean isEmpty) throws ApiException {
+        ApiResponse<Long> localVarResp = getFilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty);
         return localVarResp.getData();
     }
 
@@ -1356,6 +1484,15 @@ public class FilesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @return ApiResponse&lt;Long&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1366,8 +1503,8 @@ public class FilesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Long> getFilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Long> getFilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, Integer top, Integer skip, Boolean count, String filter, String orderBy, String search, String select, String expand, Boolean isEmpty) throws ApiException {
+        okhttp3.Call localVarCall = getFilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty, null);
         Type localVarReturnType = new TypeToken<Long>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1378,6 +1515,15 @@ public class FilesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param top  (optional)
+     * @param skip  (optional)
+     * @param count  (optional)
+     * @param filter  (optional)
+     * @param orderBy  (optional)
+     * @param search  (optional)
+     * @param select  (optional)
+     * @param expand  (optional)
+     * @param isEmpty  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1389,9 +1535,9 @@ public class FilesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Long> _callback) throws ApiException {
+    public okhttp3.Call getFilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, Integer top, Integer skip, Boolean count, String filter, String orderBy, String search, String select, String expand, Boolean isEmpty, final ApiCallback<Long> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty, _callback);
         Type localVarReturnType = new TypeToken<Long>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -222,7 +222,7 @@ No authorization required
 
 <a id="getItemRetainSamplesAsync"></a>
 # **getItemRetainSamplesAsync**
-> ItemRetainSampleDtoListEnvelope getItemRetainSamplesAsync(tenantId, apiVersion, xApiVersion)
+> ItemRetainSampleDtoListEnvelope getItemRetainSamplesAsync(tenantId, apiVersion, xApiVersion, itemRetainSampleDtoCollectionQueryParameters)
 
 Get all item retain samples
 
@@ -246,8 +246,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemRetainSampleDtoCollectionQueryParameters itemRetainSampleDtoCollectionQueryParameters = new ItemRetainSampleDtoCollectionQueryParameters(); // ItemRetainSampleDtoCollectionQueryParameters | 
     try {
-      ItemRetainSampleDtoListEnvelope result = apiInstance.getItemRetainSamplesAsync(tenantId, apiVersion, xApiVersion);
+      ItemRetainSampleDtoListEnvelope result = apiInstance.getItemRetainSamplesAsync(tenantId, apiVersion, xApiVersion, itemRetainSampleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRetainSamplesApi#getItemRetainSamplesAsync");
@@ -267,6 +268,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemRetainSampleDtoCollectionQueryParameters** | [**ItemRetainSampleDtoCollectionQueryParameters**](ItemRetainSampleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -278,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getItemRetainSamplesCountAsync"></a>
 # **getItemRetainSamplesCountAsync**
-> Int32Envelope getItemRetainSamplesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemRetainSamplesCountAsync(tenantId, apiVersion, xApiVersion, itemRetainSampleDtoCollectionQueryParameters)
 
 Get item retain samples count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemRetainSampleDtoCollectionQueryParameters itemRetainSampleDtoCollectionQueryParameters = new ItemRetainSampleDtoCollectionQueryParameters(); // ItemRetainSampleDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemRetainSamplesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemRetainSamplesCountAsync(tenantId, apiVersion, xApiVersion, itemRetainSampleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRetainSamplesApi#getItemRetainSamplesCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemRetainSampleDtoCollectionQueryParameters** | [**ItemRetainSampleDtoCollectionQueryParameters**](ItemRetainSampleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -356,7 +360,7 @@ No authorization required
 
 <a id="patchItemRetainSampleAsync"></a>
 # **patchItemRetainSampleAsync**
-> EmptyEnvelope patchItemRetainSampleAsync(tenantId, retainSampleId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemRetainSampleAsync(tenantId, retainSampleId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item retain sample
 
@@ -381,9 +385,9 @@ public class Example {
     UUID retainSampleId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemRetainSampleAsync(tenantId, retainSampleId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemRetainSampleAsync(tenantId, retainSampleId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRetainSamplesApi#patchItemRetainSampleAsync");
@@ -404,7 +408,7 @@ public class Example {
 | **retainSampleId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

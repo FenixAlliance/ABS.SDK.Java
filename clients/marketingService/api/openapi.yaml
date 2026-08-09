@@ -65,6 +65,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailGroupDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailGroupDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -96,6 +104,7 @@ paths:
       summary: Get email groups
       tags:
       - EmailGroups
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -206,6 +215,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailGroupDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailGroupDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -246,6 +263,7 @@ paths:
       summary: Get email groups count
       tags:
       - EmailGroups
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -443,12 +461,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -600,6 +618,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailSignatureDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailSignatureDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -631,6 +657,7 @@ paths:
       summary: Get email signatures
       tags:
       - EmailSignatures
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -741,6 +768,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailSignatureDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailSignatureDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -781,6 +816,7 @@ paths:
       summary: Get email signatures count
       tags:
       - EmailSignatures
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -978,12 +1014,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1135,6 +1171,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1166,6 +1210,7 @@ paths:
       summary: Get email templates
       tags:
       - EmailTemplates
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1276,6 +1321,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1316,6 +1369,7 @@ paths:
       summary: Get email templates count
       tags:
       - EmailTemplates
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1513,12 +1567,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1653,23 +1707,6 @@ paths:
       - application/json
   /health:
     get:
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           description: OK
@@ -2046,6 +2083,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingAreaDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingAreaDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2077,6 +2122,7 @@ paths:
       summary: Get marketing areas
       tags:
       - MarketingAreas
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2185,6 +2231,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingAreaDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingAreaDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2216,6 +2270,7 @@ paths:
       summary: Count marketing areas
       tags:
       - MarketingAreas
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2404,12 +2459,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2560,6 +2615,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingCampaignDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingCampaignDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2591,6 +2654,7 @@ paths:
       summary: Get marketing campaigns
       tags:
       - MarketingCampaigns
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2701,6 +2765,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingCampaignDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingCampaignDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2741,6 +2813,7 @@ paths:
       summary: Get marketing campaigns count
       tags:
       - MarketingCampaigns
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2938,12 +3011,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3095,6 +3168,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingLeadDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingLeadDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -3108,6 +3189,7 @@ paths:
       summary: Get marketing leads
       tags:
       - MarketingLeads
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3188,6 +3270,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingLeadDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingLeadDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -3201,6 +3291,7 @@ paths:
       summary: Get marketing leads count
       tags:
       - MarketingLeads
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3342,12 +3433,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3471,6 +3562,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingListDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingListDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3502,6 +3601,7 @@ paths:
       summary: Get marketing lists
       tags:
       - MarketingLists
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3612,6 +3712,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingListDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingListDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3652,6 +3760,7 @@ paths:
       summary: Get marketing lists count
       tags:
       - MarketingLists
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3849,12 +3958,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -4006,6 +4115,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewsletterDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewsletterDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4037,6 +4154,7 @@ paths:
       summary: Get newsletters
       tags:
       - Newsletters
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4147,6 +4265,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewsletterDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewsletterDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4187,6 +4313,7 @@ paths:
       summary: Get newsletters count
       tags:
       - Newsletters
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4384,12 +4511,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -4541,6 +4668,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewsletterSubscriptionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewsletterSubscriptionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4581,6 +4716,7 @@ paths:
       summary: Get newsletter subscriptions
       tags:
       - NewsletterSubscriptions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4691,6 +4827,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewsletterSubscriptionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewsletterSubscriptionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4731,6 +4875,7 @@ paths:
       summary: Get newsletter subscriptions count
       tags:
       - NewsletterSubscriptions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5005,6 +5150,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialMediaPostDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialMediaPostDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5036,6 +5189,7 @@ paths:
       summary: Get social media posts
       tags:
       - SocialMediaPosts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5146,6 +5300,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialMediaPostDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialMediaPostDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5186,6 +5348,7 @@ paths:
       summary: Get social media posts count
       tags:
       - SocialMediaPosts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5383,12 +5546,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -5540,6 +5703,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostBucketDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostBucketDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5571,6 +5742,7 @@ paths:
       summary: Get social post buckets
       tags:
       - SocialPostBuckets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5681,6 +5853,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostBucketDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostBucketDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5721,6 +5901,7 @@ paths:
       summary: Get social post buckets count
       tags:
       - SocialPostBuckets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5918,12 +6099,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -6175,6 +6356,48 @@ components:
         enabled:
           type: boolean
       type: object
+    EmailGroupDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     EmailGroupDtoEnvelope:
       additionalProperties: false
       example:
@@ -6187,8 +6410,14 @@ components:
           enabled: true
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6205,6 +6434,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6231,8 +6475,14 @@ components:
           enabled: true
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6249,6 +6499,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6343,7 +6608,7 @@ components:
         jsContent: jsContent
         allowPingBacks: true
         slug: slug
-        order: 0
+        order: 6
         enrollmentId: enrollmentId
         twitterImage: twitterImage
         systemLocked: true
@@ -6562,6 +6827,48 @@ components:
           nullable: true
           type: string
       type: object
+    EmailSignatureDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     EmailSignatureDtoEnvelope:
       additionalProperties: false
       example:
@@ -6580,7 +6887,7 @@ components:
           jsContent: jsContent
           allowPingBacks: true
           slug: slug
-          order: 0
+          order: 6
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -6626,8 +6933,14 @@ components:
           allowSearchEngineIndexing: true
           cssFiles: cssFiles
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6644,6 +6957,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6669,7 +6997,7 @@ components:
           jsContent: jsContent
           allowPingBacks: true
           slug: slug
-          order: 0
+          order: 6
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -6728,7 +7056,7 @@ components:
           jsContent: jsContent
           allowPingBacks: true
           slug: slug
-          order: 0
+          order: 6
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -6774,8 +7102,14 @@ components:
           allowSearchEngineIndexing: true
           cssFiles: cssFiles
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6792,6 +7126,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7092,7 +7441,7 @@ components:
         jsContent: jsContent
         allowPingBacks: true
         slug: slug
-        order: 0
+        order: 6
         enrollmentId: enrollmentId
         twitterImage: twitterImage
         systemLocked: true
@@ -7319,6 +7668,48 @@ components:
           nullable: true
           type: string
       type: object
+    EmailTemplateDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     EmailTemplateDtoEnvelope:
       additionalProperties: false
       example:
@@ -7337,7 +7728,7 @@ components:
           jsContent: jsContent
           allowPingBacks: true
           slug: slug
-          order: 0
+          order: 6
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -7385,8 +7776,14 @@ components:
           marketingCampaignName: marketingCampaignName
           cssFiles: cssFiles
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7403,6 +7800,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7428,7 +7840,7 @@ components:
           jsContent: jsContent
           allowPingBacks: true
           slug: slug
-          order: 0
+          order: 6
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -7489,7 +7901,7 @@ components:
           jsContent: jsContent
           allowPingBacks: true
           slug: slug
-          order: 0
+          order: 6
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -7537,8 +7949,14 @@ components:
           marketingCampaignName: marketingCampaignName
           cssFiles: cssFiles
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7555,6 +7973,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7791,8 +8224,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7809,6 +8248,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7818,8 +8272,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7836,6 +8296,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7914,10 +8389,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7934,6 +8415,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8019,6 +8515,48 @@ components:
           nullable: true
           type: string
       type: object
+    MarketingAreaDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     MarketingAreaDtoEnvelope:
       additionalProperties: false
       example:
@@ -8030,8 +8568,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8048,6 +8592,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8072,8 +8631,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8090,6 +8655,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8184,16 +8764,16 @@ components:
     MarketingCampaignDto:
       additionalProperties: false
       example:
-        expectedResponsePercent: 5.962133916683182
+        expectedResponsePercent: 5.637376656633329
         enrollmentId: enrollmentId
-        allocatedBudget: 0.8008281904610115
+        allocatedBudget: 6.027456183070403
         code: code
-        miscCost: 1.4658129805029452
+        miscCost: 5.962133916683182
         actualEnd: 2000-01-23T04:56:07.000+00:00
         active: true
         marketingAreaId: marketingAreaId
         offer: offer
-        activityCost: 6.027456183070403
+        activityCost: 1.4658129805029452
         proposedStart: 2000-01-23T04:56:07.000+00:00
         proposedEnd: 2000-01-23T04:56:07.000+00:00
         name: name
@@ -8258,20 +8838,62 @@ components:
           nullable: true
           type: string
       type: object
+    MarketingCampaignDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     MarketingCampaignDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          expectedResponsePercent: 5.962133916683182
+          expectedResponsePercent: 5.637376656633329
           enrollmentId: enrollmentId
-          allocatedBudget: 0.8008281904610115
+          allocatedBudget: 6.027456183070403
           code: code
-          miscCost: 1.4658129805029452
+          miscCost: 5.962133916683182
           actualEnd: 2000-01-23T04:56:07.000+00:00
           active: true
           marketingAreaId: marketingAreaId
           offer: offer
-          activityCost: 6.027456183070403
+          activityCost: 1.4658129805029452
           proposedStart: 2000-01-23T04:56:07.000+00:00
           proposedEnd: 2000-01-23T04:56:07.000+00:00
           name: name
@@ -8281,8 +8903,14 @@ components:
           actualStart: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8299,6 +8927,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8424,7 +9067,7 @@ components:
         jobTitle: jobTitle
         source: source
         firstName: firstName
-        score: 0
+        score: 6
         phone: phone
         tenantId: tenantId
         company: company
@@ -8477,6 +9120,48 @@ components:
           nullable: true
           type: string
       type: object
+    MarketingLeadDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     MarketingLeadDtoEnvelope:
       additionalProperties: false
       example:
@@ -8487,7 +9172,7 @@ components:
           jobTitle: jobTitle
           source: source
           firstName: firstName
-          score: 0
+          score: 6
           phone: phone
           tenantId: tenantId
           company: company
@@ -8496,8 +9181,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           status: status
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8514,6 +9205,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8531,7 +9237,7 @@ components:
           jobTitle: jobTitle
           source: source
           firstName: firstName
-          score: 0
+          score: 6
           phone: phone
           tenantId: tenantId
           company: company
@@ -8545,7 +9251,7 @@ components:
           jobTitle: jobTitle
           source: source
           firstName: firstName
-          score: 0
+          score: 6
           phone: phone
           tenantId: tenantId
           company: company
@@ -8554,8 +9260,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           status: status
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8572,6 +9284,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8693,7 +9420,7 @@ components:
       example:
         lastUsedOn: 2000-01-23T04:56:07.000+00:00
         enrollmentId: enrollmentId
-        cost: 0.8008281904610115
+        cost: 6.027456183070403
         purpose: purpose
         marketingListTarget: Individual
         description: description
@@ -8758,13 +9485,55 @@ components:
           - Lead
           type: string
       type: object
+    MarketingListDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     MarketingListDtoEnvelope:
       additionalProperties: false
       example:
         result:
           lastUsedOn: 2000-01-23T04:56:07.000+00:00
           enrollmentId: enrollmentId
-          cost: 0.8008281904610115
+          cost: 6.027456183070403
           purpose: purpose
           marketingListTarget: Individual
           description: description
@@ -8778,8 +9547,14 @@ components:
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8796,6 +9571,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8809,7 +9599,7 @@ components:
         result:
         - lastUsedOn: 2000-01-23T04:56:07.000+00:00
           enrollmentId: enrollmentId
-          cost: 0.8008281904610115
+          cost: 6.027456183070403
           purpose: purpose
           marketingListTarget: Individual
           description: description
@@ -8824,7 +9614,7 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
         - lastUsedOn: 2000-01-23T04:56:07.000+00:00
           enrollmentId: enrollmentId
-          cost: 0.8008281904610115
+          cost: 6.027456183070403
           purpose: purpose
           marketingListTarget: Individual
           description: description
@@ -8838,8 +9628,14 @@ components:
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8856,6 +9652,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8978,6 +9789,48 @@ components:
           nullable: true
           type: string
       type: object
+    NewsletterDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     NewsletterDtoEnvelope:
       additionalProperties: false
       example:
@@ -8990,8 +9843,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9008,6 +9867,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9084,6 +9958,48 @@ components:
           nullable: true
           type: string
       type: object
+    NewsletterSubscriptionDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     NewsletterSubscriptionDtoEnvelope:
       additionalProperties: false
       example:
@@ -9098,8 +10014,14 @@ components:
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9116,6 +10038,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9146,8 +10083,14 @@ components:
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9164,6 +10107,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9211,90 +10169,58 @@ components:
           nullable: true
           type: string
       type: object
-    Operation:
-      additionalProperties: false
-      example:
-        path: path
-        op: op
-        operationType: Add
-        from: from
-        value: ""
-      properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
-          nullable: true
-          type: string
-        op:
-          nullable: true
-          type: string
-        from:
-          nullable: true
-          type: string
-        value:
-          nullable: true
-      type: object
     OrderDto:
       additionalProperties: false
       example:
-        totalDiscountsInUsd: 6.84685269835264
+        totalDiscountsInUsd: 7.457744773683766
         totalShippingCostCurrencyId: totalShippingCostCurrencyId
-        totalInUsd: 9.018348186070783
+        totalInUsd: 6.438423552598547
         companyName: companyName
         postalCode: postalCode
-        totalDetail: 6.027456183070403
-        totalShippingCost: 9.301444243932576
+        totalDetail: 1.4658129805029452
+        totalShippingCost: 3.616076749251911
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
         freightTerms: FOB
         cityId: cityId
         type: type
-        totalTaxBaseInUsd: 1.1730742509559433
+        totalTaxBaseInUsd: 4.965218492984954
         organizationId: organizationId
-        totalTaxBase: 2.3021358869347655
-        customDiscountsAmount: 6.778324963048013
+        totalTaxBase: 7.061401241503109
+        customDiscountsAmount: 6.878052220127876
         totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         addressLine1: addressLine1
         addressLine2: addressLine2
         id: id
         currencyId: currencyId
-        customTaxAmount: 3.5571952270680973
+        customTaxAmount: 6.965117697638846
         enrollmentId: enrollmentId
         walletId: walletId
         forexRatesSnapshot: forexRatesSnapshot
-        totalWithheldTaxesInUsd: 5.025004791520295
-        totalProfitInUsd: 1.4894159098541704
-        orderLinesCount: 6
-        totalGlobalSurchargesInUsd: 8.762042012749001
+        totalWithheldTaxesInUsd: 9.965781217890562
+        totalProfitInUsd: 6.84685269835264
+        orderLinesCount: 3
+        totalGlobalSurchargesInUsd: 9.018348186070783
         totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
         shippingMethodId: shippingMethodId
         costCalculationMethod: Automatic
-        totalShippingTaxesInUsd: 9.369310271410669
+        totalShippingTaxesInUsd: 6.683562403749608
         quoteId: quoteId
         firstName: firstName
-        totalShippingTax: 3.616076749251911
-        forexRate: 0.8008281904610115
-        customDetailAmount: 1.284659006116532
-        customSurchargesAmount: 6.878052220127876
+        totalShippingTax: 2.027123023002322
+        forexRate: 6.027456183070403
+        customDetailAmount: 2.8841621266687802
+        customSurchargesAmount: 5.944895607614016
         requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-        customShippingCostAmount: 6.704019297950036
-        totalShippingCostInUsd: 9.965781217890562
-        totalDetailInUsd: 1.0246457001441578
-        customWithholdingTaxAmount: 3.353193347011243
+        customShippingCostAmount: 3.353193347011243
+        totalShippingCostInUsd: 9.369310271410669
+        totalDetailInUsd: 1.4894159098541704
+        customWithholdingTaxAmount: 3.0937452626664474
         billingLocationId: billingLocationId
         lastName: lastName
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-        totalProfit: 1.4658129805029452
-        totalGlobalDiscounts: 4.145608029883936
-        totalDiscounts: 5.962133916683182
+        totalProfit: 5.962133916683182
+        totalGlobalDiscounts: 7.386281948385884
+        totalDiscounts: 5.637376656633329
         totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
         orderStatus: New
@@ -9304,34 +10230,34 @@ components:
         title: title
         qualifiedIdentifier: qualifiedIdentifier
         countryId: countryId
-        total: 1.2315135367772556
+        total: 1.0246457001441578
         totalCurrencyId: totalCurrencyId
-        totalSurchargesInUsd: 7.457744773683766
+        totalSurchargesInUsd: 1.1730742509559433
         billingEmail: billingEmail
         parentOrderId: parentOrderId
         buyerBillingProfileId: buyerBillingProfileId
         totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
-        customTotalAmount: 6.965117697638846
+        customTotalAmount: 1.284659006116532
         timestamp: 2000-01-23T04:56:07.000+00:00
         paymentTermId: paymentTermId
         sellerBillingProfileId: sellerBillingProfileId
-        totalTaxes: 7.061401241503109
-        totalWithheldTax: 2.027123023002322
+        totalTaxes: 9.301444243932576
+        totalWithheldTax: 4.145608029883936
         stateId: stateId
-        customShippingTaxAmount: 5.944895607614016
+        customShippingTaxAmount: 6.704019297950036
         priceListId: priceListId
         userId: userId
         totalDetailCurrencyId: totalDetailCurrencyId
         totalSurchargesCurrencyId: totalSurchargesCurrencyId
-        totalTaxesInUsd: 4.965218492984954
-        customProfitAmount: 2.8841621266687802
+        totalTaxesInUsd: 5.025004791520295
+        customProfitAmount: 6.778324963048013
         tenantId: tenantId
         closed: true
-        totalSurcharges: 5.637376656633329
+        totalSurcharges: 2.3021358869347655
         taxCalculationMethod: Included
-        totalGlobalSurcharges: 7.386281948385884
-        totalGlobalDiscountsInUsd: 6.683562403749608
+        totalGlobalSurcharges: 1.2315135367772556
+        totalGlobalDiscountsInUsd: 8.762042012749001
         totalProfitCurrencyId: totalProfitCurrencyId
         totalTaxesCurrencyId: totalTaxesCurrencyId
       properties:
@@ -9411,6 +10337,11 @@ components:
           enum:
           - Included
           - Excluded
+          type: string
+        costCalculationMethod:
+          enum:
+          - Automatic
+          - Custom
           type: string
         forexRate:
           format: double
@@ -9562,11 +10493,6 @@ components:
         buyerBillingProfileId:
           nullable: true
           type: string
-        costCalculationMethod:
-          enum:
-          - Automatic
-          - Custom
-          type: string
         freightTerms:
           enum:
           - FOB
@@ -9620,55 +10546,55 @@ components:
       additionalProperties: false
       example:
         result:
-          totalDiscountsInUsd: 6.84685269835264
+          totalDiscountsInUsd: 7.457744773683766
           totalShippingCostCurrencyId: totalShippingCostCurrencyId
-          totalInUsd: 9.018348186070783
+          totalInUsd: 6.438423552598547
           companyName: companyName
           postalCode: postalCode
-          totalDetail: 6.027456183070403
-          totalShippingCost: 9.301444243932576
+          totalDetail: 1.4658129805029452
+          totalShippingCost: 3.616076749251911
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           freightTerms: FOB
           cityId: cityId
           type: type
-          totalTaxBaseInUsd: 1.1730742509559433
+          totalTaxBaseInUsd: 4.965218492984954
           organizationId: organizationId
-          totalTaxBase: 2.3021358869347655
-          customDiscountsAmount: 6.778324963048013
+          totalTaxBase: 7.061401241503109
+          customDiscountsAmount: 6.878052220127876
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
           id: id
           currencyId: currencyId
-          customTaxAmount: 3.5571952270680973
+          customTaxAmount: 6.965117697638846
           enrollmentId: enrollmentId
           walletId: walletId
           forexRatesSnapshot: forexRatesSnapshot
-          totalWithheldTaxesInUsd: 5.025004791520295
-          totalProfitInUsd: 1.4894159098541704
-          orderLinesCount: 6
-          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxesInUsd: 9.965781217890562
+          totalProfitInUsd: 6.84685269835264
+          orderLinesCount: 3
+          totalGlobalSurchargesInUsd: 9.018348186070783
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           shippingMethodId: shippingMethodId
           costCalculationMethod: Automatic
-          totalShippingTaxesInUsd: 9.369310271410669
+          totalShippingTaxesInUsd: 6.683562403749608
           quoteId: quoteId
           firstName: firstName
-          totalShippingTax: 3.616076749251911
-          forexRate: 0.8008281904610115
-          customDetailAmount: 1.284659006116532
-          customSurchargesAmount: 6.878052220127876
+          totalShippingTax: 2.027123023002322
+          forexRate: 6.027456183070403
+          customDetailAmount: 2.8841621266687802
+          customSurchargesAmount: 5.944895607614016
           requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          customShippingCostAmount: 6.704019297950036
-          totalShippingCostInUsd: 9.965781217890562
-          totalDetailInUsd: 1.0246457001441578
-          customWithholdingTaxAmount: 3.353193347011243
+          customShippingCostAmount: 3.353193347011243
+          totalShippingCostInUsd: 9.369310271410669
+          totalDetailInUsd: 1.4894159098541704
+          customWithholdingTaxAmount: 3.0937452626664474
           billingLocationId: billingLocationId
           lastName: lastName
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-          totalProfit: 1.4658129805029452
-          totalGlobalDiscounts: 4.145608029883936
-          totalDiscounts: 5.962133916683182
+          totalProfit: 5.962133916683182
+          totalGlobalDiscounts: 7.386281948385884
+          totalDiscounts: 5.637376656633329
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           orderStatus: New
@@ -9678,39 +10604,45 @@ components:
           title: title
           qualifiedIdentifier: qualifiedIdentifier
           countryId: countryId
-          total: 1.2315135367772556
+          total: 1.0246457001441578
           totalCurrencyId: totalCurrencyId
-          totalSurchargesInUsd: 7.457744773683766
+          totalSurchargesInUsd: 1.1730742509559433
           billingEmail: billingEmail
           parentOrderId: parentOrderId
           buyerBillingProfileId: buyerBillingProfileId
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          customTotalAmount: 6.965117697638846
+          customTotalAmount: 1.284659006116532
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
           sellerBillingProfileId: sellerBillingProfileId
-          totalTaxes: 7.061401241503109
-          totalWithheldTax: 2.027123023002322
+          totalTaxes: 9.301444243932576
+          totalWithheldTax: 4.145608029883936
           stateId: stateId
-          customShippingTaxAmount: 5.944895607614016
+          customShippingTaxAmount: 6.704019297950036
           priceListId: priceListId
           userId: userId
           totalDetailCurrencyId: totalDetailCurrencyId
           totalSurchargesCurrencyId: totalSurchargesCurrencyId
-          totalTaxesInUsd: 4.965218492984954
-          customProfitAmount: 2.8841621266687802
+          totalTaxesInUsd: 5.025004791520295
+          customProfitAmount: 6.778324963048013
           tenantId: tenantId
           closed: true
-          totalSurcharges: 5.637376656633329
+          totalSurcharges: 2.3021358869347655
           taxCalculationMethod: Included
-          totalGlobalSurcharges: 7.386281948385884
-          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalGlobalSurcharges: 1.2315135367772556
+          totalGlobalDiscountsInUsd: 8.762042012749001
           totalProfitCurrencyId: totalProfitCurrencyId
           totalTaxesCurrencyId: totalTaxesCurrencyId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9727,12 +10659,47 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
           type: string
         result:
           $ref: '#/components/schemas/OrderDto'
+      type: object
+    PatchOperation:
+      additionalProperties: false
+      example:
+        op: op
+        path: path
+        from: from
+        value: ""
+      properties:
+        op:
+          nullable: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
       type: object
     RefreshRequest:
       additionalProperties: false
@@ -9865,6 +10832,48 @@ components:
           nullable: true
           type: string
       type: object
+    SocialMediaPostDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SocialMediaPostDtoEnvelope:
       additionalProperties: false
       example:
@@ -9878,8 +10887,14 @@ components:
           content: content
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9896,6 +10911,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9924,8 +10954,14 @@ components:
           content: content
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9942,6 +10978,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10023,6 +11074,48 @@ components:
           nullable: true
           type: string
       type: object
+    SocialPostBucketDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SocialPostBucketDtoEnvelope:
       additionalProperties: false
       example:
@@ -10033,8 +11126,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10051,6 +11150,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10073,8 +11187,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10091,6 +11211,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

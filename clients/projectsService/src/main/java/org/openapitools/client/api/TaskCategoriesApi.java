@@ -30,9 +30,10 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TaskCategoryCreateDto;
 import org.openapitools.client.model.TaskCategoryDto;
+import org.openapitools.client.model.TaskCategoryDtoCollectionQueryParameters;
 import org.openapitools.client.model.TaskCategoryDtoListEnvelope;
 import org.openapitools.client.model.TaskCategoryUpdateDto;
 import java.util.UUID;
@@ -83,6 +84,7 @@ public class TaskCategoriesApi {
     /**
      * Build call for countTenantTaskCategoriesAsync
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -94,7 +96,7 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countTenantTaskCategoriesAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countTenantTaskCategoriesAsyncCall(UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,7 +110,7 @@ public class TaskCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = taskCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/TaskCategories/Count";
@@ -133,6 +135,8 @@ public class TaskCategoriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -144,13 +148,13 @@ public class TaskCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countTenantTaskCategoriesAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countTenantTaskCategoriesAsyncValidateBeforeCall(UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countTenantTaskCategoriesAsync(Async)");
         }
 
-        return countTenantTaskCategoriesAsyncCall(tenantId, _callback);
+        return countTenantTaskCategoriesAsyncCall(tenantId, taskCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -158,6 +162,7 @@ public class TaskCategoriesApi {
      * Counts task categories
      * Gets the count of task categories for the current tenant.
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -168,8 +173,8 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countTenantTaskCategoriesAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countTenantTaskCategoriesAsyncWithHttpInfo(tenantId);
+    public Int32Envelope countTenantTaskCategoriesAsync(UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countTenantTaskCategoriesAsyncWithHttpInfo(tenantId, taskCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -177,6 +182,7 @@ public class TaskCategoriesApi {
      * Counts task categories
      * Gets the count of task categories for the current tenant.
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -187,8 +193,8 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countTenantTaskCategoriesAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = countTenantTaskCategoriesAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> countTenantTaskCategoriesAsyncWithHttpInfo(UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countTenantTaskCategoriesAsyncValidateBeforeCall(tenantId, taskCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -197,6 +203,7 @@ public class TaskCategoriesApi {
      * Counts task categories (asynchronously)
      * Gets the count of task categories for the current tenant.
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -208,9 +215,9 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countTenantTaskCategoriesAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countTenantTaskCategoriesAsyncAsync(UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countTenantTaskCategoriesAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = countTenantTaskCategoriesAsyncValidateBeforeCall(tenantId, taskCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -794,6 +801,7 @@ public class TaskCategoriesApi {
     /**
      * Build call for getTenantTaskCategoriesAsync
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -805,7 +813,7 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantTaskCategoriesAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantTaskCategoriesAsyncCall(UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -819,7 +827,7 @@ public class TaskCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = taskCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/TaskCategories";
@@ -844,6 +852,8 @@ public class TaskCategoriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -855,13 +865,13 @@ public class TaskCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantTaskCategoriesAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantTaskCategoriesAsyncValidateBeforeCall(UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantTaskCategoriesAsync(Async)");
         }
 
-        return getTenantTaskCategoriesAsyncCall(tenantId, _callback);
+        return getTenantTaskCategoriesAsyncCall(tenantId, taskCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -869,6 +879,7 @@ public class TaskCategoriesApi {
      * Retrieves all task categories
      * Gets all task categories for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return TaskCategoryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -879,8 +890,8 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TaskCategoryDtoListEnvelope getTenantTaskCategoriesAsync(UUID tenantId) throws ApiException {
-        ApiResponse<TaskCategoryDtoListEnvelope> localVarResp = getTenantTaskCategoriesAsyncWithHttpInfo(tenantId);
+    public TaskCategoryDtoListEnvelope getTenantTaskCategoriesAsync(UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TaskCategoryDtoListEnvelope> localVarResp = getTenantTaskCategoriesAsyncWithHttpInfo(tenantId, taskCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -888,6 +899,7 @@ public class TaskCategoriesApi {
      * Retrieves all task categories
      * Gets all task categories for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TaskCategoryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -898,8 +910,8 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TaskCategoryDtoListEnvelope> getTenantTaskCategoriesAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getTenantTaskCategoriesAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<TaskCategoryDtoListEnvelope> getTenantTaskCategoriesAsyncWithHttpInfo(UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantTaskCategoriesAsyncValidateBeforeCall(tenantId, taskCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TaskCategoryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -908,6 +920,7 @@ public class TaskCategoriesApi {
      * Retrieves all task categories (asynchronously)
      * Gets all task categories for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -919,9 +932,9 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantTaskCategoriesAsyncAsync(UUID tenantId, final ApiCallback<TaskCategoryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantTaskCategoriesAsyncAsync(UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback<TaskCategoryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantTaskCategoriesAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getTenantTaskCategoriesAsyncValidateBeforeCall(tenantId, taskCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TaskCategoryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -930,7 +943,7 @@ public class TaskCategoriesApi {
      * Build call for patchTaskCategoryAsync
      * @param taskCategoryId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -942,7 +955,7 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTaskCategoryAsyncCall(UUID taskCategoryId, UUID tenantId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTaskCategoryAsyncCall(UUID taskCategoryId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -956,7 +969,7 @@ public class TaskCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/TaskCategories/{taskCategoryId}"
@@ -995,7 +1008,7 @@ public class TaskCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTaskCategoryAsyncValidateBeforeCall(UUID taskCategoryId, UUID tenantId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTaskCategoryAsyncValidateBeforeCall(UUID taskCategoryId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'taskCategoryId' is set
         if (taskCategoryId == null) {
             throw new ApiException("Missing the required parameter 'taskCategoryId' when calling patchTaskCategoryAsync(Async)");
@@ -1006,7 +1019,7 @@ public class TaskCategoriesApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTaskCategoryAsync(Async)");
         }
 
-        return patchTaskCategoryAsyncCall(taskCategoryId, tenantId, operation, _callback);
+        return patchTaskCategoryAsyncCall(taskCategoryId, tenantId, patchOperation, _callback);
 
     }
 
@@ -1015,7 +1028,7 @@ public class TaskCategoriesApi {
      * Partially updates the specified task category.
      * @param taskCategoryId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1026,8 +1039,8 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTaskCategoryAsync(UUID taskCategoryId, UUID tenantId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTaskCategoryAsyncWithHttpInfo(taskCategoryId, tenantId, operation);
+    public EmptyEnvelope patchTaskCategoryAsync(UUID taskCategoryId, UUID tenantId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTaskCategoryAsyncWithHttpInfo(taskCategoryId, tenantId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1036,7 +1049,7 @@ public class TaskCategoriesApi {
      * Partially updates the specified task category.
      * @param taskCategoryId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1047,8 +1060,8 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTaskCategoryAsyncWithHttpInfo(UUID taskCategoryId, UUID tenantId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTaskCategoryAsyncValidateBeforeCall(taskCategoryId, tenantId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTaskCategoryAsyncWithHttpInfo(UUID taskCategoryId, UUID tenantId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTaskCategoryAsyncValidateBeforeCall(taskCategoryId, tenantId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1058,7 +1071,7 @@ public class TaskCategoriesApi {
      * Partially updates the specified task category.
      * @param taskCategoryId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1070,9 +1083,9 @@ public class TaskCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTaskCategoryAsyncAsync(UUID taskCategoryId, UUID tenantId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTaskCategoryAsyncAsync(UUID taskCategoryId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTaskCategoryAsyncValidateBeforeCall(taskCategoryId, tenantId, operation, _callback);
+        okhttp3.Call localVarCall = patchTaskCategoryAsyncValidateBeforeCall(taskCategoryId, tenantId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

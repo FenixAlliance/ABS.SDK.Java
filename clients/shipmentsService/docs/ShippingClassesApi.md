@@ -220,7 +220,7 @@ No authorization required
 
 <a id="getShippingClassesAsync"></a>
 # **getShippingClassesAsync**
-> ShippingClassDtoListEnvelope getShippingClassesAsync(tenantId, apiVersion, xApiVersion)
+> ShippingClassDtoListEnvelope getShippingClassesAsync(tenantId, apiVersion, xApiVersion, shippingClassDtoCollectionQueryParameters)
 
 Get all shipping classes
 
@@ -244,8 +244,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShippingClassDtoCollectionQueryParameters shippingClassDtoCollectionQueryParameters = new ShippingClassDtoCollectionQueryParameters(); // ShippingClassDtoCollectionQueryParameters | 
     try {
-      ShippingClassDtoListEnvelope result = apiInstance.getShippingClassesAsync(tenantId, apiVersion, xApiVersion);
+      ShippingClassDtoListEnvelope result = apiInstance.getShippingClassesAsync(tenantId, apiVersion, xApiVersion, shippingClassDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingClassesApi#getShippingClassesAsync");
@@ -265,6 +266,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shippingClassDtoCollectionQueryParameters** | [**ShippingClassDtoCollectionQueryParameters**](ShippingClassDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -276,7 +278,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -288,7 +290,7 @@ No authorization required
 
 <a id="getShippingClassesCountAsync"></a>
 # **getShippingClassesCountAsync**
-> Int32Envelope getShippingClassesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShippingClassesCountAsync(tenantId, apiVersion, xApiVersion, shippingClassDtoCollectionQueryParameters)
 
 Get shipping classes count
 
@@ -312,8 +314,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShippingClassDtoCollectionQueryParameters shippingClassDtoCollectionQueryParameters = new ShippingClassDtoCollectionQueryParameters(); // ShippingClassDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getShippingClassesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getShippingClassesCountAsync(tenantId, apiVersion, xApiVersion, shippingClassDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingClassesApi#getShippingClassesCountAsync");
@@ -333,6 +336,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shippingClassDtoCollectionQueryParameters** | [**ShippingClassDtoCollectionQueryParameters**](ShippingClassDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -344,7 +348,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -354,7 +358,7 @@ No authorization required
 
 <a id="patchShippingClassAsync"></a>
 # **patchShippingClassAsync**
-> EmptyEnvelope patchShippingClassAsync(tenantId, classId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShippingClassAsync(tenantId, classId, apiVersion, xApiVersion, patchOperation)
 
 Patch a shipping class
 
@@ -379,9 +383,9 @@ public class Example {
     UUID classId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchShippingClassAsync(tenantId, classId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchShippingClassAsync(tenantId, classId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingClassesApi#patchShippingClassAsync");
@@ -402,7 +406,7 @@ public class Example {
 | **classId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -61,6 +61,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -92,6 +100,7 @@ paths:
       summary: Get all bills of lading
       tags:
       - BillsOfLading
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -182,6 +191,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -204,6 +221,7 @@ paths:
       summary: Get bills of lading count
       tags:
       - BillsOfLading
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -365,12 +383,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -519,6 +537,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingLineDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingLineDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -541,6 +567,7 @@ paths:
       summary: Get bill of lading lines
       tags:
       - BillsOfLading
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -647,6 +674,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingLineDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingLineDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -660,6 +695,7 @@ paths:
       summary: Get bill of lading lines count
       tags:
       - BillsOfLading
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -846,12 +882,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -984,23 +1020,6 @@ paths:
       - application/json
   /health:
     get:
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           description: OK
@@ -1377,6 +1396,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemShippingPolicyDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemShippingPolicyDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1408,6 +1435,7 @@ paths:
       summary: Get all item shipping policies
       tags:
       - ItemShippingPolicies
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1491,6 +1519,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemShippingPolicyDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemShippingPolicyDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -1504,6 +1540,7 @@ paths:
       summary: Get item shipping policies count
       tags:
       - ItemShippingPolicies
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1658,12 +1695,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -1797,6 +1834,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShipmentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShipmentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1828,6 +1873,7 @@ paths:
       summary: Get all shipments
       tags:
       - Shipments
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1911,6 +1957,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShipmentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShipmentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1933,6 +1987,7 @@ paths:
       summary: Get shipments count
       tags:
       - Shipments
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2087,12 +2142,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -2226,6 +2281,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingClassDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingClassDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2257,6 +2320,7 @@ paths:
       summary: Get all shipping classes
       tags:
       - ShippingClasses
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2340,6 +2404,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingClassDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingClassDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -2353,6 +2425,7 @@ paths:
       summary: Get shipping classes count
       tags:
       - ShippingClasses
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2507,12 +2580,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -2646,6 +2719,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingCourierDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingCourierDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2677,6 +2758,7 @@ paths:
       summary: Get all shipping couriers
       tags:
       - ShippingCouriers
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2760,6 +2842,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingCourierDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingCourierDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2782,6 +2872,7 @@ paths:
       summary: Get shipping couriers count
       tags:
       - ShippingCouriers
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2936,12 +3027,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -3075,6 +3166,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3106,6 +3205,7 @@ paths:
       summary: Get all shipping labels
       tags:
       - ShippingLabels
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3189,6 +3289,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -3202,6 +3310,7 @@ paths:
       summary: Get shipping labels count
       tags:
       - ShippingLabels
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3356,12 +3465,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -3495,6 +3604,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingMethodDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingMethodDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3526,6 +3643,7 @@ paths:
       summary: Get all shipping methods
       tags:
       - ShippingMethods
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3609,6 +3727,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingMethodDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingMethodDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -3622,6 +3748,7 @@ paths:
       summary: Get shipping methods count
       tags:
       - ShippingMethods
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3776,12 +3903,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -3915,6 +4042,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingRegionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingRegionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3946,6 +4081,7 @@ paths:
       summary: Get all shipping regions
       tags:
       - ShippingRegions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4029,6 +4165,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingRegionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingRegionDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -4042,6 +4186,7 @@ paths:
       summary: Get shipping regions count
       tags:
       - ShippingRegions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4196,12 +4341,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -4335,6 +4480,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingZoneDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingZoneDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4366,6 +4519,7 @@ paths:
       summary: Get all shipping zones
       tags:
       - ShippingZones
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4449,6 +4603,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingZoneDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingZoneDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -4462,6 +4624,7 @@ paths:
       summary: Get shipping zones count
       tags:
       - ShippingZones
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4616,12 +4779,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "400":
@@ -4889,13 +5052,13 @@ components:
       example:
         issuedDate: 2000-01-23T04:56:07.000+00:00
         freightPaymentType: freightPaymentType
-        totalPackages: 1
+        totalPackages: 5
         consigneeContactId: consigneeContactId
         orderId: orderId
         shippingCourierId: shippingCourierId
         description: description
         title: title
-        numberOfOriginals: 0
+        numberOfOriginals: 1
         expiryDate: 2000-01-23T04:56:07.000+00:00
         marksAndNumbers: marksAndNumbers
         voyageNumber: voyageNumber
@@ -4905,7 +5068,7 @@ components:
         enrollmentId: enrollmentId
         notifyPartyContactId: notifyPartyContactId
         declaredValueCurrencyId: declaredValueCurrencyId
-        totalVolumeM3: 5.637376656633329
+        totalVolumeM3: 7.061401241503109
         billOfLadingType: billOfLadingType
         onBoardDate: 2000-01-23T04:56:07.000+00:00
         isClean: true
@@ -4914,7 +5077,7 @@ components:
         billOfLadingNumber: billOfLadingNumber
         shipperContactId: shipperContactId
         shipmentId: shipmentId
-        declaredValueAmount: 6.027456183070403
+        declaredValueAmount: 5.962133916683182
         shippingTerms: shippingTerms
         placeOfDeliveryId: placeOfDeliveryId
         tenantId: tenantId
@@ -4923,7 +5086,7 @@ components:
         freightChargesDescription: freightChargesDescription
         status: status
         vesselName: vesselName
-        totalGrossWeightKg: 5.962133916683182
+        totalGrossWeightKg: 2.3021358869347655
       properties:
         id:
           nullable: true
@@ -5040,19 +5203,61 @@ components:
           nullable: true
           type: string
       type: object
+    BillOfLadingDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     BillOfLadingDtoEnvelope:
       additionalProperties: false
       example:
         result:
           issuedDate: 2000-01-23T04:56:07.000+00:00
           freightPaymentType: freightPaymentType
-          totalPackages: 1
+          totalPackages: 5
           consigneeContactId: consigneeContactId
           orderId: orderId
           shippingCourierId: shippingCourierId
           description: description
           title: title
-          numberOfOriginals: 0
+          numberOfOriginals: 1
           expiryDate: 2000-01-23T04:56:07.000+00:00
           marksAndNumbers: marksAndNumbers
           voyageNumber: voyageNumber
@@ -5062,7 +5267,7 @@ components:
           enrollmentId: enrollmentId
           notifyPartyContactId: notifyPartyContactId
           declaredValueCurrencyId: declaredValueCurrencyId
-          totalVolumeM3: 5.637376656633329
+          totalVolumeM3: 7.061401241503109
           billOfLadingType: billOfLadingType
           onBoardDate: 2000-01-23T04:56:07.000+00:00
           isClean: true
@@ -5071,7 +5276,7 @@ components:
           billOfLadingNumber: billOfLadingNumber
           shipperContactId: shipperContactId
           shipmentId: shipmentId
-          declaredValueAmount: 6.027456183070403
+          declaredValueAmount: 5.962133916683182
           shippingTerms: shippingTerms
           placeOfDeliveryId: placeOfDeliveryId
           tenantId: tenantId
@@ -5080,10 +5285,16 @@ components:
           freightChargesDescription: freightChargesDescription
           status: status
           vesselName: vesselName
-          totalGrossWeightKg: 5.962133916683182
+          totalGrossWeightKg: 2.3021358869347655
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5100,6 +5311,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5113,13 +5339,13 @@ components:
         result:
         - issuedDate: 2000-01-23T04:56:07.000+00:00
           freightPaymentType: freightPaymentType
-          totalPackages: 1
+          totalPackages: 5
           consigneeContactId: consigneeContactId
           orderId: orderId
           shippingCourierId: shippingCourierId
           description: description
           title: title
-          numberOfOriginals: 0
+          numberOfOriginals: 1
           expiryDate: 2000-01-23T04:56:07.000+00:00
           marksAndNumbers: marksAndNumbers
           voyageNumber: voyageNumber
@@ -5129,7 +5355,7 @@ components:
           enrollmentId: enrollmentId
           notifyPartyContactId: notifyPartyContactId
           declaredValueCurrencyId: declaredValueCurrencyId
-          totalVolumeM3: 5.637376656633329
+          totalVolumeM3: 7.061401241503109
           billOfLadingType: billOfLadingType
           onBoardDate: 2000-01-23T04:56:07.000+00:00
           isClean: true
@@ -5138,7 +5364,7 @@ components:
           billOfLadingNumber: billOfLadingNumber
           shipperContactId: shipperContactId
           shipmentId: shipmentId
-          declaredValueAmount: 6.027456183070403
+          declaredValueAmount: 5.962133916683182
           shippingTerms: shippingTerms
           placeOfDeliveryId: placeOfDeliveryId
           tenantId: tenantId
@@ -5147,16 +5373,16 @@ components:
           freightChargesDescription: freightChargesDescription
           status: status
           vesselName: vesselName
-          totalGrossWeightKg: 5.962133916683182
+          totalGrossWeightKg: 2.3021358869347655
         - issuedDate: 2000-01-23T04:56:07.000+00:00
           freightPaymentType: freightPaymentType
-          totalPackages: 1
+          totalPackages: 5
           consigneeContactId: consigneeContactId
           orderId: orderId
           shippingCourierId: shippingCourierId
           description: description
           title: title
-          numberOfOriginals: 0
+          numberOfOriginals: 1
           expiryDate: 2000-01-23T04:56:07.000+00:00
           marksAndNumbers: marksAndNumbers
           voyageNumber: voyageNumber
@@ -5166,7 +5392,7 @@ components:
           enrollmentId: enrollmentId
           notifyPartyContactId: notifyPartyContactId
           declaredValueCurrencyId: declaredValueCurrencyId
-          totalVolumeM3: 5.637376656633329
+          totalVolumeM3: 7.061401241503109
           billOfLadingType: billOfLadingType
           onBoardDate: 2000-01-23T04:56:07.000+00:00
           isClean: true
@@ -5175,7 +5401,7 @@ components:
           billOfLadingNumber: billOfLadingNumber
           shipperContactId: shipperContactId
           shipmentId: shipmentId
-          declaredValueAmount: 6.027456183070403
+          declaredValueAmount: 5.962133916683182
           shippingTerms: shippingTerms
           placeOfDeliveryId: placeOfDeliveryId
           tenantId: tenantId
@@ -5184,10 +5410,16 @@ components:
           freightChargesDescription: freightChargesDescription
           status: status
           vesselName: vesselName
-          totalGrossWeightKg: 5.962133916683182
+          totalGrossWeightKg: 2.3021358869347655
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5204,6 +5436,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5265,15 +5512,15 @@ components:
       example:
         marksAndNumbers: marksAndNumbers
         itemId: itemId
-        quantity: 0.8008281904610115
+        quantity: 6.027456183070403
         hsCode: hsCode
-        grossWeightKg: 6.027456183070403
+        grossWeightKg: 1.4658129805029452
         tenantId: tenantId
         description: description
         billOfLadingId: billOfLadingId
         id: id
         packageType: packageType
-        volumeM3: 1.4658129805029452
+        volumeM3: 5.962133916683182
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -5315,25 +5562,73 @@ components:
           nullable: true
           type: string
       type: object
+    BillOfLadingLineDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     BillOfLadingLineDtoEnvelope:
       additionalProperties: false
       example:
         result:
           marksAndNumbers: marksAndNumbers
           itemId: itemId
-          quantity: 0.8008281904610115
+          quantity: 6.027456183070403
           hsCode: hsCode
-          grossWeightKg: 6.027456183070403
+          grossWeightKg: 1.4658129805029452
           tenantId: tenantId
           description: description
           billOfLadingId: billOfLadingId
           id: id
           packageType: packageType
-          volumeM3: 1.4658129805029452
+          volumeM3: 5.962133916683182
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5350,6 +5645,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5363,31 +5673,37 @@ components:
         result:
         - marksAndNumbers: marksAndNumbers
           itemId: itemId
-          quantity: 0.8008281904610115
+          quantity: 6.027456183070403
           hsCode: hsCode
-          grossWeightKg: 6.027456183070403
+          grossWeightKg: 1.4658129805029452
           tenantId: tenantId
           description: description
           billOfLadingId: billOfLadingId
           id: id
           packageType: packageType
-          volumeM3: 1.4658129805029452
+          volumeM3: 5.962133916683182
           timestamp: 2000-01-23T04:56:07.000+00:00
         - marksAndNumbers: marksAndNumbers
           itemId: itemId
-          quantity: 0.8008281904610115
+          quantity: 6.027456183070403
           hsCode: hsCode
-          grossWeightKg: 6.027456183070403
+          grossWeightKg: 1.4658129805029452
           tenantId: tenantId
           description: description
           billOfLadingId: billOfLadingId
           id: id
           packageType: packageType
-          volumeM3: 1.4658129805029452
+          volumeM3: 5.962133916683182
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5404,6 +5720,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5581,8 +5912,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5599,6 +5936,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5608,8 +5960,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5626,6 +5984,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5704,10 +6077,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5724,6 +6103,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5876,22 +6270,22 @@ components:
       additionalProperties: false
       example:
         code: code
-        weeks: 314780940
+        weeks: 1280358508
         customState: customState
         description: description
         type: type
         title: title
         customCity: customCity
-        years: 1210617418
+        years: 494379917
         isFree: true
-        percentage: 70.61401241503108
+        percentage: 93.01444243932576
         id: id
-        value: 230213588693476.28
+        value: 706140124150310.2
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
         allowInternational: true
-        hours: 171976544
-        months: 1280358508
+        hours: 1294386358
+        months: 1210617418
         shippingCourierID: shippingCourierID
         businessID: businessID
         isExpressShipmentPolicy: true
@@ -5901,7 +6295,7 @@ components:
         countryID: countryID
         isDefault: true
         isEnabled: true
-        days: 1294386358
+        days: 314780940
         currencyID: currencyID
       properties:
         id:
@@ -6025,27 +6419,69 @@ components:
       - title
       - type
       type: object
+    ItemShippingPolicyDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ItemShippingPolicyDtoEnvelope:
       additionalProperties: false
       example:
         result:
           code: code
-          weeks: 314780940
+          weeks: 1280358508
           customState: customState
           description: description
           type: type
           title: title
           customCity: customCity
-          years: 1210617418
+          years: 494379917
           isFree: true
-          percentage: 70.61401241503108
+          percentage: 93.01444243932576
           id: id
-          value: 230213588693476.28
+          value: 706140124150310.2
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           allowInternational: true
-          hours: 171976544
-          months: 1280358508
+          hours: 1294386358
+          months: 1210617418
           shippingCourierID: shippingCourierID
           businessID: businessID
           isExpressShipmentPolicy: true
@@ -6055,11 +6491,17 @@ components:
           countryID: countryID
           isDefault: true
           isEnabled: true
-          days: 1294386358
+          days: 314780940
           currencyID: currencyID
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6076,6 +6518,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6088,22 +6545,22 @@ components:
       example:
         result:
         - code: code
-          weeks: 314780940
+          weeks: 1280358508
           customState: customState
           description: description
           type: type
           title: title
           customCity: customCity
-          years: 1210617418
+          years: 494379917
           isFree: true
-          percentage: 70.61401241503108
+          percentage: 93.01444243932576
           id: id
-          value: 230213588693476.28
+          value: 706140124150310.2
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           allowInternational: true
-          hours: 171976544
-          months: 1280358508
+          hours: 1294386358
+          months: 1210617418
           shippingCourierID: shippingCourierID
           businessID: businessID
           isExpressShipmentPolicy: true
@@ -6113,25 +6570,25 @@ components:
           countryID: countryID
           isDefault: true
           isEnabled: true
-          days: 1294386358
+          days: 314780940
           currencyID: currencyID
         - code: code
-          weeks: 314780940
+          weeks: 1280358508
           customState: customState
           description: description
           type: type
           title: title
           customCity: customCity
-          years: 1210617418
+          years: 494379917
           isFree: true
-          percentage: 70.61401241503108
+          percentage: 93.01444243932576
           id: id
-          value: 230213588693476.28
+          value: 706140124150310.2
           timestamp: 2000-01-23T04:56:07.000+00:00
           reduce: true
           allowInternational: true
-          hours: 171976544
-          months: 1280358508
+          hours: 1294386358
+          months: 1210617418
           shippingCourierID: shippingCourierID
           businessID: businessID
           isExpressShipmentPolicy: true
@@ -6141,11 +6598,17 @@ components:
           countryID: countryID
           isDefault: true
           isEnabled: true
-          days: 1294386358
+          days: 314780940
           currencyID: currencyID
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6162,6 +6625,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6328,30 +6806,18 @@ components:
       - email
       - password
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:
@@ -6542,6 +7008,48 @@ components:
           nullable: true
           type: string
       type: object
+    ShipmentDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ShipmentDtoEnvelope:
       additionalProperties: false
       example:
@@ -6562,8 +7070,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6580,6 +7094,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6622,8 +7151,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6640,6 +7175,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6753,6 +7303,48 @@ components:
           nullable: true
           type: string
       type: object
+    ShippingClassDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ShippingClassDtoEnvelope:
       additionalProperties: false
       example:
@@ -6763,8 +7355,14 @@ components:
           slug: slug
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6781,6 +7379,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6803,8 +7416,14 @@ components:
           slug: slug
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6821,6 +7440,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6905,6 +7539,48 @@ components:
           nullable: true
           type: string
       type: object
+    ShippingCourierDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ShippingCourierDtoEnvelope:
       additionalProperties: false
       example:
@@ -6917,8 +7593,14 @@ components:
           countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6935,6 +7617,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6961,8 +7658,14 @@ components:
           countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6979,6 +7682,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7079,6 +7797,48 @@ components:
           nullable: true
           type: string
       type: object
+    ShippingLabelDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ShippingLabelDtoEnvelope:
       additionalProperties: false
       example:
@@ -7092,8 +7852,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7110,6 +7876,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7138,8 +7919,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7156,6 +7943,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7237,7 +8039,7 @@ components:
     ShippingMethodDto:
       additionalProperties: false
       example:
-        cost: 0.8008281904610115
+        cost: 6.027456183070403
         taxIncluded: true
         taxable: true
         shippingClassCalculationType: PerClass
@@ -7280,11 +8082,53 @@ components:
           - PerOrder
           type: string
       type: object
+    ShippingMethodDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ShippingMethodDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          cost: 0.8008281904610115
+          cost: 6.027456183070403
           taxIncluded: true
           taxable: true
           shippingClassCalculationType: PerClass
@@ -7295,8 +8139,14 @@ components:
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7313,6 +8163,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7324,7 +8189,7 @@ components:
       additionalProperties: false
       example:
         result:
-        - cost: 0.8008281904610115
+        - cost: 6.027456183070403
           taxIncluded: true
           taxable: true
           shippingClassCalculationType: PerClass
@@ -7334,7 +8199,7 @@ components:
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - cost: 0.8008281904610115
+        - cost: 6.027456183070403
           taxIncluded: true
           taxable: true
           shippingClassCalculationType: PerClass
@@ -7345,8 +8210,14 @@ components:
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7363,6 +8234,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7455,6 +8341,48 @@ components:
           nullable: true
           type: string
       type: object
+    ShippingRegionDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ShippingRegionDtoEnvelope:
       additionalProperties: false
       example:
@@ -7465,8 +8393,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7483,6 +8417,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7505,8 +8454,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7523,6 +8478,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7615,6 +8585,48 @@ components:
           nullable: true
           type: string
       type: object
+    ShippingZoneDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ShippingZoneDtoEnvelope:
       additionalProperties: false
       example:
@@ -7628,8 +8640,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7646,6 +8664,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7674,8 +8707,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7692,6 +8731,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

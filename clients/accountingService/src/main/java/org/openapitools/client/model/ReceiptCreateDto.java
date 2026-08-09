@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ReceiptCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:25:56.899133-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ReceiptCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -60,6 +60,10 @@ public class ReceiptCreateDto {
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
+
+  public static final String SERIALIZED_NAME_CLOSED = "closed";
+  @SerializedName(SERIALIZED_NAME_CLOSED)
+  private Boolean closed;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -128,6 +132,10 @@ public class ReceiptCreateDto {
   public static final String SERIALIZED_NAME_CITY_ID = "cityId";
   @SerializedName(SERIALIZED_NAME_CITY_ID)
   private String cityId;
+
+  public static final String SERIALIZED_NAME_FOREX_RATE = "forexRate";
+  @SerializedName(SERIALIZED_NAME_FOREX_RATE)
+  private Double forexRate;
 
   public static final String SERIALIZED_NAME_CURRENCY_ID = "currencyId";
   @SerializedName(SERIALIZED_NAME_CURRENCY_ID)
@@ -345,10 +353,6 @@ public class ReceiptCreateDto {
   @SerializedName(SERIALIZED_NAME_PAYMENT_ID)
   private String paymentId;
 
-  public static final String SERIALIZED_NAME_FOREX_RATE = "forexRate";
-  @SerializedName(SERIALIZED_NAME_FOREX_RATE)
-  private Double forexRate;
-
   public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "totalAmount";
   @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
   private Double totalAmount;
@@ -356,10 +360,6 @@ public class ReceiptCreateDto {
   public static final String SERIALIZED_NAME_TOTAL_AMOUNT_IN_U_S_D = "totalAmountInUSD";
   @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT_IN_U_S_D)
   private Double totalAmountInUSD;
-
-  public static final String SERIALIZED_NAME_CLOSED = "closed";
-  @SerializedName(SERIALIZED_NAME_CLOSED)
-  private Boolean closed;
 
   public static final String SERIALIZED_NAME_CONTACT_ID = "contactId";
   @SerializedName(SERIALIZED_NAME_CONTACT_ID)
@@ -467,6 +467,25 @@ public class ReceiptCreateDto {
 
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
+  }
+
+
+  public ReceiptCreateDto closed(Boolean closed) {
+    this.closed = closed;
+    return this;
+  }
+
+  /**
+   * Get closed
+   * @return closed
+   */
+  @javax.annotation.Nullable
+  public Boolean getClosed() {
+    return closed;
+  }
+
+  public void setClosed(Boolean closed) {
+    this.closed = closed;
   }
 
 
@@ -790,6 +809,25 @@ public class ReceiptCreateDto {
 
   public void setCityId(String cityId) {
     this.cityId = cityId;
+  }
+
+
+  public ReceiptCreateDto forexRate(Double forexRate) {
+    this.forexRate = forexRate;
+    return this;
+  }
+
+  /**
+   * Get forexRate
+   * @return forexRate
+   */
+  @javax.annotation.Nullable
+  public Double getForexRate() {
+    return forexRate;
+  }
+
+  public void setForexRate(Double forexRate) {
+    this.forexRate = forexRate;
   }
 
 
@@ -1325,25 +1363,6 @@ public class ReceiptCreateDto {
   }
 
 
-  public ReceiptCreateDto forexRate(Double forexRate) {
-    this.forexRate = forexRate;
-    return this;
-  }
-
-  /**
-   * Get forexRate
-   * @return forexRate
-   */
-  @javax.annotation.Nullable
-  public Double getForexRate() {
-    return forexRate;
-  }
-
-  public void setForexRate(Double forexRate) {
-    this.forexRate = forexRate;
-  }
-
-
   public ReceiptCreateDto totalAmount(Double totalAmount) {
     this.totalAmount = totalAmount;
     return this;
@@ -1379,25 +1398,6 @@ public class ReceiptCreateDto {
 
   public void setTotalAmountInUSD(Double totalAmountInUSD) {
     this.totalAmountInUSD = totalAmountInUSD;
-  }
-
-
-  public ReceiptCreateDto closed(Boolean closed) {
-    this.closed = closed;
-    return this;
-  }
-
-  /**
-   * Get closed
-   * @return closed
-   */
-  @javax.annotation.Nullable
-  public Boolean getClosed() {
-    return closed;
-  }
-
-  public void setClosed(Boolean closed) {
-    this.closed = closed;
   }
 
 
@@ -1489,6 +1489,7 @@ public class ReceiptCreateDto {
     ReceiptCreateDto receiptCreateDto = (ReceiptCreateDto) o;
     return Objects.equals(this.id, receiptCreateDto.id) &&
         Objects.equals(this.timestamp, receiptCreateDto.timestamp) &&
+        Objects.equals(this.closed, receiptCreateDto.closed) &&
         Objects.equals(this.title, receiptCreateDto.title) &&
         Objects.equals(this.priceListId, receiptCreateDto.priceListId) &&
         Objects.equals(this.description, receiptCreateDto.description) &&
@@ -1506,6 +1507,7 @@ public class ReceiptCreateDto {
         Objects.equals(this.countryId, receiptCreateDto.countryId) &&
         Objects.equals(this.stateId, receiptCreateDto.stateId) &&
         Objects.equals(this.cityId, receiptCreateDto.cityId) &&
+        Objects.equals(this.forexRate, receiptCreateDto.forexRate) &&
         Objects.equals(this.currencyId, receiptCreateDto.currencyId) &&
         Objects.equals(this.totalDetail, receiptCreateDto.totalDetail) &&
         Objects.equals(this.totalDetailCurrencyId, receiptCreateDto.totalDetailCurrencyId) &&
@@ -1534,10 +1536,8 @@ public class ReceiptCreateDto {
         Objects.equals(this.costCalculationMethod, receiptCreateDto.costCalculationMethod) &&
         Objects.equals(this.taxCalculationMethod, receiptCreateDto.taxCalculationMethod) &&
         Objects.equals(this.paymentId, receiptCreateDto.paymentId) &&
-        Objects.equals(this.forexRate, receiptCreateDto.forexRate) &&
         Objects.equals(this.totalAmount, receiptCreateDto.totalAmount) &&
         Objects.equals(this.totalAmountInUSD, receiptCreateDto.totalAmountInUSD) &&
-        Objects.equals(this.closed, receiptCreateDto.closed) &&
         Objects.equals(this.contactId, receiptCreateDto.contactId) &&
         Objects.equals(this.receiptType, receiptCreateDto.receiptType) &&
         Objects.equals(this.orderId, receiptCreateDto.orderId) &&
@@ -1550,7 +1550,7 @@ public class ReceiptCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, priceListId, description, individualId, paymentTermId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, paymentId, forexRate, totalAmount, totalAmountInUSD, closed, contactId, receiptType, orderId, invoiceId);
+    return Objects.hash(id, timestamp, closed, title, priceListId, description, individualId, paymentTermId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, forexRate, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, paymentId, totalAmount, totalAmountInUSD, contactId, receiptType, orderId, invoiceId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1566,6 +1566,7 @@ public class ReceiptCreateDto {
     sb.append("class ReceiptCreateDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    priceListId: ").append(toIndentedString(priceListId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -1583,6 +1584,7 @@ public class ReceiptCreateDto {
     sb.append("    countryId: ").append(toIndentedString(countryId)).append("\n");
     sb.append("    stateId: ").append(toIndentedString(stateId)).append("\n");
     sb.append("    cityId: ").append(toIndentedString(cityId)).append("\n");
+    sb.append("    forexRate: ").append(toIndentedString(forexRate)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
     sb.append("    totalDetail: ").append(toIndentedString(totalDetail)).append("\n");
     sb.append("    totalDetailCurrencyId: ").append(toIndentedString(totalDetailCurrencyId)).append("\n");
@@ -1611,10 +1613,8 @@ public class ReceiptCreateDto {
     sb.append("    costCalculationMethod: ").append(toIndentedString(costCalculationMethod)).append("\n");
     sb.append("    taxCalculationMethod: ").append(toIndentedString(taxCalculationMethod)).append("\n");
     sb.append("    paymentId: ").append(toIndentedString(paymentId)).append("\n");
-    sb.append("    forexRate: ").append(toIndentedString(forexRate)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("    totalAmountInUSD: ").append(toIndentedString(totalAmountInUSD)).append("\n");
-    sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
     sb.append("    receiptType: ").append(toIndentedString(receiptType)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
@@ -1643,6 +1643,7 @@ public class ReceiptCreateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
+    openapiFields.add("closed");
     openapiFields.add("title");
     openapiFields.add("priceListId");
     openapiFields.add("description");
@@ -1660,6 +1661,7 @@ public class ReceiptCreateDto {
     openapiFields.add("countryId");
     openapiFields.add("stateId");
     openapiFields.add("cityId");
+    openapiFields.add("forexRate");
     openapiFields.add("currencyId");
     openapiFields.add("totalDetail");
     openapiFields.add("totalDetailCurrencyId");
@@ -1688,10 +1690,8 @@ public class ReceiptCreateDto {
     openapiFields.add("costCalculationMethod");
     openapiFields.add("taxCalculationMethod");
     openapiFields.add("paymentId");
-    openapiFields.add("forexRate");
     openapiFields.add("totalAmount");
     openapiFields.add("totalAmountInUSD");
-    openapiFields.add("closed");
     openapiFields.add("contactId");
     openapiFields.add("receiptType");
     openapiFields.add("orderId");

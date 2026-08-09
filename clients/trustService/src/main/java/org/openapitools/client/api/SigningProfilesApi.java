@@ -30,9 +30,10 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SigningProfileCreateDto;
 import org.openapitools.client.model.SigningProfileDto;
+import org.openapitools.client.model.SigningProfileDtoCollectionQueryParameters;
 import org.openapitools.client.model.SigningProfileDtoListEnvelope;
 import org.openapitools.client.model.SigningProfileUpdateDto;
 import java.util.UUID;
@@ -556,6 +557,7 @@ public class SigningProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -566,7 +568,7 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSigningProfilesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSigningProfilesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SigningProfileDtoCollectionQueryParameters signingProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -580,7 +582,7 @@ public class SigningProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = signingProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TrustService/SigningProfiles";
@@ -613,6 +615,8 @@ public class SigningProfilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -624,13 +628,13 @@ public class SigningProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSigningProfilesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSigningProfilesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SigningProfileDtoCollectionQueryParameters signingProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSigningProfilesAsync(Async)");
         }
 
-        return getSigningProfilesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSigningProfilesAsyncCall(tenantId, apiVersion, xApiVersion, signingProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -640,6 +644,7 @@ public class SigningProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileDtoCollectionQueryParameters  (optional)
      * @return SigningProfileDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -649,8 +654,8 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SigningProfileDtoListEnvelope getSigningProfilesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SigningProfileDtoListEnvelope> localVarResp = getSigningProfilesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SigningProfileDtoListEnvelope getSigningProfilesAsync(UUID tenantId, String apiVersion, String xApiVersion, SigningProfileDtoCollectionQueryParameters signingProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SigningProfileDtoListEnvelope> localVarResp = getSigningProfilesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, signingProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -660,6 +665,7 @@ public class SigningProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SigningProfileDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -669,8 +675,8 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SigningProfileDtoListEnvelope> getSigningProfilesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSigningProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<SigningProfileDtoListEnvelope> getSigningProfilesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SigningProfileDtoCollectionQueryParameters signingProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSigningProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, signingProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SigningProfileDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -681,6 +687,7 @@ public class SigningProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -691,9 +698,9 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSigningProfilesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SigningProfileDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSigningProfilesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SigningProfileDtoCollectionQueryParameters signingProfileDtoCollectionQueryParameters, final ApiCallback<SigningProfileDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSigningProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSigningProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, signingProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SigningProfileDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -703,6 +710,7 @@ public class SigningProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -713,7 +721,7 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSigningProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSigningProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SigningProfileDtoCollectionQueryParameters signingProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -727,7 +735,7 @@ public class SigningProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = signingProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TrustService/SigningProfiles/Count";
@@ -760,6 +768,8 @@ public class SigningProfilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -771,13 +781,13 @@ public class SigningProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSigningProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSigningProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SigningProfileDtoCollectionQueryParameters signingProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSigningProfilesCountAsync(Async)");
         }
 
-        return getSigningProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSigningProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, signingProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -787,6 +797,7 @@ public class SigningProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -796,8 +807,8 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSigningProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSigningProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getSigningProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, SigningProfileDtoCollectionQueryParameters signingProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSigningProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, signingProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -807,6 +818,7 @@ public class SigningProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -816,8 +828,8 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSigningProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSigningProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSigningProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SigningProfileDtoCollectionQueryParameters signingProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSigningProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, signingProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,6 +840,7 @@ public class SigningProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signingProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -838,9 +851,9 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSigningProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSigningProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SigningProfileDtoCollectionQueryParameters signingProfileDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSigningProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSigningProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, signingProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -851,7 +864,7 @@ public class SigningProfilesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -863,7 +876,7 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSigningProfileAsyncCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchSigningProfileAsyncCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -877,7 +890,7 @@ public class SigningProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/TrustService/SigningProfiles/{id}"
@@ -924,7 +937,7 @@ public class SigningProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchSigningProfileAsyncValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSigningProfileAsyncValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchSigningProfileAsync(Async)");
@@ -935,7 +948,7 @@ public class SigningProfilesApi {
             throw new ApiException("Missing the required parameter 'id' when calling patchSigningProfileAsync(Async)");
         }
 
-        return patchSigningProfileAsyncCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        return patchSigningProfileAsyncCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -946,7 +959,7 @@ public class SigningProfilesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -957,8 +970,8 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchSigningProfileAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchSigningProfileAsyncWithHttpInfo(tenantId, id, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchSigningProfileAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchSigningProfileAsyncWithHttpInfo(tenantId, id, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -969,7 +982,7 @@ public class SigningProfilesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -980,8 +993,8 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchSigningProfileAsyncWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchSigningProfileAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchSigningProfileAsyncWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchSigningProfileAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -993,7 +1006,7 @@ public class SigningProfilesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1005,9 +1018,9 @@ public class SigningProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSigningProfileAsyncAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchSigningProfileAsyncAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchSigningProfileAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchSigningProfileAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

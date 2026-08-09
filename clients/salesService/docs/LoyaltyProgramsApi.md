@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countLoyaltyProgramsAsync"></a>
 # **countLoyaltyProgramsAsync**
-> Int32Envelope countLoyaltyProgramsAsync(tenantId)
+> Int32Envelope countLoyaltyProgramsAsync(tenantId, loyaltyProgramDtoCollectionQueryParameters)
 
 Get loyalty programs count
 
@@ -37,8 +37,9 @@ public class Example {
 
     LoyaltyProgramsApi apiInstance = new LoyaltyProgramsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters = new LoyaltyProgramDtoCollectionQueryParameters(); // LoyaltyProgramDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countLoyaltyProgramsAsync(tenantId);
+      Int32Envelope result = apiInstance.countLoyaltyProgramsAsync(tenantId, loyaltyProgramDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltyProgramsApi#countLoyaltyProgramsAsync");
@@ -56,6 +57,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **loyaltyProgramDtoCollectionQueryParameters** | [**LoyaltyProgramDtoCollectionQueryParameters**](LoyaltyProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -67,7 +69,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -273,7 +275,7 @@ No authorization required
 
 <a id="getLoyaltyProgramsAsync"></a>
 # **getLoyaltyProgramsAsync**
-> LoyaltyProgramDtoListEnvelope getLoyaltyProgramsAsync(tenantId)
+> LoyaltyProgramDtoListEnvelope getLoyaltyProgramsAsync(tenantId, loyaltyProgramDtoCollectionQueryParameters)
 
 Get loyalty programs
 
@@ -295,8 +297,9 @@ public class Example {
 
     LoyaltyProgramsApi apiInstance = new LoyaltyProgramsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters = new LoyaltyProgramDtoCollectionQueryParameters(); // LoyaltyProgramDtoCollectionQueryParameters | 
     try {
-      LoyaltyProgramDtoListEnvelope result = apiInstance.getLoyaltyProgramsAsync(tenantId);
+      LoyaltyProgramDtoListEnvelope result = apiInstance.getLoyaltyProgramsAsync(tenantId, loyaltyProgramDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltyProgramsApi#getLoyaltyProgramsAsync");
@@ -314,6 +317,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **loyaltyProgramDtoCollectionQueryParameters** | [**LoyaltyProgramDtoCollectionQueryParameters**](LoyaltyProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -325,7 +329,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -336,7 +340,7 @@ No authorization required
 
 <a id="patchLoyaltyProgramAsync"></a>
 # **patchLoyaltyProgramAsync**
-> EmptyEnvelope patchLoyaltyProgramAsync(tenantId, loyaltyProgramId, operation)
+> EmptyEnvelope patchLoyaltyProgramAsync(tenantId, loyaltyProgramId, patchOperation)
 
 Patch a loyalty program
 
@@ -359,9 +363,9 @@ public class Example {
     LoyaltyProgramsApi apiInstance = new LoyaltyProgramsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID loyaltyProgramId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchLoyaltyProgramAsync(tenantId, loyaltyProgramId, operation);
+      EmptyEnvelope result = apiInstance.patchLoyaltyProgramAsync(tenantId, loyaltyProgramId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltyProgramsApi#patchLoyaltyProgramAsync");
@@ -380,7 +384,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **loyaltyProgramId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

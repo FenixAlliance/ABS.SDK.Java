@@ -30,11 +30,12 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
 import org.openapitools.client.model.OptionCreateDto;
+import org.openapitools.client.model.OptionDtoCollectionQueryParameters;
 import org.openapitools.client.model.OptionDtoEnvelope;
 import org.openapitools.client.model.OptionDtoListEnvelope;
 import org.openapitools.client.model.OptionUpdateDto;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -796,6 +797,7 @@ public class OptionsApi {
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -807,7 +809,7 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactOptionsCall(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getContactOptionsCall(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -821,7 +823,7 @@ public class OptionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = optionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Options"
@@ -859,6 +861,8 @@ public class OptionsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -870,7 +874,7 @@ public class OptionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getContactOptionsValidateBeforeCall(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getContactOptionsValidateBeforeCall(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getContactOptions(Async)");
@@ -881,7 +885,7 @@ public class OptionsApi {
             throw new ApiException("Missing the required parameter 'contactId' when calling getContactOptions(Async)");
         }
 
-        return getContactOptionsCall(tenantId, contactId, portalId, apiVersion, xApiVersion, _callback);
+        return getContactOptionsCall(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -893,6 +897,7 @@ public class OptionsApi {
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return OptionDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -903,8 +908,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public OptionDtoListEnvelope getContactOptions(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<OptionDtoListEnvelope> localVarResp = getContactOptionsWithHttpInfo(tenantId, contactId, portalId, apiVersion, xApiVersion);
+    public OptionDtoListEnvelope getContactOptions(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<OptionDtoListEnvelope> localVarResp = getContactOptionsWithHttpInfo(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -916,6 +921,7 @@ public class OptionsApi {
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;OptionDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -926,8 +932,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OptionDtoListEnvelope> getContactOptionsWithHttpInfo(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getContactOptionsValidateBeforeCall(tenantId, contactId, portalId, apiVersion, xApiVersion, null);
+    public ApiResponse<OptionDtoListEnvelope> getContactOptionsWithHttpInfo(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getContactOptionsValidateBeforeCall(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<OptionDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -940,6 +946,7 @@ public class OptionsApi {
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -951,9 +958,9 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactOptionsAsync(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, final ApiCallback<OptionDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getContactOptionsAsync(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters, final ApiCallback<OptionDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getContactOptionsValidateBeforeCall(tenantId, contactId, portalId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getContactOptionsValidateBeforeCall(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<OptionDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -965,6 +972,7 @@ public class OptionsApi {
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -976,7 +984,7 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactOptionsCountCall(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getContactOptionsCountCall(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -990,7 +998,7 @@ public class OptionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = optionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Options/Count"
@@ -1028,6 +1036,8 @@ public class OptionsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1039,7 +1049,7 @@ public class OptionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getContactOptionsCountValidateBeforeCall(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getContactOptionsCountValidateBeforeCall(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getContactOptionsCount(Async)");
@@ -1050,7 +1060,7 @@ public class OptionsApi {
             throw new ApiException("Missing the required parameter 'contactId' when calling getContactOptionsCount(Async)");
         }
 
-        return getContactOptionsCountCall(tenantId, contactId, portalId, apiVersion, xApiVersion, _callback);
+        return getContactOptionsCountCall(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1062,6 +1072,7 @@ public class OptionsApi {
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1072,8 +1083,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getContactOptionsCount(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getContactOptionsCountWithHttpInfo(tenantId, contactId, portalId, apiVersion, xApiVersion);
+    public Int32Envelope getContactOptionsCount(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getContactOptionsCountWithHttpInfo(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1085,6 +1096,7 @@ public class OptionsApi {
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1095,8 +1107,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getContactOptionsCountWithHttpInfo(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getContactOptionsCountValidateBeforeCall(tenantId, contactId, portalId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getContactOptionsCountWithHttpInfo(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getContactOptionsCountValidateBeforeCall(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1109,6 +1121,7 @@ public class OptionsApi {
      * @param portalId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param optionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1120,9 +1133,9 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactOptionsCountAsync(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getContactOptionsCountAsync(UUID tenantId, UUID contactId, UUID portalId, String apiVersion, String xApiVersion, OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getContactOptionsCountValidateBeforeCall(tenantId, contactId, portalId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getContactOptionsCountValidateBeforeCall(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1134,7 +1147,7 @@ public class OptionsApi {
      * @param optionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1146,7 +1159,7 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchContactOptionAsyncCall(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchContactOptionAsyncCall(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1160,7 +1173,7 @@ public class OptionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Options/{optionId}"
@@ -1208,7 +1221,7 @@ public class OptionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchContactOptionAsyncValidateBeforeCall(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchContactOptionAsyncValidateBeforeCall(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchContactOptionAsync(Async)");
@@ -1224,7 +1237,7 @@ public class OptionsApi {
             throw new ApiException("Missing the required parameter 'optionId' when calling patchContactOptionAsync(Async)");
         }
 
-        return patchContactOptionAsyncCall(tenantId, contactId, optionId, apiVersion, xApiVersion, operation, _callback);
+        return patchContactOptionAsyncCall(tenantId, contactId, optionId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1236,7 +1249,7 @@ public class OptionsApi {
      * @param optionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1247,8 +1260,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchContactOptionAsync(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchContactOptionAsyncWithHttpInfo(tenantId, contactId, optionId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchContactOptionAsync(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchContactOptionAsyncWithHttpInfo(tenantId, contactId, optionId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1260,7 +1273,7 @@ public class OptionsApi {
      * @param optionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1271,8 +1284,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchContactOptionAsyncWithHttpInfo(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchContactOptionAsyncValidateBeforeCall(tenantId, contactId, optionId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchContactOptionAsyncWithHttpInfo(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchContactOptionAsyncValidateBeforeCall(tenantId, contactId, optionId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1285,7 +1298,7 @@ public class OptionsApi {
      * @param optionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1297,9 +1310,9 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchContactOptionAsyncAsync(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchContactOptionAsyncAsync(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchContactOptionAsyncValidateBeforeCall(tenantId, contactId, optionId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchContactOptionAsyncValidateBeforeCall(tenantId, contactId, optionId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1311,7 +1324,7 @@ public class OptionsApi {
      * @param key  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1323,7 +1336,7 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchContactOptionByKeyAsyncCall(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchContactOptionByKeyAsyncCall(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1337,7 +1350,7 @@ public class OptionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Options/Key/{key}"
@@ -1385,7 +1398,7 @@ public class OptionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchContactOptionByKeyAsyncValidateBeforeCall(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchContactOptionByKeyAsyncValidateBeforeCall(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchContactOptionByKeyAsync(Async)");
@@ -1401,7 +1414,7 @@ public class OptionsApi {
             throw new ApiException("Missing the required parameter 'key' when calling patchContactOptionByKeyAsync(Async)");
         }
 
-        return patchContactOptionByKeyAsyncCall(tenantId, contactId, key, apiVersion, xApiVersion, operation, _callback);
+        return patchContactOptionByKeyAsyncCall(tenantId, contactId, key, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1413,7 +1426,7 @@ public class OptionsApi {
      * @param key  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1424,8 +1437,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchContactOptionByKeyAsync(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchContactOptionByKeyAsyncWithHttpInfo(tenantId, contactId, key, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchContactOptionByKeyAsync(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchContactOptionByKeyAsyncWithHttpInfo(tenantId, contactId, key, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1437,7 +1450,7 @@ public class OptionsApi {
      * @param key  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1448,8 +1461,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchContactOptionByKeyAsyncWithHttpInfo(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchContactOptionByKeyAsyncValidateBeforeCall(tenantId, contactId, key, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchContactOptionByKeyAsyncWithHttpInfo(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchContactOptionByKeyAsyncValidateBeforeCall(tenantId, contactId, key, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1462,7 +1475,7 @@ public class OptionsApi {
      * @param key  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1474,9 +1487,9 @@ public class OptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchContactOptionByKeyAsyncAsync(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchContactOptionByKeyAsyncAsync(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchContactOptionByKeyAsyncValidateBeforeCall(tenantId, contactId, key, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchContactOptionByKeyAsyncValidateBeforeCall(tenantId, contactId, key, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

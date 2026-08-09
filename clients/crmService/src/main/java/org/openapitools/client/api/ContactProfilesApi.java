@@ -29,12 +29,13 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ContactProfileCreateDto;
 import org.openapitools.client.model.ContactProfileDto;
+import org.openapitools.client.model.ContactProfileDtoCollectionQueryParameters;
 import org.openapitools.client.model.ContactProfileDtoListEnvelope;
 import org.openapitools.client.model.ContactProfileUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -556,6 +557,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -566,7 +568,7 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactProfilesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getContactProfilesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -580,7 +582,7 @@ public class ContactProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = contactProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/ContactProfiles";
@@ -613,6 +615,8 @@ public class ContactProfilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -624,13 +628,13 @@ public class ContactProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getContactProfilesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getContactProfilesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getContactProfilesAsync(Async)");
         }
 
-        return getContactProfilesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getContactProfilesAsyncCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -640,6 +644,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return ContactProfileDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -649,8 +654,8 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ContactProfileDtoListEnvelope getContactProfilesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ContactProfileDtoListEnvelope> localVarResp = getContactProfilesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ContactProfileDtoListEnvelope getContactProfilesAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ContactProfileDtoListEnvelope> localVarResp = getContactProfilesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -660,6 +665,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ContactProfileDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -669,8 +675,8 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ContactProfileDtoListEnvelope> getContactProfilesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getContactProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ContactProfileDtoListEnvelope> getContactProfilesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getContactProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ContactProfileDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -681,6 +687,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -691,9 +698,9 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactProfilesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ContactProfileDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getContactProfilesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback<ContactProfileDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getContactProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getContactProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ContactProfileDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -703,6 +710,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -713,7 +721,7 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getContactProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -727,7 +735,7 @@ public class ContactProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = contactProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/ContactProfiles/Count";
@@ -760,6 +768,8 @@ public class ContactProfilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -771,13 +781,13 @@ public class ContactProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getContactProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getContactProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getContactProfilesCountAsync(Async)");
         }
 
-        return getContactProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getContactProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -787,6 +797,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -796,8 +807,8 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getContactProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getContactProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getContactProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getContactProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -807,6 +818,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -816,8 +828,8 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getContactProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getContactProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getContactProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getContactProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,6 +840,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -838,9 +851,9 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getContactProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getContactProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getContactProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -850,6 +863,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -860,7 +874,7 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPartnerProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPartnerProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -874,7 +888,7 @@ public class ContactProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = contactProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/ContactProfiles/Partners/Count";
@@ -907,6 +921,8 @@ public class ContactProfilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -918,13 +934,13 @@ public class ContactProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPartnerProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPartnerProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPartnerProfilesCountAsync(Async)");
         }
 
-        return getPartnerProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getPartnerProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -934,6 +950,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -943,8 +960,8 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getPartnerProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getPartnerProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getPartnerProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getPartnerProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -954,6 +971,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -963,8 +981,8 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getPartnerProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getPartnerProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getPartnerProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPartnerProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -975,6 +993,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -985,9 +1004,9 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPartnerProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getPartnerProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPartnerProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getPartnerProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -997,6 +1016,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1007,7 +1027,7 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPatientProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPatientProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1021,7 +1041,7 @@ public class ContactProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = contactProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/ContactProfiles/Patients/Count";
@@ -1054,6 +1074,8 @@ public class ContactProfilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1065,13 +1087,13 @@ public class ContactProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPatientProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPatientProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPatientProfilesCountAsync(Async)");
         }
 
-        return getPatientProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getPatientProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1081,6 +1103,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1090,8 +1113,8 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getPatientProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getPatientProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getPatientProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getPatientProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1101,6 +1124,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1110,8 +1134,8 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getPatientProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getPatientProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getPatientProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPatientProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1122,6 +1146,7 @@ public class ContactProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1132,9 +1157,9 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPatientProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getPatientProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPatientProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getPatientProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1145,7 +1170,7 @@ public class ContactProfilesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1157,7 +1182,7 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchContactProfileAsyncCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchContactProfileAsyncCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1171,7 +1196,7 @@ public class ContactProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/ContactProfiles/{id}"
@@ -1218,7 +1243,7 @@ public class ContactProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchContactProfileAsyncValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchContactProfileAsyncValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchContactProfileAsync(Async)");
@@ -1229,7 +1254,7 @@ public class ContactProfilesApi {
             throw new ApiException("Missing the required parameter 'id' when calling patchContactProfileAsync(Async)");
         }
 
-        return patchContactProfileAsyncCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        return patchContactProfileAsyncCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1240,7 +1265,7 @@ public class ContactProfilesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1251,8 +1276,8 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchContactProfileAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchContactProfileAsyncWithHttpInfo(tenantId, id, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchContactProfileAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchContactProfileAsyncWithHttpInfo(tenantId, id, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1263,7 +1288,7 @@ public class ContactProfilesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1274,8 +1299,8 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchContactProfileAsyncWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchContactProfileAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchContactProfileAsyncWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchContactProfileAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1287,7 +1312,7 @@ public class ContactProfilesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1299,9 +1324,9 @@ public class ContactProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchContactProfileAsyncAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchContactProfileAsyncAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchContactProfileAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchContactProfileAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

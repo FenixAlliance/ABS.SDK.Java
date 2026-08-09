@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countPointOfSalesAsync"></a>
 # **countPointOfSalesAsync**
-> Int32Envelope countPointOfSalesAsync(tenantId)
+> Int32Envelope countPointOfSalesAsync(tenantId, pointOfSaleDtoCollectionQueryParameters)
 
 Get point of sales count
 
@@ -37,8 +37,9 @@ public class Example {
 
     PointOfSalesApi apiInstance = new PointOfSalesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters = new PointOfSaleDtoCollectionQueryParameters(); // PointOfSaleDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countPointOfSalesAsync(tenantId);
+      Int32Envelope result = apiInstance.countPointOfSalesAsync(tenantId, pointOfSaleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PointOfSalesApi#countPointOfSalesAsync");
@@ -56,6 +57,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **pointOfSaleDtoCollectionQueryParameters** | [**PointOfSaleDtoCollectionQueryParameters**](PointOfSaleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -67,7 +69,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -273,7 +275,7 @@ No authorization required
 
 <a id="getPointOfSalesAsync"></a>
 # **getPointOfSalesAsync**
-> PointOfSaleDtoListEnvelope getPointOfSalesAsync(tenantId)
+> PointOfSaleDtoListEnvelope getPointOfSalesAsync(tenantId, pointOfSaleDtoCollectionQueryParameters)
 
 Get point of sales
 
@@ -295,8 +297,9 @@ public class Example {
 
     PointOfSalesApi apiInstance = new PointOfSalesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters = new PointOfSaleDtoCollectionQueryParameters(); // PointOfSaleDtoCollectionQueryParameters | 
     try {
-      PointOfSaleDtoListEnvelope result = apiInstance.getPointOfSalesAsync(tenantId);
+      PointOfSaleDtoListEnvelope result = apiInstance.getPointOfSalesAsync(tenantId, pointOfSaleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PointOfSalesApi#getPointOfSalesAsync");
@@ -314,6 +317,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **pointOfSaleDtoCollectionQueryParameters** | [**PointOfSaleDtoCollectionQueryParameters**](PointOfSaleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -325,7 +329,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -336,7 +340,7 @@ No authorization required
 
 <a id="patchPointOfSaleAsync"></a>
 # **patchPointOfSaleAsync**
-> EmptyEnvelope patchPointOfSaleAsync(tenantId, pointOfSaleId, operation)
+> EmptyEnvelope patchPointOfSaleAsync(tenantId, pointOfSaleId, patchOperation)
 
 Patch a point of sale
 
@@ -359,9 +363,9 @@ public class Example {
     PointOfSalesApi apiInstance = new PointOfSalesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID pointOfSaleId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchPointOfSaleAsync(tenantId, pointOfSaleId, operation);
+      EmptyEnvelope result = apiInstance.patchPointOfSaleAsync(tenantId, pointOfSaleId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PointOfSalesApi#patchPointOfSaleAsync");
@@ -380,7 +384,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **pointOfSaleId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.CountryLanguageDtoCollectionQueryParameters;
 import org.openapitools.client.model.CountryLanguageDtoEnvelope;
 import org.openapitools.client.model.CountryLanguageDtoListEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
@@ -79,6 +80,7 @@ public class LanguagesApi {
      * Build call for countLanguagesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -90,7 +92,7 @@ public class LanguagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countLanguagesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countLanguagesAsyncCall(String apiVersion, String xApiVersion, CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -104,7 +106,7 @@ public class LanguagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryLanguageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Languages/Count";
@@ -133,6 +135,8 @@ public class LanguagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -144,8 +148,8 @@ public class LanguagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countLanguagesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return countLanguagesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call countLanguagesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return countLanguagesAsyncCall(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -154,6 +158,7 @@ public class LanguagesApi {
      * Returns the total number of supported languages, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -164,8 +169,8 @@ public class LanguagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countLanguagesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countLanguagesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope countLanguagesAsync(String apiVersion, String xApiVersion, CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countLanguagesAsyncWithHttpInfo(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -174,6 +179,7 @@ public class LanguagesApi {
      * Returns the total number of supported languages, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -184,8 +190,8 @@ public class LanguagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countLanguagesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countLanguagesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countLanguagesAsyncWithHttpInfo(String apiVersion, String xApiVersion, CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countLanguagesAsyncValidateBeforeCall(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -195,6 +201,7 @@ public class LanguagesApi {
      * Returns the total number of supported languages, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -206,9 +213,9 @@ public class LanguagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countLanguagesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countLanguagesAsyncAsync(String apiVersion, String xApiVersion, CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countLanguagesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countLanguagesAsyncValidateBeforeCall(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -365,6 +372,7 @@ public class LanguagesApi {
      * Build call for getLanguagesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -376,7 +384,7 @@ public class LanguagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLanguagesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLanguagesAsyncCall(String apiVersion, String xApiVersion, CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -390,7 +398,7 @@ public class LanguagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = countryLanguageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Languages";
@@ -419,6 +427,8 @@ public class LanguagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -430,8 +440,8 @@ public class LanguagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLanguagesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getLanguagesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getLanguagesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getLanguagesAsyncCall(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -440,6 +450,7 @@ public class LanguagesApi {
      * Retrieves the list of all supported languages with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @return CountryLanguageDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -450,8 +461,8 @@ public class LanguagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CountryLanguageDtoListEnvelope getLanguagesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CountryLanguageDtoListEnvelope> localVarResp = getLanguagesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public CountryLanguageDtoListEnvelope getLanguagesAsync(String apiVersion, String xApiVersion, CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CountryLanguageDtoListEnvelope> localVarResp = getLanguagesAsyncWithHttpInfo(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -460,6 +471,7 @@ public class LanguagesApi {
      * Retrieves the list of all supported languages with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CountryLanguageDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -470,8 +482,8 @@ public class LanguagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CountryLanguageDtoListEnvelope> getLanguagesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLanguagesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<CountryLanguageDtoListEnvelope> getLanguagesAsyncWithHttpInfo(String apiVersion, String xApiVersion, CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLanguagesAsyncValidateBeforeCall(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CountryLanguageDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -481,6 +493,7 @@ public class LanguagesApi {
      * Retrieves the list of all supported languages with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param countryLanguageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -492,9 +505,9 @@ public class LanguagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLanguagesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<CountryLanguageDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLanguagesAsyncAsync(String apiVersion, String xApiVersion, CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters, final ApiCallback<CountryLanguageDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLanguagesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLanguagesAsyncValidateBeforeCall(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CountryLanguageDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

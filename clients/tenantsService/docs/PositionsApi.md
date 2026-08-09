@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getTenantPositions"></a>
 # **getTenantPositions**
-> TenantPositionDtoListEnvelope getTenantPositions(tenantId, apiVersion, xApiVersion)
+> TenantPositionDtoListEnvelope getTenantPositions(tenantId, apiVersion, xApiVersion, tenantPositionDtoCollectionQueryParameters)
 
 Retrieve a list of tenant positions
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantPositionDtoCollectionQueryParameters tenantPositionDtoCollectionQueryParameters = new TenantPositionDtoCollectionQueryParameters(); // TenantPositionDtoCollectionQueryParameters | 
     try {
-      TenantPositionDtoListEnvelope result = apiInstance.getTenantPositions(tenantId, apiVersion, xApiVersion);
+      TenantPositionDtoListEnvelope result = apiInstance.getTenantPositions(tenantId, apiVersion, xApiVersion, tenantPositionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PositionsApi#getTenantPositions");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantPositionDtoCollectionQueryParameters** | [**TenantPositionDtoCollectionQueryParameters**](TenantPositionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getTenantPositionsCount"></a>
 # **getTenantPositionsCount**
-> Int32Envelope getTenantPositionsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantPositionsCount(tenantId, apiVersion, xApiVersion, tenantPositionDtoCollectionQueryParameters)
 
 Get the count of tenant positions
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantPositionDtoCollectionQueryParameters tenantPositionDtoCollectionQueryParameters = new TenantPositionDtoCollectionQueryParameters(); // TenantPositionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantPositionsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantPositionsCount(tenantId, apiVersion, xApiVersion, tenantPositionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PositionsApi#getTenantPositionsCount");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantPositionDtoCollectionQueryParameters** | [**TenantPositionDtoCollectionQueryParameters**](TenantPositionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchTenantPosition"></a>
 # **patchTenantPosition**
-> EmptyEnvelope patchTenantPosition(tenantId, tenantPositionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantPosition(tenantId, tenantPositionId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant position
 
@@ -386,9 +390,9 @@ public class Example {
     UUID tenantPositionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantPosition(tenantId, tenantPositionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantPosition(tenantId, tenantPositionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PositionsApi#patchTenantPosition");
@@ -409,7 +413,7 @@ public class Example {
 | **tenantPositionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

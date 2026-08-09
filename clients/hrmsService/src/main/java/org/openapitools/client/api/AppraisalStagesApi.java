@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AppraisalStageCreateDto;
+import org.openapitools.client.model.AppraisalStageDtoCollectionQueryParameters;
 import org.openapitools.client.model.AppraisalStageDtoEnvelope;
 import org.openapitools.client.model.AppraisalStageDtoListEnvelope;
 import org.openapitools.client.model.AppraisalStageUpdateDto;
@@ -571,6 +572,7 @@ public class AppraisalStagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalStageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -582,7 +584,7 @@ public class AppraisalStagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAppraisalStagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAppraisalStagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, AppraisalStageDtoCollectionQueryParameters appraisalStageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -596,7 +598,7 @@ public class AppraisalStagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = appraisalStageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/AppraisalStages";
@@ -629,6 +631,8 @@ public class AppraisalStagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -640,13 +644,13 @@ public class AppraisalStagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAppraisalStagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAppraisalStagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, AppraisalStageDtoCollectionQueryParameters appraisalStageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAppraisalStagesAsync(Async)");
         }
 
-        return getAppraisalStagesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getAppraisalStagesAsyncCall(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -656,6 +660,7 @@ public class AppraisalStagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalStageDtoCollectionQueryParameters  (optional)
      * @return AppraisalStageDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -666,8 +671,8 @@ public class AppraisalStagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AppraisalStageDtoListEnvelope getAppraisalStagesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<AppraisalStageDtoListEnvelope> localVarResp = getAppraisalStagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public AppraisalStageDtoListEnvelope getAppraisalStagesAsync(UUID tenantId, String apiVersion, String xApiVersion, AppraisalStageDtoCollectionQueryParameters appraisalStageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<AppraisalStageDtoListEnvelope> localVarResp = getAppraisalStagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -677,6 +682,7 @@ public class AppraisalStagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalStageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;AppraisalStageDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -687,8 +693,8 @@ public class AppraisalStagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AppraisalStageDtoListEnvelope> getAppraisalStagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAppraisalStagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<AppraisalStageDtoListEnvelope> getAppraisalStagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, AppraisalStageDtoCollectionQueryParameters appraisalStageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAppraisalStagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<AppraisalStageDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -699,6 +705,7 @@ public class AppraisalStagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalStageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -710,9 +717,9 @@ public class AppraisalStagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAppraisalStagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<AppraisalStageDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAppraisalStagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, AppraisalStageDtoCollectionQueryParameters appraisalStageDtoCollectionQueryParameters, final ApiCallback<AppraisalStageDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAppraisalStagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAppraisalStagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<AppraisalStageDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -722,6 +729,7 @@ public class AppraisalStagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalStageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -733,7 +741,7 @@ public class AppraisalStagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAppraisalStagesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAppraisalStagesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, AppraisalStageDtoCollectionQueryParameters appraisalStageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -747,7 +755,7 @@ public class AppraisalStagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = appraisalStageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/AppraisalStages/Count";
@@ -780,6 +788,8 @@ public class AppraisalStagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -791,13 +801,13 @@ public class AppraisalStagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAppraisalStagesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAppraisalStagesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, AppraisalStageDtoCollectionQueryParameters appraisalStageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAppraisalStagesCountAsync(Async)");
         }
 
-        return getAppraisalStagesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getAppraisalStagesCountAsyncCall(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -807,6 +817,7 @@ public class AppraisalStagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalStageDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -817,8 +828,8 @@ public class AppraisalStagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getAppraisalStagesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getAppraisalStagesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getAppraisalStagesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, AppraisalStageDtoCollectionQueryParameters appraisalStageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getAppraisalStagesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -828,6 +839,7 @@ public class AppraisalStagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalStageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -838,8 +850,8 @@ public class AppraisalStagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getAppraisalStagesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAppraisalStagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getAppraisalStagesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, AppraisalStageDtoCollectionQueryParameters appraisalStageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAppraisalStagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -850,6 +862,7 @@ public class AppraisalStagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appraisalStageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -861,9 +874,9 @@ public class AppraisalStagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAppraisalStagesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getAppraisalStagesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, AppraisalStageDtoCollectionQueryParameters appraisalStageDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAppraisalStagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAppraisalStagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, appraisalStageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

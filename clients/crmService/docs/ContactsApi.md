@@ -545,7 +545,7 @@ No authorization required
 
 <a id="getBusinessOwnedIndividualsAsync"></a>
 # **getBusinessOwnedIndividualsAsync**
-> ContactDtoListEnvelope getBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion)
+> ContactDtoListEnvelope getBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all contacts of type individual
 
@@ -569,8 +569,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactDtoCollectionQueryParameters contactDtoCollectionQueryParameters = new ContactDtoCollectionQueryParameters(); // ContactDtoCollectionQueryParameters | 
     try {
-      ContactDtoListEnvelope result = apiInstance.getBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion);
+      ContactDtoListEnvelope result = apiInstance.getBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getBusinessOwnedIndividualsAsync");
@@ -590,6 +591,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -601,7 +603,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -613,7 +615,7 @@ No authorization required
 
 <a id="getBusinessOwnedIndividualsCountAsync"></a>
 # **getBusinessOwnedIndividualsCountAsync**
-> ContactDtoListEnvelope getBusinessOwnedIndividualsCountAsync(tenantId, apiVersion, xApiVersion)
+> ContactDtoListEnvelope getBusinessOwnedIndividualsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all contacts of type individual count
 
@@ -637,8 +639,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactDtoCollectionQueryParameters contactDtoCollectionQueryParameters = new ContactDtoCollectionQueryParameters(); // ContactDtoCollectionQueryParameters | 
     try {
-      ContactDtoListEnvelope result = apiInstance.getBusinessOwnedIndividualsCountAsync(tenantId, apiVersion, xApiVersion);
+      ContactDtoListEnvelope result = apiInstance.getBusinessOwnedIndividualsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getBusinessOwnedIndividualsCountAsync");
@@ -658,6 +661,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -669,7 +673,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -752,7 +756,7 @@ No authorization required
 
 <a id="getBusinessOwnedOrganizationsAsync"></a>
 # **getBusinessOwnedOrganizationsAsync**
-> List&lt;ContactDto&gt; getBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion)
+> List&lt;ContactDto&gt; getBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all contacts of type organization
 
@@ -776,8 +780,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactDtoCollectionQueryParameters contactDtoCollectionQueryParameters = new ContactDtoCollectionQueryParameters(); // ContactDtoCollectionQueryParameters | 
     try {
-      List<ContactDto> result = apiInstance.getBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion);
+      List<ContactDto> result = apiInstance.getBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getBusinessOwnedOrganizationsAsync");
@@ -797,6 +802,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -808,7 +814,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -820,7 +826,7 @@ No authorization required
 
 <a id="getBusinessOwnedOrganizationsCountAsync"></a>
 # **getBusinessOwnedOrganizationsCountAsync**
-> ContactDtoListEnvelope getBusinessOwnedOrganizationsCountAsync(tenantId, apiVersion, xApiVersion)
+> ContactDtoListEnvelope getBusinessOwnedOrganizationsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all contacts of type organization count
 
@@ -844,8 +850,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactDtoCollectionQueryParameters contactDtoCollectionQueryParameters = new ContactDtoCollectionQueryParameters(); // ContactDtoCollectionQueryParameters | 
     try {
-      ContactDtoListEnvelope result = apiInstance.getBusinessOwnedOrganizationsCountAsync(tenantId, apiVersion, xApiVersion);
+      ContactDtoListEnvelope result = apiInstance.getBusinessOwnedOrganizationsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getBusinessOwnedOrganizationsCountAsync");
@@ -865,6 +872,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -876,7 +884,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1099,7 +1107,7 @@ No authorization required
 
 <a id="getContactEmailsAsync"></a>
 # **getContactEmailsAsync**
-> ContactEmailDtoListEnvelope getContactEmailsAsync(tenantId, contactId, apiVersion, xApiVersion)
+> ContactEmailDtoListEnvelope getContactEmailsAsync(tenantId, contactId, apiVersion, xApiVersion, contactEmailDtoCollectionQueryParameters)
 
 Get a contact&#39;s email addresses
 
@@ -1124,8 +1132,9 @@ public class Example {
     UUID contactId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactEmailDtoCollectionQueryParameters contactEmailDtoCollectionQueryParameters = new ContactEmailDtoCollectionQueryParameters(); // ContactEmailDtoCollectionQueryParameters | 
     try {
-      ContactEmailDtoListEnvelope result = apiInstance.getContactEmailsAsync(tenantId, contactId, apiVersion, xApiVersion);
+      ContactEmailDtoListEnvelope result = apiInstance.getContactEmailsAsync(tenantId, contactId, apiVersion, xApiVersion, contactEmailDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getContactEmailsAsync");
@@ -1146,6 +1155,7 @@ public class Example {
 | **contactId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactEmailDtoCollectionQueryParameters** | [**ContactEmailDtoCollectionQueryParameters**](ContactEmailDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1157,7 +1167,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1169,7 +1179,7 @@ No authorization required
 
 <a id="getContactEmailsCountAsync"></a>
 # **getContactEmailsCountAsync**
-> Int32Envelope getContactEmailsCountAsync(tenantId, contactId, apiVersion, xApiVersion)
+> Int32Envelope getContactEmailsCountAsync(tenantId, contactId, apiVersion, xApiVersion, contactEmailDtoCollectionQueryParameters)
 
 Get contact email addresses count
 
@@ -1194,8 +1204,9 @@ public class Example {
     UUID contactId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactEmailDtoCollectionQueryParameters contactEmailDtoCollectionQueryParameters = new ContactEmailDtoCollectionQueryParameters(); // ContactEmailDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getContactEmailsCountAsync(tenantId, contactId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getContactEmailsCountAsync(tenantId, contactId, apiVersion, xApiVersion, contactEmailDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getContactEmailsCountAsync");
@@ -1216,6 +1227,7 @@ public class Example {
 | **contactId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactEmailDtoCollectionQueryParameters** | [**ContactEmailDtoCollectionQueryParameters**](ContactEmailDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1227,7 +1239,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1380,7 +1392,7 @@ No authorization required
 
 <a id="getContactsAsync"></a>
 # **getContactsAsync**
-> ContactDtoListEnvelope getContactsAsync(tenantId, apiVersion, xApiVersion)
+> ContactDtoListEnvelope getContactsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all business owned contacts
 
@@ -1404,8 +1416,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactDtoCollectionQueryParameters contactDtoCollectionQueryParameters = new ContactDtoCollectionQueryParameters(); // ContactDtoCollectionQueryParameters | 
     try {
-      ContactDtoListEnvelope result = apiInstance.getContactsAsync(tenantId, apiVersion, xApiVersion);
+      ContactDtoListEnvelope result = apiInstance.getContactsAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getContactsAsync");
@@ -1425,6 +1438,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1436,7 +1450,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1448,7 +1462,7 @@ No authorization required
 
 <a id="getContactsCountAsync"></a>
 # **getContactsCountAsync**
-> ContactDtoListEnvelope getContactsCountAsync(tenantId, apiVersion, xApiVersion)
+> ContactDtoListEnvelope getContactsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters)
 
 Get all business owned contacts count
 
@@ -1472,8 +1486,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactDtoCollectionQueryParameters contactDtoCollectionQueryParameters = new ContactDtoCollectionQueryParameters(); // ContactDtoCollectionQueryParameters | 
     try {
-      ContactDtoListEnvelope result = apiInstance.getContactsCountAsync(tenantId, apiVersion, xApiVersion);
+      ContactDtoListEnvelope result = apiInstance.getContactsCountAsync(tenantId, apiVersion, xApiVersion, contactDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getContactsCountAsync");
@@ -1493,6 +1508,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactDtoCollectionQueryParameters** | [**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1504,7 +1520,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1516,7 +1532,7 @@ No authorization required
 
 <a id="getExtendedBusinessOwnedIndividualsAsync"></a>
 # **getExtendedBusinessOwnedIndividualsAsync**
-> ExtendedContactDtoListEnvelope getExtendedBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion)
+> ExtendedContactDtoListEnvelope getExtendedBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters)
 
 Get all contacts of type individual
 
@@ -1540,8 +1556,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExtendedContactDtoCollectionQueryParameters extendedContactDtoCollectionQueryParameters = new ExtendedContactDtoCollectionQueryParameters(); // ExtendedContactDtoCollectionQueryParameters | 
     try {
-      ExtendedContactDtoListEnvelope result = apiInstance.getExtendedBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion);
+      ExtendedContactDtoListEnvelope result = apiInstance.getExtendedBusinessOwnedIndividualsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getExtendedBusinessOwnedIndividualsAsync");
@@ -1561,6 +1578,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **extendedContactDtoCollectionQueryParameters** | [**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1572,7 +1590,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1584,7 +1602,7 @@ No authorization required
 
 <a id="getExtendedBusinessOwnedOrganizationsAsync"></a>
 # **getExtendedBusinessOwnedOrganizationsAsync**
-> ExtendedContactDtoListEnvelope getExtendedBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion)
+> ExtendedContactDtoListEnvelope getExtendedBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters)
 
 Get all contacts of type organization
 
@@ -1608,8 +1626,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExtendedContactDtoCollectionQueryParameters extendedContactDtoCollectionQueryParameters = new ExtendedContactDtoCollectionQueryParameters(); // ExtendedContactDtoCollectionQueryParameters | 
     try {
-      ExtendedContactDtoListEnvelope result = apiInstance.getExtendedBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion);
+      ExtendedContactDtoListEnvelope result = apiInstance.getExtendedBusinessOwnedOrganizationsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getExtendedBusinessOwnedOrganizationsAsync");
@@ -1629,6 +1648,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **extendedContactDtoCollectionQueryParameters** | [**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1640,7 +1660,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1722,7 +1742,7 @@ No authorization required
 
 <a id="getExtendedContactsAsync"></a>
 # **getExtendedContactsAsync**
-> ExtendedContactDtoListEnvelope getExtendedContactsAsync(tenantId, apiVersion, xApiVersion)
+> ExtendedContactDtoListEnvelope getExtendedContactsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters)
 
 Get all business owned contacts
 
@@ -1746,8 +1766,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExtendedContactDtoCollectionQueryParameters extendedContactDtoCollectionQueryParameters = new ExtendedContactDtoCollectionQueryParameters(); // ExtendedContactDtoCollectionQueryParameters | 
     try {
-      ExtendedContactDtoListEnvelope result = apiInstance.getExtendedContactsAsync(tenantId, apiVersion, xApiVersion);
+      ExtendedContactDtoListEnvelope result = apiInstance.getExtendedContactsAsync(tenantId, apiVersion, xApiVersion, extendedContactDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getExtendedContactsAsync");
@@ -1767,6 +1788,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **extendedContactDtoCollectionQueryParameters** | [**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1778,7 +1800,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2141,7 +2163,7 @@ No authorization required
 
 <a id="getProfilesForContactCountAsync"></a>
 # **getProfilesForContactCountAsync**
-> Int32Envelope getProfilesForContactCountAsync(tenantId, contactId, apiVersion, xApiVersion)
+> Int32Envelope getProfilesForContactCountAsync(tenantId, contactId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
 
 Get contact profiles count
 
@@ -2166,8 +2188,9 @@ public class Example {
     UUID contactId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters = new ContactProfileDtoCollectionQueryParameters(); // ContactProfileDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getProfilesForContactCountAsync(tenantId, contactId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getProfilesForContactCountAsync(tenantId, contactId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#getProfilesForContactCountAsync");
@@ -2188,6 +2211,7 @@ public class Example {
 | **contactId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2199,7 +2223,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2210,7 +2234,7 @@ No authorization required
 
 <a id="patchContactAsync"></a>
 # **patchContactAsync**
-> EmptyEnvelope patchContactAsync(tenantId, contactId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactAsync(tenantId, contactId, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact
 
@@ -2235,9 +2259,9 @@ public class Example {
     UUID contactId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchContactAsync(tenantId, contactId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchContactAsync(tenantId, contactId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#patchContactAsync");
@@ -2258,7 +2282,7 @@ public class Example {
 | **contactId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2282,7 +2306,7 @@ No authorization required
 
 <a id="patchContactEmailAsync"></a>
 # **patchContactEmailAsync**
-> patchContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion, operation)
+> patchContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact email address
 
@@ -2308,9 +2332,9 @@ public class Example {
     UUID emailId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion, operation);
+      apiInstance.patchContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactsApi#patchContactEmailAsync");
       System.err.println("Status code: " + e.getCode());
@@ -2331,7 +2355,7 @@ public class Example {
 | **emailId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -31,19 +31,23 @@ import org.openapitools.client.model.DecimalEnvelope;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ShareClassCreateDto;
+import org.openapitools.client.model.ShareClassDtoCollectionQueryParameters;
 import org.openapitools.client.model.ShareClassDtoEnvelope;
 import org.openapitools.client.model.ShareClassDtoListEnvelope;
 import org.openapitools.client.model.ShareClassUpdateDto;
 import org.openapitools.client.model.ShareIssuanceCreateDto;
+import org.openapitools.client.model.ShareIssuanceDtoCollectionQueryParameters;
 import org.openapitools.client.model.ShareIssuanceDtoEnvelope;
 import org.openapitools.client.model.ShareIssuanceDtoListEnvelope;
 import org.openapitools.client.model.ShareIssuanceUpdateDto;
 import org.openapitools.client.model.ShareTransferCreateDto;
+import org.openapitools.client.model.ShareTransferDtoCollectionQueryParameters;
 import org.openapitools.client.model.ShareTransferDtoEnvelope;
 import org.openapitools.client.model.ShareTransferDtoListEnvelope;
 import org.openapitools.client.model.ShareTransferReasonCreateDto;
+import org.openapitools.client.model.ShareTransferReasonDtoCollectionQueryParameters;
 import org.openapitools.client.model.ShareTransferReasonDtoEnvelope;
 import org.openapitools.client.model.ShareTransferReasonDtoListEnvelope;
 import org.openapitools.client.model.ShareTransferReasonUpdateDto;
@@ -1535,6 +1539,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1546,7 +1551,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareClassesCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShareClassesCall(UUID tenantId, String apiVersion, String xApiVersion, ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1560,7 +1565,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shareClassDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/Classes";
@@ -1593,6 +1598,8 @@ public class SharesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1604,13 +1611,13 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShareClassesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShareClassesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShareClasses(Async)");
         }
 
-        return getShareClassesCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShareClassesCall(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1620,6 +1627,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @return ShareClassDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1630,8 +1638,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ShareClassDtoListEnvelope getShareClasses(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ShareClassDtoListEnvelope> localVarResp = getShareClassesWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ShareClassDtoListEnvelope getShareClasses(UUID tenantId, String apiVersion, String xApiVersion, ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ShareClassDtoListEnvelope> localVarResp = getShareClassesWithHttpInfo(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1641,6 +1649,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ShareClassDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1651,8 +1660,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShareClassDtoListEnvelope> getShareClassesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShareClassesValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ShareClassDtoListEnvelope> getShareClassesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShareClassesValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ShareClassDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1663,6 +1672,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1674,9 +1684,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareClassesAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ShareClassDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getShareClassesAsync(UUID tenantId, String apiVersion, String xApiVersion, ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters, final ApiCallback<ShareClassDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShareClassesValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShareClassesValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ShareClassDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1686,6 +1696,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1697,7 +1708,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareClassesCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShareClassesCountCall(UUID tenantId, String apiVersion, String xApiVersion, ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1711,7 +1722,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shareClassDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/Classes/Count";
@@ -1744,6 +1755,8 @@ public class SharesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1755,13 +1768,13 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShareClassesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShareClassesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShareClassesCount(Async)");
         }
 
-        return getShareClassesCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShareClassesCountCall(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1771,6 +1784,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1781,8 +1795,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getShareClassesCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getShareClassesCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getShareClassesCount(UUID tenantId, String apiVersion, String xApiVersion, ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getShareClassesCountWithHttpInfo(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1792,6 +1806,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1802,8 +1817,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getShareClassesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShareClassesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getShareClassesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShareClassesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1814,6 +1829,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareClassDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1825,9 +1841,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareClassesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getShareClassesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShareClassesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShareClassesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2002,6 +2018,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2013,7 +2030,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareIssuancesCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShareIssuancesCall(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2027,7 +2044,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shareIssuanceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/Issuances";
@@ -2060,6 +2077,8 @@ public class SharesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2071,13 +2090,13 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShareIssuancesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShareIssuancesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShareIssuances(Async)");
         }
 
-        return getShareIssuancesCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShareIssuancesCall(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2087,6 +2106,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return ShareIssuanceDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2097,8 +2117,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ShareIssuanceDtoListEnvelope getShareIssuances(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ShareIssuanceDtoListEnvelope> localVarResp = getShareIssuancesWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ShareIssuanceDtoListEnvelope getShareIssuances(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ShareIssuanceDtoListEnvelope> localVarResp = getShareIssuancesWithHttpInfo(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2108,6 +2128,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ShareIssuanceDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2118,8 +2139,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShareIssuanceDtoListEnvelope> getShareIssuancesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShareIssuancesValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ShareIssuanceDtoListEnvelope> getShareIssuancesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShareIssuancesValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ShareIssuanceDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2130,6 +2151,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2141,9 +2163,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareIssuancesAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ShareIssuanceDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getShareIssuancesAsync(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters, final ApiCallback<ShareIssuanceDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShareIssuancesValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShareIssuancesValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ShareIssuanceDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2153,6 +2175,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2164,7 +2187,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareIssuancesCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShareIssuancesCountCall(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2178,7 +2201,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shareIssuanceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/Issuances/Count";
@@ -2211,6 +2234,8 @@ public class SharesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2222,13 +2247,13 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShareIssuancesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShareIssuancesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShareIssuancesCount(Async)");
         }
 
-        return getShareIssuancesCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShareIssuancesCountCall(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2238,6 +2263,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2248,8 +2274,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getShareIssuancesCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getShareIssuancesCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getShareIssuancesCount(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getShareIssuancesCountWithHttpInfo(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2259,6 +2285,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2269,8 +2296,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getShareIssuancesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShareIssuancesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getShareIssuancesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShareIssuancesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2281,6 +2308,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2292,9 +2320,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareIssuancesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getShareIssuancesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShareIssuancesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShareIssuancesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2304,6 +2332,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2315,7 +2344,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareIssuancesSumCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShareIssuancesSumCall(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2329,7 +2358,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shareIssuanceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/Issuances/Sum";
@@ -2362,6 +2391,8 @@ public class SharesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2373,13 +2404,13 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShareIssuancesSumValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShareIssuancesSumValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShareIssuancesSum(Async)");
         }
 
-        return getShareIssuancesSumCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShareIssuancesSumCall(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2389,6 +2420,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return DecimalEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2399,8 +2431,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public DecimalEnvelope getShareIssuancesSum(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<DecimalEnvelope> localVarResp = getShareIssuancesSumWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public DecimalEnvelope getShareIssuancesSum(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<DecimalEnvelope> localVarResp = getShareIssuancesSumWithHttpInfo(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2410,6 +2442,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;DecimalEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2420,8 +2453,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DecimalEnvelope> getShareIssuancesSumWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShareIssuancesSumValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<DecimalEnvelope> getShareIssuancesSumWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShareIssuancesSumValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<DecimalEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2432,6 +2465,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareIssuanceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2443,9 +2477,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareIssuancesSumAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<DecimalEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getShareIssuancesSumAsync(UUID tenantId, String apiVersion, String xApiVersion, ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters, final ApiCallback<DecimalEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShareIssuancesSumValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShareIssuancesSumValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<DecimalEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2785,6 +2819,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2796,7 +2831,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareTransferReasonsCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShareTransferReasonsCall(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2810,7 +2845,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shareTransferReasonDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/TransferReasons";
@@ -2843,6 +2878,8 @@ public class SharesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2854,13 +2891,13 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShareTransferReasonsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShareTransferReasonsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShareTransferReasons(Async)");
         }
 
-        return getShareTransferReasonsCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShareTransferReasonsCall(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2870,6 +2907,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @return ShareTransferReasonDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2880,8 +2918,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ShareTransferReasonDtoListEnvelope getShareTransferReasons(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ShareTransferReasonDtoListEnvelope> localVarResp = getShareTransferReasonsWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ShareTransferReasonDtoListEnvelope getShareTransferReasons(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ShareTransferReasonDtoListEnvelope> localVarResp = getShareTransferReasonsWithHttpInfo(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2891,6 +2929,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ShareTransferReasonDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2901,8 +2940,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShareTransferReasonDtoListEnvelope> getShareTransferReasonsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShareTransferReasonsValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ShareTransferReasonDtoListEnvelope> getShareTransferReasonsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShareTransferReasonsValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ShareTransferReasonDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2913,6 +2952,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2924,9 +2964,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareTransferReasonsAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ShareTransferReasonDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getShareTransferReasonsAsync(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters, final ApiCallback<ShareTransferReasonDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShareTransferReasonsValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShareTransferReasonsValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ShareTransferReasonDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2936,6 +2976,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2947,7 +2988,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareTransferReasonsCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShareTransferReasonsCountCall(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2961,7 +3002,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shareTransferReasonDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/TransferReasons/Count";
@@ -2994,6 +3035,8 @@ public class SharesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3005,13 +3048,13 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShareTransferReasonsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShareTransferReasonsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShareTransferReasonsCount(Async)");
         }
 
-        return getShareTransferReasonsCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShareTransferReasonsCountCall(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3021,6 +3064,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3031,8 +3075,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getShareTransferReasonsCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getShareTransferReasonsCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getShareTransferReasonsCount(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getShareTransferReasonsCountWithHttpInfo(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3042,6 +3086,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3052,8 +3097,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getShareTransferReasonsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShareTransferReasonsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getShareTransferReasonsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShareTransferReasonsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3064,6 +3109,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferReasonDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3075,9 +3121,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareTransferReasonsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getShareTransferReasonsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShareTransferReasonsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShareTransferReasonsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3087,6 +3133,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3098,7 +3145,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareTransfersCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShareTransfersCall(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3112,7 +3159,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shareTransferDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/Transfers";
@@ -3145,6 +3192,8 @@ public class SharesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3156,13 +3205,13 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShareTransfersValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShareTransfersValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShareTransfers(Async)");
         }
 
-        return getShareTransfersCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShareTransfersCall(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3172,6 +3221,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @return ShareTransferDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3182,8 +3232,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ShareTransferDtoListEnvelope getShareTransfers(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ShareTransferDtoListEnvelope> localVarResp = getShareTransfersWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ShareTransferDtoListEnvelope getShareTransfers(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ShareTransferDtoListEnvelope> localVarResp = getShareTransfersWithHttpInfo(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3193,6 +3243,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ShareTransferDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3203,8 +3254,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShareTransferDtoListEnvelope> getShareTransfersWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShareTransfersValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ShareTransferDtoListEnvelope> getShareTransfersWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShareTransfersValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ShareTransferDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3215,6 +3266,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3226,9 +3278,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareTransfersAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ShareTransferDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getShareTransfersAsync(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters, final ApiCallback<ShareTransferDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShareTransfersValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShareTransfersValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ShareTransferDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3238,6 +3290,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3249,7 +3302,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareTransfersCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShareTransfersCountCall(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3263,7 +3316,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shareTransferDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/Transfers/Count";
@@ -3296,6 +3349,8 @@ public class SharesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3307,13 +3362,13 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShareTransfersCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShareTransfersCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShareTransfersCount(Async)");
         }
 
-        return getShareTransfersCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShareTransfersCountCall(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3323,6 +3378,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3333,8 +3389,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getShareTransfersCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getShareTransfersCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getShareTransfersCount(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getShareTransfersCountWithHttpInfo(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3344,6 +3400,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3354,8 +3411,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getShareTransfersCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShareTransfersCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getShareTransfersCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShareTransfersCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3366,6 +3423,7 @@ public class SharesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shareTransferDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3377,9 +3435,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShareTransfersCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getShareTransfersCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShareTransfersCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShareTransfersCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3390,7 +3448,7 @@ public class SharesApi {
      * @param shareClassId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3402,7 +3460,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShareClassCall(UUID tenantId, UUID shareClassId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchShareClassCall(UUID tenantId, UUID shareClassId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3416,7 +3474,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/Classes/{shareClassId}"
@@ -3463,7 +3521,7 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchShareClassValidateBeforeCall(UUID tenantId, UUID shareClassId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchShareClassValidateBeforeCall(UUID tenantId, UUID shareClassId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchShareClass(Async)");
@@ -3474,7 +3532,7 @@ public class SharesApi {
             throw new ApiException("Missing the required parameter 'shareClassId' when calling patchShareClass(Async)");
         }
 
-        return patchShareClassCall(tenantId, shareClassId, apiVersion, xApiVersion, operation, _callback);
+        return patchShareClassCall(tenantId, shareClassId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -3485,7 +3543,7 @@ public class SharesApi {
      * @param shareClassId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3496,8 +3554,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchShareClass(UUID tenantId, UUID shareClassId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchShareClassWithHttpInfo(tenantId, shareClassId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchShareClass(UUID tenantId, UUID shareClassId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchShareClassWithHttpInfo(tenantId, shareClassId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -3508,7 +3566,7 @@ public class SharesApi {
      * @param shareClassId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3519,8 +3577,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchShareClassWithHttpInfo(UUID tenantId, UUID shareClassId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchShareClassValidateBeforeCall(tenantId, shareClassId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchShareClassWithHttpInfo(UUID tenantId, UUID shareClassId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchShareClassValidateBeforeCall(tenantId, shareClassId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3532,7 +3590,7 @@ public class SharesApi {
      * @param shareClassId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3544,9 +3602,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShareClassAsync(UUID tenantId, UUID shareClassId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchShareClassAsync(UUID tenantId, UUID shareClassId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchShareClassValidateBeforeCall(tenantId, shareClassId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchShareClassValidateBeforeCall(tenantId, shareClassId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3557,7 +3615,7 @@ public class SharesApi {
      * @param issuanceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3569,7 +3627,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShareIssuanceCall(UUID tenantId, UUID issuanceId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchShareIssuanceCall(UUID tenantId, UUID issuanceId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3583,7 +3641,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/Issuances/{issuanceId}"
@@ -3630,7 +3688,7 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchShareIssuanceValidateBeforeCall(UUID tenantId, UUID issuanceId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchShareIssuanceValidateBeforeCall(UUID tenantId, UUID issuanceId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchShareIssuance(Async)");
@@ -3641,7 +3699,7 @@ public class SharesApi {
             throw new ApiException("Missing the required parameter 'issuanceId' when calling patchShareIssuance(Async)");
         }
 
-        return patchShareIssuanceCall(tenantId, issuanceId, apiVersion, xApiVersion, operation, _callback);
+        return patchShareIssuanceCall(tenantId, issuanceId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -3652,7 +3710,7 @@ public class SharesApi {
      * @param issuanceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3663,8 +3721,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchShareIssuance(UUID tenantId, UUID issuanceId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchShareIssuanceWithHttpInfo(tenantId, issuanceId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchShareIssuance(UUID tenantId, UUID issuanceId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchShareIssuanceWithHttpInfo(tenantId, issuanceId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -3675,7 +3733,7 @@ public class SharesApi {
      * @param issuanceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3686,8 +3744,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchShareIssuanceWithHttpInfo(UUID tenantId, UUID issuanceId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchShareIssuanceValidateBeforeCall(tenantId, issuanceId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchShareIssuanceWithHttpInfo(UUID tenantId, UUID issuanceId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchShareIssuanceValidateBeforeCall(tenantId, issuanceId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3699,7 +3757,7 @@ public class SharesApi {
      * @param issuanceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3711,9 +3769,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShareIssuanceAsync(UUID tenantId, UUID issuanceId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchShareIssuanceAsync(UUID tenantId, UUID issuanceId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchShareIssuanceValidateBeforeCall(tenantId, issuanceId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchShareIssuanceValidateBeforeCall(tenantId, issuanceId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3724,7 +3782,7 @@ public class SharesApi {
      * @param transferId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3736,7 +3794,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShareTransferCall(UUID tenantId, UUID transferId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchShareTransferCall(UUID tenantId, UUID transferId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3750,7 +3808,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/Transfers/{transferId}"
@@ -3797,7 +3855,7 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchShareTransferValidateBeforeCall(UUID tenantId, UUID transferId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchShareTransferValidateBeforeCall(UUID tenantId, UUID transferId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchShareTransfer(Async)");
@@ -3808,7 +3866,7 @@ public class SharesApi {
             throw new ApiException("Missing the required parameter 'transferId' when calling patchShareTransfer(Async)");
         }
 
-        return patchShareTransferCall(tenantId, transferId, apiVersion, xApiVersion, operation, _callback);
+        return patchShareTransferCall(tenantId, transferId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -3819,7 +3877,7 @@ public class SharesApi {
      * @param transferId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3830,8 +3888,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchShareTransfer(UUID tenantId, UUID transferId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchShareTransferWithHttpInfo(tenantId, transferId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchShareTransfer(UUID tenantId, UUID transferId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchShareTransferWithHttpInfo(tenantId, transferId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -3842,7 +3900,7 @@ public class SharesApi {
      * @param transferId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3853,8 +3911,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchShareTransferWithHttpInfo(UUID tenantId, UUID transferId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchShareTransferValidateBeforeCall(tenantId, transferId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchShareTransferWithHttpInfo(UUID tenantId, UUID transferId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchShareTransferValidateBeforeCall(tenantId, transferId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3866,7 +3924,7 @@ public class SharesApi {
      * @param transferId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3878,9 +3936,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShareTransferAsync(UUID tenantId, UUID transferId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchShareTransferAsync(UUID tenantId, UUID transferId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchShareTransferValidateBeforeCall(tenantId, transferId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchShareTransferValidateBeforeCall(tenantId, transferId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3891,7 +3949,7 @@ public class SharesApi {
      * @param reasonId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3903,7 +3961,7 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShareTransferReasonCall(UUID tenantId, UUID reasonId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchShareTransferReasonCall(UUID tenantId, UUID reasonId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3917,7 +3975,7 @@ public class SharesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Shares/TransferReasons/{reasonId}"
@@ -3964,7 +4022,7 @@ public class SharesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchShareTransferReasonValidateBeforeCall(UUID tenantId, UUID reasonId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchShareTransferReasonValidateBeforeCall(UUID tenantId, UUID reasonId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchShareTransferReason(Async)");
@@ -3975,7 +4033,7 @@ public class SharesApi {
             throw new ApiException("Missing the required parameter 'reasonId' when calling patchShareTransferReason(Async)");
         }
 
-        return patchShareTransferReasonCall(tenantId, reasonId, apiVersion, xApiVersion, operation, _callback);
+        return patchShareTransferReasonCall(tenantId, reasonId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -3986,7 +4044,7 @@ public class SharesApi {
      * @param reasonId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3997,8 +4055,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchShareTransferReason(UUID tenantId, UUID reasonId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchShareTransferReasonWithHttpInfo(tenantId, reasonId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchShareTransferReason(UUID tenantId, UUID reasonId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchShareTransferReasonWithHttpInfo(tenantId, reasonId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -4009,7 +4067,7 @@ public class SharesApi {
      * @param reasonId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4020,8 +4078,8 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchShareTransferReasonWithHttpInfo(UUID tenantId, UUID reasonId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchShareTransferReasonValidateBeforeCall(tenantId, reasonId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchShareTransferReasonWithHttpInfo(UUID tenantId, UUID reasonId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchShareTransferReasonValidateBeforeCall(tenantId, reasonId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4033,7 +4091,7 @@ public class SharesApi {
      * @param reasonId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4045,9 +4103,9 @@ public class SharesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShareTransferReasonAsync(UUID tenantId, UUID reasonId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchShareTransferReasonAsync(UUID tenantId, UUID reasonId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchShareTransferReasonValidateBeforeCall(tenantId, reasonId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchShareTransferReasonValidateBeforeCall(tenantId, reasonId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -151,7 +151,7 @@ No authorization required
 
 <a id="getItemShippingPoliciesAsync"></a>
 # **getItemShippingPoliciesAsync**
-> ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(tenantId, apiVersion, xApiVersion)
+> ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(tenantId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
 
 Get all item shipping policies
 
@@ -175,8 +175,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemShippingPolicyDtoCollectionQueryParameters itemShippingPolicyDtoCollectionQueryParameters = new ItemShippingPolicyDtoCollectionQueryParameters(); // ItemShippingPolicyDtoCollectionQueryParameters | 
     try {
-      ItemShippingPolicyDtoListEnvelope result = apiInstance.getItemShippingPoliciesAsync(tenantId, apiVersion, xApiVersion);
+      ItemShippingPolicyDtoListEnvelope result = apiInstance.getItemShippingPoliciesAsync(tenantId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemShippingPoliciesApi#getItemShippingPoliciesAsync");
@@ -196,6 +197,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -207,7 +209,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -219,7 +221,7 @@ No authorization required
 
 <a id="getItemShippingPoliciesCountAsync"></a>
 # **getItemShippingPoliciesCountAsync**
-> Int32Envelope getItemShippingPoliciesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemShippingPoliciesCountAsync(tenantId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
 
 Get item shipping policies count
 
@@ -243,8 +245,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemShippingPolicyDtoCollectionQueryParameters itemShippingPolicyDtoCollectionQueryParameters = new ItemShippingPolicyDtoCollectionQueryParameters(); // ItemShippingPolicyDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemShippingPoliciesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemShippingPoliciesCountAsync(tenantId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemShippingPoliciesApi#getItemShippingPoliciesCountAsync");
@@ -264,6 +267,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -275,7 +279,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -354,7 +358,7 @@ No authorization required
 
 <a id="patchItemShippingPolicyAsync"></a>
 # **patchItemShippingPolicyAsync**
-> EmptyEnvelope patchItemShippingPolicyAsync(tenantId, policyId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemShippingPolicyAsync(tenantId, policyId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item shipping policy
 
@@ -379,9 +383,9 @@ public class Example {
     UUID policyId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemShippingPolicyAsync(tenantId, policyId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemShippingPolicyAsync(tenantId, policyId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemShippingPoliciesApi#patchItemShippingPolicyAsync");
@@ -402,7 +406,7 @@ public class Example {
 | **policyId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

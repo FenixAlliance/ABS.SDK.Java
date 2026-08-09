@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getServiceLevelAgreementsAsync"></a>
 # **getServiceLevelAgreementsAsync**
-> ServiceLevelAgreementDtoIReadOnlyListEnvelope getServiceLevelAgreementsAsync(tenantId, apiVersion, xApiVersion)
+> ServiceLevelAgreementDtoIReadOnlyListEnvelope getServiceLevelAgreementsAsync(tenantId, apiVersion, xApiVersion, serviceLevelAgreementDtoCollectionQueryParameters)
 
 Get all service level agreements
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceLevelAgreementDtoCollectionQueryParameters serviceLevelAgreementDtoCollectionQueryParameters = new ServiceLevelAgreementDtoCollectionQueryParameters(); // ServiceLevelAgreementDtoCollectionQueryParameters | 
     try {
-      ServiceLevelAgreementDtoIReadOnlyListEnvelope result = apiInstance.getServiceLevelAgreementsAsync(tenantId, apiVersion, xApiVersion);
+      ServiceLevelAgreementDtoIReadOnlyListEnvelope result = apiInstance.getServiceLevelAgreementsAsync(tenantId, apiVersion, xApiVersion, serviceLevelAgreementDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelAgreementsApi#getServiceLevelAgreementsAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceLevelAgreementDtoCollectionQueryParameters** | [**ServiceLevelAgreementDtoCollectionQueryParameters**](ServiceLevelAgreementDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getServiceLevelAgreementsCountAsync"></a>
 # **getServiceLevelAgreementsCountAsync**
-> Int32Envelope getServiceLevelAgreementsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getServiceLevelAgreementsCountAsync(tenantId, apiVersion, xApiVersion, serviceLevelAgreementDtoCollectionQueryParameters)
 
 Get service level agreements count
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceLevelAgreementDtoCollectionQueryParameters serviceLevelAgreementDtoCollectionQueryParameters = new ServiceLevelAgreementDtoCollectionQueryParameters(); // ServiceLevelAgreementDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getServiceLevelAgreementsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getServiceLevelAgreementsCountAsync(tenantId, apiVersion, xApiVersion, serviceLevelAgreementDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelAgreementsApi#getServiceLevelAgreementsCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceLevelAgreementDtoCollectionQueryParameters** | [**ServiceLevelAgreementDtoCollectionQueryParameters**](ServiceLevelAgreementDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchServiceLevelAgreementAsync"></a>
 # **patchServiceLevelAgreementAsync**
-> Envelope patchServiceLevelAgreementAsync(tenantId, serviceLevelAgreementId, apiVersion, xApiVersion, operation)
+> Envelope patchServiceLevelAgreementAsync(tenantId, serviceLevelAgreementId, apiVersion, xApiVersion, patchOperation)
 
 Patch a service level agreement
 
@@ -386,9 +390,9 @@ public class Example {
     UUID serviceLevelAgreementId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      Envelope result = apiInstance.patchServiceLevelAgreementAsync(tenantId, serviceLevelAgreementId, apiVersion, xApiVersion, operation);
+      Envelope result = apiInstance.patchServiceLevelAgreementAsync(tenantId, serviceLevelAgreementId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelAgreementsApi#patchServiceLevelAgreementAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **serviceLevelAgreementId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

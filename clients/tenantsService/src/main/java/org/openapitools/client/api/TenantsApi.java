@@ -35,8 +35,9 @@ import org.openapitools.client.model.ExtendedTenantDtoEnvelope;
 import org.openapitools.client.model.ExtendedTenantEnrollmentDtoEnvelope;
 import java.io.File;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.NotificationDtoCollectionQueryParameters;
 import org.openapitools.client.model.NotificationDtoListEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SocialProfileDtoEnvelope;
 import org.openapitools.client.model.StringListEnvelope;
 import org.openapitools.client.model.SuiteLicenseAssignmentDtoListEnvelope;
@@ -2981,6 +2982,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2992,7 +2994,7 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantNotificationsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantNotificationsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3006,7 +3008,7 @@ public class TenantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = notificationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Tenants/{tenantId}/Notifications"
@@ -3036,6 +3038,8 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3047,13 +3051,13 @@ public class TenantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantNotificationsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantNotificationsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantNotificationsAsync(Async)");
         }
 
-        return getTenantNotificationsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTenantNotificationsAsyncCall(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3063,6 +3067,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return NotificationDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3073,8 +3078,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationDtoListEnvelope getTenantNotificationsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<NotificationDtoListEnvelope> localVarResp = getTenantNotificationsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public NotificationDtoListEnvelope getTenantNotificationsAsync(UUID tenantId, String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<NotificationDtoListEnvelope> localVarResp = getTenantNotificationsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3084,6 +3089,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;NotificationDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3094,8 +3100,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationDtoListEnvelope> getTenantNotificationsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantNotificationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<NotificationDtoListEnvelope> getTenantNotificationsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantNotificationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<NotificationDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3106,6 +3112,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3117,9 +3124,9 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantNotificationsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<NotificationDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantNotificationsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback<NotificationDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantNotificationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTenantNotificationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<NotificationDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3129,6 +3136,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3140,7 +3148,7 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantNotificationsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantNotificationsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3154,7 +3162,7 @@ public class TenantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = notificationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Tenants/{tenantId}/Notifications/Count"
@@ -3184,6 +3192,8 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3195,13 +3205,13 @@ public class TenantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantNotificationsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantNotificationsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantNotificationsCountAsync(Async)");
         }
 
-        return getTenantNotificationsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTenantNotificationsCountAsyncCall(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3211,6 +3221,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3221,8 +3232,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTenantNotificationsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTenantNotificationsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTenantNotificationsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTenantNotificationsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3232,6 +3243,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3242,8 +3254,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTenantNotificationsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantNotificationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTenantNotificationsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantNotificationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3254,6 +3266,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3265,9 +3278,9 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantNotificationsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantNotificationsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantNotificationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTenantNotificationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4313,7 +4326,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4325,7 +4338,7 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTenantAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4339,7 +4352,7 @@ public class TenantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Tenants/{tenantId}"
@@ -4382,13 +4395,13 @@ public class TenantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTenantAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTenantAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTenantAsync(Async)");
         }
 
-        return patchTenantAsyncCall(tenantId, apiVersion, xApiVersion, operation, _callback);
+        return patchTenantAsyncCall(tenantId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -4398,7 +4411,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4409,8 +4422,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTenantAsync(UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTenantAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTenantAsync(UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTenantAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -4420,7 +4433,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4431,8 +4444,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTenantAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTenantAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTenantAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTenantAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4443,7 +4456,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4455,9 +4468,9 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTenantAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTenantAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTenantAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -213,7 +213,7 @@ No authorization required
 
 <a id="getMarketingLeadsCountAsync"></a>
 # **getMarketingLeadsCountAsync**
-> Int32Envelope getMarketingLeadsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getMarketingLeadsCountAsync(tenantId, apiVersion, xApiVersion, marketingLeadDtoCollectionQueryParameters)
 
 Get marketing leads count
 
@@ -235,8 +235,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    MarketingLeadDtoCollectionQueryParameters marketingLeadDtoCollectionQueryParameters = new MarketingLeadDtoCollectionQueryParameters(); // MarketingLeadDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getMarketingLeadsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getMarketingLeadsCountAsync(tenantId, apiVersion, xApiVersion, marketingLeadDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MarketingLeadsApi#getMarketingLeadsCountAsync");
@@ -256,6 +257,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **marketingLeadDtoCollectionQueryParameters** | [**MarketingLeadDtoCollectionQueryParameters**](MarketingLeadDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -267,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -277,7 +279,7 @@ No authorization required
 
 <a id="getMarketingLeadsODataAsync"></a>
 # **getMarketingLeadsODataAsync**
-> MarketingLeadDtoListEnvelope getMarketingLeadsODataAsync(tenantId, apiVersion, xApiVersion)
+> MarketingLeadDtoListEnvelope getMarketingLeadsODataAsync(tenantId, apiVersion, xApiVersion, marketingLeadDtoCollectionQueryParameters)
 
 Get marketing leads
 
@@ -301,8 +303,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    MarketingLeadDtoCollectionQueryParameters marketingLeadDtoCollectionQueryParameters = new MarketingLeadDtoCollectionQueryParameters(); // MarketingLeadDtoCollectionQueryParameters | 
     try {
-      MarketingLeadDtoListEnvelope result = apiInstance.getMarketingLeadsODataAsync(tenantId, apiVersion, xApiVersion);
+      MarketingLeadDtoListEnvelope result = apiInstance.getMarketingLeadsODataAsync(tenantId, apiVersion, xApiVersion, marketingLeadDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MarketingLeadsApi#getMarketingLeadsODataAsync");
@@ -322,6 +325,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **marketingLeadDtoCollectionQueryParameters** | [**MarketingLeadDtoCollectionQueryParameters**](MarketingLeadDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -333,7 +337,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -343,7 +347,7 @@ No authorization required
 
 <a id="patchMarketingLeadAsync"></a>
 # **patchMarketingLeadAsync**
-> EmptyEnvelope patchMarketingLeadAsync(tenantId, marketingLeadId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchMarketingLeadAsync(tenantId, marketingLeadId, apiVersion, xApiVersion, patchOperation)
 
 Patch a marketing lead
 
@@ -368,9 +372,9 @@ public class Example {
     UUID marketingLeadId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchMarketingLeadAsync(tenantId, marketingLeadId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchMarketingLeadAsync(tenantId, marketingLeadId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MarketingLeadsApi#patchMarketingLeadAsync");
@@ -391,7 +395,7 @@ public class Example {
 | **marketingLeadId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getWorkstationsAsync"></a>
 # **getWorkstationsAsync**
-> WorkstationDtoListEnvelope getWorkstationsAsync(tenantId, apiVersion, xApiVersion)
+> WorkstationDtoListEnvelope getWorkstationsAsync(tenantId, apiVersion, xApiVersion, workstationDtoCollectionQueryParameters)
 
 Get all workstations
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WorkstationDtoCollectionQueryParameters workstationDtoCollectionQueryParameters = new WorkstationDtoCollectionQueryParameters(); // WorkstationDtoCollectionQueryParameters | 
     try {
-      WorkstationDtoListEnvelope result = apiInstance.getWorkstationsAsync(tenantId, apiVersion, xApiVersion);
+      WorkstationDtoListEnvelope result = apiInstance.getWorkstationsAsync(tenantId, apiVersion, xApiVersion, workstationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkstationsApi#getWorkstationsAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **workstationDtoCollectionQueryParameters** | [**WorkstationDtoCollectionQueryParameters**](WorkstationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getWorkstationsCountAsync"></a>
 # **getWorkstationsCountAsync**
-> Int32Envelope getWorkstationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getWorkstationsCountAsync(tenantId, apiVersion, xApiVersion, workstationDtoCollectionQueryParameters)
 
 Get workstations count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WorkstationDtoCollectionQueryParameters workstationDtoCollectionQueryParameters = new WorkstationDtoCollectionQueryParameters(); // WorkstationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWorkstationsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWorkstationsCountAsync(tenantId, apiVersion, xApiVersion, workstationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkstationsApi#getWorkstationsCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **workstationDtoCollectionQueryParameters** | [**WorkstationDtoCollectionQueryParameters**](WorkstationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchWorkstationAsync"></a>
 # **patchWorkstationAsync**
-> EmptyEnvelope patchWorkstationAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWorkstationAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a workstation
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWorkstationAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchWorkstationAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkstationsApi#patchWorkstationAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

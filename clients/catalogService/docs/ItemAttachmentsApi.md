@@ -224,7 +224,7 @@ No authorization required
 
 <a id="getItemAttachmentsAsync"></a>
 # **getItemAttachmentsAsync**
-> ItemAttachmentDtoListEnvelope getItemAttachmentsAsync(tenantId, apiVersion, xApiVersion)
+> ItemAttachmentDtoListEnvelope getItemAttachmentsAsync(tenantId, apiVersion, xApiVersion, itemAttachmentDtoCollectionQueryParameters)
 
 Get all item attachments
 
@@ -248,8 +248,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemAttachmentDtoCollectionQueryParameters itemAttachmentDtoCollectionQueryParameters = new ItemAttachmentDtoCollectionQueryParameters(); // ItemAttachmentDtoCollectionQueryParameters | 
     try {
-      ItemAttachmentDtoListEnvelope result = apiInstance.getItemAttachmentsAsync(tenantId, apiVersion, xApiVersion);
+      ItemAttachmentDtoListEnvelope result = apiInstance.getItemAttachmentsAsync(tenantId, apiVersion, xApiVersion, itemAttachmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemAttachmentsApi#getItemAttachmentsAsync");
@@ -269,6 +270,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemAttachmentDtoCollectionQueryParameters** | [**ItemAttachmentDtoCollectionQueryParameters**](ItemAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -280,7 +282,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -292,7 +294,7 @@ No authorization required
 
 <a id="patchItemAttachmentAsync"></a>
 # **patchItemAttachmentAsync**
-> EmptyEnvelope patchItemAttachmentAsync(tenantId, itemAttachmentId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemAttachmentAsync(tenantId, itemAttachmentId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item attachment
 
@@ -317,9 +319,9 @@ public class Example {
     UUID itemAttachmentId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemAttachmentAsync(tenantId, itemAttachmentId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemAttachmentAsync(tenantId, itemAttachmentId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemAttachmentsApi#patchItemAttachmentAsync");
@@ -340,7 +342,7 @@ public class Example {
 | **itemAttachmentId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

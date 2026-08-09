@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.IPLookupDtoCollectionQueryParameters;
 import org.openapitools.client.model.IPLookupDtoEnvelope;
 import org.openapitools.client.model.IPLookupDtoListEnvelope;
 import org.openapitools.client.model.Int32Envelope;
@@ -377,6 +378,7 @@ public class IpLookupsApi {
      * Build call for getSystemIPLookups
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -388,7 +390,7 @@ public class IpLookupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemIPLookupsCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSystemIPLookupsCall(String apiVersion, String xApiVersion, IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -402,7 +404,7 @@ public class IpLookupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = ipLookupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/IPLookups";
@@ -431,6 +433,8 @@ public class IpLookupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -442,8 +446,8 @@ public class IpLookupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSystemIPLookupsValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getSystemIPLookupsCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getSystemIPLookupsValidateBeforeCall(String apiVersion, String xApiVersion, IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getSystemIPLookupsCall(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -452,6 +456,7 @@ public class IpLookupsApi {
      * Retrieve a list of all IP lookups in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @return IPLookupDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -462,8 +467,8 @@ public class IpLookupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public IPLookupDtoListEnvelope getSystemIPLookups(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<IPLookupDtoListEnvelope> localVarResp = getSystemIPLookupsWithHttpInfo(apiVersion, xApiVersion);
+    public IPLookupDtoListEnvelope getSystemIPLookups(String apiVersion, String xApiVersion, IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<IPLookupDtoListEnvelope> localVarResp = getSystemIPLookupsWithHttpInfo(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -472,6 +477,7 @@ public class IpLookupsApi {
      * Retrieve a list of all IP lookups in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;IPLookupDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -482,8 +488,8 @@ public class IpLookupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IPLookupDtoListEnvelope> getSystemIPLookupsWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSystemIPLookupsValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<IPLookupDtoListEnvelope> getSystemIPLookupsWithHttpInfo(String apiVersion, String xApiVersion, IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSystemIPLookupsValidateBeforeCall(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<IPLookupDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -493,6 +499,7 @@ public class IpLookupsApi {
      * Retrieve a list of all IP lookups in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -504,9 +511,9 @@ public class IpLookupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemIPLookupsAsync(String apiVersion, String xApiVersion, final ApiCallback<IPLookupDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSystemIPLookupsAsync(String apiVersion, String xApiVersion, IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters, final ApiCallback<IPLookupDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSystemIPLookupsValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSystemIPLookupsValidateBeforeCall(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<IPLookupDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -515,6 +522,7 @@ public class IpLookupsApi {
      * Build call for getSystemIPLookupsCount
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -526,7 +534,7 @@ public class IpLookupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemIPLookupsCountCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSystemIPLookupsCountCall(String apiVersion, String xApiVersion, IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -540,7 +548,7 @@ public class IpLookupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = ipLookupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/IPLookups/Count";
@@ -569,6 +577,8 @@ public class IpLookupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -580,8 +590,8 @@ public class IpLookupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSystemIPLookupsCountValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getSystemIPLookupsCountCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getSystemIPLookupsCountValidateBeforeCall(String apiVersion, String xApiVersion, IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getSystemIPLookupsCountCall(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -590,6 +600,7 @@ public class IpLookupsApi {
      * Get the count of all IP lookups in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -600,8 +611,8 @@ public class IpLookupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSystemIPLookupsCount(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSystemIPLookupsCountWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope getSystemIPLookupsCount(String apiVersion, String xApiVersion, IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSystemIPLookupsCountWithHttpInfo(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -610,6 +621,7 @@ public class IpLookupsApi {
      * Get the count of all IP lookups in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -620,8 +632,8 @@ public class IpLookupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSystemIPLookupsCountWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSystemIPLookupsCountValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSystemIPLookupsCountWithHttpInfo(String apiVersion, String xApiVersion, IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSystemIPLookupsCountValidateBeforeCall(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -631,6 +643,7 @@ public class IpLookupsApi {
      * Get the count of all IP lookups in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ipLookupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -642,9 +655,9 @@ public class IpLookupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemIPLookupsCountAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSystemIPLookupsCountAsync(String apiVersion, String xApiVersion, IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSystemIPLookupsCountValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSystemIPLookupsCountValidateBeforeCall(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

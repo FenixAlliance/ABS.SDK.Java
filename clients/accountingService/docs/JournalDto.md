@@ -17,6 +17,8 @@
 |**fiscalYearId** | **String** |  |  [optional] |
 |**journalTypeId** | **String** |  |  [optional] |
 |**parentJournalId** | **String** |  |  [optional] |
+|**financialBookId** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 
 
 

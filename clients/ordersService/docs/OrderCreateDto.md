@@ -16,6 +16,7 @@
 |**individualId** | **String** |  |  [optional] |
 |**paymentTermId** | **String** |  |  [optional] |
 |**organizationId** | **String** |  |  [optional] |
+|**receiverTenantId** | **String** |  |  [optional] |
 |**firstName** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
 |**companyName** | **String** |  |  [optional] |
@@ -64,7 +65,6 @@
 |**orderStatus** | [**OrderStatusEnum**](#OrderStatusEnum) |  |  [optional] |
 |**quoteStatus** | [**QuoteStatusEnum**](#QuoteStatusEnum) |  |  [optional] |
 |**freightTerms** | [**FreightTermsEnum**](#FreightTermsEnum) |  |  [optional] |
-|**receiverTenantId** | **String** |  |  [optional] |
 |**shippingLocationId** | **String** |  |  [optional] |
 |**qualifiedIdentifier** | **String** |  |  [optional] |
 |**totalTaxesInUsd** | **Double** |  |  [optional] |

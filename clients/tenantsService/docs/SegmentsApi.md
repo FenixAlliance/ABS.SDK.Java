@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getTenantSegments"></a>
 # **getTenantSegments**
-> TenantSegmentDtoListEnvelope getTenantSegments(tenantId, apiVersion, xApiVersion)
+> TenantSegmentDtoListEnvelope getTenantSegments(tenantId, apiVersion, xApiVersion, tenantSegmentDtoCollectionQueryParameters)
 
 Retrieve a list of tenant segments
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantSegmentDtoCollectionQueryParameters tenantSegmentDtoCollectionQueryParameters = new TenantSegmentDtoCollectionQueryParameters(); // TenantSegmentDtoCollectionQueryParameters | 
     try {
-      TenantSegmentDtoListEnvelope result = apiInstance.getTenantSegments(tenantId, apiVersion, xApiVersion);
+      TenantSegmentDtoListEnvelope result = apiInstance.getTenantSegments(tenantId, apiVersion, xApiVersion, tenantSegmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SegmentsApi#getTenantSegments");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantSegmentDtoCollectionQueryParameters** | [**TenantSegmentDtoCollectionQueryParameters**](TenantSegmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getTenantSegmentsCount"></a>
 # **getTenantSegmentsCount**
-> Int32Envelope getTenantSegmentsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantSegmentsCount(tenantId, apiVersion, xApiVersion, tenantSegmentDtoCollectionQueryParameters)
 
 Get the count of tenant segments
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantSegmentDtoCollectionQueryParameters tenantSegmentDtoCollectionQueryParameters = new TenantSegmentDtoCollectionQueryParameters(); // TenantSegmentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantSegmentsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantSegmentsCount(tenantId, apiVersion, xApiVersion, tenantSegmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SegmentsApi#getTenantSegmentsCount");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantSegmentDtoCollectionQueryParameters** | [**TenantSegmentDtoCollectionQueryParameters**](TenantSegmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchTenantSegment"></a>
 # **patchTenantSegment**
-> EmptyEnvelope patchTenantSegment(tenantId, tenantSegmentId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantSegment(tenantId, tenantSegmentId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant segment
 
@@ -386,9 +390,9 @@ public class Example {
     UUID tenantSegmentId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantSegment(tenantId, tenantSegmentId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantSegment(tenantId, tenantSegmentId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SegmentsApi#patchTenantSegment");
@@ -409,7 +413,7 @@ public class Example {
 | **tenantSegmentId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

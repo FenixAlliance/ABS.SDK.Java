@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getNewsletterSubscriptionsAsync"></a>
 # **getNewsletterSubscriptionsAsync**
-> NewsletterSubscriptionDtoListEnvelope getNewsletterSubscriptionsAsync(tenantId, apiVersion, xApiVersion)
+> NewsletterSubscriptionDtoListEnvelope getNewsletterSubscriptionsAsync(tenantId, apiVersion, xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters)
 
 Get newsletter subscriptions
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NewsletterSubscriptionDtoCollectionQueryParameters newsletterSubscriptionDtoCollectionQueryParameters = new NewsletterSubscriptionDtoCollectionQueryParameters(); // NewsletterSubscriptionDtoCollectionQueryParameters | 
     try {
-      NewsletterSubscriptionDtoListEnvelope result = apiInstance.getNewsletterSubscriptionsAsync(tenantId, apiVersion, xApiVersion);
+      NewsletterSubscriptionDtoListEnvelope result = apiInstance.getNewsletterSubscriptionsAsync(tenantId, apiVersion, xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NewsletterSubscriptionsApi#getNewsletterSubscriptionsAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **newsletterSubscriptionDtoCollectionQueryParameters** | [**NewsletterSubscriptionDtoCollectionQueryParameters**](NewsletterSubscriptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -296,7 +298,7 @@ No authorization required
 
 <a id="getNewsletterSubscriptionsCountAsync"></a>
 # **getNewsletterSubscriptionsCountAsync**
-> Int32Envelope getNewsletterSubscriptionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getNewsletterSubscriptionsCountAsync(tenantId, apiVersion, xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters)
 
 Get newsletter subscriptions count
 
@@ -320,8 +322,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NewsletterSubscriptionDtoCollectionQueryParameters newsletterSubscriptionDtoCollectionQueryParameters = new NewsletterSubscriptionDtoCollectionQueryParameters(); // NewsletterSubscriptionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getNewsletterSubscriptionsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getNewsletterSubscriptionsCountAsync(tenantId, apiVersion, xApiVersion, newsletterSubscriptionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NewsletterSubscriptionsApi#getNewsletterSubscriptionsCountAsync");
@@ -341,6 +344,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **newsletterSubscriptionDtoCollectionQueryParameters** | [**NewsletterSubscriptionDtoCollectionQueryParameters**](NewsletterSubscriptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -352,7 +356,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

@@ -10,7 +10,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getWebhookRequestsAsync"></a>
 # **getWebhookRequestsAsync**
-> WebhookRequestDtoListEnvelope getWebhookRequestsAsync(tenantId, apiVersion, xApiVersion)
+> WebhookRequestDtoListEnvelope getWebhookRequestsAsync(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters)
 
 Get all webhook requests
 
@@ -34,8 +34,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters = new WebhookRequestDtoCollectionQueryParameters(); // WebhookRequestDtoCollectionQueryParameters | 
     try {
-      WebhookRequestDtoListEnvelope result = apiInstance.getWebhookRequestsAsync(tenantId, apiVersion, xApiVersion);
+      WebhookRequestDtoListEnvelope result = apiInstance.getWebhookRequestsAsync(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#getWebhookRequestsAsync");
@@ -55,6 +56,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webhookRequestDtoCollectionQueryParameters** | [**WebhookRequestDtoCollectionQueryParameters**](WebhookRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -78,7 +80,7 @@ No authorization required
 
 <a id="getWebhookRequestsCountAsync"></a>
 # **getWebhookRequestsCountAsync**
-> Int32Envelope getWebhookRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getWebhookRequestsCountAsync(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters)
 
 Get webhook requests count
 
@@ -102,8 +104,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters = new WebhookRequestDtoCollectionQueryParameters(); // WebhookRequestDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWebhookRequestsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWebhookRequestsCountAsync(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#getWebhookRequestsCountAsync");
@@ -123,6 +126,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webhookRequestDtoCollectionQueryParameters** | [**WebhookRequestDtoCollectionQueryParameters**](WebhookRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -134,7 +138,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

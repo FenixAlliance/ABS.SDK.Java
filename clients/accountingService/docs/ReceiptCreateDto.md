@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
+|**closed** | **Boolean** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**priceListId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
@@ -26,6 +27,7 @@
 |**countryId** | **String** |  |  [optional] |
 |**stateId** | **String** |  |  [optional] |
 |**cityId** | **String** |  |  [optional] |
+|**forexRate** | **Double** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
 |**totalDetail** | **Double** |  |  [optional] |
 |**totalDetailCurrencyId** | **String** |  |  [optional] |
@@ -54,10 +56,8 @@
 |**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
 |**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
 |**paymentId** | **String** |  |  [optional] |
-|**forexRate** | **Double** |  |  [optional] |
 |**totalAmount** | **Double** |  |  [optional] |
 |**totalAmountInUSD** | **Double** |  |  [optional] |
-|**closed** | **Boolean** |  |  [optional] |
 |**contactId** | **String** |  |  [optional] |
 |**receiptType** | [**ReceiptTypeEnum**](#ReceiptTypeEnum) |  |  [optional] |
 |**orderId** | **String** |  |  [optional] |

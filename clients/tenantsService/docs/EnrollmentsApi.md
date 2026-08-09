@@ -157,7 +157,7 @@ No authorization required
 
 <a id="getExtendedTenantEnrollments"></a>
 # **getExtendedTenantEnrollments**
-> TenantEnrollmentDtoListEnvelope getExtendedTenantEnrollments(tenantId, apiVersion, xApiVersion)
+> TenantEnrollmentDtoListEnvelope getExtendedTenantEnrollments(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters)
 
 Retrieve a list of tenant enrollments
 
@@ -181,8 +181,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters = new ExtendedTenantEnrollmentDtoCollectionQueryParameters(); // ExtendedTenantEnrollmentDtoCollectionQueryParameters | 
     try {
-      TenantEnrollmentDtoListEnvelope result = apiInstance.getExtendedTenantEnrollments(tenantId, apiVersion, xApiVersion);
+      TenantEnrollmentDtoListEnvelope result = apiInstance.getExtendedTenantEnrollments(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EnrollmentsApi#getExtendedTenantEnrollments");
@@ -202,6 +203,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **extendedTenantEnrollmentDtoCollectionQueryParameters** | [**ExtendedTenantEnrollmentDtoCollectionQueryParameters**](ExtendedTenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -213,7 +215,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -225,7 +227,7 @@ No authorization required
 
 <a id="getExtendedTenantEnrollmentsCount"></a>
 # **getExtendedTenantEnrollmentsCount**
-> Int32Envelope getExtendedTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getExtendedTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters)
 
 Get the count of tenant enrollments
 
@@ -249,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters = new ExtendedTenantEnrollmentDtoCollectionQueryParameters(); // ExtendedTenantEnrollmentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getExtendedTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getExtendedTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EnrollmentsApi#getExtendedTenantEnrollmentsCount");
@@ -270,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **extendedTenantEnrollmentDtoCollectionQueryParameters** | [**ExtendedTenantEnrollmentDtoCollectionQueryParameters**](ExtendedTenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -365,7 +369,7 @@ No authorization required
 
 <a id="getTenantEnrollments"></a>
 # **getTenantEnrollments**
-> TenantEnrollmentDtoListEnvelope getTenantEnrollments(tenantId, apiVersion, xApiVersion)
+> TenantEnrollmentDtoListEnvelope getTenantEnrollments(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters)
 
 Retrieve a list of tenant enrollments
 
@@ -389,8 +393,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters = new TenantEnrollmentDtoCollectionQueryParameters(); // TenantEnrollmentDtoCollectionQueryParameters | 
     try {
-      TenantEnrollmentDtoListEnvelope result = apiInstance.getTenantEnrollments(tenantId, apiVersion, xApiVersion);
+      TenantEnrollmentDtoListEnvelope result = apiInstance.getTenantEnrollments(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EnrollmentsApi#getTenantEnrollments");
@@ -410,6 +415,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantEnrollmentDtoCollectionQueryParameters** | [**TenantEnrollmentDtoCollectionQueryParameters**](TenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -421,7 +427,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -433,7 +439,7 @@ No authorization required
 
 <a id="getTenantEnrollmentsCount"></a>
 # **getTenantEnrollmentsCount**
-> Int32Envelope getTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters)
 
 Get the count of tenant enrollments
 
@@ -457,8 +463,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters = new TenantEnrollmentDtoCollectionQueryParameters(); // TenantEnrollmentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantEnrollmentsCount(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EnrollmentsApi#getTenantEnrollmentsCount");
@@ -478,6 +485,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantEnrollmentDtoCollectionQueryParameters** | [**TenantEnrollmentDtoCollectionQueryParameters**](TenantEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -489,7 +497,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -501,7 +509,7 @@ No authorization required
 
 <a id="patchTenantEnrollmentAsync"></a>
 # **patchTenantEnrollmentAsync**
-> EmptyEnvelope patchTenantEnrollmentAsync(tenantId, enrollmentId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantEnrollmentAsync(tenantId, enrollmentId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant enrollment
 
@@ -526,9 +534,9 @@ public class Example {
     UUID enrollmentId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantEnrollmentAsync(tenantId, enrollmentId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantEnrollmentAsync(tenantId, enrollmentId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EnrollmentsApi#patchTenantEnrollmentAsync");
@@ -549,7 +557,7 @@ public class Example {
 | **enrollmentId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

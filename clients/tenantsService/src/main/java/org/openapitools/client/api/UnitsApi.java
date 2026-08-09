@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TenantUnitCreateDto;
+import org.openapitools.client.model.TenantUnitDtoCollectionQueryParameters;
 import org.openapitools.client.model.TenantUnitDtoEnvelope;
 import org.openapitools.client.model.TenantUnitDtoListEnvelope;
 import org.openapitools.client.model.TenantUnitUpdateDto;
@@ -564,6 +565,7 @@ public class UnitsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantUnitDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -575,7 +577,7 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantUnitsCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantUnitsCall(UUID tenantId, String apiVersion, String xApiVersion, TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -589,7 +591,7 @@ public class UnitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantUnitDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Units";
@@ -622,6 +624,8 @@ public class UnitsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -633,13 +637,13 @@ public class UnitsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantUnitsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantUnitsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantUnits(Async)");
         }
 
-        return getTenantUnitsCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTenantUnitsCall(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -649,6 +653,7 @@ public class UnitsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantUnitDtoCollectionQueryParameters  (optional)
      * @return TenantUnitDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -659,8 +664,8 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TenantUnitDtoListEnvelope getTenantUnits(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TenantUnitDtoListEnvelope> localVarResp = getTenantUnitsWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TenantUnitDtoListEnvelope getTenantUnits(UUID tenantId, String apiVersion, String xApiVersion, TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TenantUnitDtoListEnvelope> localVarResp = getTenantUnitsWithHttpInfo(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -670,6 +675,7 @@ public class UnitsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantUnitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TenantUnitDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -680,8 +686,8 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TenantUnitDtoListEnvelope> getTenantUnitsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantUnitsValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TenantUnitDtoListEnvelope> getTenantUnitsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantUnitsValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TenantUnitDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -692,6 +698,7 @@ public class UnitsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantUnitDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -703,9 +710,9 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantUnitsAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TenantUnitDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantUnitsAsync(UUID tenantId, String apiVersion, String xApiVersion, TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters, final ApiCallback<TenantUnitDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantUnitsValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTenantUnitsValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TenantUnitDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -715,6 +722,7 @@ public class UnitsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantUnitDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -726,7 +734,7 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantUnitsCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantUnitsCountCall(UUID tenantId, String apiVersion, String xApiVersion, TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -740,7 +748,7 @@ public class UnitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantUnitDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Units/Count";
@@ -773,6 +781,8 @@ public class UnitsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -784,13 +794,13 @@ public class UnitsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantUnitsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantUnitsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantUnitsCount(Async)");
         }
 
-        return getTenantUnitsCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTenantUnitsCountCall(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -800,6 +810,7 @@ public class UnitsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantUnitDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -810,8 +821,8 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTenantUnitsCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTenantUnitsCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTenantUnitsCount(UUID tenantId, String apiVersion, String xApiVersion, TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTenantUnitsCountWithHttpInfo(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -821,6 +832,7 @@ public class UnitsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantUnitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -831,8 +843,8 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTenantUnitsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantUnitsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTenantUnitsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantUnitsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -843,6 +855,7 @@ public class UnitsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantUnitDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -854,9 +867,9 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantUnitsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantUnitsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TenantUnitDtoCollectionQueryParameters tenantUnitDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantUnitsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTenantUnitsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantUnitDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -867,7 +880,7 @@ public class UnitsApi {
      * @param tenantUnitId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +892,7 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantUnitCall(UUID tenantId, UUID tenantUnitId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTenantUnitCall(UUID tenantId, UUID tenantUnitId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +906,7 @@ public class UnitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Units/{tenantUnitId}"
@@ -940,7 +953,7 @@ public class UnitsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTenantUnitValidateBeforeCall(UUID tenantId, UUID tenantUnitId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTenantUnitValidateBeforeCall(UUID tenantId, UUID tenantUnitId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTenantUnit(Async)");
@@ -951,7 +964,7 @@ public class UnitsApi {
             throw new ApiException("Missing the required parameter 'tenantUnitId' when calling patchTenantUnit(Async)");
         }
 
-        return patchTenantUnitCall(tenantId, tenantUnitId, apiVersion, xApiVersion, operation, _callback);
+        return patchTenantUnitCall(tenantId, tenantUnitId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -962,7 +975,7 @@ public class UnitsApi {
      * @param tenantUnitId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -973,8 +986,8 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTenantUnit(UUID tenantId, UUID tenantUnitId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTenantUnitWithHttpInfo(tenantId, tenantUnitId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTenantUnit(UUID tenantId, UUID tenantUnitId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTenantUnitWithHttpInfo(tenantId, tenantUnitId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -985,7 +998,7 @@ public class UnitsApi {
      * @param tenantUnitId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -996,8 +1009,8 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTenantUnitWithHttpInfo(UUID tenantId, UUID tenantUnitId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTenantUnitValidateBeforeCall(tenantId, tenantUnitId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTenantUnitWithHttpInfo(UUID tenantId, UUID tenantUnitId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTenantUnitValidateBeforeCall(tenantId, tenantUnitId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +1022,7 @@ public class UnitsApi {
      * @param tenantUnitId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1021,9 +1034,9 @@ public class UnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantUnitAsync(UUID tenantId, UUID tenantUnitId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTenantUnitAsync(UUID tenantId, UUID tenantUnitId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTenantUnitValidateBeforeCall(tenantId, tenantUnitId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTenantUnitValidateBeforeCall(tenantId, tenantUnitId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

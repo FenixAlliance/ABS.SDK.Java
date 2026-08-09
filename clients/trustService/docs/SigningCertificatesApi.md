@@ -224,7 +224,7 @@ No authorization required
 
 <a id="getSigningCertificatesAsync"></a>
 # **getSigningCertificatesAsync**
-> SigningCertificateDtoListEnvelope getSigningCertificatesAsync(tenantId, apiVersion, xApiVersion)
+> SigningCertificateDtoListEnvelope getSigningCertificatesAsync(tenantId, apiVersion, xApiVersion, signingCertificateDtoCollectionQueryParameters)
 
 Get all signing certificates
 
@@ -248,8 +248,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SigningCertificateDtoCollectionQueryParameters signingCertificateDtoCollectionQueryParameters = new SigningCertificateDtoCollectionQueryParameters(); // SigningCertificateDtoCollectionQueryParameters | 
     try {
-      SigningCertificateDtoListEnvelope result = apiInstance.getSigningCertificatesAsync(tenantId, apiVersion, xApiVersion);
+      SigningCertificateDtoListEnvelope result = apiInstance.getSigningCertificatesAsync(tenantId, apiVersion, xApiVersion, signingCertificateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningCertificatesApi#getSigningCertificatesAsync");
@@ -269,6 +270,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signingCertificateDtoCollectionQueryParameters** | [**SigningCertificateDtoCollectionQueryParameters**](SigningCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -280,7 +282,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -291,7 +293,7 @@ No authorization required
 
 <a id="getSigningCertificatesCountAsync"></a>
 # **getSigningCertificatesCountAsync**
-> Int32Envelope getSigningCertificatesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSigningCertificatesCountAsync(tenantId, apiVersion, xApiVersion, signingCertificateDtoCollectionQueryParameters)
 
 Get signing certificates count
 
@@ -315,8 +317,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SigningCertificateDtoCollectionQueryParameters signingCertificateDtoCollectionQueryParameters = new SigningCertificateDtoCollectionQueryParameters(); // SigningCertificateDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSigningCertificatesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSigningCertificatesCountAsync(tenantId, apiVersion, xApiVersion, signingCertificateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningCertificatesApi#getSigningCertificatesCountAsync");
@@ -336,6 +339,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signingCertificateDtoCollectionQueryParameters** | [**SigningCertificateDtoCollectionQueryParameters**](SigningCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -347,7 +351,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -435,7 +439,7 @@ No authorization required
 
 <a id="patchSigningCertificateAsync"></a>
 # **patchSigningCertificateAsync**
-> EmptyEnvelope patchSigningCertificateAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSigningCertificateAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a signing certificate
 
@@ -460,9 +464,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSigningCertificateAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSigningCertificateAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningCertificatesApi#patchSigningCertificateAsync");
@@ -483,7 +487,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

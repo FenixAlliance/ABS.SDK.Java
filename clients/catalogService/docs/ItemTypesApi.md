@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemTypesAsync"></a>
 # **countItemTypesAsync**
-> Int32Envelope countItemTypesAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countItemTypesAsync(tenantId, apiVersion, xApiVersion, itemTypeDtoCollectionQueryParameters)
 
 Count item types
 
@@ -39,8 +39,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemTypeDtoCollectionQueryParameters itemTypeDtoCollectionQueryParameters = new ItemTypeDtoCollectionQueryParameters(); // ItemTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countItemTypesAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countItemTypesAsync(tenantId, apiVersion, xApiVersion, itemTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTypesApi#countItemTypesAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemTypeDtoCollectionQueryParameters** | [**ItemTypeDtoCollectionQueryParameters**](ItemTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getItemTypesAsync"></a>
 # **getItemTypesAsync**
-> ItemTypeDtoListEnvelope getItemTypesAsync(tenantId, apiVersion, xApiVersion)
+> ItemTypeDtoListEnvelope getItemTypesAsync(tenantId, apiVersion, xApiVersion, itemTypeDtoCollectionQueryParameters)
 
 Get all item types
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemTypeDtoCollectionQueryParameters itemTypeDtoCollectionQueryParameters = new ItemTypeDtoCollectionQueryParameters(); // ItemTypeDtoCollectionQueryParameters | 
     try {
-      ItemTypeDtoListEnvelope result = apiInstance.getItemTypesAsync(tenantId, apiVersion, xApiVersion);
+      ItemTypeDtoListEnvelope result = apiInstance.getItemTypesAsync(tenantId, apiVersion, xApiVersion, itemTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTypesApi#getItemTypesAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemTypeDtoCollectionQueryParameters** | [**ItemTypeDtoCollectionQueryParameters**](ItemTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchItemTypeAsync"></a>
 # **patchItemTypeAsync**
-> patchItemTypeAsync(tenantId, itemTypeID, apiVersion, xApiVersion, operation)
+> patchItemTypeAsync(tenantId, itemTypeID, apiVersion, xApiVersion, patchOperation)
 
 Patch an item type
 
@@ -386,9 +390,9 @@ public class Example {
     UUID itemTypeID = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchItemTypeAsync(tenantId, itemTypeID, apiVersion, xApiVersion, operation);
+      apiInstance.patchItemTypeAsync(tenantId, itemTypeID, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTypesApi#patchItemTypeAsync");
       System.err.println("Status code: " + e.getCode());
@@ -408,7 +412,7 @@ public class Example {
 | **itemTypeID** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

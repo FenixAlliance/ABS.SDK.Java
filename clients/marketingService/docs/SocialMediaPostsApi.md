@@ -228,7 +228,7 @@ No authorization required
 
 <a id="getSocialMediaPostsCountAsync"></a>
 # **getSocialMediaPostsCountAsync**
-> Int32Envelope getSocialMediaPostsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSocialMediaPostsCountAsync(tenantId, apiVersion, xApiVersion, socialMediaPostDtoCollectionQueryParameters)
 
 Get social media posts count
 
@@ -252,8 +252,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialMediaPostDtoCollectionQueryParameters socialMediaPostDtoCollectionQueryParameters = new SocialMediaPostDtoCollectionQueryParameters(); // SocialMediaPostDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSocialMediaPostsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSocialMediaPostsCountAsync(tenantId, apiVersion, xApiVersion, socialMediaPostDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialMediaPostsApi#getSocialMediaPostsCountAsync");
@@ -273,6 +274,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialMediaPostDtoCollectionQueryParameters** | [**SocialMediaPostDtoCollectionQueryParameters**](SocialMediaPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -284,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -297,7 +299,7 @@ No authorization required
 
 <a id="getSocialMediaPostsODataAsync"></a>
 # **getSocialMediaPostsODataAsync**
-> SocialMediaPostDtoListEnvelope getSocialMediaPostsODataAsync(tenantId, apiVersion, xApiVersion)
+> SocialMediaPostDtoListEnvelope getSocialMediaPostsODataAsync(tenantId, apiVersion, xApiVersion, socialMediaPostDtoCollectionQueryParameters)
 
 Get social media posts
 
@@ -321,8 +323,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialMediaPostDtoCollectionQueryParameters socialMediaPostDtoCollectionQueryParameters = new SocialMediaPostDtoCollectionQueryParameters(); // SocialMediaPostDtoCollectionQueryParameters | 
     try {
-      SocialMediaPostDtoListEnvelope result = apiInstance.getSocialMediaPostsODataAsync(tenantId, apiVersion, xApiVersion);
+      SocialMediaPostDtoListEnvelope result = apiInstance.getSocialMediaPostsODataAsync(tenantId, apiVersion, xApiVersion, socialMediaPostDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialMediaPostsApi#getSocialMediaPostsODataAsync");
@@ -342,6 +345,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialMediaPostDtoCollectionQueryParameters** | [**SocialMediaPostDtoCollectionQueryParameters**](SocialMediaPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -353,7 +357,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -365,7 +369,7 @@ No authorization required
 
 <a id="patchSocialMediaPostAsync"></a>
 # **patchSocialMediaPostAsync**
-> EmptyEnvelope patchSocialMediaPostAsync(tenantId, socialmediapostId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSocialMediaPostAsync(tenantId, socialmediapostId, apiVersion, xApiVersion, patchOperation)
 
 Patch a social media post
 
@@ -390,9 +394,9 @@ public class Example {
     UUID socialmediapostId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSocialMediaPostAsync(tenantId, socialmediapostId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSocialMediaPostAsync(tenantId, socialmediapostId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialMediaPostsApi#patchSocialMediaPostAsync");
@@ -413,7 +417,7 @@ public class Example {
 | **socialmediapostId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

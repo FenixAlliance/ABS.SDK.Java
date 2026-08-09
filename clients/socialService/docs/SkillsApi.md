@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getSkillsAsync"></a>
 # **getSkillsAsync**
-> SkillDtoListEnvelope getSkillsAsync(tenantId, apiVersion, xApiVersion)
+> SkillDtoListEnvelope getSkillsAsync(tenantId, apiVersion, xApiVersion, skillDtoCollectionQueryParameters)
 
 Get skills
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SkillDtoCollectionQueryParameters skillDtoCollectionQueryParameters = new SkillDtoCollectionQueryParameters(); // SkillDtoCollectionQueryParameters | 
     try {
-      SkillDtoListEnvelope result = apiInstance.getSkillsAsync(tenantId, apiVersion, xApiVersion);
+      SkillDtoListEnvelope result = apiInstance.getSkillsAsync(tenantId, apiVersion, xApiVersion, skillDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SkillsApi#getSkillsAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **skillDtoCollectionQueryParameters** | [**SkillDtoCollectionQueryParameters**](SkillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getSkillsCountAsync"></a>
 # **getSkillsCountAsync**
-> Int32Envelope getSkillsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSkillsCountAsync(tenantId, apiVersion, xApiVersion, skillDtoCollectionQueryParameters)
 
 Count skills
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SkillDtoCollectionQueryParameters skillDtoCollectionQueryParameters = new SkillDtoCollectionQueryParameters(); // SkillDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSkillsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSkillsCountAsync(tenantId, apiVersion, xApiVersion, skillDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SkillsApi#getSkillsCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **skillDtoCollectionQueryParameters** | [**SkillDtoCollectionQueryParameters**](SkillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchSkillAsync"></a>
 # **patchSkillAsync**
-> EmptyEnvelope patchSkillAsync(tenantId, skillId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSkillAsync(tenantId, skillId, apiVersion, xApiVersion, patchOperation)
 
 Patch a skill
 
@@ -388,9 +392,9 @@ public class Example {
     UUID skillId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSkillAsync(tenantId, skillId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSkillAsync(tenantId, skillId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SkillsApi#patchSkillAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **skillId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

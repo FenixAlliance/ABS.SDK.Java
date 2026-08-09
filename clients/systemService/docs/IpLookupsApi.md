@@ -148,7 +148,7 @@ No authorization required
 
 <a id="getSystemIPLookups"></a>
 # **getSystemIPLookups**
-> IPLookupDtoListEnvelope getSystemIPLookups(apiVersion, xApiVersion)
+> IPLookupDtoListEnvelope getSystemIPLookups(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters)
 
 Retrieve a list of system IP lookups
 
@@ -171,8 +171,9 @@ public class Example {
     IpLookupsApi apiInstance = new IpLookupsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters = new IPLookupDtoCollectionQueryParameters(); // IPLookupDtoCollectionQueryParameters | 
     try {
-      IPLookupDtoListEnvelope result = apiInstance.getSystemIPLookups(apiVersion, xApiVersion);
+      IPLookupDtoListEnvelope result = apiInstance.getSystemIPLookups(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IpLookupsApi#getSystemIPLookups");
@@ -191,6 +192,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **ipLookupDtoCollectionQueryParameters** | [**IPLookupDtoCollectionQueryParameters**](IPLookupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -202,7 +204,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -214,7 +216,7 @@ No authorization required
 
 <a id="getSystemIPLookupsCount"></a>
 # **getSystemIPLookupsCount**
-> Int32Envelope getSystemIPLookupsCount(apiVersion, xApiVersion)
+> Int32Envelope getSystemIPLookupsCount(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters)
 
 Get the count of system IP lookups
 
@@ -237,8 +239,9 @@ public class Example {
     IpLookupsApi apiInstance = new IpLookupsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    IPLookupDtoCollectionQueryParameters ipLookupDtoCollectionQueryParameters = new IPLookupDtoCollectionQueryParameters(); // IPLookupDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSystemIPLookupsCount(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSystemIPLookupsCount(apiVersion, xApiVersion, ipLookupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IpLookupsApi#getSystemIPLookupsCount");
@@ -257,6 +260,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **ipLookupDtoCollectionQueryParameters** | [**IPLookupDtoCollectionQueryParameters**](IPLookupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -268,7 +272,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

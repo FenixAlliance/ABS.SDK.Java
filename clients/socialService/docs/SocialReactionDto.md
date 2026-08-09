@@ -14,6 +14,7 @@
 |**socialProfileId** | **String** |  |  [optional] |
 |**socialProfileName** | **String** |  |  [optional] |
 |**socialProfileAvatarUrl** | **String** |  |  [optional] |
+|**socialProfileType** | [**SocialProfileTypeEnum**](#SocialProfileTypeEnum) |  |  [optional] |
 
 
 
@@ -29,6 +30,16 @@
 | ANGRY | &quot;Angry&quot; |
 | WOW | &quot;Wow&quot; |
 | AFRAID | &quot;Afraid&quot; |
+
+
+
+## Enum: SocialProfileTypeEnum
+
+| Name | Value |
+|---- | -----|
+| USER | &quot;User&quot; |
+| TENANT | &quot;Tenant&quot; |
+| CONTACT | &quot;Contact&quot; |
 
 
 

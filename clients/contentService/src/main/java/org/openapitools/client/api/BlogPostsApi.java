@@ -28,19 +28,23 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.BlogPostCategoryCreateDto;
+import org.openapitools.client.model.BlogPostCategoryDtoCollectionQueryParameters;
 import org.openapitools.client.model.BlogPostCategoryDtoListEnvelope;
 import org.openapitools.client.model.BlogPostCommentCreateDto;
+import org.openapitools.client.model.BlogPostCommentDtoCollectionQueryParameters;
 import org.openapitools.client.model.BlogPostCommentDtoListEnvelope;
 import org.openapitools.client.model.BlogPostCreateDto;
+import org.openapitools.client.model.BlogPostDtoCollectionQueryParameters;
 import org.openapitools.client.model.BlogPostDtoEnvelope;
 import org.openapitools.client.model.BlogPostDtoListEnvelope;
 import org.openapitools.client.model.BlogPostTagCreateDto;
+import org.openapitools.client.model.BlogPostTagDtoCollectionQueryParameters;
 import org.openapitools.client.model.BlogPostTagDtoListEnvelope;
 import org.openapitools.client.model.BlogPostUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -1115,6 +1119,7 @@ public class BlogPostsApi {
     /**
      * Build call for getBlogPostsAsync
      * @param tenantId  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1126,7 +1131,7 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlogPostsAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBlogPostsAsyncCall(UUID tenantId, BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1140,7 +1145,7 @@ public class BlogPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blogPostDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/BlogPosts";
@@ -1165,6 +1170,8 @@ public class BlogPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1176,8 +1183,8 @@ public class BlogPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBlogPostsAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
-        return getBlogPostsAsyncCall(tenantId, _callback);
+    private okhttp3.Call getBlogPostsAsyncValidateBeforeCall(UUID tenantId, BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getBlogPostsAsyncCall(tenantId, blogPostDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1185,6 +1192,7 @@ public class BlogPostsApi {
      * Retrieve a list of blog posts
      * Retrieves all blog posts, optionally filtered by tenant using OData query options.
      * @param tenantId  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @return BlogPostDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1195,8 +1203,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BlogPostDtoListEnvelope getBlogPostsAsync(UUID tenantId) throws ApiException {
-        ApiResponse<BlogPostDtoListEnvelope> localVarResp = getBlogPostsAsyncWithHttpInfo(tenantId);
+    public BlogPostDtoListEnvelope getBlogPostsAsync(UUID tenantId, BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BlogPostDtoListEnvelope> localVarResp = getBlogPostsAsyncWithHttpInfo(tenantId, blogPostDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1204,6 +1212,7 @@ public class BlogPostsApi {
      * Retrieve a list of blog posts
      * Retrieves all blog posts, optionally filtered by tenant using OData query options.
      * @param tenantId  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BlogPostDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1214,8 +1223,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BlogPostDtoListEnvelope> getBlogPostsAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getBlogPostsAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<BlogPostDtoListEnvelope> getBlogPostsAsyncWithHttpInfo(UUID tenantId, BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBlogPostsAsyncValidateBeforeCall(tenantId, blogPostDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BlogPostDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1224,6 +1233,7 @@ public class BlogPostsApi {
      * Retrieve a list of blog posts (asynchronously)
      * Retrieves all blog posts, optionally filtered by tenant using OData query options.
      * @param tenantId  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1235,9 +1245,9 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlogPostsAsyncAsync(UUID tenantId, final ApiCallback<BlogPostDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBlogPostsAsyncAsync(UUID tenantId, BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters, final ApiCallback<BlogPostDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBlogPostsAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getBlogPostsAsyncValidateBeforeCall(tenantId, blogPostDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BlogPostDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1245,6 +1255,7 @@ public class BlogPostsApi {
     /**
      * Build call for getBlogPostsCountAsync
      * @param tenantId  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1256,7 +1267,7 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlogPostsCountAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBlogPostsCountAsyncCall(UUID tenantId, BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1270,7 +1281,7 @@ public class BlogPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blogPostDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/BlogPosts/Count";
@@ -1295,6 +1306,8 @@ public class BlogPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1306,8 +1319,8 @@ public class BlogPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBlogPostsCountAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
-        return getBlogPostsCountAsyncCall(tenantId, _callback);
+    private okhttp3.Call getBlogPostsCountAsyncValidateBeforeCall(UUID tenantId, BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getBlogPostsCountAsyncCall(tenantId, blogPostDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1315,6 +1328,7 @@ public class BlogPostsApi {
      * Get the count of blog posts
      * Returns the total count of blog posts, optionally filtered by tenant using OData query options.
      * @param tenantId  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1325,8 +1339,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBlogPostsCountAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBlogPostsCountAsyncWithHttpInfo(tenantId);
+    public Int32Envelope getBlogPostsCountAsync(UUID tenantId, BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBlogPostsCountAsyncWithHttpInfo(tenantId, blogPostDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1334,6 +1348,7 @@ public class BlogPostsApi {
      * Get the count of blog posts
      * Returns the total count of blog posts, optionally filtered by tenant using OData query options.
      * @param tenantId  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1344,8 +1359,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBlogPostsCountAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getBlogPostsCountAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getBlogPostsCountAsyncWithHttpInfo(UUID tenantId, BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBlogPostsCountAsyncValidateBeforeCall(tenantId, blogPostDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1354,6 +1369,7 @@ public class BlogPostsApi {
      * Get the count of blog posts (asynchronously)
      * Returns the total count of blog posts, optionally filtered by tenant using OData query options.
      * @param tenantId  (optional)
+     * @param blogPostDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1365,9 +1381,9 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlogPostsCountAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBlogPostsCountAsyncAsync(UUID tenantId, BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBlogPostsCountAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getBlogPostsCountAsyncValidateBeforeCall(tenantId, blogPostDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1375,6 +1391,7 @@ public class BlogPostsApi {
     /**
      * Build call for getCategoriesForBlogPostAsync
      * @param blogPostId  (required)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1386,7 +1403,7 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCategoriesForBlogPostAsyncCall(UUID blogPostId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCategoriesForBlogPostAsyncCall(UUID blogPostId, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1400,7 +1417,7 @@ public class BlogPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blogPostCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/BlogPosts/{blogPostId}/Categories"
@@ -1422,6 +1439,8 @@ public class BlogPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1433,13 +1452,13 @@ public class BlogPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCategoriesForBlogPostAsyncValidateBeforeCall(UUID blogPostId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCategoriesForBlogPostAsyncValidateBeforeCall(UUID blogPostId, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'blogPostId' is set
         if (blogPostId == null) {
             throw new ApiException("Missing the required parameter 'blogPostId' when calling getCategoriesForBlogPostAsync(Async)");
         }
 
-        return getCategoriesForBlogPostAsyncCall(blogPostId, _callback);
+        return getCategoriesForBlogPostAsyncCall(blogPostId, blogPostCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1447,6 +1466,7 @@ public class BlogPostsApi {
      * Get categories for a blog post
      * Retrieves all categories related to a specific blog post.
      * @param blogPostId  (required)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @return BlogPostCategoryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1457,8 +1477,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BlogPostCategoryDtoListEnvelope getCategoriesForBlogPostAsync(UUID blogPostId) throws ApiException {
-        ApiResponse<BlogPostCategoryDtoListEnvelope> localVarResp = getCategoriesForBlogPostAsyncWithHttpInfo(blogPostId);
+    public BlogPostCategoryDtoListEnvelope getCategoriesForBlogPostAsync(UUID blogPostId, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BlogPostCategoryDtoListEnvelope> localVarResp = getCategoriesForBlogPostAsyncWithHttpInfo(blogPostId, blogPostCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1466,6 +1486,7 @@ public class BlogPostsApi {
      * Get categories for a blog post
      * Retrieves all categories related to a specific blog post.
      * @param blogPostId  (required)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BlogPostCategoryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1476,8 +1497,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BlogPostCategoryDtoListEnvelope> getCategoriesForBlogPostAsyncWithHttpInfo(UUID blogPostId) throws ApiException {
-        okhttp3.Call localVarCall = getCategoriesForBlogPostAsyncValidateBeforeCall(blogPostId, null);
+    public ApiResponse<BlogPostCategoryDtoListEnvelope> getCategoriesForBlogPostAsyncWithHttpInfo(UUID blogPostId, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCategoriesForBlogPostAsyncValidateBeforeCall(blogPostId, blogPostCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BlogPostCategoryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1486,6 +1507,7 @@ public class BlogPostsApi {
      * Get categories for a blog post (asynchronously)
      * Retrieves all categories related to a specific blog post.
      * @param blogPostId  (required)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1497,9 +1519,9 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCategoriesForBlogPostAsyncAsync(UUID blogPostId, final ApiCallback<BlogPostCategoryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCategoriesForBlogPostAsyncAsync(UUID blogPostId, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters, final ApiCallback<BlogPostCategoryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCategoriesForBlogPostAsyncValidateBeforeCall(blogPostId, _callback);
+        okhttp3.Call localVarCall = getCategoriesForBlogPostAsyncValidateBeforeCall(blogPostId, blogPostCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BlogPostCategoryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1507,6 +1529,7 @@ public class BlogPostsApi {
     /**
      * Build call for getCommentsForBlogPostAsync
      * @param blogPostId  (required)
+     * @param blogPostCommentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1518,7 +1541,7 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCommentsForBlogPostAsyncCall(UUID blogPostId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCommentsForBlogPostAsyncCall(UUID blogPostId, BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1532,7 +1555,7 @@ public class BlogPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blogPostCommentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/BlogPosts/{blogPostId}/Comments"
@@ -1554,6 +1577,8 @@ public class BlogPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1565,13 +1590,13 @@ public class BlogPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentsForBlogPostAsyncValidateBeforeCall(UUID blogPostId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsForBlogPostAsyncValidateBeforeCall(UUID blogPostId, BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'blogPostId' is set
         if (blogPostId == null) {
             throw new ApiException("Missing the required parameter 'blogPostId' when calling getCommentsForBlogPostAsync(Async)");
         }
 
-        return getCommentsForBlogPostAsyncCall(blogPostId, _callback);
+        return getCommentsForBlogPostAsyncCall(blogPostId, blogPostCommentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1579,6 +1604,7 @@ public class BlogPostsApi {
      * Get comments for a blog post
      * Retrieves all comments for a specific blog post.
      * @param blogPostId  (required)
+     * @param blogPostCommentDtoCollectionQueryParameters  (optional)
      * @return BlogPostCommentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1589,8 +1615,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BlogPostCommentDtoListEnvelope getCommentsForBlogPostAsync(UUID blogPostId) throws ApiException {
-        ApiResponse<BlogPostCommentDtoListEnvelope> localVarResp = getCommentsForBlogPostAsyncWithHttpInfo(blogPostId);
+    public BlogPostCommentDtoListEnvelope getCommentsForBlogPostAsync(UUID blogPostId, BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BlogPostCommentDtoListEnvelope> localVarResp = getCommentsForBlogPostAsyncWithHttpInfo(blogPostId, blogPostCommentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1598,6 +1624,7 @@ public class BlogPostsApi {
      * Get comments for a blog post
      * Retrieves all comments for a specific blog post.
      * @param blogPostId  (required)
+     * @param blogPostCommentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BlogPostCommentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1608,8 +1635,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BlogPostCommentDtoListEnvelope> getCommentsForBlogPostAsyncWithHttpInfo(UUID blogPostId) throws ApiException {
-        okhttp3.Call localVarCall = getCommentsForBlogPostAsyncValidateBeforeCall(blogPostId, null);
+    public ApiResponse<BlogPostCommentDtoListEnvelope> getCommentsForBlogPostAsyncWithHttpInfo(UUID blogPostId, BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCommentsForBlogPostAsyncValidateBeforeCall(blogPostId, blogPostCommentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BlogPostCommentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1618,6 +1645,7 @@ public class BlogPostsApi {
      * Get comments for a blog post (asynchronously)
      * Retrieves all comments for a specific blog post.
      * @param blogPostId  (required)
+     * @param blogPostCommentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1629,9 +1657,9 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCommentsForBlogPostAsyncAsync(UUID blogPostId, final ApiCallback<BlogPostCommentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCommentsForBlogPostAsyncAsync(UUID blogPostId, BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters, final ApiCallback<BlogPostCommentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCommentsForBlogPostAsyncValidateBeforeCall(blogPostId, _callback);
+        okhttp3.Call localVarCall = getCommentsForBlogPostAsyncValidateBeforeCall(blogPostId, blogPostCommentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BlogPostCommentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1640,6 +1668,7 @@ public class BlogPostsApi {
      * Build call for getRepliesForCommentAsync
      * @param commentId  (required)
      * @param blogPostId  (required)
+     * @param blogPostCommentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1651,7 +1680,7 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRepliesForCommentAsyncCall(UUID commentId, String blogPostId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRepliesForCommentAsyncCall(UUID commentId, String blogPostId, BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1665,7 +1694,7 @@ public class BlogPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blogPostCommentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/BlogPosts/{blogPostId}/Comments/{commentId}/Replies"
@@ -1688,6 +1717,8 @@ public class BlogPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1699,7 +1730,7 @@ public class BlogPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRepliesForCommentAsyncValidateBeforeCall(UUID commentId, String blogPostId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRepliesForCommentAsyncValidateBeforeCall(UUID commentId, String blogPostId, BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling getRepliesForCommentAsync(Async)");
@@ -1710,7 +1741,7 @@ public class BlogPostsApi {
             throw new ApiException("Missing the required parameter 'blogPostId' when calling getRepliesForCommentAsync(Async)");
         }
 
-        return getRepliesForCommentAsyncCall(commentId, blogPostId, _callback);
+        return getRepliesForCommentAsyncCall(commentId, blogPostId, blogPostCommentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1719,6 +1750,7 @@ public class BlogPostsApi {
      * Retrieves all replies for a specific blog post comment.
      * @param commentId  (required)
      * @param blogPostId  (required)
+     * @param blogPostCommentDtoCollectionQueryParameters  (optional)
      * @return BlogPostCommentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1729,8 +1761,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BlogPostCommentDtoListEnvelope getRepliesForCommentAsync(UUID commentId, String blogPostId) throws ApiException {
-        ApiResponse<BlogPostCommentDtoListEnvelope> localVarResp = getRepliesForCommentAsyncWithHttpInfo(commentId, blogPostId);
+    public BlogPostCommentDtoListEnvelope getRepliesForCommentAsync(UUID commentId, String blogPostId, BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BlogPostCommentDtoListEnvelope> localVarResp = getRepliesForCommentAsyncWithHttpInfo(commentId, blogPostId, blogPostCommentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1739,6 +1771,7 @@ public class BlogPostsApi {
      * Retrieves all replies for a specific blog post comment.
      * @param commentId  (required)
      * @param blogPostId  (required)
+     * @param blogPostCommentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BlogPostCommentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1749,8 +1782,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BlogPostCommentDtoListEnvelope> getRepliesForCommentAsyncWithHttpInfo(UUID commentId, String blogPostId) throws ApiException {
-        okhttp3.Call localVarCall = getRepliesForCommentAsyncValidateBeforeCall(commentId, blogPostId, null);
+    public ApiResponse<BlogPostCommentDtoListEnvelope> getRepliesForCommentAsyncWithHttpInfo(UUID commentId, String blogPostId, BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRepliesForCommentAsyncValidateBeforeCall(commentId, blogPostId, blogPostCommentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BlogPostCommentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1760,6 +1793,7 @@ public class BlogPostsApi {
      * Retrieves all replies for a specific blog post comment.
      * @param commentId  (required)
      * @param blogPostId  (required)
+     * @param blogPostCommentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1771,9 +1805,9 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRepliesForCommentAsyncAsync(UUID commentId, String blogPostId, final ApiCallback<BlogPostCommentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getRepliesForCommentAsyncAsync(UUID commentId, String blogPostId, BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters, final ApiCallback<BlogPostCommentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRepliesForCommentAsyncValidateBeforeCall(commentId, blogPostId, _callback);
+        okhttp3.Call localVarCall = getRepliesForCommentAsyncValidateBeforeCall(commentId, blogPostId, blogPostCommentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BlogPostCommentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1781,6 +1815,7 @@ public class BlogPostsApi {
     /**
      * Build call for getTagsForBlogPostAsync
      * @param blogPostId  (required)
+     * @param blogPostTagDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1792,7 +1827,7 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTagsForBlogPostAsyncCall(UUID blogPostId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTagsForBlogPostAsyncCall(UUID blogPostId, BlogPostTagDtoCollectionQueryParameters blogPostTagDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1806,7 +1841,7 @@ public class BlogPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blogPostTagDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/BlogPosts/{blogPostId}/Tags"
@@ -1828,6 +1863,8 @@ public class BlogPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1839,13 +1876,13 @@ public class BlogPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTagsForBlogPostAsyncValidateBeforeCall(UUID blogPostId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTagsForBlogPostAsyncValidateBeforeCall(UUID blogPostId, BlogPostTagDtoCollectionQueryParameters blogPostTagDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'blogPostId' is set
         if (blogPostId == null) {
             throw new ApiException("Missing the required parameter 'blogPostId' when calling getTagsForBlogPostAsync(Async)");
         }
 
-        return getTagsForBlogPostAsyncCall(blogPostId, _callback);
+        return getTagsForBlogPostAsyncCall(blogPostId, blogPostTagDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1853,6 +1890,7 @@ public class BlogPostsApi {
      * Get tags for a blog post
      * Retrieves all tags related to a specific blog post.
      * @param blogPostId  (required)
+     * @param blogPostTagDtoCollectionQueryParameters  (optional)
      * @return BlogPostTagDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1863,8 +1901,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BlogPostTagDtoListEnvelope getTagsForBlogPostAsync(UUID blogPostId) throws ApiException {
-        ApiResponse<BlogPostTagDtoListEnvelope> localVarResp = getTagsForBlogPostAsyncWithHttpInfo(blogPostId);
+    public BlogPostTagDtoListEnvelope getTagsForBlogPostAsync(UUID blogPostId, BlogPostTagDtoCollectionQueryParameters blogPostTagDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BlogPostTagDtoListEnvelope> localVarResp = getTagsForBlogPostAsyncWithHttpInfo(blogPostId, blogPostTagDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1872,6 +1910,7 @@ public class BlogPostsApi {
      * Get tags for a blog post
      * Retrieves all tags related to a specific blog post.
      * @param blogPostId  (required)
+     * @param blogPostTagDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BlogPostTagDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1882,8 +1921,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BlogPostTagDtoListEnvelope> getTagsForBlogPostAsyncWithHttpInfo(UUID blogPostId) throws ApiException {
-        okhttp3.Call localVarCall = getTagsForBlogPostAsyncValidateBeforeCall(blogPostId, null);
+    public ApiResponse<BlogPostTagDtoListEnvelope> getTagsForBlogPostAsyncWithHttpInfo(UUID blogPostId, BlogPostTagDtoCollectionQueryParameters blogPostTagDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTagsForBlogPostAsyncValidateBeforeCall(blogPostId, blogPostTagDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BlogPostTagDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1892,6 +1931,7 @@ public class BlogPostsApi {
      * Get tags for a blog post (asynchronously)
      * Retrieves all tags related to a specific blog post.
      * @param blogPostId  (required)
+     * @param blogPostTagDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1903,9 +1943,9 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTagsForBlogPostAsyncAsync(UUID blogPostId, final ApiCallback<BlogPostTagDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTagsForBlogPostAsyncAsync(UUID blogPostId, BlogPostTagDtoCollectionQueryParameters blogPostTagDtoCollectionQueryParameters, final ApiCallback<BlogPostTagDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTagsForBlogPostAsyncValidateBeforeCall(blogPostId, _callback);
+        okhttp3.Call localVarCall = getTagsForBlogPostAsyncValidateBeforeCall(blogPostId, blogPostTagDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BlogPostTagDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1914,7 +1954,7 @@ public class BlogPostsApi {
      * Build call for patchBlogPostAsync
      * @param tenantId  (required)
      * @param blogPostId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1926,7 +1966,7 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBlogPostAsyncCall(UUID tenantId, UUID blogPostId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBlogPostAsyncCall(UUID tenantId, UUID blogPostId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1940,7 +1980,7 @@ public class BlogPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/BlogPosts/{blogPostId}"
@@ -1979,7 +2019,7 @@ public class BlogPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBlogPostAsyncValidateBeforeCall(UUID tenantId, UUID blogPostId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBlogPostAsyncValidateBeforeCall(UUID tenantId, UUID blogPostId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBlogPostAsync(Async)");
@@ -1990,7 +2030,7 @@ public class BlogPostsApi {
             throw new ApiException("Missing the required parameter 'blogPostId' when calling patchBlogPostAsync(Async)");
         }
 
-        return patchBlogPostAsyncCall(tenantId, blogPostId, operation, _callback);
+        return patchBlogPostAsyncCall(tenantId, blogPostId, patchOperation, _callback);
 
     }
 
@@ -1999,7 +2039,7 @@ public class BlogPostsApi {
      * Partially updates an existing blog post for the specified tenant.
      * @param tenantId  (required)
      * @param blogPostId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2010,8 +2050,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBlogPostAsync(UUID tenantId, UUID blogPostId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBlogPostAsyncWithHttpInfo(tenantId, blogPostId, operation);
+    public EmptyEnvelope patchBlogPostAsync(UUID tenantId, UUID blogPostId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBlogPostAsyncWithHttpInfo(tenantId, blogPostId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2020,7 +2060,7 @@ public class BlogPostsApi {
      * Partially updates an existing blog post for the specified tenant.
      * @param tenantId  (required)
      * @param blogPostId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2031,8 +2071,8 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBlogPostAsyncWithHttpInfo(UUID tenantId, UUID blogPostId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBlogPostAsyncValidateBeforeCall(tenantId, blogPostId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBlogPostAsyncWithHttpInfo(UUID tenantId, UUID blogPostId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBlogPostAsyncValidateBeforeCall(tenantId, blogPostId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2042,7 +2082,7 @@ public class BlogPostsApi {
      * Partially updates an existing blog post for the specified tenant.
      * @param tenantId  (required)
      * @param blogPostId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2054,9 +2094,9 @@ public class BlogPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBlogPostAsyncAsync(UUID tenantId, UUID blogPostId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBlogPostAsyncAsync(UUID tenantId, UUID blogPostId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBlogPostAsyncValidateBeforeCall(tenantId, blogPostId, operation, _callback);
+        okhttp3.Call localVarCall = patchBlogPostAsyncValidateBeforeCall(tenantId, blogPostId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -31,11 +31,13 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.ItemPriceCreateDto;
+import org.openapitools.client.model.ItemPriceDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemPriceDtoEnvelope;
 import org.openapitools.client.model.ItemPriceDtoListEnvelope;
 import org.openapitools.client.model.ItemPriceUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.PriceListCreateDto;
+import org.openapitools.client.model.PriceListDtoCollectionQueryParameters;
 import org.openapitools.client.model.PriceListDtoEnvelope;
 import org.openapitools.client.model.PriceListDtoListEnvelope;
 import org.openapitools.client.model.PriceListUpdateDto;
@@ -957,6 +959,7 @@ public class PriceListsApi {
      * @param tenantId  (required)
      * @param priceListId  (required)
      * @param itemId  (optional)
+     * @param itemPriceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -967,7 +970,7 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceListPricesAsyncCall(UUID tenantId, UUID priceListId, UUID itemId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPriceListPricesAsyncCall(UUID tenantId, UUID priceListId, UUID itemId, ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -981,7 +984,7 @@ public class PriceListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemPriceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/PriceLists/{priceListId}/Prices"
@@ -1011,6 +1014,8 @@ public class PriceListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1022,7 +1027,7 @@ public class PriceListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPriceListPricesAsyncValidateBeforeCall(UUID tenantId, UUID priceListId, UUID itemId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPriceListPricesAsyncValidateBeforeCall(UUID tenantId, UUID priceListId, UUID itemId, ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPriceListPricesAsync(Async)");
@@ -1033,7 +1038,7 @@ public class PriceListsApi {
             throw new ApiException("Missing the required parameter 'priceListId' when calling getPriceListPricesAsync(Async)");
         }
 
-        return getPriceListPricesAsyncCall(tenantId, priceListId, itemId, _callback);
+        return getPriceListPricesAsyncCall(tenantId, priceListId, itemId, itemPriceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1043,6 +1048,7 @@ public class PriceListsApi {
      * @param tenantId  (required)
      * @param priceListId  (required)
      * @param itemId  (optional)
+     * @param itemPriceDtoCollectionQueryParameters  (optional)
      * @return ItemPriceDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1052,8 +1058,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemPriceDtoListEnvelope getPriceListPricesAsync(UUID tenantId, UUID priceListId, UUID itemId) throws ApiException {
-        ApiResponse<ItemPriceDtoListEnvelope> localVarResp = getPriceListPricesAsyncWithHttpInfo(tenantId, priceListId, itemId);
+    public ItemPriceDtoListEnvelope getPriceListPricesAsync(UUID tenantId, UUID priceListId, UUID itemId, ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemPriceDtoListEnvelope> localVarResp = getPriceListPricesAsyncWithHttpInfo(tenantId, priceListId, itemId, itemPriceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1063,6 +1069,7 @@ public class PriceListsApi {
      * @param tenantId  (required)
      * @param priceListId  (required)
      * @param itemId  (optional)
+     * @param itemPriceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemPriceDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1072,8 +1079,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemPriceDtoListEnvelope> getPriceListPricesAsyncWithHttpInfo(UUID tenantId, UUID priceListId, UUID itemId) throws ApiException {
-        okhttp3.Call localVarCall = getPriceListPricesAsyncValidateBeforeCall(tenantId, priceListId, itemId, null);
+    public ApiResponse<ItemPriceDtoListEnvelope> getPriceListPricesAsyncWithHttpInfo(UUID tenantId, UUID priceListId, UUID itemId, ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPriceListPricesAsyncValidateBeforeCall(tenantId, priceListId, itemId, itemPriceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemPriceDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1084,6 +1091,7 @@ public class PriceListsApi {
      * @param tenantId  (required)
      * @param priceListId  (required)
      * @param itemId  (optional)
+     * @param itemPriceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1094,9 +1102,9 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceListPricesAsyncAsync(UUID tenantId, UUID priceListId, UUID itemId, final ApiCallback<ItemPriceDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getPriceListPricesAsyncAsync(UUID tenantId, UUID priceListId, UUID itemId, ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters, final ApiCallback<ItemPriceDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPriceListPricesAsyncValidateBeforeCall(tenantId, priceListId, itemId, _callback);
+        okhttp3.Call localVarCall = getPriceListPricesAsyncValidateBeforeCall(tenantId, priceListId, itemId, itemPriceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemPriceDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1105,6 +1113,7 @@ public class PriceListsApi {
      * Build call for getPriceListPricesCountAsync
      * @param tenantId  (required)
      * @param priceListId  (required)
+     * @param itemPriceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1115,7 +1124,7 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceListPricesCountAsyncCall(UUID tenantId, UUID priceListId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPriceListPricesCountAsyncCall(UUID tenantId, UUID priceListId, ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1129,7 +1138,7 @@ public class PriceListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemPriceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/PriceLists/{priceListId}/Prices/Count"
@@ -1155,6 +1164,8 @@ public class PriceListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1166,7 +1177,7 @@ public class PriceListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPriceListPricesCountAsyncValidateBeforeCall(UUID tenantId, UUID priceListId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPriceListPricesCountAsyncValidateBeforeCall(UUID tenantId, UUID priceListId, ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPriceListPricesCountAsync(Async)");
@@ -1177,7 +1188,7 @@ public class PriceListsApi {
             throw new ApiException("Missing the required parameter 'priceListId' when calling getPriceListPricesCountAsync(Async)");
         }
 
-        return getPriceListPricesCountAsyncCall(tenantId, priceListId, _callback);
+        return getPriceListPricesCountAsyncCall(tenantId, priceListId, itemPriceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1186,6 +1197,7 @@ public class PriceListsApi {
      * Gets the count of price entries for a specific price list.
      * @param tenantId  (required)
      * @param priceListId  (required)
+     * @param itemPriceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1195,8 +1207,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getPriceListPricesCountAsync(UUID tenantId, UUID priceListId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getPriceListPricesCountAsyncWithHttpInfo(tenantId, priceListId);
+    public Int32Envelope getPriceListPricesCountAsync(UUID tenantId, UUID priceListId, ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getPriceListPricesCountAsyncWithHttpInfo(tenantId, priceListId, itemPriceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1205,6 +1217,7 @@ public class PriceListsApi {
      * Gets the count of price entries for a specific price list.
      * @param tenantId  (required)
      * @param priceListId  (required)
+     * @param itemPriceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1214,8 +1227,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getPriceListPricesCountAsyncWithHttpInfo(UUID tenantId, UUID priceListId) throws ApiException {
-        okhttp3.Call localVarCall = getPriceListPricesCountAsyncValidateBeforeCall(tenantId, priceListId, null);
+    public ApiResponse<Int32Envelope> getPriceListPricesCountAsyncWithHttpInfo(UUID tenantId, UUID priceListId, ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPriceListPricesCountAsyncValidateBeforeCall(tenantId, priceListId, itemPriceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1225,6 +1238,7 @@ public class PriceListsApi {
      * Gets the count of price entries for a specific price list.
      * @param tenantId  (required)
      * @param priceListId  (required)
+     * @param itemPriceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1235,9 +1249,9 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceListPricesCountAsyncAsync(UUID tenantId, UUID priceListId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getPriceListPricesCountAsyncAsync(UUID tenantId, UUID priceListId, ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPriceListPricesCountAsyncValidateBeforeCall(tenantId, priceListId, _callback);
+        okhttp3.Call localVarCall = getPriceListPricesCountAsyncValidateBeforeCall(tenantId, priceListId, itemPriceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1245,6 +1259,7 @@ public class PriceListsApi {
     /**
      * Build call for getPriceListsAsync
      * @param tenantId  (required)
+     * @param priceListDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1255,7 +1270,7 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceListsAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPriceListsAsyncCall(UUID tenantId, PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1269,7 +1284,7 @@ public class PriceListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = priceListDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/PriceLists";
@@ -1294,6 +1309,8 @@ public class PriceListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1305,13 +1322,13 @@ public class PriceListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPriceListsAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPriceListsAsyncValidateBeforeCall(UUID tenantId, PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPriceListsAsync(Async)");
         }
 
-        return getPriceListsAsyncCall(tenantId, _callback);
+        return getPriceListsAsyncCall(tenantId, priceListDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1319,6 +1336,7 @@ public class PriceListsApi {
      * Retrieves all price lists
      * Gets all price lists for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param priceListDtoCollectionQueryParameters  (optional)
      * @return PriceListDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1328,8 +1346,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PriceListDtoListEnvelope getPriceListsAsync(UUID tenantId) throws ApiException {
-        ApiResponse<PriceListDtoListEnvelope> localVarResp = getPriceListsAsyncWithHttpInfo(tenantId);
+    public PriceListDtoListEnvelope getPriceListsAsync(UUID tenantId, PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PriceListDtoListEnvelope> localVarResp = getPriceListsAsyncWithHttpInfo(tenantId, priceListDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1337,6 +1355,7 @@ public class PriceListsApi {
      * Retrieves all price lists
      * Gets all price lists for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param priceListDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PriceListDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1346,8 +1365,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PriceListDtoListEnvelope> getPriceListsAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getPriceListsAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<PriceListDtoListEnvelope> getPriceListsAsyncWithHttpInfo(UUID tenantId, PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPriceListsAsyncValidateBeforeCall(tenantId, priceListDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PriceListDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1356,6 +1375,7 @@ public class PriceListsApi {
      * Retrieves all price lists (asynchronously)
      * Gets all price lists for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param priceListDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1366,9 +1386,9 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceListsAsyncAsync(UUID tenantId, final ApiCallback<PriceListDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getPriceListsAsyncAsync(UUID tenantId, PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters, final ApiCallback<PriceListDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPriceListsAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getPriceListsAsyncValidateBeforeCall(tenantId, priceListDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PriceListDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1376,6 +1396,7 @@ public class PriceListsApi {
     /**
      * Build call for getPriceListsCountAsync
      * @param tenantId  (required)
+     * @param priceListDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1386,7 +1407,7 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceListsCountAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPriceListsCountAsyncCall(UUID tenantId, PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1400,7 +1421,7 @@ public class PriceListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = priceListDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/PriceLists/Count";
@@ -1425,6 +1446,8 @@ public class PriceListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1436,13 +1459,13 @@ public class PriceListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPriceListsCountAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPriceListsCountAsyncValidateBeforeCall(UUID tenantId, PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPriceListsCountAsync(Async)");
         }
 
-        return getPriceListsCountAsyncCall(tenantId, _callback);
+        return getPriceListsCountAsyncCall(tenantId, priceListDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1450,6 +1473,7 @@ public class PriceListsApi {
      * Counts price lists
      * Gets the count of price lists for the current tenant.
      * @param tenantId  (required)
+     * @param priceListDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1459,8 +1483,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getPriceListsCountAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getPriceListsCountAsyncWithHttpInfo(tenantId);
+    public Int32Envelope getPriceListsCountAsync(UUID tenantId, PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getPriceListsCountAsyncWithHttpInfo(tenantId, priceListDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1468,6 +1492,7 @@ public class PriceListsApi {
      * Counts price lists
      * Gets the count of price lists for the current tenant.
      * @param tenantId  (required)
+     * @param priceListDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1477,8 +1502,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getPriceListsCountAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getPriceListsCountAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getPriceListsCountAsyncWithHttpInfo(UUID tenantId, PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPriceListsCountAsyncValidateBeforeCall(tenantId, priceListDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1487,6 +1512,7 @@ public class PriceListsApi {
      * Counts price lists (asynchronously)
      * Gets the count of price lists for the current tenant.
      * @param tenantId  (required)
+     * @param priceListDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1497,9 +1523,9 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceListsCountAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getPriceListsCountAsyncAsync(UUID tenantId, PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPriceListsCountAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getPriceListsCountAsyncValidateBeforeCall(tenantId, priceListDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1508,7 +1534,7 @@ public class PriceListsApi {
      * Build call for patchPriceListAsync
      * @param tenantId  (required)
      * @param priceListId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1519,7 +1545,7 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPriceListAsyncCall(UUID tenantId, UUID priceListId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchPriceListAsyncCall(UUID tenantId, UUID priceListId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1533,7 +1559,7 @@ public class PriceListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/PriceLists/{priceListId}"
@@ -1572,7 +1598,7 @@ public class PriceListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchPriceListAsyncValidateBeforeCall(UUID tenantId, UUID priceListId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPriceListAsyncValidateBeforeCall(UUID tenantId, UUID priceListId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchPriceListAsync(Async)");
@@ -1583,7 +1609,7 @@ public class PriceListsApi {
             throw new ApiException("Missing the required parameter 'priceListId' when calling patchPriceListAsync(Async)");
         }
 
-        return patchPriceListAsyncCall(tenantId, priceListId, operation, _callback);
+        return patchPriceListAsyncCall(tenantId, priceListId, patchOperation, _callback);
 
     }
 
@@ -1592,7 +1618,7 @@ public class PriceListsApi {
      * Partially updates the specified price list using a JSON Patch document.
      * @param tenantId  (required)
      * @param priceListId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1602,8 +1628,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchPriceListAsync(UUID tenantId, UUID priceListId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchPriceListAsyncWithHttpInfo(tenantId, priceListId, operation);
+    public EmptyEnvelope patchPriceListAsync(UUID tenantId, UUID priceListId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchPriceListAsyncWithHttpInfo(tenantId, priceListId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1612,7 +1638,7 @@ public class PriceListsApi {
      * Partially updates the specified price list using a JSON Patch document.
      * @param tenantId  (required)
      * @param priceListId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1622,8 +1648,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchPriceListAsyncWithHttpInfo(UUID tenantId, UUID priceListId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchPriceListAsyncValidateBeforeCall(tenantId, priceListId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchPriceListAsyncWithHttpInfo(UUID tenantId, UUID priceListId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchPriceListAsyncValidateBeforeCall(tenantId, priceListId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1633,7 +1659,7 @@ public class PriceListsApi {
      * Partially updates the specified price list using a JSON Patch document.
      * @param tenantId  (required)
      * @param priceListId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1644,9 +1670,9 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPriceListAsyncAsync(UUID tenantId, UUID priceListId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchPriceListAsyncAsync(UUID tenantId, UUID priceListId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchPriceListAsyncValidateBeforeCall(tenantId, priceListId, operation, _callback);
+        okhttp3.Call localVarCall = patchPriceListAsyncValidateBeforeCall(tenantId, priceListId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1656,7 +1682,7 @@ public class PriceListsApi {
      * @param tenantId  (required)
      * @param priceListId  (required)
      * @param priceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1667,7 +1693,7 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPriceListPriceAsyncCall(UUID tenantId, UUID priceListId, UUID priceId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchPriceListPriceAsyncCall(UUID tenantId, UUID priceListId, UUID priceId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1681,7 +1707,7 @@ public class PriceListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId}"
@@ -1721,7 +1747,7 @@ public class PriceListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchPriceListPriceAsyncValidateBeforeCall(UUID tenantId, UUID priceListId, UUID priceId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPriceListPriceAsyncValidateBeforeCall(UUID tenantId, UUID priceListId, UUID priceId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchPriceListPriceAsync(Async)");
@@ -1737,7 +1763,7 @@ public class PriceListsApi {
             throw new ApiException("Missing the required parameter 'priceId' when calling patchPriceListPriceAsync(Async)");
         }
 
-        return patchPriceListPriceAsyncCall(tenantId, priceListId, priceId, operation, _callback);
+        return patchPriceListPriceAsyncCall(tenantId, priceListId, priceId, patchOperation, _callback);
 
     }
 
@@ -1747,7 +1773,7 @@ public class PriceListsApi {
      * @param tenantId  (required)
      * @param priceListId  (required)
      * @param priceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1757,8 +1783,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchPriceListPriceAsync(UUID tenantId, UUID priceListId, UUID priceId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchPriceListPriceAsyncWithHttpInfo(tenantId, priceListId, priceId, operation);
+    public EmptyEnvelope patchPriceListPriceAsync(UUID tenantId, UUID priceListId, UUID priceId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchPriceListPriceAsyncWithHttpInfo(tenantId, priceListId, priceId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1768,7 +1794,7 @@ public class PriceListsApi {
      * @param tenantId  (required)
      * @param priceListId  (required)
      * @param priceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1778,8 +1804,8 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchPriceListPriceAsyncWithHttpInfo(UUID tenantId, UUID priceListId, UUID priceId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchPriceListPriceAsyncValidateBeforeCall(tenantId, priceListId, priceId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchPriceListPriceAsyncWithHttpInfo(UUID tenantId, UUID priceListId, UUID priceId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchPriceListPriceAsyncValidateBeforeCall(tenantId, priceListId, priceId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1790,7 +1816,7 @@ public class PriceListsApi {
      * @param tenantId  (required)
      * @param priceListId  (required)
      * @param priceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1801,9 +1827,9 @@ public class PriceListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPriceListPriceAsyncAsync(UUID tenantId, UUID priceListId, UUID priceId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchPriceListPriceAsyncAsync(UUID tenantId, UUID priceListId, UUID priceId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchPriceListPriceAsyncValidateBeforeCall(tenantId, priceListId, priceId, operation, _callback);
+        okhttp3.Call localVarCall = patchPriceListPriceAsyncValidateBeforeCall(tenantId, priceListId, priceId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

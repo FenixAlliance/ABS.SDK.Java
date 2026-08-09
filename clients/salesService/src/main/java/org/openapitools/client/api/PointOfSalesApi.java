@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.PointOfSaleCreateDto;
+import org.openapitools.client.model.PointOfSaleDtoCollectionQueryParameters;
 import org.openapitools.client.model.PointOfSaleDtoEnvelope;
 import org.openapitools.client.model.PointOfSaleDtoListEnvelope;
 import org.openapitools.client.model.PointOfSaleUpdateDto;
@@ -83,6 +84,7 @@ public class PointOfSalesApi {
     /**
      * Build call for countPointOfSalesAsync
      * @param tenantId  (required)
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -93,7 +95,7 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countPointOfSalesAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countPointOfSalesAsyncCall(UUID tenantId, PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,7 +109,7 @@ public class PointOfSalesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = pointOfSaleDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/PointOfSales/Count";
@@ -132,6 +134,8 @@ public class PointOfSalesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -143,13 +147,13 @@ public class PointOfSalesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countPointOfSalesAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countPointOfSalesAsyncValidateBeforeCall(UUID tenantId, PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countPointOfSalesAsync(Async)");
         }
 
-        return countPointOfSalesAsyncCall(tenantId, _callback);
+        return countPointOfSalesAsyncCall(tenantId, pointOfSaleDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -157,6 +161,7 @@ public class PointOfSalesApi {
      * Get point of sales count
      * Returns the total count of point of sales for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -166,8 +171,8 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countPointOfSalesAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countPointOfSalesAsyncWithHttpInfo(tenantId);
+    public Int32Envelope countPointOfSalesAsync(UUID tenantId, PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countPointOfSalesAsyncWithHttpInfo(tenantId, pointOfSaleDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -175,6 +180,7 @@ public class PointOfSalesApi {
      * Get point of sales count
      * Returns the total count of point of sales for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -184,8 +190,8 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countPointOfSalesAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = countPointOfSalesAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> countPointOfSalesAsyncWithHttpInfo(UUID tenantId, PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countPointOfSalesAsyncValidateBeforeCall(tenantId, pointOfSaleDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -194,6 +200,7 @@ public class PointOfSalesApi {
      * Get point of sales count (asynchronously)
      * Returns the total count of point of sales for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -204,9 +211,9 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countPointOfSalesAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countPointOfSalesAsyncAsync(UUID tenantId, PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countPointOfSalesAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = countPointOfSalesAsyncValidateBeforeCall(tenantId, pointOfSaleDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -633,6 +640,7 @@ public class PointOfSalesApi {
     /**
      * Build call for getPointOfSalesAsync
      * @param tenantId  (required)
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -643,7 +651,7 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPointOfSalesAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPointOfSalesAsyncCall(UUID tenantId, PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -657,7 +665,7 @@ public class PointOfSalesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = pointOfSaleDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/PointOfSales";
@@ -682,6 +690,8 @@ public class PointOfSalesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -693,13 +703,13 @@ public class PointOfSalesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPointOfSalesAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPointOfSalesAsyncValidateBeforeCall(UUID tenantId, PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPointOfSalesAsync(Async)");
         }
 
-        return getPointOfSalesAsyncCall(tenantId, _callback);
+        return getPointOfSalesAsyncCall(tenantId, pointOfSaleDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -707,6 +717,7 @@ public class PointOfSalesApi {
      * Get point of sales
      * Retrieves a list of point of sales for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @return PointOfSaleDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -716,8 +727,8 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PointOfSaleDtoListEnvelope getPointOfSalesAsync(UUID tenantId) throws ApiException {
-        ApiResponse<PointOfSaleDtoListEnvelope> localVarResp = getPointOfSalesAsyncWithHttpInfo(tenantId);
+    public PointOfSaleDtoListEnvelope getPointOfSalesAsync(UUID tenantId, PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PointOfSaleDtoListEnvelope> localVarResp = getPointOfSalesAsyncWithHttpInfo(tenantId, pointOfSaleDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -725,6 +736,7 @@ public class PointOfSalesApi {
      * Get point of sales
      * Retrieves a list of point of sales for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PointOfSaleDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -734,8 +746,8 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PointOfSaleDtoListEnvelope> getPointOfSalesAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getPointOfSalesAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<PointOfSaleDtoListEnvelope> getPointOfSalesAsyncWithHttpInfo(UUID tenantId, PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPointOfSalesAsyncValidateBeforeCall(tenantId, pointOfSaleDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PointOfSaleDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -744,6 +756,7 @@ public class PointOfSalesApi {
      * Get point of sales (asynchronously)
      * Retrieves a list of point of sales for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param pointOfSaleDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -754,9 +767,9 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPointOfSalesAsyncAsync(UUID tenantId, final ApiCallback<PointOfSaleDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getPointOfSalesAsyncAsync(UUID tenantId, PointOfSaleDtoCollectionQueryParameters pointOfSaleDtoCollectionQueryParameters, final ApiCallback<PointOfSaleDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPointOfSalesAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getPointOfSalesAsyncValidateBeforeCall(tenantId, pointOfSaleDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PointOfSaleDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -765,7 +778,7 @@ public class PointOfSalesApi {
      * Build call for patchPointOfSaleAsync
      * @param tenantId  (required)
      * @param pointOfSaleId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -776,7 +789,7 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPointOfSaleAsyncCall(UUID tenantId, UUID pointOfSaleId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchPointOfSaleAsyncCall(UUID tenantId, UUID pointOfSaleId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -790,7 +803,7 @@ public class PointOfSalesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/PointOfSales/{pointOfSaleId}"
@@ -829,7 +842,7 @@ public class PointOfSalesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchPointOfSaleAsyncValidateBeforeCall(UUID tenantId, UUID pointOfSaleId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPointOfSaleAsyncValidateBeforeCall(UUID tenantId, UUID pointOfSaleId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchPointOfSaleAsync(Async)");
@@ -840,7 +853,7 @@ public class PointOfSalesApi {
             throw new ApiException("Missing the required parameter 'pointOfSaleId' when calling patchPointOfSaleAsync(Async)");
         }
 
-        return patchPointOfSaleAsyncCall(tenantId, pointOfSaleId, operation, _callback);
+        return patchPointOfSaleAsyncCall(tenantId, pointOfSaleId, patchOperation, _callback);
 
     }
 
@@ -849,7 +862,7 @@ public class PointOfSalesApi {
      * Partially updates an existing point of sale using a JSON Patch document.
      * @param tenantId  (required)
      * @param pointOfSaleId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -859,8 +872,8 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchPointOfSaleAsync(UUID tenantId, UUID pointOfSaleId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchPointOfSaleAsyncWithHttpInfo(tenantId, pointOfSaleId, operation);
+    public EmptyEnvelope patchPointOfSaleAsync(UUID tenantId, UUID pointOfSaleId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchPointOfSaleAsyncWithHttpInfo(tenantId, pointOfSaleId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -869,7 +882,7 @@ public class PointOfSalesApi {
      * Partially updates an existing point of sale using a JSON Patch document.
      * @param tenantId  (required)
      * @param pointOfSaleId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -879,8 +892,8 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchPointOfSaleAsyncWithHttpInfo(UUID tenantId, UUID pointOfSaleId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchPointOfSaleAsyncValidateBeforeCall(tenantId, pointOfSaleId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchPointOfSaleAsyncWithHttpInfo(UUID tenantId, UUID pointOfSaleId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchPointOfSaleAsyncValidateBeforeCall(tenantId, pointOfSaleId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -890,7 +903,7 @@ public class PointOfSalesApi {
      * Partially updates an existing point of sale using a JSON Patch document.
      * @param tenantId  (required)
      * @param pointOfSaleId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -901,9 +914,9 @@ public class PointOfSalesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPointOfSaleAsyncAsync(UUID tenantId, UUID pointOfSaleId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchPointOfSaleAsyncAsync(UUID tenantId, UUID pointOfSaleId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchPointOfSaleAsyncValidateBeforeCall(tenantId, pointOfSaleId, operation, _callback);
+        okhttp3.Call localVarCall = patchPointOfSaleAsyncValidateBeforeCall(tenantId, pointOfSaleId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

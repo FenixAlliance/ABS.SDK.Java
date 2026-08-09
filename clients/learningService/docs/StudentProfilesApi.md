@@ -480,7 +480,7 @@ No authorization required
 
 <a id="apiV2LearningServiceStudentProfilesStudentProfileIdPatch"></a>
 # **apiV2LearningServiceStudentProfilesStudentProfileIdPatch**
-> EmptyEnvelope apiV2LearningServiceStudentProfilesStudentProfileIdPatch(tenantId, studentProfileId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope apiV2LearningServiceStudentProfilesStudentProfileIdPatch(tenantId, studentProfileId, apiVersion, xApiVersion, patchOperation)
 
 
 
@@ -503,9 +503,9 @@ public class Example {
     UUID studentProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2LearningServiceStudentProfilesStudentProfileIdPatch(tenantId, studentProfileId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.apiV2LearningServiceStudentProfilesStudentProfileIdPatch(tenantId, studentProfileId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StudentProfilesApi#apiV2LearningServiceStudentProfilesStudentProfileIdPatch");
@@ -526,7 +526,7 @@ public class Example {
 | **studentProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

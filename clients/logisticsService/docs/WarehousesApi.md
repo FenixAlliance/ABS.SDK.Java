@@ -222,7 +222,7 @@ No authorization required
 
 <a id="getWarehousesAsync"></a>
 # **getWarehousesAsync**
-> WarehouseDtoListEnvelope getWarehousesAsync(tenantId, apiVersion, xApiVersion)
+> WarehouseDtoListEnvelope getWarehousesAsync(tenantId, apiVersion, xApiVersion, warehouseDtoCollectionQueryParameters)
 
 Get all warehouses
 
@@ -246,8 +246,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WarehouseDtoCollectionQueryParameters warehouseDtoCollectionQueryParameters = new WarehouseDtoCollectionQueryParameters(); // WarehouseDtoCollectionQueryParameters | 
     try {
-      WarehouseDtoListEnvelope result = apiInstance.getWarehousesAsync(tenantId, apiVersion, xApiVersion);
+      WarehouseDtoListEnvelope result = apiInstance.getWarehousesAsync(tenantId, apiVersion, xApiVersion, warehouseDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WarehousesApi#getWarehousesAsync");
@@ -267,6 +268,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **warehouseDtoCollectionQueryParameters** | [**WarehouseDtoCollectionQueryParameters**](WarehouseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -278,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getWarehousesCountAsync"></a>
 # **getWarehousesCountAsync**
-> Int32Envelope getWarehousesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getWarehousesCountAsync(tenantId, apiVersion, xApiVersion, warehouseDtoCollectionQueryParameters)
 
 Get warehouses count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WarehouseDtoCollectionQueryParameters warehouseDtoCollectionQueryParameters = new WarehouseDtoCollectionQueryParameters(); // WarehouseDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWarehousesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWarehousesCountAsync(tenantId, apiVersion, xApiVersion, warehouseDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WarehousesApi#getWarehousesCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **warehouseDtoCollectionQueryParameters** | [**WarehouseDtoCollectionQueryParameters**](WarehouseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -356,7 +360,7 @@ No authorization required
 
 <a id="patchWarehouseAsync"></a>
 # **patchWarehouseAsync**
-> EmptyEnvelope patchWarehouseAsync(tenantId, warehouseId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWarehouseAsync(tenantId, warehouseId, apiVersion, xApiVersion, patchOperation)
 
 Patch a warehouse
 
@@ -381,9 +385,9 @@ public class Example {
     UUID warehouseId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWarehouseAsync(tenantId, warehouseId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchWarehouseAsync(tenantId, warehouseId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WarehousesApi#patchWarehouseAsync");
@@ -404,7 +408,7 @@ public class Example {
 | **warehouseId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

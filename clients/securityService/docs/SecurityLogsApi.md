@@ -10,7 +10,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getSecurityLogsAsync"></a>
 # **getSecurityLogsAsync**
-> BusinessSecurityLogDtoListEnvelope getSecurityLogsAsync(tenantId, apiVersion, xApiVersion)
+> BusinessSecurityLogDtoListEnvelope getSecurityLogsAsync(tenantId, apiVersion, xApiVersion, businessSecurityLogDtoCollectionQueryParameters)
 
 Get business security logs
 
@@ -34,8 +34,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BusinessSecurityLogDtoCollectionQueryParameters businessSecurityLogDtoCollectionQueryParameters = new BusinessSecurityLogDtoCollectionQueryParameters(); // BusinessSecurityLogDtoCollectionQueryParameters | 
     try {
-      BusinessSecurityLogDtoListEnvelope result = apiInstance.getSecurityLogsAsync(tenantId, apiVersion, xApiVersion);
+      BusinessSecurityLogDtoListEnvelope result = apiInstance.getSecurityLogsAsync(tenantId, apiVersion, xApiVersion, businessSecurityLogDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityLogsApi#getSecurityLogsAsync");
@@ -55,6 +56,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **businessSecurityLogDtoCollectionQueryParameters** | [**BusinessSecurityLogDtoCollectionQueryParameters**](BusinessSecurityLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -78,7 +80,7 @@ No authorization required
 
 <a id="getSecurityLogsCountAsync"></a>
 # **getSecurityLogsCountAsync**
-> Int32Envelope getSecurityLogsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSecurityLogsCountAsync(tenantId, apiVersion, xApiVersion, businessSecurityLogDtoCollectionQueryParameters)
 
 Get business security logs count
 
@@ -102,8 +104,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BusinessSecurityLogDtoCollectionQueryParameters businessSecurityLogDtoCollectionQueryParameters = new BusinessSecurityLogDtoCollectionQueryParameters(); // BusinessSecurityLogDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSecurityLogsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSecurityLogsCountAsync(tenantId, apiVersion, xApiVersion, businessSecurityLogDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityLogsApi#getSecurityLogsCountAsync");
@@ -123,6 +126,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **businessSecurityLogDtoCollectionQueryParameters** | [**BusinessSecurityLogDtoCollectionQueryParameters**](BusinessSecurityLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -134,7 +138,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

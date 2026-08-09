@@ -28,13 +28,14 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.CurriculumExperienceCreateDto;
+import org.openapitools.client.model.CurriculumExperienceDtoCollectionQueryParameters;
 import org.openapitools.client.model.CurriculumExperienceDtoEnvelope;
 import org.openapitools.client.model.CurriculumExperienceDtoListEnvelope;
 import org.openapitools.client.model.CurriculumExperienceUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -628,6 +629,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -639,7 +641,7 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurriculumExperiencesAsyncCall(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCurriculumExperiencesAsyncCall(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -653,7 +655,7 @@ public class CurriculumExperiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = curriculumExperienceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/Curriculums/{curriculumId}/Experiences"
@@ -691,6 +693,8 @@ public class CurriculumExperiencesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -702,7 +706,7 @@ public class CurriculumExperiencesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCurriculumExperiencesAsyncValidateBeforeCall(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCurriculumExperiencesAsyncValidateBeforeCall(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'curriculumId' is set
         if (curriculumId == null) {
             throw new ApiException("Missing the required parameter 'curriculumId' when calling getCurriculumExperiencesAsync(Async)");
@@ -713,7 +717,7 @@ public class CurriculumExperiencesApi {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getCurriculumExperiencesAsync(Async)");
         }
 
-        return getCurriculumExperiencesAsyncCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, _callback);
+        return getCurriculumExperiencesAsyncCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -725,6 +729,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @return CurriculumExperienceDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -735,8 +740,8 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CurriculumExperienceDtoListEnvelope getCurriculumExperiencesAsync(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CurriculumExperienceDtoListEnvelope> localVarResp = getCurriculumExperiencesAsyncWithHttpInfo(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion);
+    public CurriculumExperienceDtoListEnvelope getCurriculumExperiencesAsync(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CurriculumExperienceDtoListEnvelope> localVarResp = getCurriculumExperiencesAsyncWithHttpInfo(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -748,6 +753,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CurriculumExperienceDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -758,8 +764,8 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CurriculumExperienceDtoListEnvelope> getCurriculumExperiencesAsyncWithHttpInfo(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCurriculumExperiencesAsyncValidateBeforeCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<CurriculumExperienceDtoListEnvelope> getCurriculumExperiencesAsyncWithHttpInfo(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCurriculumExperiencesAsyncValidateBeforeCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CurriculumExperienceDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -772,6 +778,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -783,9 +790,9 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurriculumExperiencesAsyncAsync(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<CurriculumExperienceDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCurriculumExperiencesAsyncAsync(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters, final ApiCallback<CurriculumExperienceDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCurriculumExperiencesAsyncValidateBeforeCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCurriculumExperiencesAsyncValidateBeforeCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CurriculumExperienceDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -797,6 +804,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -808,7 +816,7 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurriculumExperiencesCountAsyncCall(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCurriculumExperiencesCountAsyncCall(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -822,7 +830,7 @@ public class CurriculumExperiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = curriculumExperienceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/Curriculums/{curriculumId}/Experiences/Count"
@@ -860,6 +868,8 @@ public class CurriculumExperiencesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -871,7 +881,7 @@ public class CurriculumExperiencesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCurriculumExperiencesCountAsyncValidateBeforeCall(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCurriculumExperiencesCountAsyncValidateBeforeCall(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'curriculumId' is set
         if (curriculumId == null) {
             throw new ApiException("Missing the required parameter 'curriculumId' when calling getCurriculumExperiencesCountAsync(Async)");
@@ -882,7 +892,7 @@ public class CurriculumExperiencesApi {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getCurriculumExperiencesCountAsync(Async)");
         }
 
-        return getCurriculumExperiencesCountAsyncCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, _callback);
+        return getCurriculumExperiencesCountAsyncCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -894,6 +904,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -904,8 +915,8 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getCurriculumExperiencesCountAsync(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getCurriculumExperiencesCountAsyncWithHttpInfo(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getCurriculumExperiencesCountAsync(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getCurriculumExperiencesCountAsyncWithHttpInfo(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -917,6 +928,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -927,8 +939,8 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getCurriculumExperiencesCountAsyncWithHttpInfo(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCurriculumExperiencesCountAsyncValidateBeforeCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getCurriculumExperiencesCountAsyncWithHttpInfo(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCurriculumExperiencesCountAsyncValidateBeforeCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -941,6 +953,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param curriculumExperienceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -952,9 +965,9 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurriculumExperiencesCountAsyncAsync(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getCurriculumExperiencesCountAsyncAsync(UUID curriculumId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCurriculumExperiencesCountAsyncValidateBeforeCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCurriculumExperiencesCountAsyncValidateBeforeCall(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -967,7 +980,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -980,7 +993,7 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCurriculumExperienceAsyncCall(UUID curriculumId, UUID experienceId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchCurriculumExperienceAsyncCall(UUID curriculumId, UUID experienceId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -994,7 +1007,7 @@ public class CurriculumExperiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/Curriculums/{curriculumId}/Experiences/{experienceId}"
@@ -1046,7 +1059,7 @@ public class CurriculumExperiencesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchCurriculumExperienceAsyncValidateBeforeCall(UUID curriculumId, UUID experienceId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchCurriculumExperienceAsyncValidateBeforeCall(UUID curriculumId, UUID experienceId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'curriculumId' is set
         if (curriculumId == null) {
             throw new ApiException("Missing the required parameter 'curriculumId' when calling patchCurriculumExperienceAsync(Async)");
@@ -1062,7 +1075,7 @@ public class CurriculumExperiencesApi {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling patchCurriculumExperienceAsync(Async)");
         }
 
-        return patchCurriculumExperienceAsyncCall(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, operation, _callback);
+        return patchCurriculumExperienceAsyncCall(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1075,7 +1088,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1087,8 +1100,8 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchCurriculumExperienceAsync(UUID curriculumId, UUID experienceId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchCurriculumExperienceAsyncWithHttpInfo(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchCurriculumExperienceAsync(UUID curriculumId, UUID experienceId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchCurriculumExperienceAsyncWithHttpInfo(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1101,7 +1114,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1113,8 +1126,8 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchCurriculumExperienceAsyncWithHttpInfo(UUID curriculumId, UUID experienceId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchCurriculumExperienceAsyncValidateBeforeCall(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchCurriculumExperienceAsyncWithHttpInfo(UUID curriculumId, UUID experienceId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchCurriculumExperienceAsyncValidateBeforeCall(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1128,7 +1141,7 @@ public class CurriculumExperiencesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1141,9 +1154,9 @@ public class CurriculumExperiencesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCurriculumExperienceAsyncAsync(UUID curriculumId, UUID experienceId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchCurriculumExperienceAsyncAsync(UUID curriculumId, UUID experienceId, UUID socialProfileId, UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchCurriculumExperienceAsyncValidateBeforeCall(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchCurriculumExperienceAsyncValidateBeforeCall(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

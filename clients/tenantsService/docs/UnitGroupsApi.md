@@ -448,7 +448,7 @@ No authorization required
 
 <a id="getUnitGroupsAsync"></a>
 # **getUnitGroupsAsync**
-> UnitGroupDtoListEnvelope getUnitGroupsAsync(tenantId, apiVersion, xApiVersion)
+> UnitGroupDtoListEnvelope getUnitGroupsAsync(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters)
 
 Retrieve a list of unit groups
 
@@ -472,8 +472,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters = new UnitGroupDtoCollectionQueryParameters(); // UnitGroupDtoCollectionQueryParameters | 
     try {
-      UnitGroupDtoListEnvelope result = apiInstance.getUnitGroupsAsync(tenantId, apiVersion, xApiVersion);
+      UnitGroupDtoListEnvelope result = apiInstance.getUnitGroupsAsync(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UnitGroupsApi#getUnitGroupsAsync");
@@ -493,6 +494,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **unitGroupDtoCollectionQueryParameters** | [**UnitGroupDtoCollectionQueryParameters**](UnitGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -504,7 +506,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -516,7 +518,7 @@ No authorization required
 
 <a id="getUnitGroupsCountAsync"></a>
 # **getUnitGroupsCountAsync**
-> Int32Envelope getUnitGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getUnitGroupsCountAsync(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters)
 
 Get the count of unit groups
 
@@ -540,8 +542,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters = new UnitGroupDtoCollectionQueryParameters(); // UnitGroupDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getUnitGroupsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getUnitGroupsCountAsync(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UnitGroupsApi#getUnitGroupsCountAsync");
@@ -561,6 +564,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **unitGroupDtoCollectionQueryParameters** | [**UnitGroupDtoCollectionQueryParameters**](UnitGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -572,7 +576,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -584,7 +588,7 @@ No authorization required
 
 <a id="getUnitsAsync"></a>
 # **getUnitsAsync**
-> UnitDtoListEnvelope getUnitsAsync(tenantId, unitGroupId, apiVersion, xApiVersion)
+> UnitDtoListEnvelope getUnitsAsync(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters)
 
 Retrieve units for a unit group
 
@@ -609,8 +613,9 @@ public class Example {
     String unitGroupId = "unitGroupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters = new UnitDtoCollectionQueryParameters(); // UnitDtoCollectionQueryParameters | 
     try {
-      UnitDtoListEnvelope result = apiInstance.getUnitsAsync(tenantId, unitGroupId, apiVersion, xApiVersion);
+      UnitDtoListEnvelope result = apiInstance.getUnitsAsync(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UnitGroupsApi#getUnitsAsync");
@@ -631,6 +636,7 @@ public class Example {
 | **unitGroupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **unitDtoCollectionQueryParameters** | [**UnitDtoCollectionQueryParameters**](UnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -642,7 +648,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -654,7 +660,7 @@ No authorization required
 
 <a id="getUnitsCountAsync"></a>
 # **getUnitsCountAsync**
-> Int32Envelope getUnitsCountAsync(tenantId, unitGroupId, apiVersion, xApiVersion)
+> Int32Envelope getUnitsCountAsync(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters)
 
 Get the count of units in a unit group
 
@@ -679,8 +685,9 @@ public class Example {
     String unitGroupId = "unitGroupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters = new UnitDtoCollectionQueryParameters(); // UnitDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getUnitsCountAsync(tenantId, unitGroupId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getUnitsCountAsync(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UnitGroupsApi#getUnitsCountAsync");
@@ -701,6 +708,7 @@ public class Example {
 | **unitGroupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **unitDtoCollectionQueryParameters** | [**UnitDtoCollectionQueryParameters**](UnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -712,7 +720,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -724,7 +732,7 @@ No authorization required
 
 <a id="patchUnitAsync"></a>
 # **patchUnitAsync**
-> EmptyEnvelope patchUnitAsync(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchUnitAsync(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, patchOperation)
 
 Patch a unit within a unit group
 
@@ -750,9 +758,9 @@ public class Example {
     String unitId = "unitId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchUnitAsync(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchUnitAsync(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UnitGroupsApi#patchUnitAsync");
@@ -774,7 +782,7 @@ public class Example {
 | **unitId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -798,7 +806,7 @@ No authorization required
 
 <a id="patchUnitGroupAsync"></a>
 # **patchUnitGroupAsync**
-> EmptyEnvelope patchUnitGroupAsync(tenantId, unitGroupId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchUnitGroupAsync(tenantId, unitGroupId, apiVersion, xApiVersion, patchOperation)
 
 Patch a unit group
 
@@ -823,9 +831,9 @@ public class Example {
     String unitGroupId = "unitGroupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchUnitGroupAsync(tenantId, unitGroupId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchUnitGroupAsync(tenantId, unitGroupId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UnitGroupsApi#patchUnitGroupAsync");
@@ -846,7 +854,7 @@ public class Example {
 | **unitGroupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

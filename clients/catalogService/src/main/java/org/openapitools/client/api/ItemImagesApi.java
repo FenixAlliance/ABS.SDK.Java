@@ -29,10 +29,11 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.ItemImageCreateDto;
+import org.openapitools.client.model.ItemImageDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemImageDtoEnvelope;
 import org.openapitools.client.model.ItemImageDtoListEnvelope;
 import org.openapitools.client.model.ItemImageUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -553,6 +554,7 @@ public class ItemImagesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemImageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -564,7 +566,7 @@ public class ItemImagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemImagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemImagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemImageDtoCollectionQueryParameters itemImageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -578,7 +580,7 @@ public class ItemImagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemImageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemImages";
@@ -611,6 +613,8 @@ public class ItemImagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -622,8 +626,8 @@ public class ItemImagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemImagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getItemImagesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getItemImagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemImageDtoCollectionQueryParameters itemImageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getItemImagesAsyncCall(tenantId, apiVersion, xApiVersion, itemImageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -633,6 +637,7 @@ public class ItemImagesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemImageDtoCollectionQueryParameters  (optional)
      * @return ItemImageDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -643,8 +648,8 @@ public class ItemImagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemImageDtoListEnvelope getItemImagesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemImageDtoListEnvelope> localVarResp = getItemImagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ItemImageDtoListEnvelope getItemImagesAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemImageDtoCollectionQueryParameters itemImageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemImageDtoListEnvelope> localVarResp = getItemImagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemImageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -654,6 +659,7 @@ public class ItemImagesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemImageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemImageDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -664,8 +670,8 @@ public class ItemImagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemImageDtoListEnvelope> getItemImagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemImagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemImageDtoListEnvelope> getItemImagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemImageDtoCollectionQueryParameters itemImageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemImagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemImageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemImageDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -676,6 +682,7 @@ public class ItemImagesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemImageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -687,9 +694,9 @@ public class ItemImagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemImagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ItemImageDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemImagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemImageDtoCollectionQueryParameters itemImageDtoCollectionQueryParameters, final ApiCallback<ItemImageDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemImagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemImagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemImageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemImageDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -700,7 +707,7 @@ public class ItemImagesApi {
      * @param itemImageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -712,7 +719,7 @@ public class ItemImagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemImageAsyncCall(UUID tenantId, UUID itemImageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemImageAsyncCall(UUID tenantId, UUID itemImageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -726,7 +733,7 @@ public class ItemImagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemImages/{itemImageId}"
@@ -773,7 +780,7 @@ public class ItemImagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemImageAsyncValidateBeforeCall(UUID tenantId, UUID itemImageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemImageAsyncValidateBeforeCall(UUID tenantId, UUID itemImageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemImageAsync(Async)");
@@ -784,7 +791,7 @@ public class ItemImagesApi {
             throw new ApiException("Missing the required parameter 'itemImageId' when calling patchItemImageAsync(Async)");
         }
 
-        return patchItemImageAsyncCall(tenantId, itemImageId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemImageAsyncCall(tenantId, itemImageId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -795,7 +802,7 @@ public class ItemImagesApi {
      * @param itemImageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -805,8 +812,8 @@ public class ItemImagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public void patchItemImageAsync(UUID tenantId, UUID itemImageId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        patchItemImageAsyncWithHttpInfo(tenantId, itemImageId, apiVersion, xApiVersion, operation);
+    public void patchItemImageAsync(UUID tenantId, UUID itemImageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        patchItemImageAsyncWithHttpInfo(tenantId, itemImageId, apiVersion, xApiVersion, patchOperation);
     }
 
     /**
@@ -816,7 +823,7 @@ public class ItemImagesApi {
      * @param itemImageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -827,8 +834,8 @@ public class ItemImagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> patchItemImageAsyncWithHttpInfo(UUID tenantId, UUID itemImageId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemImageAsyncValidateBeforeCall(tenantId, itemImageId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<Void> patchItemImageAsyncWithHttpInfo(UUID tenantId, UUID itemImageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemImageAsyncValidateBeforeCall(tenantId, itemImageId, apiVersion, xApiVersion, patchOperation, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -839,7 +846,7 @@ public class ItemImagesApi {
      * @param itemImageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -851,9 +858,9 @@ public class ItemImagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemImageAsyncAsync(UUID tenantId, UUID itemImageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call patchItemImageAsyncAsync(UUID tenantId, UUID itemImageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemImageAsyncValidateBeforeCall(tenantId, itemImageId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemImageAsyncValidateBeforeCall(tenantId, itemImageId, apiVersion, xApiVersion, patchOperation, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

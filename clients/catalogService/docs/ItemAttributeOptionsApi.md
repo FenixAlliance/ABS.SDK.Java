@@ -224,7 +224,7 @@ No authorization required
 
 <a id="getItemAttributeOptionsAsync"></a>
 # **getItemAttributeOptionsAsync**
-> ItemAttributeOptionDtoListEnvelope getItemAttributeOptionsAsync(tenantId, apiVersion, xApiVersion)
+> ItemAttributeOptionDtoListEnvelope getItemAttributeOptionsAsync(tenantId, apiVersion, xApiVersion, itemAttributeOptionDtoCollectionQueryParameters)
 
 Get all item attribute options
 
@@ -248,8 +248,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemAttributeOptionDtoCollectionQueryParameters itemAttributeOptionDtoCollectionQueryParameters = new ItemAttributeOptionDtoCollectionQueryParameters(); // ItemAttributeOptionDtoCollectionQueryParameters | 
     try {
-      ItemAttributeOptionDtoListEnvelope result = apiInstance.getItemAttributeOptionsAsync(tenantId, apiVersion, xApiVersion);
+      ItemAttributeOptionDtoListEnvelope result = apiInstance.getItemAttributeOptionsAsync(tenantId, apiVersion, xApiVersion, itemAttributeOptionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemAttributeOptionsApi#getItemAttributeOptionsAsync");
@@ -269,6 +270,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemAttributeOptionDtoCollectionQueryParameters** | [**ItemAttributeOptionDtoCollectionQueryParameters**](ItemAttributeOptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -280,7 +282,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -292,7 +294,7 @@ No authorization required
 
 <a id="getItemAttributeOptionsCountAsync"></a>
 # **getItemAttributeOptionsCountAsync**
-> Int32Envelope getItemAttributeOptionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemAttributeOptionsCountAsync(tenantId, apiVersion, xApiVersion, itemAttributeOptionDtoCollectionQueryParameters)
 
 Get item attribute options count
 
@@ -316,8 +318,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemAttributeOptionDtoCollectionQueryParameters itemAttributeOptionDtoCollectionQueryParameters = new ItemAttributeOptionDtoCollectionQueryParameters(); // ItemAttributeOptionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemAttributeOptionsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemAttributeOptionsCountAsync(tenantId, apiVersion, xApiVersion, itemAttributeOptionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemAttributeOptionsApi#getItemAttributeOptionsCountAsync");
@@ -337,6 +340,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemAttributeOptionDtoCollectionQueryParameters** | [**ItemAttributeOptionDtoCollectionQueryParameters**](ItemAttributeOptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -348,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -360,7 +364,7 @@ No authorization required
 
 <a id="patchItemAttributeOptionAsync"></a>
 # **patchItemAttributeOptionAsync**
-> EmptyEnvelope patchItemAttributeOptionAsync(tenantId, itemAttributeOptionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemAttributeOptionAsync(tenantId, itemAttributeOptionId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item attribute option
 
@@ -385,9 +389,9 @@ public class Example {
     UUID itemAttributeOptionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemAttributeOptionAsync(tenantId, itemAttributeOptionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemAttributeOptionAsync(tenantId, itemAttributeOptionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemAttributeOptionsApi#patchItemAttributeOptionAsync");
@@ -408,7 +412,7 @@ public class Example {
 | **itemAttributeOptionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

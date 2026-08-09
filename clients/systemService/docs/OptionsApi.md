@@ -295,7 +295,7 @@ No authorization required
 
 <a id="getSystemOptions"></a>
 # **getSystemOptions**
-> OptionDtoListEnvelope getSystemOptions(portalId, apiVersion, xApiVersion)
+> OptionDtoListEnvelope getSystemOptions(portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
 
 Retrieve a list of system options
 
@@ -319,8 +319,9 @@ public class Example {
     UUID portalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters = new OptionDtoCollectionQueryParameters(); // OptionDtoCollectionQueryParameters | 
     try {
-      OptionDtoListEnvelope result = apiInstance.getSystemOptions(portalId, apiVersion, xApiVersion);
+      OptionDtoListEnvelope result = apiInstance.getSystemOptions(portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OptionsApi#getSystemOptions");
@@ -340,6 +341,7 @@ public class Example {
 | **portalId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +365,7 @@ No authorization required
 
 <a id="getSystemOptionsCount"></a>
 # **getSystemOptionsCount**
-> Int32Envelope getSystemOptionsCount(portalId, apiVersion, xApiVersion)
+> Int32Envelope getSystemOptionsCount(portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
 
 Get the count of system options
 
@@ -387,8 +389,9 @@ public class Example {
     UUID portalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters = new OptionDtoCollectionQueryParameters(); // OptionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSystemOptionsCount(portalId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSystemOptionsCount(portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OptionsApi#getSystemOptionsCount");
@@ -408,6 +411,7 @@ public class Example {
 | **portalId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -419,7 +423,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -431,7 +435,7 @@ No authorization required
 
 <a id="patchSystemOption"></a>
 # **patchSystemOption**
-> EmptyEnvelope patchSystemOption(optionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSystemOption(optionId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a system option
 
@@ -455,9 +459,9 @@ public class Example {
     UUID optionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSystemOption(optionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSystemOption(optionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OptionsApi#patchSystemOption");
@@ -477,7 +481,7 @@ public class Example {
 | **optionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -29,9 +29,11 @@ import java.io.IOException;
 
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.ExtendedTenantEnrollmentDtoCollectionQueryParameters;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TenantEnrollmentCreateDto;
+import org.openapitools.client.model.TenantEnrollmentDtoCollectionQueryParameters;
 import org.openapitools.client.model.TenantEnrollmentDtoEnvelope;
 import org.openapitools.client.model.TenantEnrollmentDtoListEnvelope;
 import org.openapitools.client.model.TenantEnrollmentUpdateDto;
@@ -403,6 +405,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -414,7 +417,7 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedTenantEnrollmentsCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExtendedTenantEnrollmentsCall(UUID tenantId, String apiVersion, String xApiVersion, ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -428,7 +431,7 @@ public class EnrollmentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedTenantEnrollmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Enrollments/Extended";
@@ -461,6 +464,8 @@ public class EnrollmentsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -472,13 +477,13 @@ public class EnrollmentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedTenantEnrollmentsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExtendedTenantEnrollmentsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExtendedTenantEnrollments(Async)");
         }
 
-        return getExtendedTenantEnrollmentsCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getExtendedTenantEnrollmentsCall(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -488,6 +493,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return TenantEnrollmentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -498,8 +504,8 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TenantEnrollmentDtoListEnvelope getExtendedTenantEnrollments(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TenantEnrollmentDtoListEnvelope> localVarResp = getExtendedTenantEnrollmentsWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TenantEnrollmentDtoListEnvelope getExtendedTenantEnrollments(UUID tenantId, String apiVersion, String xApiVersion, ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TenantEnrollmentDtoListEnvelope> localVarResp = getExtendedTenantEnrollmentsWithHttpInfo(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -509,6 +515,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TenantEnrollmentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -519,8 +526,8 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TenantEnrollmentDtoListEnvelope> getExtendedTenantEnrollmentsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedTenantEnrollmentsValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TenantEnrollmentDtoListEnvelope> getExtendedTenantEnrollmentsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedTenantEnrollmentsValidateBeforeCall(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TenantEnrollmentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -531,6 +538,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -542,9 +550,9 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedTenantEnrollmentsAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TenantEnrollmentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getExtendedTenantEnrollmentsAsync(UUID tenantId, String apiVersion, String xApiVersion, ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters, final ApiCallback<TenantEnrollmentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedTenantEnrollmentsValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getExtendedTenantEnrollmentsValidateBeforeCall(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TenantEnrollmentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -554,6 +562,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -565,7 +574,7 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedTenantEnrollmentsCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExtendedTenantEnrollmentsCountCall(UUID tenantId, String apiVersion, String xApiVersion, ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -579,7 +588,7 @@ public class EnrollmentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedTenantEnrollmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Enrollments/Extended/Count";
@@ -612,6 +621,8 @@ public class EnrollmentsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -623,13 +634,13 @@ public class EnrollmentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedTenantEnrollmentsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExtendedTenantEnrollmentsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExtendedTenantEnrollmentsCount(Async)");
         }
 
-        return getExtendedTenantEnrollmentsCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getExtendedTenantEnrollmentsCountCall(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -639,6 +650,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -649,8 +661,8 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getExtendedTenantEnrollmentsCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getExtendedTenantEnrollmentsCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getExtendedTenantEnrollmentsCount(UUID tenantId, String apiVersion, String xApiVersion, ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getExtendedTenantEnrollmentsCountWithHttpInfo(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -660,6 +672,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -670,8 +683,8 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getExtendedTenantEnrollmentsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedTenantEnrollmentsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getExtendedTenantEnrollmentsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedTenantEnrollmentsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -682,6 +695,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -693,9 +707,9 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedTenantEnrollmentsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getExtendedTenantEnrollmentsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ExtendedTenantEnrollmentDtoCollectionQueryParameters extendedTenantEnrollmentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedTenantEnrollmentsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getExtendedTenantEnrollmentsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, extendedTenantEnrollmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -879,6 +893,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -890,7 +905,7 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantEnrollmentsCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantEnrollmentsCall(UUID tenantId, String apiVersion, String xApiVersion, TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -904,7 +919,7 @@ public class EnrollmentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantEnrollmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Enrollments";
@@ -937,6 +952,8 @@ public class EnrollmentsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -948,13 +965,13 @@ public class EnrollmentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantEnrollmentsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantEnrollmentsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantEnrollments(Async)");
         }
 
-        return getTenantEnrollmentsCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTenantEnrollmentsCall(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -964,6 +981,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return TenantEnrollmentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -974,8 +992,8 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TenantEnrollmentDtoListEnvelope getTenantEnrollments(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TenantEnrollmentDtoListEnvelope> localVarResp = getTenantEnrollmentsWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TenantEnrollmentDtoListEnvelope getTenantEnrollments(UUID tenantId, String apiVersion, String xApiVersion, TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TenantEnrollmentDtoListEnvelope> localVarResp = getTenantEnrollmentsWithHttpInfo(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -985,6 +1003,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TenantEnrollmentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -995,8 +1014,8 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TenantEnrollmentDtoListEnvelope> getTenantEnrollmentsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantEnrollmentsValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TenantEnrollmentDtoListEnvelope> getTenantEnrollmentsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantEnrollmentsValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TenantEnrollmentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1007,6 +1026,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1018,9 +1038,9 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantEnrollmentsAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TenantEnrollmentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantEnrollmentsAsync(UUID tenantId, String apiVersion, String xApiVersion, TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters, final ApiCallback<TenantEnrollmentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantEnrollmentsValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTenantEnrollmentsValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TenantEnrollmentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1030,6 +1050,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1041,7 +1062,7 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantEnrollmentsCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantEnrollmentsCountCall(UUID tenantId, String apiVersion, String xApiVersion, TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1055,7 +1076,7 @@ public class EnrollmentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantEnrollmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Enrollments/Count";
@@ -1088,6 +1109,8 @@ public class EnrollmentsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1099,13 +1122,13 @@ public class EnrollmentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantEnrollmentsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantEnrollmentsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantEnrollmentsCount(Async)");
         }
 
-        return getTenantEnrollmentsCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTenantEnrollmentsCountCall(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1115,6 +1138,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1125,8 +1149,8 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTenantEnrollmentsCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTenantEnrollmentsCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTenantEnrollmentsCount(UUID tenantId, String apiVersion, String xApiVersion, TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTenantEnrollmentsCountWithHttpInfo(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1136,6 +1160,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1146,8 +1171,8 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTenantEnrollmentsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantEnrollmentsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTenantEnrollmentsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantEnrollmentsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1158,6 +1183,7 @@ public class EnrollmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1169,9 +1195,9 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantEnrollmentsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantEnrollmentsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TenantEnrollmentDtoCollectionQueryParameters tenantEnrollmentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantEnrollmentsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTenantEnrollmentsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantEnrollmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1182,7 +1208,7 @@ public class EnrollmentsApi {
      * @param enrollmentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1194,7 +1220,7 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantEnrollmentAsyncCall(UUID tenantId, UUID enrollmentId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTenantEnrollmentAsyncCall(UUID tenantId, UUID enrollmentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1208,7 +1234,7 @@ public class EnrollmentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Enrollments/{enrollmentId}"
@@ -1255,7 +1281,7 @@ public class EnrollmentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTenantEnrollmentAsyncValidateBeforeCall(UUID tenantId, UUID enrollmentId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTenantEnrollmentAsyncValidateBeforeCall(UUID tenantId, UUID enrollmentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTenantEnrollmentAsync(Async)");
@@ -1266,7 +1292,7 @@ public class EnrollmentsApi {
             throw new ApiException("Missing the required parameter 'enrollmentId' when calling patchTenantEnrollmentAsync(Async)");
         }
 
-        return patchTenantEnrollmentAsyncCall(tenantId, enrollmentId, apiVersion, xApiVersion, operation, _callback);
+        return patchTenantEnrollmentAsyncCall(tenantId, enrollmentId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1277,7 +1303,7 @@ public class EnrollmentsApi {
      * @param enrollmentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1288,8 +1314,8 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTenantEnrollmentAsync(UUID tenantId, UUID enrollmentId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTenantEnrollmentAsyncWithHttpInfo(tenantId, enrollmentId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTenantEnrollmentAsync(UUID tenantId, UUID enrollmentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTenantEnrollmentAsyncWithHttpInfo(tenantId, enrollmentId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1300,7 +1326,7 @@ public class EnrollmentsApi {
      * @param enrollmentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1311,8 +1337,8 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTenantEnrollmentAsyncWithHttpInfo(UUID tenantId, UUID enrollmentId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTenantEnrollmentAsyncValidateBeforeCall(tenantId, enrollmentId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTenantEnrollmentAsyncWithHttpInfo(UUID tenantId, UUID enrollmentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTenantEnrollmentAsyncValidateBeforeCall(tenantId, enrollmentId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1324,7 +1350,7 @@ public class EnrollmentsApi {
      * @param enrollmentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1336,9 +1362,9 @@ public class EnrollmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantEnrollmentAsyncAsync(UUID tenantId, UUID enrollmentId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTenantEnrollmentAsyncAsync(UUID tenantId, UUID enrollmentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTenantEnrollmentAsyncValidateBeforeCall(tenantId, enrollmentId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTenantEnrollmentAsyncValidateBeforeCall(tenantId, enrollmentId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

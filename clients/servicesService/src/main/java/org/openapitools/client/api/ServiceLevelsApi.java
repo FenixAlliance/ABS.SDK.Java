@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.Envelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ServiceLevelCreateDto;
+import org.openapitools.client.model.ServiceLevelDtoCollectionQueryParameters;
 import org.openapitools.client.model.ServiceLevelDtoEnvelope;
 import org.openapitools.client.model.ServiceLevelDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.ServiceLevelUpdateDto;
@@ -85,6 +86,7 @@ public class ServiceLevelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -96,7 +98,7 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countAllServiceLevelsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countAllServiceLevelsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -110,7 +112,7 @@ public class ServiceLevelsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = serviceLevelDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ServicesService/ServiceLevels/Count";
@@ -143,6 +145,8 @@ public class ServiceLevelsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -154,13 +158,13 @@ public class ServiceLevelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countAllServiceLevelsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countAllServiceLevelsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countAllServiceLevelsAsync(Async)");
         }
 
-        return countAllServiceLevelsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return countAllServiceLevelsAsyncCall(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -170,6 +174,7 @@ public class ServiceLevelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -180,8 +185,8 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countAllServiceLevelsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countAllServiceLevelsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope countAllServiceLevelsAsync(UUID tenantId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countAllServiceLevelsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -191,6 +196,7 @@ public class ServiceLevelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -201,8 +207,8 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countAllServiceLevelsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countAllServiceLevelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countAllServiceLevelsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countAllServiceLevelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -213,6 +219,7 @@ public class ServiceLevelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -224,9 +231,9 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countAllServiceLevelsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countAllServiceLevelsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countAllServiceLevelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countAllServiceLevelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -574,6 +581,7 @@ public class ServiceLevelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -585,7 +593,7 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllServiceLevelsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAllServiceLevelsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -599,7 +607,7 @@ public class ServiceLevelsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = serviceLevelDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ServicesService/ServiceLevels";
@@ -632,6 +640,8 @@ public class ServiceLevelsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -643,13 +653,13 @@ public class ServiceLevelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAllServiceLevelsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAllServiceLevelsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAllServiceLevelsAsync(Async)");
         }
 
-        return getAllServiceLevelsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getAllServiceLevelsAsyncCall(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -659,6 +669,7 @@ public class ServiceLevelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @return ServiceLevelDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -669,8 +680,8 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ServiceLevelDtoIReadOnlyListEnvelope getAllServiceLevelsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ServiceLevelDtoIReadOnlyListEnvelope> localVarResp = getAllServiceLevelsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ServiceLevelDtoIReadOnlyListEnvelope getAllServiceLevelsAsync(UUID tenantId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ServiceLevelDtoIReadOnlyListEnvelope> localVarResp = getAllServiceLevelsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -680,6 +691,7 @@ public class ServiceLevelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ServiceLevelDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -690,8 +702,8 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ServiceLevelDtoIReadOnlyListEnvelope> getAllServiceLevelsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAllServiceLevelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ServiceLevelDtoIReadOnlyListEnvelope> getAllServiceLevelsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAllServiceLevelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ServiceLevelDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -702,6 +714,7 @@ public class ServiceLevelsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -713,9 +726,9 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllServiceLevelsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ServiceLevelDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAllServiceLevelsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback<ServiceLevelDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAllServiceLevelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAllServiceLevelsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ServiceLevelDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -897,6 +910,7 @@ public class ServiceLevelsApi {
      * @param serviceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -908,7 +922,7 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServiceLevelsAsyncCall(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getServiceLevelsAsyncCall(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -922,7 +936,7 @@ public class ServiceLevelsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = serviceLevelDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ServicesService/Services/{serviceId}/ServiceLevels"
@@ -956,6 +970,8 @@ public class ServiceLevelsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -967,7 +983,7 @@ public class ServiceLevelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getServiceLevelsAsyncValidateBeforeCall(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getServiceLevelsAsyncValidateBeforeCall(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getServiceLevelsAsync(Async)");
@@ -978,7 +994,7 @@ public class ServiceLevelsApi {
             throw new ApiException("Missing the required parameter 'serviceId' when calling getServiceLevelsAsync(Async)");
         }
 
-        return getServiceLevelsAsyncCall(tenantId, serviceId, apiVersion, xApiVersion, _callback);
+        return getServiceLevelsAsyncCall(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -989,6 +1005,7 @@ public class ServiceLevelsApi {
      * @param serviceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @return ServiceLevelDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -999,8 +1016,8 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ServiceLevelDtoIReadOnlyListEnvelope getServiceLevelsAsync(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ServiceLevelDtoIReadOnlyListEnvelope> localVarResp = getServiceLevelsAsyncWithHttpInfo(tenantId, serviceId, apiVersion, xApiVersion);
+    public ServiceLevelDtoIReadOnlyListEnvelope getServiceLevelsAsync(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ServiceLevelDtoIReadOnlyListEnvelope> localVarResp = getServiceLevelsAsyncWithHttpInfo(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1011,6 +1028,7 @@ public class ServiceLevelsApi {
      * @param serviceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ServiceLevelDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1021,8 +1039,8 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ServiceLevelDtoIReadOnlyListEnvelope> getServiceLevelsAsyncWithHttpInfo(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getServiceLevelsAsyncValidateBeforeCall(tenantId, serviceId, apiVersion, xApiVersion, null);
+    public ApiResponse<ServiceLevelDtoIReadOnlyListEnvelope> getServiceLevelsAsyncWithHttpInfo(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getServiceLevelsAsyncValidateBeforeCall(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ServiceLevelDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1034,6 +1052,7 @@ public class ServiceLevelsApi {
      * @param serviceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1045,9 +1064,9 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServiceLevelsAsyncAsync(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, final ApiCallback<ServiceLevelDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getServiceLevelsAsyncAsync(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback<ServiceLevelDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getServiceLevelsAsyncValidateBeforeCall(tenantId, serviceId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getServiceLevelsAsyncValidateBeforeCall(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ServiceLevelDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1058,6 +1077,7 @@ public class ServiceLevelsApi {
      * @param serviceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1069,7 +1089,7 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServiceLevelsCountAsyncCall(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getServiceLevelsCountAsyncCall(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1083,7 +1103,7 @@ public class ServiceLevelsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = serviceLevelDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ServicesService/Services/{serviceId}/ServiceLevels/Count"
@@ -1117,6 +1137,8 @@ public class ServiceLevelsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1128,7 +1150,7 @@ public class ServiceLevelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getServiceLevelsCountAsyncValidateBeforeCall(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getServiceLevelsCountAsyncValidateBeforeCall(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getServiceLevelsCountAsync(Async)");
@@ -1139,7 +1161,7 @@ public class ServiceLevelsApi {
             throw new ApiException("Missing the required parameter 'serviceId' when calling getServiceLevelsCountAsync(Async)");
         }
 
-        return getServiceLevelsCountAsyncCall(tenantId, serviceId, apiVersion, xApiVersion, _callback);
+        return getServiceLevelsCountAsyncCall(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1150,6 +1172,7 @@ public class ServiceLevelsApi {
      * @param serviceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1160,8 +1183,8 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getServiceLevelsCountAsync(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getServiceLevelsCountAsyncWithHttpInfo(tenantId, serviceId, apiVersion, xApiVersion);
+    public Int32Envelope getServiceLevelsCountAsync(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getServiceLevelsCountAsyncWithHttpInfo(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1172,6 +1195,7 @@ public class ServiceLevelsApi {
      * @param serviceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1182,8 +1206,8 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getServiceLevelsCountAsyncWithHttpInfo(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getServiceLevelsCountAsyncValidateBeforeCall(tenantId, serviceId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getServiceLevelsCountAsyncWithHttpInfo(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getServiceLevelsCountAsyncValidateBeforeCall(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1195,6 +1219,7 @@ public class ServiceLevelsApi {
      * @param serviceId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceLevelDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1206,9 +1231,9 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServiceLevelsCountAsyncAsync(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getServiceLevelsCountAsyncAsync(UUID tenantId, UUID serviceId, String apiVersion, String xApiVersion, ServiceLevelDtoCollectionQueryParameters serviceLevelDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getServiceLevelsCountAsyncValidateBeforeCall(tenantId, serviceId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getServiceLevelsCountAsyncValidateBeforeCall(tenantId, serviceId, apiVersion, xApiVersion, serviceLevelDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1220,7 +1245,7 @@ public class ServiceLevelsApi {
      * @param serviceLevelId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1232,7 +1257,7 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchServiceLevelAsyncCall(UUID tenantId, UUID serviceId, UUID serviceLevelId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchServiceLevelAsyncCall(UUID tenantId, UUID serviceId, UUID serviceLevelId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1246,7 +1271,7 @@ public class ServiceLevelsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ServicesService/Services/{serviceId}/ServiceLevels/{serviceLevelId}"
@@ -1294,7 +1319,7 @@ public class ServiceLevelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchServiceLevelAsyncValidateBeforeCall(UUID tenantId, UUID serviceId, UUID serviceLevelId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchServiceLevelAsyncValidateBeforeCall(UUID tenantId, UUID serviceId, UUID serviceLevelId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchServiceLevelAsync(Async)");
@@ -1310,7 +1335,7 @@ public class ServiceLevelsApi {
             throw new ApiException("Missing the required parameter 'serviceLevelId' when calling patchServiceLevelAsync(Async)");
         }
 
-        return patchServiceLevelAsyncCall(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, operation, _callback);
+        return patchServiceLevelAsyncCall(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1322,7 +1347,7 @@ public class ServiceLevelsApi {
      * @param serviceLevelId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1333,8 +1358,8 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Envelope patchServiceLevelAsync(UUID tenantId, UUID serviceId, UUID serviceLevelId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<Envelope> localVarResp = patchServiceLevelAsyncWithHttpInfo(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, operation);
+    public Envelope patchServiceLevelAsync(UUID tenantId, UUID serviceId, UUID serviceLevelId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<Envelope> localVarResp = patchServiceLevelAsyncWithHttpInfo(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1346,7 +1371,7 @@ public class ServiceLevelsApi {
      * @param serviceLevelId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1357,8 +1382,8 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Envelope> patchServiceLevelAsyncWithHttpInfo(UUID tenantId, UUID serviceId, UUID serviceLevelId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchServiceLevelAsyncValidateBeforeCall(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<Envelope> patchServiceLevelAsyncWithHttpInfo(UUID tenantId, UUID serviceId, UUID serviceLevelId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchServiceLevelAsyncValidateBeforeCall(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1371,7 +1396,7 @@ public class ServiceLevelsApi {
      * @param serviceLevelId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1383,9 +1408,9 @@ public class ServiceLevelsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchServiceLevelAsyncAsync(UUID tenantId, UUID serviceId, UUID serviceLevelId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Envelope> _callback) throws ApiException {
+    public okhttp3.Call patchServiceLevelAsyncAsync(UUID tenantId, UUID serviceId, UUID serviceLevelId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchServiceLevelAsyncValidateBeforeCall(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchServiceLevelAsyncValidateBeforeCall(tenantId, serviceId, serviceLevelId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

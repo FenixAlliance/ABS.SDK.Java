@@ -16,13 +16,14 @@ docs/InfoRequest.md
 docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
-docs/Operation.md
+docs/PatchOperation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
 docs/ResetPasswordRequest.md
 docs/SubscriptionCreateDto.md
 docs/SubscriptionDto.md
+docs/SubscriptionDtoCollectionQueryParameters.md
 docs/SubscriptionDtoEnvelope.md
 docs/SubscriptionDtoIReadOnlyListEnvelope.md
 docs/SubscriptionPlanCreateDto.md
@@ -75,13 +76,14 @@ src/main/java/org/openapitools/client/model/InfoRequest.java
 src/main/java/org/openapitools/client/model/InfoResponse.java
 src/main/java/org/openapitools/client/model/Int32Envelope.java
 src/main/java/org/openapitools/client/model/LoginRequest.java
-src/main/java/org/openapitools/client/model/Operation.java
+src/main/java/org/openapitools/client/model/PatchOperation.java
 src/main/java/org/openapitools/client/model/RefreshRequest.java
 src/main/java/org/openapitools/client/model/RegisterRequest.java
 src/main/java/org/openapitools/client/model/ResendConfirmationEmailRequest.java
 src/main/java/org/openapitools/client/model/ResetPasswordRequest.java
 src/main/java/org/openapitools/client/model/SubscriptionCreateDto.java
 src/main/java/org/openapitools/client/model/SubscriptionDto.java
+src/main/java/org/openapitools/client/model/SubscriptionDtoCollectionQueryParameters.java
 src/main/java/org/openapitools/client/model/SubscriptionDtoEnvelope.java
 src/main/java/org/openapitools/client/model/SubscriptionDtoIReadOnlyListEnvelope.java
 src/main/java/org/openapitools/client/model/SubscriptionPlanCreateDto.java
@@ -92,3 +94,5 @@ src/main/java/org/openapitools/client/model/SubscriptionPlanUpdateDto.java
 src/main/java/org/openapitools/client/model/SubscriptionUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
+src/test/java/org/openapitools/client/model/PatchOperationTest.java
+src/test/java/org/openapitools/client/model/SubscriptionDtoCollectionQueryParametersTest.java

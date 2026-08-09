@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countWebTemplatesAsync"></a>
 # **countWebTemplatesAsync**
-> Int32Envelope countWebTemplatesAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countWebTemplatesAsync(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters)
 
 Count web templates
 
@@ -39,8 +39,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters = new WebTemplateDtoCollectionQueryParameters(); // WebTemplateDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countWebTemplatesAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countWebTemplatesAsync(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebTemplatesApi#countWebTemplatesAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webTemplateDtoCollectionQueryParameters** | [**WebTemplateDtoCollectionQueryParameters**](WebTemplateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -291,7 +293,7 @@ No authorization required
 
 <a id="getWebTemplatesAsync"></a>
 # **getWebTemplatesAsync**
-> WebTemplateDtoListEnvelope getWebTemplatesAsync(tenantId, apiVersion, xApiVersion)
+> WebTemplateDtoListEnvelope getWebTemplatesAsync(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters)
 
 Get web templates
 
@@ -315,8 +317,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters = new WebTemplateDtoCollectionQueryParameters(); // WebTemplateDtoCollectionQueryParameters | 
     try {
-      WebTemplateDtoListEnvelope result = apiInstance.getWebTemplatesAsync(tenantId, apiVersion, xApiVersion);
+      WebTemplateDtoListEnvelope result = apiInstance.getWebTemplatesAsync(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebTemplatesApi#getWebTemplatesAsync");
@@ -336,6 +339,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webTemplateDtoCollectionQueryParameters** | [**WebTemplateDtoCollectionQueryParameters**](WebTemplateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -347,7 +351,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -359,7 +363,7 @@ No authorization required
 
 <a id="patchWebTemplateAsync"></a>
 # **patchWebTemplateAsync**
-> patchWebTemplateAsync(tenantId, webTemplateId, apiVersion, xApiVersion, operation)
+> patchWebTemplateAsync(tenantId, webTemplateId, apiVersion, xApiVersion, patchOperation)
 
 Patch a web template
 
@@ -384,9 +388,9 @@ public class Example {
     UUID webTemplateId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchWebTemplateAsync(tenantId, webTemplateId, apiVersion, xApiVersion, operation);
+      apiInstance.patchWebTemplateAsync(tenantId, webTemplateId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebTemplatesApi#patchWebTemplateAsync");
       System.err.println("Status code: " + e.getCode());
@@ -406,7 +410,7 @@ public class Example {
 | **webTemplateId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

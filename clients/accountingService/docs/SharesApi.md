@@ -668,7 +668,7 @@ No authorization required
 
 <a id="getShareClasses"></a>
 # **getShareClasses**
-> ShareClassDtoListEnvelope getShareClasses(tenantId, apiVersion, xApiVersion)
+> ShareClassDtoListEnvelope getShareClasses(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters)
 
 Gets the current tenant share classes
 
@@ -692,8 +692,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters = new ShareClassDtoCollectionQueryParameters(); // ShareClassDtoCollectionQueryParameters | 
     try {
-      ShareClassDtoListEnvelope result = apiInstance.getShareClasses(tenantId, apiVersion, xApiVersion);
+      ShareClassDtoListEnvelope result = apiInstance.getShareClasses(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#getShareClasses");
@@ -713,6 +714,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shareClassDtoCollectionQueryParameters** | [**ShareClassDtoCollectionQueryParameters**](ShareClassDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -724,7 +726,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -736,7 +738,7 @@ No authorization required
 
 <a id="getShareClassesCount"></a>
 # **getShareClassesCount**
-> Int32Envelope getShareClassesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShareClassesCount(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters)
 
 Gets the current tenant share classes count
 
@@ -760,8 +762,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShareClassDtoCollectionQueryParameters shareClassDtoCollectionQueryParameters = new ShareClassDtoCollectionQueryParameters(); // ShareClassDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getShareClassesCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getShareClassesCount(tenantId, apiVersion, xApiVersion, shareClassDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#getShareClassesCount");
@@ -781,6 +784,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shareClassDtoCollectionQueryParameters** | [**ShareClassDtoCollectionQueryParameters**](ShareClassDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -792,7 +796,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -875,7 +879,7 @@ No authorization required
 
 <a id="getShareIssuances"></a>
 # **getShareIssuances**
-> ShareIssuanceDtoListEnvelope getShareIssuances(tenantId, apiVersion, xApiVersion)
+> ShareIssuanceDtoListEnvelope getShareIssuances(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters)
 
 Gets the current tenant share issuances
 
@@ -899,8 +903,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters = new ShareIssuanceDtoCollectionQueryParameters(); // ShareIssuanceDtoCollectionQueryParameters | 
     try {
-      ShareIssuanceDtoListEnvelope result = apiInstance.getShareIssuances(tenantId, apiVersion, xApiVersion);
+      ShareIssuanceDtoListEnvelope result = apiInstance.getShareIssuances(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#getShareIssuances");
@@ -920,6 +925,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shareIssuanceDtoCollectionQueryParameters** | [**ShareIssuanceDtoCollectionQueryParameters**](ShareIssuanceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -931,7 +937,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -943,7 +949,7 @@ No authorization required
 
 <a id="getShareIssuancesCount"></a>
 # **getShareIssuancesCount**
-> Int32Envelope getShareIssuancesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShareIssuancesCount(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters)
 
 Gets the current tenant share issuances count
 
@@ -967,8 +973,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters = new ShareIssuanceDtoCollectionQueryParameters(); // ShareIssuanceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getShareIssuancesCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getShareIssuancesCount(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#getShareIssuancesCount");
@@ -988,6 +995,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shareIssuanceDtoCollectionQueryParameters** | [**ShareIssuanceDtoCollectionQueryParameters**](ShareIssuanceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -999,7 +1007,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1011,7 +1019,7 @@ No authorization required
 
 <a id="getShareIssuancesSum"></a>
 # **getShareIssuancesSum**
-> DecimalEnvelope getShareIssuancesSum(tenantId, apiVersion, xApiVersion)
+> DecimalEnvelope getShareIssuancesSum(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters)
 
 Sum tenant share issuance quantities
 
@@ -1035,8 +1043,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShareIssuanceDtoCollectionQueryParameters shareIssuanceDtoCollectionQueryParameters = new ShareIssuanceDtoCollectionQueryParameters(); // ShareIssuanceDtoCollectionQueryParameters | 
     try {
-      DecimalEnvelope result = apiInstance.getShareIssuancesSum(tenantId, apiVersion, xApiVersion);
+      DecimalEnvelope result = apiInstance.getShareIssuancesSum(tenantId, apiVersion, xApiVersion, shareIssuanceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#getShareIssuancesSum");
@@ -1056,6 +1065,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shareIssuanceDtoCollectionQueryParameters** | [**ShareIssuanceDtoCollectionQueryParameters**](ShareIssuanceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1067,7 +1077,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1221,7 +1231,7 @@ No authorization required
 
 <a id="getShareTransferReasons"></a>
 # **getShareTransferReasons**
-> ShareTransferReasonDtoListEnvelope getShareTransferReasons(tenantId, apiVersion, xApiVersion)
+> ShareTransferReasonDtoListEnvelope getShareTransferReasons(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters)
 
 Gets the current tenant share transfer reasons
 
@@ -1245,8 +1255,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters = new ShareTransferReasonDtoCollectionQueryParameters(); // ShareTransferReasonDtoCollectionQueryParameters | 
     try {
-      ShareTransferReasonDtoListEnvelope result = apiInstance.getShareTransferReasons(tenantId, apiVersion, xApiVersion);
+      ShareTransferReasonDtoListEnvelope result = apiInstance.getShareTransferReasons(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#getShareTransferReasons");
@@ -1266,6 +1277,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shareTransferReasonDtoCollectionQueryParameters** | [**ShareTransferReasonDtoCollectionQueryParameters**](ShareTransferReasonDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1277,7 +1289,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1289,7 +1301,7 @@ No authorization required
 
 <a id="getShareTransferReasonsCount"></a>
 # **getShareTransferReasonsCount**
-> Int32Envelope getShareTransferReasonsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShareTransferReasonsCount(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters)
 
 Gets the current tenant share transfer reasons count
 
@@ -1313,8 +1325,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShareTransferReasonDtoCollectionQueryParameters shareTransferReasonDtoCollectionQueryParameters = new ShareTransferReasonDtoCollectionQueryParameters(); // ShareTransferReasonDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getShareTransferReasonsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getShareTransferReasonsCount(tenantId, apiVersion, xApiVersion, shareTransferReasonDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#getShareTransferReasonsCount");
@@ -1334,6 +1347,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shareTransferReasonDtoCollectionQueryParameters** | [**ShareTransferReasonDtoCollectionQueryParameters**](ShareTransferReasonDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1345,7 +1359,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1357,7 +1371,7 @@ No authorization required
 
 <a id="getShareTransfers"></a>
 # **getShareTransfers**
-> ShareTransferDtoListEnvelope getShareTransfers(tenantId, apiVersion, xApiVersion)
+> ShareTransferDtoListEnvelope getShareTransfers(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters)
 
 Gets the current tenant share transfers
 
@@ -1381,8 +1395,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters = new ShareTransferDtoCollectionQueryParameters(); // ShareTransferDtoCollectionQueryParameters | 
     try {
-      ShareTransferDtoListEnvelope result = apiInstance.getShareTransfers(tenantId, apiVersion, xApiVersion);
+      ShareTransferDtoListEnvelope result = apiInstance.getShareTransfers(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#getShareTransfers");
@@ -1402,6 +1417,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shareTransferDtoCollectionQueryParameters** | [**ShareTransferDtoCollectionQueryParameters**](ShareTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1413,7 +1429,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1425,7 +1441,7 @@ No authorization required
 
 <a id="getShareTransfersCount"></a>
 # **getShareTransfersCount**
-> Int32Envelope getShareTransfersCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShareTransfersCount(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters)
 
 Gets the current tenant share transfers count
 
@@ -1449,8 +1465,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShareTransferDtoCollectionQueryParameters shareTransferDtoCollectionQueryParameters = new ShareTransferDtoCollectionQueryParameters(); // ShareTransferDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getShareTransfersCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getShareTransfersCount(tenantId, apiVersion, xApiVersion, shareTransferDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#getShareTransfersCount");
@@ -1470,6 +1487,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shareTransferDtoCollectionQueryParameters** | [**ShareTransferDtoCollectionQueryParameters**](ShareTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1481,7 +1499,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1493,7 +1511,7 @@ No authorization required
 
 <a id="patchShareClass"></a>
 # **patchShareClass**
-> EmptyEnvelope patchShareClass(tenantId, shareClassId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShareClass(tenantId, shareClassId, apiVersion, xApiVersion, patchOperation)
 
 Patches a share class
 
@@ -1518,9 +1536,9 @@ public class Example {
     UUID shareClassId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchShareClass(tenantId, shareClassId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchShareClass(tenantId, shareClassId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#patchShareClass");
@@ -1541,7 +1559,7 @@ public class Example {
 | **shareClassId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1565,7 +1583,7 @@ No authorization required
 
 <a id="patchShareIssuance"></a>
 # **patchShareIssuance**
-> EmptyEnvelope patchShareIssuance(tenantId, issuanceId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShareIssuance(tenantId, issuanceId, apiVersion, xApiVersion, patchOperation)
 
 Patches a share issuance
 
@@ -1590,9 +1608,9 @@ public class Example {
     UUID issuanceId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchShareIssuance(tenantId, issuanceId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchShareIssuance(tenantId, issuanceId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#patchShareIssuance");
@@ -1613,7 +1631,7 @@ public class Example {
 | **issuanceId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1637,7 +1655,7 @@ No authorization required
 
 <a id="patchShareTransfer"></a>
 # **patchShareTransfer**
-> EmptyEnvelope patchShareTransfer(tenantId, transferId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShareTransfer(tenantId, transferId, apiVersion, xApiVersion, patchOperation)
 
 Patches a share transfer
 
@@ -1662,9 +1680,9 @@ public class Example {
     UUID transferId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchShareTransfer(tenantId, transferId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchShareTransfer(tenantId, transferId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#patchShareTransfer");
@@ -1685,7 +1703,7 @@ public class Example {
 | **transferId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1709,7 +1727,7 @@ No authorization required
 
 <a id="patchShareTransferReason"></a>
 # **patchShareTransferReason**
-> EmptyEnvelope patchShareTransferReason(tenantId, reasonId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShareTransferReason(tenantId, reasonId, apiVersion, xApiVersion, patchOperation)
 
 Patches a share transfer reason
 
@@ -1734,9 +1752,9 @@ public class Example {
     UUID reasonId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchShareTransferReason(tenantId, reasonId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchShareTransferReason(tenantId, reasonId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SharesApi#patchShareTransferReason");
@@ -1757,7 +1775,7 @@ public class Example {
 | **reasonId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

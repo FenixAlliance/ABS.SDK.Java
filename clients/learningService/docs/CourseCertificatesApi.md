@@ -700,7 +700,7 @@ No authorization required
 
 <a id="patchCourseCertificateAsync"></a>
 # **patchCourseCertificateAsync**
-> EmptyEnvelope patchCourseCertificateAsync(tenantId, courseCertificateId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseCertificateAsync(tenantId, courseCertificateId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course certificate
 
@@ -725,9 +725,9 @@ public class Example {
     UUID courseCertificateId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCourseCertificateAsync(tenantId, courseCertificateId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCourseCertificateAsync(tenantId, courseCertificateId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseCertificatesApi#patchCourseCertificateAsync");
@@ -748,7 +748,7 @@ public class Example {
 | **courseCertificateId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -771,7 +771,7 @@ No authorization required
 
 <a id="patchCourseCertificateTemplateAsync"></a>
 # **patchCourseCertificateTemplateAsync**
-> EmptyEnvelope patchCourseCertificateTemplateAsync(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseCertificateTemplateAsync(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, patchOperation)
 
 Patch a certificate template
 
@@ -796,9 +796,9 @@ public class Example {
     UUID courseCertificateTemplateId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCourseCertificateTemplateAsync(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCourseCertificateTemplateAsync(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseCertificatesApi#patchCourseCertificateTemplateAsync");
@@ -819,7 +819,7 @@ public class Example {
 | **courseCertificateTemplateId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

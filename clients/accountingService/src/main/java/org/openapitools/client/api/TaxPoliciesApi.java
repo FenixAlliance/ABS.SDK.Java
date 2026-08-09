@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AppliedTaxPolicyRecordCreateDto;
+import org.openapitools.client.model.AppliedTaxPolicyRecordDtoCollectionQueryParameters;
 import org.openapitools.client.model.AppliedTaxPolicyRecordDtoEnvelope;
 import org.openapitools.client.model.AppliedTaxPolicyRecordDtoListEnvelope;
 import org.openapitools.client.model.AppliedTaxPolicyRecordUpdateDto;
@@ -35,11 +36,13 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.ItemTaxPolicyRecordCreateDto;
+import org.openapitools.client.model.ItemTaxPolicyRecordDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemTaxPolicyRecordDtoEnvelope;
 import org.openapitools.client.model.ItemTaxPolicyRecordDtoListEnvelope;
 import org.openapitools.client.model.ItemTaxPolicyRecordUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TaxPolicyCreateDto;
+import org.openapitools.client.model.TaxPolicyDtoCollectionQueryParameters;
 import org.openapitools.client.model.TaxPolicyDtoEnvelope;
 import org.openapitools.client.model.TaxPolicyDtoListEnvelope;
 import org.openapitools.client.model.TaxPolicyUpdateDto;
@@ -1259,6 +1262,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1270,7 +1274,7 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAppliedTaxPolicyRecordsCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAppliedTaxPolicyRecordsCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1284,7 +1288,7 @@ public class TaxPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = appliedTaxPolicyRecordDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/TaxPolicies/{taxPolicyId}/AppliedTaxPolicyRecords"
@@ -1318,6 +1322,8 @@ public class TaxPoliciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1329,7 +1335,7 @@ public class TaxPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAppliedTaxPolicyRecordsValidateBeforeCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAppliedTaxPolicyRecordsValidateBeforeCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAppliedTaxPolicyRecords(Async)");
@@ -1340,7 +1346,7 @@ public class TaxPoliciesApi {
             throw new ApiException("Missing the required parameter 'taxPolicyId' when calling getAppliedTaxPolicyRecords(Async)");
         }
 
-        return getAppliedTaxPolicyRecordsCall(tenantId, taxPolicyId, apiVersion, xApiVersion, _callback);
+        return getAppliedTaxPolicyRecordsCall(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1351,6 +1357,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return AppliedTaxPolicyRecordDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1361,8 +1368,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AppliedTaxPolicyRecordDtoListEnvelope getAppliedTaxPolicyRecords(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<AppliedTaxPolicyRecordDtoListEnvelope> localVarResp = getAppliedTaxPolicyRecordsWithHttpInfo(tenantId, taxPolicyId, apiVersion, xApiVersion);
+    public AppliedTaxPolicyRecordDtoListEnvelope getAppliedTaxPolicyRecords(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<AppliedTaxPolicyRecordDtoListEnvelope> localVarResp = getAppliedTaxPolicyRecordsWithHttpInfo(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1373,6 +1380,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;AppliedTaxPolicyRecordDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1383,8 +1391,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AppliedTaxPolicyRecordDtoListEnvelope> getAppliedTaxPolicyRecordsWithHttpInfo(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAppliedTaxPolicyRecordsValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, null);
+    public ApiResponse<AppliedTaxPolicyRecordDtoListEnvelope> getAppliedTaxPolicyRecordsWithHttpInfo(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAppliedTaxPolicyRecordsValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<AppliedTaxPolicyRecordDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1396,6 +1404,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1407,9 +1416,9 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAppliedTaxPolicyRecordsAsync(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, final ApiCallback<AppliedTaxPolicyRecordDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAppliedTaxPolicyRecordsAsync(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters, final ApiCallback<AppliedTaxPolicyRecordDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAppliedTaxPolicyRecordsValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAppliedTaxPolicyRecordsValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<AppliedTaxPolicyRecordDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1420,6 +1429,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1431,7 +1441,7 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAppliedTaxPolicyRecordsCountCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAppliedTaxPolicyRecordsCountCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1445,7 +1455,7 @@ public class TaxPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = appliedTaxPolicyRecordDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/TaxPolicies/{taxPolicyId}/AppliedTaxPolicyRecords/Count"
@@ -1479,6 +1489,8 @@ public class TaxPoliciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1490,7 +1502,7 @@ public class TaxPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAppliedTaxPolicyRecordsCountValidateBeforeCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAppliedTaxPolicyRecordsCountValidateBeforeCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAppliedTaxPolicyRecordsCount(Async)");
@@ -1501,7 +1513,7 @@ public class TaxPoliciesApi {
             throw new ApiException("Missing the required parameter 'taxPolicyId' when calling getAppliedTaxPolicyRecordsCount(Async)");
         }
 
-        return getAppliedTaxPolicyRecordsCountCall(tenantId, taxPolicyId, apiVersion, xApiVersion, _callback);
+        return getAppliedTaxPolicyRecordsCountCall(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1512,6 +1524,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1522,8 +1535,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getAppliedTaxPolicyRecordsCount(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getAppliedTaxPolicyRecordsCountWithHttpInfo(tenantId, taxPolicyId, apiVersion, xApiVersion);
+    public Int32Envelope getAppliedTaxPolicyRecordsCount(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getAppliedTaxPolicyRecordsCountWithHttpInfo(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1534,6 +1547,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1544,8 +1558,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getAppliedTaxPolicyRecordsCountWithHttpInfo(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAppliedTaxPolicyRecordsCountValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getAppliedTaxPolicyRecordsCountWithHttpInfo(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAppliedTaxPolicyRecordsCountValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1557,6 +1571,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param appliedTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1568,9 +1583,9 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAppliedTaxPolicyRecordsCountAsync(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getAppliedTaxPolicyRecordsCountAsync(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAppliedTaxPolicyRecordsCountValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAppliedTaxPolicyRecordsCountValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1752,6 +1767,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1763,7 +1779,7 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemTaxPolicyRecordsCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemTaxPolicyRecordsCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, ItemTaxPolicyRecordDtoCollectionQueryParameters itemTaxPolicyRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1777,7 +1793,7 @@ public class TaxPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemTaxPolicyRecordDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/TaxPolicies/{taxPolicyId}/ItemTaxPolicyRecords"
@@ -1811,6 +1827,8 @@ public class TaxPoliciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1822,7 +1840,7 @@ public class TaxPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemTaxPolicyRecordsValidateBeforeCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemTaxPolicyRecordsValidateBeforeCall(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, ItemTaxPolicyRecordDtoCollectionQueryParameters itemTaxPolicyRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemTaxPolicyRecords(Async)");
@@ -1833,7 +1851,7 @@ public class TaxPoliciesApi {
             throw new ApiException("Missing the required parameter 'taxPolicyId' when calling getItemTaxPolicyRecords(Async)");
         }
 
-        return getItemTaxPolicyRecordsCall(tenantId, taxPolicyId, apiVersion, xApiVersion, _callback);
+        return getItemTaxPolicyRecordsCall(tenantId, taxPolicyId, apiVersion, xApiVersion, itemTaxPolicyRecordDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1844,6 +1862,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return ItemTaxPolicyRecordDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1854,8 +1873,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemTaxPolicyRecordDtoListEnvelope getItemTaxPolicyRecords(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemTaxPolicyRecordDtoListEnvelope> localVarResp = getItemTaxPolicyRecordsWithHttpInfo(tenantId, taxPolicyId, apiVersion, xApiVersion);
+    public ItemTaxPolicyRecordDtoListEnvelope getItemTaxPolicyRecords(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, ItemTaxPolicyRecordDtoCollectionQueryParameters itemTaxPolicyRecordDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemTaxPolicyRecordDtoListEnvelope> localVarResp = getItemTaxPolicyRecordsWithHttpInfo(tenantId, taxPolicyId, apiVersion, xApiVersion, itemTaxPolicyRecordDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1866,6 +1885,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemTaxPolicyRecordDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1876,8 +1896,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemTaxPolicyRecordDtoListEnvelope> getItemTaxPolicyRecordsWithHttpInfo(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemTaxPolicyRecordsValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemTaxPolicyRecordDtoListEnvelope> getItemTaxPolicyRecordsWithHttpInfo(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, ItemTaxPolicyRecordDtoCollectionQueryParameters itemTaxPolicyRecordDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemTaxPolicyRecordsValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, itemTaxPolicyRecordDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemTaxPolicyRecordDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1889,6 +1909,7 @@ public class TaxPoliciesApi {
      * @param taxPolicyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTaxPolicyRecordDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1900,9 +1921,9 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemTaxPolicyRecordsAsync(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, final ApiCallback<ItemTaxPolicyRecordDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemTaxPolicyRecordsAsync(UUID tenantId, UUID taxPolicyId, String apiVersion, String xApiVersion, ItemTaxPolicyRecordDtoCollectionQueryParameters itemTaxPolicyRecordDtoCollectionQueryParameters, final ApiCallback<ItemTaxPolicyRecordDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemTaxPolicyRecordsValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemTaxPolicyRecordsValidateBeforeCall(tenantId, taxPolicyId, apiVersion, xApiVersion, itemTaxPolicyRecordDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemTaxPolicyRecordDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1912,6 +1933,7 @@ public class TaxPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1923,7 +1945,7 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTaxPoliciesCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTaxPoliciesCall(UUID tenantId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1937,7 +1959,7 @@ public class TaxPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = taxPolicyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/TaxPolicies";
@@ -1970,6 +1992,8 @@ public class TaxPoliciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1981,13 +2005,13 @@ public class TaxPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTaxPoliciesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTaxPoliciesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTaxPolicies(Async)");
         }
 
-        return getTaxPoliciesCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTaxPoliciesCall(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1997,6 +2021,7 @@ public class TaxPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return TaxPolicyDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2007,8 +2032,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TaxPolicyDtoListEnvelope getTaxPolicies(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TaxPolicyDtoListEnvelope> localVarResp = getTaxPoliciesWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TaxPolicyDtoListEnvelope getTaxPolicies(UUID tenantId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TaxPolicyDtoListEnvelope> localVarResp = getTaxPoliciesWithHttpInfo(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2018,6 +2043,7 @@ public class TaxPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TaxPolicyDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2028,8 +2054,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TaxPolicyDtoListEnvelope> getTaxPoliciesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTaxPoliciesValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TaxPolicyDtoListEnvelope> getTaxPoliciesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTaxPoliciesValidateBeforeCall(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TaxPolicyDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2040,6 +2066,7 @@ public class TaxPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2051,9 +2078,9 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTaxPoliciesAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TaxPolicyDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTaxPoliciesAsync(UUID tenantId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters, final ApiCallback<TaxPolicyDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTaxPoliciesValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTaxPoliciesValidateBeforeCall(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TaxPolicyDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2064,6 +2091,7 @@ public class TaxPoliciesApi {
      * @param authorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2075,7 +2103,7 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTaxPoliciesByAuthorityCall(UUID tenantId, UUID authorityId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTaxPoliciesByAuthorityCall(UUID tenantId, UUID authorityId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2089,7 +2117,7 @@ public class TaxPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = taxPolicyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/TaxPolicies/ByAuthority/{authorityId}"
@@ -2123,6 +2151,8 @@ public class TaxPoliciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2134,7 +2164,7 @@ public class TaxPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTaxPoliciesByAuthorityValidateBeforeCall(UUID tenantId, UUID authorityId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTaxPoliciesByAuthorityValidateBeforeCall(UUID tenantId, UUID authorityId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTaxPoliciesByAuthority(Async)");
@@ -2145,7 +2175,7 @@ public class TaxPoliciesApi {
             throw new ApiException("Missing the required parameter 'authorityId' when calling getTaxPoliciesByAuthority(Async)");
         }
 
-        return getTaxPoliciesByAuthorityCall(tenantId, authorityId, apiVersion, xApiVersion, _callback);
+        return getTaxPoliciesByAuthorityCall(tenantId, authorityId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2156,6 +2186,7 @@ public class TaxPoliciesApi {
      * @param authorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return TaxPolicyDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2166,8 +2197,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TaxPolicyDtoListEnvelope getTaxPoliciesByAuthority(UUID tenantId, UUID authorityId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TaxPolicyDtoListEnvelope> localVarResp = getTaxPoliciesByAuthorityWithHttpInfo(tenantId, authorityId, apiVersion, xApiVersion);
+    public TaxPolicyDtoListEnvelope getTaxPoliciesByAuthority(UUID tenantId, UUID authorityId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TaxPolicyDtoListEnvelope> localVarResp = getTaxPoliciesByAuthorityWithHttpInfo(tenantId, authorityId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2178,6 +2209,7 @@ public class TaxPoliciesApi {
      * @param authorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TaxPolicyDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2188,8 +2220,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TaxPolicyDtoListEnvelope> getTaxPoliciesByAuthorityWithHttpInfo(UUID tenantId, UUID authorityId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTaxPoliciesByAuthorityValidateBeforeCall(tenantId, authorityId, apiVersion, xApiVersion, null);
+    public ApiResponse<TaxPolicyDtoListEnvelope> getTaxPoliciesByAuthorityWithHttpInfo(UUID tenantId, UUID authorityId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTaxPoliciesByAuthorityValidateBeforeCall(tenantId, authorityId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TaxPolicyDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2201,6 +2233,7 @@ public class TaxPoliciesApi {
      * @param authorityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2212,9 +2245,9 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTaxPoliciesByAuthorityAsync(UUID tenantId, UUID authorityId, String apiVersion, String xApiVersion, final ApiCallback<TaxPolicyDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTaxPoliciesByAuthorityAsync(UUID tenantId, UUID authorityId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters, final ApiCallback<TaxPolicyDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTaxPoliciesByAuthorityValidateBeforeCall(tenantId, authorityId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTaxPoliciesByAuthorityValidateBeforeCall(tenantId, authorityId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TaxPolicyDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2224,6 +2257,7 @@ public class TaxPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2235,7 +2269,7 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTaxPoliciesCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTaxPoliciesCountCall(UUID tenantId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2249,7 +2283,7 @@ public class TaxPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = taxPolicyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/TaxPolicies/Count";
@@ -2282,6 +2316,8 @@ public class TaxPoliciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2293,13 +2329,13 @@ public class TaxPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTaxPoliciesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTaxPoliciesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTaxPoliciesCount(Async)");
         }
 
-        return getTaxPoliciesCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTaxPoliciesCountCall(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2309,6 +2345,7 @@ public class TaxPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2319,8 +2356,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTaxPoliciesCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTaxPoliciesCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTaxPoliciesCount(UUID tenantId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTaxPoliciesCountWithHttpInfo(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2330,6 +2367,7 @@ public class TaxPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2340,8 +2378,8 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTaxPoliciesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTaxPoliciesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTaxPoliciesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTaxPoliciesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2352,6 +2390,7 @@ public class TaxPoliciesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param taxPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2363,9 +2402,9 @@ public class TaxPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTaxPoliciesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTaxPoliciesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTaxPoliciesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTaxPoliciesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2538,7 +2577,7 @@ public class TaxPoliciesApi {
      * @param appliedTaxPolicyRecordId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2550,7 +2589,7 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAppliedTaxPolicyRecordCall(UUID tenantId, UUID taxPolicyId, UUID appliedTaxPolicyRecordId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchAppliedTaxPolicyRecordCall(UUID tenantId, UUID taxPolicyId, UUID appliedTaxPolicyRecordId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2564,7 +2603,7 @@ public class TaxPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/TaxPolicies/{taxPolicyId}/AppliedTaxPolicyRecords/{appliedTaxPolicyRecordId}"
@@ -2612,7 +2651,7 @@ public class TaxPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchAppliedTaxPolicyRecordValidateBeforeCall(UUID tenantId, UUID taxPolicyId, UUID appliedTaxPolicyRecordId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchAppliedTaxPolicyRecordValidateBeforeCall(UUID tenantId, UUID taxPolicyId, UUID appliedTaxPolicyRecordId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchAppliedTaxPolicyRecord(Async)");
@@ -2628,7 +2667,7 @@ public class TaxPoliciesApi {
             throw new ApiException("Missing the required parameter 'appliedTaxPolicyRecordId' when calling patchAppliedTaxPolicyRecord(Async)");
         }
 
-        return patchAppliedTaxPolicyRecordCall(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, operation, _callback);
+        return patchAppliedTaxPolicyRecordCall(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2640,7 +2679,7 @@ public class TaxPoliciesApi {
      * @param appliedTaxPolicyRecordId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2651,8 +2690,8 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchAppliedTaxPolicyRecord(UUID tenantId, UUID taxPolicyId, UUID appliedTaxPolicyRecordId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchAppliedTaxPolicyRecordWithHttpInfo(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchAppliedTaxPolicyRecord(UUID tenantId, UUID taxPolicyId, UUID appliedTaxPolicyRecordId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchAppliedTaxPolicyRecordWithHttpInfo(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2664,7 +2703,7 @@ public class TaxPoliciesApi {
      * @param appliedTaxPolicyRecordId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2675,8 +2714,8 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchAppliedTaxPolicyRecordWithHttpInfo(UUID tenantId, UUID taxPolicyId, UUID appliedTaxPolicyRecordId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchAppliedTaxPolicyRecordValidateBeforeCall(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchAppliedTaxPolicyRecordWithHttpInfo(UUID tenantId, UUID taxPolicyId, UUID appliedTaxPolicyRecordId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchAppliedTaxPolicyRecordValidateBeforeCall(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2689,7 +2728,7 @@ public class TaxPoliciesApi {
      * @param appliedTaxPolicyRecordId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2701,9 +2740,9 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAppliedTaxPolicyRecordAsync(UUID tenantId, UUID taxPolicyId, UUID appliedTaxPolicyRecordId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchAppliedTaxPolicyRecordAsync(UUID tenantId, UUID taxPolicyId, UUID appliedTaxPolicyRecordId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchAppliedTaxPolicyRecordValidateBeforeCall(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchAppliedTaxPolicyRecordValidateBeforeCall(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2715,7 +2754,7 @@ public class TaxPoliciesApi {
      * @param itemTaxPolicyRecordId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2727,7 +2766,7 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemTaxPolicyRecordCall(UUID tenantId, UUID taxPolicyId, UUID itemTaxPolicyRecordId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemTaxPolicyRecordCall(UUID tenantId, UUID taxPolicyId, UUID itemTaxPolicyRecordId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2741,7 +2780,7 @@ public class TaxPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/TaxPolicies/{taxPolicyId}/ItemTaxPolicyRecords/{itemTaxPolicyRecordId}"
@@ -2789,7 +2828,7 @@ public class TaxPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemTaxPolicyRecordValidateBeforeCall(UUID tenantId, UUID taxPolicyId, UUID itemTaxPolicyRecordId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemTaxPolicyRecordValidateBeforeCall(UUID tenantId, UUID taxPolicyId, UUID itemTaxPolicyRecordId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemTaxPolicyRecord(Async)");
@@ -2805,7 +2844,7 @@ public class TaxPoliciesApi {
             throw new ApiException("Missing the required parameter 'itemTaxPolicyRecordId' when calling patchItemTaxPolicyRecord(Async)");
         }
 
-        return patchItemTaxPolicyRecordCall(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemTaxPolicyRecordCall(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2817,7 +2856,7 @@ public class TaxPoliciesApi {
      * @param itemTaxPolicyRecordId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2828,8 +2867,8 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchItemTaxPolicyRecord(UUID tenantId, UUID taxPolicyId, UUID itemTaxPolicyRecordId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchItemTaxPolicyRecordWithHttpInfo(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchItemTaxPolicyRecord(UUID tenantId, UUID taxPolicyId, UUID itemTaxPolicyRecordId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchItemTaxPolicyRecordWithHttpInfo(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2841,7 +2880,7 @@ public class TaxPoliciesApi {
      * @param itemTaxPolicyRecordId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2852,8 +2891,8 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchItemTaxPolicyRecordWithHttpInfo(UUID tenantId, UUID taxPolicyId, UUID itemTaxPolicyRecordId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemTaxPolicyRecordValidateBeforeCall(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchItemTaxPolicyRecordWithHttpInfo(UUID tenantId, UUID taxPolicyId, UUID itemTaxPolicyRecordId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemTaxPolicyRecordValidateBeforeCall(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2866,7 +2905,7 @@ public class TaxPoliciesApi {
      * @param itemTaxPolicyRecordId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2878,9 +2917,9 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemTaxPolicyRecordAsync(UUID tenantId, UUID taxPolicyId, UUID itemTaxPolicyRecordId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchItemTaxPolicyRecordAsync(UUID tenantId, UUID taxPolicyId, UUID itemTaxPolicyRecordId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemTaxPolicyRecordValidateBeforeCall(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemTaxPolicyRecordValidateBeforeCall(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2891,7 +2930,7 @@ public class TaxPoliciesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2903,7 +2942,7 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTaxPolicyCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTaxPolicyCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2917,7 +2956,7 @@ public class TaxPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/TaxPolicies/{id}"
@@ -2964,7 +3003,7 @@ public class TaxPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTaxPolicyValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTaxPolicyValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTaxPolicy(Async)");
@@ -2975,7 +3014,7 @@ public class TaxPoliciesApi {
             throw new ApiException("Missing the required parameter 'id' when calling patchTaxPolicy(Async)");
         }
 
-        return patchTaxPolicyCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        return patchTaxPolicyCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2986,7 +3025,7 @@ public class TaxPoliciesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2997,8 +3036,8 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTaxPolicy(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTaxPolicyWithHttpInfo(tenantId, id, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTaxPolicy(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTaxPolicyWithHttpInfo(tenantId, id, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -3009,7 +3048,7 @@ public class TaxPoliciesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3020,8 +3059,8 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTaxPolicyWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTaxPolicyValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTaxPolicyWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTaxPolicyValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3033,7 +3072,7 @@ public class TaxPoliciesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3045,9 +3084,9 @@ public class TaxPoliciesApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTaxPolicyAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTaxPolicyAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTaxPolicyValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTaxPolicyValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

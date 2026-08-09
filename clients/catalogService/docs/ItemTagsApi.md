@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getItemTagsAsync"></a>
 # **getItemTagsAsync**
-> ItemTagDtoListEnvelope getItemTagsAsync(tenantId, apiVersion, xApiVersion)
+> ItemTagDtoListEnvelope getItemTagsAsync(tenantId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters)
 
 Get all item tags
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemTagDtoCollectionQueryParameters itemTagDtoCollectionQueryParameters = new ItemTagDtoCollectionQueryParameters(); // ItemTagDtoCollectionQueryParameters | 
     try {
-      ItemTagDtoListEnvelope result = apiInstance.getItemTagsAsync(tenantId, apiVersion, xApiVersion);
+      ItemTagDtoListEnvelope result = apiInstance.getItemTagsAsync(tenantId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTagsApi#getItemTagsAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemTagDtoCollectionQueryParameters** | [**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -291,7 +293,7 @@ No authorization required
 
 <a id="patchItemTagAsync"></a>
 # **patchItemTagAsync**
-> patchItemTagAsync(tenantId, itemTagId, apiVersion, xApiVersion, operation)
+> patchItemTagAsync(tenantId, itemTagId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item tag
 
@@ -316,9 +318,9 @@ public class Example {
     UUID itemTagId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchItemTagAsync(tenantId, itemTagId, apiVersion, xApiVersion, operation);
+      apiInstance.patchItemTagAsync(tenantId, itemTagId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTagsApi#patchItemTagAsync");
       System.err.println("Status code: " + e.getCode());
@@ -338,7 +340,7 @@ public class Example {
 | **itemTagId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

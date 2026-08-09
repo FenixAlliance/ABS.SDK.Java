@@ -79,7 +79,7 @@ No authorization required
 
 <a id="getMerchants"></a>
 # **getMerchants**
-> MerchantDtoListEnvelope getMerchants(apiVersion, xApiVersion)
+> MerchantDtoListEnvelope getMerchants(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters)
 
 Get all merchants
 
@@ -102,8 +102,9 @@ public class Example {
     MerchantsApi apiInstance = new MerchantsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters = new MerchantDtoCollectionQueryParameters(); // MerchantDtoCollectionQueryParameters | 
     try {
-      MerchantDtoListEnvelope result = apiInstance.getMerchants(apiVersion, xApiVersion);
+      MerchantDtoListEnvelope result = apiInstance.getMerchants(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MerchantsApi#getMerchants");
@@ -122,6 +123,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **merchantDtoCollectionQueryParameters** | [**MerchantDtoCollectionQueryParameters**](MerchantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -133,7 +135,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -145,7 +147,7 @@ No authorization required
 
 <a id="getMerchantsCount"></a>
 # **getMerchantsCount**
-> Int32Envelope getMerchantsCount(apiVersion, xApiVersion)
+> Int32Envelope getMerchantsCount(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters)
 
 Count merchants
 
@@ -168,8 +170,9 @@ public class Example {
     MerchantsApi apiInstance = new MerchantsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    MerchantDtoCollectionQueryParameters merchantDtoCollectionQueryParameters = new MerchantDtoCollectionQueryParameters(); // MerchantDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getMerchantsCount(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getMerchantsCount(apiVersion, xApiVersion, merchantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MerchantsApi#getMerchantsCount");
@@ -188,6 +191,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **merchantDtoCollectionQueryParameters** | [**MerchantDtoCollectionQueryParameters**](MerchantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -199,7 +203,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

@@ -352,7 +352,7 @@ No authorization required
 
 <a id="getLocationsAsync"></a>
 # **getLocationsAsync**
-> LocationDtoIReadOnlyListEnvelope getLocationsAsync(tenantId)
+> LocationDtoIReadOnlyListEnvelope getLocationsAsync(tenantId, locationDtoCollectionQueryParameters)
 
 Get Locations
 
@@ -374,8 +374,9 @@ public class Example {
 
     LocationsApi apiInstance = new LocationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters = new LocationDtoCollectionQueryParameters(); // LocationDtoCollectionQueryParameters | 
     try {
-      LocationDtoIReadOnlyListEnvelope result = apiInstance.getLocationsAsync(tenantId);
+      LocationDtoIReadOnlyListEnvelope result = apiInstance.getLocationsAsync(tenantId, locationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LocationsApi#getLocationsAsync");
@@ -393,6 +394,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -404,7 +406,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -416,7 +418,7 @@ No authorization required
 
 <a id="getLocationsCountAsync"></a>
 # **getLocationsCountAsync**
-> Int32Envelope getLocationsCountAsync(tenantId)
+> Int32Envelope getLocationsCountAsync(tenantId, locationDtoCollectionQueryParameters)
 
 Get Locations Count
 
@@ -438,8 +440,9 @@ public class Example {
 
     LocationsApi apiInstance = new LocationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters = new LocationDtoCollectionQueryParameters(); // LocationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLocationsCountAsync(tenantId);
+      Int32Envelope result = apiInstance.getLocationsCountAsync(tenantId, locationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LocationsApi#getLocationsCountAsync");
@@ -457,6 +460,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -468,7 +472,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -546,7 +550,7 @@ No authorization required
 
 <a id="getWalletLocationsAsync"></a>
 # **getWalletLocationsAsync**
-> LocationDtoIReadOnlyListEnvelope getWalletLocationsAsync(walletId)
+> LocationDtoIReadOnlyListEnvelope getWalletLocationsAsync(walletId, locationDtoCollectionQueryParameters)
 
 Get Wallet Locations
 
@@ -568,8 +572,9 @@ public class Example {
 
     LocationsApi apiInstance = new LocationsApi(defaultClient);
     UUID walletId = UUID.randomUUID(); // UUID | 
+    LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters = new LocationDtoCollectionQueryParameters(); // LocationDtoCollectionQueryParameters | 
     try {
-      LocationDtoIReadOnlyListEnvelope result = apiInstance.getWalletLocationsAsync(walletId);
+      LocationDtoIReadOnlyListEnvelope result = apiInstance.getWalletLocationsAsync(walletId, locationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LocationsApi#getWalletLocationsAsync");
@@ -587,6 +592,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **walletId** | **UUID**|  | |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -598,7 +604,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -610,7 +616,7 @@ No authorization required
 
 <a id="getWalletLocationsCountAsync"></a>
 # **getWalletLocationsCountAsync**
-> Int32Envelope getWalletLocationsCountAsync(walletId)
+> Int32Envelope getWalletLocationsCountAsync(walletId, locationDtoCollectionQueryParameters)
 
 Get Wallet Locations Count
 
@@ -632,8 +638,9 @@ public class Example {
 
     LocationsApi apiInstance = new LocationsApi(defaultClient);
     UUID walletId = UUID.randomUUID(); // UUID | 
+    LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters = new LocationDtoCollectionQueryParameters(); // LocationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWalletLocationsCountAsync(walletId);
+      Int32Envelope result = apiInstance.getWalletLocationsCountAsync(walletId, locationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LocationsApi#getWalletLocationsCountAsync");
@@ -651,6 +658,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **walletId** | **UUID**|  | |
+| **locationDtoCollectionQueryParameters** | [**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -662,7 +670,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -674,7 +682,7 @@ No authorization required
 
 <a id="patchLocationAsync"></a>
 # **patchLocationAsync**
-> EmptyEnvelope patchLocationAsync(tenantId, locationId, operation)
+> EmptyEnvelope patchLocationAsync(tenantId, locationId, patchOperation)
 
 Patch a location
 
@@ -697,9 +705,9 @@ public class Example {
     LocationsApi apiInstance = new LocationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID locationId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchLocationAsync(tenantId, locationId, operation);
+      EmptyEnvelope result = apiInstance.patchLocationAsync(tenantId, locationId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LocationsApi#patchLocationAsync");
@@ -718,7 +726,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **locationId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -742,7 +750,7 @@ No authorization required
 
 <a id="patchWalletLocationAsync"></a>
 # **patchWalletLocationAsync**
-> EmptyEnvelope patchWalletLocationAsync(walletId, locationId, operation)
+> EmptyEnvelope patchWalletLocationAsync(walletId, locationId, patchOperation)
 
 Patch a wallet location
 
@@ -765,9 +773,9 @@ public class Example {
     LocationsApi apiInstance = new LocationsApi(defaultClient);
     UUID walletId = UUID.randomUUID(); // UUID | 
     UUID locationId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWalletLocationAsync(walletId, locationId, operation);
+      EmptyEnvelope result = apiInstance.patchWalletLocationAsync(walletId, locationId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LocationsApi#patchWalletLocationAsync");
@@ -786,7 +794,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **walletId** | **UUID**|  | |
 | **locationId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

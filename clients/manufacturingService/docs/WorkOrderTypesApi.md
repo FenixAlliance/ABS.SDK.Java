@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getWorkOrderTypesAsync"></a>
 # **getWorkOrderTypesAsync**
-> WorkOrderTypeDtoListEnvelope getWorkOrderTypesAsync(tenantId, apiVersion, xApiVersion)
+> WorkOrderTypeDtoListEnvelope getWorkOrderTypesAsync(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters)
 
 Get all work order types
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters = new WorkOrderTypeDtoCollectionQueryParameters(); // WorkOrderTypeDtoCollectionQueryParameters | 
     try {
-      WorkOrderTypeDtoListEnvelope result = apiInstance.getWorkOrderTypesAsync(tenantId, apiVersion, xApiVersion);
+      WorkOrderTypeDtoListEnvelope result = apiInstance.getWorkOrderTypesAsync(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkOrderTypesApi#getWorkOrderTypesAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **workOrderTypeDtoCollectionQueryParameters** | [**WorkOrderTypeDtoCollectionQueryParameters**](WorkOrderTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getWorkOrderTypesCountAsync"></a>
 # **getWorkOrderTypesCountAsync**
-> Int32Envelope getWorkOrderTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getWorkOrderTypesCountAsync(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters)
 
 Get work order types count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters = new WorkOrderTypeDtoCollectionQueryParameters(); // WorkOrderTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWorkOrderTypesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWorkOrderTypesCountAsync(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkOrderTypesApi#getWorkOrderTypesCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **workOrderTypeDtoCollectionQueryParameters** | [**WorkOrderTypeDtoCollectionQueryParameters**](WorkOrderTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchWorkOrderTypeAsync"></a>
 # **patchWorkOrderTypeAsync**
-> EmptyEnvelope patchWorkOrderTypeAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWorkOrderTypeAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a work order type
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWorkOrderTypeAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchWorkOrderTypeAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkOrderTypesApi#patchWorkOrderTypeAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

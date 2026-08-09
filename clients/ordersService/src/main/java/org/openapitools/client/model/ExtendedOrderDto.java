@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * ExtendedOrderDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:04:46.528394700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:31:04.230073-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ExtendedOrderDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -207,6 +207,62 @@ public class ExtendedOrderDto {
   public static final String SERIALIZED_NAME_TAX_CALCULATION_METHOD = "taxCalculationMethod";
   @SerializedName(SERIALIZED_NAME_TAX_CALCULATION_METHOD)
   private TaxCalculationMethodEnum taxCalculationMethod;
+
+  /**
+   * Gets or Sets costCalculationMethod
+   */
+  @JsonAdapter(CostCalculationMethodEnum.Adapter.class)
+  public enum CostCalculationMethodEnum {
+    AUTOMATIC("Automatic"),
+    
+    CUSTOM("Custom");
+
+    private String value;
+
+    CostCalculationMethodEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CostCalculationMethodEnum fromValue(String value) {
+      for (CostCalculationMethodEnum b : CostCalculationMethodEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<CostCalculationMethodEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CostCalculationMethodEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CostCalculationMethodEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return CostCalculationMethodEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      CostCalculationMethodEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_COST_CALCULATION_METHOD = "costCalculationMethod";
+  @SerializedName(SERIALIZED_NAME_COST_CALCULATION_METHOD)
+  private CostCalculationMethodEnum costCalculationMethod;
 
   public static final String SERIALIZED_NAME_FOREX_RATE = "forexRate";
   @SerializedName(SERIALIZED_NAME_FOREX_RATE)
@@ -407,62 +463,6 @@ public class ExtendedOrderDto {
   public static final String SERIALIZED_NAME_BUYER_BILLING_PROFILE_ID = "buyerBillingProfileId";
   @SerializedName(SERIALIZED_NAME_BUYER_BILLING_PROFILE_ID)
   private String buyerBillingProfileId;
-
-  /**
-   * Gets or Sets costCalculationMethod
-   */
-  @JsonAdapter(CostCalculationMethodEnum.Adapter.class)
-  public enum CostCalculationMethodEnum {
-    AUTOMATIC("Automatic"),
-    
-    CUSTOM("Custom");
-
-    private String value;
-
-    CostCalculationMethodEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static CostCalculationMethodEnum fromValue(String value) {
-      for (CostCalculationMethodEnum b : CostCalculationMethodEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<CostCalculationMethodEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CostCalculationMethodEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CostCalculationMethodEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return CostCalculationMethodEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      CostCalculationMethodEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_COST_CALCULATION_METHOD = "costCalculationMethod";
-  @SerializedName(SERIALIZED_NAME_COST_CALCULATION_METHOD)
-  private CostCalculationMethodEnum costCalculationMethod;
 
   /**
    * Gets or Sets freightTerms
@@ -1131,6 +1131,25 @@ public class ExtendedOrderDto {
 
   public void setTaxCalculationMethod(TaxCalculationMethodEnum taxCalculationMethod) {
     this.taxCalculationMethod = taxCalculationMethod;
+  }
+
+
+  public ExtendedOrderDto costCalculationMethod(CostCalculationMethodEnum costCalculationMethod) {
+    this.costCalculationMethod = costCalculationMethod;
+    return this;
+  }
+
+  /**
+   * Get costCalculationMethod
+   * @return costCalculationMethod
+   */
+  @javax.annotation.Nullable
+  public CostCalculationMethodEnum getCostCalculationMethod() {
+    return costCalculationMethod;
+  }
+
+  public void setCostCalculationMethod(CostCalculationMethodEnum costCalculationMethod) {
+    this.costCalculationMethod = costCalculationMethod;
   }
 
 
@@ -2084,25 +2103,6 @@ public class ExtendedOrderDto {
   }
 
 
-  public ExtendedOrderDto costCalculationMethod(CostCalculationMethodEnum costCalculationMethod) {
-    this.costCalculationMethod = costCalculationMethod;
-    return this;
-  }
-
-  /**
-   * Get costCalculationMethod
-   * @return costCalculationMethod
-   */
-  @javax.annotation.Nullable
-  public CostCalculationMethodEnum getCostCalculationMethod() {
-    return costCalculationMethod;
-  }
-
-  public void setCostCalculationMethod(CostCalculationMethodEnum costCalculationMethod) {
-    this.costCalculationMethod = costCalculationMethod;
-  }
-
-
   public ExtendedOrderDto freightTerms(FreightTermsEnum freightTerms) {
     this.freightTerms = freightTerms;
     return this;
@@ -2480,6 +2480,7 @@ public class ExtendedOrderDto {
         Objects.equals(this.cityId, extendedOrderDto.cityId) &&
         Objects.equals(this.customerNotes, extendedOrderDto.customerNotes) &&
         Objects.equals(this.taxCalculationMethod, extendedOrderDto.taxCalculationMethod) &&
+        Objects.equals(this.costCalculationMethod, extendedOrderDto.costCalculationMethod) &&
         Objects.equals(this.forexRate, extendedOrderDto.forexRate) &&
         Objects.equals(this.forexRatesSnapshot, extendedOrderDto.forexRatesSnapshot) &&
         Objects.equals(this.currencyId, extendedOrderDto.currencyId) &&
@@ -2530,7 +2531,6 @@ public class ExtendedOrderDto {
         Objects.equals(this.qualifiedIdentifier, extendedOrderDto.qualifiedIdentifier) &&
         Objects.equals(this.sellerBillingProfileId, extendedOrderDto.sellerBillingProfileId) &&
         Objects.equals(this.buyerBillingProfileId, extendedOrderDto.buyerBillingProfileId) &&
-        Objects.equals(this.costCalculationMethod, extendedOrderDto.costCalculationMethod) &&
         Objects.equals(this.freightTerms, extendedOrderDto.freightTerms) &&
         Objects.equals(this.orderStatus, extendedOrderDto.orderStatus) &&
         Objects.equals(this.requestedDeliveryDate, extendedOrderDto.requestedDeliveryDate) &&
@@ -2557,7 +2557,7 @@ public class ExtendedOrderDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, closed, type, title, userId, tenantId, description, priceListId, enrollmentId, individualId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, customerNotes, taxCalculationMethod, forexRate, forexRatesSnapshot, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, total, totalCurrencyId, totalDetailInUsd, totalProfitInUsd, totalDiscountsInUsd, totalSurchargesInUsd, totalTaxBaseInUsd, totalTaxesInUsd, totalWithheldTaxesInUsd, totalShippingCostInUsd, totalShippingTaxesInUsd, totalGlobalDiscountsInUsd, totalGlobalSurchargesInUsd, totalInUsd, orderLinesCount, quoteId, walletId, paymentTermId, parentOrderId, shippingMethodId, billingLocationId, shippingLocationId, qualifiedIdentifier, sellerBillingProfileId, buyerBillingProfileId, costCalculationMethod, freightTerms, orderStatus, requestedDeliveryDate, customTaxAmount, customTotalAmount, customDetailAmount, customProfitAmount, customDiscountsAmount, customSurchargesAmount, customShippingTaxAmount, customShippingCostAmount, customWithholdingTaxAmount, user, tenant, individual, organization, receiverTenant, enrollment);
+    return Objects.hash(id, timestamp, closed, type, title, userId, tenantId, description, priceListId, enrollmentId, individualId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, customerNotes, taxCalculationMethod, costCalculationMethod, forexRate, forexRatesSnapshot, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, total, totalCurrencyId, totalDetailInUsd, totalProfitInUsd, totalDiscountsInUsd, totalSurchargesInUsd, totalTaxBaseInUsd, totalTaxesInUsd, totalWithheldTaxesInUsd, totalShippingCostInUsd, totalShippingTaxesInUsd, totalGlobalDiscountsInUsd, totalGlobalSurchargesInUsd, totalInUsd, orderLinesCount, quoteId, walletId, paymentTermId, parentOrderId, shippingMethodId, billingLocationId, shippingLocationId, qualifiedIdentifier, sellerBillingProfileId, buyerBillingProfileId, freightTerms, orderStatus, requestedDeliveryDate, customTaxAmount, customTotalAmount, customDetailAmount, customProfitAmount, customDiscountsAmount, customSurchargesAmount, customShippingTaxAmount, customShippingCostAmount, customWithholdingTaxAmount, user, tenant, individual, organization, receiverTenant, enrollment);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2596,6 +2596,7 @@ public class ExtendedOrderDto {
     sb.append("    cityId: ").append(toIndentedString(cityId)).append("\n");
     sb.append("    customerNotes: ").append(toIndentedString(customerNotes)).append("\n");
     sb.append("    taxCalculationMethod: ").append(toIndentedString(taxCalculationMethod)).append("\n");
+    sb.append("    costCalculationMethod: ").append(toIndentedString(costCalculationMethod)).append("\n");
     sb.append("    forexRate: ").append(toIndentedString(forexRate)).append("\n");
     sb.append("    forexRatesSnapshot: ").append(toIndentedString(forexRatesSnapshot)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
@@ -2646,7 +2647,6 @@ public class ExtendedOrderDto {
     sb.append("    qualifiedIdentifier: ").append(toIndentedString(qualifiedIdentifier)).append("\n");
     sb.append("    sellerBillingProfileId: ").append(toIndentedString(sellerBillingProfileId)).append("\n");
     sb.append("    buyerBillingProfileId: ").append(toIndentedString(buyerBillingProfileId)).append("\n");
-    sb.append("    costCalculationMethod: ").append(toIndentedString(costCalculationMethod)).append("\n");
     sb.append("    freightTerms: ").append(toIndentedString(freightTerms)).append("\n");
     sb.append("    orderStatus: ").append(toIndentedString(orderStatus)).append("\n");
     sb.append("    requestedDeliveryDate: ").append(toIndentedString(requestedDeliveryDate)).append("\n");
@@ -2712,6 +2712,7 @@ public class ExtendedOrderDto {
     openapiFields.add("cityId");
     openapiFields.add("customerNotes");
     openapiFields.add("taxCalculationMethod");
+    openapiFields.add("costCalculationMethod");
     openapiFields.add("forexRate");
     openapiFields.add("forexRatesSnapshot");
     openapiFields.add("currencyId");
@@ -2762,7 +2763,6 @@ public class ExtendedOrderDto {
     openapiFields.add("qualifiedIdentifier");
     openapiFields.add("sellerBillingProfileId");
     openapiFields.add("buyerBillingProfileId");
-    openapiFields.add("costCalculationMethod");
     openapiFields.add("freightTerms");
     openapiFields.add("orderStatus");
     openapiFields.add("requestedDeliveryDate");
@@ -2880,6 +2880,13 @@ public class ExtendedOrderDto {
       if (jsonObj.get("taxCalculationMethod") != null && !jsonObj.get("taxCalculationMethod").isJsonNull()) {
         TaxCalculationMethodEnum.validateJsonElement(jsonObj.get("taxCalculationMethod"));
       }
+      if ((jsonObj.get("costCalculationMethod") != null && !jsonObj.get("costCalculationMethod").isJsonNull()) && !jsonObj.get("costCalculationMethod").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `costCalculationMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("costCalculationMethod").toString()));
+      }
+      // validate the optional field `costCalculationMethod`
+      if (jsonObj.get("costCalculationMethod") != null && !jsonObj.get("costCalculationMethod").isJsonNull()) {
+        CostCalculationMethodEnum.validateJsonElement(jsonObj.get("costCalculationMethod"));
+      }
       if ((jsonObj.get("forexRatesSnapshot") != null && !jsonObj.get("forexRatesSnapshot").isJsonNull()) && !jsonObj.get("forexRatesSnapshot").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `forexRatesSnapshot` to be a primitive type in the JSON string but got `%s`", jsonObj.get("forexRatesSnapshot").toString()));
       }
@@ -2951,13 +2958,6 @@ public class ExtendedOrderDto {
       }
       if ((jsonObj.get("buyerBillingProfileId") != null && !jsonObj.get("buyerBillingProfileId").isJsonNull()) && !jsonObj.get("buyerBillingProfileId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `buyerBillingProfileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("buyerBillingProfileId").toString()));
-      }
-      if ((jsonObj.get("costCalculationMethod") != null && !jsonObj.get("costCalculationMethod").isJsonNull()) && !jsonObj.get("costCalculationMethod").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `costCalculationMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("costCalculationMethod").toString()));
-      }
-      // validate the optional field `costCalculationMethod`
-      if (jsonObj.get("costCalculationMethod") != null && !jsonObj.get("costCalculationMethod").isJsonNull()) {
-        CostCalculationMethodEnum.validateJsonElement(jsonObj.get("costCalculationMethod"));
       }
       if ((jsonObj.get("freightTerms") != null && !jsonObj.get("freightTerms").isJsonNull()) && !jsonObj.get("freightTerms").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `freightTerms` to be a primitive type in the JSON string but got `%s`", jsonObj.get("freightTerms").toString()));

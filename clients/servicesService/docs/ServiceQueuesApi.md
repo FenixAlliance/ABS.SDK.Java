@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getServiceQueuesAsync"></a>
 # **getServiceQueuesAsync**
-> ServiceQueueDtoIReadOnlyListEnvelope getServiceQueuesAsync(tenantId, apiVersion, xApiVersion)
+> ServiceQueueDtoIReadOnlyListEnvelope getServiceQueuesAsync(tenantId, apiVersion, xApiVersion, serviceQueueDtoCollectionQueryParameters)
 
 Get all service queues
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceQueueDtoCollectionQueryParameters serviceQueueDtoCollectionQueryParameters = new ServiceQueueDtoCollectionQueryParameters(); // ServiceQueueDtoCollectionQueryParameters | 
     try {
-      ServiceQueueDtoIReadOnlyListEnvelope result = apiInstance.getServiceQueuesAsync(tenantId, apiVersion, xApiVersion);
+      ServiceQueueDtoIReadOnlyListEnvelope result = apiInstance.getServiceQueuesAsync(tenantId, apiVersion, xApiVersion, serviceQueueDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceQueuesApi#getServiceQueuesAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceQueueDtoCollectionQueryParameters** | [**ServiceQueueDtoCollectionQueryParameters**](ServiceQueueDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getServiceQueuesCountAsync"></a>
 # **getServiceQueuesCountAsync**
-> Int32Envelope getServiceQueuesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getServiceQueuesCountAsync(tenantId, apiVersion, xApiVersion, serviceQueueDtoCollectionQueryParameters)
 
 Get service queues count
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceQueueDtoCollectionQueryParameters serviceQueueDtoCollectionQueryParameters = new ServiceQueueDtoCollectionQueryParameters(); // ServiceQueueDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getServiceQueuesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getServiceQueuesCountAsync(tenantId, apiVersion, xApiVersion, serviceQueueDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceQueuesApi#getServiceQueuesCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceQueueDtoCollectionQueryParameters** | [**ServiceQueueDtoCollectionQueryParameters**](ServiceQueueDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchServiceQueueAsync"></a>
 # **patchServiceQueueAsync**
-> Envelope patchServiceQueueAsync(tenantId, serviceQueueId, apiVersion, xApiVersion, operation)
+> Envelope patchServiceQueueAsync(tenantId, serviceQueueId, apiVersion, xApiVersion, patchOperation)
 
 Patch a service queue
 
@@ -386,9 +390,9 @@ public class Example {
     UUID serviceQueueId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      Envelope result = apiInstance.patchServiceQueueAsync(tenantId, serviceQueueId, apiVersion, xApiVersion, operation);
+      Envelope result = apiInstance.patchServiceQueueAsync(tenantId, serviceQueueId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceQueuesApi#patchServiceQueueAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **serviceQueueId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

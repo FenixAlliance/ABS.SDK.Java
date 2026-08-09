@@ -1007,23 +1007,6 @@ paths:
       - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
   /hello:
     get:
       responses:
@@ -1392,6 +1375,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileUploadDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -1422,6 +1410,7 @@ paths:
           description: Unauthorized
       tags:
       - Files
+      x-content-type: multipart/form-data
       x-accepts:
       - application/json
       - image/png
@@ -1587,6 +1576,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileUploadDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -1619,6 +1613,7 @@ paths:
           description: Unauthorized
       tags:
       - Files
+      x-content-type: multipart/form-data
       x-accepts:
       - application/json
       - image/png
@@ -2656,7 +2651,7 @@ components:
         kind: File
         folderPath: folderPath
         isFolder: true
-        size: 0
+        size: 6
         name: name
         isRootFolder: true
         createdTime: 2000-01-23T04:56:07.000+00:00
@@ -2730,7 +2725,7 @@ components:
           kind: File
           folderPath: folderPath
           isFolder: true
-          size: 0
+          size: 6
           name: name
           isRootFolder: true
           createdTime: 2000-01-23T04:56:07.000+00:00
@@ -2738,8 +2733,14 @@ components:
             key: ""
           md5: md5
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2756,6 +2757,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2767,8 +2783,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2785,6 +2807,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2794,8 +2831,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2812,6 +2855,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2833,8 +2891,8 @@ components:
         thumbnailContentType: thumbnailContentType
         socialProfileId: socialProfileId
         contentType: contentType
-        thumbnailHeight: 1
-        fileLength: 0
+        thumbnailHeight: 5
+        fileLength: 6
         timestamp: 2000-01-23T04:56:07.000+00:00
         keyWords: keyWords
         enrollmentId: enrollmentId
@@ -2844,7 +2902,7 @@ components:
         scanStatus: NotRequired
         thumbnailStorageKey: thumbnailStorageKey
         abstract: abstract
-        thumbnailWidth: 6
+        thumbnailWidth: 1
         storageKey: storageKey
         userId: userId
         isFolder: true
@@ -2964,6 +3022,38 @@ components:
           - Unknown
           type: string
       type: object
+    FileUploadDtoCollectionQueryParameters:
+      additionalProperties: false
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     FileUploadDtoEnvelope:
       additionalProperties: false
       example:
@@ -2981,8 +3071,8 @@ components:
           thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          thumbnailHeight: 1
-          fileLength: 0
+          thumbnailHeight: 5
+          fileLength: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
           keyWords: keyWords
           enrollmentId: enrollmentId
@@ -2992,7 +3082,7 @@ components:
           scanStatus: NotRequired
           thumbnailStorageKey: thumbnailStorageKey
           abstract: abstract
-          thumbnailWidth: 6
+          thumbnailWidth: 1
           storageKey: storageKey
           userId: userId
           isFolder: true
@@ -3001,8 +3091,14 @@ components:
           thumbnailStatus: NotRequired
           hash: hash
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3019,6 +3115,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

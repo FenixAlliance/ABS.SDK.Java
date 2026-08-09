@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * GoogleRecaptchaIntegrationOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:59:49.931797400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:27:20.431854500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class GoogleRecaptchaIntegrationOptions {
   public static final String SERIALIZED_NAME_ENABLE = "enable";
   @SerializedName(SERIALIZED_NAME_ENABLE)
@@ -70,6 +70,18 @@ public class GoogleRecaptchaIntegrationOptions {
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private String version;
+
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  private String projectId;
+
+  public static final String SERIALIZED_NAME_API_KEY = "apiKey";
+  @SerializedName(SERIALIZED_NAME_API_KEY)
+  private String apiKey;
+
+  public static final String SERIALIZED_NAME_SCORE_THRESHOLD = "scoreThreshold";
+  @SerializedName(SERIALIZED_NAME_SCORE_THRESHOLD)
+  private Double scoreThreshold;
 
   public GoogleRecaptchaIntegrationOptions() {
   }
@@ -169,6 +181,63 @@ public class GoogleRecaptchaIntegrationOptions {
   }
 
 
+  public GoogleRecaptchaIntegrationOptions projectId(String projectId) {
+    this.projectId = projectId;
+    return this;
+  }
+
+  /**
+   * Get projectId
+   * @return projectId
+   */
+  @javax.annotation.Nullable
+  public String getProjectId() {
+    return projectId;
+  }
+
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
+  }
+
+
+  public GoogleRecaptchaIntegrationOptions apiKey(String apiKey) {
+    this.apiKey = apiKey;
+    return this;
+  }
+
+  /**
+   * Get apiKey
+   * @return apiKey
+   */
+  @javax.annotation.Nullable
+  public String getApiKey() {
+    return apiKey;
+  }
+
+  public void setApiKey(String apiKey) {
+    this.apiKey = apiKey;
+  }
+
+
+  public GoogleRecaptchaIntegrationOptions scoreThreshold(Double scoreThreshold) {
+    this.scoreThreshold = scoreThreshold;
+    return this;
+  }
+
+  /**
+   * Get scoreThreshold
+   * @return scoreThreshold
+   */
+  @javax.annotation.Nullable
+  public Double getScoreThreshold() {
+    return scoreThreshold;
+  }
+
+  public void setScoreThreshold(Double scoreThreshold) {
+    this.scoreThreshold = scoreThreshold;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -183,7 +252,10 @@ public class GoogleRecaptchaIntegrationOptions {
         Objects.equals(this.site, googleRecaptchaIntegrationOptions.site) &&
         Objects.equals(this.siteKey, googleRecaptchaIntegrationOptions.siteKey) &&
         Objects.equals(this.secretKey, googleRecaptchaIntegrationOptions.secretKey) &&
-        Objects.equals(this.version, googleRecaptchaIntegrationOptions.version);
+        Objects.equals(this.version, googleRecaptchaIntegrationOptions.version) &&
+        Objects.equals(this.projectId, googleRecaptchaIntegrationOptions.projectId) &&
+        Objects.equals(this.apiKey, googleRecaptchaIntegrationOptions.apiKey) &&
+        Objects.equals(this.scoreThreshold, googleRecaptchaIntegrationOptions.scoreThreshold);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -192,7 +264,7 @@ public class GoogleRecaptchaIntegrationOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, site, siteKey, secretKey, version);
+    return Objects.hash(enable, site, siteKey, secretKey, version, projectId, apiKey, scoreThreshold);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -211,6 +283,9 @@ public class GoogleRecaptchaIntegrationOptions {
     sb.append("    siteKey: ").append(toIndentedString(siteKey)).append("\n");
     sb.append("    secretKey: ").append(toIndentedString(secretKey)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    scoreThreshold: ").append(toIndentedString(scoreThreshold)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -238,6 +313,9 @@ public class GoogleRecaptchaIntegrationOptions {
     openapiFields.add("siteKey");
     openapiFields.add("secretKey");
     openapiFields.add("version");
+    openapiFields.add("projectId");
+    openapiFields.add("apiKey");
+    openapiFields.add("scoreThreshold");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -275,6 +353,12 @@ public class GoogleRecaptchaIntegrationOptions {
       }
       if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
+      }
+      if ((jsonObj.get("projectId") != null && !jsonObj.get("projectId").isJsonNull()) && !jsonObj.get("projectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
+      }
+      if ((jsonObj.get("apiKey") != null && !jsonObj.get("apiKey").isJsonNull()) && !jsonObj.get("apiKey").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `apiKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiKey").toString()));
       }
   }
 

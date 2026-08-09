@@ -215,7 +215,7 @@ No authorization required
 
 <a id="getAssetTypes"></a>
 # **getAssetTypes**
-> AssetTypeDtoListEnvelope getAssetTypes(tenantId)
+> AssetTypeDtoListEnvelope getAssetTypes(tenantId, assetTypeDtoCollectionQueryParameters)
 
 Gets all asset types for the current tenant
 
@@ -237,8 +237,9 @@ public class Example {
 
     AssetTypesApi apiInstance = new AssetTypesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    AssetTypeDtoCollectionQueryParameters assetTypeDtoCollectionQueryParameters = new AssetTypeDtoCollectionQueryParameters(); // AssetTypeDtoCollectionQueryParameters | 
     try {
-      AssetTypeDtoListEnvelope result = apiInstance.getAssetTypes(tenantId);
+      AssetTypeDtoListEnvelope result = apiInstance.getAssetTypes(tenantId, assetTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetTypesApi#getAssetTypes");
@@ -256,6 +257,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **assetTypeDtoCollectionQueryParameters** | [**AssetTypeDtoCollectionQueryParameters**](AssetTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -267,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -279,7 +281,7 @@ No authorization required
 
 <a id="getAssetTypesCount"></a>
 # **getAssetTypesCount**
-> Int32Envelope getAssetTypesCount(tenantId)
+> Int32Envelope getAssetTypesCount(tenantId, assetTypeDtoCollectionQueryParameters)
 
 Gets the count of asset types
 
@@ -301,8 +303,9 @@ public class Example {
 
     AssetTypesApi apiInstance = new AssetTypesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    AssetTypeDtoCollectionQueryParameters assetTypeDtoCollectionQueryParameters = new AssetTypeDtoCollectionQueryParameters(); // AssetTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAssetTypesCount(tenantId);
+      Int32Envelope result = apiInstance.getAssetTypesCount(tenantId, assetTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetTypesApi#getAssetTypesCount");
@@ -320,6 +323,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **assetTypeDtoCollectionQueryParameters** | [**AssetTypeDtoCollectionQueryParameters**](AssetTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -331,7 +335,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -343,7 +347,7 @@ No authorization required
 
 <a id="patchAssetType"></a>
 # **patchAssetType**
-> EmptyEnvelope patchAssetType(tenantId, typeId, operation)
+> EmptyEnvelope patchAssetType(tenantId, typeId, patchOperation)
 
 Partially updates an existing asset type
 
@@ -366,9 +370,9 @@ public class Example {
     AssetTypesApi apiInstance = new AssetTypesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID typeId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAssetType(tenantId, typeId, operation);
+      EmptyEnvelope result = apiInstance.patchAssetType(tenantId, typeId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetTypesApi#patchAssetType");
@@ -387,7 +391,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **typeId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

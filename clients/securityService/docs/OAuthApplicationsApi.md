@@ -576,7 +576,7 @@ No authorization required
 
 <a id="patchOAuthApplicationAsync"></a>
 # **patchOAuthApplicationAsync**
-> EmptyEnvelope patchOAuthApplicationAsync(tenantId, applicationId, operation, apiVersion, xApiVersion)
+> EmptyEnvelope patchOAuthApplicationAsync(tenantId, applicationId, patchOperation, apiVersion, xApiVersion)
 
 Patch an existing OAuth application
 
@@ -599,11 +599,11 @@ public class Example {
     OAuthApplicationsApi apiInstance = new OAuthApplicationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String applicationId = "applicationId_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.patchOAuthApplicationAsync(tenantId, applicationId, operation, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.patchOAuthApplicationAsync(tenantId, applicationId, patchOperation, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OAuthApplicationsApi#patchOAuthApplicationAsync");
@@ -622,7 +622,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **applicationId** | **String**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 

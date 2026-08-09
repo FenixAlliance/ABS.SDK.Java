@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getEmployeeTypesAsync"></a>
 # **getEmployeeTypesAsync**
-> EmployeeTypeDtoListEnvelope getEmployeeTypesAsync(tenantId, apiVersion, xApiVersion)
+> EmployeeTypeDtoListEnvelope getEmployeeTypesAsync(tenantId, apiVersion, xApiVersion, employeeTypeDtoCollectionQueryParameters)
 
 Get employee types
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    EmployeeTypeDtoCollectionQueryParameters employeeTypeDtoCollectionQueryParameters = new EmployeeTypeDtoCollectionQueryParameters(); // EmployeeTypeDtoCollectionQueryParameters | 
     try {
-      EmployeeTypeDtoListEnvelope result = apiInstance.getEmployeeTypesAsync(tenantId, apiVersion, xApiVersion);
+      EmployeeTypeDtoListEnvelope result = apiInstance.getEmployeeTypesAsync(tenantId, apiVersion, xApiVersion, employeeTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeeTypesApi#getEmployeeTypesAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **employeeTypeDtoCollectionQueryParameters** | [**EmployeeTypeDtoCollectionQueryParameters**](EmployeeTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getEmployeeTypesCountAsync"></a>
 # **getEmployeeTypesCountAsync**
-> Int32Envelope getEmployeeTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getEmployeeTypesCountAsync(tenantId, apiVersion, xApiVersion, employeeTypeDtoCollectionQueryParameters)
 
 Count employee types
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    EmployeeTypeDtoCollectionQueryParameters employeeTypeDtoCollectionQueryParameters = new EmployeeTypeDtoCollectionQueryParameters(); // EmployeeTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getEmployeeTypesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getEmployeeTypesCountAsync(tenantId, apiVersion, xApiVersion, employeeTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeeTypesApi#getEmployeeTypesCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **employeeTypeDtoCollectionQueryParameters** | [**EmployeeTypeDtoCollectionQueryParameters**](EmployeeTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchEmployeeTypeAsync"></a>
 # **patchEmployeeTypeAsync**
-> EmptyEnvelope patchEmployeeTypeAsync(tenantId, employeeTypeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchEmployeeTypeAsync(tenantId, employeeTypeId, apiVersion, xApiVersion, patchOperation)
 
 Patch an employee type
 
@@ -388,9 +392,9 @@ public class Example {
     UUID employeeTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchEmployeeTypeAsync(tenantId, employeeTypeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchEmployeeTypeAsync(tenantId, employeeTypeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeeTypesApi#patchEmployeeTypeAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **employeeTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

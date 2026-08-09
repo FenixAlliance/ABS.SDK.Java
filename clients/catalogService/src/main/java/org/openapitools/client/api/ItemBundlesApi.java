@@ -31,10 +31,11 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.ItemBundleCreateDto;
+import org.openapitools.client.model.ItemBundleDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemBundleDtoEnvelope;
 import org.openapitools.client.model.ItemBundleDtoListEnvelope;
 import org.openapitools.client.model.ItemBundleUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -555,6 +556,7 @@ public class ItemBundlesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -566,7 +568,7 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemBundlesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemBundlesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -580,7 +582,7 @@ public class ItemBundlesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemBundleDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemBundles";
@@ -613,6 +615,8 @@ public class ItemBundlesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -624,8 +628,8 @@ public class ItemBundlesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemBundlesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getItemBundlesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getItemBundlesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getItemBundlesAsyncCall(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -635,6 +639,7 @@ public class ItemBundlesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @return ItemBundleDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -645,8 +650,8 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemBundleDtoListEnvelope getItemBundlesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemBundleDtoListEnvelope> localVarResp = getItemBundlesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ItemBundleDtoListEnvelope getItemBundlesAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemBundleDtoListEnvelope> localVarResp = getItemBundlesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -656,6 +661,7 @@ public class ItemBundlesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemBundleDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -666,8 +672,8 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemBundleDtoListEnvelope> getItemBundlesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemBundlesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemBundleDtoListEnvelope> getItemBundlesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemBundlesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemBundleDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -678,6 +684,7 @@ public class ItemBundlesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -689,9 +696,9 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemBundlesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ItemBundleDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemBundlesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters, final ApiCallback<ItemBundleDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemBundlesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemBundlesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemBundleDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -701,6 +708,7 @@ public class ItemBundlesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -712,7 +720,7 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemBundlesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemBundlesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -726,7 +734,7 @@ public class ItemBundlesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemBundleDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemBundles/Count";
@@ -759,6 +767,8 @@ public class ItemBundlesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -770,8 +780,8 @@ public class ItemBundlesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemBundlesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getItemBundlesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getItemBundlesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getItemBundlesCountAsyncCall(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -781,6 +791,7 @@ public class ItemBundlesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -791,8 +802,8 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getItemBundlesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getItemBundlesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getItemBundlesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getItemBundlesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -802,6 +813,7 @@ public class ItemBundlesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -812,8 +824,8 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getItemBundlesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemBundlesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getItemBundlesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemBundlesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -824,6 +836,7 @@ public class ItemBundlesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemBundleDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -835,9 +848,9 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemBundlesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getItemBundlesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemBundlesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemBundlesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -848,7 +861,7 @@ public class ItemBundlesApi {
      * @param itemBundleId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -860,7 +873,7 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemBundleAsyncCall(UUID tenantId, UUID itemBundleId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemBundleAsyncCall(UUID tenantId, UUID itemBundleId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -874,7 +887,7 @@ public class ItemBundlesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemBundles/{itemBundleId}"
@@ -921,7 +934,7 @@ public class ItemBundlesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemBundleAsyncValidateBeforeCall(UUID tenantId, UUID itemBundleId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemBundleAsyncValidateBeforeCall(UUID tenantId, UUID itemBundleId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemBundleAsync(Async)");
@@ -932,7 +945,7 @@ public class ItemBundlesApi {
             throw new ApiException("Missing the required parameter 'itemBundleId' when calling patchItemBundleAsync(Async)");
         }
 
-        return patchItemBundleAsyncCall(tenantId, itemBundleId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemBundleAsyncCall(tenantId, itemBundleId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -943,7 +956,7 @@ public class ItemBundlesApi {
      * @param itemBundleId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -954,8 +967,8 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchItemBundleAsync(UUID tenantId, UUID itemBundleId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchItemBundleAsyncWithHttpInfo(tenantId, itemBundleId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchItemBundleAsync(UUID tenantId, UUID itemBundleId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchItemBundleAsyncWithHttpInfo(tenantId, itemBundleId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -966,7 +979,7 @@ public class ItemBundlesApi {
      * @param itemBundleId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -977,8 +990,8 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchItemBundleAsyncWithHttpInfo(UUID tenantId, UUID itemBundleId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemBundleAsyncValidateBeforeCall(tenantId, itemBundleId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchItemBundleAsyncWithHttpInfo(UUID tenantId, UUID itemBundleId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemBundleAsyncValidateBeforeCall(tenantId, itemBundleId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -990,7 +1003,7 @@ public class ItemBundlesApi {
      * @param itemBundleId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1002,9 +1015,9 @@ public class ItemBundlesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemBundleAsyncAsync(UUID tenantId, UUID itemBundleId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchItemBundleAsyncAsync(UUID tenantId, UUID itemBundleId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemBundleAsyncValidateBeforeCall(tenantId, itemBundleId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemBundleAsyncValidateBeforeCall(tenantId, itemBundleId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

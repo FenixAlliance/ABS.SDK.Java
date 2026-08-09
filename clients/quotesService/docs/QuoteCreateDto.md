@@ -16,6 +16,7 @@
 |**individualId** | **String** |  |  [optional] |
 |**paymentTermId** | **String** |  |  [optional] |
 |**organizationId** | **String** |  |  [optional] |
+|**receiverTenantId** | **String** |  |  [optional] |
 |**firstName** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
 |**companyName** | **String** |  |  [optional] |
@@ -56,7 +57,6 @@
 |**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
 |**cartId** | **String** |  |  [optional] |
 |**dealUnitId** | **String** |  |  [optional] |
-|**receiverTenantId** | **String** |  |  [optional] |
 |**effectiveTo** | **OffsetDateTime** |  |  [optional] |
 |**effectiveFrom** | **OffsetDateTime** |  |  [optional] |
 |**quoteStatus** | [**QuoteStatusEnum**](#QuoteStatusEnum) |  |  [optional] |

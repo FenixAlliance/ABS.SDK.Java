@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getItemImagesAsync"></a>
 # **getItemImagesAsync**
-> ItemImageDtoListEnvelope getItemImagesAsync(tenantId, apiVersion, xApiVersion)
+> ItemImageDtoListEnvelope getItemImagesAsync(tenantId, apiVersion, xApiVersion, itemImageDtoCollectionQueryParameters)
 
 Get all item images
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemImageDtoCollectionQueryParameters itemImageDtoCollectionQueryParameters = new ItemImageDtoCollectionQueryParameters(); // ItemImageDtoCollectionQueryParameters | 
     try {
-      ItemImageDtoListEnvelope result = apiInstance.getItemImagesAsync(tenantId, apiVersion, xApiVersion);
+      ItemImageDtoListEnvelope result = apiInstance.getItemImagesAsync(tenantId, apiVersion, xApiVersion, itemImageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemImagesApi#getItemImagesAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemImageDtoCollectionQueryParameters** | [**ItemImageDtoCollectionQueryParameters**](ItemImageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -291,7 +293,7 @@ No authorization required
 
 <a id="patchItemImageAsync"></a>
 # **patchItemImageAsync**
-> patchItemImageAsync(tenantId, itemImageId, apiVersion, xApiVersion, operation)
+> patchItemImageAsync(tenantId, itemImageId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item image
 
@@ -316,9 +318,9 @@ public class Example {
     UUID itemImageId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchItemImageAsync(tenantId, itemImageId, apiVersion, xApiVersion, operation);
+      apiInstance.patchItemImageAsync(tenantId, itemImageId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemImagesApi#patchItemImageAsync");
       System.err.println("Status code: " + e.getCode());
@@ -338,7 +340,7 @@ public class Example {
 | **itemImageId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

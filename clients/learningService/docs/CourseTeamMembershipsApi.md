@@ -218,7 +218,7 @@ No authorization required
 
 <a id="getCourseTeamMembershipsAsync"></a>
 # **getCourseTeamMembershipsAsync**
-> List&lt;CourseTeamMembershipDto&gt; getCourseTeamMembershipsAsync(tenantId, apiVersion, xApiVersion)
+> List&lt;CourseTeamMembershipDto&gt; getCourseTeamMembershipsAsync(tenantId, apiVersion, xApiVersion, courseTeamMembershipDtoCollectionQueryParameters)
 
 Get all course team memberships
 
@@ -242,8 +242,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseTeamMembershipDtoCollectionQueryParameters courseTeamMembershipDtoCollectionQueryParameters = new CourseTeamMembershipDtoCollectionQueryParameters(); // CourseTeamMembershipDtoCollectionQueryParameters | 
     try {
-      List<CourseTeamMembershipDto> result = apiInstance.getCourseTeamMembershipsAsync(tenantId, apiVersion, xApiVersion);
+      List<CourseTeamMembershipDto> result = apiInstance.getCourseTeamMembershipsAsync(tenantId, apiVersion, xApiVersion, courseTeamMembershipDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseTeamMembershipsApi#getCourseTeamMembershipsAsync");
@@ -263,6 +264,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseTeamMembershipDtoCollectionQueryParameters** | [**CourseTeamMembershipDtoCollectionQueryParameters**](CourseTeamMembershipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -274,7 +276,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -285,7 +287,7 @@ No authorization required
 
 <a id="getCourseTeamMembershipsCountAsync"></a>
 # **getCourseTeamMembershipsCountAsync**
-> Integer getCourseTeamMembershipsCountAsync(tenantId, apiVersion, xApiVersion)
+> Integer getCourseTeamMembershipsCountAsync(tenantId, apiVersion, xApiVersion, courseTeamMembershipDtoCollectionQueryParameters)
 
 Get course team memberships count
 
@@ -309,8 +311,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseTeamMembershipDtoCollectionQueryParameters courseTeamMembershipDtoCollectionQueryParameters = new CourseTeamMembershipDtoCollectionQueryParameters(); // CourseTeamMembershipDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseTeamMembershipsCountAsync(tenantId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseTeamMembershipsCountAsync(tenantId, apiVersion, xApiVersion, courseTeamMembershipDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseTeamMembershipsApi#getCourseTeamMembershipsCountAsync");
@@ -330,6 +333,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseTeamMembershipDtoCollectionQueryParameters** | [**CourseTeamMembershipDtoCollectionQueryParameters**](CourseTeamMembershipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -352,7 +356,7 @@ No authorization required
 
 <a id="patchCourseTeamMembershipAsync"></a>
 # **patchCourseTeamMembershipAsync**
-> EmptyEnvelope patchCourseTeamMembershipAsync(tenantId, membershipId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseTeamMembershipAsync(tenantId, membershipId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course team membership
 
@@ -377,9 +381,9 @@ public class Example {
     String membershipId = "membershipId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCourseTeamMembershipAsync(tenantId, membershipId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCourseTeamMembershipAsync(tenantId, membershipId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseTeamMembershipsApi#patchCourseTeamMembershipAsync");
@@ -400,7 +404,7 @@ public class Example {
 | **membershipId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

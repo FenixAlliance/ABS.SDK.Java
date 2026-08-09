@@ -418,7 +418,7 @@ No authorization required
 
 <a id="getDealUnitFlowStagesAsync"></a>
 # **getDealUnitFlowStagesAsync**
-> DealUnitFlowStageDtoListEnvelope getDealUnitFlowStagesAsync(tenantId, dealUnitFlowId)
+> DealUnitFlowStageDtoListEnvelope getDealUnitFlowStagesAsync(tenantId, dealUnitFlowId, dealUnitFlowStageDtoCollectionQueryParameters)
 
 Get stages for a deal unit flow
 
@@ -441,8 +441,9 @@ public class Example {
     DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    DealUnitFlowStageDtoCollectionQueryParameters dealUnitFlowStageDtoCollectionQueryParameters = new DealUnitFlowStageDtoCollectionQueryParameters(); // DealUnitFlowStageDtoCollectionQueryParameters | 
     try {
-      DealUnitFlowStageDtoListEnvelope result = apiInstance.getDealUnitFlowStagesAsync(tenantId, dealUnitFlowId);
+      DealUnitFlowStageDtoListEnvelope result = apiInstance.getDealUnitFlowStagesAsync(tenantId, dealUnitFlowId, dealUnitFlowStageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitFlowsApi#getDealUnitFlowStagesAsync");
@@ -461,6 +462,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **dealUnitFlowId** | **UUID**|  | |
+| **dealUnitFlowStageDtoCollectionQueryParameters** | [**DealUnitFlowStageDtoCollectionQueryParameters**](DealUnitFlowStageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -472,7 +474,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -483,7 +485,7 @@ No authorization required
 
 <a id="getDealUnitFlowStagesCountAsync"></a>
 # **getDealUnitFlowStagesCountAsync**
-> Int32Envelope getDealUnitFlowStagesCountAsync(tenantId, dealUnitFlowId)
+> Int32Envelope getDealUnitFlowStagesCountAsync(tenantId, dealUnitFlowId, dealUnitFlowStageDtoCollectionQueryParameters)
 
 Get stages count for a deal unit flow
 
@@ -506,8 +508,9 @@ public class Example {
     DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    DealUnitFlowStageDtoCollectionQueryParameters dealUnitFlowStageDtoCollectionQueryParameters = new DealUnitFlowStageDtoCollectionQueryParameters(); // DealUnitFlowStageDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getDealUnitFlowStagesCountAsync(tenantId, dealUnitFlowId);
+      Int32Envelope result = apiInstance.getDealUnitFlowStagesCountAsync(tenantId, dealUnitFlowId, dealUnitFlowStageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitFlowsApi#getDealUnitFlowStagesCountAsync");
@@ -526,6 +529,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **dealUnitFlowId** | **UUID**|  | |
+| **dealUnitFlowStageDtoCollectionQueryParameters** | [**DealUnitFlowStageDtoCollectionQueryParameters**](DealUnitFlowStageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -537,7 +541,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -548,7 +552,7 @@ No authorization required
 
 <a id="getDealUnitFlowsAsync"></a>
 # **getDealUnitFlowsAsync**
-> DealUnitFlowDtoListEnvelope getDealUnitFlowsAsync(tenantId)
+> DealUnitFlowDtoListEnvelope getDealUnitFlowsAsync(tenantId, dealUnitFlowDtoCollectionQueryParameters)
 
 Get deal unit flows
 
@@ -570,8 +574,9 @@ public class Example {
 
     DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    DealUnitFlowDtoCollectionQueryParameters dealUnitFlowDtoCollectionQueryParameters = new DealUnitFlowDtoCollectionQueryParameters(); // DealUnitFlowDtoCollectionQueryParameters | 
     try {
-      DealUnitFlowDtoListEnvelope result = apiInstance.getDealUnitFlowsAsync(tenantId);
+      DealUnitFlowDtoListEnvelope result = apiInstance.getDealUnitFlowsAsync(tenantId, dealUnitFlowDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitFlowsApi#getDealUnitFlowsAsync");
@@ -589,6 +594,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **dealUnitFlowDtoCollectionQueryParameters** | [**DealUnitFlowDtoCollectionQueryParameters**](DealUnitFlowDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -600,7 +606,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -611,7 +617,7 @@ No authorization required
 
 <a id="getDealUnitFlowsCountAsync"></a>
 # **getDealUnitFlowsCountAsync**
-> Int32Envelope getDealUnitFlowsCountAsync(tenantId)
+> Int32Envelope getDealUnitFlowsCountAsync(tenantId, dealUnitFlowDtoCollectionQueryParameters)
 
 Get deal unit flows count
 
@@ -633,8 +639,9 @@ public class Example {
 
     DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    DealUnitFlowDtoCollectionQueryParameters dealUnitFlowDtoCollectionQueryParameters = new DealUnitFlowDtoCollectionQueryParameters(); // DealUnitFlowDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getDealUnitFlowsCountAsync(tenantId);
+      Int32Envelope result = apiInstance.getDealUnitFlowsCountAsync(tenantId, dealUnitFlowDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitFlowsApi#getDealUnitFlowsCountAsync");
@@ -652,6 +659,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **dealUnitFlowDtoCollectionQueryParameters** | [**DealUnitFlowDtoCollectionQueryParameters**](DealUnitFlowDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -663,7 +671,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -674,7 +682,7 @@ No authorization required
 
 <a id="patchDealUnitFlowAsync"></a>
 # **patchDealUnitFlowAsync**
-> EmptyEnvelope patchDealUnitFlowAsync(tenantId, dealUnitFlowId, operation)
+> EmptyEnvelope patchDealUnitFlowAsync(tenantId, dealUnitFlowId, patchOperation)
 
 Patch a deal unit flow
 
@@ -697,9 +705,9 @@ public class Example {
     DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchDealUnitFlowAsync(tenantId, dealUnitFlowId, operation);
+      EmptyEnvelope result = apiInstance.patchDealUnitFlowAsync(tenantId, dealUnitFlowId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitFlowsApi#patchDealUnitFlowAsync");
@@ -718,7 +726,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **dealUnitFlowId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -741,7 +749,7 @@ No authorization required
 
 <a id="patchDealUnitFlowStageAsync"></a>
 # **patchDealUnitFlowStageAsync**
-> EmptyEnvelope patchDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageId, operation)
+> EmptyEnvelope patchDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageId, patchOperation)
 
 Patch a deal unit flow stage
 
@@ -765,9 +773,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
     UUID dealUnitFlowStageId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageId, operation);
+      EmptyEnvelope result = apiInstance.patchDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitFlowsApi#patchDealUnitFlowStageAsync");
@@ -787,7 +795,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **dealUnitFlowId** | **UUID**|  | |
 | **dealUnitFlowStageId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

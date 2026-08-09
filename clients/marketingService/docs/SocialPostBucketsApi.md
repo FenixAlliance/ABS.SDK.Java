@@ -228,7 +228,7 @@ No authorization required
 
 <a id="getSocialPostBucketsCountAsync"></a>
 # **getSocialPostBucketsCountAsync**
-> Int32Envelope getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion, socialPostBucketDtoCollectionQueryParameters)
 
 Get social post buckets count
 
@@ -252,8 +252,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialPostBucketDtoCollectionQueryParameters socialPostBucketDtoCollectionQueryParameters = new SocialPostBucketDtoCollectionQueryParameters(); // SocialPostBucketDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSocialPostBucketsCountAsync(tenantId, apiVersion, xApiVersion, socialPostBucketDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostBucketsApi#getSocialPostBucketsCountAsync");
@@ -273,6 +274,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialPostBucketDtoCollectionQueryParameters** | [**SocialPostBucketDtoCollectionQueryParameters**](SocialPostBucketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -284,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -297,7 +299,7 @@ No authorization required
 
 <a id="getSocialPostBucketsODataAsync"></a>
 # **getSocialPostBucketsODataAsync**
-> SocialPostBucketDtoListEnvelope getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion)
+> SocialPostBucketDtoListEnvelope getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion, socialPostBucketDtoCollectionQueryParameters)
 
 Get social post buckets
 
@@ -321,8 +323,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialPostBucketDtoCollectionQueryParameters socialPostBucketDtoCollectionQueryParameters = new SocialPostBucketDtoCollectionQueryParameters(); // SocialPostBucketDtoCollectionQueryParameters | 
     try {
-      SocialPostBucketDtoListEnvelope result = apiInstance.getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion);
+      SocialPostBucketDtoListEnvelope result = apiInstance.getSocialPostBucketsODataAsync(tenantId, apiVersion, xApiVersion, socialPostBucketDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostBucketsApi#getSocialPostBucketsODataAsync");
@@ -342,6 +345,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialPostBucketDtoCollectionQueryParameters** | [**SocialPostBucketDtoCollectionQueryParameters**](SocialPostBucketDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -353,7 +357,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -365,7 +369,7 @@ No authorization required
 
 <a id="patchSocialPostBucketAsync"></a>
 # **patchSocialPostBucketAsync**
-> EmptyEnvelope patchSocialPostBucketAsync(tenantId, socialpostbucketId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSocialPostBucketAsync(tenantId, socialpostbucketId, apiVersion, xApiVersion, patchOperation)
 
 Patch a social post bucket
 
@@ -390,9 +394,9 @@ public class Example {
     UUID socialpostbucketId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSocialPostBucketAsync(tenantId, socialpostbucketId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSocialPostBucketAsync(tenantId, socialpostbucketId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostBucketsApi#patchSocialPostBucketAsync");
@@ -413,7 +417,7 @@ public class Example {
 | **socialpostbucketId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

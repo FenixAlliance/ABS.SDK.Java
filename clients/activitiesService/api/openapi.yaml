@@ -53,6 +53,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityFeedDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ActivityFeedDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -84,6 +92,7 @@ paths:
       summary: Get activity feeds
       tags:
       - ActivityFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -114,6 +123,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityFeedDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ActivityFeedDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -145,6 +162,7 @@ paths:
       summary: Count activity feeds
       tags:
       - ActivityFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -252,6 +270,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ActivityRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -283,6 +309,7 @@ paths:
       summary: Get activities
       tags:
       - ActivityFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -398,6 +425,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ActivityRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -429,6 +464,7 @@ paths:
       summary: Count activities
       tags:
       - ActivityFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -632,12 +668,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -787,6 +823,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ActivityRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -818,6 +862,7 @@ paths:
       summary: Count activity records
       tags:
       - ActivityFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -848,6 +893,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ActivityTypeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -879,6 +932,7 @@ paths:
       summary: Get Activity Types
       tags:
       - ActivityFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -978,6 +1032,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ActivityTypeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1009,6 +1071,7 @@ paths:
       summary: Count Activity Types
       tags:
       - ActivityFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1188,12 +1251,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1318,23 +1381,6 @@ paths:
       - application/json
   /health:
     get:
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           description: OK
@@ -1715,7 +1761,7 @@ components:
     ActivityFeedDto:
       additionalProperties: false
       example:
-        activitiesCount: 0
+        activitiesCount: 1
         tenantId: tenantId
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -1734,17 +1780,65 @@ components:
           nullable: true
           type: string
       type: object
+    ActivityFeedDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ActivityFeedDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          activitiesCount: 0
+          activitiesCount: 1
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1761,6 +1855,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1772,17 +1881,23 @@ components:
       additionalProperties: false
       example:
         result:
-        - activitiesCount: 0
+        - activitiesCount: 1
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - activitiesCount: 0
+        - activitiesCount: 1
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1799,6 +1914,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1916,6 +2046,48 @@ components:
           nullable: true
           type: string
       type: object
+    ActivityRecordDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ActivityRecordDtoEnvelope:
       additionalProperties: false
       example:
@@ -1935,8 +2107,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           activityTypeId: activityTypeId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1953,6 +2131,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1993,8 +2186,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           activityTypeId: activityTypeId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2011,6 +2210,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2083,7 +2297,7 @@ components:
         name: name
         tenantId: tenantId
         id: id
-        activityRecordsCount: 0
+        activityRecordsCount: 6
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -2106,6 +2320,48 @@ components:
           format: int32
           type: integer
       type: object
+    ActivityTypeDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ActivityTypeDtoEnvelope:
       additionalProperties: false
       example:
@@ -2114,11 +2370,17 @@ components:
           name: name
           tenantId: tenantId
           id: id
-          activityRecordsCount: 0
+          activityRecordsCount: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2135,6 +2397,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2150,17 +2427,23 @@ components:
           name: name
           tenantId: tenantId
           id: id
-          activityRecordsCount: 0
+          activityRecordsCount: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
         - enrollmentId: enrollmentId
           name: name
           tenantId: tenantId
           id: id
-          activityRecordsCount: 0
+          activityRecordsCount: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2177,6 +2460,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2200,8 +2498,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2218,6 +2522,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2228,8 +2547,14 @@ components:
       example:
         result: result
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2246,6 +2571,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2258,8 +2598,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2276,6 +2622,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2354,10 +2715,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2374,6 +2741,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2406,30 +2788,18 @@ components:
       - email
       - password
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:

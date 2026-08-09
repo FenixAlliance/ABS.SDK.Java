@@ -284,23 +284,6 @@ paths:
       - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
   /hello:
     get:
       responses:
@@ -1155,7 +1138,16 @@ components:
     AuthResult:
       additionalProperties: false
       example:
+        runAs: Invoker
+        principalKind: Human
         enrollmentId: "{}"
+        provenance:
+          eventDepth: 6
+          initiation: Unknown
+          onBehalfOfActorId: "{}"
+          onBehalfOfActorKind: Human
+          causationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          originatingWorkflowInstanceId: originatingWorkflowInstanceId
         portalId: "{}"
         tenantId: "{}"
         correlationId: correlationId
@@ -1197,12 +1189,38 @@ components:
         error:
           nullable: true
           type: string
+        runAs:
+          enum:
+          - Invoker
+          - Application
+          - System
+          - Service
+          type: string
+        principalKind:
+          enum:
+          - Human
+          - Agent
+          - Application
+          - Service
+          - System
+          type: string
+        provenance:
+          $ref: '#/components/schemas/ExecutionProvenance'
       type: object
     AuthResultEnvelope:
       additionalProperties: false
       example:
         result:
+          runAs: Invoker
+          principalKind: Human
           enrollmentId: "{}"
+          provenance:
+            eventDepth: 6
+            initiation: Unknown
+            onBehalfOfActorId: "{}"
+            onBehalfOfActorKind: Human
+            causationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            originatingWorkflowInstanceId: originatingWorkflowInstanceId
           portalId: "{}"
           tenantId: "{}"
           correlationId: correlationId
@@ -1213,8 +1231,14 @@ components:
           error: error
           userId: "{}"
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1231,6 +1255,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1246,8 +1285,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 1
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1264,10 +1309,72 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
           type: string
+      type: object
+    ExecutionProvenance:
+      additionalProperties: false
+      example:
+        eventDepth: 6
+        initiation: Unknown
+        onBehalfOfActorId: "{}"
+        onBehalfOfActorKind: Human
+        causationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        originatingWorkflowInstanceId: originatingWorkflowInstanceId
+      properties:
+        initiation:
+          enum:
+          - Unknown
+          - Http
+          - Workflow
+          - ScheduledJob
+          - Event
+          - AiTool
+          - Mcp
+          - Integration
+          - System
+          - Manual
+          type: string
+        onBehalfOfActorId:
+          additionalProperties: false
+          format: uuid
+          type: object
+        onBehalfOfActorKind:
+          enum:
+          - Human
+          - Agent
+          - Application
+          - Service
+          - System
+          nullable: true
+          type: string
+        causationId:
+          format: uuid
+          nullable: true
+          type: string
+        originatingWorkflowInstanceId:
+          nullable: true
+          type: string
+        eventDepth:
+          format: int32
+          type: integer
       type: object
     ForgotPasswordRequest:
       additionalProperties: false
@@ -1343,7 +1450,7 @@ components:
       additionalProperties: false
       example:
         kty: kty
-        nbf: 0
+        nbf: 6
         e: e
         use: use
         kid: kid
@@ -1373,13 +1480,13 @@ components:
       example:
         keys:
         - kty: kty
-          nbf: 0
+          nbf: 6
           e: e
           use: use
           kid: kid
           "n": "n"
         - kty: kty
-          nbf: 0
+          nbf: 6
           e: e
           use: use
           kid: kid
@@ -1397,20 +1504,26 @@ components:
         result:
           keys:
           - kty: kty
-            nbf: 0
+            nbf: 6
             e: e
             use: use
             kid: kid
             "n": "n"
           - kty: kty
-            nbf: 0
+            nbf: 6
             e: e
             use: use
             kid: kid
             "n": "n"
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1427,6 +1540,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1442,14 +1570,14 @@ components:
           aud: aud
           sub: sub
           act: act
-          nbf: 6
+          nbf: 1
           iss: iss
           scopes:
           - scopes
           - scopes
-          exp: 1
+          exp: 5
           aid: aid
-          iat: 0
+          iat: 6
           cid: cid
         signature: signature
         header:
@@ -1486,14 +1614,14 @@ components:
             aud: aud
             sub: sub
             act: act
-            nbf: 6
+            nbf: 1
             iss: iss
             scopes:
             - scopes
             - scopes
-            exp: 1
+            exp: 5
             aid: aid
-            iat: 0
+            iat: 6
             cid: cid
           signature: signature
           header:
@@ -1504,8 +1632,14 @@ components:
           tokenType: tokenType
           accessToken: accessToken
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1522,6 +1656,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1556,14 +1705,14 @@ components:
         aud: aud
         sub: sub
         act: act
-        nbf: 6
+        nbf: 1
         iss: iss
         scopes:
         - scopes
         - scopes
-        exp: 1
+        exp: 5
         aid: aid
-        iat: 0
+        iat: 6
         cid: cid
       properties:
         aud:
@@ -1760,8 +1909,14 @@ components:
           - responseModesSupported
           - responseModesSupported
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1778,6 +1933,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1868,8 +2038,14 @@ components:
         - result
         - result
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1886,6 +2062,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2103,8 +2294,14 @@ components:
           youTubeUrl: youTubeUrl
           status: status
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2121,6 +2318,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

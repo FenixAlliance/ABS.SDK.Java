@@ -29,11 +29,16 @@ import java.io.IOException;
 
 import org.openapitools.client.model.AverageDtoEnvelope;
 import org.openapitools.client.model.CountDtoEnvelope;
+import org.openapitools.client.model.CourseCompletionCertificateDtoCollectionQueryParameters;
 import org.openapitools.client.model.CourseCompletionCertificateDtoIReadOnlyListEnvelope;
+import org.openapitools.client.model.CourseDtoCollectionQueryParameters;
 import org.openapitools.client.model.CourseDtoIReadOnlyListEnvelope;
+import org.openapitools.client.model.CourseEnrollmentDtoCollectionQueryParameters;
 import org.openapitools.client.model.CourseEnrollmentDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.InstructorProfileDtoCollectionQueryParameters;
 import org.openapitools.client.model.InstructorProfileDtoIReadOnlyListEnvelope;
+import org.openapitools.client.model.StudentProfileDtoCollectionQueryParameters;
 import org.openapitools.client.model.StudentProfileDtoIReadOnlyListEnvelope;
 
 import java.lang.reflect.Type;
@@ -217,6 +222,7 @@ public class MeApi {
      * Build call for getMyCertificatesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -227,7 +233,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyCertificatesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyCertificatesAsyncCall(String apiVersion, String xApiVersion, CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -241,7 +247,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = courseCompletionCertificateDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/Certificates";
@@ -270,6 +276,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -281,8 +289,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyCertificatesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyCertificatesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyCertificatesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyCertificatesAsyncCall(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -291,6 +299,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @return CourseCompletionCertificateDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -300,8 +309,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public CourseCompletionCertificateDtoIReadOnlyListEnvelope getMyCertificatesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CourseCompletionCertificateDtoIReadOnlyListEnvelope> localVarResp = getMyCertificatesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public CourseCompletionCertificateDtoIReadOnlyListEnvelope getMyCertificatesAsync(String apiVersion, String xApiVersion, CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CourseCompletionCertificateDtoIReadOnlyListEnvelope> localVarResp = getMyCertificatesAsyncWithHttpInfo(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -310,6 +319,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CourseCompletionCertificateDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -319,8 +329,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CourseCompletionCertificateDtoIReadOnlyListEnvelope> getMyCertificatesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyCertificatesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<CourseCompletionCertificateDtoIReadOnlyListEnvelope> getMyCertificatesAsyncWithHttpInfo(String apiVersion, String xApiVersion, CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyCertificatesAsyncValidateBeforeCall(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CourseCompletionCertificateDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -330,6 +340,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -340,9 +351,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyCertificatesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<CourseCompletionCertificateDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getMyCertificatesAsyncAsync(String apiVersion, String xApiVersion, CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters, final ApiCallback<CourseCompletionCertificateDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyCertificatesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyCertificatesAsyncValidateBeforeCall(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CourseCompletionCertificateDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -351,6 +362,7 @@ public class MeApi {
      * Build call for getMyCertificatesCountAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -361,7 +373,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyCertificatesCountAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyCertificatesCountAsyncCall(String apiVersion, String xApiVersion, CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -375,7 +387,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = courseCompletionCertificateDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/Certificates/Count";
@@ -404,6 +416,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -415,8 +429,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyCertificatesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyCertificatesCountAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyCertificatesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyCertificatesCountAsyncCall(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -425,6 +439,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -434,8 +449,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Integer getMyCertificatesCountAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Integer> localVarResp = getMyCertificatesCountAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Integer getMyCertificatesCountAsync(String apiVersion, String xApiVersion, CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Integer> localVarResp = getMyCertificatesCountAsyncWithHttpInfo(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -444,6 +459,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -453,8 +469,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> getMyCertificatesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyCertificatesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Integer> getMyCertificatesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion, CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyCertificatesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -464,6 +480,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseCompletionCertificateDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -474,9 +491,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyCertificatesCountAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call getMyCertificatesCountAsyncAsync(String apiVersion, String xApiVersion, CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyCertificatesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyCertificatesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -485,6 +502,7 @@ public class MeApi {
      * Build call for getMyEnrollmentsAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -495,7 +513,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyEnrollmentsAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyEnrollmentsAsyncCall(String apiVersion, String xApiVersion, CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -509,7 +527,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = courseEnrollmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/Enrollments";
@@ -538,6 +556,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -549,8 +569,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyEnrollmentsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyEnrollmentsAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyEnrollmentsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyEnrollmentsAsyncCall(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -559,6 +579,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return CourseEnrollmentDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -568,8 +589,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public CourseEnrollmentDtoIReadOnlyListEnvelope getMyEnrollmentsAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CourseEnrollmentDtoIReadOnlyListEnvelope> localVarResp = getMyEnrollmentsAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public CourseEnrollmentDtoIReadOnlyListEnvelope getMyEnrollmentsAsync(String apiVersion, String xApiVersion, CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CourseEnrollmentDtoIReadOnlyListEnvelope> localVarResp = getMyEnrollmentsAsyncWithHttpInfo(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -578,6 +599,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CourseEnrollmentDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -587,8 +609,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CourseEnrollmentDtoIReadOnlyListEnvelope> getMyEnrollmentsAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyEnrollmentsAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<CourseEnrollmentDtoIReadOnlyListEnvelope> getMyEnrollmentsAsyncWithHttpInfo(String apiVersion, String xApiVersion, CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyEnrollmentsAsyncValidateBeforeCall(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CourseEnrollmentDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -598,6 +620,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -608,9 +631,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyEnrollmentsAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<CourseEnrollmentDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getMyEnrollmentsAsyncAsync(String apiVersion, String xApiVersion, CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters, final ApiCallback<CourseEnrollmentDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyEnrollmentsAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyEnrollmentsAsyncValidateBeforeCall(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CourseEnrollmentDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -619,6 +642,7 @@ public class MeApi {
      * Build call for getMyEnrollmentsCountAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -629,7 +653,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyEnrollmentsCountAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyEnrollmentsCountAsyncCall(String apiVersion, String xApiVersion, CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -643,7 +667,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = courseEnrollmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/Enrollments/Count";
@@ -672,6 +696,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -683,8 +709,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyEnrollmentsCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyEnrollmentsCountAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyEnrollmentsCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyEnrollmentsCountAsyncCall(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -693,6 +719,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -702,8 +729,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Integer getMyEnrollmentsCountAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Integer> localVarResp = getMyEnrollmentsCountAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Integer getMyEnrollmentsCountAsync(String apiVersion, String xApiVersion, CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Integer> localVarResp = getMyEnrollmentsCountAsyncWithHttpInfo(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -712,6 +739,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -721,8 +749,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> getMyEnrollmentsCountAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyEnrollmentsCountAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Integer> getMyEnrollmentsCountAsyncWithHttpInfo(String apiVersion, String xApiVersion, CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyEnrollmentsCountAsyncValidateBeforeCall(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -732,6 +760,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseEnrollmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -742,9 +771,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyEnrollmentsCountAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call getMyEnrollmentsCountAsyncAsync(String apiVersion, String xApiVersion, CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyEnrollmentsCountAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyEnrollmentsCountAsyncValidateBeforeCall(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -887,6 +916,7 @@ public class MeApi {
      * Build call for getMyInstructorCoursesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -897,7 +927,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyInstructorCoursesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyInstructorCoursesAsyncCall(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -911,7 +941,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = courseDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/InstructorCourses";
@@ -940,6 +970,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -951,8 +983,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyInstructorCoursesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyInstructorCoursesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyInstructorCoursesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyInstructorCoursesAsyncCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -961,6 +993,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return CourseDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -970,8 +1003,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public CourseDtoIReadOnlyListEnvelope getMyInstructorCoursesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CourseDtoIReadOnlyListEnvelope> localVarResp = getMyInstructorCoursesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public CourseDtoIReadOnlyListEnvelope getMyInstructorCoursesAsync(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CourseDtoIReadOnlyListEnvelope> localVarResp = getMyInstructorCoursesAsyncWithHttpInfo(apiVersion, xApiVersion, courseDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -980,6 +1013,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CourseDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -989,8 +1023,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CourseDtoIReadOnlyListEnvelope> getMyInstructorCoursesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyInstructorCoursesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<CourseDtoIReadOnlyListEnvelope> getMyInstructorCoursesAsyncWithHttpInfo(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyInstructorCoursesAsyncValidateBeforeCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CourseDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1000,6 +1034,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1010,9 +1045,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyInstructorCoursesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<CourseDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getMyInstructorCoursesAsyncAsync(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback<CourseDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyInstructorCoursesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyInstructorCoursesAsyncValidateBeforeCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CourseDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1021,6 +1056,7 @@ public class MeApi {
      * Build call for getMyInstructorCoursesCountAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1031,7 +1067,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyInstructorCoursesCountAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyInstructorCoursesCountAsyncCall(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1045,7 +1081,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = courseDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/InstructorCourses/Count";
@@ -1074,6 +1110,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1085,8 +1123,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyInstructorCoursesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyInstructorCoursesCountAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyInstructorCoursesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyInstructorCoursesCountAsyncCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1095,6 +1133,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1104,8 +1143,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Integer getMyInstructorCoursesCountAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Integer> localVarResp = getMyInstructorCoursesCountAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Integer getMyInstructorCoursesCountAsync(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Integer> localVarResp = getMyInstructorCoursesCountAsyncWithHttpInfo(apiVersion, xApiVersion, courseDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1114,6 +1153,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1123,8 +1163,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> getMyInstructorCoursesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyInstructorCoursesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Integer> getMyInstructorCoursesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyInstructorCoursesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1134,6 +1174,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1144,9 +1185,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyInstructorCoursesCountAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call getMyInstructorCoursesCountAsyncAsync(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyInstructorCoursesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyInstructorCoursesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1155,6 +1196,7 @@ public class MeApi {
      * Build call for getMyInstructorProfilesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1165,7 +1207,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyInstructorProfilesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyInstructorProfilesAsyncCall(String apiVersion, String xApiVersion, InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1179,7 +1221,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = instructorProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/InstructorProfiles";
@@ -1208,6 +1250,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1219,8 +1263,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyInstructorProfilesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyInstructorProfilesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyInstructorProfilesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyInstructorProfilesAsyncCall(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1229,6 +1273,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @return InstructorProfileDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1238,8 +1283,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public InstructorProfileDtoIReadOnlyListEnvelope getMyInstructorProfilesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<InstructorProfileDtoIReadOnlyListEnvelope> localVarResp = getMyInstructorProfilesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public InstructorProfileDtoIReadOnlyListEnvelope getMyInstructorProfilesAsync(String apiVersion, String xApiVersion, InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<InstructorProfileDtoIReadOnlyListEnvelope> localVarResp = getMyInstructorProfilesAsyncWithHttpInfo(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1248,6 +1293,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;InstructorProfileDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1257,8 +1303,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InstructorProfileDtoIReadOnlyListEnvelope> getMyInstructorProfilesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyInstructorProfilesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<InstructorProfileDtoIReadOnlyListEnvelope> getMyInstructorProfilesAsyncWithHttpInfo(String apiVersion, String xApiVersion, InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyInstructorProfilesAsyncValidateBeforeCall(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<InstructorProfileDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1268,6 +1314,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1278,9 +1325,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyInstructorProfilesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<InstructorProfileDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getMyInstructorProfilesAsyncAsync(String apiVersion, String xApiVersion, InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters, final ApiCallback<InstructorProfileDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyInstructorProfilesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyInstructorProfilesAsyncValidateBeforeCall(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<InstructorProfileDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1289,6 +1336,7 @@ public class MeApi {
      * Build call for getMyInstructorProfilesCountAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1299,7 +1347,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyInstructorProfilesCountAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyInstructorProfilesCountAsyncCall(String apiVersion, String xApiVersion, InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1313,7 +1361,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = instructorProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/InstructorProfiles/Count";
@@ -1342,6 +1390,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1353,8 +1403,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyInstructorProfilesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyInstructorProfilesCountAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyInstructorProfilesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyInstructorProfilesCountAsyncCall(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1363,6 +1413,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1372,8 +1423,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Integer getMyInstructorProfilesCountAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Integer> localVarResp = getMyInstructorProfilesCountAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Integer getMyInstructorProfilesCountAsync(String apiVersion, String xApiVersion, InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Integer> localVarResp = getMyInstructorProfilesCountAsyncWithHttpInfo(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1382,6 +1433,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1391,8 +1443,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> getMyInstructorProfilesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyInstructorProfilesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Integer> getMyInstructorProfilesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion, InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyInstructorProfilesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1402,6 +1454,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param instructorProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1412,9 +1465,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyInstructorProfilesCountAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call getMyInstructorProfilesCountAsyncAsync(String apiVersion, String xApiVersion, InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyInstructorProfilesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyInstructorProfilesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1557,6 +1610,7 @@ public class MeApi {
      * Build call for getMyStudentCoursesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1567,7 +1621,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyStudentCoursesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyStudentCoursesAsyncCall(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1581,7 +1635,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = courseDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/Courses";
@@ -1610,6 +1664,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1621,8 +1677,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyStudentCoursesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyStudentCoursesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyStudentCoursesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyStudentCoursesAsyncCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1631,6 +1687,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return CourseDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1640,8 +1697,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public CourseDtoIReadOnlyListEnvelope getMyStudentCoursesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CourseDtoIReadOnlyListEnvelope> localVarResp = getMyStudentCoursesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public CourseDtoIReadOnlyListEnvelope getMyStudentCoursesAsync(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CourseDtoIReadOnlyListEnvelope> localVarResp = getMyStudentCoursesAsyncWithHttpInfo(apiVersion, xApiVersion, courseDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1650,6 +1707,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CourseDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1659,8 +1717,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CourseDtoIReadOnlyListEnvelope> getMyStudentCoursesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyStudentCoursesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<CourseDtoIReadOnlyListEnvelope> getMyStudentCoursesAsyncWithHttpInfo(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyStudentCoursesAsyncValidateBeforeCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CourseDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1670,6 +1728,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1680,9 +1739,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyStudentCoursesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<CourseDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getMyStudentCoursesAsyncAsync(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback<CourseDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyStudentCoursesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyStudentCoursesAsyncValidateBeforeCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CourseDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1691,6 +1750,7 @@ public class MeApi {
      * Build call for getMyStudentCoursesCountAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1701,7 +1761,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyStudentCoursesCountAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyStudentCoursesCountAsyncCall(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1715,7 +1775,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = courseDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/Courses/Count";
@@ -1744,6 +1804,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1755,8 +1817,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyStudentCoursesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyStudentCoursesCountAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyStudentCoursesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyStudentCoursesCountAsyncCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1765,6 +1827,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1774,8 +1837,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Integer getMyStudentCoursesCountAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Integer> localVarResp = getMyStudentCoursesCountAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Integer getMyStudentCoursesCountAsync(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Integer> localVarResp = getMyStudentCoursesCountAsyncWithHttpInfo(apiVersion, xApiVersion, courseDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1784,6 +1847,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1793,8 +1857,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> getMyStudentCoursesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyStudentCoursesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Integer> getMyStudentCoursesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyStudentCoursesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1804,6 +1868,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1814,9 +1879,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyStudentCoursesCountAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call getMyStudentCoursesCountAsyncAsync(String apiVersion, String xApiVersion, CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyStudentCoursesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyStudentCoursesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, courseDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1825,6 +1890,7 @@ public class MeApi {
      * Build call for getMyStudentProfilesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1835,7 +1901,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyStudentProfilesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyStudentProfilesAsyncCall(String apiVersion, String xApiVersion, StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1849,7 +1915,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = studentProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/StudentProfiles";
@@ -1878,6 +1944,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1889,8 +1957,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyStudentProfilesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyStudentProfilesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyStudentProfilesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyStudentProfilesAsyncCall(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1899,6 +1967,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @return StudentProfileDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1908,8 +1977,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public StudentProfileDtoIReadOnlyListEnvelope getMyStudentProfilesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<StudentProfileDtoIReadOnlyListEnvelope> localVarResp = getMyStudentProfilesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public StudentProfileDtoIReadOnlyListEnvelope getMyStudentProfilesAsync(String apiVersion, String xApiVersion, StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<StudentProfileDtoIReadOnlyListEnvelope> localVarResp = getMyStudentProfilesAsyncWithHttpInfo(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1918,6 +1987,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;StudentProfileDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1927,8 +1997,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<StudentProfileDtoIReadOnlyListEnvelope> getMyStudentProfilesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyStudentProfilesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<StudentProfileDtoIReadOnlyListEnvelope> getMyStudentProfilesAsyncWithHttpInfo(String apiVersion, String xApiVersion, StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyStudentProfilesAsyncValidateBeforeCall(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<StudentProfileDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1938,6 +2008,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1948,9 +2019,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyStudentProfilesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<StudentProfileDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getMyStudentProfilesAsyncAsync(String apiVersion, String xApiVersion, StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters, final ApiCallback<StudentProfileDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyStudentProfilesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyStudentProfilesAsyncValidateBeforeCall(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<StudentProfileDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1959,6 +2030,7 @@ public class MeApi {
      * Build call for getMyStudentProfilesCountAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1969,7 +2041,7 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyStudentProfilesCountAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyStudentProfilesCountAsyncCall(String apiVersion, String xApiVersion, StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1983,7 +2055,7 @@ public class MeApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = studentProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/Me/StudentProfiles/Count";
@@ -2012,6 +2084,8 @@ public class MeApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2023,8 +2097,8 @@ public class MeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyStudentProfilesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getMyStudentProfilesCountAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getMyStudentProfilesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getMyStudentProfilesCountAsyncCall(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2033,6 +2107,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2042,8 +2117,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Integer getMyStudentProfilesCountAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Integer> localVarResp = getMyStudentProfilesCountAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Integer getMyStudentProfilesCountAsync(String apiVersion, String xApiVersion, StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Integer> localVarResp = getMyStudentProfilesCountAsyncWithHttpInfo(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2052,6 +2127,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2061,8 +2137,8 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> getMyStudentProfilesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMyStudentProfilesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Integer> getMyStudentProfilesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion, StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMyStudentProfilesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2072,6 +2148,7 @@ public class MeApi {
      * 
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param studentProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2082,9 +2159,9 @@ public class MeApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyStudentProfilesCountAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call getMyStudentProfilesCountAsyncAsync(String apiVersion, String xApiVersion, StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyStudentProfilesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMyStudentProfilesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

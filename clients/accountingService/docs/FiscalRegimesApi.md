@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getFiscalRegimes"></a>
 # **getFiscalRegimes**
-> FiscalRegimeDtoListEnvelope getFiscalRegimes(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion)
+> FiscalRegimeDtoListEnvelope getFiscalRegimes(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters)
 
 Get fiscal regimes for an authority
 
@@ -253,8 +253,9 @@ public class Example {
     String authorityId = "authorityId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters = new FiscalRegimeDtoCollectionQueryParameters(); // FiscalRegimeDtoCollectionQueryParameters | 
     try {
-      FiscalRegimeDtoListEnvelope result = apiInstance.getFiscalRegimes(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
+      FiscalRegimeDtoListEnvelope result = apiInstance.getFiscalRegimes(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalRegimesApi#getFiscalRegimes");
@@ -276,6 +277,7 @@ public class Example {
 | **authorityId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalRegimeDtoCollectionQueryParameters** | [**FiscalRegimeDtoCollectionQueryParameters**](FiscalRegimeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -287,7 +289,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -299,7 +301,7 @@ No authorization required
 
 <a id="getFiscalRegimesCount"></a>
 # **getFiscalRegimesCount**
-> Int32Envelope getFiscalRegimesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalRegimesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters)
 
 Get fiscal regimes count
 
@@ -324,8 +326,9 @@ public class Example {
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalRegimeDtoCollectionQueryParameters fiscalRegimeDtoCollectionQueryParameters = new FiscalRegimeDtoCollectionQueryParameters(); // FiscalRegimeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getFiscalRegimesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFiscalRegimesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalRegimeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalRegimesApi#getFiscalRegimesCount");
@@ -346,6 +349,7 @@ public class Example {
 | **fiscalAuthorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalRegimeDtoCollectionQueryParameters** | [**FiscalRegimeDtoCollectionQueryParameters**](FiscalRegimeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -357,7 +361,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -369,7 +373,7 @@ No authorization required
 
 <a id="patchFiscalRegimeAsync"></a>
 # **patchFiscalRegimeAsync**
-> EmptyEnvelope patchFiscalRegimeAsync(tenantId, regimeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalRegimeAsync(tenantId, regimeId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal regime
 
@@ -394,9 +398,9 @@ public class Example {
     UUID regimeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchFiscalRegimeAsync(tenantId, regimeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchFiscalRegimeAsync(tenantId, regimeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalRegimesApi#patchFiscalRegimeAsync");
@@ -417,7 +421,7 @@ public class Example {
 | **regimeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

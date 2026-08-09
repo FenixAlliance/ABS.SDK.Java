@@ -157,7 +157,7 @@ No authorization required
 
 <a id="getSalariesAsync"></a>
 # **getSalariesAsync**
-> SalaryDtoListEnvelope getSalariesAsync(tenantId, apiVersion, xApiVersion)
+> SalaryDtoListEnvelope getSalariesAsync(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters)
 
 Get salaries
 
@@ -181,8 +181,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters = new SalaryDtoCollectionQueryParameters(); // SalaryDtoCollectionQueryParameters | 
     try {
-      SalaryDtoListEnvelope result = apiInstance.getSalariesAsync(tenantId, apiVersion, xApiVersion);
+      SalaryDtoListEnvelope result = apiInstance.getSalariesAsync(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SalariesApi#getSalariesAsync");
@@ -202,6 +203,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **salaryDtoCollectionQueryParameters** | [**SalaryDtoCollectionQueryParameters**](SalaryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -213,7 +215,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -225,7 +227,7 @@ No authorization required
 
 <a id="getSalariesCountAsync"></a>
 # **getSalariesCountAsync**
-> Int32Envelope getSalariesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSalariesCountAsync(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters)
 
 Count salaries
 
@@ -249,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters = new SalaryDtoCollectionQueryParameters(); // SalaryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSalariesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSalariesCountAsync(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SalariesApi#getSalariesCountAsync");
@@ -270,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **salaryDtoCollectionQueryParameters** | [**SalaryDtoCollectionQueryParameters**](SalaryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchSalaryAsync"></a>
 # **patchSalaryAsync**
-> EmptyEnvelope patchSalaryAsync(tenantId, salaryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSalaryAsync(tenantId, salaryId, apiVersion, xApiVersion, patchOperation)
 
 Patch a salary
 
@@ -388,9 +392,9 @@ public class Example {
     UUID salaryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSalaryAsync(tenantId, salaryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSalaryAsync(tenantId, salaryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SalariesApi#patchSalaryAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **salaryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

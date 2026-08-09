@@ -30,11 +30,12 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.FinancialBookCreateDto;
+import org.openapitools.client.model.FinancialBookDtoCollectionQueryParameters;
 import org.openapitools.client.model.FinancialBookDtoEnvelope;
 import org.openapitools.client.model.FinancialBookDtoListEnvelope;
 import org.openapitools.client.model.FinancialBookUpdateDto;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -581,6 +582,7 @@ public class FinancialBooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param financialBookDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -593,7 +595,7 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFinancialBooksAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFinancialBooksAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -607,7 +609,7 @@ public class FinancialBooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = financialBookDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/FinancialBooks";
@@ -640,6 +642,8 @@ public class FinancialBooksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -651,13 +655,13 @@ public class FinancialBooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFinancialBooksAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFinancialBooksAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFinancialBooksAsync(Async)");
         }
 
-        return getFinancialBooksAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getFinancialBooksAsyncCall(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -667,6 +671,7 @@ public class FinancialBooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param financialBookDtoCollectionQueryParameters  (optional)
      * @return FinancialBookDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -678,8 +683,8 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public FinancialBookDtoListEnvelope getFinancialBooksAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<FinancialBookDtoListEnvelope> localVarResp = getFinancialBooksAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public FinancialBookDtoListEnvelope getFinancialBooksAsync(UUID tenantId, String apiVersion, String xApiVersion, FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<FinancialBookDtoListEnvelope> localVarResp = getFinancialBooksAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -689,6 +694,7 @@ public class FinancialBooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param financialBookDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;FinancialBookDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -700,8 +706,8 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FinancialBookDtoListEnvelope> getFinancialBooksAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFinancialBooksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<FinancialBookDtoListEnvelope> getFinancialBooksAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getFinancialBooksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<FinancialBookDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -712,6 +718,7 @@ public class FinancialBooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param financialBookDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -724,9 +731,9 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFinancialBooksAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<FinancialBookDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getFinancialBooksAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters, final ApiCallback<FinancialBookDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFinancialBooksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFinancialBooksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<FinancialBookDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -736,6 +743,7 @@ public class FinancialBooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param financialBookDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -748,7 +756,7 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFinancialBooksCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFinancialBooksCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -762,7 +770,7 @@ public class FinancialBooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = financialBookDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/FinancialBooks/Count";
@@ -795,6 +803,8 @@ public class FinancialBooksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -806,13 +816,13 @@ public class FinancialBooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFinancialBooksCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFinancialBooksCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFinancialBooksCountAsync(Async)");
         }
 
-        return getFinancialBooksCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getFinancialBooksCountAsyncCall(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -822,6 +832,7 @@ public class FinancialBooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param financialBookDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -833,8 +844,8 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getFinancialBooksCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getFinancialBooksCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getFinancialBooksCountAsync(UUID tenantId, String apiVersion, String xApiVersion, FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getFinancialBooksCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -844,6 +855,7 @@ public class FinancialBooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param financialBookDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -855,8 +867,8 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getFinancialBooksCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFinancialBooksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getFinancialBooksCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getFinancialBooksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -867,6 +879,7 @@ public class FinancialBooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param financialBookDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -879,9 +892,9 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFinancialBooksCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getFinancialBooksCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFinancialBooksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFinancialBooksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -892,7 +905,7 @@ public class FinancialBooksApi {
      * @param financialBookId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -904,7 +917,7 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchFinancialBookAsyncCall(UUID tenantId, UUID financialBookId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchFinancialBookAsyncCall(UUID tenantId, UUID financialBookId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -918,7 +931,7 @@ public class FinancialBooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/FinancialBooks/{financialBookId}"
@@ -965,7 +978,7 @@ public class FinancialBooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchFinancialBookAsyncValidateBeforeCall(UUID tenantId, UUID financialBookId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchFinancialBookAsyncValidateBeforeCall(UUID tenantId, UUID financialBookId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchFinancialBookAsync(Async)");
@@ -976,7 +989,7 @@ public class FinancialBooksApi {
             throw new ApiException("Missing the required parameter 'financialBookId' when calling patchFinancialBookAsync(Async)");
         }
 
-        return patchFinancialBookAsyncCall(tenantId, financialBookId, apiVersion, xApiVersion, operation, _callback);
+        return patchFinancialBookAsyncCall(tenantId, financialBookId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -987,7 +1000,7 @@ public class FinancialBooksApi {
      * @param financialBookId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -998,8 +1011,8 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchFinancialBookAsync(UUID tenantId, UUID financialBookId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchFinancialBookAsyncWithHttpInfo(tenantId, financialBookId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchFinancialBookAsync(UUID tenantId, UUID financialBookId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchFinancialBookAsyncWithHttpInfo(tenantId, financialBookId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1010,7 +1023,7 @@ public class FinancialBooksApi {
      * @param financialBookId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1021,8 +1034,8 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchFinancialBookAsyncWithHttpInfo(UUID tenantId, UUID financialBookId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchFinancialBookAsyncValidateBeforeCall(tenantId, financialBookId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchFinancialBookAsyncWithHttpInfo(UUID tenantId, UUID financialBookId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchFinancialBookAsyncValidateBeforeCall(tenantId, financialBookId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1034,7 +1047,7 @@ public class FinancialBooksApi {
      * @param financialBookId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1046,9 +1059,9 @@ public class FinancialBooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchFinancialBookAsyncAsync(UUID tenantId, UUID financialBookId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchFinancialBookAsyncAsync(UUID tenantId, UUID financialBookId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchFinancialBookAsyncValidateBeforeCall(tenantId, financialBookId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchFinancialBookAsyncValidateBeforeCall(tenantId, financialBookId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

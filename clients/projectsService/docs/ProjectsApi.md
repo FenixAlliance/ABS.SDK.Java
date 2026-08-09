@@ -566,7 +566,7 @@ No authorization required
 
 <a id="getProjectTaskCategoriesAsync"></a>
 # **getProjectTaskCategoriesAsync**
-> TaskCategoryDtoListEnvelope getProjectTaskCategoriesAsync(projectId, tenantId)
+> TaskCategoryDtoListEnvelope getProjectTaskCategoriesAsync(projectId, tenantId, taskCategoryDtoCollectionQueryParameters)
 
 Retrieves project task categories
 
@@ -589,8 +589,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     UUID projectId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters = new TaskCategoryDtoCollectionQueryParameters(); // TaskCategoryDtoCollectionQueryParameters | 
     try {
-      TaskCategoryDtoListEnvelope result = apiInstance.getProjectTaskCategoriesAsync(projectId, tenantId);
+      TaskCategoryDtoListEnvelope result = apiInstance.getProjectTaskCategoriesAsync(projectId, tenantId, taskCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#getProjectTaskCategoriesAsync");
@@ -609,6 +610,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
+| **taskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -620,7 +622,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -632,7 +634,7 @@ No authorization required
 
 <a id="getProjectTaskCategoriesCountAsync"></a>
 # **getProjectTaskCategoriesCountAsync**
-> Int32Envelope getProjectTaskCategoriesCountAsync(projectId, tenantId)
+> Int32Envelope getProjectTaskCategoriesCountAsync(projectId, tenantId, taskCategoryDtoCollectionQueryParameters)
 
 Counts project task categories
 
@@ -655,8 +657,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     UUID projectId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters = new TaskCategoryDtoCollectionQueryParameters(); // TaskCategoryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getProjectTaskCategoriesCountAsync(projectId, tenantId);
+      Int32Envelope result = apiInstance.getProjectTaskCategoriesCountAsync(projectId, tenantId, taskCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#getProjectTaskCategoriesCountAsync");
@@ -675,6 +678,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
+| **taskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -686,7 +690,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -698,7 +702,7 @@ No authorization required
 
 <a id="getProjectTimeLogsCountAsync"></a>
 # **getProjectTimeLogsCountAsync**
-> Int32Envelope getProjectTimeLogsCountAsync(projectId, tenantId)
+> Int32Envelope getProjectTimeLogsCountAsync(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters)
 
 Counts project time logs
 
@@ -721,8 +725,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     UUID projectId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters = new ProjectTimeLogDtoCollectionQueryParameters(); // ProjectTimeLogDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getProjectTimeLogsCountAsync(projectId, tenantId);
+      Int32Envelope result = apiInstance.getProjectTimeLogsCountAsync(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#getProjectTimeLogsCountAsync");
@@ -741,6 +746,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
+| **projectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -752,7 +758,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -764,7 +770,7 @@ No authorization required
 
 <a id="getProjectsByTenantIdAsync"></a>
 # **getProjectsByTenantIdAsync**
-> ProjectDtoListEnvelope getProjectsByTenantIdAsync(tenantId)
+> ProjectDtoListEnvelope getProjectsByTenantIdAsync(tenantId, projectDtoCollectionQueryParameters)
 
 Retrieves all projects
 
@@ -786,8 +792,9 @@ public class Example {
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters = new ProjectDtoCollectionQueryParameters(); // ProjectDtoCollectionQueryParameters | 
     try {
-      ProjectDtoListEnvelope result = apiInstance.getProjectsByTenantIdAsync(tenantId);
+      ProjectDtoListEnvelope result = apiInstance.getProjectsByTenantIdAsync(tenantId, projectDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#getProjectsByTenantIdAsync");
@@ -805,6 +812,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **projectDtoCollectionQueryParameters** | [**ProjectDtoCollectionQueryParameters**](ProjectDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -816,7 +824,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -828,7 +836,7 @@ No authorization required
 
 <a id="getProjectsCountByTenantIdAsync"></a>
 # **getProjectsCountByTenantIdAsync**
-> Int32Envelope getProjectsCountByTenantIdAsync(tenantId)
+> Int32Envelope getProjectsCountByTenantIdAsync(tenantId, projectDtoCollectionQueryParameters)
 
 Counts projects
 
@@ -850,8 +858,9 @@ public class Example {
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters = new ProjectDtoCollectionQueryParameters(); // ProjectDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getProjectsCountByTenantIdAsync(tenantId);
+      Int32Envelope result = apiInstance.getProjectsCountByTenantIdAsync(tenantId, projectDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#getProjectsCountByTenantIdAsync");
@@ -869,6 +878,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **projectDtoCollectionQueryParameters** | [**ProjectDtoCollectionQueryParameters**](ProjectDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -880,7 +890,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -892,7 +902,7 @@ No authorization required
 
 <a id="getTasksForProjectAsync"></a>
 # **getTasksForProjectAsync**
-> ProjectTaskDtoListEnvelope getTasksForProjectAsync(projectId, tenantId)
+> ProjectTaskDtoListEnvelope getTasksForProjectAsync(projectId, tenantId, projectTaskDtoCollectionQueryParameters)
 
 Retrieves project tasks
 
@@ -915,8 +925,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     UUID projectId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters = new ProjectTaskDtoCollectionQueryParameters(); // ProjectTaskDtoCollectionQueryParameters | 
     try {
-      ProjectTaskDtoListEnvelope result = apiInstance.getTasksForProjectAsync(projectId, tenantId);
+      ProjectTaskDtoListEnvelope result = apiInstance.getTasksForProjectAsync(projectId, tenantId, projectTaskDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#getTasksForProjectAsync");
@@ -935,6 +946,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
+| **projectTaskDtoCollectionQueryParameters** | [**ProjectTaskDtoCollectionQueryParameters**](ProjectTaskDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -946,7 +958,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -958,7 +970,7 @@ No authorization required
 
 <a id="getTasksForProjectCountAsync"></a>
 # **getTasksForProjectCountAsync**
-> Int32Envelope getTasksForProjectCountAsync(projectId, tenantId)
+> Int32Envelope getTasksForProjectCountAsync(projectId, tenantId, projectTaskDtoCollectionQueryParameters)
 
 Counts project tasks
 
@@ -981,8 +993,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     UUID projectId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters = new ProjectTaskDtoCollectionQueryParameters(); // ProjectTaskDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTasksForProjectCountAsync(projectId, tenantId);
+      Int32Envelope result = apiInstance.getTasksForProjectCountAsync(projectId, tenantId, projectTaskDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#getTasksForProjectCountAsync");
@@ -1001,6 +1014,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
+| **projectTaskDtoCollectionQueryParameters** | [**ProjectTaskDtoCollectionQueryParameters**](ProjectTaskDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1012,7 +1026,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1024,7 +1038,7 @@ No authorization required
 
 <a id="getTimeLogsForProjectAsync"></a>
 # **getTimeLogsForProjectAsync**
-> ProjectTimeLogDtoListEnvelope getTimeLogsForProjectAsync(projectId, tenantId)
+> ProjectTimeLogDtoListEnvelope getTimeLogsForProjectAsync(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters)
 
 Retrieves project time logs
 
@@ -1047,8 +1061,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     UUID projectId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters = new ProjectTimeLogDtoCollectionQueryParameters(); // ProjectTimeLogDtoCollectionQueryParameters | 
     try {
-      ProjectTimeLogDtoListEnvelope result = apiInstance.getTimeLogsForProjectAsync(projectId, tenantId);
+      ProjectTimeLogDtoListEnvelope result = apiInstance.getTimeLogsForProjectAsync(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#getTimeLogsForProjectAsync");
@@ -1067,6 +1082,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
+| **projectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1078,7 +1094,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1090,7 +1106,7 @@ No authorization required
 
 <a id="patchProjectAsync"></a>
 # **patchProjectAsync**
-> EmptyEnvelope patchProjectAsync(projectId, tenantId, operation)
+> EmptyEnvelope patchProjectAsync(projectId, tenantId, patchOperation)
 
 Patches a project
 
@@ -1113,9 +1129,9 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     UUID projectId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchProjectAsync(projectId, tenantId, operation);
+      EmptyEnvelope result = apiInstance.patchProjectAsync(projectId, tenantId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#patchProjectAsync");
@@ -1134,7 +1150,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **projectId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1158,7 +1174,7 @@ No authorization required
 
 <a id="patchProjectPeriodAsync"></a>
 # **patchProjectPeriodAsync**
-> EmptyEnvelope patchProjectPeriodAsync(projectId, projectPeriodId, tenantId, operation)
+> EmptyEnvelope patchProjectPeriodAsync(projectId, projectPeriodId, tenantId, patchOperation)
 
 Patches a project period
 
@@ -1182,9 +1198,9 @@ public class Example {
     UUID projectId = UUID.randomUUID(); // UUID | 
     UUID projectPeriodId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchProjectPeriodAsync(projectId, projectPeriodId, tenantId, operation);
+      EmptyEnvelope result = apiInstance.patchProjectPeriodAsync(projectId, projectPeriodId, tenantId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#patchProjectPeriodAsync");
@@ -1204,7 +1220,7 @@ public class Example {
 | **projectId** | **UUID**|  | |
 | **projectPeriodId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1228,7 +1244,7 @@ No authorization required
 
 <a id="patchTaskForProjectAsync"></a>
 # **patchTaskForProjectAsync**
-> EmptyEnvelope patchTaskForProjectAsync(projectId, projectTaskId, tenantId, operation)
+> EmptyEnvelope patchTaskForProjectAsync(projectId, projectTaskId, tenantId, patchOperation)
 
 Patches a project task
 
@@ -1252,9 +1268,9 @@ public class Example {
     UUID projectId = UUID.randomUUID(); // UUID | 
     UUID projectTaskId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTaskForProjectAsync(projectId, projectTaskId, tenantId, operation);
+      EmptyEnvelope result = apiInstance.patchTaskForProjectAsync(projectId, projectTaskId, tenantId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#patchTaskForProjectAsync");
@@ -1274,7 +1290,7 @@ public class Example {
 | **projectId** | **UUID**|  | |
 | **projectTaskId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

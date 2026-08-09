@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getWorkOrdersAsync"></a>
 # **getWorkOrdersAsync**
-> WorkOrderDtoListEnvelope getWorkOrdersAsync(tenantId, apiVersion, xApiVersion)
+> WorkOrderDtoListEnvelope getWorkOrdersAsync(tenantId, apiVersion, xApiVersion, workOrderDtoCollectionQueryParameters)
 
 Get all work orders
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WorkOrderDtoCollectionQueryParameters workOrderDtoCollectionQueryParameters = new WorkOrderDtoCollectionQueryParameters(); // WorkOrderDtoCollectionQueryParameters | 
     try {
-      WorkOrderDtoListEnvelope result = apiInstance.getWorkOrdersAsync(tenantId, apiVersion, xApiVersion);
+      WorkOrderDtoListEnvelope result = apiInstance.getWorkOrdersAsync(tenantId, apiVersion, xApiVersion, workOrderDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkOrdersApi#getWorkOrdersAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **workOrderDtoCollectionQueryParameters** | [**WorkOrderDtoCollectionQueryParameters**](WorkOrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getWorkOrdersCountAsync"></a>
 # **getWorkOrdersCountAsync**
-> Int32Envelope getWorkOrdersCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getWorkOrdersCountAsync(tenantId, apiVersion, xApiVersion, workOrderDtoCollectionQueryParameters)
 
 Get work orders count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WorkOrderDtoCollectionQueryParameters workOrderDtoCollectionQueryParameters = new WorkOrderDtoCollectionQueryParameters(); // WorkOrderDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWorkOrdersCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWorkOrdersCountAsync(tenantId, apiVersion, xApiVersion, workOrderDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkOrdersApi#getWorkOrdersCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **workOrderDtoCollectionQueryParameters** | [**WorkOrderDtoCollectionQueryParameters**](WorkOrderDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchWorkOrderAsync"></a>
 # **patchWorkOrderAsync**
-> EmptyEnvelope patchWorkOrderAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWorkOrderAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a work order
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWorkOrderAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchWorkOrderAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkOrdersApi#patchWorkOrderAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.ItemReturnPolicyDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemReturnPolicyDtoEnvelope;
 import org.openapitools.client.model.ItemReturnPolicyDtoListEnvelope;
 import java.util.UUID;
@@ -82,6 +83,7 @@ public class ItemReturnPoliciesApi {
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -93,7 +95,7 @@ public class ItemReturnPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countItemReturnPoliciesAsyncCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countItemReturnPoliciesAsyncCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,7 +109,7 @@ public class ItemReturnPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemReturnPolicyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemReturnPolicies/Count";
@@ -144,6 +146,8 @@ public class ItemReturnPoliciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -155,8 +159,8 @@ public class ItemReturnPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countItemReturnPoliciesAsyncValidateBeforeCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return countItemReturnPoliciesAsyncCall(tenantId, itemId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call countItemReturnPoliciesAsyncValidateBeforeCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return countItemReturnPoliciesAsyncCall(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -167,6 +171,7 @@ public class ItemReturnPoliciesApi {
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -177,8 +182,8 @@ public class ItemReturnPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countItemReturnPoliciesAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countItemReturnPoliciesAsyncWithHttpInfo(tenantId, itemId, apiVersion, xApiVersion);
+    public Int32Envelope countItemReturnPoliciesAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countItemReturnPoliciesAsyncWithHttpInfo(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -189,6 +194,7 @@ public class ItemReturnPoliciesApi {
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -199,8 +205,8 @@ public class ItemReturnPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countItemReturnPoliciesAsyncWithHttpInfo(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countItemReturnPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countItemReturnPoliciesAsyncWithHttpInfo(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countItemReturnPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -212,6 +218,7 @@ public class ItemReturnPoliciesApi {
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -223,9 +230,9 @@ public class ItemReturnPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countItemReturnPoliciesAsyncAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countItemReturnPoliciesAsyncAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countItemReturnPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countItemReturnPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -236,6 +243,7 @@ public class ItemReturnPoliciesApi {
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -247,7 +255,7 @@ public class ItemReturnPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemReturnPoliciesAsyncCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemReturnPoliciesAsyncCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -261,7 +269,7 @@ public class ItemReturnPoliciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemReturnPolicyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemReturnPolicies";
@@ -298,6 +306,8 @@ public class ItemReturnPoliciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -309,8 +319,8 @@ public class ItemReturnPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemReturnPoliciesAsyncValidateBeforeCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getItemReturnPoliciesAsyncCall(tenantId, itemId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getItemReturnPoliciesAsyncValidateBeforeCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getItemReturnPoliciesAsyncCall(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -321,6 +331,7 @@ public class ItemReturnPoliciesApi {
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return ItemReturnPolicyDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -331,8 +342,8 @@ public class ItemReturnPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemReturnPolicyDtoListEnvelope getItemReturnPoliciesAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemReturnPolicyDtoListEnvelope> localVarResp = getItemReturnPoliciesAsyncWithHttpInfo(tenantId, itemId, apiVersion, xApiVersion);
+    public ItemReturnPolicyDtoListEnvelope getItemReturnPoliciesAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemReturnPolicyDtoListEnvelope> localVarResp = getItemReturnPoliciesAsyncWithHttpInfo(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -343,6 +354,7 @@ public class ItemReturnPoliciesApi {
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemReturnPolicyDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -353,8 +365,8 @@ public class ItemReturnPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemReturnPolicyDtoListEnvelope> getItemReturnPoliciesAsyncWithHttpInfo(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemReturnPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemReturnPolicyDtoListEnvelope> getItemReturnPoliciesAsyncWithHttpInfo(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemReturnPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemReturnPolicyDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -366,6 +378,7 @@ public class ItemReturnPoliciesApi {
      * @param itemId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReturnPolicyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -377,9 +390,9 @@ public class ItemReturnPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemReturnPoliciesAsyncAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback<ItemReturnPolicyDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemReturnPoliciesAsyncAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters, final ApiCallback<ItemReturnPolicyDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemReturnPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemReturnPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemReturnPolicyDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

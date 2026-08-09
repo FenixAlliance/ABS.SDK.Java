@@ -224,7 +224,7 @@ No authorization required
 
 <a id="getItemBundlesAsync"></a>
 # **getItemBundlesAsync**
-> ItemBundleDtoListEnvelope getItemBundlesAsync(tenantId, apiVersion, xApiVersion)
+> ItemBundleDtoListEnvelope getItemBundlesAsync(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters)
 
 Get all item bundles
 
@@ -248,8 +248,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters = new ItemBundleDtoCollectionQueryParameters(); // ItemBundleDtoCollectionQueryParameters | 
     try {
-      ItemBundleDtoListEnvelope result = apiInstance.getItemBundlesAsync(tenantId, apiVersion, xApiVersion);
+      ItemBundleDtoListEnvelope result = apiInstance.getItemBundlesAsync(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemBundlesApi#getItemBundlesAsync");
@@ -269,6 +270,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemBundleDtoCollectionQueryParameters** | [**ItemBundleDtoCollectionQueryParameters**](ItemBundleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -280,7 +282,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -292,7 +294,7 @@ No authorization required
 
 <a id="getItemBundlesCountAsync"></a>
 # **getItemBundlesCountAsync**
-> Int32Envelope getItemBundlesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemBundlesCountAsync(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters)
 
 Get item bundles count
 
@@ -316,8 +318,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemBundleDtoCollectionQueryParameters itemBundleDtoCollectionQueryParameters = new ItemBundleDtoCollectionQueryParameters(); // ItemBundleDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemBundlesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemBundlesCountAsync(tenantId, apiVersion, xApiVersion, itemBundleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemBundlesApi#getItemBundlesCountAsync");
@@ -337,6 +340,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemBundleDtoCollectionQueryParameters** | [**ItemBundleDtoCollectionQueryParameters**](ItemBundleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -348,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -360,7 +364,7 @@ No authorization required
 
 <a id="patchItemBundleAsync"></a>
 # **patchItemBundleAsync**
-> EmptyEnvelope patchItemBundleAsync(tenantId, itemBundleId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemBundleAsync(tenantId, itemBundleId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item bundle
 
@@ -385,9 +389,9 @@ public class Example {
     UUID itemBundleId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemBundleAsync(tenantId, itemBundleId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemBundleAsync(tenantId, itemBundleId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemBundlesApi#patchItemBundleAsync");
@@ -408,7 +412,7 @@ public class Example {
 | **itemBundleId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

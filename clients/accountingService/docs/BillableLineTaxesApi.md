@@ -154,7 +154,7 @@ No authorization required
 
 <a id="getBillableLineTaxes"></a>
 # **getBillableLineTaxes**
-> AppliedItemTaxRecordDtoIReadOnlyListEnvelope getBillableLineTaxes(tenantId, billableLineId, apiVersion, xApiVersion)
+> AppliedItemTaxRecordDtoIReadOnlyListEnvelope getBillableLineTaxes(tenantId, billableLineId, apiVersion, xApiVersion, appliedItemTaxRecordDtoCollectionQueryParameters)
 
 Get taxes for a billable line.
 
@@ -179,8 +179,9 @@ public class Example {
     UUID billableLineId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AppliedItemTaxRecordDtoCollectionQueryParameters appliedItemTaxRecordDtoCollectionQueryParameters = new AppliedItemTaxRecordDtoCollectionQueryParameters(); // AppliedItemTaxRecordDtoCollectionQueryParameters | 
     try {
-      AppliedItemTaxRecordDtoIReadOnlyListEnvelope result = apiInstance.getBillableLineTaxes(tenantId, billableLineId, apiVersion, xApiVersion);
+      AppliedItemTaxRecordDtoIReadOnlyListEnvelope result = apiInstance.getBillableLineTaxes(tenantId, billableLineId, apiVersion, xApiVersion, appliedItemTaxRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillableLineTaxesApi#getBillableLineTaxes");
@@ -201,6 +202,7 @@ public class Example {
 | **billableLineId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **appliedItemTaxRecordDtoCollectionQueryParameters** | [**AppliedItemTaxRecordDtoCollectionQueryParameters**](AppliedItemTaxRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -212,7 +214,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -222,7 +224,7 @@ No authorization required
 
 <a id="getBillableLineTaxesCount"></a>
 # **getBillableLineTaxesCount**
-> Int32Envelope getBillableLineTaxesCount(tenantId, billableLineId, apiVersion, xApiVersion)
+> Int32Envelope getBillableLineTaxesCount(tenantId, billableLineId, apiVersion, xApiVersion, appliedItemTaxRecordDtoCollectionQueryParameters)
 
 Get the count of taxes for a billable line.
 
@@ -247,8 +249,9 @@ public class Example {
     UUID billableLineId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AppliedItemTaxRecordDtoCollectionQueryParameters appliedItemTaxRecordDtoCollectionQueryParameters = new AppliedItemTaxRecordDtoCollectionQueryParameters(); // AppliedItemTaxRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBillableLineTaxesCount(tenantId, billableLineId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBillableLineTaxesCount(tenantId, billableLineId, apiVersion, xApiVersion, appliedItemTaxRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillableLineTaxesApi#getBillableLineTaxesCount");
@@ -269,6 +272,7 @@ public class Example {
 | **billableLineId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **appliedItemTaxRecordDtoCollectionQueryParameters** | [**AppliedItemTaxRecordDtoCollectionQueryParameters**](AppliedItemTaxRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -280,7 +284,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +294,7 @@ No authorization required
 
 <a id="patchBillableLineTaxAsync"></a>
 # **patchBillableLineTaxAsync**
-> EmptyEnvelope patchBillableLineTaxAsync(tenantId, billableLineId, taxId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBillableLineTaxAsync(tenantId, billableLineId, taxId, apiVersion, xApiVersion, patchOperation)
 
 Patch a billable line tax
 
@@ -316,9 +320,9 @@ public class Example {
     UUID taxId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBillableLineTaxAsync(tenantId, billableLineId, taxId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBillableLineTaxAsync(tenantId, billableLineId, taxId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillableLineTaxesApi#patchBillableLineTaxAsync");
@@ -340,7 +344,7 @@ public class Example {
 | **taxId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

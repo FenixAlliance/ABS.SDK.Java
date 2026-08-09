@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TimeIntervalCreateDto;
+import org.openapitools.client.model.TimeIntervalDtoCollectionQueryParameters;
 import org.openapitools.client.model.TimeIntervalDtoEnvelope;
 import org.openapitools.client.model.TimeIntervalDtoListEnvelope;
 import org.openapitools.client.model.TimeIntervalUpdateDto;
@@ -572,6 +573,7 @@ public class TimeIntervalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timeIntervalDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -583,7 +585,7 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTimeIntervalsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTimeIntervalsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, TimeIntervalDtoCollectionQueryParameters timeIntervalDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -597,7 +599,7 @@ public class TimeIntervalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = timeIntervalDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/TimeIntervals";
@@ -630,6 +632,8 @@ public class TimeIntervalsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -641,13 +645,13 @@ public class TimeIntervalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTimeIntervalsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTimeIntervalsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TimeIntervalDtoCollectionQueryParameters timeIntervalDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTimeIntervalsAsync(Async)");
         }
 
-        return getTimeIntervalsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTimeIntervalsAsyncCall(tenantId, apiVersion, xApiVersion, timeIntervalDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -657,6 +661,7 @@ public class TimeIntervalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timeIntervalDtoCollectionQueryParameters  (optional)
      * @return TimeIntervalDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -667,8 +672,8 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TimeIntervalDtoListEnvelope getTimeIntervalsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TimeIntervalDtoListEnvelope> localVarResp = getTimeIntervalsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TimeIntervalDtoListEnvelope getTimeIntervalsAsync(UUID tenantId, String apiVersion, String xApiVersion, TimeIntervalDtoCollectionQueryParameters timeIntervalDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TimeIntervalDtoListEnvelope> localVarResp = getTimeIntervalsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, timeIntervalDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -678,6 +683,7 @@ public class TimeIntervalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timeIntervalDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TimeIntervalDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -688,8 +694,8 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TimeIntervalDtoListEnvelope> getTimeIntervalsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTimeIntervalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TimeIntervalDtoListEnvelope> getTimeIntervalsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TimeIntervalDtoCollectionQueryParameters timeIntervalDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTimeIntervalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, timeIntervalDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TimeIntervalDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -700,6 +706,7 @@ public class TimeIntervalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timeIntervalDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -711,9 +718,9 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTimeIntervalsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TimeIntervalDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTimeIntervalsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, TimeIntervalDtoCollectionQueryParameters timeIntervalDtoCollectionQueryParameters, final ApiCallback<TimeIntervalDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTimeIntervalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTimeIntervalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, timeIntervalDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TimeIntervalDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -723,6 +730,7 @@ public class TimeIntervalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timeIntervalDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -734,7 +742,7 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTimeIntervalsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTimeIntervalsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, TimeIntervalDtoCollectionQueryParameters timeIntervalDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -748,7 +756,7 @@ public class TimeIntervalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = timeIntervalDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/TimeIntervals/Count";
@@ -781,6 +789,8 @@ public class TimeIntervalsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -792,13 +802,13 @@ public class TimeIntervalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTimeIntervalsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTimeIntervalsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TimeIntervalDtoCollectionQueryParameters timeIntervalDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTimeIntervalsCountAsync(Async)");
         }
 
-        return getTimeIntervalsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTimeIntervalsCountAsyncCall(tenantId, apiVersion, xApiVersion, timeIntervalDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -808,6 +818,7 @@ public class TimeIntervalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timeIntervalDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -818,8 +829,8 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTimeIntervalsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTimeIntervalsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTimeIntervalsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TimeIntervalDtoCollectionQueryParameters timeIntervalDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTimeIntervalsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, timeIntervalDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -829,6 +840,7 @@ public class TimeIntervalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timeIntervalDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -839,8 +851,8 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTimeIntervalsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTimeIntervalsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTimeIntervalsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TimeIntervalDtoCollectionQueryParameters timeIntervalDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTimeIntervalsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, timeIntervalDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -851,6 +863,7 @@ public class TimeIntervalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param timeIntervalDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -862,9 +875,9 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTimeIntervalsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTimeIntervalsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, TimeIntervalDtoCollectionQueryParameters timeIntervalDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTimeIntervalsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTimeIntervalsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, timeIntervalDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -875,7 +888,7 @@ public class TimeIntervalsApi {
      * @param timeIntervalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -888,7 +901,7 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTimeIntervalAsyncCall(UUID tenantId, UUID timeIntervalId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTimeIntervalAsyncCall(UUID tenantId, UUID timeIntervalId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -902,7 +915,7 @@ public class TimeIntervalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/TimeIntervals/{timeIntervalId}"
@@ -949,7 +962,7 @@ public class TimeIntervalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTimeIntervalAsyncValidateBeforeCall(UUID tenantId, UUID timeIntervalId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTimeIntervalAsyncValidateBeforeCall(UUID tenantId, UUID timeIntervalId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTimeIntervalAsync(Async)");
@@ -960,7 +973,7 @@ public class TimeIntervalsApi {
             throw new ApiException("Missing the required parameter 'timeIntervalId' when calling patchTimeIntervalAsync(Async)");
         }
 
-        return patchTimeIntervalAsyncCall(tenantId, timeIntervalId, apiVersion, xApiVersion, operation, _callback);
+        return patchTimeIntervalAsyncCall(tenantId, timeIntervalId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -971,7 +984,7 @@ public class TimeIntervalsApi {
      * @param timeIntervalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -983,8 +996,8 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTimeIntervalAsync(UUID tenantId, UUID timeIntervalId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTimeIntervalAsyncWithHttpInfo(tenantId, timeIntervalId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTimeIntervalAsync(UUID tenantId, UUID timeIntervalId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTimeIntervalAsyncWithHttpInfo(tenantId, timeIntervalId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -995,7 +1008,7 @@ public class TimeIntervalsApi {
      * @param timeIntervalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1007,8 +1020,8 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTimeIntervalAsyncWithHttpInfo(UUID tenantId, UUID timeIntervalId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTimeIntervalAsyncValidateBeforeCall(tenantId, timeIntervalId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTimeIntervalAsyncWithHttpInfo(UUID tenantId, UUID timeIntervalId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTimeIntervalAsyncValidateBeforeCall(tenantId, timeIntervalId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1020,7 +1033,7 @@ public class TimeIntervalsApi {
      * @param timeIntervalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1033,9 +1046,9 @@ public class TimeIntervalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTimeIntervalAsyncAsync(UUID tenantId, UUID timeIntervalId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTimeIntervalAsyncAsync(UUID tenantId, UUID timeIntervalId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTimeIntervalAsyncValidateBeforeCall(tenantId, timeIntervalId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTimeIntervalAsyncValidateBeforeCall(tenantId, timeIntervalId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

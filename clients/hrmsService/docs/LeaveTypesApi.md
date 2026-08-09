@@ -226,7 +226,7 @@ No authorization required
 
 <a id="getLeaveTypesAsync"></a>
 # **getLeaveTypesAsync**
-> LeaveTypeDtoListEnvelope getLeaveTypesAsync(tenantId, apiVersion, xApiVersion)
+> LeaveTypeDtoListEnvelope getLeaveTypesAsync(tenantId, apiVersion, xApiVersion, leaveTypeDtoCollectionQueryParameters)
 
 Get leave types
 
@@ -250,8 +250,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LeaveTypeDtoCollectionQueryParameters leaveTypeDtoCollectionQueryParameters = new LeaveTypeDtoCollectionQueryParameters(); // LeaveTypeDtoCollectionQueryParameters | 
     try {
-      LeaveTypeDtoListEnvelope result = apiInstance.getLeaveTypesAsync(tenantId, apiVersion, xApiVersion);
+      LeaveTypeDtoListEnvelope result = apiInstance.getLeaveTypesAsync(tenantId, apiVersion, xApiVersion, leaveTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LeaveTypesApi#getLeaveTypesAsync");
@@ -271,6 +272,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **leaveTypeDtoCollectionQueryParameters** | [**LeaveTypeDtoCollectionQueryParameters**](LeaveTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -282,7 +284,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -294,7 +296,7 @@ No authorization required
 
 <a id="getLeaveTypesCountAsync"></a>
 # **getLeaveTypesCountAsync**
-> Int32Envelope getLeaveTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLeaveTypesCountAsync(tenantId, apiVersion, xApiVersion, leaveTypeDtoCollectionQueryParameters)
 
 Count leave types
 
@@ -318,8 +320,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LeaveTypeDtoCollectionQueryParameters leaveTypeDtoCollectionQueryParameters = new LeaveTypeDtoCollectionQueryParameters(); // LeaveTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLeaveTypesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLeaveTypesCountAsync(tenantId, apiVersion, xApiVersion, leaveTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LeaveTypesApi#getLeaveTypesCountAsync");
@@ -339,6 +342,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **leaveTypeDtoCollectionQueryParameters** | [**LeaveTypeDtoCollectionQueryParameters**](LeaveTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -350,7 +354,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

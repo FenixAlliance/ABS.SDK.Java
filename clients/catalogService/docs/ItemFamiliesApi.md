@@ -154,7 +154,7 @@ No authorization required
 
 <a id="getItemFamiliesAsync"></a>
 # **getItemFamiliesAsync**
-> ItemFamilyDtoListEnvelope getItemFamiliesAsync(tenantId, apiVersion, xApiVersion)
+> ItemFamilyDtoListEnvelope getItemFamiliesAsync(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters)
 
 Get all item families
 
@@ -178,8 +178,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters = new ItemFamilyDtoCollectionQueryParameters(); // ItemFamilyDtoCollectionQueryParameters | 
     try {
-      ItemFamilyDtoListEnvelope result = apiInstance.getItemFamiliesAsync(tenantId, apiVersion, xApiVersion);
+      ItemFamilyDtoListEnvelope result = apiInstance.getItemFamiliesAsync(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemFamiliesApi#getItemFamiliesAsync");
@@ -199,6 +200,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemFamilyDtoCollectionQueryParameters** | [**ItemFamilyDtoCollectionQueryParameters**](ItemFamilyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -210,7 +212,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -222,7 +224,7 @@ No authorization required
 
 <a id="getItemFamiliesCountAsync"></a>
 # **getItemFamiliesCountAsync**
-> Int32Envelope getItemFamiliesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemFamiliesCountAsync(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters)
 
 Get item families count
 
@@ -246,8 +248,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters = new ItemFamilyDtoCollectionQueryParameters(); // ItemFamilyDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemFamiliesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemFamiliesCountAsync(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemFamiliesApi#getItemFamiliesCountAsync");
@@ -267,6 +270,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemFamilyDtoCollectionQueryParameters** | [**ItemFamilyDtoCollectionQueryParameters**](ItemFamilyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -278,7 +282,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -360,7 +364,7 @@ No authorization required
 
 <a id="patchItemFamilyAsync"></a>
 # **patchItemFamilyAsync**
-> EmptyEnvelope patchItemFamilyAsync(tenantId, itemFamilyId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemFamilyAsync(tenantId, itemFamilyId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item family
 
@@ -385,9 +389,9 @@ public class Example {
     UUID itemFamilyId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemFamilyAsync(tenantId, itemFamilyId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemFamilyAsync(tenantId, itemFamilyId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemFamiliesApi#patchItemFamilyAsync");
@@ -408,7 +412,7 @@ public class Example {
 | **itemFamilyId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

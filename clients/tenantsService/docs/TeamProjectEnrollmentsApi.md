@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getTenantTeamProjectEnrollments"></a>
 # **getTenantTeamProjectEnrollments**
-> TenantTeamProjectEnrollmentDtoListEnvelope getTenantTeamProjectEnrollments(tenantId, apiVersion, xApiVersion)
+> TenantTeamProjectEnrollmentDtoListEnvelope getTenantTeamProjectEnrollments(tenantId, apiVersion, xApiVersion, tenantTeamProjectEnrollmentDtoCollectionQueryParameters)
 
 Retrieve a list of tenant team project enrollments
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantTeamProjectEnrollmentDtoCollectionQueryParameters tenantTeamProjectEnrollmentDtoCollectionQueryParameters = new TenantTeamProjectEnrollmentDtoCollectionQueryParameters(); // TenantTeamProjectEnrollmentDtoCollectionQueryParameters | 
     try {
-      TenantTeamProjectEnrollmentDtoListEnvelope result = apiInstance.getTenantTeamProjectEnrollments(tenantId, apiVersion, xApiVersion);
+      TenantTeamProjectEnrollmentDtoListEnvelope result = apiInstance.getTenantTeamProjectEnrollments(tenantId, apiVersion, xApiVersion, tenantTeamProjectEnrollmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamProjectEnrollmentsApi#getTenantTeamProjectEnrollments");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantTeamProjectEnrollmentDtoCollectionQueryParameters** | [**TenantTeamProjectEnrollmentDtoCollectionQueryParameters**](TenantTeamProjectEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getTenantTeamProjectEnrollmentsCount"></a>
 # **getTenantTeamProjectEnrollmentsCount**
-> Int32Envelope getTenantTeamProjectEnrollmentsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantTeamProjectEnrollmentsCount(tenantId, apiVersion, xApiVersion, tenantTeamProjectEnrollmentDtoCollectionQueryParameters)
 
 Get the count of tenant team project enrollments
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantTeamProjectEnrollmentDtoCollectionQueryParameters tenantTeamProjectEnrollmentDtoCollectionQueryParameters = new TenantTeamProjectEnrollmentDtoCollectionQueryParameters(); // TenantTeamProjectEnrollmentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantTeamProjectEnrollmentsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantTeamProjectEnrollmentsCount(tenantId, apiVersion, xApiVersion, tenantTeamProjectEnrollmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamProjectEnrollmentsApi#getTenantTeamProjectEnrollmentsCount");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantTeamProjectEnrollmentDtoCollectionQueryParameters** | [**TenantTeamProjectEnrollmentDtoCollectionQueryParameters**](TenantTeamProjectEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchTenantTeamProjectEnrollment"></a>
 # **patchTenantTeamProjectEnrollment**
-> EmptyEnvelope patchTenantTeamProjectEnrollment(tenantId, tenantTeamProjectEnrollmentId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantTeamProjectEnrollment(tenantId, tenantTeamProjectEnrollmentId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant team project enrollment
 
@@ -386,9 +390,9 @@ public class Example {
     UUID tenantTeamProjectEnrollmentId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantTeamProjectEnrollment(tenantId, tenantTeamProjectEnrollmentId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantTeamProjectEnrollment(tenantId, tenantTeamProjectEnrollmentId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamProjectEnrollmentsApi#patchTenantTeamProjectEnrollment");
@@ -409,7 +413,7 @@ public class Example {
 | **tenantTeamProjectEnrollmentId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

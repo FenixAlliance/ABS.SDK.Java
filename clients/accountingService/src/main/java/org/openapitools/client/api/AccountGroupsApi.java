@@ -28,13 +28,14 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AccountGroupCreateDto;
+import org.openapitools.client.model.AccountGroupDtoCollectionQueryParameters;
 import org.openapitools.client.model.AccountGroupDtoEnvelope;
 import org.openapitools.client.model.AccountGroupDtoListEnvelope;
 import org.openapitools.client.model.AccountGroupUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -568,6 +569,7 @@ public class AccountGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -579,7 +581,7 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountGroupsCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAccountGroupsCall(UUID tenantId, String apiVersion, String xApiVersion, AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -593,7 +595,7 @@ public class AccountGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = accountGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/AccountGroups";
@@ -626,6 +628,8 @@ public class AccountGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -637,13 +641,13 @@ public class AccountGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAccountGroupsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAccountGroupsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAccountGroups(Async)");
         }
 
-        return getAccountGroupsCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getAccountGroupsCall(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -653,6 +657,7 @@ public class AccountGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountGroupDtoCollectionQueryParameters  (optional)
      * @return AccountGroupDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -663,8 +668,8 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountGroupDtoListEnvelope getAccountGroups(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<AccountGroupDtoListEnvelope> localVarResp = getAccountGroupsWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public AccountGroupDtoListEnvelope getAccountGroups(UUID tenantId, String apiVersion, String xApiVersion, AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<AccountGroupDtoListEnvelope> localVarResp = getAccountGroupsWithHttpInfo(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -674,6 +679,7 @@ public class AccountGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;AccountGroupDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -684,8 +690,8 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountGroupDtoListEnvelope> getAccountGroupsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAccountGroupsValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<AccountGroupDtoListEnvelope> getAccountGroupsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAccountGroupsValidateBeforeCall(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<AccountGroupDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -696,6 +702,7 @@ public class AccountGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -707,9 +714,9 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<AccountGroupDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAccountGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion, AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters, final ApiCallback<AccountGroupDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAccountGroupsValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAccountGroupsValidateBeforeCall(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<AccountGroupDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -719,6 +726,7 @@ public class AccountGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -730,7 +738,7 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountGroupsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAccountGroupsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -744,7 +752,7 @@ public class AccountGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = accountGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/AccountGroups/Count";
@@ -777,6 +785,8 @@ public class AccountGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -788,13 +798,13 @@ public class AccountGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAccountGroupsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAccountGroupsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAccountGroupsCountAsync(Async)");
         }
 
-        return getAccountGroupsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getAccountGroupsCountAsyncCall(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -804,6 +814,7 @@ public class AccountGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountGroupDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -814,8 +825,8 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getAccountGroupsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getAccountGroupsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getAccountGroupsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getAccountGroupsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -825,6 +836,7 @@ public class AccountGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -835,8 +847,8 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getAccountGroupsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAccountGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getAccountGroupsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAccountGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -847,6 +859,7 @@ public class AccountGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -858,9 +871,9 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountGroupsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getAccountGroupsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAccountGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAccountGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -871,7 +884,7 @@ public class AccountGroupsApi {
      * @param accountGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -883,7 +896,7 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAccountGroupAsyncCall(UUID tenantId, UUID accountGroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchAccountGroupAsyncCall(UUID tenantId, UUID accountGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -897,7 +910,7 @@ public class AccountGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/AccountGroups/{accountGroupId}"
@@ -944,7 +957,7 @@ public class AccountGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchAccountGroupAsyncValidateBeforeCall(UUID tenantId, UUID accountGroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchAccountGroupAsyncValidateBeforeCall(UUID tenantId, UUID accountGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchAccountGroupAsync(Async)");
@@ -955,7 +968,7 @@ public class AccountGroupsApi {
             throw new ApiException("Missing the required parameter 'accountGroupId' when calling patchAccountGroupAsync(Async)");
         }
 
-        return patchAccountGroupAsyncCall(tenantId, accountGroupId, apiVersion, xApiVersion, operation, _callback);
+        return patchAccountGroupAsyncCall(tenantId, accountGroupId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -966,7 +979,7 @@ public class AccountGroupsApi {
      * @param accountGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -977,8 +990,8 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchAccountGroupAsync(UUID tenantId, UUID accountGroupId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchAccountGroupAsyncWithHttpInfo(tenantId, accountGroupId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchAccountGroupAsync(UUID tenantId, UUID accountGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchAccountGroupAsyncWithHttpInfo(tenantId, accountGroupId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -989,7 +1002,7 @@ public class AccountGroupsApi {
      * @param accountGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1000,8 +1013,8 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchAccountGroupAsyncWithHttpInfo(UUID tenantId, UUID accountGroupId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchAccountGroupAsyncValidateBeforeCall(tenantId, accountGroupId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchAccountGroupAsyncWithHttpInfo(UUID tenantId, UUID accountGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchAccountGroupAsyncValidateBeforeCall(tenantId, accountGroupId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1013,7 +1026,7 @@ public class AccountGroupsApi {
      * @param accountGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1025,9 +1038,9 @@ public class AccountGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAccountGroupAsyncAsync(UUID tenantId, UUID accountGroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchAccountGroupAsyncAsync(UUID tenantId, UUID accountGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchAccountGroupAsyncValidateBeforeCall(tenantId, accountGroupId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchAccountGroupAsyncValidateBeforeCall(tenantId, accountGroupId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

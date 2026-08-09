@@ -23,6 +23,7 @@ servers:
       - https://dev.absuite.net
       - https://localhost:44388
 tags:
+- name: ApplicationPrincipals
 - name: Applications
 - name: FenixAlliance.ABS.Web
 - name: Logs
@@ -33,10 +34,11 @@ tags:
 - name: SecurityLogs
 - name: Webhooks
 paths:
-  /api/v2/SecurityService/Applications:
+  /api/v2/SecurityService/ApplicationPrincipals:
     get:
-      description: Retrieves all business applications for the specified tenant.
-      operationId: GetBusinessApplicationsAsync
+      description: Retrieves the non-human application principals enrolled in the
+        specified tenant (including read-only system-locked platform principals).
+      operationId: GetApplicationPrincipalsAsync
       parameters:
       - explode: true
         in: query
@@ -46,6 +48,157 @@ paths:
           format: uuid
           type: string
         style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationPrincipalDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ApplicationPrincipalDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationPrincipalDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApplicationPrincipalDtoListEnvelope'
+          description: OK
+      summary: Get all application principals
+      tags:
+      - ApplicationPrincipals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/ApplicationPrincipals/Count:
+    get:
+      description: Retrieves the count of application principals enrolled in the specified
+        tenant.
+      operationId: GetApplicationPrincipalsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationPrincipalDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ApplicationPrincipalDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get application principals count
+      tags:
+      - ApplicationPrincipals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/ApplicationPrincipals/{principalId}:
+    get:
+      description: "Retrieves a specific application principal: owning application,\
+        \ tenant enrollment, lifecycle status, system-locked flag, and its explicit\
+        \ least-privilege permission grants."
+      operationId: GetApplicationPrincipalAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: principalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
       - explode: true
         in: query
         name: api-version
@@ -79,6 +232,578 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationPrincipalDetailDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApplicationPrincipalDetailDtoEnvelope'
+          description: OK
+      summary: Get application principal by ID
+      tags:
+      - ApplicationPrincipals
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/ApplicationPrincipals/Provision:
+    post:
+      description: Idempotently provisions the application principal (and its own
+        least-privilege enrollment) for a governed business application in the specified
+        tenant. System-locked platform applications require a platform administrator.
+      operationId: ProvisionApplicationPrincipalAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationPrincipalProvisionRequestDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ApplicationPrincipalProvisionRequestDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationPrincipalProvisioningResultDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApplicationPrincipalProvisioningResultDtoEnvelope'
+          description: OK
+      summary: Provision an application principal
+      tags:
+      - ApplicationPrincipals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Permissions:
+    post:
+      description: Grants a single least-privilege permission to the application principal's
+        enrollment. Owner/admin/wildcard/*_manage permissions are rejected; system-locked
+        principals require a platform administrator.
+      operationId: GrantPermissionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: principalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationPrincipalPermissionRequestDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ApplicationPrincipalPermissionRequestDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Grant a permission to an application principal
+      tags:
+      - ApplicationPrincipals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Permissions/{permission}:
+    delete:
+      description: Revokes a direct permission grant from the application principal's
+        enrollment. System-locked principals require a platform administrator.
+      operationId: RevokePermissionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: principalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: permission
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Revoke a permission from an application principal
+      tags:
+      - ApplicationPrincipals
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Enable:
+    post:
+      description: Reinstates the application principal to the Active lifecycle state.
+      operationId: EnableApplicationPrincipalAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: principalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Enable an application principal
+      tags:
+      - ApplicationPrincipals
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Suspend:
+    post:
+      description: Temporarily suspends the application principal; its identity is
+        retained but it cannot act until reinstated.
+      operationId: SuspendApplicationPrincipalAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: principalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Suspend an application principal
+      tags:
+      - ApplicationPrincipals
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/ApplicationPrincipals/{principalId}/Disable:
+    post:
+      description: Disables the application principal; dependent unattended execution
+        fails closed.
+      operationId: DisableApplicationPrincipalAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: principalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Disable an application principal
+      tags:
+      - ApplicationPrincipals
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Applications:
+    get:
+      description: Retrieves all business applications for the specified tenant.
+      operationId: GetBusinessApplicationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessApplicationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BusinessApplicationDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
         "200":
           content:
             application/json:
@@ -91,6 +816,7 @@ paths:
       summary: Get all business applications
       tags:
       - Applications
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -201,6 +927,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessApplicationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BusinessApplicationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -232,6 +966,7 @@ paths:
       summary: Get business applications count
       tags:
       - Applications
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -418,12 +1153,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
         required: true
       responses:
@@ -704,23 +1439,6 @@ paths:
       - application/json
   /health:
     get:
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           description: OK
@@ -1097,6 +1815,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LogDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1128,6 +1854,7 @@ paths:
       summary: Get tenant logs
       tags:
       - Logs
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1158,6 +1885,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LogDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1189,6 +1924,7 @@ paths:
       summary: Get tenant logs count
       tags:
       - Logs
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1576,12 +2312,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
         required: true
       responses:
@@ -1945,6 +2681,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityPermissionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SecurityPermissionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1976,6 +2720,7 @@ paths:
       summary: Get all permissions
       tags:
       - Permissions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2085,6 +2830,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityPermissionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SecurityPermissionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2116,6 +2869,7 @@ paths:
       summary: Get permissions count
       tags:
       - Permissions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2302,12 +3056,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
         required: true
       responses:
@@ -3241,6 +3995,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityRoleDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SecurityRoleDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3272,6 +4034,7 @@ paths:
       summary: Get all roles
       tags:
       - Roles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3381,6 +4144,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityRoleDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SecurityRoleDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3412,6 +4183,7 @@ paths:
       summary: Get roles count
       tags:
       - Roles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3598,12 +4370,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
         required: true
       responses:
@@ -4538,6 +5310,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityCertificateDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SecurityCertificateDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4569,6 +5349,7 @@ paths:
       summary: Get security certificates
       tags:
       - SecurityCertificates
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4600,6 +5381,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityCertificateDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SecurityCertificateDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4631,6 +5420,7 @@ paths:
       summary: Get security certificates count
       tags:
       - SecurityCertificates
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4661,6 +5451,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessSecurityLogDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BusinessSecurityLogDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4692,6 +5490,7 @@ paths:
       summary: Get business security logs
       tags:
       - SecurityLogs
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4722,6 +5521,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessSecurityLogDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BusinessSecurityLogDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4753,6 +5560,7 @@ paths:
       summary: Get business security logs count
       tags:
       - SecurityLogs
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4783,6 +5591,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WebhookRequestDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4814,6 +5630,7 @@ paths:
       summary: Get all webhook requests
       tags:
       - Webhooks
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4844,6 +5661,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WebhookRequestDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4875,6 +5700,7 @@ paths:
       summary: Get webhook requests count
       tags:
       - Webhooks
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4905,6 +5731,425 @@ components:
       - accessToken
       - expiresIn
       - refreshToken
+      type: object
+    ApplicationPrincipalDetailDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        displayName: displayName
+        systemLocked: true
+        enrollmentDisabled: true
+        businessApplicationNamespace: businessApplicationNamespace
+        principalKind: Human
+        businessApplicationId: businessApplicationId
+        tenantId: tenantId
+        id: id
+        principalStatus: Active
+        grantedPermissions:
+        - grantedPermissions
+        - grantedPermissions
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        businessApplicationName: businessApplicationName
+        businessApplicationDisabled: true
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        principalKind:
+          enum:
+          - Human
+          - Agent
+          - Application
+          - Service
+          - System
+          type: string
+        principalStatus:
+          enum:
+          - Active
+          - Suspended
+          - Disabled
+          type: string
+        businessApplicationId:
+          nullable: true
+          type: string
+        businessApplicationName:
+          nullable: true
+          type: string
+        businessApplicationNamespace:
+          nullable: true
+          type: string
+        businessApplicationDisabled:
+          type: boolean
+        systemLocked:
+          type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        enrollmentDisabled:
+          type: boolean
+        grantedPermissions:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    ApplicationPrincipalDetailDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          displayName: displayName
+          systemLocked: true
+          enrollmentDisabled: true
+          businessApplicationNamespace: businessApplicationNamespace
+          principalKind: Human
+          businessApplicationId: businessApplicationId
+          tenantId: tenantId
+          id: id
+          principalStatus: Active
+          grantedPermissions:
+          - grantedPermissions
+          - grantedPermissions
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          businessApplicationName: businessApplicationName
+          businessApplicationDisabled: true
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ApplicationPrincipalDetailDto'
+      type: object
+    ApplicationPrincipalDto:
+      additionalProperties: false
+      example:
+        principalKind: Human
+        enrollmentId: enrollmentId
+        businessApplicationId: businessApplicationId
+        displayName: displayName
+        systemLocked: true
+        tenantId: tenantId
+        enrollmentDisabled: true
+        grantedPermissionsCount: 1
+        id: id
+        principalStatus: Active
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        businessApplicationName: businessApplicationName
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        principalKind:
+          enum:
+          - Human
+          - Agent
+          - Application
+          - Service
+          - System
+          type: string
+        principalStatus:
+          enum:
+          - Active
+          - Suspended
+          - Disabled
+          type: string
+        businessApplicationId:
+          nullable: true
+          type: string
+        businessApplicationName:
+          nullable: true
+          type: string
+        systemLocked:
+          type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        enrollmentDisabled:
+          type: boolean
+        grantedPermissionsCount:
+          format: int32
+          type: integer
+      type: object
+    ApplicationPrincipalDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    ApplicationPrincipalDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - principalKind: Human
+          enrollmentId: enrollmentId
+          businessApplicationId: businessApplicationId
+          displayName: displayName
+          systemLocked: true
+          tenantId: tenantId
+          enrollmentDisabled: true
+          grantedPermissionsCount: 1
+          id: id
+          principalStatus: Active
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          businessApplicationName: businessApplicationName
+        - principalKind: Human
+          enrollmentId: enrollmentId
+          businessApplicationId: businessApplicationId
+          displayName: displayName
+          systemLocked: true
+          tenantId: tenantId
+          enrollmentDisabled: true
+          grantedPermissionsCount: 1
+          id: id
+          principalStatus: Active
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          businessApplicationName: businessApplicationName
+        activityId: activityId
+        httpStatus: 6
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ApplicationPrincipalDto'
+          nullable: true
+          type: array
+      type: object
+    ApplicationPrincipalPermissionRequestDto:
+      additionalProperties: false
+      example:
+        permission: permission
+      properties:
+        permission:
+          minLength: 1
+          type: string
+      required:
+      - permission
+      type: object
+    ApplicationPrincipalProvisionRequestDto:
+      additionalProperties: false
+      example:
+        businessApplicationId: businessApplicationId
+      properties:
+        businessApplicationId:
+          minLength: 1
+          type: string
+      required:
+      - businessApplicationId
+      type: object
+    ApplicationPrincipalProvisioningResultDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        tenantId: tenantId
+        principalId: principalId
+        principalCreated: true
+        enrollmentCreated: true
+      properties:
+        principalId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        principalCreated:
+          type: boolean
+        enrollmentCreated:
+          type: boolean
+      type: object
+    ApplicationPrincipalProvisioningResultDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          tenantId: tenantId
+          principalId: principalId
+          principalCreated: true
+          enrollmentCreated: true
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ApplicationPrincipalProvisioningResultDto'
       type: object
     BusinessApplicationCreateDto:
       additionalProperties: false
@@ -5190,6 +6435,48 @@ components:
         markedForPublish:
           type: boolean
       type: object
+    BusinessApplicationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     BusinessApplicationDtoEnvelope:
       additionalProperties: false
       example:
@@ -5235,8 +6522,14 @@ components:
           spaRelativeSourcePath: spaRelativeSourcePath
           requireWebOAuthReauthentication: true
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5253,6 +6546,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5345,8 +6653,14 @@ components:
           spaRelativeSourcePath: spaRelativeSourcePath
           requireWebOAuthReauthentication: true
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5363,6 +6677,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5402,8 +6731,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5420,6 +6755,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5595,6 +6945,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         type:
           nullable: true
@@ -5610,6 +6961,48 @@ components:
         businessID:
           nullable: true
           type: string
+      type: object
+    BusinessSecurityLogDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
       type: object
     BusinessSecurityLogDtoListEnvelope:
       additionalProperties: false
@@ -5630,8 +7023,14 @@ components:
           message: message
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5648,6 +7047,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5662,8 +7076,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5680,6 +7100,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5689,8 +7124,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5707,6 +7148,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5785,10 +7241,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5805,6 +7267,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5904,6 +7381,48 @@ components:
           nullable: true
           type: string
       type: object
+    LogDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     LogDtoListEnvelope:
       additionalProperties: false
       example:
@@ -5921,8 +7440,14 @@ components:
           message: message
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5939,6 +7464,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6027,7 +7567,7 @@ components:
     OAuthApplicationDto:
       additionalProperties: false
       example:
-        authorizationsCount: 0
+        authorizationsCount: 6
         settings: settings
         applicationType: applicationType
         requirements: requirements
@@ -6036,7 +7576,7 @@ components:
         displayNames: displayNames
         businessID: businessID
         type: type
-        tokensCount: 6
+        tokensCount: 1
         redirectUris: redirectUris
         businessProfileRecordID: businessProfileRecordID
         businessApplicationID: businessApplicationID
@@ -6118,7 +7658,7 @@ components:
       additionalProperties: false
       example:
         result:
-          authorizationsCount: 0
+          authorizationsCount: 6
           settings: settings
           applicationType: applicationType
           requirements: requirements
@@ -6127,7 +7667,7 @@ components:
           displayNames: displayNames
           businessID: businessID
           type: type
-          tokensCount: 6
+          tokensCount: 1
           redirectUris: redirectUris
           businessProfileRecordID: businessProfileRecordID
           businessApplicationID: businessApplicationID
@@ -6140,8 +7680,14 @@ components:
           properties: properties
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6158,6 +7704,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6169,7 +7730,7 @@ components:
       additionalProperties: false
       example:
         result:
-        - authorizationsCount: 0
+        - authorizationsCount: 6
           settings: settings
           applicationType: applicationType
           requirements: requirements
@@ -6178,7 +7739,7 @@ components:
           displayNames: displayNames
           businessID: businessID
           type: type
-          tokensCount: 6
+          tokensCount: 1
           redirectUris: redirectUris
           businessProfileRecordID: businessProfileRecordID
           businessApplicationID: businessApplicationID
@@ -6190,7 +7751,7 @@ components:
           concurrencyToken: concurrencyToken
           properties: properties
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - authorizationsCount: 0
+        - authorizationsCount: 6
           settings: settings
           applicationType: applicationType
           requirements: requirements
@@ -6199,7 +7760,7 @@ components:
           displayNames: displayNames
           businessID: businessID
           type: type
-          tokensCount: 6
+          tokensCount: 1
           redirectUris: redirectUris
           businessProfileRecordID: businessProfileRecordID
           businessApplicationID: businessApplicationID
@@ -6212,8 +7773,14 @@ components:
           properties: properties
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6230,6 +7797,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6286,7 +7868,7 @@ components:
         creationDate: 2000-01-23T04:56:07.000+00:00
         type: type
         applicationId: applicationId
-        tokensCount: 0
+        tokensCount: 6
         concurrencyToken: concurrencyToken
         properties: properties
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6338,14 +7920,20 @@ components:
           creationDate: 2000-01-23T04:56:07.000+00:00
           type: type
           applicationId: applicationId
-          tokensCount: 0
+          tokensCount: 6
           concurrencyToken: concurrencyToken
           properties: properties
           timestamp: 2000-01-23T04:56:07.000+00:00
           status: status
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6362,6 +7950,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6379,7 +7982,7 @@ components:
           creationDate: 2000-01-23T04:56:07.000+00:00
           type: type
           applicationId: applicationId
-          tokensCount: 0
+          tokensCount: 6
           concurrencyToken: concurrencyToken
           properties: properties
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6390,14 +7993,20 @@ components:
           creationDate: 2000-01-23T04:56:07.000+00:00
           type: type
           applicationId: applicationId
-          tokensCount: 0
+          tokensCount: 6
           concurrencyToken: concurrencyToken
           properties: properties
           timestamp: 2000-01-23T04:56:07.000+00:00
           status: status
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6414,6 +8023,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6424,30 +8048,18 @@ components:
           nullable: true
           type: array
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:
@@ -6551,6 +8163,48 @@ components:
           nullable: true
           type: string
       type: object
+    SecurityCertificateDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SecurityCertificateDtoListEnvelope:
       additionalProperties: false
       example:
@@ -6572,8 +8226,14 @@ components:
           type: type
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6590,6 +8250,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6632,6 +8307,7 @@ components:
         description: description
         id: id
         isSystemPermission: true
+        category: category
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -6647,10 +8323,55 @@ components:
         tenantId:
           nullable: true
           type: string
+        category:
+          nullable: true
+          type: string
         description:
           nullable: true
           type: string
         isSystemPermission:
+          type: boolean
+      type: object
+    SecurityPermissionDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
           type: boolean
       type: object
     SecurityPermissionDtoEnvelope:
@@ -6662,10 +8383,17 @@ components:
           description: description
           id: id
           isSystemPermission: true
+          category: category
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6682,6 +8410,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6698,16 +8441,24 @@ components:
           description: description
           id: id
           isSystemPermission: true
+          category: category
           timestamp: 2000-01-23T04:56:07.000+00:00
         - name: name
           tenantId: tenantId
           description: description
           id: id
           isSystemPermission: true
+          category: category
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6724,6 +8475,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6803,6 +8569,48 @@ components:
         isSystemRole:
           type: boolean
       type: object
+    SecurityRoleDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SecurityRoleDtoEnvelope:
       additionalProperties: false
       example:
@@ -6814,8 +8622,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6832,6 +8646,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6856,8 +8685,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6874,6 +8709,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6955,8 +8805,14 @@ components:
           userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6973,6 +8829,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7067,6 +8938,48 @@ components:
           nullable: true
           type: string
       type: object
+    WebhookRequestDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     WebhookRequestDtoListEnvelope:
       additionalProperties: false
       example:
@@ -7084,8 +8997,14 @@ components:
           type: type
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7102,6 +9021,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

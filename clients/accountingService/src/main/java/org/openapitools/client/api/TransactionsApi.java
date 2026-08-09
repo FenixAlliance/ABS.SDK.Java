@@ -30,12 +30,14 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TransactionCategoryCreateDto;
+import org.openapitools.client.model.TransactionCategoryDtoCollectionQueryParameters;
 import org.openapitools.client.model.TransactionCategoryDtoEnvelope;
 import org.openapitools.client.model.TransactionCategoryDtoListEnvelope;
 import org.openapitools.client.model.TransactionCategoryUpdateDto;
 import org.openapitools.client.model.TransactionCreateDto;
+import org.openapitools.client.model.TransactionDtoCollectionQueryParameters;
 import org.openapitools.client.model.TransactionDtoEnvelope;
 import org.openapitools.client.model.TransactionDtoListEnvelope;
 import org.openapitools.client.model.TransactionUpdateDto;
@@ -906,6 +908,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -917,7 +920,7 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionCategoriesCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTransactionCategoriesCall(UUID tenantId, String apiVersion, String xApiVersion, TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -931,7 +934,7 @@ public class TransactionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = transactionCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Transactions/Categories";
@@ -964,6 +967,8 @@ public class TransactionsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -975,13 +980,13 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTransactionCategoriesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTransactionCategoriesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTransactionCategories(Async)");
         }
 
-        return getTransactionCategoriesCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTransactionCategoriesCall(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -991,6 +996,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @return TransactionCategoryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1001,8 +1007,8 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TransactionCategoryDtoListEnvelope getTransactionCategories(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TransactionCategoryDtoListEnvelope> localVarResp = getTransactionCategoriesWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TransactionCategoryDtoListEnvelope getTransactionCategories(UUID tenantId, String apiVersion, String xApiVersion, TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TransactionCategoryDtoListEnvelope> localVarResp = getTransactionCategoriesWithHttpInfo(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1012,6 +1018,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TransactionCategoryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1022,8 +1029,8 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TransactionCategoryDtoListEnvelope> getTransactionCategoriesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTransactionCategoriesValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TransactionCategoryDtoListEnvelope> getTransactionCategoriesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTransactionCategoriesValidateBeforeCall(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TransactionCategoryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1034,6 +1041,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1045,9 +1053,9 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionCategoriesAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TransactionCategoryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTransactionCategoriesAsync(UUID tenantId, String apiVersion, String xApiVersion, TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters, final ApiCallback<TransactionCategoryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTransactionCategoriesValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTransactionCategoriesValidateBeforeCall(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TransactionCategoryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1057,6 +1065,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1068,7 +1077,7 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionCategoriesCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTransactionCategoriesCountCall(UUID tenantId, String apiVersion, String xApiVersion, TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1082,7 +1091,7 @@ public class TransactionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = transactionCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Transactions/Categories/Count";
@@ -1115,6 +1124,8 @@ public class TransactionsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1126,13 +1137,13 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTransactionCategoriesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTransactionCategoriesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTransactionCategoriesCount(Async)");
         }
 
-        return getTransactionCategoriesCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTransactionCategoriesCountCall(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1142,6 +1153,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1152,8 +1164,8 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTransactionCategoriesCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTransactionCategoriesCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTransactionCategoriesCount(UUID tenantId, String apiVersion, String xApiVersion, TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTransactionCategoriesCountWithHttpInfo(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1163,6 +1175,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1173,8 +1186,8 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTransactionCategoriesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTransactionCategoriesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTransactionCategoriesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTransactionCategoriesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1185,6 +1198,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1196,9 +1210,9 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionCategoriesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTransactionCategoriesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTransactionCategoriesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTransactionCategoriesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1373,6 +1387,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1384,7 +1399,7 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionsCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTransactionsCall(UUID tenantId, String apiVersion, String xApiVersion, TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1398,7 +1413,7 @@ public class TransactionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = transactionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Transactions";
@@ -1431,6 +1446,8 @@ public class TransactionsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1442,13 +1459,13 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTransactionsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTransactionsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTransactions(Async)");
         }
 
-        return getTransactionsCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTransactionsCall(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1458,6 +1475,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @return TransactionDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1468,8 +1486,8 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TransactionDtoListEnvelope getTransactions(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TransactionDtoListEnvelope> localVarResp = getTransactionsWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TransactionDtoListEnvelope getTransactions(UUID tenantId, String apiVersion, String xApiVersion, TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TransactionDtoListEnvelope> localVarResp = getTransactionsWithHttpInfo(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1479,6 +1497,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TransactionDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1489,8 +1508,8 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TransactionDtoListEnvelope> getTransactionsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TransactionDtoListEnvelope> getTransactionsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TransactionDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1501,6 +1520,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1512,9 +1532,9 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionsAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TransactionDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTransactionsAsync(UUID tenantId, String apiVersion, String xApiVersion, TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters, final ApiCallback<TransactionDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TransactionDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1524,6 +1544,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1535,7 +1556,7 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionsCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTransactionsCountCall(UUID tenantId, String apiVersion, String xApiVersion, TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1549,7 +1570,7 @@ public class TransactionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = transactionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Transactions/Count";
@@ -1582,6 +1603,8 @@ public class TransactionsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1593,13 +1616,13 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTransactionsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTransactionsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTransactionsCount(Async)");
         }
 
-        return getTransactionsCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTransactionsCountCall(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1609,6 +1632,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1619,8 +1643,8 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTransactionsCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTransactionsCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTransactionsCount(UUID tenantId, String apiVersion, String xApiVersion, TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTransactionsCountWithHttpInfo(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1630,6 +1654,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1640,8 +1665,8 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTransactionsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTransactionsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTransactionsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTransactionsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1652,6 +1677,7 @@ public class TransactionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param transactionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1663,9 +1689,9 @@ public class TransactionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTransactionsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTransactionsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTransactionsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1676,7 +1702,7 @@ public class TransactionsApi {
      * @param transactionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1688,7 +1714,7 @@ public class TransactionsApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTransactionCall(UUID tenantId, UUID transactionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTransactionCall(UUID tenantId, UUID transactionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1702,7 +1728,7 @@ public class TransactionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Transactions/{transactionId}"
@@ -1749,7 +1775,7 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTransactionValidateBeforeCall(UUID tenantId, UUID transactionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTransactionValidateBeforeCall(UUID tenantId, UUID transactionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTransaction(Async)");
@@ -1760,7 +1786,7 @@ public class TransactionsApi {
             throw new ApiException("Missing the required parameter 'transactionId' when calling patchTransaction(Async)");
         }
 
-        return patchTransactionCall(tenantId, transactionId, apiVersion, xApiVersion, operation, _callback);
+        return patchTransactionCall(tenantId, transactionId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1771,7 +1797,7 @@ public class TransactionsApi {
      * @param transactionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1782,8 +1808,8 @@ public class TransactionsApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTransaction(UUID tenantId, UUID transactionId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTransactionWithHttpInfo(tenantId, transactionId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTransaction(UUID tenantId, UUID transactionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTransactionWithHttpInfo(tenantId, transactionId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1794,7 +1820,7 @@ public class TransactionsApi {
      * @param transactionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1805,8 +1831,8 @@ public class TransactionsApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTransactionWithHttpInfo(UUID tenantId, UUID transactionId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTransactionValidateBeforeCall(tenantId, transactionId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTransactionWithHttpInfo(UUID tenantId, UUID transactionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTransactionValidateBeforeCall(tenantId, transactionId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1818,7 +1844,7 @@ public class TransactionsApi {
      * @param transactionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1830,9 +1856,9 @@ public class TransactionsApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTransactionAsync(UUID tenantId, UUID transactionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTransactionAsync(UUID tenantId, UUID transactionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTransactionValidateBeforeCall(tenantId, transactionId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTransactionValidateBeforeCall(tenantId, transactionId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1843,7 +1869,7 @@ public class TransactionsApi {
      * @param categoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1855,7 +1881,7 @@ public class TransactionsApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTransactionCategoryCall(UUID tenantId, UUID categoryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTransactionCategoryCall(UUID tenantId, UUID categoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1869,7 +1895,7 @@ public class TransactionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Transactions/Categories/{categoryId}"
@@ -1916,7 +1942,7 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTransactionCategoryValidateBeforeCall(UUID tenantId, UUID categoryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTransactionCategoryValidateBeforeCall(UUID tenantId, UUID categoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTransactionCategory(Async)");
@@ -1927,7 +1953,7 @@ public class TransactionsApi {
             throw new ApiException("Missing the required parameter 'categoryId' when calling patchTransactionCategory(Async)");
         }
 
-        return patchTransactionCategoryCall(tenantId, categoryId, apiVersion, xApiVersion, operation, _callback);
+        return patchTransactionCategoryCall(tenantId, categoryId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1938,7 +1964,7 @@ public class TransactionsApi {
      * @param categoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1949,8 +1975,8 @@ public class TransactionsApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTransactionCategory(UUID tenantId, UUID categoryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTransactionCategoryWithHttpInfo(tenantId, categoryId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTransactionCategory(UUID tenantId, UUID categoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTransactionCategoryWithHttpInfo(tenantId, categoryId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1961,7 +1987,7 @@ public class TransactionsApi {
      * @param categoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1972,8 +1998,8 @@ public class TransactionsApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTransactionCategoryWithHttpInfo(UUID tenantId, UUID categoryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTransactionCategoryValidateBeforeCall(tenantId, categoryId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTransactionCategoryWithHttpInfo(UUID tenantId, UUID categoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTransactionCategoryValidateBeforeCall(tenantId, categoryId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1985,7 +2011,7 @@ public class TransactionsApi {
      * @param categoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1997,9 +2023,9 @@ public class TransactionsApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTransactionCategoryAsync(UUID tenantId, UUID categoryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTransactionCategoryAsync(UUID tenantId, UUID categoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTransactionCategoryValidateBeforeCall(tenantId, categoryId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTransactionCategoryValidateBeforeCall(tenantId, categoryId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getLicensingCertificatesAsync"></a>
 # **getLicensingCertificatesAsync**
-> LicensingCertificateDtoListEnvelope getLicensingCertificatesAsync(tenantId, apiVersion, xApiVersion)
+> LicensingCertificateDtoListEnvelope getLicensingCertificatesAsync(tenantId, apiVersion, xApiVersion, licensingCertificateDtoCollectionQueryParameters)
 
 Get all licensing certificates
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LicensingCertificateDtoCollectionQueryParameters licensingCertificateDtoCollectionQueryParameters = new LicensingCertificateDtoCollectionQueryParameters(); // LicensingCertificateDtoCollectionQueryParameters | 
     try {
-      LicensingCertificateDtoListEnvelope result = apiInstance.getLicensingCertificatesAsync(tenantId, apiVersion, xApiVersion);
+      LicensingCertificateDtoListEnvelope result = apiInstance.getLicensingCertificatesAsync(tenantId, apiVersion, xApiVersion, licensingCertificateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicensingCertificatesApi#getLicensingCertificatesAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **licensingCertificateDtoCollectionQueryParameters** | [**LicensingCertificateDtoCollectionQueryParameters**](LicensingCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getLicensingCertificatesCountAsync"></a>
 # **getLicensingCertificatesCountAsync**
-> Int32Envelope getLicensingCertificatesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLicensingCertificatesCountAsync(tenantId, apiVersion, xApiVersion, licensingCertificateDtoCollectionQueryParameters)
 
 Get licensing certificates count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LicensingCertificateDtoCollectionQueryParameters licensingCertificateDtoCollectionQueryParameters = new LicensingCertificateDtoCollectionQueryParameters(); // LicensingCertificateDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLicensingCertificatesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLicensingCertificatesCountAsync(tenantId, apiVersion, xApiVersion, licensingCertificateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicensingCertificatesApi#getLicensingCertificatesCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **licensingCertificateDtoCollectionQueryParameters** | [**LicensingCertificateDtoCollectionQueryParameters**](LicensingCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchLicensingCertificateAsync"></a>
 # **patchLicensingCertificateAsync**
-> EmptyEnvelope patchLicensingCertificateAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLicensingCertificateAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a licensing certificate
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchLicensingCertificateAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchLicensingCertificateAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicensingCertificatesApi#patchLicensingCertificateAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

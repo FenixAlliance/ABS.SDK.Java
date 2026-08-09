@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getContactProfilesAsync"></a>
 # **getContactProfilesAsync**
-> ContactProfileDtoListEnvelope getContactProfilesAsync(tenantId, apiVersion, xApiVersion)
+> ContactProfileDtoListEnvelope getContactProfilesAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
 
 Get all contact profiles
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters = new ContactProfileDtoCollectionQueryParameters(); // ContactProfileDtoCollectionQueryParameters | 
     try {
-      ContactProfileDtoListEnvelope result = apiInstance.getContactProfilesAsync(tenantId, apiVersion, xApiVersion);
+      ContactProfileDtoListEnvelope result = apiInstance.getContactProfilesAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactProfilesApi#getContactProfilesAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -292,7 +294,7 @@ No authorization required
 
 <a id="getContactProfilesCountAsync"></a>
 # **getContactProfilesCountAsync**
-> Int32Envelope getContactProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getContactProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
 
 Get contact profiles count
 
@@ -316,8 +318,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters = new ContactProfileDtoCollectionQueryParameters(); // ContactProfileDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getContactProfilesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getContactProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactProfilesApi#getContactProfilesCountAsync");
@@ -337,6 +340,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -348,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -359,7 +363,7 @@ No authorization required
 
 <a id="getPartnerProfilesCountAsync"></a>
 # **getPartnerProfilesCountAsync**
-> Int32Envelope getPartnerProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPartnerProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
 
 Get partner profiles count
 
@@ -383,8 +387,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters = new ContactProfileDtoCollectionQueryParameters(); // ContactProfileDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getPartnerProfilesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getPartnerProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactProfilesApi#getPartnerProfilesCountAsync");
@@ -404,6 +409,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -415,7 +421,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -426,7 +432,7 @@ No authorization required
 
 <a id="getPatientProfilesCountAsync"></a>
 # **getPatientProfilesCountAsync**
-> Int32Envelope getPatientProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPatientProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters)
 
 Get patient profiles count
 
@@ -450,8 +456,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactProfileDtoCollectionQueryParameters contactProfileDtoCollectionQueryParameters = new ContactProfileDtoCollectionQueryParameters(); // ContactProfileDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getPatientProfilesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getPatientProfilesCountAsync(tenantId, apiVersion, xApiVersion, contactProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactProfilesApi#getPatientProfilesCountAsync");
@@ -471,6 +478,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactProfileDtoCollectionQueryParameters** | [**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -482,7 +490,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -493,7 +501,7 @@ No authorization required
 
 <a id="patchContactProfileAsync"></a>
 # **patchContactProfileAsync**
-> EmptyEnvelope patchContactProfileAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactProfileAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact profile
 
@@ -518,9 +526,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchContactProfileAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchContactProfileAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactProfilesApi#patchContactProfileAsync");
@@ -541,7 +549,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

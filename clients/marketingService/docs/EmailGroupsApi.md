@@ -228,7 +228,7 @@ No authorization required
 
 <a id="getEmailGroupsCountAsync"></a>
 # **getEmailGroupsCountAsync**
-> Int32Envelope getEmailGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getEmailGroupsCountAsync(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters)
 
 Get email groups count
 
@@ -252,8 +252,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters = new EmailGroupDtoCollectionQueryParameters(); // EmailGroupDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getEmailGroupsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getEmailGroupsCountAsync(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailGroupsApi#getEmailGroupsCountAsync");
@@ -273,6 +274,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **emailGroupDtoCollectionQueryParameters** | [**EmailGroupDtoCollectionQueryParameters**](EmailGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -284,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -297,7 +299,7 @@ No authorization required
 
 <a id="getEmailGroupsODataAsync"></a>
 # **getEmailGroupsODataAsync**
-> EmailGroupDtoListEnvelope getEmailGroupsODataAsync(tenantId, apiVersion, xApiVersion)
+> EmailGroupDtoListEnvelope getEmailGroupsODataAsync(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters)
 
 Get email groups
 
@@ -321,8 +323,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    EmailGroupDtoCollectionQueryParameters emailGroupDtoCollectionQueryParameters = new EmailGroupDtoCollectionQueryParameters(); // EmailGroupDtoCollectionQueryParameters | 
     try {
-      EmailGroupDtoListEnvelope result = apiInstance.getEmailGroupsODataAsync(tenantId, apiVersion, xApiVersion);
+      EmailGroupDtoListEnvelope result = apiInstance.getEmailGroupsODataAsync(tenantId, apiVersion, xApiVersion, emailGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailGroupsApi#getEmailGroupsODataAsync");
@@ -342,6 +345,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **emailGroupDtoCollectionQueryParameters** | [**EmailGroupDtoCollectionQueryParameters**](EmailGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -353,7 +357,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -365,7 +369,7 @@ No authorization required
 
 <a id="patchEmailGroupAsync"></a>
 # **patchEmailGroupAsync**
-> EmptyEnvelope patchEmailGroupAsync(tenantId, emailgroupId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchEmailGroupAsync(tenantId, emailgroupId, apiVersion, xApiVersion, patchOperation)
 
 Patch an email group
 
@@ -390,9 +394,9 @@ public class Example {
     UUID emailgroupId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchEmailGroupAsync(tenantId, emailgroupId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchEmailGroupAsync(tenantId, emailgroupId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailGroupsApi#patchEmailGroupAsync");
@@ -413,7 +417,7 @@ public class Example {
 | **emailgroupId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

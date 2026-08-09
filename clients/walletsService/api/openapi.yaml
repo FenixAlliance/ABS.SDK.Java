@@ -44,23 +44,6 @@ paths:
       - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
   /hello:
     get:
       responses:
@@ -491,6 +474,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OrderDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -522,6 +513,7 @@ paths:
       summary: Get Wallet Orders
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -552,6 +544,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExtendedOrderDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ExtendedOrderDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -583,6 +583,7 @@ paths:
       summary: Get Wallet Extended Orders
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -613,6 +614,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OrderDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -644,6 +653,7 @@ paths:
       summary: Get Wallet Orders Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -674,6 +684,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -705,6 +723,7 @@ paths:
       summary: Get Wallet Invoices
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -735,6 +754,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -766,6 +793,7 @@ paths:
       summary: Get Wallet Invoices Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -796,6 +824,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -827,6 +863,7 @@ paths:
       summary: Get Wallet Payments
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -926,6 +963,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -957,6 +1002,7 @@ paths:
       summary: Get Wallet Payments Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -987,6 +1033,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1018,6 +1072,7 @@ paths:
       summary: Get Wallet Locations
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1117,6 +1172,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1148,6 +1211,7 @@ paths:
       summary: Get Wallet Locations Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1392,6 +1456,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1423,6 +1495,7 @@ paths:
       summary: Get Incoming Wallet Invoices
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1453,6 +1526,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1484,6 +1565,7 @@ paths:
       summary: Get Incoming Wallet Invoices Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1514,6 +1596,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1545,6 +1635,7 @@ paths:
       summary: Get Outgoing Wallet Invoices
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1575,6 +1666,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1606,6 +1705,7 @@ paths:
       summary: Get Outgoing Wallet Invoices Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1636,6 +1736,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1667,6 +1775,7 @@ paths:
       summary: Get Incoming Payments
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1697,6 +1806,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1728,6 +1845,7 @@ paths:
       summary: Get Incoming Payments Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1758,6 +1876,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1789,6 +1915,7 @@ paths:
       summary: Get Outgoing Payments
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1819,6 +1946,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1850,6 +1985,7 @@ paths:
       summary: Get Outgoing Payments Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1880,6 +2016,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuoteDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/QuoteDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1911,6 +2055,7 @@ paths:
       summary: Get Wallet Quotes
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1941,6 +2086,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuoteDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/QuoteDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1972,6 +2125,7 @@ paths:
       summary: Get Wallet Quotes Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2002,6 +2156,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankAccountDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BankAccountDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2033,6 +2195,7 @@ paths:
       summary: Get Wallet Bank Accounts
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2132,6 +2295,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankAccountDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BankAccountDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2163,6 +2334,7 @@ paths:
       summary: Get Wallet Bank Accounts Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2343,12 +2515,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2489,6 +2661,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletWithdrawDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WalletWithdrawDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2520,6 +2700,7 @@ paths:
       summary: Get Wallet Withdraws
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2619,6 +2800,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletWithdrawDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WalletWithdrawDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2650,6 +2839,7 @@ paths:
       summary: Get Wallet Withdraws Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2680,6 +2870,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletWithdrawRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WalletWithdrawRequestDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2711,6 +2909,7 @@ paths:
       summary: Get Wallet Withdraw Requests
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2741,6 +2940,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletWithdrawRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WalletWithdrawRequestDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2772,6 +2979,7 @@ paths:
       summary: Get Wallet Withdraw Requests Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2802,6 +3010,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentChargebackDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentChargebackDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2833,6 +3049,7 @@ paths:
       summary: Get Wallet Chargebacks
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2863,6 +3080,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentChargebackDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentChargebackDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2894,6 +3119,7 @@ paths:
       summary: Get Wallet Chargebacks Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2924,6 +3150,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRefundDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentRefundDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2955,6 +3189,7 @@ paths:
       summary: Get Wallet Refunds
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2985,6 +3220,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRefundDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentRefundDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3016,6 +3259,7 @@ paths:
       summary: Get Wallet Refunds Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3046,6 +3290,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentTokenDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentTokenDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3077,6 +3329,7 @@ paths:
       summary: Get Wallet Tokens
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3176,6 +3429,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentTokenDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentTokenDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3207,6 +3468,7 @@ paths:
       summary: Get Wallet Tokens Count
       tags:
       - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3387,12 +3649,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3643,6 +3905,48 @@ components:
           nullable: true
           type: string
       type: object
+    BankAccountDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     BankAccountDtoEnvelope:
       additionalProperties: false
       example:
@@ -3661,8 +3965,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           swift: swift
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3679,6 +3989,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -3717,8 +4042,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           swift: swift
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3735,6 +4066,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -4051,8 +4397,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4069,6 +4421,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -4078,8 +4445,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4096,6 +4469,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -4104,21 +4492,21 @@ components:
     ExtendedOrderDto:
       additionalProperties: false
       example:
-        totalDiscountsInUsd: 6.84685269835264
+        totalDiscountsInUsd: 7.457744773683766
         totalShippingCostCurrencyId: totalShippingCostCurrencyId
-        totalInUsd: 9.018348186070783
+        totalInUsd: 6.438423552598547
         companyName: companyName
         postalCode: postalCode
-        totalDetail: 6.027456183070403
-        totalShippingCost: 9.301444243932576
+        totalDetail: 1.4658129805029452
+        totalShippingCost: 3.616076749251911
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
         freightTerms: FOB
         cityId: cityId
         type: type
-        totalTaxBaseInUsd: 1.1730742509559433
+        totalTaxBaseInUsd: 4.965218492984954
         organizationId: organizationId
-        totalTaxBase: 2.3021358869347655
-        customDiscountsAmount: 6.778324963048013
+        totalTaxBase: 7.061401241503109
+        customDiscountsAmount: 6.878052220127876
         totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         addressLine1: addressLine1
         addressLine2: addressLine2
@@ -4164,13 +4552,13 @@ components:
           instagramUrl: instagramUrl
           slogan: slogan
           youTubeUrl: youTubeUrl
-        customTaxAmount: 3.5571952270680973
+        customTaxAmount: 6.965117697638846
         enrollmentId: enrollmentId
         walletId: walletId
         forexRatesSnapshot: forexRatesSnapshot
-        totalWithheldTaxesInUsd: 5.025004791520295
-        totalProfitInUsd: 1.4894159098541704
-        orderLinesCount: 6
+        totalWithheldTaxesInUsd: 9.965781217890562
+        totalProfitInUsd: 6.84685269835264
+        orderLinesCount: 3
         individual:
           streetLine2: streetLine2
           zipCode: zipCode
@@ -4231,28 +4619,28 @@ components:
           timezoneId: timezoneId
           faxNumber: faxNumber
           instagramUrl: https://openapi-generator.tech
-        totalGlobalSurchargesInUsd: 8.762042012749001
+        totalGlobalSurchargesInUsd: 9.018348186070783
         totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
         shippingMethodId: shippingMethodId
         costCalculationMethod: Automatic
-        totalShippingTaxesInUsd: 9.369310271410669
+        totalShippingTaxesInUsd: 6.683562403749608
         quoteId: quoteId
         firstName: firstName
-        totalShippingTax: 3.616076749251911
-        forexRate: 0.8008281904610115
-        customDetailAmount: 1.284659006116532
-        customSurchargesAmount: 6.878052220127876
+        totalShippingTax: 2.027123023002322
+        forexRate: 6.027456183070403
+        customDetailAmount: 2.8841621266687802
+        customSurchargesAmount: 5.944895607614016
         requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-        customShippingCostAmount: 6.704019297950036
-        totalShippingCostInUsd: 9.965781217890562
-        totalDetailInUsd: 1.0246457001441578
-        customWithholdingTaxAmount: 3.353193347011243
+        customShippingCostAmount: 3.353193347011243
+        totalShippingCostInUsd: 9.369310271410669
+        totalDetailInUsd: 1.4894159098541704
+        customWithholdingTaxAmount: 3.0937452626664474
         billingLocationId: billingLocationId
         lastName: lastName
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-        totalProfit: 1.4658129805029452
-        totalGlobalDiscounts: 4.145608029883936
-        totalDiscounts: 5.962133916683182
+        totalProfit: 5.962133916683182
+        totalGlobalDiscounts: 7.386281948385884
+        totalDiscounts: 5.637376656633329
         totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
         orderStatus: New
@@ -4262,22 +4650,22 @@ components:
         title: title
         qualifiedIdentifier: qualifiedIdentifier
         countryId: countryId
-        total: 1.2315135367772556
+        total: 1.0246457001441578
         totalCurrencyId: totalCurrencyId
-        totalSurchargesInUsd: 7.457744773683766
+        totalSurchargesInUsd: 1.1730742509559433
         billingEmail: billingEmail
         parentOrderId: parentOrderId
         buyerBillingProfileId: buyerBillingProfileId
         totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
-        customTotalAmount: 6.965117697638846
+        customTotalAmount: 1.284659006116532
         timestamp: 2000-01-23T04:56:07.000+00:00
         paymentTermId: paymentTermId
         sellerBillingProfileId: sellerBillingProfileId
-        totalTaxes: 7.061401241503109
-        totalWithheldTax: 2.027123023002322
+        totalTaxes: 9.301444243932576
+        totalWithheldTax: 4.145608029883936
         stateId: stateId
-        customShippingTaxAmount: 5.944895607614016
+        customShippingTaxAmount: 6.704019297950036
         priceListId: priceListId
         userId: userId
         totalDetailCurrencyId: totalDetailCurrencyId
@@ -4291,8 +4679,8 @@ components:
           isDisabled: true
           userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        totalTaxesInUsd: 4.965218492984954
-        customProfitAmount: 2.8841621266687802
+        totalTaxesInUsd: 5.025004791520295
+        customProfitAmount: 6.778324963048013
         organization:
           streetLine2: streetLine2
           zipCode: zipCode
@@ -4355,10 +4743,10 @@ components:
           instagramUrl: https://openapi-generator.tech
         tenantId: tenantId
         closed: true
-        totalSurcharges: 5.637376656633329
+        totalSurcharges: 2.3021358869347655
         taxCalculationMethod: Included
-        totalGlobalSurcharges: 7.386281948385884
-        totalGlobalDiscountsInUsd: 6.683562403749608
+        totalGlobalSurcharges: 1.2315135367772556
+        totalGlobalDiscountsInUsd: 8.762042012749001
         totalProfitCurrencyId: totalProfitCurrencyId
         user:
           birthday: 2000-01-23T04:56:07.000+00:00
@@ -4398,7 +4786,7 @@ components:
           languageId: languageId
           fullName: fullName
           userName: userName
-          enrollmentsCount: 3
+          enrollmentsCount: 7
           coverUrl: coverUrl
           firstName: firstName
           phoneNumber: phoneNumber
@@ -4526,6 +4914,11 @@ components:
           enum:
           - Included
           - Excluded
+          type: string
+        costCalculationMethod:
+          enum:
+          - Automatic
+          - Custom
           type: string
         forexRate:
           format: double
@@ -4677,11 +5070,6 @@ components:
         buyerBillingProfileId:
           nullable: true
           type: string
-        costCalculationMethod:
-          enum:
-          - Automatic
-          - Custom
-          type: string
         freightTerms:
           enum:
           - FOB
@@ -4743,25 +5131,67 @@ components:
         enrollment:
           $ref: '#/components/schemas/TenantEnrollmentDto'
       type: object
+    ExtendedOrderDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ExtendedOrderDtoListEnvelope:
       additionalProperties: false
       example:
         result:
-        - totalDiscountsInUsd: 6.84685269835264
+        - totalDiscountsInUsd: 7.457744773683766
           totalShippingCostCurrencyId: totalShippingCostCurrencyId
-          totalInUsd: 9.018348186070783
+          totalInUsd: 6.438423552598547
           companyName: companyName
           postalCode: postalCode
-          totalDetail: 6.027456183070403
-          totalShippingCost: 9.301444243932576
+          totalDetail: 1.4658129805029452
+          totalShippingCost: 3.616076749251911
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           freightTerms: FOB
           cityId: cityId
           type: type
-          totalTaxBaseInUsd: 1.1730742509559433
+          totalTaxBaseInUsd: 4.965218492984954
           organizationId: organizationId
-          totalTaxBase: 2.3021358869347655
-          customDiscountsAmount: 6.778324963048013
+          totalTaxBase: 7.061401241503109
+          customDiscountsAmount: 6.878052220127876
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
@@ -4807,13 +5237,13 @@ components:
             instagramUrl: instagramUrl
             slogan: slogan
             youTubeUrl: youTubeUrl
-          customTaxAmount: 3.5571952270680973
+          customTaxAmount: 6.965117697638846
           enrollmentId: enrollmentId
           walletId: walletId
           forexRatesSnapshot: forexRatesSnapshot
-          totalWithheldTaxesInUsd: 5.025004791520295
-          totalProfitInUsd: 1.4894159098541704
-          orderLinesCount: 6
+          totalWithheldTaxesInUsd: 9.965781217890562
+          totalProfitInUsd: 6.84685269835264
+          orderLinesCount: 3
           individual:
             streetLine2: streetLine2
             zipCode: zipCode
@@ -4874,28 +5304,28 @@ components:
             timezoneId: timezoneId
             faxNumber: faxNumber
             instagramUrl: https://openapi-generator.tech
-          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalGlobalSurchargesInUsd: 9.018348186070783
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           shippingMethodId: shippingMethodId
           costCalculationMethod: Automatic
-          totalShippingTaxesInUsd: 9.369310271410669
+          totalShippingTaxesInUsd: 6.683562403749608
           quoteId: quoteId
           firstName: firstName
-          totalShippingTax: 3.616076749251911
-          forexRate: 0.8008281904610115
-          customDetailAmount: 1.284659006116532
-          customSurchargesAmount: 6.878052220127876
+          totalShippingTax: 2.027123023002322
+          forexRate: 6.027456183070403
+          customDetailAmount: 2.8841621266687802
+          customSurchargesAmount: 5.944895607614016
           requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          customShippingCostAmount: 6.704019297950036
-          totalShippingCostInUsd: 9.965781217890562
-          totalDetailInUsd: 1.0246457001441578
-          customWithholdingTaxAmount: 3.353193347011243
+          customShippingCostAmount: 3.353193347011243
+          totalShippingCostInUsd: 9.369310271410669
+          totalDetailInUsd: 1.4894159098541704
+          customWithholdingTaxAmount: 3.0937452626664474
           billingLocationId: billingLocationId
           lastName: lastName
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-          totalProfit: 1.4658129805029452
-          totalGlobalDiscounts: 4.145608029883936
-          totalDiscounts: 5.962133916683182
+          totalProfit: 5.962133916683182
+          totalGlobalDiscounts: 7.386281948385884
+          totalDiscounts: 5.637376656633329
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           orderStatus: New
@@ -4905,22 +5335,22 @@ components:
           title: title
           qualifiedIdentifier: qualifiedIdentifier
           countryId: countryId
-          total: 1.2315135367772556
+          total: 1.0246457001441578
           totalCurrencyId: totalCurrencyId
-          totalSurchargesInUsd: 7.457744773683766
+          totalSurchargesInUsd: 1.1730742509559433
           billingEmail: billingEmail
           parentOrderId: parentOrderId
           buyerBillingProfileId: buyerBillingProfileId
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          customTotalAmount: 6.965117697638846
+          customTotalAmount: 1.284659006116532
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
           sellerBillingProfileId: sellerBillingProfileId
-          totalTaxes: 7.061401241503109
-          totalWithheldTax: 2.027123023002322
+          totalTaxes: 9.301444243932576
+          totalWithheldTax: 4.145608029883936
           stateId: stateId
-          customShippingTaxAmount: 5.944895607614016
+          customShippingTaxAmount: 6.704019297950036
           priceListId: priceListId
           userId: userId
           totalDetailCurrencyId: totalDetailCurrencyId
@@ -4934,8 +5364,8 @@ components:
             isDisabled: true
             userId: userId
             timestamp: 2000-01-23T04:56:07.000+00:00
-          totalTaxesInUsd: 4.965218492984954
-          customProfitAmount: 2.8841621266687802
+          totalTaxesInUsd: 5.025004791520295
+          customProfitAmount: 6.778324963048013
           organization:
             streetLine2: streetLine2
             zipCode: zipCode
@@ -4998,10 +5428,10 @@ components:
             instagramUrl: https://openapi-generator.tech
           tenantId: tenantId
           closed: true
-          totalSurcharges: 5.637376656633329
+          totalSurcharges: 2.3021358869347655
           taxCalculationMethod: Included
-          totalGlobalSurcharges: 7.386281948385884
-          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalGlobalSurcharges: 1.2315135367772556
+          totalGlobalDiscountsInUsd: 8.762042012749001
           totalProfitCurrencyId: totalProfitCurrencyId
           user:
             birthday: 2000-01-23T04:56:07.000+00:00
@@ -5041,7 +5471,7 @@ components:
             languageId: languageId
             fullName: fullName
             userName: userName
-            enrollmentsCount: 3
+            enrollmentsCount: 7
             coverUrl: coverUrl
             firstName: firstName
             phoneNumber: phoneNumber
@@ -5092,21 +5522,21 @@ components:
             slogan: slogan
             youTubeUrl: youTubeUrl
           totalTaxesCurrencyId: totalTaxesCurrencyId
-        - totalDiscountsInUsd: 6.84685269835264
+        - totalDiscountsInUsd: 7.457744773683766
           totalShippingCostCurrencyId: totalShippingCostCurrencyId
-          totalInUsd: 9.018348186070783
+          totalInUsd: 6.438423552598547
           companyName: companyName
           postalCode: postalCode
-          totalDetail: 6.027456183070403
-          totalShippingCost: 9.301444243932576
+          totalDetail: 1.4658129805029452
+          totalShippingCost: 3.616076749251911
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           freightTerms: FOB
           cityId: cityId
           type: type
-          totalTaxBaseInUsd: 1.1730742509559433
+          totalTaxBaseInUsd: 4.965218492984954
           organizationId: organizationId
-          totalTaxBase: 2.3021358869347655
-          customDiscountsAmount: 6.778324963048013
+          totalTaxBase: 7.061401241503109
+          customDiscountsAmount: 6.878052220127876
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
@@ -5152,13 +5582,13 @@ components:
             instagramUrl: instagramUrl
             slogan: slogan
             youTubeUrl: youTubeUrl
-          customTaxAmount: 3.5571952270680973
+          customTaxAmount: 6.965117697638846
           enrollmentId: enrollmentId
           walletId: walletId
           forexRatesSnapshot: forexRatesSnapshot
-          totalWithheldTaxesInUsd: 5.025004791520295
-          totalProfitInUsd: 1.4894159098541704
-          orderLinesCount: 6
+          totalWithheldTaxesInUsd: 9.965781217890562
+          totalProfitInUsd: 6.84685269835264
+          orderLinesCount: 3
           individual:
             streetLine2: streetLine2
             zipCode: zipCode
@@ -5219,28 +5649,28 @@ components:
             timezoneId: timezoneId
             faxNumber: faxNumber
             instagramUrl: https://openapi-generator.tech
-          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalGlobalSurchargesInUsd: 9.018348186070783
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           shippingMethodId: shippingMethodId
           costCalculationMethod: Automatic
-          totalShippingTaxesInUsd: 9.369310271410669
+          totalShippingTaxesInUsd: 6.683562403749608
           quoteId: quoteId
           firstName: firstName
-          totalShippingTax: 3.616076749251911
-          forexRate: 0.8008281904610115
-          customDetailAmount: 1.284659006116532
-          customSurchargesAmount: 6.878052220127876
+          totalShippingTax: 2.027123023002322
+          forexRate: 6.027456183070403
+          customDetailAmount: 2.8841621266687802
+          customSurchargesAmount: 5.944895607614016
           requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          customShippingCostAmount: 6.704019297950036
-          totalShippingCostInUsd: 9.965781217890562
-          totalDetailInUsd: 1.0246457001441578
-          customWithholdingTaxAmount: 3.353193347011243
+          customShippingCostAmount: 3.353193347011243
+          totalShippingCostInUsd: 9.369310271410669
+          totalDetailInUsd: 1.4894159098541704
+          customWithholdingTaxAmount: 3.0937452626664474
           billingLocationId: billingLocationId
           lastName: lastName
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-          totalProfit: 1.4658129805029452
-          totalGlobalDiscounts: 4.145608029883936
-          totalDiscounts: 5.962133916683182
+          totalProfit: 5.962133916683182
+          totalGlobalDiscounts: 7.386281948385884
+          totalDiscounts: 5.637376656633329
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           orderStatus: New
@@ -5250,22 +5680,22 @@ components:
           title: title
           qualifiedIdentifier: qualifiedIdentifier
           countryId: countryId
-          total: 1.2315135367772556
+          total: 1.0246457001441578
           totalCurrencyId: totalCurrencyId
-          totalSurchargesInUsd: 7.457744773683766
+          totalSurchargesInUsd: 1.1730742509559433
           billingEmail: billingEmail
           parentOrderId: parentOrderId
           buyerBillingProfileId: buyerBillingProfileId
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          customTotalAmount: 6.965117697638846
+          customTotalAmount: 1.284659006116532
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
           sellerBillingProfileId: sellerBillingProfileId
-          totalTaxes: 7.061401241503109
-          totalWithheldTax: 2.027123023002322
+          totalTaxes: 9.301444243932576
+          totalWithheldTax: 4.145608029883936
           stateId: stateId
-          customShippingTaxAmount: 5.944895607614016
+          customShippingTaxAmount: 6.704019297950036
           priceListId: priceListId
           userId: userId
           totalDetailCurrencyId: totalDetailCurrencyId
@@ -5279,8 +5709,8 @@ components:
             isDisabled: true
             userId: userId
             timestamp: 2000-01-23T04:56:07.000+00:00
-          totalTaxesInUsd: 4.965218492984954
-          customProfitAmount: 2.8841621266687802
+          totalTaxesInUsd: 5.025004791520295
+          customProfitAmount: 6.778324963048013
           organization:
             streetLine2: streetLine2
             zipCode: zipCode
@@ -5343,10 +5773,10 @@ components:
             instagramUrl: https://openapi-generator.tech
           tenantId: tenantId
           closed: true
-          totalSurcharges: 5.637376656633329
+          totalSurcharges: 2.3021358869347655
           taxCalculationMethod: Included
-          totalGlobalSurcharges: 7.386281948385884
-          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalGlobalSurcharges: 1.2315135367772556
+          totalGlobalDiscountsInUsd: 8.762042012749001
           totalProfitCurrencyId: totalProfitCurrencyId
           user:
             birthday: 2000-01-23T04:56:07.000+00:00
@@ -5386,7 +5816,7 @@ components:
             languageId: languageId
             fullName: fullName
             userName: userName
-            enrollmentsCount: 3
+            enrollmentsCount: 7
             coverUrl: coverUrl
             firstName: firstName
             phoneNumber: phoneNumber
@@ -5438,8 +5868,14 @@ components:
             youTubeUrl: youTubeUrl
           totalTaxesCurrencyId: totalTaxesCurrencyId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5456,6 +5892,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5539,10 +5990,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5559,6 +6016,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5571,23 +6043,23 @@ components:
       additionalProperties: false
       example:
         paymentModeId: paymentModeId
-        totalDiscountsInUsd: 6.84685269835264
+        totalDiscountsInUsd: 7.457744773683766
         totalShippingCostCurrencyId: totalShippingCostCurrencyId
         notes: notes
         orderId: orderId
-        totalInUsd: 9.018348186070783
+        totalInUsd: 6.438423552598547
         companyName: companyName
         postalCode: postalCode
-        totalDetail: 6.027456183070403
-        totalShippingCost: 9.301444243932576
+        totalDetail: 1.4658129805029452
+        totalShippingCost: 3.616076749251911
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
         cityId: cityId
         type: type
         enumerationRangeId: enumerationRangeId
-        totalTaxBaseInUsd: 1.1730742509559433
+        totalTaxBaseInUsd: 4.965218492984954
         organizationId: organizationId
-        totalTaxBase: 2.3021358869347655
-        number: 6
+        totalTaxBase: 7.061401241503109
+        number: 3
         emisorWalletAccountId: emisorWalletAccountId
         receiverWalletAccountId: receiverWalletAccountId
         totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
@@ -5599,39 +6071,39 @@ components:
         enumeration: enumeration
         enrollmentId: enrollmentId
         forexRatesSnapshot: forexRatesSnapshot
-        totalWithheldTaxesInUsd: 5.025004791520295
-        totalProfitInUsd: 1.4894159098541704
-        totalGlobalSurchargesInUsd: 8.762042012749001
+        totalWithheldTaxesInUsd: 9.965781217890562
+        totalProfitInUsd: 6.84685269835264
+        totalGlobalSurchargesInUsd: 9.018348186070783
         totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
         costCalculationMethod: Automatic
-        totalShippingTaxesInUsd: 9.369310271410669
+        totalShippingTaxesInUsd: 6.683562403749608
         paymentDue: 2000-01-23T04:56:07.000+00:00
         firstName: firstName
-        totalShippingTax: 3.616076749251911
-        forexRate: 0.8008281904610115
-        totalShippingCostInUsd: 9.965781217890562
-        totalDetailInUsd: 1.0246457001441578
+        totalShippingTax: 2.027123023002322
+        forexRate: 6.027456183070403
+        totalShippingCostInUsd: 9.369310271410669
+        totalDetailInUsd: 1.4894159098541704
         lastName: lastName
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-        totalProfit: 1.4658129805029452
-        totalGlobalDiscounts: 4.145608029883936
+        totalProfit: 5.962133916683182
+        totalGlobalDiscounts: 7.386281948385884
         documentType: Standard
-        totalDiscounts: 5.962133916683182
+        totalDiscounts: 5.637376656633329
         totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
         customerNotes: customerNotes
         individualId: individualId
         title: title
         countryId: countryId
-        total: 1.2315135367772556
+        total: 1.0246457001441578
         totalCurrencyId: totalCurrencyId
-        totalSurchargesInUsd: 7.457744773683766
+        totalSurchargesInUsd: 1.1730742509559433
         billingEmail: billingEmail
         totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        totalTaxes: 7.061401241503109
-        totalWithheldTax: 2.027123023002322
+        totalTaxes: 9.301444243932576
+        totalWithheldTax: 4.145608029883936
         emisorBillingProfileId: emisorBillingProfileId
         stateId: stateId
         priceListId: priceListId
@@ -5639,14 +6111,14 @@ components:
         userId: userId
         totalDetailCurrencyId: totalDetailCurrencyId
         totalSurchargesCurrencyId: totalSurchargesCurrencyId
-        totalTaxesInUsd: 4.965218492984954
+        totalTaxesInUsd: 5.025004791520295
         tenantId: tenantId
         paid: true
         closed: true
-        totalSurcharges: 5.637376656633329
+        totalSurcharges: 2.3021358869347655
         taxCalculationMethod: Included
-        totalGlobalSurcharges: 7.386281948385884
-        totalGlobalDiscountsInUsd: 6.683562403749608
+        totalGlobalSurcharges: 1.2315135367772556
+        totalGlobalDiscountsInUsd: 8.762042012749001
         invoiceStatus: Draft
         totalProfitCurrencyId: totalProfitCurrencyId
         totalTaxesCurrencyId: totalTaxesCurrencyId
@@ -5908,28 +6380,70 @@ components:
           - Paid
           type: string
       type: object
+    InvoiceDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     InvoiceDtoListEnvelope:
       additionalProperties: false
       example:
         result:
         - paymentModeId: paymentModeId
-          totalDiscountsInUsd: 6.84685269835264
+          totalDiscountsInUsd: 7.457744773683766
           totalShippingCostCurrencyId: totalShippingCostCurrencyId
           notes: notes
           orderId: orderId
-          totalInUsd: 9.018348186070783
+          totalInUsd: 6.438423552598547
           companyName: companyName
           postalCode: postalCode
-          totalDetail: 6.027456183070403
-          totalShippingCost: 9.301444243932576
+          totalDetail: 1.4658129805029452
+          totalShippingCost: 3.616076749251911
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           cityId: cityId
           type: type
           enumerationRangeId: enumerationRangeId
-          totalTaxBaseInUsd: 1.1730742509559433
+          totalTaxBaseInUsd: 4.965218492984954
           organizationId: organizationId
-          totalTaxBase: 2.3021358869347655
-          number: 6
+          totalTaxBase: 7.061401241503109
+          number: 3
           emisorWalletAccountId: emisorWalletAccountId
           receiverWalletAccountId: receiverWalletAccountId
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
@@ -5941,39 +6455,39 @@ components:
           enumeration: enumeration
           enrollmentId: enrollmentId
           forexRatesSnapshot: forexRatesSnapshot
-          totalWithheldTaxesInUsd: 5.025004791520295
-          totalProfitInUsd: 1.4894159098541704
-          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxesInUsd: 9.965781217890562
+          totalProfitInUsd: 6.84685269835264
+          totalGlobalSurchargesInUsd: 9.018348186070783
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           costCalculationMethod: Automatic
-          totalShippingTaxesInUsd: 9.369310271410669
+          totalShippingTaxesInUsd: 6.683562403749608
           paymentDue: 2000-01-23T04:56:07.000+00:00
           firstName: firstName
-          totalShippingTax: 3.616076749251911
-          forexRate: 0.8008281904610115
-          totalShippingCostInUsd: 9.965781217890562
-          totalDetailInUsd: 1.0246457001441578
+          totalShippingTax: 2.027123023002322
+          forexRate: 6.027456183070403
+          totalShippingCostInUsd: 9.369310271410669
+          totalDetailInUsd: 1.4894159098541704
           lastName: lastName
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-          totalProfit: 1.4658129805029452
-          totalGlobalDiscounts: 4.145608029883936
+          totalProfit: 5.962133916683182
+          totalGlobalDiscounts: 7.386281948385884
           documentType: Standard
-          totalDiscounts: 5.962133916683182
+          totalDiscounts: 5.637376656633329
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           customerNotes: customerNotes
           individualId: individualId
           title: title
           countryId: countryId
-          total: 1.2315135367772556
+          total: 1.0246457001441578
           totalCurrencyId: totalCurrencyId
-          totalSurchargesInUsd: 7.457744773683766
+          totalSurchargesInUsd: 1.1730742509559433
           billingEmail: billingEmail
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
           timestamp: 2000-01-23T04:56:07.000+00:00
-          totalTaxes: 7.061401241503109
-          totalWithheldTax: 2.027123023002322
+          totalTaxes: 9.301444243932576
+          totalWithheldTax: 4.145608029883936
           emisorBillingProfileId: emisorBillingProfileId
           stateId: stateId
           priceListId: priceListId
@@ -5981,35 +6495,35 @@ components:
           userId: userId
           totalDetailCurrencyId: totalDetailCurrencyId
           totalSurchargesCurrencyId: totalSurchargesCurrencyId
-          totalTaxesInUsd: 4.965218492984954
+          totalTaxesInUsd: 5.025004791520295
           tenantId: tenantId
           paid: true
           closed: true
-          totalSurcharges: 5.637376656633329
+          totalSurcharges: 2.3021358869347655
           taxCalculationMethod: Included
-          totalGlobalSurcharges: 7.386281948385884
-          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalGlobalSurcharges: 1.2315135367772556
+          totalGlobalDiscountsInUsd: 8.762042012749001
           invoiceStatus: Draft
           totalProfitCurrencyId: totalProfitCurrencyId
           totalTaxesCurrencyId: totalTaxesCurrencyId
         - paymentModeId: paymentModeId
-          totalDiscountsInUsd: 6.84685269835264
+          totalDiscountsInUsd: 7.457744773683766
           totalShippingCostCurrencyId: totalShippingCostCurrencyId
           notes: notes
           orderId: orderId
-          totalInUsd: 9.018348186070783
+          totalInUsd: 6.438423552598547
           companyName: companyName
           postalCode: postalCode
-          totalDetail: 6.027456183070403
-          totalShippingCost: 9.301444243932576
+          totalDetail: 1.4658129805029452
+          totalShippingCost: 3.616076749251911
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           cityId: cityId
           type: type
           enumerationRangeId: enumerationRangeId
-          totalTaxBaseInUsd: 1.1730742509559433
+          totalTaxBaseInUsd: 4.965218492984954
           organizationId: organizationId
-          totalTaxBase: 2.3021358869347655
-          number: 6
+          totalTaxBase: 7.061401241503109
+          number: 3
           emisorWalletAccountId: emisorWalletAccountId
           receiverWalletAccountId: receiverWalletAccountId
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
@@ -6021,39 +6535,39 @@ components:
           enumeration: enumeration
           enrollmentId: enrollmentId
           forexRatesSnapshot: forexRatesSnapshot
-          totalWithheldTaxesInUsd: 5.025004791520295
-          totalProfitInUsd: 1.4894159098541704
-          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxesInUsd: 9.965781217890562
+          totalProfitInUsd: 6.84685269835264
+          totalGlobalSurchargesInUsd: 9.018348186070783
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           costCalculationMethod: Automatic
-          totalShippingTaxesInUsd: 9.369310271410669
+          totalShippingTaxesInUsd: 6.683562403749608
           paymentDue: 2000-01-23T04:56:07.000+00:00
           firstName: firstName
-          totalShippingTax: 3.616076749251911
-          forexRate: 0.8008281904610115
-          totalShippingCostInUsd: 9.965781217890562
-          totalDetailInUsd: 1.0246457001441578
+          totalShippingTax: 2.027123023002322
+          forexRate: 6.027456183070403
+          totalShippingCostInUsd: 9.369310271410669
+          totalDetailInUsd: 1.4894159098541704
           lastName: lastName
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-          totalProfit: 1.4658129805029452
-          totalGlobalDiscounts: 4.145608029883936
+          totalProfit: 5.962133916683182
+          totalGlobalDiscounts: 7.386281948385884
           documentType: Standard
-          totalDiscounts: 5.962133916683182
+          totalDiscounts: 5.637376656633329
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           customerNotes: customerNotes
           individualId: individualId
           title: title
           countryId: countryId
-          total: 1.2315135367772556
+          total: 1.0246457001441578
           totalCurrencyId: totalCurrencyId
-          totalSurchargesInUsd: 7.457744773683766
+          totalSurchargesInUsd: 1.1730742509559433
           billingEmail: billingEmail
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
           timestamp: 2000-01-23T04:56:07.000+00:00
-          totalTaxes: 7.061401241503109
-          totalWithheldTax: 2.027123023002322
+          totalTaxes: 9.301444243932576
+          totalWithheldTax: 4.145608029883936
           emisorBillingProfileId: emisorBillingProfileId
           stateId: stateId
           priceListId: priceListId
@@ -6061,20 +6575,26 @@ components:
           userId: userId
           totalDetailCurrencyId: totalDetailCurrencyId
           totalSurchargesCurrencyId: totalSurchargesCurrencyId
-          totalTaxesInUsd: 4.965218492984954
+          totalTaxesInUsd: 5.025004791520295
           tenantId: tenantId
           paid: true
           closed: true
-          totalSurcharges: 5.637376656633329
+          totalSurcharges: 2.3021358869347655
           taxCalculationMethod: Included
-          totalGlobalSurcharges: 7.386281948385884
-          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalGlobalSurcharges: 1.2315135367772556
+          totalGlobalDiscountsInUsd: 8.762042012749001
           invoiceStatus: Draft
           totalProfitCurrencyId: totalProfitCurrencyId
           totalTaxesCurrencyId: totalTaxesCurrencyId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6091,6 +6611,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6196,7 +6731,7 @@ components:
       example:
         isDefaultSuppingLocation: true
         postalCode: postalCode
-        latitude: 6.027456183070403
+        latitude: 1.4658129805029452
         isGlobalPrimary: true
         isRoutable: true
         cityId: cityId
@@ -6208,7 +6743,7 @@ components:
         fax: fax
         email: email
         timestamp: 2000-01-23T04:56:07.000+00:00
-        longitude: 0.8008281904610115
+        longitude: 6.027456183070403
         enrollmentId: enrollmentId
         business: business
         address3: address3
@@ -6294,13 +6829,55 @@ components:
           nullable: true
           type: string
       type: object
+    LocationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     LocationDtoEnvelope:
       additionalProperties: false
       example:
         result:
           isDefaultSuppingLocation: true
           postalCode: postalCode
-          latitude: 6.027456183070403
+          latitude: 1.4658129805029452
           isGlobalPrimary: true
           isRoutable: true
           cityId: cityId
@@ -6312,7 +6889,7 @@ components:
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
-          longitude: 0.8008281904610115
+          longitude: 6.027456183070403
           enrollmentId: enrollmentId
           business: business
           address3: address3
@@ -6325,8 +6902,14 @@ components:
           phone: phone
           tenantId: tenantId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6343,6 +6926,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6356,7 +6954,7 @@ components:
         result:
         - isDefaultSuppingLocation: true
           postalCode: postalCode
-          latitude: 6.027456183070403
+          latitude: 1.4658129805029452
           isGlobalPrimary: true
           isRoutable: true
           cityId: cityId
@@ -6368,7 +6966,7 @@ components:
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
-          longitude: 0.8008281904610115
+          longitude: 6.027456183070403
           enrollmentId: enrollmentId
           business: business
           address3: address3
@@ -6382,7 +6980,7 @@ components:
           tenantId: tenantId
         - isDefaultSuppingLocation: true
           postalCode: postalCode
-          latitude: 6.027456183070403
+          latitude: 1.4658129805029452
           isGlobalPrimary: true
           isRoutable: true
           cityId: cityId
@@ -6394,7 +6992,7 @@ components:
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
-          longitude: 0.8008281904610115
+          longitude: 6.027456183070403
           enrollmentId: enrollmentId
           business: business
           address3: address3
@@ -6407,8 +7005,14 @@ components:
           phone: phone
           tenantId: tenantId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6425,6 +7029,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6541,90 +7160,58 @@ components:
       - email
       - password
       type: object
-    Operation:
-      additionalProperties: false
-      example:
-        path: path
-        op: op
-        operationType: Add
-        from: from
-        value: ""
-      properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
-          nullable: true
-          type: string
-        op:
-          nullable: true
-          type: string
-        from:
-          nullable: true
-          type: string
-        value:
-          nullable: true
-      type: object
     OrderDto:
       additionalProperties: false
       example:
-        totalDiscountsInUsd: 6.84685269835264
+        totalDiscountsInUsd: 7.457744773683766
         totalShippingCostCurrencyId: totalShippingCostCurrencyId
-        totalInUsd: 9.018348186070783
+        totalInUsd: 6.438423552598547
         companyName: companyName
         postalCode: postalCode
-        totalDetail: 6.027456183070403
-        totalShippingCost: 9.301444243932576
+        totalDetail: 1.4658129805029452
+        totalShippingCost: 3.616076749251911
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
         freightTerms: FOB
         cityId: cityId
         type: type
-        totalTaxBaseInUsd: 1.1730742509559433
+        totalTaxBaseInUsd: 4.965218492984954
         organizationId: organizationId
-        totalTaxBase: 2.3021358869347655
-        customDiscountsAmount: 6.778324963048013
+        totalTaxBase: 7.061401241503109
+        customDiscountsAmount: 6.878052220127876
         totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         addressLine1: addressLine1
         addressLine2: addressLine2
         id: id
         currencyId: currencyId
-        customTaxAmount: 3.5571952270680973
+        customTaxAmount: 6.965117697638846
         enrollmentId: enrollmentId
         walletId: walletId
         forexRatesSnapshot: forexRatesSnapshot
-        totalWithheldTaxesInUsd: 5.025004791520295
-        totalProfitInUsd: 1.4894159098541704
-        orderLinesCount: 6
-        totalGlobalSurchargesInUsd: 8.762042012749001
+        totalWithheldTaxesInUsd: 9.965781217890562
+        totalProfitInUsd: 6.84685269835264
+        orderLinesCount: 3
+        totalGlobalSurchargesInUsd: 9.018348186070783
         totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
         shippingMethodId: shippingMethodId
         costCalculationMethod: Automatic
-        totalShippingTaxesInUsd: 9.369310271410669
+        totalShippingTaxesInUsd: 6.683562403749608
         quoteId: quoteId
         firstName: firstName
-        totalShippingTax: 3.616076749251911
-        forexRate: 0.8008281904610115
-        customDetailAmount: 1.284659006116532
-        customSurchargesAmount: 6.878052220127876
+        totalShippingTax: 2.027123023002322
+        forexRate: 6.027456183070403
+        customDetailAmount: 2.8841621266687802
+        customSurchargesAmount: 5.944895607614016
         requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-        customShippingCostAmount: 6.704019297950036
-        totalShippingCostInUsd: 9.965781217890562
-        totalDetailInUsd: 1.0246457001441578
-        customWithholdingTaxAmount: 3.353193347011243
+        customShippingCostAmount: 3.353193347011243
+        totalShippingCostInUsd: 9.369310271410669
+        totalDetailInUsd: 1.4894159098541704
+        customWithholdingTaxAmount: 3.0937452626664474
         billingLocationId: billingLocationId
         lastName: lastName
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-        totalProfit: 1.4658129805029452
-        totalGlobalDiscounts: 4.145608029883936
-        totalDiscounts: 5.962133916683182
+        totalProfit: 5.962133916683182
+        totalGlobalDiscounts: 7.386281948385884
+        totalDiscounts: 5.637376656633329
         totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
         orderStatus: New
@@ -6634,34 +7221,34 @@ components:
         title: title
         qualifiedIdentifier: qualifiedIdentifier
         countryId: countryId
-        total: 1.2315135367772556
+        total: 1.0246457001441578
         totalCurrencyId: totalCurrencyId
-        totalSurchargesInUsd: 7.457744773683766
+        totalSurchargesInUsd: 1.1730742509559433
         billingEmail: billingEmail
         parentOrderId: parentOrderId
         buyerBillingProfileId: buyerBillingProfileId
         totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
-        customTotalAmount: 6.965117697638846
+        customTotalAmount: 1.284659006116532
         timestamp: 2000-01-23T04:56:07.000+00:00
         paymentTermId: paymentTermId
         sellerBillingProfileId: sellerBillingProfileId
-        totalTaxes: 7.061401241503109
-        totalWithheldTax: 2.027123023002322
+        totalTaxes: 9.301444243932576
+        totalWithheldTax: 4.145608029883936
         stateId: stateId
-        customShippingTaxAmount: 5.944895607614016
+        customShippingTaxAmount: 6.704019297950036
         priceListId: priceListId
         userId: userId
         totalDetailCurrencyId: totalDetailCurrencyId
         totalSurchargesCurrencyId: totalSurchargesCurrencyId
-        totalTaxesInUsd: 4.965218492984954
-        customProfitAmount: 2.8841621266687802
+        totalTaxesInUsd: 5.025004791520295
+        customProfitAmount: 6.778324963048013
         tenantId: tenantId
         closed: true
-        totalSurcharges: 5.637376656633329
+        totalSurcharges: 2.3021358869347655
         taxCalculationMethod: Included
-        totalGlobalSurcharges: 7.386281948385884
-        totalGlobalDiscountsInUsd: 6.683562403749608
+        totalGlobalSurcharges: 1.2315135367772556
+        totalGlobalDiscountsInUsd: 8.762042012749001
         totalProfitCurrencyId: totalProfitCurrencyId
         totalTaxesCurrencyId: totalTaxesCurrencyId
       properties:
@@ -6741,6 +7328,11 @@ components:
           enum:
           - Included
           - Excluded
+          type: string
+        costCalculationMethod:
+          enum:
+          - Automatic
+          - Custom
           type: string
         forexRate:
           format: double
@@ -6892,11 +7484,6 @@ components:
         buyerBillingProfileId:
           nullable: true
           type: string
-        costCalculationMethod:
-          enum:
-          - Automatic
-          - Custom
-          type: string
         freightTerms:
           enum:
           - FOB
@@ -6946,59 +7533,101 @@ components:
           format: double
           type: number
       type: object
+    OrderDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     OrderDtoListEnvelope:
       additionalProperties: false
       example:
         result:
-        - totalDiscountsInUsd: 6.84685269835264
+        - totalDiscountsInUsd: 7.457744773683766
           totalShippingCostCurrencyId: totalShippingCostCurrencyId
-          totalInUsd: 9.018348186070783
+          totalInUsd: 6.438423552598547
           companyName: companyName
           postalCode: postalCode
-          totalDetail: 6.027456183070403
-          totalShippingCost: 9.301444243932576
+          totalDetail: 1.4658129805029452
+          totalShippingCost: 3.616076749251911
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           freightTerms: FOB
           cityId: cityId
           type: type
-          totalTaxBaseInUsd: 1.1730742509559433
+          totalTaxBaseInUsd: 4.965218492984954
           organizationId: organizationId
-          totalTaxBase: 2.3021358869347655
-          customDiscountsAmount: 6.778324963048013
+          totalTaxBase: 7.061401241503109
+          customDiscountsAmount: 6.878052220127876
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
           id: id
           currencyId: currencyId
-          customTaxAmount: 3.5571952270680973
+          customTaxAmount: 6.965117697638846
           enrollmentId: enrollmentId
           walletId: walletId
           forexRatesSnapshot: forexRatesSnapshot
-          totalWithheldTaxesInUsd: 5.025004791520295
-          totalProfitInUsd: 1.4894159098541704
-          orderLinesCount: 6
-          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxesInUsd: 9.965781217890562
+          totalProfitInUsd: 6.84685269835264
+          orderLinesCount: 3
+          totalGlobalSurchargesInUsd: 9.018348186070783
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           shippingMethodId: shippingMethodId
           costCalculationMethod: Automatic
-          totalShippingTaxesInUsd: 9.369310271410669
+          totalShippingTaxesInUsd: 6.683562403749608
           quoteId: quoteId
           firstName: firstName
-          totalShippingTax: 3.616076749251911
-          forexRate: 0.8008281904610115
-          customDetailAmount: 1.284659006116532
-          customSurchargesAmount: 6.878052220127876
+          totalShippingTax: 2.027123023002322
+          forexRate: 6.027456183070403
+          customDetailAmount: 2.8841621266687802
+          customSurchargesAmount: 5.944895607614016
           requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          customShippingCostAmount: 6.704019297950036
-          totalShippingCostInUsd: 9.965781217890562
-          totalDetailInUsd: 1.0246457001441578
-          customWithholdingTaxAmount: 3.353193347011243
+          customShippingCostAmount: 3.353193347011243
+          totalShippingCostInUsd: 9.369310271410669
+          totalDetailInUsd: 1.4894159098541704
+          customWithholdingTaxAmount: 3.0937452626664474
           billingLocationId: billingLocationId
           lastName: lastName
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-          totalProfit: 1.4658129805029452
-          totalGlobalDiscounts: 4.145608029883936
-          totalDiscounts: 5.962133916683182
+          totalProfit: 5.962133916683182
+          totalGlobalDiscounts: 7.386281948385884
+          totalDiscounts: 5.637376656633329
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           orderStatus: New
@@ -7008,85 +7637,85 @@ components:
           title: title
           qualifiedIdentifier: qualifiedIdentifier
           countryId: countryId
-          total: 1.2315135367772556
+          total: 1.0246457001441578
           totalCurrencyId: totalCurrencyId
-          totalSurchargesInUsd: 7.457744773683766
+          totalSurchargesInUsd: 1.1730742509559433
           billingEmail: billingEmail
           parentOrderId: parentOrderId
           buyerBillingProfileId: buyerBillingProfileId
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          customTotalAmount: 6.965117697638846
+          customTotalAmount: 1.284659006116532
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
           sellerBillingProfileId: sellerBillingProfileId
-          totalTaxes: 7.061401241503109
-          totalWithheldTax: 2.027123023002322
+          totalTaxes: 9.301444243932576
+          totalWithheldTax: 4.145608029883936
           stateId: stateId
-          customShippingTaxAmount: 5.944895607614016
+          customShippingTaxAmount: 6.704019297950036
           priceListId: priceListId
           userId: userId
           totalDetailCurrencyId: totalDetailCurrencyId
           totalSurchargesCurrencyId: totalSurchargesCurrencyId
-          totalTaxesInUsd: 4.965218492984954
-          customProfitAmount: 2.8841621266687802
+          totalTaxesInUsd: 5.025004791520295
+          customProfitAmount: 6.778324963048013
           tenantId: tenantId
           closed: true
-          totalSurcharges: 5.637376656633329
+          totalSurcharges: 2.3021358869347655
           taxCalculationMethod: Included
-          totalGlobalSurcharges: 7.386281948385884
-          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalGlobalSurcharges: 1.2315135367772556
+          totalGlobalDiscountsInUsd: 8.762042012749001
           totalProfitCurrencyId: totalProfitCurrencyId
           totalTaxesCurrencyId: totalTaxesCurrencyId
-        - totalDiscountsInUsd: 6.84685269835264
+        - totalDiscountsInUsd: 7.457744773683766
           totalShippingCostCurrencyId: totalShippingCostCurrencyId
-          totalInUsd: 9.018348186070783
+          totalInUsd: 6.438423552598547
           companyName: companyName
           postalCode: postalCode
-          totalDetail: 6.027456183070403
-          totalShippingCost: 9.301444243932576
+          totalDetail: 1.4658129805029452
+          totalShippingCost: 3.616076749251911
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           freightTerms: FOB
           cityId: cityId
           type: type
-          totalTaxBaseInUsd: 1.1730742509559433
+          totalTaxBaseInUsd: 4.965218492984954
           organizationId: organizationId
-          totalTaxBase: 2.3021358869347655
-          customDiscountsAmount: 6.778324963048013
+          totalTaxBase: 7.061401241503109
+          customDiscountsAmount: 6.878052220127876
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
           id: id
           currencyId: currencyId
-          customTaxAmount: 3.5571952270680973
+          customTaxAmount: 6.965117697638846
           enrollmentId: enrollmentId
           walletId: walletId
           forexRatesSnapshot: forexRatesSnapshot
-          totalWithheldTaxesInUsd: 5.025004791520295
-          totalProfitInUsd: 1.4894159098541704
-          orderLinesCount: 6
-          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxesInUsd: 9.965781217890562
+          totalProfitInUsd: 6.84685269835264
+          orderLinesCount: 3
+          totalGlobalSurchargesInUsd: 9.018348186070783
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           shippingMethodId: shippingMethodId
           costCalculationMethod: Automatic
-          totalShippingTaxesInUsd: 9.369310271410669
+          totalShippingTaxesInUsd: 6.683562403749608
           quoteId: quoteId
           firstName: firstName
-          totalShippingTax: 3.616076749251911
-          forexRate: 0.8008281904610115
-          customDetailAmount: 1.284659006116532
-          customSurchargesAmount: 6.878052220127876
+          totalShippingTax: 2.027123023002322
+          forexRate: 6.027456183070403
+          customDetailAmount: 2.8841621266687802
+          customSurchargesAmount: 5.944895607614016
           requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          customShippingCostAmount: 6.704019297950036
-          totalShippingCostInUsd: 9.965781217890562
-          totalDetailInUsd: 1.0246457001441578
-          customWithholdingTaxAmount: 3.353193347011243
+          customShippingCostAmount: 3.353193347011243
+          totalShippingCostInUsd: 9.369310271410669
+          totalDetailInUsd: 1.4894159098541704
+          customWithholdingTaxAmount: 3.0937452626664474
           billingLocationId: billingLocationId
           lastName: lastName
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-          totalProfit: 1.4658129805029452
-          totalGlobalDiscounts: 4.145608029883936
-          totalDiscounts: 5.962133916683182
+          totalProfit: 5.962133916683182
+          totalGlobalDiscounts: 7.386281948385884
+          totalDiscounts: 5.637376656633329
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           orderStatus: New
@@ -7096,39 +7725,45 @@ components:
           title: title
           qualifiedIdentifier: qualifiedIdentifier
           countryId: countryId
-          total: 1.2315135367772556
+          total: 1.0246457001441578
           totalCurrencyId: totalCurrencyId
-          totalSurchargesInUsd: 7.457744773683766
+          totalSurchargesInUsd: 1.1730742509559433
           billingEmail: billingEmail
           parentOrderId: parentOrderId
           buyerBillingProfileId: buyerBillingProfileId
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          customTotalAmount: 6.965117697638846
+          customTotalAmount: 1.284659006116532
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
           sellerBillingProfileId: sellerBillingProfileId
-          totalTaxes: 7.061401241503109
-          totalWithheldTax: 2.027123023002322
+          totalTaxes: 9.301444243932576
+          totalWithheldTax: 4.145608029883936
           stateId: stateId
-          customShippingTaxAmount: 5.944895607614016
+          customShippingTaxAmount: 6.704019297950036
           priceListId: priceListId
           userId: userId
           totalDetailCurrencyId: totalDetailCurrencyId
           totalSurchargesCurrencyId: totalSurchargesCurrencyId
-          totalTaxesInUsd: 4.965218492984954
-          customProfitAmount: 2.8841621266687802
+          totalTaxesInUsd: 5.025004791520295
+          customProfitAmount: 6.778324963048013
           tenantId: tenantId
           closed: true
-          totalSurcharges: 5.637376656633329
+          totalSurcharges: 2.3021358869347655
           taxCalculationMethod: Included
-          totalGlobalSurcharges: 7.386281948385884
-          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalGlobalSurcharges: 1.2315135367772556
+          totalGlobalDiscountsInUsd: 8.762042012749001
           totalProfitCurrencyId: totalProfitCurrencyId
           totalTaxesCurrencyId: totalTaxesCurrencyId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7145,6 +7780,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7155,10 +7805,30 @@ components:
           nullable: true
           type: array
       type: object
+    PatchOperation:
+      additionalProperties: false
+      example:
+        op: op
+        path: path
+        from: from
+        value: ""
+      properties:
+        op:
+          nullable: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
     PaymentChargebackDto:
       additionalProperties: false
       example:
-        totalFees: 0.8008281904610115
+        totalFees: 6.027456183070403
         paymentId: paymentId
         requestDate: 2000-01-23T04:56:07.000+00:00
         id: id
@@ -7189,18 +7859,60 @@ components:
           format: double
           type: number
       type: object
+    PaymentChargebackDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     PaymentChargebackDtoListEnvelope:
       additionalProperties: false
       example:
         result:
-        - totalFees: 0.8008281904610115
+        - totalFees: 6.027456183070403
           paymentId: paymentId
           requestDate: 2000-01-23T04:56:07.000+00:00
           id: id
           bankProfileName: bankProfileName
           bankProfileId: bankProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - totalFees: 0.8008281904610115
+        - totalFees: 6.027456183070403
           paymentId: paymentId
           requestDate: 2000-01-23T04:56:07.000+00:00
           id: id
@@ -7208,8 +7920,14 @@ components:
           bankProfileId: bankProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7226,6 +7944,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7538,16 +8271,16 @@ components:
         dataLabel: dataLabel
         emisorWalletId: emisorWalletId
         data1Label: data1Label
-        antiFraudScore: 5.637376656633329
+        antiFraudScore: 2.3021358869347655
         bankId: bankId
-        forexRate: 0.8008281904610115
+        forexRate: 6.027456183070403
         phone: phone
         bankAccountId: bankAccountId
         markedForRevision: true
         referenceCode: referenceCode
         callRecordURL: callRecordURL
         ipLookupId: ipLookupId
-        totalCost: 6.027456183070403
+        totalCost: 1.4658129805029452
         payerPictureTimestamp: payerPictureTimestamp
         officialId: officialId
         signature: signature
@@ -7565,8 +8298,8 @@ components:
         department: department
         paymentStatus: Unset
         timestamp: 2000-01-23T04:56:07.000+00:00
-        baseCost: 5.962133916683182
-        totalTaxes: 1.4658129805029452
+        baseCost: 5.637376656633329
+        totalTaxes: 5.962133916683182
         identificationBackPictureTimestamp: identificationBackPictureTimestamp
         receiverWalletId: receiverWalletId
         data1: data1
@@ -7778,6 +8511,48 @@ components:
           nullable: true
           type: string
       type: object
+    PaymentDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     PaymentDtoListEnvelope:
       additionalProperties: false
       example:
@@ -7801,16 +8576,16 @@ components:
           dataLabel: dataLabel
           emisorWalletId: emisorWalletId
           data1Label: data1Label
-          antiFraudScore: 5.637376656633329
+          antiFraudScore: 2.3021358869347655
           bankId: bankId
-          forexRate: 0.8008281904610115
+          forexRate: 6.027456183070403
           phone: phone
           bankAccountId: bankAccountId
           markedForRevision: true
           referenceCode: referenceCode
           callRecordURL: callRecordURL
           ipLookupId: ipLookupId
-          totalCost: 6.027456183070403
+          totalCost: 1.4658129805029452
           payerPictureTimestamp: payerPictureTimestamp
           officialId: officialId
           signature: signature
@@ -7828,8 +8603,8 @@ components:
           department: department
           paymentStatus: Unset
           timestamp: 2000-01-23T04:56:07.000+00:00
-          baseCost: 5.962133916683182
-          totalTaxes: 1.4658129805029452
+          baseCost: 5.637376656633329
+          totalTaxes: 5.962133916683182
           identificationBackPictureTimestamp: identificationBackPictureTimestamp
           receiverWalletId: receiverWalletId
           data1: data1
@@ -7862,16 +8637,16 @@ components:
           dataLabel: dataLabel
           emisorWalletId: emisorWalletId
           data1Label: data1Label
-          antiFraudScore: 5.637376656633329
+          antiFraudScore: 2.3021358869347655
           bankId: bankId
-          forexRate: 0.8008281904610115
+          forexRate: 6.027456183070403
           phone: phone
           bankAccountId: bankAccountId
           markedForRevision: true
           referenceCode: referenceCode
           callRecordURL: callRecordURL
           ipLookupId: ipLookupId
-          totalCost: 6.027456183070403
+          totalCost: 1.4658129805029452
           payerPictureTimestamp: payerPictureTimestamp
           officialId: officialId
           signature: signature
@@ -7889,8 +8664,8 @@ components:
           department: department
           paymentStatus: Unset
           timestamp: 2000-01-23T04:56:07.000+00:00
-          baseCost: 5.962133916683182
-          totalTaxes: 1.4658129805029452
+          baseCost: 5.637376656633329
+          totalTaxes: 5.962133916683182
           identificationBackPictureTimestamp: identificationBackPictureTimestamp
           receiverWalletId: receiverWalletId
           data1: data1
@@ -7905,8 +8680,14 @@ components:
           invoiceId: invoiceId
           billingAddress: billingAddress
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7923,6 +8704,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7936,7 +8732,7 @@ components:
     PaymentRefundDto:
       additionalProperties: false
       example:
-        totalFees: 0.8008281904610115
+        totalFees: 6.027456183070403
         walletAccountId: walletAccountId
         paymentId: paymentId
         id: id
@@ -7963,25 +8759,73 @@ components:
           format: double
           type: number
       type: object
+    PaymentRefundDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     PaymentRefundDtoListEnvelope:
       additionalProperties: false
       example:
         result:
-        - totalFees: 0.8008281904610115
+        - totalFees: 6.027456183070403
           walletAccountId: walletAccountId
           paymentId: paymentId
           id: id
           refundRequestId: refundRequestId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - totalFees: 0.8008281904610115
+        - totalFees: 6.027456183070403
           walletAccountId: walletAccountId
           paymentId: paymentId
           id: id
           refundRequestId: refundRequestId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7998,6 +8842,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8110,6 +8969,48 @@ components:
           nullable: true
           type: string
       type: object
+    PaymentTokenDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     PaymentTokenDtoEnvelope:
       additionalProperties: false
       example:
@@ -8127,8 +9028,14 @@ components:
           mask: mask
           status: status
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8145,6 +9052,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8181,8 +9103,14 @@ components:
           mask: mask
           status: status
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8199,6 +9127,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8252,22 +9195,22 @@ components:
     QuoteDto:
       additionalProperties: false
       example:
-        totalDiscountsInUsd: 6.84685269835264
+        totalDiscountsInUsd: 7.457744773683766
         totalShippingCostCurrencyId: totalShippingCostCurrencyId
-        totalInUsd: 9.018348186070783
+        totalInUsd: 6.438423552598547
         companyName: companyName
         postalCode: postalCode
-        totalDetail: 6.027456183070403
-        totalShippingCost: 9.301444243932576
+        totalDetail: 1.4658129805029452
+        totalShippingCost: 3.616076749251911
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
         freightTerms: FOB
         cityId: cityId
         type: type
-        totalTaxBaseInUsd: 1.1730742509559433
+        totalTaxBaseInUsd: 4.965218492984954
         organizationId: organizationId
-        totalTaxBase: 2.3021358869347655
+        totalTaxBase: 7.061401241503109
         effectiveTo: 2000-01-23T04:56:07.000+00:00
-        customDiscountsAmount: 6.438423552598547
+        customDiscountsAmount: 3.5571952270680973
         totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         addressLine1: addressLine1
         addressLine2: addressLine2
@@ -8275,24 +9218,24 @@ components:
         currencyId: currencyId
         enrollmentId: enrollmentId
         forexRatesSnapshot: forexRatesSnapshot
-        totalWithheldTaxesInUsd: 5.025004791520295
-        totalProfitInUsd: 1.4894159098541704
+        totalWithheldTaxesInUsd: 9.965781217890562
+        totalProfitInUsd: 6.84685269835264
         dealUnitId: dealUnitId
-        totalGlobalSurchargesInUsd: 8.762042012749001
+        totalGlobalSurchargesInUsd: 9.018348186070783
         cartId: cartId
         totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
         costCalculationMethod: Automatic
-        totalShippingTaxesInUsd: 9.369310271410669
+        totalShippingTaxesInUsd: 6.683562403749608
         firstName: firstName
-        totalShippingTax: 3.616076749251911
-        forexRate: 0.8008281904610115
-        totalShippingCostInUsd: 9.965781217890562
-        totalDetailInUsd: 1.0246457001441578
+        totalShippingTax: 2.027123023002322
+        forexRate: 6.027456183070403
+        totalShippingCostInUsd: 9.369310271410669
+        totalDetailInUsd: 1.4894159098541704
         lastName: lastName
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-        totalProfit: 1.4658129805029452
-        totalGlobalDiscounts: 4.145608029883936
-        totalDiscounts: 5.962133916683182
+        totalProfit: 5.962133916683182
+        totalGlobalDiscounts: 7.386281948385884
+        totalDiscounts: 5.637376656633329
         totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
         customerNotes: customerNotes
@@ -8300,27 +9243,27 @@ components:
         title: title
         countryId: countryId
         quoteStatus: Draft
-        total: 1.2315135367772556
+        total: 1.0246457001441578
         totalCurrencyId: totalCurrencyId
-        totalSurchargesInUsd: 7.457744773683766
+        totalSurchargesInUsd: 1.1730742509559433
         billingEmail: billingEmail
         totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        totalTaxes: 7.061401241503109
-        totalWithheldTax: 2.027123023002322
+        totalTaxes: 9.301444243932576
+        totalWithheldTax: 4.145608029883936
         stateId: stateId
         priceListId: priceListId
         userId: userId
         totalDetailCurrencyId: totalDetailCurrencyId
         totalSurchargesCurrencyId: totalSurchargesCurrencyId
-        totalTaxesInUsd: 4.965218492984954
+        totalTaxesInUsd: 5.025004791520295
         tenantId: tenantId
         closed: true
-        totalSurcharges: 5.637376656633329
+        totalSurcharges: 2.3021358869347655
         taxCalculationMethod: Included
-        totalGlobalSurcharges: 7.386281948385884
-        totalGlobalDiscountsInUsd: 6.683562403749608
+        totalGlobalSurcharges: 1.2315135367772556
+        totalGlobalDiscountsInUsd: 8.762042012749001
         totalProfitCurrencyId: totalProfitCurrencyId
         effectiveFrom: 2000-01-23T04:56:07.000+00:00
         totalTaxesCurrencyId: totalTaxesCurrencyId
@@ -8555,26 +9498,68 @@ components:
           format: double
           type: number
       type: object
+    QuoteDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     QuoteDtoListEnvelope:
       additionalProperties: false
       example:
         result:
-        - totalDiscountsInUsd: 6.84685269835264
+        - totalDiscountsInUsd: 7.457744773683766
           totalShippingCostCurrencyId: totalShippingCostCurrencyId
-          totalInUsd: 9.018348186070783
+          totalInUsd: 6.438423552598547
           companyName: companyName
           postalCode: postalCode
-          totalDetail: 6.027456183070403
-          totalShippingCost: 9.301444243932576
+          totalDetail: 1.4658129805029452
+          totalShippingCost: 3.616076749251911
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           freightTerms: FOB
           cityId: cityId
           type: type
-          totalTaxBaseInUsd: 1.1730742509559433
+          totalTaxBaseInUsd: 4.965218492984954
           organizationId: organizationId
-          totalTaxBase: 2.3021358869347655
+          totalTaxBase: 7.061401241503109
           effectiveTo: 2000-01-23T04:56:07.000+00:00
-          customDiscountsAmount: 6.438423552598547
+          customDiscountsAmount: 3.5571952270680973
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
@@ -8582,24 +9567,24 @@ components:
           currencyId: currencyId
           enrollmentId: enrollmentId
           forexRatesSnapshot: forexRatesSnapshot
-          totalWithheldTaxesInUsd: 5.025004791520295
-          totalProfitInUsd: 1.4894159098541704
+          totalWithheldTaxesInUsd: 9.965781217890562
+          totalProfitInUsd: 6.84685269835264
           dealUnitId: dealUnitId
-          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalGlobalSurchargesInUsd: 9.018348186070783
           cartId: cartId
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           costCalculationMethod: Automatic
-          totalShippingTaxesInUsd: 9.369310271410669
+          totalShippingTaxesInUsd: 6.683562403749608
           firstName: firstName
-          totalShippingTax: 3.616076749251911
-          forexRate: 0.8008281904610115
-          totalShippingCostInUsd: 9.965781217890562
-          totalDetailInUsd: 1.0246457001441578
+          totalShippingTax: 2.027123023002322
+          forexRate: 6.027456183070403
+          totalShippingCostInUsd: 9.369310271410669
+          totalDetailInUsd: 1.4894159098541704
           lastName: lastName
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-          totalProfit: 1.4658129805029452
-          totalGlobalDiscounts: 4.145608029883936
-          totalDiscounts: 5.962133916683182
+          totalProfit: 5.962133916683182
+          totalGlobalDiscounts: 7.386281948385884
+          totalDiscounts: 5.637376656633329
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           customerNotes: customerNotes
@@ -8607,46 +9592,46 @@ components:
           title: title
           countryId: countryId
           quoteStatus: Draft
-          total: 1.2315135367772556
+          total: 1.0246457001441578
           totalCurrencyId: totalCurrencyId
-          totalSurchargesInUsd: 7.457744773683766
+          totalSurchargesInUsd: 1.1730742509559433
           billingEmail: billingEmail
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
           timestamp: 2000-01-23T04:56:07.000+00:00
-          totalTaxes: 7.061401241503109
-          totalWithheldTax: 2.027123023002322
+          totalTaxes: 9.301444243932576
+          totalWithheldTax: 4.145608029883936
           stateId: stateId
           priceListId: priceListId
           userId: userId
           totalDetailCurrencyId: totalDetailCurrencyId
           totalSurchargesCurrencyId: totalSurchargesCurrencyId
-          totalTaxesInUsd: 4.965218492984954
+          totalTaxesInUsd: 5.025004791520295
           tenantId: tenantId
           closed: true
-          totalSurcharges: 5.637376656633329
+          totalSurcharges: 2.3021358869347655
           taxCalculationMethod: Included
-          totalGlobalSurcharges: 7.386281948385884
-          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalGlobalSurcharges: 1.2315135367772556
+          totalGlobalDiscountsInUsd: 8.762042012749001
           totalProfitCurrencyId: totalProfitCurrencyId
           effectiveFrom: 2000-01-23T04:56:07.000+00:00
           totalTaxesCurrencyId: totalTaxesCurrencyId
-        - totalDiscountsInUsd: 6.84685269835264
+        - totalDiscountsInUsd: 7.457744773683766
           totalShippingCostCurrencyId: totalShippingCostCurrencyId
-          totalInUsd: 9.018348186070783
+          totalInUsd: 6.438423552598547
           companyName: companyName
           postalCode: postalCode
-          totalDetail: 6.027456183070403
-          totalShippingCost: 9.301444243932576
+          totalDetail: 1.4658129805029452
+          totalShippingCost: 3.616076749251911
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           freightTerms: FOB
           cityId: cityId
           type: type
-          totalTaxBaseInUsd: 1.1730742509559433
+          totalTaxBaseInUsd: 4.965218492984954
           organizationId: organizationId
-          totalTaxBase: 2.3021358869347655
+          totalTaxBase: 7.061401241503109
           effectiveTo: 2000-01-23T04:56:07.000+00:00
-          customDiscountsAmount: 6.438423552598547
+          customDiscountsAmount: 3.5571952270680973
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
@@ -8654,24 +9639,24 @@ components:
           currencyId: currencyId
           enrollmentId: enrollmentId
           forexRatesSnapshot: forexRatesSnapshot
-          totalWithheldTaxesInUsd: 5.025004791520295
-          totalProfitInUsd: 1.4894159098541704
+          totalWithheldTaxesInUsd: 9.965781217890562
+          totalProfitInUsd: 6.84685269835264
           dealUnitId: dealUnitId
-          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalGlobalSurchargesInUsd: 9.018348186070783
           cartId: cartId
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           costCalculationMethod: Automatic
-          totalShippingTaxesInUsd: 9.369310271410669
+          totalShippingTaxesInUsd: 6.683562403749608
           firstName: firstName
-          totalShippingTax: 3.616076749251911
-          forexRate: 0.8008281904610115
-          totalShippingCostInUsd: 9.965781217890562
-          totalDetailInUsd: 1.0246457001441578
+          totalShippingTax: 2.027123023002322
+          forexRate: 6.027456183070403
+          totalShippingCostInUsd: 9.369310271410669
+          totalDetailInUsd: 1.4894159098541704
           lastName: lastName
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
-          totalProfit: 1.4658129805029452
-          totalGlobalDiscounts: 4.145608029883936
-          totalDiscounts: 5.962133916683182
+          totalProfit: 5.962133916683182
+          totalGlobalDiscounts: 7.386281948385884
+          totalDiscounts: 5.637376656633329
           totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           customerNotes: customerNotes
@@ -8679,33 +9664,39 @@ components:
           title: title
           countryId: countryId
           quoteStatus: Draft
-          total: 1.2315135367772556
+          total: 1.0246457001441578
           totalCurrencyId: totalCurrencyId
-          totalSurchargesInUsd: 7.457744773683766
+          totalSurchargesInUsd: 1.1730742509559433
           billingEmail: billingEmail
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
           timestamp: 2000-01-23T04:56:07.000+00:00
-          totalTaxes: 7.061401241503109
-          totalWithheldTax: 2.027123023002322
+          totalTaxes: 9.301444243932576
+          totalWithheldTax: 4.145608029883936
           stateId: stateId
           priceListId: priceListId
           userId: userId
           totalDetailCurrencyId: totalDetailCurrencyId
           totalSurchargesCurrencyId: totalSurchargesCurrencyId
-          totalTaxesInUsd: 4.965218492984954
+          totalTaxesInUsd: 5.025004791520295
           tenantId: tenantId
           closed: true
-          totalSurcharges: 5.637376656633329
+          totalSurcharges: 2.3021358869347655
           taxCalculationMethod: Included
-          totalGlobalSurcharges: 7.386281948385884
-          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalGlobalSurcharges: 1.2315135367772556
+          totalGlobalDiscountsInUsd: 8.762042012749001
           totalProfitCurrencyId: totalProfitCurrencyId
           effectiveFrom: 2000-01-23T04:56:07.000+00:00
           totalTaxesCurrencyId: totalTaxesCurrencyId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8722,6 +9713,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9085,7 +10091,7 @@ components:
         languageId: languageId
         fullName: fullName
         userName: userName
-        enrollmentsCount: 3
+        enrollmentsCount: 7
         coverUrl: coverUrl
         firstName: firstName
         phoneNumber: phoneNumber
@@ -9259,19 +10265,19 @@ components:
       additionalProperties: false
       example:
         verified: true
-        balanceInUsd: 5.962133916683182
+        balanceInUsd: 2.3021358869347655
         type: type
         ethereumPrivateKey: ethereumPrivateKey
-        balance: 0.8008281904610115
-        forexRate: 1.4658129805029452
+        balance: 1.4658129805029452
+        forexRate: 5.637376656633329
         ethereumAddress: ethereumAddress
         ethereumPublicKey: ethereumPublicKey
         testMode: true
         id: id
         currencyId: currencyId
-        rollingReservePercent: 2.3021358869347655
-        cryptoBalance: 6.027456183070403
-        mainNetEtherBalance: 5.637376656633329
+        rollingReservePercent: 9.301444243932576
+        cryptoBalance: 5.962133916683182
+        mainNetEtherBalance: 7.061401241503109
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -9324,23 +10330,29 @@ components:
       example:
         result:
           verified: true
-          balanceInUsd: 5.962133916683182
+          balanceInUsd: 2.3021358869347655
           type: type
           ethereumPrivateKey: ethereumPrivateKey
-          balance: 0.8008281904610115
-          forexRate: 1.4658129805029452
+          balance: 1.4658129805029452
+          forexRate: 5.637376656633329
           ethereumAddress: ethereumAddress
           ethereumPublicKey: ethereumPublicKey
           testMode: true
           id: id
           currencyId: currencyId
-          rollingReservePercent: 2.3021358869347655
-          cryptoBalance: 6.027456183070403
-          mainNetEtherBalance: 5.637376656633329
+          rollingReservePercent: 9.301444243932576
+          cryptoBalance: 5.962133916683182
+          mainNetEtherBalance: 7.061401241503109
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9357,6 +10369,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9369,9 +10396,9 @@ components:
       example:
         walletAccountId: walletAccountId
         walletWithdrawRequestId: walletWithdrawRequestId
-        balanceBeforeWithdraw: 0.8008281904610115
-        balanceAfterWithdraw: 6.027456183070403
-        withdrawedAmount: 1.4658129805029452
+        balanceBeforeWithdraw: 6.027456183070403
+        balanceAfterWithdraw: 1.4658129805029452
+        withdrawedAmount: 5.962133916683182
         id: id
         currencyId: currencyId
         withdrawStatus: OnHold
@@ -9411,31 +10438,79 @@ components:
           nullable: true
           type: string
       type: object
+    WalletWithdrawDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     WalletWithdrawDtoListEnvelope:
       additionalProperties: false
       example:
         result:
         - walletAccountId: walletAccountId
           walletWithdrawRequestId: walletWithdrawRequestId
-          balanceBeforeWithdraw: 0.8008281904610115
-          balanceAfterWithdraw: 6.027456183070403
-          withdrawedAmount: 1.4658129805029452
+          balanceBeforeWithdraw: 6.027456183070403
+          balanceAfterWithdraw: 1.4658129805029452
+          withdrawedAmount: 5.962133916683182
           id: id
           currencyId: currencyId
           withdrawStatus: OnHold
           timestamp: 2000-01-23T04:56:07.000+00:00
         - walletAccountId: walletAccountId
           walletWithdrawRequestId: walletWithdrawRequestId
-          balanceBeforeWithdraw: 0.8008281904610115
-          balanceAfterWithdraw: 6.027456183070403
-          withdrawedAmount: 1.4658129805029452
+          balanceBeforeWithdraw: 6.027456183070403
+          balanceAfterWithdraw: 1.4658129805029452
+          withdrawedAmount: 5.962133916683182
           id: id
           currencyId: currencyId
           withdrawStatus: OnHold
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9452,6 +10527,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9492,14 +10582,14 @@ components:
       additionalProperties: false
       example:
         walletAccountId: walletAccountId
-        requestedWithdrawAmount: 0.8008281904610115
+        requestedWithdrawAmount: 6.027456183070403
         walletWithdrawRequestStatus: Pending
         bankAccountId: bankAccountId
         businessId: businessId
         id: id
         currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        requestedWithdrawAmountInUSD: 6.027456183070403
+        requestedWithdrawAmountInUSD: 1.4658129805029452
       properties:
         id:
           nullable: true
@@ -9535,31 +10625,79 @@ components:
           nullable: true
           type: string
       type: object
+    WalletWithdrawRequestDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     WalletWithdrawRequestDtoListEnvelope:
       additionalProperties: false
       example:
         result:
         - walletAccountId: walletAccountId
-          requestedWithdrawAmount: 0.8008281904610115
+          requestedWithdrawAmount: 6.027456183070403
           walletWithdrawRequestStatus: Pending
           bankAccountId: bankAccountId
           businessId: businessId
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
-          requestedWithdrawAmountInUSD: 6.027456183070403
+          requestedWithdrawAmountInUSD: 1.4658129805029452
         - walletAccountId: walletAccountId
-          requestedWithdrawAmount: 0.8008281904610115
+          requestedWithdrawAmount: 6.027456183070403
           walletWithdrawRequestStatus: Pending
           bankAccountId: bankAccountId
           businessId: businessId
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
-          requestedWithdrawAmountInUSD: 6.027456183070403
+          requestedWithdrawAmountInUSD: 1.4658129805029452
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9576,6 +10714,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

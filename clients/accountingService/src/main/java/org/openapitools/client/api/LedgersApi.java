@@ -31,9 +31,10 @@ import org.openapitools.client.model.CreateLedgerDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.LedgerDtoCollectionQueryParameters;
 import org.openapitools.client.model.LedgerDtoEnvelope;
 import org.openapitools.client.model.LedgerDtoIReadOnlyListEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 import org.openapitools.client.model.UpdateLedgerDto;
 
@@ -564,6 +565,7 @@ public class LedgersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ledgerDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -575,7 +577,7 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLedgersAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLedgersAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -589,7 +591,7 @@ public class LedgersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = ledgerDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Ledgers";
@@ -622,6 +624,8 @@ public class LedgersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -633,13 +637,13 @@ public class LedgersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLedgersAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLedgersAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLedgersAsync(Async)");
         }
 
-        return getLedgersAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLedgersAsyncCall(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -649,6 +653,7 @@ public class LedgersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ledgerDtoCollectionQueryParameters  (optional)
      * @return LedgerDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -659,8 +664,8 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public LedgerDtoIReadOnlyListEnvelope getLedgersAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LedgerDtoIReadOnlyListEnvelope> localVarResp = getLedgersAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public LedgerDtoIReadOnlyListEnvelope getLedgersAsync(UUID tenantId, String apiVersion, String xApiVersion, LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LedgerDtoIReadOnlyListEnvelope> localVarResp = getLedgersAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -670,6 +675,7 @@ public class LedgersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ledgerDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LedgerDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -680,8 +686,8 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LedgerDtoIReadOnlyListEnvelope> getLedgersAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLedgersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<LedgerDtoIReadOnlyListEnvelope> getLedgersAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLedgersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LedgerDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -692,6 +698,7 @@ public class LedgersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ledgerDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -703,9 +710,9 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLedgersAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<LedgerDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLedgersAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters, final ApiCallback<LedgerDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLedgersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLedgersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LedgerDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -715,6 +722,7 @@ public class LedgersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ledgerDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -726,7 +734,7 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLedgersCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLedgersCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -740,7 +748,7 @@ public class LedgersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = ledgerDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Ledgers/Count";
@@ -773,6 +781,8 @@ public class LedgersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -784,13 +794,13 @@ public class LedgersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLedgersCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLedgersCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLedgersCountAsync(Async)");
         }
 
-        return getLedgersCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLedgersCountAsyncCall(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -800,6 +810,7 @@ public class LedgersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ledgerDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -810,8 +821,8 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getLedgersCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getLedgersCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getLedgersCountAsync(UUID tenantId, String apiVersion, String xApiVersion, LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getLedgersCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -821,6 +832,7 @@ public class LedgersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ledgerDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -831,8 +843,8 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getLedgersCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLedgersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getLedgersCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLedgersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -843,6 +855,7 @@ public class LedgersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param ledgerDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -854,9 +867,9 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLedgersCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getLedgersCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLedgersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLedgersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -867,7 +880,7 @@ public class LedgersApi {
      * @param ledgerId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +892,7 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLedgerAsyncCall(UUID tenantId, UUID ledgerId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchLedgerAsyncCall(UUID tenantId, UUID ledgerId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +906,7 @@ public class LedgersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Ledgers/{ledgerId}"
@@ -940,7 +953,7 @@ public class LedgersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchLedgerAsyncValidateBeforeCall(UUID tenantId, UUID ledgerId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchLedgerAsyncValidateBeforeCall(UUID tenantId, UUID ledgerId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchLedgerAsync(Async)");
@@ -951,7 +964,7 @@ public class LedgersApi {
             throw new ApiException("Missing the required parameter 'ledgerId' when calling patchLedgerAsync(Async)");
         }
 
-        return patchLedgerAsyncCall(tenantId, ledgerId, apiVersion, xApiVersion, operation, _callback);
+        return patchLedgerAsyncCall(tenantId, ledgerId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -962,7 +975,7 @@ public class LedgersApi {
      * @param ledgerId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -973,8 +986,8 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchLedgerAsync(UUID tenantId, UUID ledgerId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchLedgerAsyncWithHttpInfo(tenantId, ledgerId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchLedgerAsync(UUID tenantId, UUID ledgerId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchLedgerAsyncWithHttpInfo(tenantId, ledgerId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -985,7 +998,7 @@ public class LedgersApi {
      * @param ledgerId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -996,8 +1009,8 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchLedgerAsyncWithHttpInfo(UUID tenantId, UUID ledgerId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchLedgerAsyncValidateBeforeCall(tenantId, ledgerId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchLedgerAsyncWithHttpInfo(UUID tenantId, UUID ledgerId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchLedgerAsyncValidateBeforeCall(tenantId, ledgerId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +1022,7 @@ public class LedgersApi {
      * @param ledgerId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1021,9 +1034,9 @@ public class LedgersApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLedgerAsyncAsync(UUID tenantId, UUID ledgerId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchLedgerAsyncAsync(UUID tenantId, UUID ledgerId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchLedgerAsyncValidateBeforeCall(tenantId, ledgerId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchLedgerAsyncValidateBeforeCall(tenantId, ledgerId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

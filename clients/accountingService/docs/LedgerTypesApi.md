@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getLedgerTypesAsync"></a>
 # **getLedgerTypesAsync**
-> LedgerTypeDtoIReadOnlyListEnvelope getLedgerTypesAsync(tenantId, apiVersion, xApiVersion)
+> LedgerTypeDtoIReadOnlyListEnvelope getLedgerTypesAsync(tenantId, apiVersion, xApiVersion, ledgerTypeDtoCollectionQueryParameters)
 
 Retrieves all ledger types
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LedgerTypeDtoCollectionQueryParameters ledgerTypeDtoCollectionQueryParameters = new LedgerTypeDtoCollectionQueryParameters(); // LedgerTypeDtoCollectionQueryParameters | 
     try {
-      LedgerTypeDtoIReadOnlyListEnvelope result = apiInstance.getLedgerTypesAsync(tenantId, apiVersion, xApiVersion);
+      LedgerTypeDtoIReadOnlyListEnvelope result = apiInstance.getLedgerTypesAsync(tenantId, apiVersion, xApiVersion, ledgerTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LedgerTypesApi#getLedgerTypesAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **ledgerTypeDtoCollectionQueryParameters** | [**LedgerTypeDtoCollectionQueryParameters**](LedgerTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getLedgerTypesCountAsync"></a>
 # **getLedgerTypesCountAsync**
-> Int32Envelope getLedgerTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLedgerTypesCountAsync(tenantId, apiVersion, xApiVersion, ledgerTypeDtoCollectionQueryParameters)
 
 Counts ledger types
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LedgerTypeDtoCollectionQueryParameters ledgerTypeDtoCollectionQueryParameters = new LedgerTypeDtoCollectionQueryParameters(); // LedgerTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLedgerTypesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLedgerTypesCountAsync(tenantId, apiVersion, xApiVersion, ledgerTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LedgerTypesApi#getLedgerTypesCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **ledgerTypeDtoCollectionQueryParameters** | [**LedgerTypeDtoCollectionQueryParameters**](LedgerTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchLedgerTypeAsync"></a>
 # **patchLedgerTypeAsync**
-> EmptyEnvelope patchLedgerTypeAsync(tenantId, ledgerTypeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLedgerTypeAsync(tenantId, ledgerTypeId, apiVersion, xApiVersion, patchOperation)
 
 Patches a ledger type
 
@@ -386,9 +390,9 @@ public class Example {
     UUID ledgerTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchLedgerTypeAsync(tenantId, ledgerTypeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchLedgerTypeAsync(tenantId, ledgerTypeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LedgerTypesApi#patchLedgerTypeAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **ledgerTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

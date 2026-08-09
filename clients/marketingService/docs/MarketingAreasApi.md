@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getMarketingAreasAsync"></a>
 # **getMarketingAreasAsync**
-> MarketingAreaDtoListEnvelope getMarketingAreasAsync(tenantId, apiVersion, xApiVersion)
+> MarketingAreaDtoListEnvelope getMarketingAreasAsync(tenantId, apiVersion, xApiVersion, marketingAreaDtoCollectionQueryParameters)
 
 Get marketing areas
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    MarketingAreaDtoCollectionQueryParameters marketingAreaDtoCollectionQueryParameters = new MarketingAreaDtoCollectionQueryParameters(); // MarketingAreaDtoCollectionQueryParameters | 
     try {
-      MarketingAreaDtoListEnvelope result = apiInstance.getMarketingAreasAsync(tenantId, apiVersion, xApiVersion);
+      MarketingAreaDtoListEnvelope result = apiInstance.getMarketingAreasAsync(tenantId, apiVersion, xApiVersion, marketingAreaDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MarketingAreasApi#getMarketingAreasAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **marketingAreaDtoCollectionQueryParameters** | [**MarketingAreaDtoCollectionQueryParameters**](MarketingAreaDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getMarketingAreasCountAsync"></a>
 # **getMarketingAreasCountAsync**
-> Int32Envelope getMarketingAreasCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getMarketingAreasCountAsync(tenantId, apiVersion, xApiVersion, marketingAreaDtoCollectionQueryParameters)
 
 Count marketing areas
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    MarketingAreaDtoCollectionQueryParameters marketingAreaDtoCollectionQueryParameters = new MarketingAreaDtoCollectionQueryParameters(); // MarketingAreaDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getMarketingAreasCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getMarketingAreasCountAsync(tenantId, apiVersion, xApiVersion, marketingAreaDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MarketingAreasApi#getMarketingAreasCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **marketingAreaDtoCollectionQueryParameters** | [**MarketingAreaDtoCollectionQueryParameters**](MarketingAreaDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchMarketingAreaAsync"></a>
 # **patchMarketingAreaAsync**
-> EmptyEnvelope patchMarketingAreaAsync(tenantId, marketingAreaId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchMarketingAreaAsync(tenantId, marketingAreaId, apiVersion, xApiVersion, patchOperation)
 
 Patch a marketing area
 
@@ -388,9 +392,9 @@ public class Example {
     UUID marketingAreaId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchMarketingAreaAsync(tenantId, marketingAreaId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchMarketingAreaAsync(tenantId, marketingAreaId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MarketingAreasApi#patchMarketingAreaAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **marketingAreaId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

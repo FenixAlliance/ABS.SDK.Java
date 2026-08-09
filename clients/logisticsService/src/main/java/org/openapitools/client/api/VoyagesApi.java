@@ -30,12 +30,14 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 import org.openapitools.client.model.VoyageCreateDto;
+import org.openapitools.client.model.VoyageDtoCollectionQueryParameters;
 import org.openapitools.client.model.VoyageDtoEnvelope;
 import org.openapitools.client.model.VoyageDtoListEnvelope;
 import org.openapitools.client.model.VoyagePortCallCreateDto;
+import org.openapitools.client.model.VoyagePortCallDtoCollectionQueryParameters;
 import org.openapitools.client.model.VoyagePortCallDtoListEnvelope;
 import org.openapitools.client.model.VoyagePortCallUpdateDto;
 import org.openapitools.client.model.VoyageUpdateDto;
@@ -1200,6 +1202,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1210,7 +1213,7 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVoyagePortCallsAsyncCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVoyagePortCallsAsyncCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1224,7 +1227,7 @@ public class VoyagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = voyagePortCallDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Voyages/{voyageId}/PortCalls"
@@ -1258,6 +1261,8 @@ public class VoyagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1269,7 +1274,7 @@ public class VoyagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVoyagePortCallsAsyncValidateBeforeCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVoyagePortCallsAsyncValidateBeforeCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getVoyagePortCallsAsync(Async)");
@@ -1280,7 +1285,7 @@ public class VoyagesApi {
             throw new ApiException("Missing the required parameter 'voyageId' when calling getVoyagePortCallsAsync(Async)");
         }
 
-        return getVoyagePortCallsAsyncCall(tenantId, voyageId, apiVersion, xApiVersion, _callback);
+        return getVoyagePortCallsAsyncCall(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1291,6 +1296,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @return VoyagePortCallDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1300,8 +1306,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public VoyagePortCallDtoListEnvelope getVoyagePortCallsAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<VoyagePortCallDtoListEnvelope> localVarResp = getVoyagePortCallsAsyncWithHttpInfo(tenantId, voyageId, apiVersion, xApiVersion);
+    public VoyagePortCallDtoListEnvelope getVoyagePortCallsAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<VoyagePortCallDtoListEnvelope> localVarResp = getVoyagePortCallsAsyncWithHttpInfo(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1312,6 +1318,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;VoyagePortCallDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1321,8 +1328,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<VoyagePortCallDtoListEnvelope> getVoyagePortCallsAsyncWithHttpInfo(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getVoyagePortCallsAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, null);
+    public ApiResponse<VoyagePortCallDtoListEnvelope> getVoyagePortCallsAsyncWithHttpInfo(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getVoyagePortCallsAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<VoyagePortCallDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1334,6 +1341,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1344,9 +1352,9 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVoyagePortCallsAsyncAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, final ApiCallback<VoyagePortCallDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getVoyagePortCallsAsyncAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters, final ApiCallback<VoyagePortCallDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVoyagePortCallsAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getVoyagePortCallsAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<VoyagePortCallDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1357,6 +1365,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1367,7 +1376,7 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVoyagePortCallsCountAsyncCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVoyagePortCallsCountAsyncCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1381,7 +1390,7 @@ public class VoyagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = voyagePortCallDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/Count"
@@ -1415,6 +1424,8 @@ public class VoyagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1426,7 +1437,7 @@ public class VoyagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVoyagePortCallsCountAsyncValidateBeforeCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVoyagePortCallsCountAsyncValidateBeforeCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getVoyagePortCallsCountAsync(Async)");
@@ -1437,7 +1448,7 @@ public class VoyagesApi {
             throw new ApiException("Missing the required parameter 'voyageId' when calling getVoyagePortCallsCountAsync(Async)");
         }
 
-        return getVoyagePortCallsCountAsyncCall(tenantId, voyageId, apiVersion, xApiVersion, _callback);
+        return getVoyagePortCallsCountAsyncCall(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1448,6 +1459,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1457,8 +1469,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getVoyagePortCallsCountAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getVoyagePortCallsCountAsyncWithHttpInfo(tenantId, voyageId, apiVersion, xApiVersion);
+    public Int32Envelope getVoyagePortCallsCountAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getVoyagePortCallsCountAsyncWithHttpInfo(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1469,6 +1481,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1478,8 +1491,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getVoyagePortCallsCountAsyncWithHttpInfo(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getVoyagePortCallsCountAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getVoyagePortCallsCountAsyncWithHttpInfo(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getVoyagePortCallsCountAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1491,6 +1504,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyagePortCallDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1501,9 +1515,9 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVoyagePortCallsCountAsyncAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getVoyagePortCallsCountAsyncAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVoyagePortCallsCountAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getVoyagePortCallsCountAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1513,6 +1527,7 @@ public class VoyagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1524,7 +1539,7 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVoyagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVoyagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1538,7 +1553,7 @@ public class VoyagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = voyageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Voyages";
@@ -1571,6 +1586,8 @@ public class VoyagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1582,13 +1599,13 @@ public class VoyagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVoyagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVoyagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getVoyagesAsync(Async)");
         }
 
-        return getVoyagesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getVoyagesAsyncCall(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1598,6 +1615,7 @@ public class VoyagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @return VoyageDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1608,8 +1626,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public VoyageDtoListEnvelope getVoyagesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<VoyageDtoListEnvelope> localVarResp = getVoyagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public VoyageDtoListEnvelope getVoyagesAsync(UUID tenantId, String apiVersion, String xApiVersion, VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<VoyageDtoListEnvelope> localVarResp = getVoyagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1619,6 +1637,7 @@ public class VoyagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;VoyageDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1629,8 +1648,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<VoyageDtoListEnvelope> getVoyagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getVoyagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<VoyageDtoListEnvelope> getVoyagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getVoyagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<VoyageDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1641,6 +1660,7 @@ public class VoyagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1652,9 +1672,9 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVoyagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<VoyageDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getVoyagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters, final ApiCallback<VoyageDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVoyagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getVoyagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<VoyageDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1664,6 +1684,7 @@ public class VoyagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1674,7 +1695,7 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVoyagesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVoyagesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1688,7 +1709,7 @@ public class VoyagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = voyageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Voyages/Count";
@@ -1721,6 +1742,8 @@ public class VoyagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1732,13 +1755,13 @@ public class VoyagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVoyagesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVoyagesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getVoyagesCountAsync(Async)");
         }
 
-        return getVoyagesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getVoyagesCountAsyncCall(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1748,6 +1771,7 @@ public class VoyagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1757,8 +1781,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getVoyagesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getVoyagesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getVoyagesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getVoyagesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1768,6 +1792,7 @@ public class VoyagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1777,8 +1802,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getVoyagesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getVoyagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getVoyagesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getVoyagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1789,6 +1814,7 @@ public class VoyagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param voyageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1799,9 +1825,9 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVoyagesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getVoyagesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVoyagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getVoyagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1812,7 +1838,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1825,7 +1851,7 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchVoyageAsyncCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchVoyageAsyncCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1839,7 +1865,7 @@ public class VoyagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Voyages/{voyageId}"
@@ -1886,7 +1912,7 @@ public class VoyagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchVoyageAsyncValidateBeforeCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchVoyageAsyncValidateBeforeCall(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchVoyageAsync(Async)");
@@ -1897,7 +1923,7 @@ public class VoyagesApi {
             throw new ApiException("Missing the required parameter 'voyageId' when calling patchVoyageAsync(Async)");
         }
 
-        return patchVoyageAsyncCall(tenantId, voyageId, apiVersion, xApiVersion, operation, _callback);
+        return patchVoyageAsyncCall(tenantId, voyageId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1908,7 +1934,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1920,8 +1946,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchVoyageAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchVoyageAsyncWithHttpInfo(tenantId, voyageId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchVoyageAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchVoyageAsyncWithHttpInfo(tenantId, voyageId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1932,7 +1958,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1944,8 +1970,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchVoyageAsyncWithHttpInfo(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchVoyageAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchVoyageAsyncWithHttpInfo(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchVoyageAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1957,7 +1983,7 @@ public class VoyagesApi {
      * @param voyageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1970,9 +1996,9 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchVoyageAsyncAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchVoyageAsyncAsync(UUID tenantId, UUID voyageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchVoyageAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchVoyageAsyncValidateBeforeCall(tenantId, voyageId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1984,7 +2010,7 @@ public class VoyagesApi {
      * @param portCallId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1997,7 +2023,7 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchVoyagePortCallAsyncCall(UUID tenantId, UUID voyageId, UUID portCallId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchVoyagePortCallAsyncCall(UUID tenantId, UUID voyageId, UUID portCallId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2011,7 +2037,7 @@ public class VoyagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/{portCallId}"
@@ -2059,7 +2085,7 @@ public class VoyagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchVoyagePortCallAsyncValidateBeforeCall(UUID tenantId, UUID voyageId, UUID portCallId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchVoyagePortCallAsyncValidateBeforeCall(UUID tenantId, UUID voyageId, UUID portCallId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchVoyagePortCallAsync(Async)");
@@ -2075,7 +2101,7 @@ public class VoyagesApi {
             throw new ApiException("Missing the required parameter 'portCallId' when calling patchVoyagePortCallAsync(Async)");
         }
 
-        return patchVoyagePortCallAsyncCall(tenantId, voyageId, portCallId, apiVersion, xApiVersion, operation, _callback);
+        return patchVoyagePortCallAsyncCall(tenantId, voyageId, portCallId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2087,7 +2113,7 @@ public class VoyagesApi {
      * @param portCallId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2099,8 +2125,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchVoyagePortCallAsync(UUID tenantId, UUID voyageId, UUID portCallId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchVoyagePortCallAsyncWithHttpInfo(tenantId, voyageId, portCallId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchVoyagePortCallAsync(UUID tenantId, UUID voyageId, UUID portCallId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchVoyagePortCallAsyncWithHttpInfo(tenantId, voyageId, portCallId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2112,7 +2138,7 @@ public class VoyagesApi {
      * @param portCallId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2124,8 +2150,8 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchVoyagePortCallAsyncWithHttpInfo(UUID tenantId, UUID voyageId, UUID portCallId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchVoyagePortCallAsyncValidateBeforeCall(tenantId, voyageId, portCallId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchVoyagePortCallAsyncWithHttpInfo(UUID tenantId, UUID voyageId, UUID portCallId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchVoyagePortCallAsyncValidateBeforeCall(tenantId, voyageId, portCallId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2138,7 +2164,7 @@ public class VoyagesApi {
      * @param portCallId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2151,9 +2177,9 @@ public class VoyagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchVoyagePortCallAsyncAsync(UUID tenantId, UUID voyageId, UUID portCallId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchVoyagePortCallAsyncAsync(UUID tenantId, UUID voyageId, UUID portCallId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchVoyagePortCallAsyncValidateBeforeCall(tenantId, voyageId, portCallId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchVoyagePortCallAsyncValidateBeforeCall(tenantId, voyageId, portCallId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

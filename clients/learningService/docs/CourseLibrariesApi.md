@@ -152,7 +152,7 @@ No authorization required
 
 <a id="getCourseLibrariesAsync"></a>
 # **getCourseLibrariesAsync**
-> List&lt;CourseLibraryDto&gt; getCourseLibrariesAsync(tenantId, apiVersion, xApiVersion)
+> List&lt;CourseLibraryDto&gt; getCourseLibrariesAsync(tenantId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
 
 Get all course libraries
 
@@ -176,8 +176,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseLibraryDtoCollectionQueryParameters courseLibraryDtoCollectionQueryParameters = new CourseLibraryDtoCollectionQueryParameters(); // CourseLibraryDtoCollectionQueryParameters | 
     try {
-      List<CourseLibraryDto> result = apiInstance.getCourseLibrariesAsync(tenantId, apiVersion, xApiVersion);
+      List<CourseLibraryDto> result = apiInstance.getCourseLibrariesAsync(tenantId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseLibrariesApi#getCourseLibrariesAsync");
@@ -197,6 +198,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -208,7 +210,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -219,7 +221,7 @@ No authorization required
 
 <a id="getCourseLibrariesCountAsync"></a>
 # **getCourseLibrariesCountAsync**
-> Integer getCourseLibrariesCountAsync(tenantId, apiVersion, xApiVersion)
+> Integer getCourseLibrariesCountAsync(tenantId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
 
 Get course libraries count
 
@@ -243,8 +245,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseLibraryDtoCollectionQueryParameters courseLibraryDtoCollectionQueryParameters = new CourseLibraryDtoCollectionQueryParameters(); // CourseLibraryDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseLibrariesCountAsync(tenantId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseLibrariesCountAsync(tenantId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseLibrariesApi#getCourseLibrariesCountAsync");
@@ -264,6 +267,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -275,7 +279,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -353,7 +357,7 @@ No authorization required
 
 <a id="patchCourseLibraryAsync"></a>
 # **patchCourseLibraryAsync**
-> patchCourseLibraryAsync(tenantId, libraryId, apiVersion, xApiVersion, operation)
+> patchCourseLibraryAsync(tenantId, libraryId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course library
 
@@ -378,9 +382,9 @@ public class Example {
     String libraryId = "libraryId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchCourseLibraryAsync(tenantId, libraryId, apiVersion, xApiVersion, operation);
+      apiInstance.patchCourseLibraryAsync(tenantId, libraryId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseLibrariesApi#patchCourseLibraryAsync");
       System.err.println("Status code: " + e.getCode());
@@ -400,7 +404,7 @@ public class Example {
 | **libraryId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

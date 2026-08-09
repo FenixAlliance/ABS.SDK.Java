@@ -31,10 +31,11 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.LoyaltyProgramCreateDto;
+import org.openapitools.client.model.LoyaltyProgramDtoCollectionQueryParameters;
 import org.openapitools.client.model.LoyaltyProgramDtoEnvelope;
 import org.openapitools.client.model.LoyaltyProgramDtoListEnvelope;
 import org.openapitools.client.model.LoyaltyProgramUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -83,6 +84,7 @@ public class LoyaltyProgramsApi {
     /**
      * Build call for countLoyaltyProgramsAsync
      * @param tenantId  (required)
+     * @param loyaltyProgramDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -93,7 +95,7 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countLoyaltyProgramsAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countLoyaltyProgramsAsyncCall(UUID tenantId, LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,7 +109,7 @@ public class LoyaltyProgramsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = loyaltyProgramDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/LoyaltyPrograms/Count";
@@ -132,6 +134,8 @@ public class LoyaltyProgramsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -143,13 +147,13 @@ public class LoyaltyProgramsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countLoyaltyProgramsAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countLoyaltyProgramsAsyncValidateBeforeCall(UUID tenantId, LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countLoyaltyProgramsAsync(Async)");
         }
 
-        return countLoyaltyProgramsAsyncCall(tenantId, _callback);
+        return countLoyaltyProgramsAsyncCall(tenantId, loyaltyProgramDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -157,6 +161,7 @@ public class LoyaltyProgramsApi {
      * Get loyalty programs count
      * Returns the total count of loyalty programs for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param loyaltyProgramDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -166,8 +171,8 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countLoyaltyProgramsAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countLoyaltyProgramsAsyncWithHttpInfo(tenantId);
+    public Int32Envelope countLoyaltyProgramsAsync(UUID tenantId, LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countLoyaltyProgramsAsyncWithHttpInfo(tenantId, loyaltyProgramDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -175,6 +180,7 @@ public class LoyaltyProgramsApi {
      * Get loyalty programs count
      * Returns the total count of loyalty programs for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param loyaltyProgramDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -184,8 +190,8 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countLoyaltyProgramsAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = countLoyaltyProgramsAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> countLoyaltyProgramsAsyncWithHttpInfo(UUID tenantId, LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countLoyaltyProgramsAsyncValidateBeforeCall(tenantId, loyaltyProgramDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -194,6 +200,7 @@ public class LoyaltyProgramsApi {
      * Get loyalty programs count (asynchronously)
      * Returns the total count of loyalty programs for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param loyaltyProgramDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -204,9 +211,9 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countLoyaltyProgramsAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countLoyaltyProgramsAsyncAsync(UUID tenantId, LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countLoyaltyProgramsAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = countLoyaltyProgramsAsyncValidateBeforeCall(tenantId, loyaltyProgramDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -633,6 +640,7 @@ public class LoyaltyProgramsApi {
     /**
      * Build call for getLoyaltyProgramsAsync
      * @param tenantId  (required)
+     * @param loyaltyProgramDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -643,7 +651,7 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramsAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramsAsyncCall(UUID tenantId, LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -657,7 +665,7 @@ public class LoyaltyProgramsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = loyaltyProgramDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/LoyaltyPrograms";
@@ -682,6 +690,8 @@ public class LoyaltyProgramsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -693,13 +703,13 @@ public class LoyaltyProgramsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyProgramsAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyProgramsAsyncValidateBeforeCall(UUID tenantId, LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLoyaltyProgramsAsync(Async)");
         }
 
-        return getLoyaltyProgramsAsyncCall(tenantId, _callback);
+        return getLoyaltyProgramsAsyncCall(tenantId, loyaltyProgramDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -707,6 +717,7 @@ public class LoyaltyProgramsApi {
      * Get loyalty programs
      * Retrieves a list of loyalty programs for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param loyaltyProgramDtoCollectionQueryParameters  (optional)
      * @return LoyaltyProgramDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -716,8 +727,8 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyProgramDtoListEnvelope getLoyaltyProgramsAsync(UUID tenantId) throws ApiException {
-        ApiResponse<LoyaltyProgramDtoListEnvelope> localVarResp = getLoyaltyProgramsAsyncWithHttpInfo(tenantId);
+    public LoyaltyProgramDtoListEnvelope getLoyaltyProgramsAsync(UUID tenantId, LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LoyaltyProgramDtoListEnvelope> localVarResp = getLoyaltyProgramsAsyncWithHttpInfo(tenantId, loyaltyProgramDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -725,6 +736,7 @@ public class LoyaltyProgramsApi {
      * Get loyalty programs
      * Retrieves a list of loyalty programs for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param loyaltyProgramDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LoyaltyProgramDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -734,8 +746,8 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyProgramDtoListEnvelope> getLoyaltyProgramsAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getLoyaltyProgramsAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<LoyaltyProgramDtoListEnvelope> getLoyaltyProgramsAsyncWithHttpInfo(UUID tenantId, LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLoyaltyProgramsAsyncValidateBeforeCall(tenantId, loyaltyProgramDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LoyaltyProgramDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -744,6 +756,7 @@ public class LoyaltyProgramsApi {
      * Get loyalty programs (asynchronously)
      * Retrieves a list of loyalty programs for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param loyaltyProgramDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -754,9 +767,9 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramsAsyncAsync(UUID tenantId, final ApiCallback<LoyaltyProgramDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramsAsyncAsync(UUID tenantId, LoyaltyProgramDtoCollectionQueryParameters loyaltyProgramDtoCollectionQueryParameters, final ApiCallback<LoyaltyProgramDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoyaltyProgramsAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getLoyaltyProgramsAsyncValidateBeforeCall(tenantId, loyaltyProgramDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyProgramDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -765,7 +778,7 @@ public class LoyaltyProgramsApi {
      * Build call for patchLoyaltyProgramAsync
      * @param tenantId  (required)
      * @param loyaltyProgramId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -776,7 +789,7 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLoyaltyProgramAsyncCall(UUID tenantId, UUID loyaltyProgramId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchLoyaltyProgramAsyncCall(UUID tenantId, UUID loyaltyProgramId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -790,7 +803,7 @@ public class LoyaltyProgramsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId}"
@@ -829,7 +842,7 @@ public class LoyaltyProgramsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchLoyaltyProgramAsyncValidateBeforeCall(UUID tenantId, UUID loyaltyProgramId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchLoyaltyProgramAsyncValidateBeforeCall(UUID tenantId, UUID loyaltyProgramId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchLoyaltyProgramAsync(Async)");
@@ -840,7 +853,7 @@ public class LoyaltyProgramsApi {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling patchLoyaltyProgramAsync(Async)");
         }
 
-        return patchLoyaltyProgramAsyncCall(tenantId, loyaltyProgramId, operation, _callback);
+        return patchLoyaltyProgramAsyncCall(tenantId, loyaltyProgramId, patchOperation, _callback);
 
     }
 
@@ -849,7 +862,7 @@ public class LoyaltyProgramsApi {
      * Partially updates an existing loyalty program using a JSON Patch document.
      * @param tenantId  (required)
      * @param loyaltyProgramId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -859,8 +872,8 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchLoyaltyProgramAsync(UUID tenantId, UUID loyaltyProgramId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchLoyaltyProgramAsyncWithHttpInfo(tenantId, loyaltyProgramId, operation);
+    public EmptyEnvelope patchLoyaltyProgramAsync(UUID tenantId, UUID loyaltyProgramId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchLoyaltyProgramAsyncWithHttpInfo(tenantId, loyaltyProgramId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -869,7 +882,7 @@ public class LoyaltyProgramsApi {
      * Partially updates an existing loyalty program using a JSON Patch document.
      * @param tenantId  (required)
      * @param loyaltyProgramId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -879,8 +892,8 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchLoyaltyProgramAsyncWithHttpInfo(UUID tenantId, UUID loyaltyProgramId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchLoyaltyProgramAsyncValidateBeforeCall(tenantId, loyaltyProgramId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchLoyaltyProgramAsyncWithHttpInfo(UUID tenantId, UUID loyaltyProgramId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchLoyaltyProgramAsyncValidateBeforeCall(tenantId, loyaltyProgramId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -890,7 +903,7 @@ public class LoyaltyProgramsApi {
      * Partially updates an existing loyalty program using a JSON Patch document.
      * @param tenantId  (required)
      * @param loyaltyProgramId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -901,9 +914,9 @@ public class LoyaltyProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLoyaltyProgramAsyncAsync(UUID tenantId, UUID loyaltyProgramId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchLoyaltyProgramAsyncAsync(UUID tenantId, UUID loyaltyProgramId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchLoyaltyProgramAsyncValidateBeforeCall(tenantId, loyaltyProgramId, operation, _callback);
+        okhttp3.Call localVarCall = patchLoyaltyProgramAsyncValidateBeforeCall(tenantId, loyaltyProgramId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

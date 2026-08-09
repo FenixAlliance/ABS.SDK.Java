@@ -30,6 +30,7 @@ import java.io.IOException;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import java.util.UUID;
+import org.openapitools.client.model.WebhookRequestDtoCollectionQueryParameters;
 import org.openapitools.client.model.WebhookRequestDtoListEnvelope;
 
 import java.lang.reflect.Type;
@@ -80,6 +81,7 @@ public class WebhooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webhookRequestDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -91,7 +93,7 @@ public class WebhooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebhookRequestsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWebhookRequestsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,7 +107,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = webhookRequestDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Webhooks";
@@ -138,6 +140,8 @@ public class WebhooksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -149,13 +153,13 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWebhookRequestsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebhookRequestsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWebhookRequestsAsync(Async)");
         }
 
-        return getWebhookRequestsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getWebhookRequestsAsyncCall(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -165,6 +169,7 @@ public class WebhooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webhookRequestDtoCollectionQueryParameters  (optional)
      * @return WebhookRequestDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -175,8 +180,8 @@ public class WebhooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WebhookRequestDtoListEnvelope getWebhookRequestsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WebhookRequestDtoListEnvelope> localVarResp = getWebhookRequestsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public WebhookRequestDtoListEnvelope getWebhookRequestsAsync(UUID tenantId, String apiVersion, String xApiVersion, WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WebhookRequestDtoListEnvelope> localVarResp = getWebhookRequestsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -186,6 +191,7 @@ public class WebhooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webhookRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WebhookRequestDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -196,8 +202,8 @@ public class WebhooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebhookRequestDtoListEnvelope> getWebhookRequestsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWebhookRequestsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<WebhookRequestDtoListEnvelope> getWebhookRequestsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWebhookRequestsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WebhookRequestDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -208,6 +214,7 @@ public class WebhooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webhookRequestDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -219,9 +226,9 @@ public class WebhooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebhookRequestsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<WebhookRequestDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWebhookRequestsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters, final ApiCallback<WebhookRequestDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWebhookRequestsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWebhookRequestsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WebhookRequestDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -231,6 +238,7 @@ public class WebhooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webhookRequestDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -242,7 +250,7 @@ public class WebhooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebhookRequestsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWebhookRequestsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -256,7 +264,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = webhookRequestDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Webhooks/Count";
@@ -289,6 +297,8 @@ public class WebhooksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -300,13 +310,13 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWebhookRequestsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebhookRequestsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWebhookRequestsCountAsync(Async)");
         }
 
-        return getWebhookRequestsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getWebhookRequestsCountAsyncCall(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -316,6 +326,7 @@ public class WebhooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webhookRequestDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -326,8 +337,8 @@ public class WebhooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWebhookRequestsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWebhookRequestsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getWebhookRequestsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWebhookRequestsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -337,6 +348,7 @@ public class WebhooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webhookRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -347,8 +359,8 @@ public class WebhooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWebhookRequestsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWebhookRequestsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWebhookRequestsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWebhookRequestsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -359,6 +371,7 @@ public class WebhooksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webhookRequestDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -370,9 +383,9 @@ public class WebhooksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebhookRequestsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWebhookRequestsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WebhookRequestDtoCollectionQueryParameters webhookRequestDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWebhookRequestsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWebhookRequestsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webhookRequestDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

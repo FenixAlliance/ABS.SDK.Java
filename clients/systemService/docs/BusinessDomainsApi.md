@@ -149,7 +149,7 @@ No authorization required
 
 <a id="getSystemBusinessDomains"></a>
 # **getSystemBusinessDomains**
-> BusinessDomainDtoListEnvelope getSystemBusinessDomains(apiVersion, xApiVersion)
+> BusinessDomainDtoListEnvelope getSystemBusinessDomains(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
 
 Retrieve all business domains in the system
 
@@ -172,8 +172,9 @@ public class Example {
     BusinessDomainsApi apiInstance = new BusinessDomainsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters = new BusinessDomainDtoCollectionQueryParameters(); // BusinessDomainDtoCollectionQueryParameters | 
     try {
-      BusinessDomainDtoListEnvelope result = apiInstance.getSystemBusinessDomains(apiVersion, xApiVersion);
+      BusinessDomainDtoListEnvelope result = apiInstance.getSystemBusinessDomains(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BusinessDomainsApi#getSystemBusinessDomains");
@@ -192,6 +193,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **businessDomainDtoCollectionQueryParameters** | [**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -203,7 +205,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -215,7 +217,7 @@ No authorization required
 
 <a id="getSystemBusinessDomainsCount"></a>
 # **getSystemBusinessDomainsCount**
-> Int32Envelope getSystemBusinessDomainsCount(apiVersion, xApiVersion)
+> Int32Envelope getSystemBusinessDomainsCount(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
 
 Get the count of all business domains in the system
 
@@ -238,8 +240,9 @@ public class Example {
     BusinessDomainsApi apiInstance = new BusinessDomainsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters = new BusinessDomainDtoCollectionQueryParameters(); // BusinessDomainDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSystemBusinessDomainsCount(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSystemBusinessDomainsCount(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BusinessDomainsApi#getSystemBusinessDomainsCount");
@@ -258,6 +261,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **businessDomainDtoCollectionQueryParameters** | [**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -269,7 +273,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

@@ -15,6 +15,17 @@
 |**tenantId** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
 |**fiscalYearId** | **String** |  |  [optional] |
+|**status** | [**StatusEnum**](#StatusEnum) |  |  [optional] |
+
+
+
+## Enum: StatusEnum
+
+| Name | Value |
+|---- | -----|
+| OPEN | &quot;Open&quot; |
+| CLOSED | &quot;Closed&quot; |
+| LOCKED | &quot;Locked&quot; |
 
 
 

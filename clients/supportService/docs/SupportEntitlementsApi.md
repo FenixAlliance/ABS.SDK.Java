@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getSupportEntitlementsAsync"></a>
 # **getSupportEntitlementsAsync**
-> SupportEntitlementDtoListEnvelope getSupportEntitlementsAsync(tenantId, apiVersion, xApiVersion)
+> SupportEntitlementDtoListEnvelope getSupportEntitlementsAsync(tenantId, apiVersion, xApiVersion, supportEntitlementDtoCollectionQueryParameters)
 
 Retrieve a list of support entitlements
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupportEntitlementDtoCollectionQueryParameters supportEntitlementDtoCollectionQueryParameters = new SupportEntitlementDtoCollectionQueryParameters(); // SupportEntitlementDtoCollectionQueryParameters | 
     try {
-      SupportEntitlementDtoListEnvelope result = apiInstance.getSupportEntitlementsAsync(tenantId, apiVersion, xApiVersion);
+      SupportEntitlementDtoListEnvelope result = apiInstance.getSupportEntitlementsAsync(tenantId, apiVersion, xApiVersion, supportEntitlementDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportEntitlementsApi#getSupportEntitlementsAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportEntitlementDtoCollectionQueryParameters** | [**SupportEntitlementDtoCollectionQueryParameters**](SupportEntitlementDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getSupportEntitlementsCountAsync"></a>
 # **getSupportEntitlementsCountAsync**
-> Int32Envelope getSupportEntitlementsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSupportEntitlementsCountAsync(tenantId, apiVersion, xApiVersion, supportEntitlementDtoCollectionQueryParameters)
 
 Get the count of support entitlements
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupportEntitlementDtoCollectionQueryParameters supportEntitlementDtoCollectionQueryParameters = new SupportEntitlementDtoCollectionQueryParameters(); // SupportEntitlementDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSupportEntitlementsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSupportEntitlementsCountAsync(tenantId, apiVersion, xApiVersion, supportEntitlementDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportEntitlementsApi#getSupportEntitlementsCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportEntitlementDtoCollectionQueryParameters** | [**SupportEntitlementDtoCollectionQueryParameters**](SupportEntitlementDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchSupportEntitlementAsync"></a>
 # **patchSupportEntitlementAsync**
-> EmptyEnvelope patchSupportEntitlementAsync(tenantId, supportEntitlementId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSupportEntitlementAsync(tenantId, supportEntitlementId, apiVersion, xApiVersion, patchOperation)
 
 Patch a support entitlement
 
@@ -386,9 +390,9 @@ public class Example {
     UUID supportEntitlementId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSupportEntitlementAsync(tenantId, supportEntitlementId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSupportEntitlementAsync(tenantId, supportEntitlementId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportEntitlementsApi#patchSupportEntitlementAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **supportEntitlementId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

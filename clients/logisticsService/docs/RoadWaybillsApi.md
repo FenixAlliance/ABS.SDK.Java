@@ -442,7 +442,7 @@ No authorization required
 
 <a id="getRoadWaybillLinesAsync"></a>
 # **getRoadWaybillLinesAsync**
-> WaybillLineDtoListEnvelope getRoadWaybillLinesAsync(tenantId, waybillId, apiVersion, xApiVersion)
+> WaybillLineDtoListEnvelope getRoadWaybillLinesAsync(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get road waybill lines
 
@@ -467,8 +467,9 @@ public class Example {
     UUID waybillId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters = new WaybillLineDtoCollectionQueryParameters(); // WaybillLineDtoCollectionQueryParameters | 
     try {
-      WaybillLineDtoListEnvelope result = apiInstance.getRoadWaybillLinesAsync(tenantId, waybillId, apiVersion, xApiVersion);
+      WaybillLineDtoListEnvelope result = apiInstance.getRoadWaybillLinesAsync(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RoadWaybillsApi#getRoadWaybillLinesAsync");
@@ -489,6 +490,7 @@ public class Example {
 | **waybillId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -500,7 +502,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -511,7 +513,7 @@ No authorization required
 
 <a id="getRoadWaybillLinesCountAsync"></a>
 # **getRoadWaybillLinesCountAsync**
-> Int32Envelope getRoadWaybillLinesCountAsync(tenantId, waybillId, apiVersion, xApiVersion)
+> Int32Envelope getRoadWaybillLinesCountAsync(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get road waybill lines count
 
@@ -536,8 +538,9 @@ public class Example {
     UUID waybillId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters = new WaybillLineDtoCollectionQueryParameters(); // WaybillLineDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getRoadWaybillLinesCountAsync(tenantId, waybillId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getRoadWaybillLinesCountAsync(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RoadWaybillsApi#getRoadWaybillLinesCountAsync");
@@ -558,6 +561,7 @@ public class Example {
 | **waybillId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -569,7 +573,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -580,7 +584,7 @@ No authorization required
 
 <a id="getRoadWaybillsAsync"></a>
 # **getRoadWaybillsAsync**
-> RoadWaybillDtoListEnvelope getRoadWaybillsAsync(tenantId, apiVersion, xApiVersion)
+> RoadWaybillDtoListEnvelope getRoadWaybillsAsync(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters)
 
 Get all road waybills
 
@@ -604,8 +608,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters = new RoadWaybillDtoCollectionQueryParameters(); // RoadWaybillDtoCollectionQueryParameters | 
     try {
-      RoadWaybillDtoListEnvelope result = apiInstance.getRoadWaybillsAsync(tenantId, apiVersion, xApiVersion);
+      RoadWaybillDtoListEnvelope result = apiInstance.getRoadWaybillsAsync(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RoadWaybillsApi#getRoadWaybillsAsync");
@@ -625,6 +630,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **roadWaybillDtoCollectionQueryParameters** | [**RoadWaybillDtoCollectionQueryParameters**](RoadWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -636,7 +642,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -648,7 +654,7 @@ No authorization required
 
 <a id="getRoadWaybillsCountAsync"></a>
 # **getRoadWaybillsCountAsync**
-> Int32Envelope getRoadWaybillsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRoadWaybillsCountAsync(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters)
 
 Get road waybills count
 
@@ -672,8 +678,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters = new RoadWaybillDtoCollectionQueryParameters(); // RoadWaybillDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getRoadWaybillsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getRoadWaybillsCountAsync(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RoadWaybillsApi#getRoadWaybillsCountAsync");
@@ -693,6 +700,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **roadWaybillDtoCollectionQueryParameters** | [**RoadWaybillDtoCollectionQueryParameters**](RoadWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -704,7 +712,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -922,7 +930,7 @@ No authorization required
 
 <a id="patchRoadWaybillAsync"></a>
 # **patchRoadWaybillAsync**
-> EmptyEnvelope patchRoadWaybillAsync(tenantId, waybillId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRoadWaybillAsync(tenantId, waybillId, apiVersion, xApiVersion, patchOperation)
 
 Patch a road waybill
 
@@ -947,9 +955,9 @@ public class Example {
     UUID waybillId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchRoadWaybillAsync(tenantId, waybillId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchRoadWaybillAsync(tenantId, waybillId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RoadWaybillsApi#patchRoadWaybillAsync");
@@ -970,7 +978,7 @@ public class Example {
 | **waybillId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -993,7 +1001,7 @@ No authorization required
 
 <a id="patchRoadWaybillLineAsync"></a>
 # **patchRoadWaybillLineAsync**
-> EmptyEnvelope patchRoadWaybillLineAsync(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRoadWaybillLineAsync(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation)
 
 Patch a road waybill line
 
@@ -1019,9 +1027,9 @@ public class Example {
     UUID lineId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchRoadWaybillLineAsync(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchRoadWaybillLineAsync(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RoadWaybillsApi#patchRoadWaybillLineAsync");
@@ -1043,7 +1051,7 @@ public class Example {
 | **lineId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

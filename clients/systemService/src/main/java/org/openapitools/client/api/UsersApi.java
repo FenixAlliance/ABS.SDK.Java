@@ -30,12 +30,17 @@ import java.io.IOException;
 import org.openapitools.client.model.EmailDispatchRequest;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.ExtendedUserDtoCollectionQueryParameters;
 import org.openapitools.client.model.ExtendedUserDtoEnvelope;
 import org.openapitools.client.model.ExtendedUserDtoListEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
+import org.openapitools.client.model.SetUserPasswordDto;
 import java.util.UUID;
+import org.openapitools.client.model.UserAdminDetailDtoEnvelope;
+import org.openapitools.client.model.UserAdminUpdateDto;
 import org.openapitools.client.model.UserCreateDto;
+import org.openapitools.client.model.UserDtoCollectionQueryParameters;
 import org.openapitools.client.model.UserDtoEnvelope;
 import org.openapitools.client.model.UserDtoListEnvelope;
 import org.openapitools.client.model.UserUpdateDto;
@@ -827,6 +832,7 @@ public class UsersApi {
      * Build call for getExtendedUsersAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedUserDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -838,7 +844,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedUsersAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExtendedUsersAsyncCall(String apiVersion, String xApiVersion, ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -852,7 +858,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedUserDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/Users/Extended";
@@ -881,6 +887,8 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -892,8 +900,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedUsersAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getExtendedUsersAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getExtendedUsersAsyncValidateBeforeCall(String apiVersion, String xApiVersion, ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getExtendedUsersAsyncCall(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -902,6 +910,7 @@ public class UsersApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedUserDtoCollectionQueryParameters  (optional)
      * @return ExtendedUserDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -912,8 +921,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ExtendedUserDtoListEnvelope getExtendedUsersAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ExtendedUserDtoListEnvelope> localVarResp = getExtendedUsersAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public ExtendedUserDtoListEnvelope getExtendedUsersAsync(String apiVersion, String xApiVersion, ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ExtendedUserDtoListEnvelope> localVarResp = getExtendedUsersAsyncWithHttpInfo(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -922,6 +931,7 @@ public class UsersApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedUserDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ExtendedUserDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -932,8 +942,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExtendedUserDtoListEnvelope> getExtendedUsersAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedUsersAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<ExtendedUserDtoListEnvelope> getExtendedUsersAsyncWithHttpInfo(String apiVersion, String xApiVersion, ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedUsersAsyncValidateBeforeCall(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ExtendedUserDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -943,6 +953,7 @@ public class UsersApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedUserDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -954,15 +965,161 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedUsersAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<ExtendedUserDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getExtendedUsersAsyncAsync(String apiVersion, String xApiVersion, ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters, final ApiCallback<ExtendedUserDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedUsersAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getExtendedUsersAsyncValidateBeforeCall(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ExtendedUserDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getExtendedUsersCountAsync
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param extendedUserDtoCollectionQueryParameters  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getExtendedUsersCountAsyncCall(String apiVersion, String xApiVersion, ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = extendedUserDtoCollectionQueryParameters;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SystemService/Users/Extended/Count";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getExtendedUsersCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getExtendedUsersCountAsyncCall(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters, _callback);
+
+    }
+
+    /**
+     * Get the count of extended users
+     * This action is only available for global administrators.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param extendedUserDtoCollectionQueryParameters  (optional)
+     * @return Int32Envelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public Int32Envelope getExtendedUsersCountAsync(String apiVersion, String xApiVersion, ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getExtendedUsersCountAsyncWithHttpInfo(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the count of extended users
+     * This action is only available for global administrators.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param extendedUserDtoCollectionQueryParameters  (optional)
+     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Int32Envelope> getExtendedUsersCountAsyncWithHttpInfo(String apiVersion, String xApiVersion, ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedUsersCountAsyncValidateBeforeCall(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters, null);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the count of extended users (asynchronously)
+     * This action is only available for global administrators.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param extendedUserDtoCollectionQueryParameters  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getExtendedUsersCountAsyncAsync(String apiVersion, String xApiVersion, ExtendedUserDtoCollectionQueryParameters extendedUserDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getExtendedUsersCountAsyncValidateBeforeCall(apiVersion, xApiVersion, extendedUserDtoCollectionQueryParameters, _callback);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getUserAdminDetailAsync
+     * @param userId  (required)
+     * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -976,7 +1133,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedUsersCountAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserAdminDetailAsyncCall(String userId, UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -993,13 +1150,18 @@ public class UsersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/v2/SystemService/Users/Extended/Count";
+        String localVarPath = "/api/v2/SystemService/Users/{userId}/AdminDetail"
+            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (apiVersion != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
@@ -1030,17 +1192,29 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedUsersCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getExtendedUsersCountAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getUserAdminDetailAsyncValidateBeforeCall(String userId, UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling getUserAdminDetailAsync(Async)");
+        }
+
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getUserAdminDetailAsync(Async)");
+        }
+
+        return getUserAdminDetailAsyncCall(userId, tenantId, apiVersion, xApiVersion, _callback);
 
     }
 
     /**
-     * Get the count of extended users
-     * This action is only available for global administrators.
+     * Retrieve the admin detail aggregate for a user
+     * Returns the user&#39;s orders, external logins, and — for the supplied tenant — the enrollment with its granted roles/permissions and the tenant role/permission catalogs. Global administrators only.
+     * @param userId  (required)
+     * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return Int32Envelope
+     * @return UserAdminDetailDtoEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1050,17 +1224,19 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getExtendedUsersCountAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getExtendedUsersCountAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public UserAdminDetailDtoEnvelope getUserAdminDetailAsync(String userId, UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<UserAdminDetailDtoEnvelope> localVarResp = getUserAdminDetailAsyncWithHttpInfo(userId, tenantId, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
     /**
-     * Get the count of extended users
-     * This action is only available for global administrators.
+     * Retrieve the admin detail aggregate for a user
+     * Returns the user&#39;s orders, external logins, and — for the supplied tenant — the enrollment with its granted roles/permissions and the tenant role/permission catalogs. Global administrators only.
+     * @param userId  (required)
+     * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @return ApiResponse&lt;UserAdminDetailDtoEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1070,15 +1246,17 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getExtendedUsersCountAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedUsersCountAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+    public ApiResponse<UserAdminDetailDtoEnvelope> getUserAdminDetailAsyncWithHttpInfo(String userId, UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getUserAdminDetailAsyncValidateBeforeCall(userId, tenantId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<UserAdminDetailDtoEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get the count of extended users (asynchronously)
-     * This action is only available for global administrators.
+     * Retrieve the admin detail aggregate for a user (asynchronously)
+     * Returns the user&#39;s orders, external logins, and — for the supplied tenant — the enrollment with its granted roles/permissions and the tenant role/permission catalogs. Global administrators only.
+     * @param userId  (required)
+     * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1092,10 +1270,10 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedUsersCountAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getUserAdminDetailAsyncAsync(String userId, UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<UserAdminDetailDtoEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedUsersCountAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        okhttp3.Call localVarCall = getUserAdminDetailAsyncValidateBeforeCall(userId, tenantId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<UserAdminDetailDtoEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1251,6 +1429,7 @@ public class UsersApi {
      * Build call for getUsersAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param userDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1262,7 +1441,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUsersAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUsersAsyncCall(String apiVersion, String xApiVersion, UserDtoCollectionQueryParameters userDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1276,7 +1455,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = userDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/Users";
@@ -1305,6 +1484,8 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1316,8 +1497,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUsersAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getUsersAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getUsersAsyncValidateBeforeCall(String apiVersion, String xApiVersion, UserDtoCollectionQueryParameters userDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getUsersAsyncCall(apiVersion, xApiVersion, userDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1326,6 +1507,7 @@ public class UsersApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param userDtoCollectionQueryParameters  (optional)
      * @return UserDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1336,8 +1518,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public UserDtoListEnvelope getUsersAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<UserDtoListEnvelope> localVarResp = getUsersAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public UserDtoListEnvelope getUsersAsync(String apiVersion, String xApiVersion, UserDtoCollectionQueryParameters userDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<UserDtoListEnvelope> localVarResp = getUsersAsyncWithHttpInfo(apiVersion, xApiVersion, userDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1346,6 +1528,7 @@ public class UsersApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param userDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;UserDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1356,8 +1539,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UserDtoListEnvelope> getUsersAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getUsersAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<UserDtoListEnvelope> getUsersAsyncWithHttpInfo(String apiVersion, String xApiVersion, UserDtoCollectionQueryParameters userDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getUsersAsyncValidateBeforeCall(apiVersion, xApiVersion, userDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<UserDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1367,6 +1550,7 @@ public class UsersApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param userDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1378,9 +1562,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUsersAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<UserDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getUsersAsyncAsync(String apiVersion, String xApiVersion, UserDtoCollectionQueryParameters userDtoCollectionQueryParameters, final ApiCallback<UserDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUsersAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getUsersAsyncValidateBeforeCall(apiVersion, xApiVersion, userDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<UserDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1389,6 +1573,7 @@ public class UsersApi {
      * Build call for getUsersCountAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param userDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1400,7 +1585,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUsersCountAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUsersCountAsyncCall(String apiVersion, String xApiVersion, UserDtoCollectionQueryParameters userDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1414,7 +1599,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = userDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/Users/Count";
@@ -1443,6 +1628,8 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1454,8 +1641,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUsersCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getUsersCountAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getUsersCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, UserDtoCollectionQueryParameters userDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getUsersCountAsyncCall(apiVersion, xApiVersion, userDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1464,6 +1651,7 @@ public class UsersApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param userDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1474,8 +1662,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getUsersCountAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getUsersCountAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope getUsersCountAsync(String apiVersion, String xApiVersion, UserDtoCollectionQueryParameters userDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getUsersCountAsyncWithHttpInfo(apiVersion, xApiVersion, userDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1484,6 +1672,7 @@ public class UsersApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param userDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1494,8 +1683,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getUsersCountAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getUsersCountAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getUsersCountAsyncWithHttpInfo(String apiVersion, String xApiVersion, UserDtoCollectionQueryParameters userDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getUsersCountAsyncValidateBeforeCall(apiVersion, xApiVersion, userDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1505,6 +1694,7 @@ public class UsersApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param userDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1516,9 +1706,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUsersCountAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getUsersCountAsyncAsync(String apiVersion, String xApiVersion, UserDtoCollectionQueryParameters userDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUsersCountAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getUsersCountAsyncValidateBeforeCall(apiVersion, xApiVersion, userDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1528,7 +1718,7 @@ public class UsersApi {
      * @param userId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1540,7 +1730,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAccountHolderAsyncCall(UUID userId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchAccountHolderAsyncCall(UUID userId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1554,7 +1744,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/Users/{userId}"
@@ -1597,13 +1787,13 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchAccountHolderAsyncValidateBeforeCall(UUID userId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchAccountHolderAsyncValidateBeforeCall(UUID userId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling patchAccountHolderAsync(Async)");
         }
 
-        return patchAccountHolderAsyncCall(userId, apiVersion, xApiVersion, operation, _callback);
+        return patchAccountHolderAsyncCall(userId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1613,7 +1803,7 @@ public class UsersApi {
      * @param userId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1624,8 +1814,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchAccountHolderAsync(UUID userId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchAccountHolderAsyncWithHttpInfo(userId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchAccountHolderAsync(UUID userId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchAccountHolderAsyncWithHttpInfo(userId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1635,7 +1825,7 @@ public class UsersApi {
      * @param userId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1646,8 +1836,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchAccountHolderAsyncWithHttpInfo(UUID userId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchAccountHolderAsyncValidateBeforeCall(userId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchAccountHolderAsyncWithHttpInfo(UUID userId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchAccountHolderAsyncValidateBeforeCall(userId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1658,7 +1848,7 @@ public class UsersApi {
      * @param userId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1670,9 +1860,321 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAccountHolderAsyncAsync(UUID userId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchAccountHolderAsyncAsync(UUID userId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchAccountHolderAsyncValidateBeforeCall(userId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchAccountHolderAsyncValidateBeforeCall(userId, apiVersion, xApiVersion, patchOperation, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for setUserPasswordAsync
+     * @param userId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param setUserPasswordDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setUserPasswordAsyncCall(UUID userId, String apiVersion, String xApiVersion, SetUserPasswordDto setUserPasswordDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = setUserPasswordDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SystemService/Users/{userId}/Password"
+            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setUserPasswordAsyncValidateBeforeCall(UUID userId, String apiVersion, String xApiVersion, SetUserPasswordDto setUserPasswordDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling setUserPasswordAsync(Async)");
+        }
+
+        return setUserPasswordAsyncCall(userId, apiVersion, xApiVersion, setUserPasswordDto, _callback);
+
+    }
+
+    /**
+     * Set a user&#39;s password
+     * Replaces the user&#39;s password with the supplied value. Global administrators only.
+     * @param userId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param setUserPasswordDto  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope setUserPasswordAsync(UUID userId, String apiVersion, String xApiVersion, SetUserPasswordDto setUserPasswordDto) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = setUserPasswordAsyncWithHttpInfo(userId, apiVersion, xApiVersion, setUserPasswordDto);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Set a user&#39;s password
+     * Replaces the user&#39;s password with the supplied value. Global administrators only.
+     * @param userId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param setUserPasswordDto  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> setUserPasswordAsyncWithHttpInfo(UUID userId, String apiVersion, String xApiVersion, SetUserPasswordDto setUserPasswordDto) throws ApiException {
+        okhttp3.Call localVarCall = setUserPasswordAsyncValidateBeforeCall(userId, apiVersion, xApiVersion, setUserPasswordDto, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Set a user&#39;s password (asynchronously)
+     * Replaces the user&#39;s password with the supplied value. Global administrators only.
+     * @param userId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param setUserPasswordDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setUserPasswordAsyncAsync(UUID userId, String apiVersion, String xApiVersion, SetUserPasswordDto setUserPasswordDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = setUserPasswordAsyncValidateBeforeCall(userId, apiVersion, xApiVersion, setUserPasswordDto, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateAccountHolderAdminProfileAsync
+     * @param userId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param userAdminUpdateDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAccountHolderAdminProfileAsyncCall(UUID userId, String apiVersion, String xApiVersion, UserAdminUpdateDto userAdminUpdateDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = userAdminUpdateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SystemService/Users/{userId}/AdminProfile"
+            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateAccountHolderAdminProfileAsyncValidateBeforeCall(UUID userId, String apiVersion, String xApiVersion, UserAdminUpdateDto userAdminUpdateDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling updateAccountHolderAdminProfileAsync(Async)");
+        }
+
+        return updateAccountHolderAdminProfileAsyncCall(userId, apiVersion, xApiVersion, userAdminUpdateDto, _callback);
+
+    }
+
+    /**
+     * Update a user&#39;s admin-managed profile
+     * Updates the identity fields (email/username, re-normalized by Identity) and display fields a global administrator may change on a user, and toggles two-factor and lockout. Normalized email/username and the access-failed count are never accepted. This action is only available for global administrators.
+     * @param userId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param userAdminUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope updateAccountHolderAdminProfileAsync(UUID userId, String apiVersion, String xApiVersion, UserAdminUpdateDto userAdminUpdateDto) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = updateAccountHolderAdminProfileAsyncWithHttpInfo(userId, apiVersion, xApiVersion, userAdminUpdateDto);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a user&#39;s admin-managed profile
+     * Updates the identity fields (email/username, re-normalized by Identity) and display fields a global administrator may change on a user, and toggles two-factor and lockout. Normalized email/username and the access-failed count are never accepted. This action is only available for global administrators.
+     * @param userId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param userAdminUpdateDto  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> updateAccountHolderAdminProfileAsyncWithHttpInfo(UUID userId, String apiVersion, String xApiVersion, UserAdminUpdateDto userAdminUpdateDto) throws ApiException {
+        okhttp3.Call localVarCall = updateAccountHolderAdminProfileAsyncValidateBeforeCall(userId, apiVersion, xApiVersion, userAdminUpdateDto, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a user&#39;s admin-managed profile (asynchronously)
+     * Updates the identity fields (email/username, re-normalized by Identity) and display fields a global administrator may change on a user, and toggles two-factor and lockout. Normalized email/username and the access-failed count are never accepted. This action is only available for global administrators.
+     * @param userId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param userAdminUpdateDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAccountHolderAdminProfileAsyncAsync(UUID userId, String apiVersion, String xApiVersion, UserAdminUpdateDto userAdminUpdateDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateAccountHolderAdminProfileAsyncValidateBeforeCall(userId, apiVersion, xApiVersion, userAdminUpdateDto, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

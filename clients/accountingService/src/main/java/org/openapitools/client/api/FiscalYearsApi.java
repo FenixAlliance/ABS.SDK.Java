@@ -30,11 +30,12 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.FiscalYearCreateDto;
+import org.openapitools.client.model.FiscalYearDtoCollectionQueryParameters;
 import org.openapitools.client.model.FiscalYearDtoEnvelope;
 import org.openapitools.client.model.FiscalYearDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.FiscalYearUpdateDto;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -540,6 +541,7 @@ public class FiscalYearsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalYearDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -549,7 +551,7 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFiscalYearsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFiscalYearsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -563,7 +565,7 @@ public class FiscalYearsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = fiscalYearDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/FiscalYears";
@@ -596,6 +598,8 @@ public class FiscalYearsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -607,13 +611,13 @@ public class FiscalYearsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFiscalYearsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFiscalYearsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFiscalYearsAsync(Async)");
         }
 
-        return getFiscalYearsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getFiscalYearsAsyncCall(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -623,6 +627,7 @@ public class FiscalYearsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalYearDtoCollectionQueryParameters  (optional)
      * @return FiscalYearDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -631,8 +636,8 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public FiscalYearDtoIReadOnlyListEnvelope getFiscalYearsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<FiscalYearDtoIReadOnlyListEnvelope> localVarResp = getFiscalYearsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public FiscalYearDtoIReadOnlyListEnvelope getFiscalYearsAsync(UUID tenantId, String apiVersion, String xApiVersion, FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<FiscalYearDtoIReadOnlyListEnvelope> localVarResp = getFiscalYearsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -642,6 +647,7 @@ public class FiscalYearsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalYearDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;FiscalYearDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -650,8 +656,8 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FiscalYearDtoIReadOnlyListEnvelope> getFiscalYearsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFiscalYearsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<FiscalYearDtoIReadOnlyListEnvelope> getFiscalYearsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getFiscalYearsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<FiscalYearDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -662,6 +668,7 @@ public class FiscalYearsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalYearDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -671,9 +678,9 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFiscalYearsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<FiscalYearDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getFiscalYearsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters, final ApiCallback<FiscalYearDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFiscalYearsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFiscalYearsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<FiscalYearDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -683,6 +690,7 @@ public class FiscalYearsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalYearDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -692,7 +700,7 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFiscalYearsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFiscalYearsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -706,7 +714,7 @@ public class FiscalYearsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = fiscalYearDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/FiscalYears/Count";
@@ -739,6 +747,8 @@ public class FiscalYearsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -750,13 +760,13 @@ public class FiscalYearsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFiscalYearsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFiscalYearsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFiscalYearsCountAsync(Async)");
         }
 
-        return getFiscalYearsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getFiscalYearsCountAsyncCall(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -766,6 +776,7 @@ public class FiscalYearsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalYearDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -774,8 +785,8 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getFiscalYearsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getFiscalYearsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getFiscalYearsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getFiscalYearsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -785,6 +796,7 @@ public class FiscalYearsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalYearDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -793,8 +805,8 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getFiscalYearsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFiscalYearsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getFiscalYearsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getFiscalYearsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -805,6 +817,7 @@ public class FiscalYearsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param fiscalYearDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -814,9 +827,9 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFiscalYearsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getFiscalYearsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFiscalYearsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFiscalYearsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -827,7 +840,7 @@ public class FiscalYearsApi {
      * @param fiscalYearId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -839,7 +852,7 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchFiscalYearAsyncCall(UUID tenantId, UUID fiscalYearId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchFiscalYearAsyncCall(UUID tenantId, UUID fiscalYearId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -853,7 +866,7 @@ public class FiscalYearsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/FiscalYears/{fiscalYearId}"
@@ -900,7 +913,7 @@ public class FiscalYearsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchFiscalYearAsyncValidateBeforeCall(UUID tenantId, UUID fiscalYearId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchFiscalYearAsyncValidateBeforeCall(UUID tenantId, UUID fiscalYearId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchFiscalYearAsync(Async)");
@@ -911,7 +924,7 @@ public class FiscalYearsApi {
             throw new ApiException("Missing the required parameter 'fiscalYearId' when calling patchFiscalYearAsync(Async)");
         }
 
-        return patchFiscalYearAsyncCall(tenantId, fiscalYearId, apiVersion, xApiVersion, operation, _callback);
+        return patchFiscalYearAsyncCall(tenantId, fiscalYearId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -922,7 +935,7 @@ public class FiscalYearsApi {
      * @param fiscalYearId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -933,8 +946,8 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchFiscalYearAsync(UUID tenantId, UUID fiscalYearId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchFiscalYearAsyncWithHttpInfo(tenantId, fiscalYearId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchFiscalYearAsync(UUID tenantId, UUID fiscalYearId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchFiscalYearAsyncWithHttpInfo(tenantId, fiscalYearId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -945,7 +958,7 @@ public class FiscalYearsApi {
      * @param fiscalYearId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -956,8 +969,8 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchFiscalYearAsyncWithHttpInfo(UUID tenantId, UUID fiscalYearId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchFiscalYearAsyncValidateBeforeCall(tenantId, fiscalYearId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchFiscalYearAsyncWithHttpInfo(UUID tenantId, UUID fiscalYearId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchFiscalYearAsyncValidateBeforeCall(tenantId, fiscalYearId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -969,7 +982,7 @@ public class FiscalYearsApi {
      * @param fiscalYearId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -981,9 +994,9 @@ public class FiscalYearsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchFiscalYearAsyncAsync(UUID tenantId, UUID fiscalYearId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchFiscalYearAsyncAsync(UUID tenantId, UUID fiscalYearId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchFiscalYearAsyncValidateBeforeCall(tenantId, fiscalYearId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchFiscalYearAsyncValidateBeforeCall(tenantId, fiscalYearId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

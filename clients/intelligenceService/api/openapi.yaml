@@ -1,0 +1,5652 @@
+openapi: 3.0.4
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: IntelligenceService
+  version: 2.0.0.0
+servers:
+- description: Alliance Business Suite API
+  url: "{server}"
+  variables:
+    server:
+      default: https://absuite.net
+      description: ABS instance base URL
+      enum:
+      - https://absuite.net
+      - https://test.absuite.net
+      - https://dev.absuite.net
+      - https://localhost:44388
+tags:
+- name: AiProviders
+- name: Capabilities
+- name: CognitiveAgentConversationAttachments
+- name: CognitiveAgentConversations
+- name: CognitiveAgentMessages
+- name: CognitiveAgents
+- name: CognitiveAgentSkills
+- name: CognitiveAgentVariables
+- name: CognitiveSkills
+- name: FenixAlliance.ABS.Web
+- name: IntelligenceService
+paths:
+  /api/v2/IntelligenceService/AiProviders:
+    get:
+      description: "Returns every AI provider key this instance has a registered adapter\
+        \ for. The set is a property of the deployment, so it is not tenant-scoped;\
+        \ what varies per tenant is the credential for a provider, which is never\
+        \ returned here."
+      operationId: GetAiProvidersAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AiProviderDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AiProviderDtoListEnvelope'
+          description: OK
+      summary: Get the available AI providers
+      tags:
+      - AiProviders
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/Capabilities:
+    get:
+      description: "Retrieves the full governed-capability catalog for the specified\
+        \ tenant, optionally narrowed to a single execution surface. Every capability\
+        \ is returned with an Available flag (and a DeniedReason when not available)\
+        \ so callers render disabled-with-reason instead of hiding; entitlement is\
+        \ computed server-side."
+      operationId: GetCapabilitiesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: surface
+        required: false
+        schema:
+          enum:
+          - None
+          - Workflow
+          - AI
+          - Mcp
+          - Job
+          - Integration
+          - Webhook
+          - Admin
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapabilityDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CapabilityDtoListEnvelope'
+          description: OK
+      summary: Get the annotated capability catalog
+      tags:
+      - Capabilities
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/Capabilities/Count:
+    get:
+      description: "Returns the number of governed capabilities in the catalog for\
+        \ the specified tenant — the surface-matching total that mirrors the list\
+        \ route's returned-set size (entitled or not), honouring the same optional\
+        \ surface narrowing."
+      operationId: GetCapabilitiesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: surface
+        required: false
+        schema:
+          enum:
+          - None
+          - Workflow
+          - AI
+          - Mcp
+          - Job
+          - Integration
+          - Webhook
+          - Admin
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the capability catalog count
+      tags:
+      - Capabilities
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/Capabilities/{key}:
+    get:
+      description: "Retrieves a single governed capability by its stable, dotted key,\
+        \ stamped with the Available / DeniedReason entitlement flag. Returns 404\
+        \ only when the capability does not exist; an existing capability the actor\
+        \ is not entitled to run is returned annotated as unavailable, not hidden."
+      operationId: GetCapabilityByKeyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: key
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapabilityDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CapabilityDtoEnvelope'
+          description: OK
+      summary: Get a capability by key
+      tags:
+      - Capabilities
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Conversations/{conversationId}/Attachments:
+    post:
+      description: "Uploads a file into the acting user's OWN conversation attachment\
+        \ store, scanned and catalogued through the storage spine. A conversation\
+        \ the caller does not own returns 404. The response carries the new file's\
+        \ id, name, content type and length; the chat UI passes that id as an AttachmentFileIds\
+        \ entry when it sends the referencing user turn."
+      operationId: UploadCognitiveAgentConversationAttachmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: conversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              file:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UploadCognitiveAgentConversationAttachmentAsync_request'
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationAttachmentUploadResultDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ConversationAttachmentUploadResultDtoEnvelope'
+          description: OK
+      summary: Upload an attachment to a cognitive agent conversation
+      tags:
+      - CognitiveAgentConversationAttachments
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Conversations:
+    get:
+      description: Retrieves all managed conversations for the specified cognitive
+        agent and tenant.
+      operationId: GetCognitiveAgentConversationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentConversationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentConversationDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentConversationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentConversationDtoListEnvelope'
+          description: OK
+      summary: Get all conversations for a cognitive agent
+      tags:
+      - CognitiveAgentConversations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new managed conversation for the specified cognitive
+        agent and tenant.
+      operationId: CreateCognitiveAgentConversationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentConversationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentConversationCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a new cognitive agent conversation
+      tags:
+      - CognitiveAgentConversations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Conversations/Count:
+    get:
+      description: Returns the count of managed conversations for the specified cognitive
+        agent and tenant.
+      operationId: GetCognitiveAgentConversationsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentConversationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentConversationDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get conversation count for a cognitive agent
+      tags:
+      - CognitiveAgentConversations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Conversations/{id}:
+    delete:
+      description: Deletes a managed conversation for the specified cognitive agent
+        and tenant.
+      operationId: DeleteCognitiveAgentConversationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a cognitive agent conversation
+      tags:
+      - CognitiveAgentConversations
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific managed conversation of a cognitive agent
+        by its identifier.
+      operationId: GetCognitiveAgentConversationByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentConversationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentConversationDtoEnvelope'
+          description: OK
+      summary: Get a cognitive agent conversation by ID
+      tags:
+      - CognitiveAgentConversations
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing managed conversation for the specified cognitive
+        agent and tenant.
+      operationId: UpdateCognitiveAgentConversationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentConversationUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentConversationUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a cognitive agent conversation
+      tags:
+      - CognitiveAgentConversations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Conversations/{conversationId}/Messages:
+    get:
+      description: "Retrieves all durable messages for the specified conversation,\
+        \ agent and tenant."
+      operationId: GetCognitiveAgentMessagesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: conversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentMessageDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentMessageDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentMessageDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentMessageDtoListEnvelope'
+          description: OK
+      summary: Get all messages for a cognitive agent conversation
+      tags:
+      - CognitiveAgentMessages
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Conversations/{conversationId}/Messages/Count:
+    get:
+      description: "Returns the count of durable messages for the specified conversation,\
+        \ agent and tenant."
+      operationId: GetCognitiveAgentMessagesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: conversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentMessageDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentMessageDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get message count for a cognitive agent conversation
+      tags:
+      - CognitiveAgentMessages
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Conversations/{conversationId}/Messages/{id}:
+    get:
+      description: Retrieves a specific durable message of a conversation by its identifier.
+      operationId: GetCognitiveAgentMessageByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: conversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentMessageDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentMessageDtoEnvelope'
+          description: OK
+      summary: Get a cognitive agent conversation message by ID
+      tags:
+      - CognitiveAgentMessages
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents:
+    get:
+      description: Retrieves all managed cognitive agents for the specified tenant.
+      operationId: GetCognitiveAgentsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentDtoListEnvelope'
+          description: OK
+      summary: Get all cognitive agents
+      tags:
+      - CognitiveAgents
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new managed cognitive agent for the specified tenant.
+      operationId: CreateCognitiveAgentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a new cognitive agent
+      tags:
+      - CognitiveAgents
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/Count:
+    get:
+      description: Returns the count of managed cognitive agents for the specified
+        tenant.
+      operationId: GetCognitiveAgentsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get cognitive agents count
+      tags:
+      - CognitiveAgents
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{id}:
+    delete:
+      description: Deletes a managed cognitive agent for the specified tenant.
+      operationId: DeleteCognitiveAgentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a cognitive agent
+      tags:
+      - CognitiveAgents
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific managed cognitive agent by its identifier.
+      operationId: GetCognitiveAgentByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentDtoEnvelope'
+          description: OK
+      summary: Get cognitive agent by ID
+      tags:
+      - CognitiveAgents
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing managed cognitive agent for the specified tenant.
+      operationId: UpdateCognitiveAgentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a cognitive agent
+      tags:
+      - CognitiveAgents
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Skills:
+    get:
+      description: Retrieves all skill assignments for the specified cognitive agent
+        and tenant.
+      operationId: GetCognitiveAgentSkillsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentSkillDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentSkillDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentSkillDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentSkillDtoListEnvelope'
+          description: OK
+      summary: Get all skill assignments for a cognitive agent
+      tags:
+      - CognitiveAgentSkills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Assigns a reusable catalog skill to the specified cognitive agent
+        and tenant.
+      operationId: CreateCognitiveAgentSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentSkillCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentSkillCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Assign a skill to a cognitive agent
+      tags:
+      - CognitiveAgentSkills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Skills/Count:
+    get:
+      description: Returns the count of skill assignments for the specified cognitive
+        agent and tenant.
+      operationId: GetCognitiveAgentSkillsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentSkillDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentSkillDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get skill assignment count for a cognitive agent
+      tags:
+      - CognitiveAgentSkills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Skills/{id}:
+    delete:
+      description: Removes a skill assignment from the specified cognitive agent and
+        tenant.
+      operationId: DeleteCognitiveAgentSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Remove a skill assignment from a cognitive agent
+      tags:
+      - CognitiveAgentSkills
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific skill assignment of a cognitive agent by its
+        identifier.
+      operationId: GetCognitiveAgentSkillByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentSkillDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentSkillDtoEnvelope'
+          description: OK
+      summary: Get a cognitive agent skill assignment by ID
+      tags:
+      - CognitiveAgentSkills
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates the per-assignment overrides of a skill assignment for
+        the specified agent and tenant.
+      operationId: UpdateCognitiveAgentSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentSkillUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentSkillUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a cognitive agent skill assignment
+      tags:
+      - CognitiveAgentSkills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Variables:
+    get:
+      description: Retrieves all key/value variables for the specified cognitive agent
+        and tenant.
+      operationId: GetCognitiveAgentVariablesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentVariableDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentVariableDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentVariableDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentVariableDtoListEnvelope'
+          description: OK
+      summary: Get all variables for a cognitive agent
+      tags:
+      - CognitiveAgentVariables
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Adds a key/value variable to the specified cognitive agent and
+        tenant.
+      operationId: CreateCognitiveAgentVariableAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentVariableCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentVariableCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Add a variable to a cognitive agent
+      tags:
+      - CognitiveAgentVariables
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Variables/Count:
+    get:
+      description: Returns the count of variables for the specified cognitive agent
+        and tenant.
+      operationId: GetCognitiveAgentVariablesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentVariableDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentVariableDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get variable count for a cognitive agent
+      tags:
+      - CognitiveAgentVariables
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveAgents/{agentId}/Variables/{id}:
+    delete:
+      description: Removes a variable from the specified cognitive agent and tenant.
+      operationId: DeleteCognitiveAgentVariableAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Remove a variable from a cognitive agent
+      tags:
+      - CognitiveAgentVariables
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific variable of a cognitive agent by its identifier.
+      operationId: GetCognitiveAgentVariableByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentVariableDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveAgentVariableDtoEnvelope'
+          description: OK
+      summary: Get a cognitive agent variable by ID
+      tags:
+      - CognitiveAgentVariables
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates the value of a variable for the specified agent and tenant.
+      operationId: UpdateCognitiveAgentVariableAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentVariableUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveAgentVariableUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a cognitive agent variable
+      tags:
+      - CognitiveAgentVariables
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveSkills:
+    get:
+      description: Retrieves all reusable cognitive skills for the specified tenant.
+      operationId: GetCognitiveSkillsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveSkillDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveSkillDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveSkillDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveSkillDtoListEnvelope'
+          description: OK
+      summary: Get all cognitive skills
+      tags:
+      - CognitiveSkills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new reusable cognitive skill for the specified tenant.
+      operationId: CreateCognitiveSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveSkillCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveSkillCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a new cognitive skill
+      tags:
+      - CognitiveSkills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveSkills/Count:
+    get:
+      description: Returns the count of reusable cognitive skills for the specified
+        tenant.
+      operationId: GetCognitiveSkillsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveSkillDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveSkillDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get cognitive skills count
+      tags:
+      - CognitiveSkills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IntelligenceService/CognitiveSkills/{id}:
+    delete:
+      description: Deletes a reusable cognitive skill for the specified tenant.
+      operationId: DeleteCognitiveSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a cognitive skill
+      tags:
+      - CognitiveSkills
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific reusable cognitive skill by its identifier.
+      operationId: GetCognitiveSkillByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CognitiveSkillDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CognitiveSkillDtoEnvelope'
+          description: OK
+      summary: Get cognitive skill by ID
+      tags:
+      - CognitiveSkills
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing reusable cognitive skill for the specified
+        tenant.
+      operationId: UpdateCognitiveSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CognitiveSkillUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CognitiveSkillUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a cognitive skill
+      tags:
+      - CognitiveSkills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /Account/PerformExternalLogin:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              provider:
+                style: form
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_PerformExternalLogin_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              provider:
+                style: form
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_PerformExternalLogin_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /Account/Logout:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Logout_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Logout_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /Account/Manage/LinkExternalLogin:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              provider:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Manage_LinkExternalLogin_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              provider:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Manage_LinkExternalLogin_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /Account/Manage/DownloadPersonalData:
+    post:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
+  /api/v2/IntelligenceService/Agents/{agentId}/agui:
+    post:
+      description: "Streams a governed agent run as AG-UI server-sent events. Feature-flagged\
+        \ on ABP.Cognitive.AgentSurface.Enable; returns 503 when disabled, 401 when\
+        \ unauthorized and 404 when the agent cannot be resolved. An optional ?projectId=\
+        \ binds the run to a project (resolved tenant-scoped): the project id + name\
+        \ are surfaced to the model as context so it can call the governed project-storage\
+        \ tools; it is never auto-filled into a tool's arguments."
+      operationId: InvokeAgentSurfaceAsync
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Run a governed agent over the AG-UI protocol
+      tags:
+      - IntelligenceService
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
+    AiProviderDto:
+      additionalProperties: false
+      example:
+        providerKey: providerKey
+      properties:
+        providerKey:
+          nullable: true
+          type: string
+      type: object
+    AiProviderDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - providerKey: providerKey
+        - providerKey: providerKey
+        activityId: activityId
+        httpStatus: 6
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/AiProviderDto'
+          nullable: true
+          type: array
+      type: object
+    CapabilityDto:
+      additionalProperties: false
+      example:
+        outputSchema:
+          key: outputSchema
+        inputSchema:
+          key: inputSchema
+        available: true
+        description: description
+        version: version
+        deniedReason: deniedReason
+        requiredInputs:
+        - requiredInputs
+        - requiredInputs
+        risks:
+        - risks
+        - risks
+        isOutputCollection: true
+        requiredPermission: requiredPermission
+        surfaces:
+        - surfaces
+        - surfaces
+        effect: effect
+        name: name
+        id: id
+        category: category
+        key: key
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        key:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        category:
+          nullable: true
+          type: string
+        effect:
+          nullable: true
+          type: string
+        risks:
+          items:
+            type: string
+          nullable: true
+          type: array
+        surfaces:
+          items:
+            type: string
+          nullable: true
+          type: array
+        requiredPermission:
+          nullable: true
+          type: string
+        available:
+          type: boolean
+        deniedReason:
+          nullable: true
+          type: string
+        version:
+          nullable: true
+          type: string
+        inputSchema:
+          additionalProperties:
+            nullable: true
+            type: string
+          nullable: true
+          type: object
+        outputSchema:
+          additionalProperties:
+            nullable: true
+            type: string
+          nullable: true
+          type: object
+        isOutputCollection:
+          type: boolean
+        requiredInputs:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    CapabilityDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          outputSchema:
+            key: outputSchema
+          inputSchema:
+            key: inputSchema
+          available: true
+          description: description
+          version: version
+          deniedReason: deniedReason
+          requiredInputs:
+          - requiredInputs
+          - requiredInputs
+          risks:
+          - risks
+          - risks
+          isOutputCollection: true
+          requiredPermission: requiredPermission
+          surfaces:
+          - surfaces
+          - surfaces
+          effect: effect
+          name: name
+          id: id
+          category: category
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CapabilityDto'
+      type: object
+    CapabilityDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - outputSchema:
+            key: outputSchema
+          inputSchema:
+            key: inputSchema
+          available: true
+          description: description
+          version: version
+          deniedReason: deniedReason
+          requiredInputs:
+          - requiredInputs
+          - requiredInputs
+          risks:
+          - risks
+          - risks
+          isOutputCollection: true
+          requiredPermission: requiredPermission
+          surfaces:
+          - surfaces
+          - surfaces
+          effect: effect
+          name: name
+          id: id
+          category: category
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - outputSchema:
+            key: outputSchema
+          inputSchema:
+            key: inputSchema
+          available: true
+          description: description
+          version: version
+          deniedReason: deniedReason
+          requiredInputs:
+          - requiredInputs
+          - requiredInputs
+          risks:
+          - risks
+          - risks
+          isOutputCollection: true
+          requiredPermission: requiredPermission
+          surfaces:
+          - surfaces
+          - surfaces
+          effect: effect
+          name: name
+          id: id
+          category: category
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CapabilityDto'
+          nullable: true
+          type: array
+      type: object
+    CognitiveAgentConversationCreateDto:
+      additionalProperties: false
+      example:
+        organizationId: organizationId
+        accountHolderId: accountHolderId
+        current: true
+        conversationID: conversationID
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        state: state
+        individualId: individualId
+        channelID: channelID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        receiverBusinessId: receiverBusinessId
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        channelID:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        conversationID:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        state:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        current:
+          type: boolean
+        accountHolderId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverBusinessId:
+          nullable: true
+          type: string
+      type: object
+    CognitiveAgentConversationDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        accountHolderId: accountHolderId
+        conversationID: conversationID
+        claimed: true
+        cognitiveAgentId: cognitiveAgentId
+        individualId: individualId
+        title: title
+        receiverBusinessId: receiverBusinessId
+        organizationId: organizationId
+        activityID: activityID
+        current: true
+        activityFrom: activityFrom
+        tenantId: tenantId
+        lastActivity: 2000-01-23T04:56:07.000+00:00
+        id: id
+        state: state
+        channelID: channelID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        cognitiveAgentId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        claimed:
+          type: boolean
+        current:
+          type: boolean
+        channelID:
+          nullable: true
+          type: string
+        conversationID:
+          nullable: true
+          type: string
+        activityID:
+          nullable: true
+          type: string
+        activityFrom:
+          nullable: true
+          type: string
+        state:
+          nullable: true
+          type: string
+        lastActivity:
+          format: date-time
+          type: string
+        accountHolderId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverBusinessId:
+          nullable: true
+          type: string
+      type: object
+    CognitiveAgentConversationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    CognitiveAgentConversationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          accountHolderId: accountHolderId
+          conversationID: conversationID
+          claimed: true
+          cognitiveAgentId: cognitiveAgentId
+          individualId: individualId
+          title: title
+          receiverBusinessId: receiverBusinessId
+          organizationId: organizationId
+          activityID: activityID
+          current: true
+          activityFrom: activityFrom
+          tenantId: tenantId
+          lastActivity: 2000-01-23T04:56:07.000+00:00
+          id: id
+          state: state
+          channelID: channelID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CognitiveAgentConversationDto'
+      type: object
+    CognitiveAgentConversationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          accountHolderId: accountHolderId
+          conversationID: conversationID
+          claimed: true
+          cognitiveAgentId: cognitiveAgentId
+          individualId: individualId
+          title: title
+          receiverBusinessId: receiverBusinessId
+          organizationId: organizationId
+          activityID: activityID
+          current: true
+          activityFrom: activityFrom
+          tenantId: tenantId
+          lastActivity: 2000-01-23T04:56:07.000+00:00
+          id: id
+          state: state
+          channelID: channelID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          accountHolderId: accountHolderId
+          conversationID: conversationID
+          claimed: true
+          cognitiveAgentId: cognitiveAgentId
+          individualId: individualId
+          title: title
+          receiverBusinessId: receiverBusinessId
+          organizationId: organizationId
+          activityID: activityID
+          current: true
+          activityFrom: activityFrom
+          tenantId: tenantId
+          lastActivity: 2000-01-23T04:56:07.000+00:00
+          id: id
+          state: state
+          channelID: channelID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CognitiveAgentConversationDto'
+          nullable: true
+          type: array
+      type: object
+    CognitiveAgentConversationUpdateDto:
+      additionalProperties: false
+      example:
+        organizationId: organizationId
+        accountHolderId: accountHolderId
+        current: true
+        conversationID: conversationID
+        claimed: true
+        state: state
+        individualId: individualId
+        channelID: channelID
+        receiverBusinessId: receiverBusinessId
+      properties:
+        channelID:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        conversationID:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        state:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        current:
+          type: boolean
+        claimed:
+          type: boolean
+        accountHolderId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverBusinessId:
+          nullable: true
+          type: string
+      type: object
+    CognitiveAgentCreateDto:
+      additionalProperties: false
+      example:
+        engineKey: engineKey
+        modelId: modelId
+        soul: soul
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        avatar: avatar
+        providerKey: providerKey
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        avatar:
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        soul:
+          nullable: true
+          type: string
+        providerKey:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        modelId:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        engineKey:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    CognitiveAgentDto:
+      additionalProperties: false
+      example:
+        engineKey: engineKey
+        enrollmentId: enrollmentId
+        modelId: modelId
+        soul: soul
+        name: name
+        tenantId: tenantId
+        description: description
+        id: id
+        avatar: avatar
+        providerKey: providerKey
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        avatar:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        soul:
+          nullable: true
+          type: string
+        providerKey:
+          nullable: true
+          type: string
+        modelId:
+          nullable: true
+          type: string
+        engineKey:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    CognitiveAgentDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    CognitiveAgentDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          engineKey: engineKey
+          enrollmentId: enrollmentId
+          modelId: modelId
+          soul: soul
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          avatar: avatar
+          providerKey: providerKey
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CognitiveAgentDto'
+      type: object
+    CognitiveAgentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - engineKey: engineKey
+          enrollmentId: enrollmentId
+          modelId: modelId
+          soul: soul
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          avatar: avatar
+          providerKey: providerKey
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - engineKey: engineKey
+          enrollmentId: enrollmentId
+          modelId: modelId
+          soul: soul
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          avatar: avatar
+          providerKey: providerKey
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CognitiveAgentDto'
+          nullable: true
+          type: array
+      type: object
+    CognitiveAgentMessageDto:
+      additionalProperties: false
+      example:
+        sequence: 6
+        enrollmentId: enrollmentId
+        role: role
+        metadataJson: metadataJson
+        cognitiveAgentConversationId: cognitiveAgentConversationId
+        tenantId: tenantId
+        cognitiveAgentId: cognitiveAgentId
+        id: id
+        creationDate: 2000-01-23T04:56:07.000+00:00
+        aiRunId: aiRunId
+        content: content
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        cognitiveAgentConversationId:
+          nullable: true
+          type: string
+        cognitiveAgentId:
+          nullable: true
+          type: string
+        role:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        sequence:
+          format: int32
+          type: integer
+        creationDate:
+          format: date-time
+          type: string
+        metadataJson:
+          nullable: true
+          type: string
+        aiRunId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    CognitiveAgentMessageDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    CognitiveAgentMessageDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          sequence: 6
+          enrollmentId: enrollmentId
+          role: role
+          metadataJson: metadataJson
+          cognitiveAgentConversationId: cognitiveAgentConversationId
+          tenantId: tenantId
+          cognitiveAgentId: cognitiveAgentId
+          id: id
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          aiRunId: aiRunId
+          content: content
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CognitiveAgentMessageDto'
+      type: object
+    CognitiveAgentMessageDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - sequence: 6
+          enrollmentId: enrollmentId
+          role: role
+          metadataJson: metadataJson
+          cognitiveAgentConversationId: cognitiveAgentConversationId
+          tenantId: tenantId
+          cognitiveAgentId: cognitiveAgentId
+          id: id
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          aiRunId: aiRunId
+          content: content
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - sequence: 6
+          enrollmentId: enrollmentId
+          role: role
+          metadataJson: metadataJson
+          cognitiveAgentConversationId: cognitiveAgentConversationId
+          tenantId: tenantId
+          cognitiveAgentId: cognitiveAgentId
+          id: id
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          aiRunId: aiRunId
+          content: content
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CognitiveAgentMessageDto'
+          nullable: true
+          type: array
+      type: object
+    CognitiveAgentSkillCreateDto:
+      additionalProperties: false
+      example:
+        configJson: configJson
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        cognitiveSkillId: cognitiveSkillId
+        enabled: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        cognitiveSkillId:
+          minLength: 1
+          type: string
+        enabled:
+          type: boolean
+        configJson:
+          nullable: true
+          type: string
+      required:
+      - cognitiveSkillId
+      type: object
+    CognitiveAgentSkillDto:
+      additionalProperties: false
+      example:
+        configJson: configJson
+        enrollmentId: enrollmentId
+        tenantId: tenantId
+        cognitiveAgentId: cognitiveAgentId
+        id: id
+        cognitiveSkillId: cognitiveSkillId
+        enabled: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        cognitiveAgentId:
+          nullable: true
+          type: string
+        cognitiveSkillId:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        configJson:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    CognitiveAgentSkillDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    CognitiveAgentSkillDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          configJson: configJson
+          enrollmentId: enrollmentId
+          tenantId: tenantId
+          cognitiveAgentId: cognitiveAgentId
+          id: id
+          cognitiveSkillId: cognitiveSkillId
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CognitiveAgentSkillDto'
+      type: object
+    CognitiveAgentSkillDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - configJson: configJson
+          enrollmentId: enrollmentId
+          tenantId: tenantId
+          cognitiveAgentId: cognitiveAgentId
+          id: id
+          cognitiveSkillId: cognitiveSkillId
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - configJson: configJson
+          enrollmentId: enrollmentId
+          tenantId: tenantId
+          cognitiveAgentId: cognitiveAgentId
+          id: id
+          cognitiveSkillId: cognitiveSkillId
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CognitiveAgentSkillDto'
+          nullable: true
+          type: array
+      type: object
+    CognitiveAgentSkillUpdateDto:
+      additionalProperties: false
+      example:
+        configJson: configJson
+        enabled: true
+      properties:
+        enabled:
+          type: boolean
+        configJson:
+          nullable: true
+          type: string
+      type: object
+    CognitiveAgentUpdateDto:
+      additionalProperties: false
+      example:
+        engineKey: engineKey
+        modelId: modelId
+        soul: soul
+        name: name
+        description: description
+        avatar: avatar
+        providerKey: providerKey
+      properties:
+        name:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        avatar:
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        soul:
+          nullable: true
+          type: string
+        providerKey:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        modelId:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        engineKey:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    CognitiveAgentVariableCreateDto:
+      additionalProperties: false
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
+        key: key
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        key:
+          maxLength: 255
+          minLength: 0
+          type: string
+        value:
+          nullable: true
+          type: string
+      required:
+      - key
+      type: object
+    CognitiveAgentVariableDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        tenantId: tenantId
+        cognitiveAgentId: cognitiveAgentId
+        id: id
+        value: value
+        key: key
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        cognitiveAgentId:
+          nullable: true
+          type: string
+        key:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    CognitiveAgentVariableDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    CognitiveAgentVariableDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          tenantId: tenantId
+          cognitiveAgentId: cognitiveAgentId
+          id: id
+          value: value
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CognitiveAgentVariableDto'
+      type: object
+    CognitiveAgentVariableDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
+          cognitiveAgentId: cognitiveAgentId
+          id: id
+          value: value
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
+          cognitiveAgentId: cognitiveAgentId
+          id: id
+          value: value
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CognitiveAgentVariableDto'
+          nullable: true
+          type: array
+      type: object
+    CognitiveAgentVariableUpdateDto:
+      additionalProperties: false
+      example:
+        value: value
+      properties:
+        value:
+          nullable: true
+          type: string
+      type: object
+    CognitiveSkillCreateDto:
+      additionalProperties: false
+      example:
+        configJson: configJson
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        toolKey: toolKey
+        tools:
+        - configJson: configJson
+          toolKey: toolKey
+          enabled: true
+        - configJson: configJson
+          toolKey: toolKey
+          enabled: true
+        enabled: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        toolKey:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        configJson:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        tools:
+          items:
+            $ref: '#/components/schemas/CognitiveSkillToolDto'
+          nullable: true
+          type: array
+      required:
+      - name
+      type: object
+    CognitiveSkillDto:
+      additionalProperties: false
+      example:
+        configJson: configJson
+        enrollmentId: enrollmentId
+        name: name
+        tenantId: tenantId
+        description: description
+        id: id
+        toolKey: toolKey
+        tools:
+        - configJson: configJson
+          toolKey: toolKey
+          enabled: true
+        - configJson: configJson
+          toolKey: toolKey
+          enabled: true
+        enabled: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        toolKey:
+          nullable: true
+          type: string
+        configJson:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        tools:
+          items:
+            $ref: '#/components/schemas/CognitiveSkillToolDto'
+          nullable: true
+          type: array
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    CognitiveSkillDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    CognitiveSkillDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          configJson: configJson
+          enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          toolKey: toolKey
+          tools:
+          - configJson: configJson
+            toolKey: toolKey
+            enabled: true
+          - configJson: configJson
+            toolKey: toolKey
+            enabled: true
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CognitiveSkillDto'
+      type: object
+    CognitiveSkillDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - configJson: configJson
+          enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          toolKey: toolKey
+          tools:
+          - configJson: configJson
+            toolKey: toolKey
+            enabled: true
+          - configJson: configJson
+            toolKey: toolKey
+            enabled: true
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - configJson: configJson
+          enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          toolKey: toolKey
+          tools:
+          - configJson: configJson
+            toolKey: toolKey
+            enabled: true
+          - configJson: configJson
+            toolKey: toolKey
+            enabled: true
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CognitiveSkillDto'
+          nullable: true
+          type: array
+      type: object
+    CognitiveSkillToolDto:
+      additionalProperties: false
+      example:
+        configJson: configJson
+        toolKey: toolKey
+        enabled: true
+      properties:
+        toolKey:
+          maxLength: 255
+          minLength: 0
+          type: string
+        configJson:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+      required:
+      - toolKey
+      type: object
+    CognitiveSkillUpdateDto:
+      additionalProperties: false
+      example:
+        configJson: configJson
+        name: name
+        description: description
+        toolKey: toolKey
+        tools:
+        - configJson: configJson
+          toolKey: toolKey
+          enabled: true
+        - configJson: configJson
+          toolKey: toolKey
+          enabled: true
+        enabled: true
+      properties:
+        name:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        toolKey:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        configJson:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        tools:
+          items:
+            $ref: '#/components/schemas/CognitiveSkillToolDto'
+          nullable: true
+          type: array
+      type: object
+    ConversationAttachmentUploadResultDto:
+      additionalProperties: false
+      example:
+        name: name
+        length: 6
+        contentType: contentType
+        fileId: fileId
+      properties:
+        fileId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        contentType:
+          nullable: true
+          type: string
+        length:
+          format: int64
+          type: integer
+      type: object
+    ConversationAttachmentUploadResultDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          name: name
+          length: 6
+          contentType: contentType
+          fileId: fileId
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ConversationAttachmentUploadResultDto'
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 6
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
+    UploadCognitiveAgentConversationAttachmentAsync_request:
+      properties:
+        file:
+          format: binary
+          type: string
+      type: object
+    _Account_PerformExternalLogin_post_request:
+      properties:
+        provider:
+          type: string
+        returnUrl:
+          type: string
+      type: object
+    _Account_Logout_post_request:
+      properties:
+        returnUrl:
+          type: string
+      type: object
+    _Account_Manage_LinkExternalLogin_post_request:
+      properties:
+        provider:
+          type: string
+      type: object
+

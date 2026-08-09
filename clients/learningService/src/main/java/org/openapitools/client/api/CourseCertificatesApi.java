@@ -35,7 +35,7 @@ import org.openapitools.client.model.CourseCompletionCertificateDto;
 import org.openapitools.client.model.CourseCompletionCertificateUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -1593,7 +1593,7 @@ public class CourseCertificatesApi {
      * @param courseCertificateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1604,7 +1604,7 @@ public class CourseCertificatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCourseCertificateAsyncCall(UUID tenantId, UUID courseCertificateId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchCourseCertificateAsyncCall(UUID tenantId, UUID courseCertificateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1618,7 +1618,7 @@ public class CourseCertificatesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/CourseCertificates/{courseCertificateId}"
@@ -1665,7 +1665,7 @@ public class CourseCertificatesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchCourseCertificateAsyncValidateBeforeCall(UUID tenantId, UUID courseCertificateId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchCourseCertificateAsyncValidateBeforeCall(UUID tenantId, UUID courseCertificateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchCourseCertificateAsync(Async)");
@@ -1676,7 +1676,7 @@ public class CourseCertificatesApi {
             throw new ApiException("Missing the required parameter 'courseCertificateId' when calling patchCourseCertificateAsync(Async)");
         }
 
-        return patchCourseCertificateAsyncCall(tenantId, courseCertificateId, apiVersion, xApiVersion, operation, _callback);
+        return patchCourseCertificateAsyncCall(tenantId, courseCertificateId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1687,7 +1687,7 @@ public class CourseCertificatesApi {
      * @param courseCertificateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1697,8 +1697,8 @@ public class CourseCertificatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchCourseCertificateAsync(UUID tenantId, UUID courseCertificateId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchCourseCertificateAsyncWithHttpInfo(tenantId, courseCertificateId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchCourseCertificateAsync(UUID tenantId, UUID courseCertificateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchCourseCertificateAsyncWithHttpInfo(tenantId, courseCertificateId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1709,7 +1709,7 @@ public class CourseCertificatesApi {
      * @param courseCertificateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1719,8 +1719,8 @@ public class CourseCertificatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchCourseCertificateAsyncWithHttpInfo(UUID tenantId, UUID courseCertificateId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchCourseCertificateAsyncValidateBeforeCall(tenantId, courseCertificateId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchCourseCertificateAsyncWithHttpInfo(UUID tenantId, UUID courseCertificateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchCourseCertificateAsyncValidateBeforeCall(tenantId, courseCertificateId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1732,7 +1732,7 @@ public class CourseCertificatesApi {
      * @param courseCertificateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1743,9 +1743,9 @@ public class CourseCertificatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCourseCertificateAsyncAsync(UUID tenantId, UUID courseCertificateId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchCourseCertificateAsyncAsync(UUID tenantId, UUID courseCertificateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchCourseCertificateAsyncValidateBeforeCall(tenantId, courseCertificateId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchCourseCertificateAsyncValidateBeforeCall(tenantId, courseCertificateId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1756,7 +1756,7 @@ public class CourseCertificatesApi {
      * @param courseCertificateTemplateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1767,7 +1767,7 @@ public class CourseCertificatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCourseCertificateTemplateAsyncCall(UUID tenantId, UUID courseCertificateTemplateId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchCourseCertificateTemplateAsyncCall(UUID tenantId, UUID courseCertificateTemplateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1781,7 +1781,7 @@ public class CourseCertificatesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId}"
@@ -1828,7 +1828,7 @@ public class CourseCertificatesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchCourseCertificateTemplateAsyncValidateBeforeCall(UUID tenantId, UUID courseCertificateTemplateId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchCourseCertificateTemplateAsyncValidateBeforeCall(UUID tenantId, UUID courseCertificateTemplateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchCourseCertificateTemplateAsync(Async)");
@@ -1839,7 +1839,7 @@ public class CourseCertificatesApi {
             throw new ApiException("Missing the required parameter 'courseCertificateTemplateId' when calling patchCourseCertificateTemplateAsync(Async)");
         }
 
-        return patchCourseCertificateTemplateAsyncCall(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, operation, _callback);
+        return patchCourseCertificateTemplateAsyncCall(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1850,7 +1850,7 @@ public class CourseCertificatesApi {
      * @param courseCertificateTemplateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1860,8 +1860,8 @@ public class CourseCertificatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchCourseCertificateTemplateAsync(UUID tenantId, UUID courseCertificateTemplateId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchCourseCertificateTemplateAsyncWithHttpInfo(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchCourseCertificateTemplateAsync(UUID tenantId, UUID courseCertificateTemplateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchCourseCertificateTemplateAsyncWithHttpInfo(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1872,7 +1872,7 @@ public class CourseCertificatesApi {
      * @param courseCertificateTemplateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1882,8 +1882,8 @@ public class CourseCertificatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchCourseCertificateTemplateAsyncWithHttpInfo(UUID tenantId, UUID courseCertificateTemplateId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchCourseCertificateTemplateAsyncValidateBeforeCall(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchCourseCertificateTemplateAsyncWithHttpInfo(UUID tenantId, UUID courseCertificateTemplateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchCourseCertificateTemplateAsyncValidateBeforeCall(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1895,7 +1895,7 @@ public class CourseCertificatesApi {
      * @param courseCertificateTemplateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1906,9 +1906,9 @@ public class CourseCertificatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCourseCertificateTemplateAsyncAsync(UUID tenantId, UUID courseCertificateTemplateId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchCourseCertificateTemplateAsyncAsync(UUID tenantId, UUID courseCertificateTemplateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchCourseCertificateTemplateAsyncValidateBeforeCall(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchCourseCertificateTemplateAsyncValidateBeforeCall(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

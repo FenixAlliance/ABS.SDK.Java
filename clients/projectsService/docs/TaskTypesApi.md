@@ -211,7 +211,7 @@ No authorization required
 
 <a id="patchTaskTypeAsync"></a>
 # **patchTaskTypeAsync**
-> EmptyEnvelope patchTaskTypeAsync(taskTypeId, tenantId, operation)
+> EmptyEnvelope patchTaskTypeAsync(taskTypeId, tenantId, patchOperation)
 
 Patches a task type
 
@@ -234,9 +234,9 @@ public class Example {
     TaskTypesApi apiInstance = new TaskTypesApi(defaultClient);
     UUID taskTypeId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTaskTypeAsync(taskTypeId, tenantId, operation);
+      EmptyEnvelope result = apiInstance.patchTaskTypeAsync(taskTypeId, tenantId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaskTypesApi#patchTaskTypeAsync");
@@ -255,7 +255,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **taskTypeId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

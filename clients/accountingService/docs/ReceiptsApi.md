@@ -207,7 +207,7 @@ No authorization required
 
 <a id="getReceiptsAsync"></a>
 # **getReceiptsAsync**
-> ReceiptDtoIReadOnlyListEnvelope getReceiptsAsync(tenantId)
+> ReceiptDtoIReadOnlyListEnvelope getReceiptsAsync(tenantId, receiptDtoCollectionQueryParameters)
 
 Retrieves tenant receipts
 
@@ -229,8 +229,9 @@ public class Example {
 
     ReceiptsApi apiInstance = new ReceiptsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters = new ReceiptDtoCollectionQueryParameters(); // ReceiptDtoCollectionQueryParameters | 
     try {
-      ReceiptDtoIReadOnlyListEnvelope result = apiInstance.getReceiptsAsync(tenantId);
+      ReceiptDtoIReadOnlyListEnvelope result = apiInstance.getReceiptsAsync(tenantId, receiptDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReceiptsApi#getReceiptsAsync");
@@ -248,6 +249,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **receiptDtoCollectionQueryParameters** | [**ReceiptDtoCollectionQueryParameters**](ReceiptDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -259,7 +261,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -269,7 +271,7 @@ No authorization required
 
 <a id="getReceiptsCountAsync"></a>
 # **getReceiptsCountAsync**
-> Int32Envelope getReceiptsCountAsync(tenantId)
+> Int32Envelope getReceiptsCountAsync(tenantId, receiptDtoCollectionQueryParameters)
 
 Gets count of tenant receipts
 
@@ -291,8 +293,9 @@ public class Example {
 
     ReceiptsApi apiInstance = new ReceiptsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters = new ReceiptDtoCollectionQueryParameters(); // ReceiptDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getReceiptsCountAsync(tenantId);
+      Int32Envelope result = apiInstance.getReceiptsCountAsync(tenantId, receiptDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReceiptsApi#getReceiptsCountAsync");
@@ -310,6 +313,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **receiptDtoCollectionQueryParameters** | [**ReceiptDtoCollectionQueryParameters**](ReceiptDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -321,7 +325,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -331,7 +335,7 @@ No authorization required
 
 <a id="patchReceiptAsync"></a>
 # **patchReceiptAsync**
-> EmptyEnvelope patchReceiptAsync(tenantId, receiptId, operation)
+> EmptyEnvelope patchReceiptAsync(tenantId, receiptId, patchOperation)
 
 Patches a receipt
 
@@ -354,9 +358,9 @@ public class Example {
     ReceiptsApi apiInstance = new ReceiptsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID receiptId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchReceiptAsync(tenantId, receiptId, operation);
+      EmptyEnvelope result = apiInstance.patchReceiptAsync(tenantId, receiptId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReceiptsApi#patchReceiptAsync");
@@ -375,7 +379,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **receiptId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

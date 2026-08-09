@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.StoreCreateDto;
+import org.openapitools.client.model.StoreDtoCollectionQueryParameters;
 import org.openapitools.client.model.StoreDtoEnvelope;
 import org.openapitools.client.model.StoreDtoListEnvelope;
 import org.openapitools.client.model.StoreUpdateDto;
@@ -83,6 +84,7 @@ public class StoresApi {
     /**
      * Build call for countStoresAsync
      * @param tenantId  (required)
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -93,7 +95,7 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countStoresAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countStoresAsyncCall(UUID tenantId, StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,7 +109,7 @@ public class StoresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = storeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/Stores/Count";
@@ -132,6 +134,8 @@ public class StoresApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -143,13 +147,13 @@ public class StoresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countStoresAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countStoresAsyncValidateBeforeCall(UUID tenantId, StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countStoresAsync(Async)");
         }
 
-        return countStoresAsyncCall(tenantId, _callback);
+        return countStoresAsyncCall(tenantId, storeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -157,6 +161,7 @@ public class StoresApi {
      * Get stores count
      * Returns the total count of stores for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -166,8 +171,8 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countStoresAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countStoresAsyncWithHttpInfo(tenantId);
+    public Int32Envelope countStoresAsync(UUID tenantId, StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countStoresAsyncWithHttpInfo(tenantId, storeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -175,6 +180,7 @@ public class StoresApi {
      * Get stores count
      * Returns the total count of stores for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -184,8 +190,8 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countStoresAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = countStoresAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> countStoresAsyncWithHttpInfo(UUID tenantId, StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countStoresAsyncValidateBeforeCall(tenantId, storeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -194,6 +200,7 @@ public class StoresApi {
      * Get stores count (asynchronously)
      * Returns the total count of stores for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -204,9 +211,9 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countStoresAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countStoresAsyncAsync(UUID tenantId, StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countStoresAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = countStoresAsyncValidateBeforeCall(tenantId, storeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -633,6 +640,7 @@ public class StoresApi {
     /**
      * Build call for getStoresAsync
      * @param tenantId  (required)
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -643,7 +651,7 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getStoresAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getStoresAsyncCall(UUID tenantId, StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -657,7 +665,7 @@ public class StoresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = storeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/Stores";
@@ -682,6 +690,8 @@ public class StoresApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -693,13 +703,13 @@ public class StoresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getStoresAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getStoresAsyncValidateBeforeCall(UUID tenantId, StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getStoresAsync(Async)");
         }
 
-        return getStoresAsyncCall(tenantId, _callback);
+        return getStoresAsyncCall(tenantId, storeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -707,6 +717,7 @@ public class StoresApi {
      * Get stores
      * Retrieves a list of stores for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @return StoreDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -716,8 +727,8 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public StoreDtoListEnvelope getStoresAsync(UUID tenantId) throws ApiException {
-        ApiResponse<StoreDtoListEnvelope> localVarResp = getStoresAsyncWithHttpInfo(tenantId);
+    public StoreDtoListEnvelope getStoresAsync(UUID tenantId, StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<StoreDtoListEnvelope> localVarResp = getStoresAsyncWithHttpInfo(tenantId, storeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -725,6 +736,7 @@ public class StoresApi {
      * Get stores
      * Retrieves a list of stores for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;StoreDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -734,8 +746,8 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<StoreDtoListEnvelope> getStoresAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getStoresAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<StoreDtoListEnvelope> getStoresAsyncWithHttpInfo(UUID tenantId, StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getStoresAsyncValidateBeforeCall(tenantId, storeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<StoreDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -744,6 +756,7 @@ public class StoresApi {
      * Get stores (asynchronously)
      * Retrieves a list of stores for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param storeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -754,9 +767,9 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getStoresAsyncAsync(UUID tenantId, final ApiCallback<StoreDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getStoresAsyncAsync(UUID tenantId, StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters, final ApiCallback<StoreDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getStoresAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getStoresAsyncValidateBeforeCall(tenantId, storeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<StoreDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -765,7 +778,7 @@ public class StoresApi {
      * Build call for patchStoreAsync
      * @param tenantId  (required)
      * @param storeId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -776,7 +789,7 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchStoreAsyncCall(UUID tenantId, UUID storeId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchStoreAsyncCall(UUID tenantId, UUID storeId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -790,7 +803,7 @@ public class StoresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/Stores/{storeId}"
@@ -829,7 +842,7 @@ public class StoresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchStoreAsyncValidateBeforeCall(UUID tenantId, UUID storeId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchStoreAsyncValidateBeforeCall(UUID tenantId, UUID storeId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchStoreAsync(Async)");
@@ -840,7 +853,7 @@ public class StoresApi {
             throw new ApiException("Missing the required parameter 'storeId' when calling patchStoreAsync(Async)");
         }
 
-        return patchStoreAsyncCall(tenantId, storeId, operation, _callback);
+        return patchStoreAsyncCall(tenantId, storeId, patchOperation, _callback);
 
     }
 
@@ -849,7 +862,7 @@ public class StoresApi {
      * Partially updates an existing store using a JSON Patch document.
      * @param tenantId  (required)
      * @param storeId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -859,8 +872,8 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchStoreAsync(UUID tenantId, UUID storeId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchStoreAsyncWithHttpInfo(tenantId, storeId, operation);
+    public EmptyEnvelope patchStoreAsync(UUID tenantId, UUID storeId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchStoreAsyncWithHttpInfo(tenantId, storeId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -869,7 +882,7 @@ public class StoresApi {
      * Partially updates an existing store using a JSON Patch document.
      * @param tenantId  (required)
      * @param storeId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -879,8 +892,8 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchStoreAsyncWithHttpInfo(UUID tenantId, UUID storeId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchStoreAsyncValidateBeforeCall(tenantId, storeId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchStoreAsyncWithHttpInfo(UUID tenantId, UUID storeId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchStoreAsyncValidateBeforeCall(tenantId, storeId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -890,7 +903,7 @@ public class StoresApi {
      * Partially updates an existing store using a JSON Patch document.
      * @param tenantId  (required)
      * @param storeId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -901,9 +914,9 @@ public class StoresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchStoreAsyncAsync(UUID tenantId, UUID storeId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchStoreAsyncAsync(UUID tenantId, UUID storeId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchStoreAsyncValidateBeforeCall(tenantId, storeId, operation, _callback);
+        okhttp3.Call localVarCall = patchStoreAsyncValidateBeforeCall(tenantId, storeId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

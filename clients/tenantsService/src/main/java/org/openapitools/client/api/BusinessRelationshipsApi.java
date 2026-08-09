@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.BusinessRelationshipCreateDto;
+import org.openapitools.client.model.BusinessRelationshipDtoCollectionQueryParameters;
 import org.openapitools.client.model.BusinessRelationshipDtoEnvelope;
 import org.openapitools.client.model.BusinessRelationshipDtoListEnvelope;
 import org.openapitools.client.model.BusinessRelationshipUpdateDto;
@@ -580,6 +581,7 @@ public class BusinessRelationshipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -592,7 +594,7 @@ public class BusinessRelationshipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessRelationshipsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBusinessRelationshipsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -606,7 +608,7 @@ public class BusinessRelationshipsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = businessRelationshipDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/BusinessRelationships";
@@ -639,6 +641,8 @@ public class BusinessRelationshipsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -650,13 +654,13 @@ public class BusinessRelationshipsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBusinessRelationshipsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBusinessRelationshipsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBusinessRelationshipsAsync(Async)");
         }
 
-        return getBusinessRelationshipsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBusinessRelationshipsAsyncCall(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -666,6 +670,7 @@ public class BusinessRelationshipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @return BusinessRelationshipDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -677,8 +682,8 @@ public class BusinessRelationshipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BusinessRelationshipDtoListEnvelope getBusinessRelationshipsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BusinessRelationshipDtoListEnvelope> localVarResp = getBusinessRelationshipsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public BusinessRelationshipDtoListEnvelope getBusinessRelationshipsAsync(UUID tenantId, String apiVersion, String xApiVersion, BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BusinessRelationshipDtoListEnvelope> localVarResp = getBusinessRelationshipsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -688,6 +693,7 @@ public class BusinessRelationshipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BusinessRelationshipDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -699,8 +705,8 @@ public class BusinessRelationshipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BusinessRelationshipDtoListEnvelope> getBusinessRelationshipsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBusinessRelationshipsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<BusinessRelationshipDtoListEnvelope> getBusinessRelationshipsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessRelationshipsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BusinessRelationshipDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -711,6 +717,7 @@ public class BusinessRelationshipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -723,9 +730,9 @@ public class BusinessRelationshipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessRelationshipsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<BusinessRelationshipDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBusinessRelationshipsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters, final ApiCallback<BusinessRelationshipDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBusinessRelationshipsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBusinessRelationshipsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BusinessRelationshipDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -735,6 +742,7 @@ public class BusinessRelationshipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -746,7 +754,7 @@ public class BusinessRelationshipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessRelationshipsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBusinessRelationshipsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -760,7 +768,7 @@ public class BusinessRelationshipsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = businessRelationshipDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/BusinessRelationships/Count";
@@ -793,6 +801,8 @@ public class BusinessRelationshipsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -804,13 +814,13 @@ public class BusinessRelationshipsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBusinessRelationshipsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBusinessRelationshipsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBusinessRelationshipsCountAsync(Async)");
         }
 
-        return getBusinessRelationshipsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBusinessRelationshipsCountAsyncCall(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -820,6 +830,7 @@ public class BusinessRelationshipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -830,8 +841,8 @@ public class BusinessRelationshipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBusinessRelationshipsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBusinessRelationshipsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getBusinessRelationshipsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBusinessRelationshipsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -841,6 +852,7 @@ public class BusinessRelationshipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -851,8 +863,8 @@ public class BusinessRelationshipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBusinessRelationshipsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBusinessRelationshipsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBusinessRelationshipsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessRelationshipsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -863,6 +875,7 @@ public class BusinessRelationshipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessRelationshipDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -874,9 +887,9 @@ public class BusinessRelationshipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessRelationshipsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBusinessRelationshipsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBusinessRelationshipsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBusinessRelationshipsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

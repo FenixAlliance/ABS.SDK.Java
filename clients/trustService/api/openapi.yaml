@@ -54,23 +54,6 @@ paths:
       - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
   /hello:
     get:
       responses:
@@ -440,6 +423,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignatureDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SignatureDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -462,6 +453,7 @@ paths:
       summary: Get all signatures
       tags:
       - Signatures
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -492,6 +484,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignatureDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SignatureDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -514,6 +514,7 @@ paths:
       summary: Get signatures count
       tags:
       - Signatures
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -898,6 +899,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignedDocumentAttachmentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SignedDocumentAttachmentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -920,6 +929,7 @@ paths:
       summary: Get all signed document attachments
       tags:
       - SignedDocumentAttachments
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1014,6 +1024,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignedDocumentAttachmentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SignedDocumentAttachmentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1036,6 +1054,7 @@ paths:
       summary: Get signed document attachments count
       tags:
       - SignedDocumentAttachments
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1208,12 +1227,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1347,6 +1366,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignedDocumentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SignedDocumentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1369,6 +1396,7 @@ paths:
       summary: Get all signed documents
       tags:
       - SignedDocuments
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1461,6 +1489,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignedDocumentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SignedDocumentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1483,6 +1519,7 @@ paths:
       summary: Get signed documents count
       tags:
       - SignedDocuments
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1655,12 +1692,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2078,6 +2115,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningCertificateDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningCertificateDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2100,6 +2145,7 @@ paths:
       summary: Get all signing certificates
       tags:
       - SigningCertificates
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2192,6 +2238,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningCertificateDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningCertificateDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2214,6 +2268,7 @@ paths:
       summary: Get signing certificates count
       tags:
       - SigningCertificates
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2386,12 +2441,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2627,6 +2682,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrustSigningProviderDescriptorDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TrustSigningProviderDescriptorDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2649,6 +2712,7 @@ paths:
       summary: List signing providers
       tags:
       - SigningEngine
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2679,6 +2743,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrustSigningProviderDescriptorDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TrustSigningProviderDescriptorDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2701,6 +2773,7 @@ paths:
       summary: Count signing providers
       tags:
       - SigningEngine
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2802,6 +2875,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningLogDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningLogDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2824,6 +2905,7 @@ paths:
       summary: Get all signing logs
       tags:
       - SigningLogs
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2854,6 +2936,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningLogDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningLogDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2876,6 +2966,7 @@ paths:
       summary: Get signing logs count
       tags:
       - SigningLogs
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2974,6 +3065,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningParticipantDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningParticipantDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2996,6 +3095,7 @@ paths:
       summary: Get all signing participants
       tags:
       - SigningParticipants
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3025,6 +3125,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningParticipantDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningParticipantDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -3038,6 +3146,7 @@ paths:
       summary: Get signing participants count
       tags:
       - SigningParticipants
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3228,6 +3337,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningProfileGraphicalRepresentationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningProfileGraphicalRepresentationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3250,6 +3367,7 @@ paths:
       summary: Get all signature representations
       tags:
       - SigningProfileGraphicalRepresentations
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3344,6 +3462,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningProfileGraphicalRepresentationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningProfileGraphicalRepresentationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3366,6 +3492,7 @@ paths:
       summary: Get signature representations count
       tags:
       - SigningProfileGraphicalRepresentations
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3538,12 +3665,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3678,6 +3805,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3700,6 +3835,7 @@ paths:
       summary: Get all signing profiles
       tags:
       - SigningProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3793,6 +3929,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3815,6 +3959,7 @@ paths:
       summary: Get signing profiles count
       tags:
       - SigningProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3987,12 +4132,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -4125,6 +4270,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningRequestDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4147,6 +4300,7 @@ paths:
       summary: Get all signing requests
       tags:
       - SigningRequests
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4176,6 +4330,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigningRequestDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigningRequestDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4198,6 +4360,7 @@ paths:
       summary: Get signing requests count
       tags:
       - SigningRequests
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4862,8 +5025,14 @@ components:
       example:
         result: true
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4880,6 +5049,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5403,8 +5587,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5421,6 +5611,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5430,8 +5635,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5448,6 +5659,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5576,10 +5802,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5596,6 +5828,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -5628,30 +5875,18 @@ components:
       - email
       - password
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:
@@ -5908,6 +6143,48 @@ components:
           nullable: true
           type: string
       type: object
+    SignatureDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SignatureDtoListEnvelope:
       additionalProperties: false
       example:
@@ -5967,8 +6244,14 @@ components:
           signatureImage: signatureImage
           tenantId: tenantId
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5985,6 +6268,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6107,7 +6405,7 @@ components:
         mutability: Editable
         signedDocumentTitle: signedDocumentTitle
         contentType: contentType
-        fileLength: 0
+        fileLength: 6
         hash: hash
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6185,6 +6483,48 @@ components:
           nullable: true
           type: string
       type: object
+    SignedDocumentAttachmentDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SignedDocumentAttachmentDtoListEnvelope:
       additionalProperties: false
       example:
@@ -6204,7 +6544,7 @@ components:
           mutability: Editable
           signedDocumentTitle: signedDocumentTitle
           contentType: contentType
-          fileLength: 0
+          fileLength: 6
           hash: hash
           timestamp: 2000-01-23T04:56:07.000+00:00
         - fileUploadUrl: fileUploadUrl
@@ -6222,12 +6562,18 @@ components:
           mutability: Editable
           signedDocumentTitle: signedDocumentTitle
           contentType: contentType
-          fileLength: 0
+          fileLength: 6
           hash: hash
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6244,6 +6590,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6360,7 +6721,7 @@ components:
         frozenSourceFileUploadId: frozenSourceFileUploadId
         lockState: Draft
         sourceSha256: sourceSha256
-        fileLengthInBits: 0
+        fileLengthInBits: 6
         graphicalRepresentationGeneratedAtUtc: 2000-01-23T04:56:07.000+00:00
         correlationId: correlationId
         id: id
@@ -6537,6 +6898,48 @@ components:
           nullable: true
           type: string
       type: object
+    SignedDocumentDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SignedDocumentDtoListEnvelope:
       additionalProperties: false
       example:
@@ -6550,7 +6953,7 @@ components:
           frozenSourceFileUploadId: frozenSourceFileUploadId
           lockState: Draft
           sourceSha256: sourceSha256
-          fileLengthInBits: 0
+          fileLengthInBits: 6
           graphicalRepresentationGeneratedAtUtc: 2000-01-23T04:56:07.000+00:00
           correlationId: correlationId
           id: id
@@ -6586,7 +6989,7 @@ components:
           frozenSourceFileUploadId: frozenSourceFileUploadId
           lockState: Draft
           sourceSha256: sourceSha256
-          fileLengthInBits: 0
+          fileLengthInBits: 6
           graphicalRepresentationGeneratedAtUtc: 2000-01-23T04:56:07.000+00:00
           correlationId: correlationId
           id: id
@@ -6614,8 +7017,14 @@ components:
           tenantId: tenantId
           signedSha256: signedSha256
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6632,6 +7041,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6774,7 +7198,7 @@ components:
         userId: userId
         url: url
         notBeforeUtc: 2000-01-23T04:56:07.000+00:00
-        fileLengthInBits: 0
+        fileLengthInBits: 6
         tenantId: tenantId
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6865,6 +7289,48 @@ components:
           nullable: true
           type: string
       type: object
+    SigningCertificateDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SigningCertificateDtoListEnvelope:
       additionalProperties: false
       example:
@@ -6885,7 +7351,7 @@ components:
           userId: userId
           url: url
           notBeforeUtc: 2000-01-23T04:56:07.000+00:00
-          fileLengthInBits: 0
+          fileLengthInBits: 6
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6908,7 +7374,7 @@ components:
           userId: userId
           url: url
           notBeforeUtc: 2000-01-23T04:56:07.000+00:00
-          fileLengthInBits: 0
+          fileLengthInBits: 6
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6916,8 +7382,14 @@ components:
           securityCertificateId: securityCertificateId
           subjectName: subjectName
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6934,6 +7406,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7155,6 +7642,48 @@ components:
           nullable: true
           type: string
       type: object
+    SigningLogDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SigningLogDtoListEnvelope:
       additionalProperties: false
       example:
@@ -7206,8 +7735,14 @@ components:
           providerName: providerName
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7224,6 +7759,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7249,7 +7799,7 @@ components:
         externalReference: externalReference
         viewedAtUtc: 2000-01-23T04:56:07.000+00:00
         tenantId: tenantId
-        routingOrder: 0
+        routingOrder: 6
         correlationId: correlationId
         id: id
         signedAtUtc: 2000-01-23T04:56:07.000+00:00
@@ -7332,6 +7882,48 @@ components:
           nullable: true
           type: string
       type: object
+    SigningParticipantDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SigningParticipantDtoListEnvelope:
       additionalProperties: false
       example:
@@ -7348,7 +7940,7 @@ components:
           externalReference: externalReference
           viewedAtUtc: 2000-01-23T04:56:07.000+00:00
           tenantId: tenantId
-          routingOrder: 0
+          routingOrder: 6
           correlationId: correlationId
           id: id
           signedAtUtc: 2000-01-23T04:56:07.000+00:00
@@ -7366,15 +7958,21 @@ components:
           externalReference: externalReference
           viewedAtUtc: 2000-01-23T04:56:07.000+00:00
           tenantId: tenantId
-          routingOrder: 0
+          routingOrder: 6
           correlationId: correlationId
           id: id
           signedAtUtc: 2000-01-23T04:56:07.000+00:00
           declineReason: declineReason
           status: Pending
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7391,6 +7989,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7871,6 +8484,48 @@ components:
           nullable: true
           type: string
       type: object
+    SigningProfileDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SigningProfileDtoListEnvelope:
       additionalProperties: false
       example:
@@ -8082,8 +8737,14 @@ components:
           tenantId: tenantId
           data7Label: data7Label
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8100,6 +8761,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8248,6 +8924,48 @@ components:
           nullable: true
           type: string
       type: object
+    SigningProfileGraphicalRepresentationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SigningProfileGraphicalRepresentationDtoListEnvelope:
       additionalProperties: false
       example:
@@ -8287,8 +9005,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           vectorDataJson: vectorDataJson
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8305,6 +9029,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8607,6 +9346,48 @@ components:
           nullable: true
           type: string
       type: object
+    SigningRequestDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SigningRequestDtoListEnvelope:
       additionalProperties: false
       example:
@@ -8646,8 +9427,14 @@ components:
           routingMode: Parallel
           status: Draft
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8664,6 +9451,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8679,7 +9481,7 @@ components:
       example:
         storageProviderKey: storageProviderKey
         sha256: sha256
-        length: 0
+        length: 6
         storageObjectId: storageObjectId
         mutability: mutability
         storageKey: storageKey
@@ -8714,14 +9516,20 @@ components:
         result:
           storageProviderKey: storageProviderKey
           sha256: sha256
-          length: 0
+          length: 6
           storageObjectId: storageObjectId
           mutability: mutability
           storageKey: storageKey
           contentType: contentType
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8738,6 +9546,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8769,6 +9592,48 @@ components:
           nullable: true
           type: string
       type: object
+    TrustSigningProviderDescriptorDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     TrustSigningProviderDescriptorDtoListEnvelope:
       additionalProperties: false
       example:
@@ -8784,8 +9649,14 @@ components:
           name: name
           description: description
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8802,6 +9673,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8933,8 +9819,14 @@ components:
           expectedSignaturePurpose: Unknown
           authorityProfile: authorityProfile
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8951,6 +9843,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

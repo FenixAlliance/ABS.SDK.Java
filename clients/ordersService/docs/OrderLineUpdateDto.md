@@ -90,7 +90,6 @@
 |**priceListItemId** | **String** |  |  [optional] |
 |**unitId** | **String** |  |  [optional] |
 |**unitGroupId** | **String** |  |  [optional] |
-|**forexRatesSnapshot** | **String** |  |  [optional] |
 |**totalBaseAmountInUsd** | **Double** |  |  [optional] |
 |**totalProfitInUsd** | **Double** |  |  [optional] |
 |**totalDetailAmountInUsd** | **Double** |  |  [optional] |

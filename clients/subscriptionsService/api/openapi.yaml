@@ -45,23 +45,6 @@ paths:
       - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
   /hello:
     get:
       responses:
@@ -431,6 +414,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -462,6 +453,7 @@ paths:
       summary: Get all subscription plans
       tags:
       - SubscriptionPlans
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -561,6 +553,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -592,6 +592,7 @@ paths:
       summary: Get subscription plans count
       tags:
       - SubscriptionPlans
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -771,12 +772,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -917,6 +918,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -948,6 +957,7 @@ paths:
       summary: Get all subscriptions
       tags:
       - Subscriptions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1047,6 +1057,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1078,6 +1096,7 @@ paths:
       summary: Get subscriptions count
       tags:
       - Subscriptions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1257,12 +1276,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1408,8 +1427,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1426,6 +1451,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1436,8 +1476,14 @@ components:
       example:
         result: result
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1454,6 +1500,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1466,8 +1527,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1484,6 +1551,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1562,10 +1644,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1582,6 +1670,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1614,30 +1717,18 @@ components:
       - email
       - password
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:
@@ -1768,6 +1859,48 @@ components:
           - Standard
           type: string
       type: object
+    SubscriptionDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SubscriptionDtoEnvelope:
       additionalProperties: false
       example:
@@ -1779,8 +1912,14 @@ components:
           individualId: individualId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1797,6 +1936,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1821,8 +1975,14 @@ components:
           individualId: individualId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1839,6 +1999,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2538,8 +2713,8 @@ components:
       additionalProperties: false
       example:
         trending: true
-        estimatedDefaultShippingTaxInUsd: 6.878052220127876
-        discountAmount: 1.4894159098541704
+        estimatedDefaultShippingTaxInUsd: 6.704019297950036
+        discountAmount: 7.457744773683766
         isProductOfTheWeek: true
         asiNs: asiNs
         byRequest: true
@@ -2557,7 +2732,7 @@ components:
         sku: sku
         currencyId: currencyId
         isDeadlineDiscount: true
-        height: 4.145608029883936
+        height: 1.2315135367772556
         supportedOperatingSystem: supportedOperatingSystem
         onDiscount: true
         images:
@@ -2571,7 +2746,7 @@ components:
         pageCoverBackgroundUrl: pageCoverBackgroundUrl
         isBestSeller: true
         displayOnBrandsMozaic: true
-        estimatedDefaultShippingCostInUsd: 5.944895607614016
+        estimatedDefaultShippingCostInUsd: 3.353193347011243
         unitGroupId: unitGroupId
         auctionStart: 2000-01-23T04:56:07.000+00:00
         selectedRefundPolicies:
@@ -2585,12 +2760,12 @@ components:
         itemTypeName: itemTypeName
         permalink: permalink
         isPercentageDiscount: true
-        packagedQuantity: 5
+        packagedQuantity: 2
         energyEfficiencyRating: energyEfficiencyRating
         primaryImageUrl: primaryImageUrl
-        recurrency: 2.3021358869347655
+        recurrency: 9.301444243932576
         displayShowcaseTab: true
-        estimatedProfitInUsd: 9.965781217890562
+        estimatedProfitInUsd: 6.683562403749608
         selectedCategories:
         - selectedCategories
         - selectedCategories
@@ -2599,36 +2774,36 @@ components:
         supplierCode: supplierCode
         hot: true
         displayOnGlobalMozaic: true
-        discountPercentage: 1.1730742509559433
+        discountPercentage: 5.025004791520295
         ean: ean
-        standardSubscriptionRelativeExpirationInDays: 3
+        standardSubscriptionRelativeExpirationInDays: 7
         hasVariations: true
-        trialSubscriptionRelativeExpirationInDays: 6
+        trialSubscriptionRelativeExpirationInDays: 3
         unitId: unitId
         ingredients: ingredients
         onSale: true
         nutritionFacts: nutritionFacts
         upCs: upCs
-        customTaxPercentage: 4.965218492984954
+        customTaxPercentage: 9.965781217890562
         timestamp: 2000-01-23T04:56:07.000+00:00
         isProductOfTheMonth: true
-        estimatedPaymentTaxInUsd: 9.018348186070783
+        estimatedPaymentTaxInUsd: 3.5571952270680973
         selectedAttributesOptions:
         - selectedAttributesOptions
         - selectedAttributesOptions
-        estimatedTotalPriceInUsd: 6.438423552598547
+        estimatedTotalPriceInUsd: 6.965117697638846
         auctionEnd: 2000-01-23T04:56:07.000+00:00
         manageInventory: true
-        questionsCount: 1
+        questionsCount: 5
         unspsc: unspsc
-        estimatedRegularPriceInUsd: 1.284659006116532
+        estimatedRegularPriceInUsd: 6.778324963048013
         lastFixedPricesUpdateDateTime: 2000-01-23T04:56:07.000+00:00
         preSale: true
         mozaicCoverUrl: mozaicCoverUrl
         deleted: true
         series: series
         tenantId: tenantId
-        width: 9.301444243932576
+        width: 2.027123023002322
         publishedDate: 2000-01-23T04:56:07.000+00:00
         tariffHeading: tariffHeading
         primaryGoogleCategoryId: primaryGoogleCategoryId
@@ -2637,12 +2812,12 @@ components:
         selectedBrands:
         - selectedBrands
         - selectedBrands
-        regularPrice: 7.386281948385884
+        regularPrice: 1.0246457001441578
         lowStock: true
         selectedGoogleCategories:
         - selectedGoogleCategories
         - selectedGoogleCategories
-        reviewsCount: 6
+        reviewsCount: 5
         features: features
         displayOnCategoryMozaic: true
         selectedShipmentPolicies:
@@ -2650,24 +2825,24 @@ components:
         - selectedShipmentPolicies
         parentItemId: parentItemId
         isFixedDiscount: true
-        estimatedDealSavingsInUsd: 6.965117697638846
+        estimatedDealSavingsInUsd: 2.8841621266687802
         barcode: barcode
         selectedPricingPolicies:
         - selectedPricingPolicies
         - selectedPricingPolicies
         isbNs: isbNs
-        customTaxAmount: 7.457744773683766
+        customTaxAmount: 4.965218492984954
         enrollmentId: enrollmentId
         brandName: brandName
         selectedTaxPolicies:
         - selectedTaxPolicies
         - selectedTaxPolicies
-        estimatedDiscountsInUsd: 6.683562403749608
+        estimatedDiscountsInUsd: 9.018348186070783
         selectedTypes:
         - selectedTypes
         - selectedTypes
-        viewsCount: 0
-        weight: 3.616076749251911
+        viewsCount: 1
+        weight: 4.145608029883936
         shortDescription: shortDescription
         published: true
         isDealersChoice: true
@@ -2681,8 +2856,8 @@ components:
         - selectedPricingRules
         - selectedPricingRules
         displayDescriptionEditor: true
-        estimatedTaxBasePriceInUsd: 2.8841621266687802
-        reviewsAvg: 5.637376656633329
+        estimatedTaxBasePriceInUsd: 6.878052220127876
+        reviewsAvg: 7.061401241503109
         longDescription: longDescription
         selectedSellingMarginPolicies:
         - selectedSellingMarginPolicies
@@ -2693,10 +2868,10 @@ components:
         - selectedReturnPolicies
         isbn: isbn
         part: part
-        discountPrice: 1.2315135367772556
+        discountPrice: 1.4894159098541704
         description: description
-        customTaxValue: 1.0246457001441578
-        estimatedTaxesInUsd: 5.025004791520295
+        customTaxValue: 6.84685269835264
+        estimatedTaxesInUsd: 9.369310271410669
         subscriptionsCertificateId: subscriptionsCertificateId
         title: title
         deadlineDiscountDueDate: 2000-01-23T04:56:07.000+00:00
@@ -2706,7 +2881,7 @@ components:
         customTaxDescription: customTaxDescription
         isDailyDeal: true
         isbN13: isbN13
-        estimatedWithholdingTaxesInUsd: 6.778324963048013
+        estimatedWithholdingTaxesInUsd: 5.944895607614016
         itemTypeId: itemTypeId
         operatingSystemSupported: operatingSystemSupported
         gtiNs: gtiNs
@@ -2717,21 +2892,21 @@ components:
         releaseDate: releaseDate
         primaryGoogleCategoryName: primaryGoogleCategoryName
         validPrimaryImage: true
-        estimatedSurchargesInUsd: 8.762042012749001
+        estimatedSurchargesInUsd: 6.438423552598547
         languageId: languageId
-        length: 2.027123023002322
+        length: 7.386281948385884
         isPerpetualSubscription: true
         shippingCountryId: shippingCountryId
         taxIncludedInPrice: true
         measurementUnit: measurementUnit
         discriminator: discriminator
         allowSubscriptionTrials: true
-        inCartQuantity: 6.84685269835264
+        inCartQuantity: 1.1730742509559433
         material: material
-        estimatedPaymentCostInUsd: 3.5571952270680973
-        currentStock: 7.061401241503109
+        estimatedPaymentCostInUsd: 1.284659006116532
+        currentStock: 3.616076749251911
         asin: asin
-        estimatedBasePriceInUsd: 9.369310271410669
+        estimatedBasePriceInUsd: 8.762042012749001
         mpNs: mpNs
         isOfficialChoice: true
         categoryId: categoryId
@@ -3270,8 +3445,8 @@ components:
       example:
         result:
           trending: true
-          estimatedDefaultShippingTaxInUsd: 6.878052220127876
-          discountAmount: 1.4894159098541704
+          estimatedDefaultShippingTaxInUsd: 6.704019297950036
+          discountAmount: 7.457744773683766
           isProductOfTheWeek: true
           asiNs: asiNs
           byRequest: true
@@ -3289,7 +3464,7 @@ components:
           sku: sku
           currencyId: currencyId
           isDeadlineDiscount: true
-          height: 4.145608029883936
+          height: 1.2315135367772556
           supportedOperatingSystem: supportedOperatingSystem
           onDiscount: true
           images:
@@ -3303,7 +3478,7 @@ components:
           pageCoverBackgroundUrl: pageCoverBackgroundUrl
           isBestSeller: true
           displayOnBrandsMozaic: true
-          estimatedDefaultShippingCostInUsd: 5.944895607614016
+          estimatedDefaultShippingCostInUsd: 3.353193347011243
           unitGroupId: unitGroupId
           auctionStart: 2000-01-23T04:56:07.000+00:00
           selectedRefundPolicies:
@@ -3317,12 +3492,12 @@ components:
           itemTypeName: itemTypeName
           permalink: permalink
           isPercentageDiscount: true
-          packagedQuantity: 5
+          packagedQuantity: 2
           energyEfficiencyRating: energyEfficiencyRating
           primaryImageUrl: primaryImageUrl
-          recurrency: 2.3021358869347655
+          recurrency: 9.301444243932576
           displayShowcaseTab: true
-          estimatedProfitInUsd: 9.965781217890562
+          estimatedProfitInUsd: 6.683562403749608
           selectedCategories:
           - selectedCategories
           - selectedCategories
@@ -3331,36 +3506,36 @@ components:
           supplierCode: supplierCode
           hot: true
           displayOnGlobalMozaic: true
-          discountPercentage: 1.1730742509559433
+          discountPercentage: 5.025004791520295
           ean: ean
-          standardSubscriptionRelativeExpirationInDays: 3
+          standardSubscriptionRelativeExpirationInDays: 7
           hasVariations: true
-          trialSubscriptionRelativeExpirationInDays: 6
+          trialSubscriptionRelativeExpirationInDays: 3
           unitId: unitId
           ingredients: ingredients
           onSale: true
           nutritionFacts: nutritionFacts
           upCs: upCs
-          customTaxPercentage: 4.965218492984954
+          customTaxPercentage: 9.965781217890562
           timestamp: 2000-01-23T04:56:07.000+00:00
           isProductOfTheMonth: true
-          estimatedPaymentTaxInUsd: 9.018348186070783
+          estimatedPaymentTaxInUsd: 3.5571952270680973
           selectedAttributesOptions:
           - selectedAttributesOptions
           - selectedAttributesOptions
-          estimatedTotalPriceInUsd: 6.438423552598547
+          estimatedTotalPriceInUsd: 6.965117697638846
           auctionEnd: 2000-01-23T04:56:07.000+00:00
           manageInventory: true
-          questionsCount: 1
+          questionsCount: 5
           unspsc: unspsc
-          estimatedRegularPriceInUsd: 1.284659006116532
+          estimatedRegularPriceInUsd: 6.778324963048013
           lastFixedPricesUpdateDateTime: 2000-01-23T04:56:07.000+00:00
           preSale: true
           mozaicCoverUrl: mozaicCoverUrl
           deleted: true
           series: series
           tenantId: tenantId
-          width: 9.301444243932576
+          width: 2.027123023002322
           publishedDate: 2000-01-23T04:56:07.000+00:00
           tariffHeading: tariffHeading
           primaryGoogleCategoryId: primaryGoogleCategoryId
@@ -3369,12 +3544,12 @@ components:
           selectedBrands:
           - selectedBrands
           - selectedBrands
-          regularPrice: 7.386281948385884
+          regularPrice: 1.0246457001441578
           lowStock: true
           selectedGoogleCategories:
           - selectedGoogleCategories
           - selectedGoogleCategories
-          reviewsCount: 6
+          reviewsCount: 5
           features: features
           displayOnCategoryMozaic: true
           selectedShipmentPolicies:
@@ -3382,24 +3557,24 @@ components:
           - selectedShipmentPolicies
           parentItemId: parentItemId
           isFixedDiscount: true
-          estimatedDealSavingsInUsd: 6.965117697638846
+          estimatedDealSavingsInUsd: 2.8841621266687802
           barcode: barcode
           selectedPricingPolicies:
           - selectedPricingPolicies
           - selectedPricingPolicies
           isbNs: isbNs
-          customTaxAmount: 7.457744773683766
+          customTaxAmount: 4.965218492984954
           enrollmentId: enrollmentId
           brandName: brandName
           selectedTaxPolicies:
           - selectedTaxPolicies
           - selectedTaxPolicies
-          estimatedDiscountsInUsd: 6.683562403749608
+          estimatedDiscountsInUsd: 9.018348186070783
           selectedTypes:
           - selectedTypes
           - selectedTypes
-          viewsCount: 0
-          weight: 3.616076749251911
+          viewsCount: 1
+          weight: 4.145608029883936
           shortDescription: shortDescription
           published: true
           isDealersChoice: true
@@ -3413,8 +3588,8 @@ components:
           - selectedPricingRules
           - selectedPricingRules
           displayDescriptionEditor: true
-          estimatedTaxBasePriceInUsd: 2.8841621266687802
-          reviewsAvg: 5.637376656633329
+          estimatedTaxBasePriceInUsd: 6.878052220127876
+          reviewsAvg: 7.061401241503109
           longDescription: longDescription
           selectedSellingMarginPolicies:
           - selectedSellingMarginPolicies
@@ -3425,10 +3600,10 @@ components:
           - selectedReturnPolicies
           isbn: isbn
           part: part
-          discountPrice: 1.2315135367772556
+          discountPrice: 1.4894159098541704
           description: description
-          customTaxValue: 1.0246457001441578
-          estimatedTaxesInUsd: 5.025004791520295
+          customTaxValue: 6.84685269835264
+          estimatedTaxesInUsd: 9.369310271410669
           subscriptionsCertificateId: subscriptionsCertificateId
           title: title
           deadlineDiscountDueDate: 2000-01-23T04:56:07.000+00:00
@@ -3438,7 +3613,7 @@ components:
           customTaxDescription: customTaxDescription
           isDailyDeal: true
           isbN13: isbN13
-          estimatedWithholdingTaxesInUsd: 6.778324963048013
+          estimatedWithholdingTaxesInUsd: 5.944895607614016
           itemTypeId: itemTypeId
           operatingSystemSupported: operatingSystemSupported
           gtiNs: gtiNs
@@ -3449,27 +3624,33 @@ components:
           releaseDate: releaseDate
           primaryGoogleCategoryName: primaryGoogleCategoryName
           validPrimaryImage: true
-          estimatedSurchargesInUsd: 8.762042012749001
+          estimatedSurchargesInUsd: 6.438423552598547
           languageId: languageId
-          length: 2.027123023002322
+          length: 7.386281948385884
           isPerpetualSubscription: true
           shippingCountryId: shippingCountryId
           taxIncludedInPrice: true
           measurementUnit: measurementUnit
           discriminator: discriminator
           allowSubscriptionTrials: true
-          inCartQuantity: 6.84685269835264
+          inCartQuantity: 1.1730742509559433
           material: material
-          estimatedPaymentCostInUsd: 3.5571952270680973
-          currentStock: 7.061401241503109
+          estimatedPaymentCostInUsd: 1.284659006116532
+          currentStock: 3.616076749251911
           asin: asin
-          estimatedBasePriceInUsd: 9.369310271410669
+          estimatedBasePriceInUsd: 8.762042012749001
           mpNs: mpNs
           isOfficialChoice: true
           categoryId: categoryId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3486,6 +3667,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -3498,8 +3694,8 @@ components:
       example:
         result:
         - trending: true
-          estimatedDefaultShippingTaxInUsd: 6.878052220127876
-          discountAmount: 1.4894159098541704
+          estimatedDefaultShippingTaxInUsd: 6.704019297950036
+          discountAmount: 7.457744773683766
           isProductOfTheWeek: true
           asiNs: asiNs
           byRequest: true
@@ -3517,7 +3713,7 @@ components:
           sku: sku
           currencyId: currencyId
           isDeadlineDiscount: true
-          height: 4.145608029883936
+          height: 1.2315135367772556
           supportedOperatingSystem: supportedOperatingSystem
           onDiscount: true
           images:
@@ -3531,7 +3727,7 @@ components:
           pageCoverBackgroundUrl: pageCoverBackgroundUrl
           isBestSeller: true
           displayOnBrandsMozaic: true
-          estimatedDefaultShippingCostInUsd: 5.944895607614016
+          estimatedDefaultShippingCostInUsd: 3.353193347011243
           unitGroupId: unitGroupId
           auctionStart: 2000-01-23T04:56:07.000+00:00
           selectedRefundPolicies:
@@ -3545,12 +3741,12 @@ components:
           itemTypeName: itemTypeName
           permalink: permalink
           isPercentageDiscount: true
-          packagedQuantity: 5
+          packagedQuantity: 2
           energyEfficiencyRating: energyEfficiencyRating
           primaryImageUrl: primaryImageUrl
-          recurrency: 2.3021358869347655
+          recurrency: 9.301444243932576
           displayShowcaseTab: true
-          estimatedProfitInUsd: 9.965781217890562
+          estimatedProfitInUsd: 6.683562403749608
           selectedCategories:
           - selectedCategories
           - selectedCategories
@@ -3559,36 +3755,36 @@ components:
           supplierCode: supplierCode
           hot: true
           displayOnGlobalMozaic: true
-          discountPercentage: 1.1730742509559433
+          discountPercentage: 5.025004791520295
           ean: ean
-          standardSubscriptionRelativeExpirationInDays: 3
+          standardSubscriptionRelativeExpirationInDays: 7
           hasVariations: true
-          trialSubscriptionRelativeExpirationInDays: 6
+          trialSubscriptionRelativeExpirationInDays: 3
           unitId: unitId
           ingredients: ingredients
           onSale: true
           nutritionFacts: nutritionFacts
           upCs: upCs
-          customTaxPercentage: 4.965218492984954
+          customTaxPercentage: 9.965781217890562
           timestamp: 2000-01-23T04:56:07.000+00:00
           isProductOfTheMonth: true
-          estimatedPaymentTaxInUsd: 9.018348186070783
+          estimatedPaymentTaxInUsd: 3.5571952270680973
           selectedAttributesOptions:
           - selectedAttributesOptions
           - selectedAttributesOptions
-          estimatedTotalPriceInUsd: 6.438423552598547
+          estimatedTotalPriceInUsd: 6.965117697638846
           auctionEnd: 2000-01-23T04:56:07.000+00:00
           manageInventory: true
-          questionsCount: 1
+          questionsCount: 5
           unspsc: unspsc
-          estimatedRegularPriceInUsd: 1.284659006116532
+          estimatedRegularPriceInUsd: 6.778324963048013
           lastFixedPricesUpdateDateTime: 2000-01-23T04:56:07.000+00:00
           preSale: true
           mozaicCoverUrl: mozaicCoverUrl
           deleted: true
           series: series
           tenantId: tenantId
-          width: 9.301444243932576
+          width: 2.027123023002322
           publishedDate: 2000-01-23T04:56:07.000+00:00
           tariffHeading: tariffHeading
           primaryGoogleCategoryId: primaryGoogleCategoryId
@@ -3597,12 +3793,12 @@ components:
           selectedBrands:
           - selectedBrands
           - selectedBrands
-          regularPrice: 7.386281948385884
+          regularPrice: 1.0246457001441578
           lowStock: true
           selectedGoogleCategories:
           - selectedGoogleCategories
           - selectedGoogleCategories
-          reviewsCount: 6
+          reviewsCount: 5
           features: features
           displayOnCategoryMozaic: true
           selectedShipmentPolicies:
@@ -3610,24 +3806,24 @@ components:
           - selectedShipmentPolicies
           parentItemId: parentItemId
           isFixedDiscount: true
-          estimatedDealSavingsInUsd: 6.965117697638846
+          estimatedDealSavingsInUsd: 2.8841621266687802
           barcode: barcode
           selectedPricingPolicies:
           - selectedPricingPolicies
           - selectedPricingPolicies
           isbNs: isbNs
-          customTaxAmount: 7.457744773683766
+          customTaxAmount: 4.965218492984954
           enrollmentId: enrollmentId
           brandName: brandName
           selectedTaxPolicies:
           - selectedTaxPolicies
           - selectedTaxPolicies
-          estimatedDiscountsInUsd: 6.683562403749608
+          estimatedDiscountsInUsd: 9.018348186070783
           selectedTypes:
           - selectedTypes
           - selectedTypes
-          viewsCount: 0
-          weight: 3.616076749251911
+          viewsCount: 1
+          weight: 4.145608029883936
           shortDescription: shortDescription
           published: true
           isDealersChoice: true
@@ -3641,8 +3837,8 @@ components:
           - selectedPricingRules
           - selectedPricingRules
           displayDescriptionEditor: true
-          estimatedTaxBasePriceInUsd: 2.8841621266687802
-          reviewsAvg: 5.637376656633329
+          estimatedTaxBasePriceInUsd: 6.878052220127876
+          reviewsAvg: 7.061401241503109
           longDescription: longDescription
           selectedSellingMarginPolicies:
           - selectedSellingMarginPolicies
@@ -3653,10 +3849,10 @@ components:
           - selectedReturnPolicies
           isbn: isbn
           part: part
-          discountPrice: 1.2315135367772556
+          discountPrice: 1.4894159098541704
           description: description
-          customTaxValue: 1.0246457001441578
-          estimatedTaxesInUsd: 5.025004791520295
+          customTaxValue: 6.84685269835264
+          estimatedTaxesInUsd: 9.369310271410669
           subscriptionsCertificateId: subscriptionsCertificateId
           title: title
           deadlineDiscountDueDate: 2000-01-23T04:56:07.000+00:00
@@ -3666,7 +3862,7 @@ components:
           customTaxDescription: customTaxDescription
           isDailyDeal: true
           isbN13: isbN13
-          estimatedWithholdingTaxesInUsd: 6.778324963048013
+          estimatedWithholdingTaxesInUsd: 5.944895607614016
           itemTypeId: itemTypeId
           operatingSystemSupported: operatingSystemSupported
           gtiNs: gtiNs
@@ -3677,27 +3873,27 @@ components:
           releaseDate: releaseDate
           primaryGoogleCategoryName: primaryGoogleCategoryName
           validPrimaryImage: true
-          estimatedSurchargesInUsd: 8.762042012749001
+          estimatedSurchargesInUsd: 6.438423552598547
           languageId: languageId
-          length: 2.027123023002322
+          length: 7.386281948385884
           isPerpetualSubscription: true
           shippingCountryId: shippingCountryId
           taxIncludedInPrice: true
           measurementUnit: measurementUnit
           discriminator: discriminator
           allowSubscriptionTrials: true
-          inCartQuantity: 6.84685269835264
+          inCartQuantity: 1.1730742509559433
           material: material
-          estimatedPaymentCostInUsd: 3.5571952270680973
-          currentStock: 7.061401241503109
+          estimatedPaymentCostInUsd: 1.284659006116532
+          currentStock: 3.616076749251911
           asin: asin
-          estimatedBasePriceInUsd: 9.369310271410669
+          estimatedBasePriceInUsd: 8.762042012749001
           mpNs: mpNs
           isOfficialChoice: true
           categoryId: categoryId
         - trending: true
-          estimatedDefaultShippingTaxInUsd: 6.878052220127876
-          discountAmount: 1.4894159098541704
+          estimatedDefaultShippingTaxInUsd: 6.704019297950036
+          discountAmount: 7.457744773683766
           isProductOfTheWeek: true
           asiNs: asiNs
           byRequest: true
@@ -3715,7 +3911,7 @@ components:
           sku: sku
           currencyId: currencyId
           isDeadlineDiscount: true
-          height: 4.145608029883936
+          height: 1.2315135367772556
           supportedOperatingSystem: supportedOperatingSystem
           onDiscount: true
           images:
@@ -3729,7 +3925,7 @@ components:
           pageCoverBackgroundUrl: pageCoverBackgroundUrl
           isBestSeller: true
           displayOnBrandsMozaic: true
-          estimatedDefaultShippingCostInUsd: 5.944895607614016
+          estimatedDefaultShippingCostInUsd: 3.353193347011243
           unitGroupId: unitGroupId
           auctionStart: 2000-01-23T04:56:07.000+00:00
           selectedRefundPolicies:
@@ -3743,12 +3939,12 @@ components:
           itemTypeName: itemTypeName
           permalink: permalink
           isPercentageDiscount: true
-          packagedQuantity: 5
+          packagedQuantity: 2
           energyEfficiencyRating: energyEfficiencyRating
           primaryImageUrl: primaryImageUrl
-          recurrency: 2.3021358869347655
+          recurrency: 9.301444243932576
           displayShowcaseTab: true
-          estimatedProfitInUsd: 9.965781217890562
+          estimatedProfitInUsd: 6.683562403749608
           selectedCategories:
           - selectedCategories
           - selectedCategories
@@ -3757,36 +3953,36 @@ components:
           supplierCode: supplierCode
           hot: true
           displayOnGlobalMozaic: true
-          discountPercentage: 1.1730742509559433
+          discountPercentage: 5.025004791520295
           ean: ean
-          standardSubscriptionRelativeExpirationInDays: 3
+          standardSubscriptionRelativeExpirationInDays: 7
           hasVariations: true
-          trialSubscriptionRelativeExpirationInDays: 6
+          trialSubscriptionRelativeExpirationInDays: 3
           unitId: unitId
           ingredients: ingredients
           onSale: true
           nutritionFacts: nutritionFacts
           upCs: upCs
-          customTaxPercentage: 4.965218492984954
+          customTaxPercentage: 9.965781217890562
           timestamp: 2000-01-23T04:56:07.000+00:00
           isProductOfTheMonth: true
-          estimatedPaymentTaxInUsd: 9.018348186070783
+          estimatedPaymentTaxInUsd: 3.5571952270680973
           selectedAttributesOptions:
           - selectedAttributesOptions
           - selectedAttributesOptions
-          estimatedTotalPriceInUsd: 6.438423552598547
+          estimatedTotalPriceInUsd: 6.965117697638846
           auctionEnd: 2000-01-23T04:56:07.000+00:00
           manageInventory: true
-          questionsCount: 1
+          questionsCount: 5
           unspsc: unspsc
-          estimatedRegularPriceInUsd: 1.284659006116532
+          estimatedRegularPriceInUsd: 6.778324963048013
           lastFixedPricesUpdateDateTime: 2000-01-23T04:56:07.000+00:00
           preSale: true
           mozaicCoverUrl: mozaicCoverUrl
           deleted: true
           series: series
           tenantId: tenantId
-          width: 9.301444243932576
+          width: 2.027123023002322
           publishedDate: 2000-01-23T04:56:07.000+00:00
           tariffHeading: tariffHeading
           primaryGoogleCategoryId: primaryGoogleCategoryId
@@ -3795,12 +3991,12 @@ components:
           selectedBrands:
           - selectedBrands
           - selectedBrands
-          regularPrice: 7.386281948385884
+          regularPrice: 1.0246457001441578
           lowStock: true
           selectedGoogleCategories:
           - selectedGoogleCategories
           - selectedGoogleCategories
-          reviewsCount: 6
+          reviewsCount: 5
           features: features
           displayOnCategoryMozaic: true
           selectedShipmentPolicies:
@@ -3808,24 +4004,24 @@ components:
           - selectedShipmentPolicies
           parentItemId: parentItemId
           isFixedDiscount: true
-          estimatedDealSavingsInUsd: 6.965117697638846
+          estimatedDealSavingsInUsd: 2.8841621266687802
           barcode: barcode
           selectedPricingPolicies:
           - selectedPricingPolicies
           - selectedPricingPolicies
           isbNs: isbNs
-          customTaxAmount: 7.457744773683766
+          customTaxAmount: 4.965218492984954
           enrollmentId: enrollmentId
           brandName: brandName
           selectedTaxPolicies:
           - selectedTaxPolicies
           - selectedTaxPolicies
-          estimatedDiscountsInUsd: 6.683562403749608
+          estimatedDiscountsInUsd: 9.018348186070783
           selectedTypes:
           - selectedTypes
           - selectedTypes
-          viewsCount: 0
-          weight: 3.616076749251911
+          viewsCount: 1
+          weight: 4.145608029883936
           shortDescription: shortDescription
           published: true
           isDealersChoice: true
@@ -3839,8 +4035,8 @@ components:
           - selectedPricingRules
           - selectedPricingRules
           displayDescriptionEditor: true
-          estimatedTaxBasePriceInUsd: 2.8841621266687802
-          reviewsAvg: 5.637376656633329
+          estimatedTaxBasePriceInUsd: 6.878052220127876
+          reviewsAvg: 7.061401241503109
           longDescription: longDescription
           selectedSellingMarginPolicies:
           - selectedSellingMarginPolicies
@@ -3851,10 +4047,10 @@ components:
           - selectedReturnPolicies
           isbn: isbn
           part: part
-          discountPrice: 1.2315135367772556
+          discountPrice: 1.4894159098541704
           description: description
-          customTaxValue: 1.0246457001441578
-          estimatedTaxesInUsd: 5.025004791520295
+          customTaxValue: 6.84685269835264
+          estimatedTaxesInUsd: 9.369310271410669
           subscriptionsCertificateId: subscriptionsCertificateId
           title: title
           deadlineDiscountDueDate: 2000-01-23T04:56:07.000+00:00
@@ -3864,7 +4060,7 @@ components:
           customTaxDescription: customTaxDescription
           isDailyDeal: true
           isbN13: isbN13
-          estimatedWithholdingTaxesInUsd: 6.778324963048013
+          estimatedWithholdingTaxesInUsd: 5.944895607614016
           itemTypeId: itemTypeId
           operatingSystemSupported: operatingSystemSupported
           gtiNs: gtiNs
@@ -3875,27 +4071,33 @@ components:
           releaseDate: releaseDate
           primaryGoogleCategoryName: primaryGoogleCategoryName
           validPrimaryImage: true
-          estimatedSurchargesInUsd: 8.762042012749001
+          estimatedSurchargesInUsd: 6.438423552598547
           languageId: languageId
-          length: 2.027123023002322
+          length: 7.386281948385884
           isPerpetualSubscription: true
           shippingCountryId: shippingCountryId
           taxIncludedInPrice: true
           measurementUnit: measurementUnit
           discriminator: discriminator
           allowSubscriptionTrials: true
-          inCartQuantity: 6.84685269835264
+          inCartQuantity: 1.1730742509559433
           material: material
-          estimatedPaymentCostInUsd: 3.5571952270680973
-          currentStock: 7.061401241503109
+          estimatedPaymentCostInUsd: 1.284659006116532
+          currentStock: 3.616076749251911
           asin: asin
-          estimatedBasePriceInUsd: 9.369310271410669
+          estimatedBasePriceInUsd: 8.762042012749001
           mpNs: mpNs
           isOfficialChoice: true
           categoryId: categoryId
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3912,6 +4114,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

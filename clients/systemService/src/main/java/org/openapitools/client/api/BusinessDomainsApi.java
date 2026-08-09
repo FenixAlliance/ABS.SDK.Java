@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.BusinessDomainDtoCollectionQueryParameters;
 import org.openapitools.client.model.BusinessDomainDtoEnvelope;
 import org.openapitools.client.model.BusinessDomainDtoListEnvelope;
 import org.openapitools.client.model.EmptyEnvelope;
@@ -377,6 +378,7 @@ public class BusinessDomainsApi {
      * Build call for getSystemBusinessDomains
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -388,7 +390,7 @@ public class BusinessDomainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemBusinessDomainsCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSystemBusinessDomainsCall(String apiVersion, String xApiVersion, BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -402,7 +404,7 @@ public class BusinessDomainsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = businessDomainDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/BusinessDomains";
@@ -431,6 +433,8 @@ public class BusinessDomainsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -442,8 +446,8 @@ public class BusinessDomainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSystemBusinessDomainsValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getSystemBusinessDomainsCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getSystemBusinessDomainsValidateBeforeCall(String apiVersion, String xApiVersion, BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getSystemBusinessDomainsCall(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -452,6 +456,7 @@ public class BusinessDomainsApi {
      * Retrieve all registered business domains across every tenant (global administrators only).
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return BusinessDomainDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -462,8 +467,8 @@ public class BusinessDomainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BusinessDomainDtoListEnvelope getSystemBusinessDomains(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BusinessDomainDtoListEnvelope> localVarResp = getSystemBusinessDomainsWithHttpInfo(apiVersion, xApiVersion);
+    public BusinessDomainDtoListEnvelope getSystemBusinessDomains(String apiVersion, String xApiVersion, BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BusinessDomainDtoListEnvelope> localVarResp = getSystemBusinessDomainsWithHttpInfo(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -472,6 +477,7 @@ public class BusinessDomainsApi {
      * Retrieve all registered business domains across every tenant (global administrators only).
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BusinessDomainDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -482,8 +488,8 @@ public class BusinessDomainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BusinessDomainDtoListEnvelope> getSystemBusinessDomainsWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSystemBusinessDomainsValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<BusinessDomainDtoListEnvelope> getSystemBusinessDomainsWithHttpInfo(String apiVersion, String xApiVersion, BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSystemBusinessDomainsValidateBeforeCall(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BusinessDomainDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -493,6 +499,7 @@ public class BusinessDomainsApi {
      * Retrieve all registered business domains across every tenant (global administrators only).
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -504,9 +511,9 @@ public class BusinessDomainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemBusinessDomainsAsync(String apiVersion, String xApiVersion, final ApiCallback<BusinessDomainDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSystemBusinessDomainsAsync(String apiVersion, String xApiVersion, BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters, final ApiCallback<BusinessDomainDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSystemBusinessDomainsValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSystemBusinessDomainsValidateBeforeCall(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BusinessDomainDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -515,6 +522,7 @@ public class BusinessDomainsApi {
      * Build call for getSystemBusinessDomainsCount
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -526,7 +534,7 @@ public class BusinessDomainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemBusinessDomainsCountCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSystemBusinessDomainsCountCall(String apiVersion, String xApiVersion, BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -540,7 +548,7 @@ public class BusinessDomainsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = businessDomainDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/BusinessDomains/Count";
@@ -569,6 +577,8 @@ public class BusinessDomainsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -580,8 +590,8 @@ public class BusinessDomainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSystemBusinessDomainsCountValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getSystemBusinessDomainsCountCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getSystemBusinessDomainsCountValidateBeforeCall(String apiVersion, String xApiVersion, BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getSystemBusinessDomainsCountCall(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -590,6 +600,7 @@ public class BusinessDomainsApi {
      * Get the count of all registered business domains across every tenant.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -600,8 +611,8 @@ public class BusinessDomainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSystemBusinessDomainsCount(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSystemBusinessDomainsCountWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope getSystemBusinessDomainsCount(String apiVersion, String xApiVersion, BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSystemBusinessDomainsCountWithHttpInfo(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -610,6 +621,7 @@ public class BusinessDomainsApi {
      * Get the count of all registered business domains across every tenant.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -620,8 +632,8 @@ public class BusinessDomainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSystemBusinessDomainsCountWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSystemBusinessDomainsCountValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSystemBusinessDomainsCountWithHttpInfo(String apiVersion, String xApiVersion, BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSystemBusinessDomainsCountValidateBeforeCall(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -631,6 +643,7 @@ public class BusinessDomainsApi {
      * Get the count of all registered business domains across every tenant.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessDomainDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -642,9 +655,9 @@ public class BusinessDomainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemBusinessDomainsCountAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSystemBusinessDomainsCountAsync(String apiVersion, String xApiVersion, BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSystemBusinessDomainsCountValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSystemBusinessDomainsCountValidateBeforeCall(apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

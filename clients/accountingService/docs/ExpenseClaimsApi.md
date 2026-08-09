@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getExpenseClaims"></a>
 # **getExpenseClaims**
-> ExpenseClaimDtoListEnvelope getExpenseClaims(tenantId, apiVersion, xApiVersion)
+> ExpenseClaimDtoListEnvelope getExpenseClaims(tenantId, apiVersion, xApiVersion, expenseClaimDtoCollectionQueryParameters)
 
 Get all expense claims for a tenant
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExpenseClaimDtoCollectionQueryParameters expenseClaimDtoCollectionQueryParameters = new ExpenseClaimDtoCollectionQueryParameters(); // ExpenseClaimDtoCollectionQueryParameters | 
     try {
-      ExpenseClaimDtoListEnvelope result = apiInstance.getExpenseClaims(tenantId, apiVersion, xApiVersion);
+      ExpenseClaimDtoListEnvelope result = apiInstance.getExpenseClaims(tenantId, apiVersion, xApiVersion, expenseClaimDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExpenseClaimsApi#getExpenseClaims");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **expenseClaimDtoCollectionQueryParameters** | [**ExpenseClaimDtoCollectionQueryParameters**](ExpenseClaimDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getExpenseClaimsCount"></a>
 # **getExpenseClaimsCount**
-> Int32Envelope getExpenseClaimsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getExpenseClaimsCount(tenantId, apiVersion, xApiVersion, expenseClaimDtoCollectionQueryParameters)
 
 Get the count of expense claims for a tenant
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExpenseClaimDtoCollectionQueryParameters expenseClaimDtoCollectionQueryParameters = new ExpenseClaimDtoCollectionQueryParameters(); // ExpenseClaimDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getExpenseClaimsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getExpenseClaimsCount(tenantId, apiVersion, xApiVersion, expenseClaimDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExpenseClaimsApi#getExpenseClaimsCount");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **expenseClaimDtoCollectionQueryParameters** | [**ExpenseClaimDtoCollectionQueryParameters**](ExpenseClaimDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchExpenseClaim"></a>
 # **patchExpenseClaim**
-> EmptyEnvelope patchExpenseClaim(tenantId, expenseClaimId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchExpenseClaim(tenantId, expenseClaimId, apiVersion, xApiVersion, patchOperation)
 
 Patch an expense claim
 
@@ -386,9 +390,9 @@ public class Example {
     UUID expenseClaimId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchExpenseClaim(tenantId, expenseClaimId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchExpenseClaim(tenantId, expenseClaimId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExpenseClaimsApi#patchExpenseClaim");
@@ -409,7 +413,7 @@ public class Example {
 | **expenseClaimId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

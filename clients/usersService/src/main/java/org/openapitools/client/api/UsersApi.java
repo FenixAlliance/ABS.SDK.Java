@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.AddressDtoCollectionQueryParameters;
 import org.openapitools.client.model.AddressDtoListEnvelope;
 import org.openapitools.client.model.CartDtoEnvelope;
 import org.openapitools.client.model.EmptyEnvelope;
@@ -35,11 +36,14 @@ import org.openapitools.client.model.ExtendedTenantDtoListEnvelope;
 import org.openapitools.client.model.ExtendedTenantEnrollmentDtoListEnvelope;
 import org.openapitools.client.model.ExtendedUserDtoEnvelope;
 import java.io.File;
+import org.openapitools.client.model.FollowRecordDtoCollectionQueryParameters;
 import org.openapitools.client.model.FollowRecordDtoListEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.NotificationDtoCollectionQueryParameters;
 import org.openapitools.client.model.NotificationDtoListEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SocialProfileDtoEnvelope;
+import org.openapitools.client.model.TenantDtoCollectionQueryParameters;
 import org.openapitools.client.model.TenantDtoListEnvelope;
 import org.openapitools.client.model.TenantEnrollmentDtoEnvelope;
 import org.openapitools.client.model.TenantEnrollmentDtoListEnvelope;
@@ -98,6 +102,7 @@ public class UsersApi {
      * Build call for countCurrentUserFollowersAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -108,7 +113,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCurrentUserFollowersAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countCurrentUserFollowersAsyncCall(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -122,7 +127,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = followRecordDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/Me/Followers/Count";
@@ -152,6 +157,9 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml",
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -163,8 +171,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countCurrentUserFollowersAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return countCurrentUserFollowersAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call countCurrentUserFollowersAsyncValidateBeforeCall(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return countCurrentUserFollowersAsyncCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -173,6 +181,7 @@ public class UsersApi {
      * Count the social profiles that follow the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -182,8 +191,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countCurrentUserFollowersAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countCurrentUserFollowersAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope countCurrentUserFollowersAsync(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countCurrentUserFollowersAsyncWithHttpInfo(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -192,6 +201,7 @@ public class UsersApi {
      * Count the social profiles that follow the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -201,8 +211,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countCurrentUserFollowersAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countCurrentUserFollowersAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countCurrentUserFollowersAsyncWithHttpInfo(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countCurrentUserFollowersAsyncValidateBeforeCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -212,6 +222,7 @@ public class UsersApi {
      * Count the social profiles that follow the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -222,9 +233,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCurrentUserFollowersAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countCurrentUserFollowersAsyncAsync(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countCurrentUserFollowersAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countCurrentUserFollowersAsyncValidateBeforeCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -233,6 +244,7 @@ public class UsersApi {
      * Build call for countCurrentUserFollowsAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -243,7 +255,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCurrentUserFollowsAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countCurrentUserFollowsAsyncCall(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -257,7 +269,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = followRecordDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/Me/Follows/Count";
@@ -287,6 +299,9 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml",
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -298,8 +313,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countCurrentUserFollowsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return countCurrentUserFollowsAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call countCurrentUserFollowsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return countCurrentUserFollowsAsyncCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -308,6 +323,7 @@ public class UsersApi {
      * Count the social profiles that the current user follows
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -317,8 +333,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countCurrentUserFollowsAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countCurrentUserFollowsAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope countCurrentUserFollowsAsync(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countCurrentUserFollowsAsyncWithHttpInfo(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -327,6 +343,7 @@ public class UsersApi {
      * Count the social profiles that the current user follows
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -336,8 +353,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countCurrentUserFollowsAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countCurrentUserFollowsAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countCurrentUserFollowsAsyncWithHttpInfo(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countCurrentUserFollowsAsyncValidateBeforeCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -347,6 +364,7 @@ public class UsersApi {
      * Count the social profiles that the current user follows
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -357,9 +375,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCurrentUserFollowsAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countCurrentUserFollowsAsyncAsync(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countCurrentUserFollowsAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countCurrentUserFollowsAsyncValidateBeforeCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -368,6 +386,7 @@ public class UsersApi {
      * Build call for countCurrentUserNotificationsAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -378,7 +397,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCurrentUserNotificationsAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countCurrentUserNotificationsAsyncCall(String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -392,7 +411,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = notificationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/Me/Notifications/Count";
@@ -422,6 +441,9 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml",
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -433,8 +455,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countCurrentUserNotificationsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return countCurrentUserNotificationsAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call countCurrentUserNotificationsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return countCurrentUserNotificationsAsyncCall(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -443,6 +465,7 @@ public class UsersApi {
      * Count the notifications for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -452,8 +475,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countCurrentUserNotificationsAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countCurrentUserNotificationsAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope countCurrentUserNotificationsAsync(String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countCurrentUserNotificationsAsyncWithHttpInfo(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -462,6 +485,7 @@ public class UsersApi {
      * Count the notifications for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -471,8 +495,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countCurrentUserNotificationsAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countCurrentUserNotificationsAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countCurrentUserNotificationsAsyncWithHttpInfo(String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countCurrentUserNotificationsAsyncValidateBeforeCall(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -482,6 +506,7 @@ public class UsersApi {
      * Count the notifications for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -492,9 +517,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCurrentUserNotificationsAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countCurrentUserNotificationsAsyncAsync(String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countCurrentUserNotificationsAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countCurrentUserNotificationsAsyncValidateBeforeCall(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -503,6 +528,7 @@ public class UsersApi {
      * Build call for countCurrentUserTenantsAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -514,7 +540,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCurrentUserTenantsAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countCurrentUserTenantsAsyncCall(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -528,7 +554,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/Me/Tenants/Count";
@@ -558,6 +584,9 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml",
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -569,8 +598,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countCurrentUserTenantsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return countCurrentUserTenantsAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call countCurrentUserTenantsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return countCurrentUserTenantsAsyncCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -579,6 +608,7 @@ public class UsersApi {
      * Count the tenants that the current user is enrolled in
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -589,8 +619,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countCurrentUserTenantsAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countCurrentUserTenantsAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope countCurrentUserTenantsAsync(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countCurrentUserTenantsAsyncWithHttpInfo(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -599,6 +629,7 @@ public class UsersApi {
      * Count the tenants that the current user is enrolled in
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -609,8 +640,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countCurrentUserTenantsAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countCurrentUserTenantsAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countCurrentUserTenantsAsyncWithHttpInfo(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countCurrentUserTenantsAsyncValidateBeforeCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -620,6 +651,7 @@ public class UsersApi {
      * Count the tenants that the current user is enrolled in
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -631,9 +663,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCurrentUserTenantsAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countCurrentUserTenantsAsyncAsync(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countCurrentUserTenantsAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countCurrentUserTenantsAsyncValidateBeforeCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -642,6 +674,7 @@ public class UsersApi {
      * Build call for getCurrentUserAddressesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param addressDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -652,7 +685,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrentUserAddressesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCurrentUserAddressesAsyncCall(String apiVersion, String xApiVersion, AddressDtoCollectionQueryParameters addressDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -666,7 +699,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = addressDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/Me/Addresses";
@@ -696,6 +729,9 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml",
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -707,8 +743,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCurrentUserAddressesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getCurrentUserAddressesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getCurrentUserAddressesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, AddressDtoCollectionQueryParameters addressDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getCurrentUserAddressesAsyncCall(apiVersion, xApiVersion, addressDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -717,6 +753,7 @@ public class UsersApi {
      * Get the list of addresses for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param addressDtoCollectionQueryParameters  (optional)
      * @return AddressDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -726,8 +763,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AddressDtoListEnvelope getCurrentUserAddressesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<AddressDtoListEnvelope> localVarResp = getCurrentUserAddressesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public AddressDtoListEnvelope getCurrentUserAddressesAsync(String apiVersion, String xApiVersion, AddressDtoCollectionQueryParameters addressDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<AddressDtoListEnvelope> localVarResp = getCurrentUserAddressesAsyncWithHttpInfo(apiVersion, xApiVersion, addressDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -736,6 +773,7 @@ public class UsersApi {
      * Get the list of addresses for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param addressDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;AddressDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -745,8 +783,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AddressDtoListEnvelope> getCurrentUserAddressesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCurrentUserAddressesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<AddressDtoListEnvelope> getCurrentUserAddressesAsyncWithHttpInfo(String apiVersion, String xApiVersion, AddressDtoCollectionQueryParameters addressDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCurrentUserAddressesAsyncValidateBeforeCall(apiVersion, xApiVersion, addressDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<AddressDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -756,6 +794,7 @@ public class UsersApi {
      * Get the list of addresses for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param addressDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -766,9 +805,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrentUserAddressesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<AddressDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCurrentUserAddressesAsyncAsync(String apiVersion, String xApiVersion, AddressDtoCollectionQueryParameters addressDtoCollectionQueryParameters, final ApiCallback<AddressDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCurrentUserAddressesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCurrentUserAddressesAsyncValidateBeforeCall(apiVersion, xApiVersion, addressDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<AddressDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1456,6 +1495,7 @@ public class UsersApi {
      * Build call for getCurrentUserFollowersAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1466,7 +1506,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrentUserFollowersAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCurrentUserFollowersAsyncCall(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1480,7 +1520,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = followRecordDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/Me/Followers";
@@ -1510,6 +1550,9 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml",
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1521,8 +1564,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCurrentUserFollowersAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getCurrentUserFollowersAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getCurrentUserFollowersAsyncValidateBeforeCall(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getCurrentUserFollowersAsyncCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1531,6 +1574,7 @@ public class UsersApi {
      * Get the social profiles that follow the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return FollowRecordDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1540,8 +1584,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public FollowRecordDtoListEnvelope getCurrentUserFollowersAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<FollowRecordDtoListEnvelope> localVarResp = getCurrentUserFollowersAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public FollowRecordDtoListEnvelope getCurrentUserFollowersAsync(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<FollowRecordDtoListEnvelope> localVarResp = getCurrentUserFollowersAsyncWithHttpInfo(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1550,6 +1594,7 @@ public class UsersApi {
      * Get the social profiles that follow the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;FollowRecordDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1559,8 +1604,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FollowRecordDtoListEnvelope> getCurrentUserFollowersAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCurrentUserFollowersAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<FollowRecordDtoListEnvelope> getCurrentUserFollowersAsyncWithHttpInfo(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCurrentUserFollowersAsyncValidateBeforeCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<FollowRecordDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1570,6 +1615,7 @@ public class UsersApi {
      * Get the social profiles that follow the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1580,9 +1626,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrentUserFollowersAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<FollowRecordDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCurrentUserFollowersAsyncAsync(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback<FollowRecordDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCurrentUserFollowersAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCurrentUserFollowersAsyncValidateBeforeCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<FollowRecordDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1591,6 +1637,7 @@ public class UsersApi {
      * Build call for getCurrentUserFollowsAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1601,7 +1648,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrentUserFollowsAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCurrentUserFollowsAsyncCall(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1615,7 +1662,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = followRecordDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/Me/Follows";
@@ -1645,6 +1692,9 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml",
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1656,8 +1706,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCurrentUserFollowsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getCurrentUserFollowsAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getCurrentUserFollowsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getCurrentUserFollowsAsyncCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1666,6 +1716,7 @@ public class UsersApi {
      * Get the social profiles that the current user follows
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return FollowRecordDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1675,8 +1726,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public FollowRecordDtoListEnvelope getCurrentUserFollowsAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<FollowRecordDtoListEnvelope> localVarResp = getCurrentUserFollowsAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public FollowRecordDtoListEnvelope getCurrentUserFollowsAsync(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<FollowRecordDtoListEnvelope> localVarResp = getCurrentUserFollowsAsyncWithHttpInfo(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1685,6 +1736,7 @@ public class UsersApi {
      * Get the social profiles that the current user follows
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;FollowRecordDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1694,8 +1746,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FollowRecordDtoListEnvelope> getCurrentUserFollowsAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCurrentUserFollowsAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<FollowRecordDtoListEnvelope> getCurrentUserFollowsAsyncWithHttpInfo(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCurrentUserFollowsAsyncValidateBeforeCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<FollowRecordDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1705,6 +1757,7 @@ public class UsersApi {
      * Get the social profiles that the current user follows
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param followRecordDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1715,9 +1768,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrentUserFollowsAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<FollowRecordDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCurrentUserFollowsAsyncAsync(String apiVersion, String xApiVersion, FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters, final ApiCallback<FollowRecordDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCurrentUserFollowsAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCurrentUserFollowsAsyncValidateBeforeCall(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<FollowRecordDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1861,6 +1914,7 @@ public class UsersApi {
      * Build call for getCurrentUserNotificationsAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1871,7 +1925,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrentUserNotificationsAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCurrentUserNotificationsAsyncCall(String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1885,7 +1939,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = notificationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/Me/Notifications";
@@ -1915,6 +1969,9 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml",
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1926,8 +1983,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCurrentUserNotificationsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getCurrentUserNotificationsAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getCurrentUserNotificationsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getCurrentUserNotificationsAsyncCall(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1936,6 +1993,7 @@ public class UsersApi {
      * Get the list of notifications for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return NotificationDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1945,8 +2003,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationDtoListEnvelope getCurrentUserNotificationsAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<NotificationDtoListEnvelope> localVarResp = getCurrentUserNotificationsAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public NotificationDtoListEnvelope getCurrentUserNotificationsAsync(String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<NotificationDtoListEnvelope> localVarResp = getCurrentUserNotificationsAsyncWithHttpInfo(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1955,6 +2013,7 @@ public class UsersApi {
      * Get the list of notifications for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;NotificationDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1964,8 +2023,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationDtoListEnvelope> getCurrentUserNotificationsAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCurrentUserNotificationsAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<NotificationDtoListEnvelope> getCurrentUserNotificationsAsyncWithHttpInfo(String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCurrentUserNotificationsAsyncValidateBeforeCall(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<NotificationDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1975,6 +2034,7 @@ public class UsersApi {
      * Get the list of notifications for the current user
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param notificationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1985,9 +2045,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrentUserNotificationsAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<NotificationDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCurrentUserNotificationsAsyncAsync(String apiVersion, String xApiVersion, NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters, final ApiCallback<NotificationDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCurrentUserNotificationsAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCurrentUserNotificationsAsyncValidateBeforeCall(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<NotificationDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2266,6 +2326,7 @@ public class UsersApi {
      * Build call for getCurrentUserTenantsAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2277,7 +2338,7 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrentUserTenantsAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCurrentUserTenantsAsyncCall(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2291,7 +2352,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/Me/Tenants";
@@ -2321,6 +2382,9 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml",
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2332,8 +2396,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCurrentUserTenantsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getCurrentUserTenantsAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getCurrentUserTenantsAsyncValidateBeforeCall(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getCurrentUserTenantsAsyncCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2342,6 +2406,7 @@ public class UsersApi {
      * Get the tenants that the current user is enrolled in
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return TenantDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2352,8 +2417,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TenantDtoListEnvelope getCurrentUserTenantsAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TenantDtoListEnvelope> localVarResp = getCurrentUserTenantsAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public TenantDtoListEnvelope getCurrentUserTenantsAsync(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TenantDtoListEnvelope> localVarResp = getCurrentUserTenantsAsyncWithHttpInfo(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2362,6 +2427,7 @@ public class UsersApi {
      * Get the tenants that the current user is enrolled in
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TenantDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2372,8 +2438,8 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TenantDtoListEnvelope> getCurrentUserTenantsAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCurrentUserTenantsAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<TenantDtoListEnvelope> getCurrentUserTenantsAsyncWithHttpInfo(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCurrentUserTenantsAsyncValidateBeforeCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TenantDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2383,6 +2449,7 @@ public class UsersApi {
      * Get the tenants that the current user is enrolled in
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2394,9 +2461,9 @@ public class UsersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrentUserTenantsAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<TenantDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCurrentUserTenantsAsyncAsync(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback<TenantDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCurrentUserTenantsAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCurrentUserTenantsAsyncValidateBeforeCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TenantDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2959,7 +3026,7 @@ public class UsersApi {
      * Build call for patchCurrentUserAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2970,7 +3037,7 @@ public class UsersApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCurrentUserAsyncCall(String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchCurrentUserAsyncCall(String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2984,7 +3051,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/Me";
@@ -3028,8 +3095,8 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchCurrentUserAsyncValidateBeforeCall(String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
-        return patchCurrentUserAsyncCall(apiVersion, xApiVersion, operation, _callback);
+    private okhttp3.Call patchCurrentUserAsyncValidateBeforeCall(String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
+        return patchCurrentUserAsyncCall(apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -3038,7 +3105,7 @@ public class UsersApi {
      * Partially update the current user&#39;s profile
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3048,8 +3115,8 @@ public class UsersApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchCurrentUserAsync(String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchCurrentUserAsyncWithHttpInfo(apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchCurrentUserAsync(String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchCurrentUserAsyncWithHttpInfo(apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -3058,7 +3125,7 @@ public class UsersApi {
      * Partially update the current user&#39;s profile
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3068,8 +3135,8 @@ public class UsersApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchCurrentUserAsyncWithHttpInfo(String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchCurrentUserAsyncValidateBeforeCall(apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchCurrentUserAsyncWithHttpInfo(String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchCurrentUserAsyncValidateBeforeCall(apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3079,7 +3146,7 @@ public class UsersApi {
      * Partially update the current user&#39;s profile
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3090,9 +3157,9 @@ public class UsersApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCurrentUserAsyncAsync(String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchCurrentUserAsyncAsync(String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchCurrentUserAsyncValidateBeforeCall(apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchCurrentUserAsyncValidateBeforeCall(apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

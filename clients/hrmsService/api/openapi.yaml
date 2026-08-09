@@ -78,6 +78,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppraisalStageDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AppraisalStageDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -109,6 +117,7 @@ paths:
       summary: Get appraisal stages
       tags:
       - AppraisalStages
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -217,6 +226,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppraisalStageDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AppraisalStageDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -248,6 +265,7 @@ paths:
       summary: Count appraisal stages
       tags:
       - AppraisalStages
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -510,6 +528,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppraisalWorkflowDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AppraisalWorkflowDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -541,6 +567,7 @@ paths:
       summary: Get appraisal workflows
       tags:
       - AppraisalWorkflows
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -649,6 +676,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppraisalWorkflowDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AppraisalWorkflowDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -680,6 +715,7 @@ paths:
       summary: Count appraisal workflows
       tags:
       - AppraisalWorkflows
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -942,6 +978,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeAppraisalSessionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmployeeAppraisalSessionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -973,6 +1017,7 @@ paths:
       summary: Get employee appraisal sessions
       tags:
       - EmployeeAppraisalSessions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1081,6 +1126,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeAppraisalSessionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmployeeAppraisalSessionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1112,6 +1165,7 @@ paths:
       summary: Count employee appraisal sessions
       tags:
       - EmployeeAppraisalSessions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1301,12 +1355,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1466,6 +1520,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmployeeProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1497,6 +1559,7 @@ paths:
       summary: Get employees
       tags:
       - Employees
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1605,6 +1668,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmployeeProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1636,6 +1707,7 @@ paths:
       summary: Count employees
       tags:
       - Employees
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1824,12 +1896,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1988,6 +2060,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmployeeTypeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2019,6 +2099,7 @@ paths:
       summary: Get employee types
       tags:
       - EmployeeTypes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2127,6 +2208,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmployeeTypeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2158,6 +2247,7 @@ paths:
       summary: Count employee types
       tags:
       - EmployeeTypes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2346,12 +2436,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2510,6 +2600,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployerProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmployerProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2541,6 +2639,7 @@ paths:
       summary: Get employers
       tags:
       - Employers
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2649,6 +2748,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployerProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmployerProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2680,6 +2787,7 @@ paths:
       summary: Count employers
       tags:
       - Employers
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2868,12 +2976,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3016,23 +3124,6 @@ paths:
       - application/json
   /health:
     get:
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           description: OK
@@ -3410,6 +3501,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GigApplicationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GigApplicationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3441,6 +3540,7 @@ paths:
       summary: Get gig applications
       tags:
       - GigApplications
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3550,6 +3650,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GigApplicationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GigApplicationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3581,6 +3689,7 @@ paths:
       summary: Count gig applications
       tags:
       - GigApplications
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3771,12 +3880,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -4006,6 +4115,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GigDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GigDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4037,6 +4154,7 @@ paths:
       summary: Get gigs
       tags:
       - Gigs
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4145,6 +4263,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GigDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GigDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4176,6 +4302,7 @@ paths:
       summary: Count gigs
       tags:
       - Gigs
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4364,12 +4491,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -4529,6 +4656,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobApplicantProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobApplicantProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4560,6 +4695,7 @@ paths:
       summary: Get job applicants
       tags:
       - JobApplicants
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4669,6 +4805,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobApplicantProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobApplicantProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4700,6 +4844,7 @@ paths:
       summary: Count job applicants
       tags:
       - JobApplicants
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4889,12 +5034,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -5055,6 +5200,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferApplicationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferApplicationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5086,6 +5239,7 @@ paths:
       summary: Get job applications
       tags:
       - JobApplications
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5195,6 +5349,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferApplicationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferApplicationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5226,6 +5388,7 @@ paths:
       summary: Count job applications
       tags:
       - JobApplications
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5417,12 +5580,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -5669,6 +5832,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobFieldDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobFieldDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5700,6 +5871,7 @@ paths:
       summary: Get job fields
       tags:
       - JobFields
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5808,6 +5980,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobFieldDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobFieldDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5839,6 +6019,7 @@ paths:
       summary: Count job fields
       tags:
       - JobFields
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6027,12 +6208,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -6192,6 +6373,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferFieldRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferFieldRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6223,6 +6412,7 @@ paths:
       summary: Get job offer fields
       tags:
       - JobOfferFields
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6331,6 +6521,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferFieldRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferFieldRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6362,6 +6560,7 @@ paths:
       summary: Count job offer fields
       tags:
       - JobOfferFields
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6551,12 +6750,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -6716,6 +6915,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6747,6 +6954,7 @@ paths:
       summary: Get job offers
       tags:
       - JobOffers
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6855,6 +7063,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6886,6 +7102,7 @@ paths:
       summary: Count job offers
       tags:
       - JobOffers
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -7074,12 +7291,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -7239,6 +7456,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferDtoCollectionQueryParameters'
       responses:
         "400":
           content:
@@ -7261,6 +7486,7 @@ paths:
       summary: Get public job offers
       tags:
       - JobOffers
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -7292,6 +7518,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferDtoCollectionQueryParameters'
       responses:
         "400":
           content:
@@ -7314,6 +7548,7 @@ paths:
       summary: Count public job offers
       tags:
       - JobOffers
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -7614,6 +7849,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobTitleDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobTitleDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -7645,6 +7888,7 @@ paths:
       summary: Get job titles
       tags:
       - JobTitles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -7753,6 +7997,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobTitleDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobTitleDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -7784,6 +8036,7 @@ paths:
       summary: Count job titles
       tags:
       - JobTitles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -7972,12 +8225,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -8136,6 +8389,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaveApplicationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LeaveApplicationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -8167,6 +8428,7 @@ paths:
       summary: Get leave applications
       tags:
       - LeaveApplications
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -8275,6 +8537,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaveApplicationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LeaveApplicationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -8306,6 +8576,7 @@ paths:
       summary: Count leave applications
       tags:
       - LeaveApplications
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -8495,12 +8766,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -8659,6 +8930,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaveTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LeaveTypeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -8690,6 +8969,7 @@ paths:
       summary: Get leave types
       tags:
       - LeaveTypes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -8798,6 +9078,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaveTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LeaveTypeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -8829,6 +9117,7 @@ paths:
       summary: Count leave types
       tags:
       - LeaveTypes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -9091,6 +9380,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayrollPeriodDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PayrollPeriodDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -9122,6 +9419,7 @@ paths:
       summary: Get payroll periods
       tags:
       - PayrollPeriods
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -9230,6 +9528,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayrollPeriodDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PayrollPeriodDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -9261,6 +9567,7 @@ paths:
       summary: Count payroll periods
       tags:
       - PayrollPeriods
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -9523,6 +9830,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayrollDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PayrollDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -9554,6 +9869,7 @@ paths:
       summary: Get payrolls
       tags:
       - Payrolls
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -9662,6 +9978,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayrollDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PayrollDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -9693,6 +10017,7 @@ paths:
       summary: Count payrolls
       tags:
       - Payrolls
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -9881,12 +10206,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -10046,6 +10371,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequiredSkillRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RequiredSkillRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -10077,6 +10410,7 @@ paths:
       summary: Get required skills
       tags:
       - RequiredSkills
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -10185,6 +10519,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequiredSkillRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RequiredSkillRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -10216,6 +10558,7 @@ paths:
       summary: Count required skills
       tags:
       - RequiredSkills
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -10405,12 +10748,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -10569,6 +10912,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalaryDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SalaryDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -10600,6 +10951,7 @@ paths:
       summary: Get salaries
       tags:
       - Salaries
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -10708,6 +11060,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalaryDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SalaryDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -10739,6 +11099,7 @@ paths:
       summary: Count salaries
       tags:
       - Salaries
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -10927,12 +11288,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -11091,6 +11452,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduleDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ScheduleDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -11122,6 +11491,7 @@ paths:
       summary: Get schedules
       tags:
       - Schedules
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -11230,6 +11600,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduleDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ScheduleDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -11261,6 +11639,7 @@ paths:
       summary: Count schedules
       tags:
       - Schedules
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -11449,12 +11828,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -11613,6 +11992,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShiftDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShiftDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -11644,6 +12031,7 @@ paths:
       summary: Get shifts
       tags:
       - Shifts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -11752,6 +12140,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShiftDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShiftDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -11783,6 +12179,7 @@ paths:
       summary: Count shifts
       tags:
       - Shifts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -11971,12 +12368,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -12135,6 +12532,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeIntervalDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TimeIntervalDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -12166,6 +12571,7 @@ paths:
       summary: Get time intervals
       tags:
       - TimeIntervals
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -12274,6 +12680,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeIntervalDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TimeIntervalDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -12305,6 +12719,7 @@ paths:
       summary: Count time intervals
       tags:
       - TimeIntervals
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -12493,12 +12908,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -12657,6 +13072,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramCourseDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramCourseDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -12688,6 +13111,7 @@ paths:
       summary: Get training program courses
       tags:
       - TrainingProgramCourses
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -12796,6 +13220,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramCourseDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramCourseDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -12827,6 +13259,7 @@ paths:
       summary: Count training program courses
       tags:
       - TrainingProgramCourses
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -13016,12 +13449,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -13180,6 +13613,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramEventDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramEventDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -13211,6 +13652,7 @@ paths:
       summary: Get training program events
       tags:
       - TrainingProgramEvents
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -13319,6 +13761,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramEventDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramEventDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -13350,6 +13800,7 @@ paths:
       summary: Count training program events
       tags:
       - TrainingProgramEvents
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -13539,12 +13990,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -13703,6 +14154,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -13734,6 +14193,7 @@ paths:
       summary: Get training programs
       tags:
       - TrainingPrograms
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -13842,6 +14302,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TrainingProgramDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -13873,6 +14341,7 @@ paths:
       summary: Count training programs
       tags:
       - TrainingPrograms
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -14177,7 +14646,7 @@ components:
         tenantId: tenantId
         description: description
         id: id
-        stageOrder: 0
+        stageOrder: 1
         timestamp: 2000-01-23T04:56:07.000+00:00
         appraisalWorkflowId: appraisalWorkflowId
       properties:
@@ -14204,6 +14673,48 @@ components:
           format: int32
           type: integer
       type: object
+    AppraisalStageDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     AppraisalStageDtoEnvelope:
       additionalProperties: false
       example:
@@ -14212,12 +14723,18 @@ components:
           tenantId: tenantId
           description: description
           id: id
-          stageOrder: 0
+          stageOrder: 1
           timestamp: 2000-01-23T04:56:07.000+00:00
           appraisalWorkflowId: appraisalWorkflowId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -14234,6 +14751,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -14249,19 +14781,25 @@ components:
           tenantId: tenantId
           description: description
           id: id
-          stageOrder: 0
+          stageOrder: 1
           timestamp: 2000-01-23T04:56:07.000+00:00
           appraisalWorkflowId: appraisalWorkflowId
         - name: name
           tenantId: tenantId
           description: description
           id: id
-          stageOrder: 0
+          stageOrder: 1
           timestamp: 2000-01-23T04:56:07.000+00:00
           appraisalWorkflowId: appraisalWorkflowId
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -14278,6 +14816,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -14360,6 +14913,48 @@ components:
           nullable: true
           type: string
       type: object
+    AppraisalWorkflowDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     AppraisalWorkflowDtoEnvelope:
       additionalProperties: false
       example:
@@ -14370,8 +14965,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -14388,6 +14989,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -14410,8 +15026,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -14428,6 +15050,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -14968,6 +15605,48 @@ components:
           nullable: true
           type: string
       type: object
+    EmployeeAppraisalSessionDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     EmployeeAppraisalSessionDtoEnvelope:
       additionalProperties: false
       example:
@@ -14980,8 +15659,14 @@ components:
           appraisalWorkflowId: appraisalWorkflowId
           appraisalStageId: appraisalStageId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -14998,6 +15683,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -15024,8 +15724,14 @@ components:
           appraisalWorkflowId: appraisalWorkflowId
           appraisalStageId: appraisalStageId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15042,6 +15748,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -15250,7 +15971,7 @@ components:
     EmployeeProfileDto:
       additionalProperties: false
       example:
-        maxWorkHoursPerDay: 1
+        maxWorkHoursPerDay: 5
         jobTitleId: jobTitleId
         data: data
         about: about
@@ -15317,7 +16038,7 @@ components:
           timezoneId: timezoneId
           faxNumber: faxNumber
           instagramUrl: https://openapi-generator.tech
-        grossPay: 0.8008281904610115
+        grossPay: 6.027456183070403
         data5Label: data5Label
         id: id
         data2Label: data2Label
@@ -15346,7 +16067,7 @@ components:
         data4Label: data4Label
         submitted: true
         tenantId: tenantId
-        netSalary: 6.027456183070403
+        netSalary: 1.4658129805029452
         data7Label: data7Label
       properties:
         id:
@@ -15470,11 +16191,53 @@ components:
           nullable: true
           type: string
       type: object
+    EmployeeProfileDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     EmployeeProfileDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          maxWorkHoursPerDay: 1
+          maxWorkHoursPerDay: 5
           jobTitleId: jobTitleId
           data: data
           about: about
@@ -15541,7 +16304,7 @@ components:
             timezoneId: timezoneId
             faxNumber: faxNumber
             instagramUrl: https://openapi-generator.tech
-          grossPay: 0.8008281904610115
+          grossPay: 6.027456183070403
           data5Label: data5Label
           id: id
           data2Label: data2Label
@@ -15570,11 +16333,17 @@ components:
           data4Label: data4Label
           submitted: true
           tenantId: tenantId
-          netSalary: 6.027456183070403
+          netSalary: 1.4658129805029452
           data7Label: data7Label
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15591,6 +16360,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -15602,7 +16386,7 @@ components:
       additionalProperties: false
       example:
         result:
-        - maxWorkHoursPerDay: 1
+        - maxWorkHoursPerDay: 5
           jobTitleId: jobTitleId
           data: data
           about: about
@@ -15669,7 +16453,7 @@ components:
             timezoneId: timezoneId
             faxNumber: faxNumber
             instagramUrl: https://openapi-generator.tech
-          grossPay: 0.8008281904610115
+          grossPay: 6.027456183070403
           data5Label: data5Label
           id: id
           data2Label: data2Label
@@ -15698,9 +16482,9 @@ components:
           data4Label: data4Label
           submitted: true
           tenantId: tenantId
-          netSalary: 6.027456183070403
+          netSalary: 1.4658129805029452
           data7Label: data7Label
-        - maxWorkHoursPerDay: 1
+        - maxWorkHoursPerDay: 5
           jobTitleId: jobTitleId
           data: data
           about: about
@@ -15767,7 +16551,7 @@ components:
             timezoneId: timezoneId
             faxNumber: faxNumber
             instagramUrl: https://openapi-generator.tech
-          grossPay: 0.8008281904610115
+          grossPay: 6.027456183070403
           data5Label: data5Label
           id: id
           data2Label: data2Label
@@ -15796,11 +16580,17 @@ components:
           data4Label: data4Label
           submitted: true
           tenantId: tenantId
-          netSalary: 6.027456183070403
+          netSalary: 1.4658129805029452
           data7Label: data7Label
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15817,6 +16607,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -16010,6 +16815,48 @@ components:
           nullable: true
           type: string
       type: object
+    EmployeeTypeDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     EmployeeTypeDtoEnvelope:
       additionalProperties: false
       example:
@@ -16021,8 +16868,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -16039,6 +16892,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -16063,8 +16931,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -16081,6 +16955,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -16458,6 +17347,48 @@ components:
           nullable: true
           type: string
       type: object
+    EmployerProfileDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     EmployerProfileDtoEnvelope:
       additionalProperties: false
       example:
@@ -16555,8 +17486,14 @@ components:
           tenantId: tenantId
           data7Label: data7Label
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -16573,6 +17510,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -16769,8 +17721,14 @@ components:
           tenantId: tenantId
           data7Label: data7Label
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -16787,6 +17745,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -16902,8 +17875,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -16920,6 +17899,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -16929,8 +17923,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -16947,6 +17947,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -17009,7 +18024,7 @@ components:
       example:
         proposal: proposal
         curriculumCoverId: curriculumCoverId
-        cost: 0.8008281904610115
+        cost: 6.027456183070403
         jobApplicantProfileId: jobApplicantProfileId
         acceptedTimestamp: 2000-01-23T04:56:07.000+00:00
         accepted: true
@@ -17054,13 +18069,55 @@ components:
           nullable: true
           type: string
       type: object
+    GigApplicationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     GigApplicationDtoEnvelope:
       additionalProperties: false
       example:
         result:
           proposal: proposal
           curriculumCoverId: curriculumCoverId
-          cost: 0.8008281904610115
+          cost: 6.027456183070403
           jobApplicantProfileId: jobApplicantProfileId
           acceptedTimestamp: 2000-01-23T04:56:07.000+00:00
           accepted: true
@@ -17070,8 +18127,14 @@ components:
           curriculumId: curriculumId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -17088,6 +18151,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -17101,7 +18179,7 @@ components:
         result:
         - proposal: proposal
           curriculumCoverId: curriculumCoverId
-          cost: 0.8008281904610115
+          cost: 6.027456183070403
           jobApplicantProfileId: jobApplicantProfileId
           acceptedTimestamp: 2000-01-23T04:56:07.000+00:00
           accepted: true
@@ -17112,7 +18190,7 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
         - proposal: proposal
           curriculumCoverId: curriculumCoverId
-          cost: 0.8008281904610115
+          cost: 6.027456183070403
           jobApplicantProfileId: jobApplicantProfileId
           acceptedTimestamp: 2000-01-23T04:56:07.000+00:00
           accepted: true
@@ -17122,8 +18200,14 @@ components:
           curriculumId: curriculumId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -17140,6 +18224,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -17338,7 +18437,7 @@ components:
         countryId: countryId
         data5Label: data5Label
         id: id
-        minBudget: 0.8008281904610115
+        minBudget: 6.027456183070403
         currencyId: currencyId
         data2Label: data2Label
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -17354,10 +18453,10 @@ components:
         data3: data3
         data9Label: data9Label
         data2: data2
-        viewsCount: 1
+        viewsCount: 5
         dataLabel: dataLabel
         data1: data1
-        maxBudget: 6.027456183070403
+        maxBudget: 1.4658129805029452
         data3Label: data3Label
         data6Label: data6Label
         data1Label: data1Label
@@ -17484,6 +18583,48 @@ components:
           nullable: true
           type: string
       type: object
+    GigDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     GigDtoEnvelope:
       additionalProperties: false
       example:
@@ -17500,7 +18641,7 @@ components:
           countryId: countryId
           data5Label: data5Label
           id: id
-          minBudget: 0.8008281904610115
+          minBudget: 6.027456183070403
           currencyId: currencyId
           data2Label: data2Label
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -17516,10 +18657,10 @@ components:
           data3: data3
           data9Label: data9Label
           data2: data2
-          viewsCount: 1
+          viewsCount: 5
           dataLabel: dataLabel
           data1: data1
-          maxBudget: 6.027456183070403
+          maxBudget: 1.4658129805029452
           data3Label: data3Label
           data6Label: data6Label
           data1Label: data1Label
@@ -17528,8 +18669,14 @@ components:
           location: location
           data7Label: data7Label
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -17546,6 +18693,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -17569,7 +18731,7 @@ components:
           countryId: countryId
           data5Label: data5Label
           id: id
-          minBudget: 0.8008281904610115
+          minBudget: 6.027456183070403
           currencyId: currencyId
           data2Label: data2Label
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -17585,10 +18747,10 @@ components:
           data3: data3
           data9Label: data9Label
           data2: data2
-          viewsCount: 1
+          viewsCount: 5
           dataLabel: dataLabel
           data1: data1
-          maxBudget: 6.027456183070403
+          maxBudget: 1.4658129805029452
           data3Label: data3Label
           data6Label: data6Label
           data1Label: data1Label
@@ -17608,7 +18770,7 @@ components:
           countryId: countryId
           data5Label: data5Label
           id: id
-          minBudget: 0.8008281904610115
+          minBudget: 6.027456183070403
           currencyId: currencyId
           data2Label: data2Label
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -17624,10 +18786,10 @@ components:
           data3: data3
           data9Label: data9Label
           data2: data2
-          viewsCount: 1
+          viewsCount: 5
           dataLabel: dataLabel
           data1: data1
-          maxBudget: 6.027456183070403
+          maxBudget: 1.4658129805029452
           data3Label: data3Label
           data6Label: data6Label
           data1Label: data1Label
@@ -17636,8 +18798,14 @@ components:
           location: location
           data7Label: data7Label
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -17654,6 +18822,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -17866,10 +19049,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -17886,6 +19075,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -18084,8 +19288,8 @@ components:
       additionalProperties: false
       example:
         data: data
-        currentSalary: 6.027456183070403
-        experienceInYears: 0
+        currentSalary: 1.4658129805029452
+        experienceInYears: 6
         about: about
         data8Label: data8Label
         type: type
@@ -18175,12 +19379,12 @@ components:
         data6Label: data6Label
         data1Label: data1Label
         data4Label: data4Label
-        maxSalaryExpectation: 5.962133916683182
+        maxSalaryExpectation: 5.637376656633329
         submitted: true
         availableForHire: true
         careerLevel: Junior
         tenantId: tenantId
-        minSalaryExpectation: 1.4658129805029452
+        minSalaryExpectation: 5.962133916683182
         data7Label: data7Label
       properties:
         id:
@@ -18308,13 +19512,55 @@ components:
           nullable: true
           type: string
       type: object
+    JobApplicantProfileDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     JobApplicantProfileDtoEnvelope:
       additionalProperties: false
       example:
         result:
           data: data
-          currentSalary: 6.027456183070403
-          experienceInYears: 0
+          currentSalary: 1.4658129805029452
+          experienceInYears: 6
           about: about
           data8Label: data8Label
           type: type
@@ -18404,16 +19650,22 @@ components:
           data6Label: data6Label
           data1Label: data1Label
           data4Label: data4Label
-          maxSalaryExpectation: 5.962133916683182
+          maxSalaryExpectation: 5.637376656633329
           submitted: true
           availableForHire: true
           careerLevel: Junior
           tenantId: tenantId
-          minSalaryExpectation: 1.4658129805029452
+          minSalaryExpectation: 5.962133916683182
           data7Label: data7Label
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -18430,6 +19682,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -18442,8 +19709,8 @@ components:
       example:
         result:
         - data: data
-          currentSalary: 6.027456183070403
-          experienceInYears: 0
+          currentSalary: 1.4658129805029452
+          experienceInYears: 6
           about: about
           data8Label: data8Label
           type: type
@@ -18533,16 +19800,16 @@ components:
           data6Label: data6Label
           data1Label: data1Label
           data4Label: data4Label
-          maxSalaryExpectation: 5.962133916683182
+          maxSalaryExpectation: 5.637376656633329
           submitted: true
           availableForHire: true
           careerLevel: Junior
           tenantId: tenantId
-          minSalaryExpectation: 1.4658129805029452
+          minSalaryExpectation: 5.962133916683182
           data7Label: data7Label
         - data: data
-          currentSalary: 6.027456183070403
-          experienceInYears: 0
+          currentSalary: 1.4658129805029452
+          experienceInYears: 6
           about: about
           data8Label: data8Label
           type: type
@@ -18632,16 +19899,22 @@ components:
           data6Label: data6Label
           data1Label: data1Label
           data4Label: data4Label
-          maxSalaryExpectation: 5.962133916683182
+          maxSalaryExpectation: 5.637376656633329
           submitted: true
           availableForHire: true
           careerLevel: Junior
           tenantId: tenantId
-          minSalaryExpectation: 1.4658129805029452
+          minSalaryExpectation: 5.962133916683182
           data7Label: data7Label
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -18658,6 +19931,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -18865,6 +20153,48 @@ components:
           nullable: true
           type: string
       type: object
+    JobFieldDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     JobFieldDtoEnvelope:
       additionalProperties: false
       example:
@@ -18877,8 +20207,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -18895,6 +20231,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -18921,8 +20272,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -18939,6 +20296,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -19029,7 +20401,7 @@ components:
         start: 2000-01-23T04:56:07.000+00:00
         end: 2000-01-23T04:56:07.000+00:00
         id: id
-        salaryExpectation: 0.8008281904610115
+        salaryExpectation: 6.027456183070403
         currencyId: currencyId
         curriculumId: curriculumId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -19080,6 +20452,48 @@ components:
           nullable: true
           type: string
       type: object
+    JobOfferApplicationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     JobOfferApplicationDtoEnvelope:
       additionalProperties: false
       example:
@@ -19091,14 +20505,20 @@ components:
           start: 2000-01-23T04:56:07.000+00:00
           end: 2000-01-23T04:56:07.000+00:00
           id: id
-          salaryExpectation: 0.8008281904610115
+          salaryExpectation: 6.027456183070403
           currencyId: currencyId
           curriculumId: curriculumId
           timestamp: 2000-01-23T04:56:07.000+00:00
           status: Submitted
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -19115,6 +20535,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -19133,7 +20568,7 @@ components:
           start: 2000-01-23T04:56:07.000+00:00
           end: 2000-01-23T04:56:07.000+00:00
           id: id
-          salaryExpectation: 0.8008281904610115
+          salaryExpectation: 6.027456183070403
           currencyId: currencyId
           curriculumId: curriculumId
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -19145,14 +20580,20 @@ components:
           start: 2000-01-23T04:56:07.000+00:00
           end: 2000-01-23T04:56:07.000+00:00
           id: id
-          salaryExpectation: 0.8008281904610115
+          salaryExpectation: 6.027456183070403
           currencyId: currencyId
           curriculumId: curriculumId
           timestamp: 2000-01-23T04:56:07.000+00:00
           status: Submitted
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -19169,6 +20610,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -19411,7 +20867,7 @@ components:
     JobOfferDto:
       additionalProperties: false
       example:
-        maxSalaryAmount: 5.637376656633329
+        maxSalaryAmount: 2.3021358869347655
         data: data
         data8Label: data8Label
         isMidTimeJobOffer: true
@@ -19423,10 +20879,10 @@ components:
         data2Label: data2Label
         projectExperience: projectExperience
         enrollmentId: enrollmentId
-        minSalaryAmount: 5.962133916683182
-        viewsCount: 1
+        minSalaryAmount: 5.637376656633329
+        viewsCount: 5
         dataLabel: dataLabel
-        availiablePositionsCount: 6
+        availiablePositionsCount: 1
         isRemoteJobOffer: true
         nonTechnicalSkills: nonTechnicalSkills
         technologies: technologies
@@ -19437,7 +20893,7 @@ components:
         expectedHireDate: 2000-01-23T04:56:07.000+00:00
         status: Draft
         benefits: benefits
-        minOverallExperienceYears: 0
+        minOverallExperienceYears: 6
         employerProfileId: employerProfileId
         description: description
         countryStateId: countryStateId
@@ -19625,11 +21081,53 @@ components:
           nullable: true
           type: string
       type: object
+    JobOfferDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     JobOfferDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          maxSalaryAmount: 5.637376656633329
+          maxSalaryAmount: 2.3021358869347655
           data: data
           data8Label: data8Label
           isMidTimeJobOffer: true
@@ -19641,10 +21139,10 @@ components:
           data2Label: data2Label
           projectExperience: projectExperience
           enrollmentId: enrollmentId
-          minSalaryAmount: 5.962133916683182
-          viewsCount: 1
+          minSalaryAmount: 5.637376656633329
+          viewsCount: 5
           dataLabel: dataLabel
-          availiablePositionsCount: 6
+          availiablePositionsCount: 1
           isRemoteJobOffer: true
           nonTechnicalSkills: nonTechnicalSkills
           technologies: technologies
@@ -19655,7 +21153,7 @@ components:
           expectedHireDate: 2000-01-23T04:56:07.000+00:00
           status: Draft
           benefits: benefits
-          minOverallExperienceYears: 0
+          minOverallExperienceYears: 6
           employerProfileId: employerProfileId
           description: description
           countryStateId: countryStateId
@@ -19683,8 +21181,14 @@ components:
           isUndergraduateOption: true
           location: location
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -19701,6 +21205,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -19712,7 +21231,7 @@ components:
       additionalProperties: false
       example:
         result:
-        - maxSalaryAmount: 5.637376656633329
+        - maxSalaryAmount: 2.3021358869347655
           data: data
           data8Label: data8Label
           isMidTimeJobOffer: true
@@ -19724,10 +21243,10 @@ components:
           data2Label: data2Label
           projectExperience: projectExperience
           enrollmentId: enrollmentId
-          minSalaryAmount: 5.962133916683182
-          viewsCount: 1
+          minSalaryAmount: 5.637376656633329
+          viewsCount: 5
           dataLabel: dataLabel
-          availiablePositionsCount: 6
+          availiablePositionsCount: 1
           isRemoteJobOffer: true
           nonTechnicalSkills: nonTechnicalSkills
           technologies: technologies
@@ -19738,7 +21257,7 @@ components:
           expectedHireDate: 2000-01-23T04:56:07.000+00:00
           status: Draft
           benefits: benefits
-          minOverallExperienceYears: 0
+          minOverallExperienceYears: 6
           employerProfileId: employerProfileId
           description: description
           countryStateId: countryStateId
@@ -19765,7 +21284,7 @@ components:
           tenantId: tenantId
           isUndergraduateOption: true
           location: location
-        - maxSalaryAmount: 5.637376656633329
+        - maxSalaryAmount: 2.3021358869347655
           data: data
           data8Label: data8Label
           isMidTimeJobOffer: true
@@ -19777,10 +21296,10 @@ components:
           data2Label: data2Label
           projectExperience: projectExperience
           enrollmentId: enrollmentId
-          minSalaryAmount: 5.962133916683182
-          viewsCount: 1
+          minSalaryAmount: 5.637376656633329
+          viewsCount: 5
           dataLabel: dataLabel
-          availiablePositionsCount: 6
+          availiablePositionsCount: 1
           isRemoteJobOffer: true
           nonTechnicalSkills: nonTechnicalSkills
           technologies: technologies
@@ -19791,7 +21310,7 @@ components:
           expectedHireDate: 2000-01-23T04:56:07.000+00:00
           status: Draft
           benefits: benefits
-          minOverallExperienceYears: 0
+          minOverallExperienceYears: 6
           employerProfileId: employerProfileId
           description: description
           countryStateId: countryStateId
@@ -19819,8 +21338,14 @@ components:
           isUndergraduateOption: true
           location: location
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -19837,6 +21362,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -19885,6 +21425,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         jobFieldId:
           nullable: true
@@ -19899,6 +21440,48 @@ components:
           nullable: true
           type: string
       type: object
+    JobOfferFieldRecordDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     JobOfferFieldRecordDtoEnvelope:
       additionalProperties: false
       example:
@@ -19910,8 +21493,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -19928,6 +21517,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -19952,8 +21556,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -19970,6 +21580,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -20234,11 +21859,11 @@ components:
       additionalProperties: false
       example:
         enrollmentId: enrollmentId
-        grossPay: 0.8008281904610115
+        grossPay: 6.027456183070403
         tenantId: tenantId
         description: description
         id: id
-        netSalary: 6.027456183070403
+        netSalary: 1.4658129805029452
         countryStateId: countryStateId
         cityId: cityId
         title: title
@@ -20284,16 +21909,58 @@ components:
           nullable: true
           type: string
       type: object
+    JobTitleDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     JobTitleDtoEnvelope:
       additionalProperties: false
       example:
         result:
           enrollmentId: enrollmentId
-          grossPay: 0.8008281904610115
+          grossPay: 6.027456183070403
           tenantId: tenantId
           description: description
           id: id
-          netSalary: 6.027456183070403
+          netSalary: 1.4658129805029452
           countryStateId: countryStateId
           cityId: cityId
           title: title
@@ -20301,8 +21968,14 @@ components:
           countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -20319,6 +21992,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -20331,11 +22019,11 @@ components:
       example:
         result:
         - enrollmentId: enrollmentId
-          grossPay: 0.8008281904610115
+          grossPay: 6.027456183070403
           tenantId: tenantId
           description: description
           id: id
-          netSalary: 6.027456183070403
+          netSalary: 1.4658129805029452
           countryStateId: countryStateId
           cityId: cityId
           title: title
@@ -20343,11 +22031,11 @@ components:
           countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - enrollmentId: enrollmentId
-          grossPay: 0.8008281904610115
+          grossPay: 6.027456183070403
           tenantId: tenantId
           description: description
           id: id
-          netSalary: 6.027456183070403
+          netSalary: 1.4658129805029452
           countryStateId: countryStateId
           cityId: cityId
           title: title
@@ -20355,8 +22043,14 @@ components:
           countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -20373,6 +22067,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -20498,6 +22207,48 @@ components:
           nullable: true
           type: string
       type: object
+    LeaveApplicationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     LeaveApplicationDtoEnvelope:
       additionalProperties: false
       example:
@@ -20512,8 +22263,14 @@ components:
           leaveTypeId: leaveTypeId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -20530,6 +22287,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -20560,8 +22332,14 @@ components:
           leaveTypeId: leaveTypeId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -20578,6 +22356,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -20661,6 +22454,48 @@ components:
           nullable: true
           type: string
       type: object
+    LeaveTypeDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     LeaveTypeDtoEnvelope:
       additionalProperties: false
       example:
@@ -20671,8 +22506,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -20689,6 +22530,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -20711,8 +22567,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -20729,6 +22591,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -20776,30 +22653,18 @@ components:
       - email
       - password
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:
@@ -20853,6 +22718,48 @@ components:
           nullable: true
           type: string
       type: object
+    PayrollDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     PayrollDtoEnvelope:
       additionalProperties: false
       example:
@@ -20863,8 +22770,14 @@ components:
           payrollPeriodId: payrollPeriodId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -20881,6 +22794,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -20903,8 +22831,14 @@ components:
           payrollPeriodId: payrollPeriodId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -20921,6 +22855,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -20997,6 +22946,48 @@ components:
           nullable: true
           type: string
       type: object
+    PayrollPeriodDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     PayrollPeriodDtoEnvelope:
       additionalProperties: false
       example:
@@ -21008,8 +22999,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -21026,6 +23023,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -21050,8 +23062,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -21068,6 +23086,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -21186,10 +23219,10 @@ components:
         enrollmentId: enrollmentId
         employerProfileId: employerProfileId
         jobOfferId: jobOfferId
-        experienceInYears: 0
+        experienceInYears: 6
         tenantId: tenantId
         id: id
-        priority: 6.027456183070403
+        priority: 1.4658129805029452
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -21197,6 +23230,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         experienceInYears:
           format: int32
@@ -21225,6 +23259,48 @@ components:
           nullable: true
           type: string
       type: object
+    RequiredSkillRecordDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     RequiredSkillRecordDtoEnvelope:
       additionalProperties: false
       example:
@@ -21234,14 +23310,20 @@ components:
           enrollmentId: enrollmentId
           employerProfileId: employerProfileId
           jobOfferId: jobOfferId
-          experienceInYears: 0
+          experienceInYears: 6
           tenantId: tenantId
           id: id
-          priority: 6.027456183070403
+          priority: 1.4658129805029452
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -21258,6 +23340,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -21274,24 +23371,30 @@ components:
           enrollmentId: enrollmentId
           employerProfileId: employerProfileId
           jobOfferId: jobOfferId
-          experienceInYears: 0
+          experienceInYears: 6
           tenantId: tenantId
           id: id
-          priority: 6.027456183070403
+          priority: 1.4658129805029452
           timestamp: 2000-01-23T04:56:07.000+00:00
         - requiredSkillRecordType: MustHave
           skillId: skillId
           enrollmentId: enrollmentId
           employerProfileId: employerProfileId
           jobOfferId: jobOfferId
-          experienceInYears: 0
+          experienceInYears: 6
           tenantId: tenantId
           id: id
-          priority: 6.027456183070403
+          priority: 1.4658129805029452
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -21308,6 +23411,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -21414,7 +23532,7 @@ components:
       additionalProperties: false
       example:
         enrollmentId: enrollmentId
-        amount: 0.8008281904610115
+        amount: 6.027456183070403
         tenantId: tenantId
         employeeProfileId: employeeProfileId
         id: id
@@ -21444,20 +23562,68 @@ components:
           nullable: true
           type: string
       type: object
+    SalaryDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SalaryDtoEnvelope:
       additionalProperties: false
       example:
         result:
           enrollmentId: enrollmentId
-          amount: 0.8008281904610115
+          amount: 6.027456183070403
           tenantId: tenantId
           employeeProfileId: employeeProfileId
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -21474,6 +23640,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -21486,22 +23667,28 @@ components:
       example:
         result:
         - enrollmentId: enrollmentId
-          amount: 0.8008281904610115
+          amount: 6.027456183070403
           tenantId: tenantId
           employeeProfileId: employeeProfileId
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - enrollmentId: enrollmentId
-          amount: 0.8008281904610115
+          amount: 6.027456183070403
           tenantId: tenantId
           employeeProfileId: employeeProfileId
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -21518,6 +23705,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -21698,6 +23900,48 @@ components:
           nullable: true
           type: string
       type: object
+    ScheduleDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ScheduleDtoEnvelope:
       additionalProperties: false
       example:
@@ -21723,8 +23967,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           monday: true
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -21741,6 +23991,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -21793,8 +24058,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           monday: true
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -21811,6 +24082,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -22012,7 +24298,7 @@ components:
         description: description
         occustOnSaturday: true
         occustOnSunday: true
-        repeatEvery: 0
+        repeatEvery: 6
         repetitionCriteria: NotRepeat
         title: title
         occustOnThursday: true
@@ -22107,6 +24393,48 @@ components:
           nullable: true
           type: string
       type: object
+    ShiftDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ShiftDtoEnvelope:
       additionalProperties: false
       example:
@@ -22118,7 +24446,7 @@ components:
           description: description
           occustOnSaturday: true
           occustOnSunday: true
-          repeatEvery: 0
+          repeatEvery: 6
           repetitionCriteria: NotRepeat
           title: title
           occustOnThursday: true
@@ -22135,8 +24463,14 @@ components:
           scheduleId: scheduleId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -22153,6 +24487,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -22171,7 +24520,7 @@ components:
           description: description
           occustOnSaturday: true
           occustOnSunday: true
-          repeatEvery: 0
+          repeatEvery: 6
           repetitionCriteria: NotRepeat
           title: title
           occustOnThursday: true
@@ -22194,7 +24543,7 @@ components:
           description: description
           occustOnSaturday: true
           occustOnSunday: true
-          repeatEvery: 0
+          repeatEvery: 6
           repetitionCriteria: NotRepeat
           title: title
           occustOnThursday: true
@@ -22211,8 +24560,14 @@ components:
           scheduleId: scheduleId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -22229,6 +24584,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -22423,7 +24793,7 @@ components:
         description: description
         occustOnSaturday: true
         occustOnSunday: true
-        repeatEvery: 0
+        repeatEvery: 6
         title: title
         occustOnThursday: true
         occustOnWednesday: true
@@ -22482,6 +24852,48 @@ components:
           nullable: true
           type: string
       type: object
+    TimeIntervalDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     TimeIntervalDtoEnvelope:
       additionalProperties: false
       example:
@@ -22492,7 +24904,7 @@ components:
           description: description
           occustOnSaturday: true
           occustOnSunday: true
-          repeatEvery: 0
+          repeatEvery: 6
           title: title
           occustOnThursday: true
           occustOnWednesday: true
@@ -22504,8 +24916,14 @@ components:
           scheduleId: scheduleId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -22522,6 +24940,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -22539,7 +24972,7 @@ components:
           description: description
           occustOnSaturday: true
           occustOnSunday: true
-          repeatEvery: 0
+          repeatEvery: 6
           title: title
           occustOnThursday: true
           occustOnWednesday: true
@@ -22556,7 +24989,7 @@ components:
           description: description
           occustOnSaturday: true
           occustOnSunday: true
-          repeatEvery: 0
+          repeatEvery: 6
           title: title
           occustOnThursday: true
           occustOnWednesday: true
@@ -22568,8 +25001,14 @@ components:
           scheduleId: scheduleId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -22586,6 +25025,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -22714,6 +25168,48 @@ components:
           nullable: true
           type: string
       type: object
+    TrainingProgramCourseDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     TrainingProgramCourseDtoEnvelope:
       additionalProperties: false
       example:
@@ -22725,8 +25221,14 @@ components:
           courseId: courseId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -22743,6 +25245,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -22767,8 +25284,14 @@ components:
           courseId: courseId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -22785,6 +25308,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -22858,6 +25396,48 @@ components:
           nullable: true
           type: string
       type: object
+    TrainingProgramDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     TrainingProgramDtoEnvelope:
       additionalProperties: false
       example:
@@ -22868,8 +25448,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -22886,6 +25472,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -22908,8 +25509,14 @@ components:
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -22926,6 +25533,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -23053,7 +25675,7 @@ components:
         description: description
         occustOnSaturday: true
         occustOnSunday: true
-        repeatEvery: 0
+        repeatEvery: 6
         repetitionCriteria: NotRepeat
         title: title
         occustOnThursday: true
@@ -23151,6 +25773,48 @@ components:
           nullable: true
           type: string
       type: object
+    TrainingProgramEventDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     TrainingProgramEventDtoEnvelope:
       additionalProperties: false
       example:
@@ -23163,7 +25827,7 @@ components:
           description: description
           occustOnSaturday: true
           occustOnSunday: true
-          repeatEvery: 0
+          repeatEvery: 6
           repetitionCriteria: NotRepeat
           title: title
           occustOnThursday: true
@@ -23180,8 +25844,14 @@ components:
           scheduleId: scheduleId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -23198,6 +25868,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -23217,7 +25902,7 @@ components:
           description: description
           occustOnSaturday: true
           occustOnSunday: true
-          repeatEvery: 0
+          repeatEvery: 6
           repetitionCriteria: NotRepeat
           title: title
           occustOnThursday: true
@@ -23241,7 +25926,7 @@ components:
           description: description
           occustOnSaturday: true
           occustOnSunday: true
-          repeatEvery: 0
+          repeatEvery: 6
           repetitionCriteria: NotRepeat
           title: title
           occustOnThursday: true
@@ -23258,8 +25943,14 @@ components:
           scheduleId: scheduleId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -23276,6 +25967,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

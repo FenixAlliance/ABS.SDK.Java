@@ -31,17 +31,20 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.LoanApplicationCreateDto;
+import org.openapitools.client.model.LoanApplicationDtoCollectionQueryParameters;
 import org.openapitools.client.model.LoanApplicationDtoEnvelope;
 import org.openapitools.client.model.LoanApplicationDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.LoanCreateDto;
+import org.openapitools.client.model.LoanDtoCollectionQueryParameters;
 import org.openapitools.client.model.LoanDtoEnvelope;
 import org.openapitools.client.model.LoanDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.LoanTypeCreateDto;
+import org.openapitools.client.model.LoanTypeDtoCollectionQueryParameters;
 import org.openapitools.client.model.LoanTypeDtoEnvelope;
 import org.openapitools.client.model.LoanTypeDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.LoanTypeUpdateDto;
 import org.openapitools.client.model.LoanUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -1222,6 +1225,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1233,7 +1237,7 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoanApplicationsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoanApplicationsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1247,7 +1251,7 @@ public class LoansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = loanApplicationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Loans/Applications";
@@ -1280,6 +1284,8 @@ public class LoansApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1291,13 +1297,13 @@ public class LoansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoanApplicationsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoanApplicationsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLoanApplicationsAsync(Async)");
         }
 
-        return getLoanApplicationsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLoanApplicationsAsyncCall(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1307,6 +1313,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @return LoanApplicationDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1317,8 +1324,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public LoanApplicationDtoIReadOnlyListEnvelope getLoanApplicationsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LoanApplicationDtoIReadOnlyListEnvelope> localVarResp = getLoanApplicationsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public LoanApplicationDtoIReadOnlyListEnvelope getLoanApplicationsAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LoanApplicationDtoIReadOnlyListEnvelope> localVarResp = getLoanApplicationsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1328,6 +1335,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LoanApplicationDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1338,8 +1346,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoanApplicationDtoIReadOnlyListEnvelope> getLoanApplicationsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLoanApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<LoanApplicationDtoIReadOnlyListEnvelope> getLoanApplicationsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLoanApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LoanApplicationDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1350,6 +1358,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1361,9 +1370,9 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoanApplicationsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<LoanApplicationDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLoanApplicationsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters, final ApiCallback<LoanApplicationDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoanApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLoanApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LoanApplicationDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1373,6 +1382,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1384,7 +1394,7 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoanApplicationsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoanApplicationsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1398,7 +1408,7 @@ public class LoansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = loanApplicationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Loans/Applications/Count";
@@ -1431,6 +1441,8 @@ public class LoansApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1442,13 +1454,13 @@ public class LoansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoanApplicationsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoanApplicationsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLoanApplicationsCountAsync(Async)");
         }
 
-        return getLoanApplicationsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLoanApplicationsCountAsyncCall(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1458,6 +1470,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1468,8 +1481,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getLoanApplicationsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getLoanApplicationsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getLoanApplicationsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getLoanApplicationsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1479,6 +1492,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1489,8 +1503,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getLoanApplicationsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLoanApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getLoanApplicationsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLoanApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1501,6 +1515,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1512,9 +1527,9 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoanApplicationsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getLoanApplicationsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanApplicationDtoCollectionQueryParameters loanApplicationDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoanApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLoanApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanApplicationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1846,6 +1861,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1857,7 +1873,7 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoanTypesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoanTypesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1871,7 +1887,7 @@ public class LoansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = loanTypeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Loans/Types";
@@ -1904,6 +1920,8 @@ public class LoansApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1915,13 +1933,13 @@ public class LoansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoanTypesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoanTypesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLoanTypesAsync(Async)");
         }
 
-        return getLoanTypesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLoanTypesAsyncCall(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1931,6 +1949,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @return LoanTypeDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1941,8 +1960,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public LoanTypeDtoIReadOnlyListEnvelope getLoanTypesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LoanTypeDtoIReadOnlyListEnvelope> localVarResp = getLoanTypesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public LoanTypeDtoIReadOnlyListEnvelope getLoanTypesAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LoanTypeDtoIReadOnlyListEnvelope> localVarResp = getLoanTypesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1952,6 +1971,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LoanTypeDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1962,8 +1982,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoanTypeDtoIReadOnlyListEnvelope> getLoanTypesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLoanTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<LoanTypeDtoIReadOnlyListEnvelope> getLoanTypesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLoanTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LoanTypeDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1974,6 +1994,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1985,9 +2006,9 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoanTypesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<LoanTypeDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLoanTypesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters, final ApiCallback<LoanTypeDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoanTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLoanTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LoanTypeDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1997,6 +2018,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2008,7 +2030,7 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoanTypesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoanTypesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2022,7 +2044,7 @@ public class LoansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = loanTypeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Loans/Types/Count";
@@ -2055,6 +2077,8 @@ public class LoansApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2066,13 +2090,13 @@ public class LoansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoanTypesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoanTypesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLoanTypesCountAsync(Async)");
         }
 
-        return getLoanTypesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLoanTypesCountAsyncCall(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2082,6 +2106,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2092,8 +2117,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getLoanTypesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getLoanTypesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getLoanTypesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getLoanTypesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2103,6 +2128,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2113,8 +2139,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getLoanTypesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLoanTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getLoanTypesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLoanTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2125,6 +2151,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanTypeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2136,9 +2163,9 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoanTypesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getLoanTypesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanTypeDtoCollectionQueryParameters loanTypeDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoanTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLoanTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanTypeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2148,6 +2175,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2159,7 +2187,7 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoansAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoansAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2173,7 +2201,7 @@ public class LoansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = loanDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Loans";
@@ -2206,6 +2234,8 @@ public class LoansApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2217,13 +2247,13 @@ public class LoansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoansAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoansAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLoansAsync(Async)");
         }
 
-        return getLoansAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLoansAsyncCall(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2233,6 +2263,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @return LoanDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2243,8 +2274,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public LoanDtoIReadOnlyListEnvelope getLoansAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LoanDtoIReadOnlyListEnvelope> localVarResp = getLoansAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public LoanDtoIReadOnlyListEnvelope getLoansAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LoanDtoIReadOnlyListEnvelope> localVarResp = getLoansAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2254,6 +2285,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LoanDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2264,8 +2296,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoanDtoIReadOnlyListEnvelope> getLoansAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLoansAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<LoanDtoIReadOnlyListEnvelope> getLoansAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLoansAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LoanDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2276,6 +2308,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2287,9 +2320,9 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoansAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<LoanDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLoansAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters, final ApiCallback<LoanDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoansAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLoansAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LoanDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2299,6 +2332,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2310,7 +2344,7 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoansCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoansCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2324,7 +2358,7 @@ public class LoansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = loanDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Loans/Count";
@@ -2357,6 +2391,8 @@ public class LoansApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2368,13 +2404,13 @@ public class LoansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoansCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoansCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLoansCountAsync(Async)");
         }
 
-        return getLoansCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLoansCountAsyncCall(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2384,6 +2420,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2394,8 +2431,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getLoansCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getLoansCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getLoansCountAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getLoansCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2405,6 +2442,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2415,8 +2453,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getLoansCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLoansCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getLoansCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLoansCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2427,6 +2465,7 @@ public class LoansApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param loanDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2438,9 +2477,9 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoansCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getLoansCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LoanDtoCollectionQueryParameters loanDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoansCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLoansCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, loanDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2451,7 +2490,7 @@ public class LoansApi {
      * @param applicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2463,7 +2502,7 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLoanApplicationAsyncCall(UUID tenantId, UUID applicationId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchLoanApplicationAsyncCall(UUID tenantId, UUID applicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2477,7 +2516,7 @@ public class LoansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Loans/Applications/{applicationId}"
@@ -2524,7 +2563,7 @@ public class LoansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchLoanApplicationAsyncValidateBeforeCall(UUID tenantId, UUID applicationId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchLoanApplicationAsyncValidateBeforeCall(UUID tenantId, UUID applicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchLoanApplicationAsync(Async)");
@@ -2535,7 +2574,7 @@ public class LoansApi {
             throw new ApiException("Missing the required parameter 'applicationId' when calling patchLoanApplicationAsync(Async)");
         }
 
-        return patchLoanApplicationAsyncCall(tenantId, applicationId, apiVersion, xApiVersion, operation, _callback);
+        return patchLoanApplicationAsyncCall(tenantId, applicationId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2546,7 +2585,7 @@ public class LoansApi {
      * @param applicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2557,8 +2596,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchLoanApplicationAsync(UUID tenantId, UUID applicationId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchLoanApplicationAsyncWithHttpInfo(tenantId, applicationId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchLoanApplicationAsync(UUID tenantId, UUID applicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchLoanApplicationAsyncWithHttpInfo(tenantId, applicationId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2569,7 +2608,7 @@ public class LoansApi {
      * @param applicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2580,8 +2619,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchLoanApplicationAsyncWithHttpInfo(UUID tenantId, UUID applicationId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchLoanApplicationAsyncValidateBeforeCall(tenantId, applicationId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchLoanApplicationAsyncWithHttpInfo(UUID tenantId, UUID applicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchLoanApplicationAsyncValidateBeforeCall(tenantId, applicationId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2593,7 +2632,7 @@ public class LoansApi {
      * @param applicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2605,9 +2644,9 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLoanApplicationAsyncAsync(UUID tenantId, UUID applicationId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchLoanApplicationAsyncAsync(UUID tenantId, UUID applicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchLoanApplicationAsyncValidateBeforeCall(tenantId, applicationId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchLoanApplicationAsyncValidateBeforeCall(tenantId, applicationId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2618,7 +2657,7 @@ public class LoansApi {
      * @param loanId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2630,7 +2669,7 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLoanAsyncCall(UUID tenantId, UUID loanId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchLoanAsyncCall(UUID tenantId, UUID loanId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2644,7 +2683,7 @@ public class LoansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Loans/{loanId}"
@@ -2691,7 +2730,7 @@ public class LoansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchLoanAsyncValidateBeforeCall(UUID tenantId, UUID loanId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchLoanAsyncValidateBeforeCall(UUID tenantId, UUID loanId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchLoanAsync(Async)");
@@ -2702,7 +2741,7 @@ public class LoansApi {
             throw new ApiException("Missing the required parameter 'loanId' when calling patchLoanAsync(Async)");
         }
 
-        return patchLoanAsyncCall(tenantId, loanId, apiVersion, xApiVersion, operation, _callback);
+        return patchLoanAsyncCall(tenantId, loanId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2713,7 +2752,7 @@ public class LoansApi {
      * @param loanId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2724,8 +2763,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchLoanAsync(UUID tenantId, UUID loanId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchLoanAsyncWithHttpInfo(tenantId, loanId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchLoanAsync(UUID tenantId, UUID loanId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchLoanAsyncWithHttpInfo(tenantId, loanId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2736,7 +2775,7 @@ public class LoansApi {
      * @param loanId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2747,8 +2786,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchLoanAsyncWithHttpInfo(UUID tenantId, UUID loanId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchLoanAsyncValidateBeforeCall(tenantId, loanId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchLoanAsyncWithHttpInfo(UUID tenantId, UUID loanId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchLoanAsyncValidateBeforeCall(tenantId, loanId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2760,7 +2799,7 @@ public class LoansApi {
      * @param loanId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2772,9 +2811,9 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLoanAsyncAsync(UUID tenantId, UUID loanId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchLoanAsyncAsync(UUID tenantId, UUID loanId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchLoanAsyncValidateBeforeCall(tenantId, loanId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchLoanAsyncValidateBeforeCall(tenantId, loanId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2785,7 +2824,7 @@ public class LoansApi {
      * @param loanTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2797,7 +2836,7 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLoanTypeAsyncCall(UUID tenantId, UUID loanTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchLoanTypeAsyncCall(UUID tenantId, UUID loanTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2811,7 +2850,7 @@ public class LoansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Loans/Types/{loanTypeId}"
@@ -2858,7 +2897,7 @@ public class LoansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchLoanTypeAsyncValidateBeforeCall(UUID tenantId, UUID loanTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchLoanTypeAsyncValidateBeforeCall(UUID tenantId, UUID loanTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchLoanTypeAsync(Async)");
@@ -2869,7 +2908,7 @@ public class LoansApi {
             throw new ApiException("Missing the required parameter 'loanTypeId' when calling patchLoanTypeAsync(Async)");
         }
 
-        return patchLoanTypeAsyncCall(tenantId, loanTypeId, apiVersion, xApiVersion, operation, _callback);
+        return patchLoanTypeAsyncCall(tenantId, loanTypeId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2880,7 +2919,7 @@ public class LoansApi {
      * @param loanTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2891,8 +2930,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchLoanTypeAsync(UUID tenantId, UUID loanTypeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchLoanTypeAsyncWithHttpInfo(tenantId, loanTypeId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchLoanTypeAsync(UUID tenantId, UUID loanTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchLoanTypeAsyncWithHttpInfo(tenantId, loanTypeId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2903,7 +2942,7 @@ public class LoansApi {
      * @param loanTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2914,8 +2953,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchLoanTypeAsyncWithHttpInfo(UUID tenantId, UUID loanTypeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchLoanTypeAsyncValidateBeforeCall(tenantId, loanTypeId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchLoanTypeAsyncWithHttpInfo(UUID tenantId, UUID loanTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchLoanTypeAsyncValidateBeforeCall(tenantId, loanTypeId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2927,7 +2966,7 @@ public class LoansApi {
      * @param loanTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2939,9 +2978,9 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLoanTypeAsyncAsync(UUID tenantId, UUID loanTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchLoanTypeAsyncAsync(UUID tenantId, UUID loanTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchLoanTypeAsyncValidateBeforeCall(tenantId, loanTypeId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchLoanTypeAsyncValidateBeforeCall(tenantId, loanTypeId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

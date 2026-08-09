@@ -186,7 +186,7 @@ No authorization required
 
 <a id="getCourseArticlesByCourseWikiAsync"></a>
 # **getCourseArticlesByCourseWikiAsync**
-> List&lt;CourseArticleDto&gt; getCourseArticlesByCourseWikiAsync(courseId, wikiId, apiVersion, xApiVersion)
+> List&lt;CourseArticleDto&gt; getCourseArticlesByCourseWikiAsync(courseId, wikiId, apiVersion, xApiVersion, courseArticleDtoCollectionQueryParameters)
 
 Get course articles by course wiki
 
@@ -211,8 +211,9 @@ public class Example {
     String wikiId = "wikiId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseArticleDtoCollectionQueryParameters courseArticleDtoCollectionQueryParameters = new CourseArticleDtoCollectionQueryParameters(); // CourseArticleDtoCollectionQueryParameters | 
     try {
-      List<CourseArticleDto> result = apiInstance.getCourseArticlesByCourseWikiAsync(courseId, wikiId, apiVersion, xApiVersion);
+      List<CourseArticleDto> result = apiInstance.getCourseArticlesByCourseWikiAsync(courseId, wikiId, apiVersion, xApiVersion, courseArticleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseArticlesByCourseWikiAsync");
@@ -233,6 +234,7 @@ public class Example {
 | **wikiId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseArticleDtoCollectionQueryParameters** | [**CourseArticleDtoCollectionQueryParameters**](CourseArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -244,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -255,7 +257,7 @@ No authorization required
 
 <a id="getCourseArticlesByCourseWikiCountAsync"></a>
 # **getCourseArticlesByCourseWikiCountAsync**
-> Integer getCourseArticlesByCourseWikiCountAsync(courseId, wikiId, apiVersion, xApiVersion)
+> Integer getCourseArticlesByCourseWikiCountAsync(courseId, wikiId, apiVersion, xApiVersion, courseArticleDtoCollectionQueryParameters)
 
 Get course articles by course wiki count
 
@@ -280,8 +282,9 @@ public class Example {
     String wikiId = "wikiId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseArticleDtoCollectionQueryParameters courseArticleDtoCollectionQueryParameters = new CourseArticleDtoCollectionQueryParameters(); // CourseArticleDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseArticlesByCourseWikiCountAsync(courseId, wikiId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseArticlesByCourseWikiCountAsync(courseId, wikiId, apiVersion, xApiVersion, courseArticleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseArticlesByCourseWikiCountAsync");
@@ -302,6 +305,7 @@ public class Example {
 | **wikiId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseArticleDtoCollectionQueryParameters** | [**CourseArticleDtoCollectionQueryParameters**](CourseArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -313,7 +317,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -324,7 +328,7 @@ No authorization required
 
 <a id="getCourseAssignmentsByCourseAsync"></a>
 # **getCourseAssignmentsByCourseAsync**
-> List&lt;CourseAssignmentDto&gt; getCourseAssignmentsByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseAssignmentDto&gt; getCourseAssignmentsByCourseAsync(courseId, apiVersion, xApiVersion, courseAssignmentDtoCollectionQueryParameters)
 
 Get course assignments by course
 
@@ -348,8 +352,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseAssignmentDtoCollectionQueryParameters courseAssignmentDtoCollectionQueryParameters = new CourseAssignmentDtoCollectionQueryParameters(); // CourseAssignmentDtoCollectionQueryParameters | 
     try {
-      List<CourseAssignmentDto> result = apiInstance.getCourseAssignmentsByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseAssignmentDto> result = apiInstance.getCourseAssignmentsByCourseAsync(courseId, apiVersion, xApiVersion, courseAssignmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseAssignmentsByCourseAsync");
@@ -369,6 +374,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseAssignmentDtoCollectionQueryParameters** | [**CourseAssignmentDtoCollectionQueryParameters**](CourseAssignmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -380,7 +386,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -391,7 +397,7 @@ No authorization required
 
 <a id="getCourseAssignmentsByCourseCountAsync"></a>
 # **getCourseAssignmentsByCourseCountAsync**
-> Integer getCourseAssignmentsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseAssignmentsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseAssignmentDtoCollectionQueryParameters)
 
 Get course assignments by course count
 
@@ -415,8 +421,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseAssignmentDtoCollectionQueryParameters courseAssignmentDtoCollectionQueryParameters = new CourseAssignmentDtoCollectionQueryParameters(); // CourseAssignmentDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseAssignmentsByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseAssignmentsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseAssignmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseAssignmentsByCourseCountAsync");
@@ -436,6 +443,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseAssignmentDtoCollectionQueryParameters** | [**CourseAssignmentDtoCollectionQueryParameters**](CourseAssignmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -447,7 +455,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -527,7 +535,7 @@ No authorization required
 
 <a id="getCourseCategoriesByCourseAsync"></a>
 # **getCourseCategoriesByCourseAsync**
-> List&lt;CourseCategoryDto&gt; getCourseCategoriesByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseCategoryDto&gt; getCourseCategoriesByCourseAsync(courseId, apiVersion, xApiVersion, courseCategoryDtoCollectionQueryParameters)
 
 Get course categories by course
 
@@ -551,8 +559,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseCategoryDtoCollectionQueryParameters courseCategoryDtoCollectionQueryParameters = new CourseCategoryDtoCollectionQueryParameters(); // CourseCategoryDtoCollectionQueryParameters | 
     try {
-      List<CourseCategoryDto> result = apiInstance.getCourseCategoriesByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseCategoryDto> result = apiInstance.getCourseCategoriesByCourseAsync(courseId, apiVersion, xApiVersion, courseCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseCategoriesByCourseAsync");
@@ -572,6 +581,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseCategoryDtoCollectionQueryParameters** | [**CourseCategoryDtoCollectionQueryParameters**](CourseCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -583,7 +593,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -594,7 +604,7 @@ No authorization required
 
 <a id="getCourseCategoriesByCourseCountAsync"></a>
 # **getCourseCategoriesByCourseCountAsync**
-> Integer getCourseCategoriesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseCategoriesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseCategoryDtoCollectionQueryParameters)
 
 Get course categories by course count
 
@@ -618,8 +628,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseCategoryDtoCollectionQueryParameters courseCategoryDtoCollectionQueryParameters = new CourseCategoryDtoCollectionQueryParameters(); // CourseCategoryDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseCategoriesByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseCategoriesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseCategoriesByCourseCountAsync");
@@ -639,6 +650,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseCategoryDtoCollectionQueryParameters** | [**CourseCategoryDtoCollectionQueryParameters**](CourseCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -650,7 +662,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -661,7 +673,7 @@ No authorization required
 
 <a id="getCourseCohortsByCourseAsync"></a>
 # **getCourseCohortsByCourseAsync**
-> List&lt;CourseCohortDto&gt; getCourseCohortsByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseCohortDto&gt; getCourseCohortsByCourseAsync(courseId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters)
 
 Get course cohorts by course
 
@@ -685,8 +697,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseCohortDtoCollectionQueryParameters courseCohortDtoCollectionQueryParameters = new CourseCohortDtoCollectionQueryParameters(); // CourseCohortDtoCollectionQueryParameters | 
     try {
-      List<CourseCohortDto> result = apiInstance.getCourseCohortsByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseCohortDto> result = apiInstance.getCourseCohortsByCourseAsync(courseId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseCohortsByCourseAsync");
@@ -706,6 +719,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseCohortDtoCollectionQueryParameters** | [**CourseCohortDtoCollectionQueryParameters**](CourseCohortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -717,7 +731,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -728,7 +742,7 @@ No authorization required
 
 <a id="getCourseCohortsByCourseCountAsync"></a>
 # **getCourseCohortsByCourseCountAsync**
-> Integer getCourseCohortsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseCohortsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters)
 
 Get course cohorts by course count
 
@@ -752,8 +766,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseCohortDtoCollectionQueryParameters courseCohortDtoCollectionQueryParameters = new CourseCohortDtoCollectionQueryParameters(); // CourseCohortDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseCohortsByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseCohortsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseCohortDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseCohortsByCourseCountAsync");
@@ -773,6 +788,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseCohortDtoCollectionQueryParameters** | [**CourseCohortDtoCollectionQueryParameters**](CourseCohortDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -784,7 +800,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -795,7 +811,7 @@ No authorization required
 
 <a id="getCourseEnrollmentsByCourseAsync"></a>
 # **getCourseEnrollmentsByCourseAsync**
-> List&lt;CourseEnrollmentDto&gt; getCourseEnrollmentsByCourseAsync(tenantId, courseId, apiVersion, xApiVersion)
+> List&lt;CourseEnrollmentDto&gt; getCourseEnrollmentsByCourseAsync(tenantId, courseId, apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters)
 
 Get enrollments by course
 
@@ -820,8 +836,9 @@ public class Example {
     UUID courseId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters = new CourseEnrollmentDtoCollectionQueryParameters(); // CourseEnrollmentDtoCollectionQueryParameters | 
     try {
-      List<CourseEnrollmentDto> result = apiInstance.getCourseEnrollmentsByCourseAsync(tenantId, courseId, apiVersion, xApiVersion);
+      List<CourseEnrollmentDto> result = apiInstance.getCourseEnrollmentsByCourseAsync(tenantId, courseId, apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseEnrollmentsByCourseAsync");
@@ -842,6 +859,7 @@ public class Example {
 | **courseId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -853,7 +871,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -864,7 +882,7 @@ No authorization required
 
 <a id="getCourseFilesByCourseAsync"></a>
 # **getCourseFilesByCourseAsync**
-> List&lt;CourseFileDto&gt; getCourseFilesByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseFileDto&gt; getCourseFilesByCourseAsync(courseId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters)
 
 Get course files by course
 
@@ -888,8 +906,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseFileDtoCollectionQueryParameters courseFileDtoCollectionQueryParameters = new CourseFileDtoCollectionQueryParameters(); // CourseFileDtoCollectionQueryParameters | 
     try {
-      List<CourseFileDto> result = apiInstance.getCourseFilesByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseFileDto> result = apiInstance.getCourseFilesByCourseAsync(courseId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseFilesByCourseAsync");
@@ -909,6 +928,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseFileDtoCollectionQueryParameters** | [**CourseFileDtoCollectionQueryParameters**](CourseFileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -920,7 +940,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -931,7 +951,7 @@ No authorization required
 
 <a id="getCourseFilesByCourseCountAsync"></a>
 # **getCourseFilesByCourseCountAsync**
-> Integer getCourseFilesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseFilesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters)
 
 Get course files by course count
 
@@ -955,8 +975,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseFileDtoCollectionQueryParameters courseFileDtoCollectionQueryParameters = new CourseFileDtoCollectionQueryParameters(); // CourseFileDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseFilesByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseFilesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseFilesByCourseCountAsync");
@@ -976,6 +997,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseFileDtoCollectionQueryParameters** | [**CourseFileDtoCollectionQueryParameters**](CourseFileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -987,7 +1009,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -998,7 +1020,7 @@ No authorization required
 
 <a id="getCourseForumsByCourseAsync"></a>
 # **getCourseForumsByCourseAsync**
-> List&lt;CourseForumDto&gt; getCourseForumsByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseForumDto&gt; getCourseForumsByCourseAsync(courseId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
 
 Get course forums by course
 
@@ -1022,8 +1044,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters = new CourseForumDtoCollectionQueryParameters(); // CourseForumDtoCollectionQueryParameters | 
     try {
-      List<CourseForumDto> result = apiInstance.getCourseForumsByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseForumDto> result = apiInstance.getCourseForumsByCourseAsync(courseId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseForumsByCourseAsync");
@@ -1043,6 +1066,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1054,7 +1078,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1065,7 +1089,7 @@ No authorization required
 
 <a id="getCourseForumsByCourseCountAsync"></a>
 # **getCourseForumsByCourseCountAsync**
-> Integer getCourseForumsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseForumsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
 
 Get course forums by course count
 
@@ -1089,8 +1113,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters = new CourseForumDtoCollectionQueryParameters(); // CourseForumDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseForumsByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseForumsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseForumsByCourseCountAsync");
@@ -1110,6 +1135,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1121,7 +1147,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1132,7 +1158,7 @@ No authorization required
 
 <a id="getCourseHandoutsByCourseAsync"></a>
 # **getCourseHandoutsByCourseAsync**
-> List&lt;CourseHandoutDto&gt; getCourseHandoutsByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseHandoutDto&gt; getCourseHandoutsByCourseAsync(courseId, apiVersion, xApiVersion, courseHandoutDtoCollectionQueryParameters)
 
 Get course handouts by course
 
@@ -1156,8 +1182,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseHandoutDtoCollectionQueryParameters courseHandoutDtoCollectionQueryParameters = new CourseHandoutDtoCollectionQueryParameters(); // CourseHandoutDtoCollectionQueryParameters | 
     try {
-      List<CourseHandoutDto> result = apiInstance.getCourseHandoutsByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseHandoutDto> result = apiInstance.getCourseHandoutsByCourseAsync(courseId, apiVersion, xApiVersion, courseHandoutDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseHandoutsByCourseAsync");
@@ -1177,6 +1204,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseHandoutDtoCollectionQueryParameters** | [**CourseHandoutDtoCollectionQueryParameters**](CourseHandoutDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1188,7 +1216,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1199,7 +1227,7 @@ No authorization required
 
 <a id="getCourseHandoutsByCourseCountAsync"></a>
 # **getCourseHandoutsByCourseCountAsync**
-> Integer getCourseHandoutsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseHandoutsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseHandoutDtoCollectionQueryParameters)
 
 Get course handouts by course count
 
@@ -1223,8 +1251,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseHandoutDtoCollectionQueryParameters courseHandoutDtoCollectionQueryParameters = new CourseHandoutDtoCollectionQueryParameters(); // CourseHandoutDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseHandoutsByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseHandoutsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseHandoutDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseHandoutsByCourseCountAsync");
@@ -1244,6 +1273,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseHandoutDtoCollectionQueryParameters** | [**CourseHandoutDtoCollectionQueryParameters**](CourseHandoutDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1255,7 +1285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1266,7 +1296,7 @@ No authorization required
 
 <a id="getCourseLibrariesByCourseAsync"></a>
 # **getCourseLibrariesByCourseAsync**
-> List&lt;CourseLibraryDto&gt; getCourseLibrariesByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseLibraryDto&gt; getCourseLibrariesByCourseAsync(courseId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
 
 Get course libraries by course
 
@@ -1290,8 +1320,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseLibraryDtoCollectionQueryParameters courseLibraryDtoCollectionQueryParameters = new CourseLibraryDtoCollectionQueryParameters(); // CourseLibraryDtoCollectionQueryParameters | 
     try {
-      List<CourseLibraryDto> result = apiInstance.getCourseLibrariesByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseLibraryDto> result = apiInstance.getCourseLibrariesByCourseAsync(courseId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseLibrariesByCourseAsync");
@@ -1311,6 +1342,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1322,7 +1354,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1333,7 +1365,7 @@ No authorization required
 
 <a id="getCourseLibrariesByCourseCountAsync"></a>
 # **getCourseLibrariesByCourseCountAsync**
-> Integer getCourseLibrariesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseLibrariesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters)
 
 Get course libraries by course count
 
@@ -1357,8 +1389,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseLibraryDtoCollectionQueryParameters courseLibraryDtoCollectionQueryParameters = new CourseLibraryDtoCollectionQueryParameters(); // CourseLibraryDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseLibrariesByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseLibrariesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseLibraryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseLibrariesByCourseCountAsync");
@@ -1378,6 +1411,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseLibraryDtoCollectionQueryParameters** | [**CourseLibraryDtoCollectionQueryParameters**](CourseLibraryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1389,7 +1423,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1400,7 +1434,7 @@ No authorization required
 
 <a id="getCoursePagesByCourseAsync"></a>
 # **getCoursePagesByCourseAsync**
-> List&lt;CoursePageDto&gt; getCoursePagesByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CoursePageDto&gt; getCoursePagesByCourseAsync(courseId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters)
 
 Get course pages by course
 
@@ -1424,8 +1458,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters = new CoursePageDtoCollectionQueryParameters(); // CoursePageDtoCollectionQueryParameters | 
     try {
-      List<CoursePageDto> result = apiInstance.getCoursePagesByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CoursePageDto> result = apiInstance.getCoursePagesByCourseAsync(courseId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCoursePagesByCourseAsync");
@@ -1445,6 +1480,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **coursePageDtoCollectionQueryParameters** | [**CoursePageDtoCollectionQueryParameters**](CoursePageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1456,7 +1492,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1467,7 +1503,7 @@ No authorization required
 
 <a id="getCoursePagesByCourseCountAsync"></a>
 # **getCoursePagesByCourseCountAsync**
-> Integer getCoursePagesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCoursePagesByCourseCountAsync(courseId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters)
 
 Get course pages by course count
 
@@ -1491,8 +1527,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters = new CoursePageDtoCollectionQueryParameters(); // CoursePageDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCoursePagesByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCoursePagesByCourseCountAsync(courseId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCoursePagesByCourseCountAsync");
@@ -1512,6 +1549,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **coursePageDtoCollectionQueryParameters** | [**CoursePageDtoCollectionQueryParameters**](CoursePageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1523,7 +1561,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1534,7 +1572,7 @@ No authorization required
 
 <a id="getCourseProblemSetsByCourseAsync"></a>
 # **getCourseProblemSetsByCourseAsync**
-> List&lt;CourseProblemSetDto&gt; getCourseProblemSetsByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseProblemSetDto&gt; getCourseProblemSetsByCourseAsync(courseId, apiVersion, xApiVersion, courseProblemSetDtoCollectionQueryParameters)
 
 Get course problem sets by course
 
@@ -1558,8 +1596,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseProblemSetDtoCollectionQueryParameters courseProblemSetDtoCollectionQueryParameters = new CourseProblemSetDtoCollectionQueryParameters(); // CourseProblemSetDtoCollectionQueryParameters | 
     try {
-      List<CourseProblemSetDto> result = apiInstance.getCourseProblemSetsByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseProblemSetDto> result = apiInstance.getCourseProblemSetsByCourseAsync(courseId, apiVersion, xApiVersion, courseProblemSetDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseProblemSetsByCourseAsync");
@@ -1579,6 +1618,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseProblemSetDtoCollectionQueryParameters** | [**CourseProblemSetDtoCollectionQueryParameters**](CourseProblemSetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1590,7 +1630,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1601,7 +1641,7 @@ No authorization required
 
 <a id="getCourseProblemSetsByCourseCountAsync"></a>
 # **getCourseProblemSetsByCourseCountAsync**
-> Integer getCourseProblemSetsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseProblemSetsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseProblemSetDtoCollectionQueryParameters)
 
 Get course problem sets by course count
 
@@ -1625,8 +1665,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseProblemSetDtoCollectionQueryParameters courseProblemSetDtoCollectionQueryParameters = new CourseProblemSetDtoCollectionQueryParameters(); // CourseProblemSetDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseProblemSetsByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseProblemSetsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseProblemSetDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseProblemSetsByCourseCountAsync");
@@ -1646,6 +1687,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseProblemSetDtoCollectionQueryParameters** | [**CourseProblemSetDtoCollectionQueryParameters**](CourseProblemSetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1657,7 +1699,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1668,7 +1710,7 @@ No authorization required
 
 <a id="getCourseSectionsByCourseAsync"></a>
 # **getCourseSectionsByCourseAsync**
-> List&lt;CourseSectionDto&gt; getCourseSectionsByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseSectionDto&gt; getCourseSectionsByCourseAsync(courseId, apiVersion, xApiVersion, courseSectionDtoCollectionQueryParameters)
 
 Get course sections by course
 
@@ -1692,8 +1734,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseSectionDtoCollectionQueryParameters courseSectionDtoCollectionQueryParameters = new CourseSectionDtoCollectionQueryParameters(); // CourseSectionDtoCollectionQueryParameters | 
     try {
-      List<CourseSectionDto> result = apiInstance.getCourseSectionsByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseSectionDto> result = apiInstance.getCourseSectionsByCourseAsync(courseId, apiVersion, xApiVersion, courseSectionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseSectionsByCourseAsync");
@@ -1713,6 +1756,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseSectionDtoCollectionQueryParameters** | [**CourseSectionDtoCollectionQueryParameters**](CourseSectionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1724,7 +1768,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1735,7 +1779,7 @@ No authorization required
 
 <a id="getCourseSectionsByCourseCountAsync"></a>
 # **getCourseSectionsByCourseCountAsync**
-> Integer getCourseSectionsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseSectionsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseSectionDtoCollectionQueryParameters)
 
 Get course sections by course count
 
@@ -1759,8 +1803,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseSectionDtoCollectionQueryParameters courseSectionDtoCollectionQueryParameters = new CourseSectionDtoCollectionQueryParameters(); // CourseSectionDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseSectionsByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseSectionsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseSectionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseSectionsByCourseCountAsync");
@@ -1780,6 +1825,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseSectionDtoCollectionQueryParameters** | [**CourseSectionDtoCollectionQueryParameters**](CourseSectionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1791,7 +1837,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1802,7 +1848,7 @@ No authorization required
 
 <a id="getCourseUnitComponentsByCourseAsync"></a>
 # **getCourseUnitComponentsByCourseAsync**
-> List&lt;CourseUnitComponentDto&gt; getCourseUnitComponentsByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseUnitComponentDto&gt; getCourseUnitComponentsByCourseAsync(courseId, apiVersion, xApiVersion, courseUnitComponentDtoCollectionQueryParameters)
 
 Get course unit components by course
 
@@ -1826,8 +1872,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseUnitComponentDtoCollectionQueryParameters courseUnitComponentDtoCollectionQueryParameters = new CourseUnitComponentDtoCollectionQueryParameters(); // CourseUnitComponentDtoCollectionQueryParameters | 
     try {
-      List<CourseUnitComponentDto> result = apiInstance.getCourseUnitComponentsByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseUnitComponentDto> result = apiInstance.getCourseUnitComponentsByCourseAsync(courseId, apiVersion, xApiVersion, courseUnitComponentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseUnitComponentsByCourseAsync");
@@ -1847,6 +1894,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseUnitComponentDtoCollectionQueryParameters** | [**CourseUnitComponentDtoCollectionQueryParameters**](CourseUnitComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1858,7 +1906,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1869,7 +1917,7 @@ No authorization required
 
 <a id="getCourseUnitComponentsByCourseCountAsync"></a>
 # **getCourseUnitComponentsByCourseCountAsync**
-> Integer getCourseUnitComponentsByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseUnitComponentsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseUnitComponentDtoCollectionQueryParameters)
 
 Get course unit components by course count
 
@@ -1893,8 +1941,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseUnitComponentDtoCollectionQueryParameters courseUnitComponentDtoCollectionQueryParameters = new CourseUnitComponentDtoCollectionQueryParameters(); // CourseUnitComponentDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseUnitComponentsByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseUnitComponentsByCourseCountAsync(courseId, apiVersion, xApiVersion, courseUnitComponentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseUnitComponentsByCourseCountAsync");
@@ -1914,6 +1963,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseUnitComponentDtoCollectionQueryParameters** | [**CourseUnitComponentDtoCollectionQueryParameters**](CourseUnitComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1925,7 +1975,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1936,7 +1986,7 @@ No authorization required
 
 <a id="getCourseUnitsBySectionAsync"></a>
 # **getCourseUnitsBySectionAsync**
-> List&lt;CourseUnitDto&gt; getCourseUnitsBySectionAsync(courseId, sectionId, apiVersion, xApiVersion)
+> List&lt;CourseUnitDto&gt; getCourseUnitsBySectionAsync(courseId, sectionId, apiVersion, xApiVersion, courseUnitDtoCollectionQueryParameters)
 
 Get course units by section
 
@@ -1961,8 +2011,9 @@ public class Example {
     String sectionId = "sectionId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseUnitDtoCollectionQueryParameters courseUnitDtoCollectionQueryParameters = new CourseUnitDtoCollectionQueryParameters(); // CourseUnitDtoCollectionQueryParameters | 
     try {
-      List<CourseUnitDto> result = apiInstance.getCourseUnitsBySectionAsync(courseId, sectionId, apiVersion, xApiVersion);
+      List<CourseUnitDto> result = apiInstance.getCourseUnitsBySectionAsync(courseId, sectionId, apiVersion, xApiVersion, courseUnitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseUnitsBySectionAsync");
@@ -1983,6 +2034,7 @@ public class Example {
 | **sectionId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseUnitDtoCollectionQueryParameters** | [**CourseUnitDtoCollectionQueryParameters**](CourseUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1994,7 +2046,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2005,7 +2057,7 @@ No authorization required
 
 <a id="getCourseUnitsBySectionCountAsync"></a>
 # **getCourseUnitsBySectionCountAsync**
-> Integer getCourseUnitsBySectionCountAsync(courseId, sectionId, apiVersion, xApiVersion)
+> Integer getCourseUnitsBySectionCountAsync(courseId, sectionId, apiVersion, xApiVersion, courseUnitDtoCollectionQueryParameters)
 
 Get course units by section count
 
@@ -2030,8 +2082,9 @@ public class Example {
     String sectionId = "sectionId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseUnitDtoCollectionQueryParameters courseUnitDtoCollectionQueryParameters = new CourseUnitDtoCollectionQueryParameters(); // CourseUnitDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseUnitsBySectionCountAsync(courseId, sectionId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseUnitsBySectionCountAsync(courseId, sectionId, apiVersion, xApiVersion, courseUnitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseUnitsBySectionCountAsync");
@@ -2052,6 +2105,7 @@ public class Example {
 | **sectionId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseUnitDtoCollectionQueryParameters** | [**CourseUnitDtoCollectionQueryParameters**](CourseUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2063,7 +2117,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2074,7 +2128,7 @@ No authorization required
 
 <a id="getCourseUpdatesByCourseAsync"></a>
 # **getCourseUpdatesByCourseAsync**
-> List&lt;CourseNewsDto&gt; getCourseUpdatesByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseNewsDto&gt; getCourseUpdatesByCourseAsync(courseId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
 
 Get course updates by course
 
@@ -2098,8 +2152,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseNewsDtoCollectionQueryParameters courseNewsDtoCollectionQueryParameters = new CourseNewsDtoCollectionQueryParameters(); // CourseNewsDtoCollectionQueryParameters | 
     try {
-      List<CourseNewsDto> result = apiInstance.getCourseUpdatesByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseNewsDto> result = apiInstance.getCourseUpdatesByCourseAsync(courseId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseUpdatesByCourseAsync");
@@ -2119,6 +2174,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2130,7 +2186,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2141,7 +2197,7 @@ No authorization required
 
 <a id="getCourseUpdatesByCourseCountAsync"></a>
 # **getCourseUpdatesByCourseCountAsync**
-> Integer getCourseUpdatesByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseUpdatesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
 
 Get course updates by course count
 
@@ -2165,8 +2221,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseNewsDtoCollectionQueryParameters courseNewsDtoCollectionQueryParameters = new CourseNewsDtoCollectionQueryParameters(); // CourseNewsDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseUpdatesByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseUpdatesByCourseCountAsync(courseId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseUpdatesByCourseCountAsync");
@@ -2186,6 +2243,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2197,7 +2255,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2208,7 +2266,7 @@ No authorization required
 
 <a id="getCourseWikisByCourseAsync"></a>
 # **getCourseWikisByCourseAsync**
-> List&lt;CourseWikiDto&gt; getCourseWikisByCourseAsync(courseId, apiVersion, xApiVersion)
+> List&lt;CourseWikiDto&gt; getCourseWikisByCourseAsync(courseId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
 
 Get course wikis by course
 
@@ -2232,8 +2290,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseWikiDtoCollectionQueryParameters courseWikiDtoCollectionQueryParameters = new CourseWikiDtoCollectionQueryParameters(); // CourseWikiDtoCollectionQueryParameters | 
     try {
-      List<CourseWikiDto> result = apiInstance.getCourseWikisByCourseAsync(courseId, apiVersion, xApiVersion);
+      List<CourseWikiDto> result = apiInstance.getCourseWikisByCourseAsync(courseId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseWikisByCourseAsync");
@@ -2253,6 +2312,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2264,7 +2324,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2275,7 +2335,7 @@ No authorization required
 
 <a id="getCourseWikisByCourseCountAsync"></a>
 # **getCourseWikisByCourseCountAsync**
-> Integer getCourseWikisByCourseCountAsync(courseId, apiVersion, xApiVersion)
+> Integer getCourseWikisByCourseCountAsync(courseId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
 
 Get course wikis by course count
 
@@ -2299,8 +2359,9 @@ public class Example {
     String courseId = "courseId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseWikiDtoCollectionQueryParameters courseWikiDtoCollectionQueryParameters = new CourseWikiDtoCollectionQueryParameters(); // CourseWikiDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseWikisByCourseCountAsync(courseId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseWikisByCourseCountAsync(courseId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCourseWikisByCourseCountAsync");
@@ -2320,6 +2381,7 @@ public class Example {
 | **courseId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2331,7 +2393,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2342,7 +2404,7 @@ No authorization required
 
 <a id="getCoursesAsync"></a>
 # **getCoursesAsync**
-> List&lt;CourseDto&gt; getCoursesAsync(tenantId, apiVersion, xApiVersion)
+> List&lt;CourseDto&gt; getCoursesAsync(tenantId, apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get courses
 
@@ -2366,8 +2428,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters = new CourseDtoCollectionQueryParameters(); // CourseDtoCollectionQueryParameters | 
     try {
-      List<CourseDto> result = apiInstance.getCoursesAsync(tenantId, apiVersion, xApiVersion);
+      List<CourseDto> result = apiInstance.getCoursesAsync(tenantId, apiVersion, xApiVersion, courseDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCoursesAsync");
@@ -2387,6 +2450,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2398,7 +2462,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2409,7 +2473,7 @@ No authorization required
 
 <a id="getCoursesCountAsync"></a>
 # **getCoursesCountAsync**
-> Integer getCoursesCountAsync(tenantId, apiVersion, xApiVersion)
+> Integer getCoursesCountAsync(tenantId, apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get courses count
 
@@ -2433,8 +2497,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters = new CourseDtoCollectionQueryParameters(); // CourseDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCoursesCountAsync(tenantId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCoursesCountAsync(tenantId, apiVersion, xApiVersion, courseDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#getCoursesCountAsync");
@@ -2454,6 +2519,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2465,7 +2531,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2744,7 +2810,7 @@ No authorization required
 
 <a id="patchCourseAsync"></a>
 # **patchCourseAsync**
-> EmptyEnvelope patchCourseAsync(tenantId, courseId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseAsync(tenantId, courseId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course
 
@@ -2769,9 +2835,9 @@ public class Example {
     UUID courseId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCourseAsync(tenantId, courseId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCourseAsync(tenantId, courseId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoursesApi#patchCourseAsync");
@@ -2792,7 +2858,7 @@ public class Example {
 | **courseId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

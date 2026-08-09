@@ -30,9 +30,10 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 import org.openapitools.client.model.VesselCreateDto;
+import org.openapitools.client.model.VesselDtoCollectionQueryParameters;
 import org.openapitools.client.model.VesselDtoEnvelope;
 import org.openapitools.client.model.VesselDtoListEnvelope;
 import org.openapitools.client.model.VesselUpdateDto;
@@ -552,6 +553,7 @@ public class VesselsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param vesselDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -563,7 +565,7 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVesselsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVesselsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -577,7 +579,7 @@ public class VesselsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = vesselDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Vessels";
@@ -610,6 +612,8 @@ public class VesselsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -621,13 +625,13 @@ public class VesselsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVesselsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVesselsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getVesselsAsync(Async)");
         }
 
-        return getVesselsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getVesselsAsyncCall(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -637,6 +641,7 @@ public class VesselsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param vesselDtoCollectionQueryParameters  (optional)
      * @return VesselDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -647,8 +652,8 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public VesselDtoListEnvelope getVesselsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<VesselDtoListEnvelope> localVarResp = getVesselsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public VesselDtoListEnvelope getVesselsAsync(UUID tenantId, String apiVersion, String xApiVersion, VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<VesselDtoListEnvelope> localVarResp = getVesselsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -658,6 +663,7 @@ public class VesselsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param vesselDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;VesselDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -668,8 +674,8 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<VesselDtoListEnvelope> getVesselsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getVesselsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<VesselDtoListEnvelope> getVesselsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getVesselsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<VesselDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -680,6 +686,7 @@ public class VesselsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param vesselDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -691,9 +698,9 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVesselsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<VesselDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getVesselsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters, final ApiCallback<VesselDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVesselsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getVesselsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<VesselDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -703,6 +710,7 @@ public class VesselsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param vesselDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -713,7 +721,7 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVesselsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVesselsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -727,7 +735,7 @@ public class VesselsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = vesselDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Vessels/Count";
@@ -760,6 +768,8 @@ public class VesselsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -771,13 +781,13 @@ public class VesselsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVesselsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVesselsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getVesselsCountAsync(Async)");
         }
 
-        return getVesselsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getVesselsCountAsyncCall(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -787,6 +797,7 @@ public class VesselsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param vesselDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -796,8 +807,8 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getVesselsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getVesselsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getVesselsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getVesselsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -807,6 +818,7 @@ public class VesselsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param vesselDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -816,8 +828,8 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getVesselsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getVesselsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getVesselsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getVesselsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,6 +840,7 @@ public class VesselsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param vesselDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -838,9 +851,9 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVesselsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getVesselsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVesselsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getVesselsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -851,7 +864,7 @@ public class VesselsApi {
      * @param vesselId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -864,7 +877,7 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchVesselAsyncCall(UUID tenantId, UUID vesselId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchVesselAsyncCall(UUID tenantId, UUID vesselId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -878,7 +891,7 @@ public class VesselsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Vessels/{vesselId}"
@@ -925,7 +938,7 @@ public class VesselsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchVesselAsyncValidateBeforeCall(UUID tenantId, UUID vesselId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchVesselAsyncValidateBeforeCall(UUID tenantId, UUID vesselId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchVesselAsync(Async)");
@@ -936,7 +949,7 @@ public class VesselsApi {
             throw new ApiException("Missing the required parameter 'vesselId' when calling patchVesselAsync(Async)");
         }
 
-        return patchVesselAsyncCall(tenantId, vesselId, apiVersion, xApiVersion, operation, _callback);
+        return patchVesselAsyncCall(tenantId, vesselId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -947,7 +960,7 @@ public class VesselsApi {
      * @param vesselId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -959,8 +972,8 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchVesselAsync(UUID tenantId, UUID vesselId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchVesselAsyncWithHttpInfo(tenantId, vesselId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchVesselAsync(UUID tenantId, UUID vesselId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchVesselAsyncWithHttpInfo(tenantId, vesselId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -971,7 +984,7 @@ public class VesselsApi {
      * @param vesselId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -983,8 +996,8 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchVesselAsyncWithHttpInfo(UUID tenantId, UUID vesselId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchVesselAsyncValidateBeforeCall(tenantId, vesselId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchVesselAsyncWithHttpInfo(UUID tenantId, UUID vesselId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchVesselAsyncValidateBeforeCall(tenantId, vesselId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -996,7 +1009,7 @@ public class VesselsApi {
      * @param vesselId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1009,9 +1022,9 @@ public class VesselsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchVesselAsyncAsync(UUID tenantId, UUID vesselId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchVesselAsyncAsync(UUID tenantId, UUID vesselId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchVesselAsyncValidateBeforeCall(tenantId, vesselId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchVesselAsyncValidateBeforeCall(tenantId, vesselId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

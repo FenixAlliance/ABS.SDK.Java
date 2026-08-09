@@ -30,11 +30,13 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TruckCreateDto;
+import org.openapitools.client.model.TruckDtoCollectionQueryParameters;
 import org.openapitools.client.model.TruckDtoEnvelope;
 import org.openapitools.client.model.TruckDtoListEnvelope;
 import org.openapitools.client.model.TruckTripCreateDto;
+import org.openapitools.client.model.TruckTripDtoCollectionQueryParameters;
 import org.openapitools.client.model.TruckTripDtoListEnvelope;
 import org.openapitools.client.model.TruckTripUpdateDto;
 import org.openapitools.client.model.TruckUpdateDto;
@@ -1721,6 +1723,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckTripDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1731,7 +1734,7 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTruckTripsAsyncCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTruckTripsAsyncCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1745,7 +1748,7 @@ public class TrucksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = truckTripDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Trucks/{truckId}/Trips"
@@ -1779,6 +1782,8 @@ public class TrucksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1790,7 +1795,7 @@ public class TrucksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTruckTripsAsyncValidateBeforeCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTruckTripsAsyncValidateBeforeCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTruckTripsAsync(Async)");
@@ -1801,7 +1806,7 @@ public class TrucksApi {
             throw new ApiException("Missing the required parameter 'truckId' when calling getTruckTripsAsync(Async)");
         }
 
-        return getTruckTripsAsyncCall(tenantId, truckId, apiVersion, xApiVersion, _callback);
+        return getTruckTripsAsyncCall(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1812,6 +1817,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckTripDtoCollectionQueryParameters  (optional)
      * @return TruckTripDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1821,8 +1827,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TruckTripDtoListEnvelope getTruckTripsAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TruckTripDtoListEnvelope> localVarResp = getTruckTripsAsyncWithHttpInfo(tenantId, truckId, apiVersion, xApiVersion);
+    public TruckTripDtoListEnvelope getTruckTripsAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TruckTripDtoListEnvelope> localVarResp = getTruckTripsAsyncWithHttpInfo(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1833,6 +1839,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckTripDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TruckTripDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1842,8 +1849,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TruckTripDtoListEnvelope> getTruckTripsAsyncWithHttpInfo(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTruckTripsAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, null);
+    public ApiResponse<TruckTripDtoListEnvelope> getTruckTripsAsyncWithHttpInfo(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTruckTripsAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TruckTripDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1855,6 +1862,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckTripDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1865,9 +1873,9 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTruckTripsAsyncAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, final ApiCallback<TruckTripDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTruckTripsAsyncAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters, final ApiCallback<TruckTripDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTruckTripsAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTruckTripsAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TruckTripDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1878,6 +1886,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckTripDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1888,7 +1897,7 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTruckTripsCountAsyncCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTruckTripsCountAsyncCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1902,7 +1911,7 @@ public class TrucksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = truckTripDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Trucks/{truckId}/Trips/Count"
@@ -1936,6 +1945,8 @@ public class TrucksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1947,7 +1958,7 @@ public class TrucksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTruckTripsCountAsyncValidateBeforeCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTruckTripsCountAsyncValidateBeforeCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTruckTripsCountAsync(Async)");
@@ -1958,7 +1969,7 @@ public class TrucksApi {
             throw new ApiException("Missing the required parameter 'truckId' when calling getTruckTripsCountAsync(Async)");
         }
 
-        return getTruckTripsCountAsyncCall(tenantId, truckId, apiVersion, xApiVersion, _callback);
+        return getTruckTripsCountAsyncCall(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1969,6 +1980,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckTripDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1978,8 +1990,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTruckTripsCountAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTruckTripsCountAsyncWithHttpInfo(tenantId, truckId, apiVersion, xApiVersion);
+    public Int32Envelope getTruckTripsCountAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTruckTripsCountAsyncWithHttpInfo(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1990,6 +2002,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckTripDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1999,8 +2012,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTruckTripsCountAsyncWithHttpInfo(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTruckTripsCountAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTruckTripsCountAsyncWithHttpInfo(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTruckTripsCountAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2012,6 +2025,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckTripDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2022,9 +2036,9 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTruckTripsCountAsyncAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTruckTripsCountAsyncAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTruckTripsCountAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTruckTripsCountAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2034,6 +2048,7 @@ public class TrucksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2045,7 +2060,7 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrucksAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTrucksAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2059,7 +2074,7 @@ public class TrucksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = truckDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Trucks";
@@ -2092,6 +2107,8 @@ public class TrucksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2103,13 +2120,13 @@ public class TrucksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTrucksAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTrucksAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTrucksAsync(Async)");
         }
 
-        return getTrucksAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTrucksAsyncCall(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2119,6 +2136,7 @@ public class TrucksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDtoCollectionQueryParameters  (optional)
      * @return TruckDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2129,8 +2147,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TruckDtoListEnvelope getTrucksAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TruckDtoListEnvelope> localVarResp = getTrucksAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TruckDtoListEnvelope getTrucksAsync(UUID tenantId, String apiVersion, String xApiVersion, TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TruckDtoListEnvelope> localVarResp = getTrucksAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2140,6 +2158,7 @@ public class TrucksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TruckDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2150,8 +2169,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TruckDtoListEnvelope> getTrucksAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTrucksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TruckDtoListEnvelope> getTrucksAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTrucksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TruckDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2162,6 +2181,7 @@ public class TrucksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2173,9 +2193,9 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrucksAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TruckDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTrucksAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters, final ApiCallback<TruckDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTrucksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTrucksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TruckDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2185,6 +2205,7 @@ public class TrucksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2195,7 +2216,7 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrucksCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTrucksCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2209,7 +2230,7 @@ public class TrucksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = truckDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Trucks/Count";
@@ -2242,6 +2263,8 @@ public class TrucksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2253,13 +2276,13 @@ public class TrucksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTrucksCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTrucksCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTrucksCountAsync(Async)");
         }
 
-        return getTrucksCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTrucksCountAsyncCall(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2269,6 +2292,7 @@ public class TrucksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2278,8 +2302,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTrucksCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTrucksCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTrucksCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTrucksCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2289,6 +2313,7 @@ public class TrucksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2298,8 +2323,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTrucksCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTrucksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTrucksCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTrucksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2310,6 +2335,7 @@ public class TrucksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param truckDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2320,9 +2346,9 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrucksCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTrucksCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTrucksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTrucksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2333,7 +2359,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2346,7 +2372,7 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTruckAsyncCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTruckAsyncCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2360,7 +2386,7 @@ public class TrucksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Trucks/{truckId}"
@@ -2407,7 +2433,7 @@ public class TrucksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTruckAsyncValidateBeforeCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTruckAsyncValidateBeforeCall(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTruckAsync(Async)");
@@ -2418,7 +2444,7 @@ public class TrucksApi {
             throw new ApiException("Missing the required parameter 'truckId' when calling patchTruckAsync(Async)");
         }
 
-        return patchTruckAsyncCall(tenantId, truckId, apiVersion, xApiVersion, operation, _callback);
+        return patchTruckAsyncCall(tenantId, truckId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2429,7 +2455,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2441,8 +2467,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTruckAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTruckAsyncWithHttpInfo(tenantId, truckId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTruckAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTruckAsyncWithHttpInfo(tenantId, truckId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2453,7 +2479,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2465,8 +2491,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTruckAsyncWithHttpInfo(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTruckAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTruckAsyncWithHttpInfo(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTruckAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2478,7 +2504,7 @@ public class TrucksApi {
      * @param truckId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2491,9 +2517,9 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTruckAsyncAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTruckAsyncAsync(UUID tenantId, UUID truckId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTruckAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTruckAsyncValidateBeforeCall(tenantId, truckId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2505,7 +2531,7 @@ public class TrucksApi {
      * @param tripId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2518,7 +2544,7 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTruckTripAsyncCall(UUID tenantId, UUID truckId, UUID tripId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTruckTripAsyncCall(UUID tenantId, UUID truckId, UUID tripId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2532,7 +2558,7 @@ public class TrucksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/Trucks/{truckId}/Trips/{tripId}"
@@ -2580,7 +2606,7 @@ public class TrucksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTruckTripAsyncValidateBeforeCall(UUID tenantId, UUID truckId, UUID tripId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTruckTripAsyncValidateBeforeCall(UUID tenantId, UUID truckId, UUID tripId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTruckTripAsync(Async)");
@@ -2596,7 +2622,7 @@ public class TrucksApi {
             throw new ApiException("Missing the required parameter 'tripId' when calling patchTruckTripAsync(Async)");
         }
 
-        return patchTruckTripAsyncCall(tenantId, truckId, tripId, apiVersion, xApiVersion, operation, _callback);
+        return patchTruckTripAsyncCall(tenantId, truckId, tripId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2608,7 +2634,7 @@ public class TrucksApi {
      * @param tripId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2620,8 +2646,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTruckTripAsync(UUID tenantId, UUID truckId, UUID tripId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTruckTripAsyncWithHttpInfo(tenantId, truckId, tripId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTruckTripAsync(UUID tenantId, UUID truckId, UUID tripId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTruckTripAsyncWithHttpInfo(tenantId, truckId, tripId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2633,7 +2659,7 @@ public class TrucksApi {
      * @param tripId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2645,8 +2671,8 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTruckTripAsyncWithHttpInfo(UUID tenantId, UUID truckId, UUID tripId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTruckTripAsyncValidateBeforeCall(tenantId, truckId, tripId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTruckTripAsyncWithHttpInfo(UUID tenantId, UUID truckId, UUID tripId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTruckTripAsyncValidateBeforeCall(tenantId, truckId, tripId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2659,7 +2685,7 @@ public class TrucksApi {
      * @param tripId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2672,9 +2698,9 @@ public class TrucksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTruckTripAsyncAsync(UUID tenantId, UUID truckId, UUID tripId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTruckTripAsyncAsync(UUID tenantId, UUID truckId, UUID tripId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTruckTripAsyncValidateBeforeCall(tenantId, truckId, tripId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTruckTripAsyncValidateBeforeCall(tenantId, truckId, tripId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

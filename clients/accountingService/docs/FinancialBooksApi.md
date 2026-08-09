@@ -228,7 +228,7 @@ No authorization required
 
 <a id="getFinancialBooksAsync"></a>
 # **getFinancialBooksAsync**
-> FinancialBookDtoListEnvelope getFinancialBooksAsync(tenantId, apiVersion, xApiVersion)
+> FinancialBookDtoListEnvelope getFinancialBooksAsync(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters)
 
 Get all financial books for a tenant
 
@@ -252,8 +252,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters = new FinancialBookDtoCollectionQueryParameters(); // FinancialBookDtoCollectionQueryParameters | 
     try {
-      FinancialBookDtoListEnvelope result = apiInstance.getFinancialBooksAsync(tenantId, apiVersion, xApiVersion);
+      FinancialBookDtoListEnvelope result = apiInstance.getFinancialBooksAsync(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FinancialBooksApi#getFinancialBooksAsync");
@@ -273,6 +274,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **financialBookDtoCollectionQueryParameters** | [**FinancialBookDtoCollectionQueryParameters**](FinancialBookDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -284,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -297,7 +299,7 @@ No authorization required
 
 <a id="getFinancialBooksCountAsync"></a>
 # **getFinancialBooksCountAsync**
-> Int32Envelope getFinancialBooksCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getFinancialBooksCountAsync(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters)
 
 Get the count of financial books
 
@@ -321,8 +323,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FinancialBookDtoCollectionQueryParameters financialBookDtoCollectionQueryParameters = new FinancialBookDtoCollectionQueryParameters(); // FinancialBookDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getFinancialBooksCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFinancialBooksCountAsync(tenantId, apiVersion, xApiVersion, financialBookDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FinancialBooksApi#getFinancialBooksCountAsync");
@@ -342,6 +345,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **financialBookDtoCollectionQueryParameters** | [**FinancialBookDtoCollectionQueryParameters**](FinancialBookDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -353,7 +357,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -366,7 +370,7 @@ No authorization required
 
 <a id="patchFinancialBookAsync"></a>
 # **patchFinancialBookAsync**
-> EmptyEnvelope patchFinancialBookAsync(tenantId, financialBookId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFinancialBookAsync(tenantId, financialBookId, apiVersion, xApiVersion, patchOperation)
 
 Patch a financial book
 
@@ -391,9 +395,9 @@ public class Example {
     UUID financialBookId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchFinancialBookAsync(tenantId, financialBookId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchFinancialBookAsync(tenantId, financialBookId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FinancialBooksApi#patchFinancialBookAsync");
@@ -414,7 +418,7 @@ public class Example {
 | **financialBookId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

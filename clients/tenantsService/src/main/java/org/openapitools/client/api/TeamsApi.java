@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TenantTeamCreateDto;
+import org.openapitools.client.model.TenantTeamDtoCollectionQueryParameters;
 import org.openapitools.client.model.TenantTeamDtoEnvelope;
 import org.openapitools.client.model.TenantTeamDtoListEnvelope;
 import org.openapitools.client.model.TenantTeamUpdateDto;
@@ -564,6 +565,7 @@ public class TeamsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTeamDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -575,7 +577,7 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantTeamsCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantTeamsCall(UUID tenantId, String apiVersion, String xApiVersion, TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -589,7 +591,7 @@ public class TeamsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantTeamDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Teams";
@@ -622,6 +624,8 @@ public class TeamsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -633,13 +637,13 @@ public class TeamsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantTeamsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantTeamsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantTeams(Async)");
         }
 
-        return getTenantTeamsCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTenantTeamsCall(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -649,6 +653,7 @@ public class TeamsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTeamDtoCollectionQueryParameters  (optional)
      * @return TenantTeamDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -659,8 +664,8 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TenantTeamDtoListEnvelope getTenantTeams(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TenantTeamDtoListEnvelope> localVarResp = getTenantTeamsWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TenantTeamDtoListEnvelope getTenantTeams(UUID tenantId, String apiVersion, String xApiVersion, TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TenantTeamDtoListEnvelope> localVarResp = getTenantTeamsWithHttpInfo(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -670,6 +675,7 @@ public class TeamsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTeamDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TenantTeamDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -680,8 +686,8 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TenantTeamDtoListEnvelope> getTenantTeamsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantTeamsValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TenantTeamDtoListEnvelope> getTenantTeamsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantTeamsValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TenantTeamDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -692,6 +698,7 @@ public class TeamsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTeamDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -703,9 +710,9 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantTeamsAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TenantTeamDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantTeamsAsync(UUID tenantId, String apiVersion, String xApiVersion, TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters, final ApiCallback<TenantTeamDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantTeamsValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTenantTeamsValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TenantTeamDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -715,6 +722,7 @@ public class TeamsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTeamDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -726,7 +734,7 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantTeamsCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantTeamsCountCall(UUID tenantId, String apiVersion, String xApiVersion, TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -740,7 +748,7 @@ public class TeamsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantTeamDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Teams/Count";
@@ -773,6 +781,8 @@ public class TeamsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -784,13 +794,13 @@ public class TeamsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantTeamsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantTeamsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantTeamsCount(Async)");
         }
 
-        return getTenantTeamsCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTenantTeamsCountCall(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -800,6 +810,7 @@ public class TeamsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTeamDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -810,8 +821,8 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTenantTeamsCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTenantTeamsCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTenantTeamsCount(UUID tenantId, String apiVersion, String xApiVersion, TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTenantTeamsCountWithHttpInfo(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -821,6 +832,7 @@ public class TeamsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTeamDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -831,8 +843,8 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTenantTeamsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantTeamsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTenantTeamsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantTeamsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -843,6 +855,7 @@ public class TeamsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTeamDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -854,9 +867,9 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantTeamsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantTeamsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantTeamsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTenantTeamsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -867,7 +880,7 @@ public class TeamsApi {
      * @param tenantTeamId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +892,7 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantTeamCall(UUID tenantId, UUID tenantTeamId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTenantTeamCall(UUID tenantId, UUID tenantTeamId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +906,7 @@ public class TeamsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Teams/{tenantTeamId}"
@@ -940,7 +953,7 @@ public class TeamsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTenantTeamValidateBeforeCall(UUID tenantId, UUID tenantTeamId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTenantTeamValidateBeforeCall(UUID tenantId, UUID tenantTeamId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTenantTeam(Async)");
@@ -951,7 +964,7 @@ public class TeamsApi {
             throw new ApiException("Missing the required parameter 'tenantTeamId' when calling patchTenantTeam(Async)");
         }
 
-        return patchTenantTeamCall(tenantId, tenantTeamId, apiVersion, xApiVersion, operation, _callback);
+        return patchTenantTeamCall(tenantId, tenantTeamId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -962,7 +975,7 @@ public class TeamsApi {
      * @param tenantTeamId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -973,8 +986,8 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTenantTeam(UUID tenantId, UUID tenantTeamId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTenantTeamWithHttpInfo(tenantId, tenantTeamId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTenantTeam(UUID tenantId, UUID tenantTeamId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTenantTeamWithHttpInfo(tenantId, tenantTeamId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -985,7 +998,7 @@ public class TeamsApi {
      * @param tenantTeamId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -996,8 +1009,8 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTenantTeamWithHttpInfo(UUID tenantId, UUID tenantTeamId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTenantTeamValidateBeforeCall(tenantId, tenantTeamId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTenantTeamWithHttpInfo(UUID tenantId, UUID tenantTeamId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTenantTeamValidateBeforeCall(tenantId, tenantTeamId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +1022,7 @@ public class TeamsApi {
      * @param tenantTeamId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1021,9 +1034,9 @@ public class TeamsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantTeamAsync(UUID tenantId, UUID tenantTeamId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTenantTeamAsync(UUID tenantId, UUID tenantTeamId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTenantTeamValidateBeforeCall(tenantId, tenantTeamId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTenantTeamValidateBeforeCall(tenantId, tenantTeamId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

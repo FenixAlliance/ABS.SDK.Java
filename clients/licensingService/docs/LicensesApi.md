@@ -222,7 +222,7 @@ No authorization required
 
 <a id="getLicensesAsync"></a>
 # **getLicensesAsync**
-> LicenseDtoListEnvelope getLicensesAsync(tenantId, apiVersion, xApiVersion)
+> LicenseDtoListEnvelope getLicensesAsync(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters)
 
 Get licenses
 
@@ -246,8 +246,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters = new LicenseDtoCollectionQueryParameters(); // LicenseDtoCollectionQueryParameters | 
     try {
-      LicenseDtoListEnvelope result = apiInstance.getLicensesAsync(tenantId, apiVersion, xApiVersion);
+      LicenseDtoListEnvelope result = apiInstance.getLicensesAsync(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicensesApi#getLicensesAsync");
@@ -267,6 +268,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **licenseDtoCollectionQueryParameters** | [**LicenseDtoCollectionQueryParameters**](LicenseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -278,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -289,7 +291,7 @@ No authorization required
 
 <a id="getLicensesCountAsync"></a>
 # **getLicensesCountAsync**
-> Int32Envelope getLicensesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLicensesCountAsync(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters)
 
 Get licenses count
 
@@ -313,8 +315,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters = new LicenseDtoCollectionQueryParameters(); // LicenseDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLicensesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLicensesCountAsync(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicensesApi#getLicensesCountAsync");
@@ -334,6 +337,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **licenseDtoCollectionQueryParameters** | [**LicenseDtoCollectionQueryParameters**](LicenseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -345,7 +349,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

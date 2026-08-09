@@ -32,6 +32,7 @@
 |**cityId** | **String** |  |  [optional] |
 |**customerNotes** | **String** |  |  [optional] |
 |**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
+|**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
 |**forexRate** | **Double** |  |  [optional] |
 |**forexRatesSnapshot** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
@@ -82,7 +83,6 @@
 |**qualifiedIdentifier** | **String** |  |  [optional] |
 |**sellerBillingProfileId** | **String** |  |  [optional] |
 |**buyerBillingProfileId** | **String** |  |  [optional] |
-|**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
 |**freightTerms** | [**FreightTermsEnum**](#FreightTermsEnum) |  |  [optional] |
 |**orderStatus** | [**OrderStatusEnum**](#OrderStatusEnum) |  |  [optional] |
 |**requestedDeliveryDate** | **OffsetDateTime** |  |  [optional] |

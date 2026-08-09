@@ -372,7 +372,7 @@ No authorization required
 
 <a id="getRailWaybillLinesAsync"></a>
 # **getRailWaybillLinesAsync**
-> WaybillLineDtoListEnvelope getRailWaybillLinesAsync(tenantId, waybillId, apiVersion, xApiVersion)
+> WaybillLineDtoListEnvelope getRailWaybillLinesAsync(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get rail waybill lines
 
@@ -397,8 +397,9 @@ public class Example {
     UUID waybillId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters = new WaybillLineDtoCollectionQueryParameters(); // WaybillLineDtoCollectionQueryParameters | 
     try {
-      WaybillLineDtoListEnvelope result = apiInstance.getRailWaybillLinesAsync(tenantId, waybillId, apiVersion, xApiVersion);
+      WaybillLineDtoListEnvelope result = apiInstance.getRailWaybillLinesAsync(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RailWaybillsApi#getRailWaybillLinesAsync");
@@ -419,6 +420,7 @@ public class Example {
 | **waybillId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -430,7 +432,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -441,7 +443,7 @@ No authorization required
 
 <a id="getRailWaybillLinesCountAsync"></a>
 # **getRailWaybillLinesCountAsync**
-> Int32Envelope getRailWaybillLinesCountAsync(tenantId, waybillId, apiVersion, xApiVersion)
+> Int32Envelope getRailWaybillLinesCountAsync(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get rail waybill lines count
 
@@ -466,8 +468,9 @@ public class Example {
     UUID waybillId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters = new WaybillLineDtoCollectionQueryParameters(); // WaybillLineDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getRailWaybillLinesCountAsync(tenantId, waybillId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getRailWaybillLinesCountAsync(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RailWaybillsApi#getRailWaybillLinesCountAsync");
@@ -488,6 +491,7 @@ public class Example {
 | **waybillId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -499,7 +503,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -510,7 +514,7 @@ No authorization required
 
 <a id="getRailWaybillsAsync"></a>
 # **getRailWaybillsAsync**
-> RailWaybillDtoListEnvelope getRailWaybillsAsync(tenantId, apiVersion, xApiVersion)
+> RailWaybillDtoListEnvelope getRailWaybillsAsync(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters)
 
 Get all rail waybills
 
@@ -534,8 +538,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters = new RailWaybillDtoCollectionQueryParameters(); // RailWaybillDtoCollectionQueryParameters | 
     try {
-      RailWaybillDtoListEnvelope result = apiInstance.getRailWaybillsAsync(tenantId, apiVersion, xApiVersion);
+      RailWaybillDtoListEnvelope result = apiInstance.getRailWaybillsAsync(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RailWaybillsApi#getRailWaybillsAsync");
@@ -555,6 +560,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **railWaybillDtoCollectionQueryParameters** | [**RailWaybillDtoCollectionQueryParameters**](RailWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -566,7 +572,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -578,7 +584,7 @@ No authorization required
 
 <a id="getRailWaybillsCountAsync"></a>
 # **getRailWaybillsCountAsync**
-> Int32Envelope getRailWaybillsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRailWaybillsCountAsync(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters)
 
 Get rail waybills count
 
@@ -602,8 +608,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters = new RailWaybillDtoCollectionQueryParameters(); // RailWaybillDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getRailWaybillsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getRailWaybillsCountAsync(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RailWaybillsApi#getRailWaybillsCountAsync");
@@ -623,6 +630,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **railWaybillDtoCollectionQueryParameters** | [**RailWaybillDtoCollectionQueryParameters**](RailWaybillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -634,7 +642,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -852,7 +860,7 @@ No authorization required
 
 <a id="patchRailWaybillAsync"></a>
 # **patchRailWaybillAsync**
-> EmptyEnvelope patchRailWaybillAsync(tenantId, waybillId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRailWaybillAsync(tenantId, waybillId, apiVersion, xApiVersion, patchOperation)
 
 Patch a rail waybill
 
@@ -877,9 +885,9 @@ public class Example {
     UUID waybillId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchRailWaybillAsync(tenantId, waybillId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchRailWaybillAsync(tenantId, waybillId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RailWaybillsApi#patchRailWaybillAsync");
@@ -900,7 +908,7 @@ public class Example {
 | **waybillId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -923,7 +931,7 @@ No authorization required
 
 <a id="patchRailWaybillLineAsync"></a>
 # **patchRailWaybillLineAsync**
-> EmptyEnvelope patchRailWaybillLineAsync(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRailWaybillLineAsync(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation)
 
 Patch a rail waybill line
 
@@ -949,9 +957,9 @@ public class Example {
     UUID lineId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchRailWaybillLineAsync(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchRailWaybillLineAsync(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RailWaybillsApi#patchRailWaybillLineAsync");
@@ -973,7 +981,7 @@ public class Example {
 | **lineId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

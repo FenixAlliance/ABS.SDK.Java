@@ -15,6 +15,8 @@
 |**parentJournalId** | **String** |  |  [optional] |
 |**journalTypeId** | **String** |  |  [optional] |
 |**ledgerId** | **String** |  |  [optional] |
+|**financialBookId** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 
 
 

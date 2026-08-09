@@ -31,10 +31,11 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.LeaveApplicationCreateDto;
+import org.openapitools.client.model.LeaveApplicationDtoCollectionQueryParameters;
 import org.openapitools.client.model.LeaveApplicationDtoEnvelope;
 import org.openapitools.client.model.LeaveApplicationDtoListEnvelope;
 import org.openapitools.client.model.LeaveApplicationUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -572,6 +573,7 @@ public class LeaveApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param leaveApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -583,7 +585,7 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLeaveApplicationsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLeaveApplicationsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -597,7 +599,7 @@ public class LeaveApplicationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = leaveApplicationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/LeaveApplications";
@@ -630,6 +632,8 @@ public class LeaveApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -641,13 +645,13 @@ public class LeaveApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLeaveApplicationsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLeaveApplicationsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLeaveApplicationsAsync(Async)");
         }
 
-        return getLeaveApplicationsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLeaveApplicationsAsyncCall(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -657,6 +661,7 @@ public class LeaveApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param leaveApplicationDtoCollectionQueryParameters  (optional)
      * @return LeaveApplicationDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -667,8 +672,8 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public LeaveApplicationDtoListEnvelope getLeaveApplicationsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LeaveApplicationDtoListEnvelope> localVarResp = getLeaveApplicationsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public LeaveApplicationDtoListEnvelope getLeaveApplicationsAsync(UUID tenantId, String apiVersion, String xApiVersion, LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LeaveApplicationDtoListEnvelope> localVarResp = getLeaveApplicationsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -678,6 +683,7 @@ public class LeaveApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param leaveApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LeaveApplicationDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -688,8 +694,8 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LeaveApplicationDtoListEnvelope> getLeaveApplicationsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLeaveApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<LeaveApplicationDtoListEnvelope> getLeaveApplicationsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLeaveApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LeaveApplicationDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -700,6 +706,7 @@ public class LeaveApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param leaveApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -711,9 +718,9 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLeaveApplicationsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<LeaveApplicationDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLeaveApplicationsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters, final ApiCallback<LeaveApplicationDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLeaveApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLeaveApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LeaveApplicationDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -723,6 +730,7 @@ public class LeaveApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param leaveApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -734,7 +742,7 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLeaveApplicationsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLeaveApplicationsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -748,7 +756,7 @@ public class LeaveApplicationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = leaveApplicationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/LeaveApplications/Count";
@@ -781,6 +789,8 @@ public class LeaveApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -792,13 +802,13 @@ public class LeaveApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLeaveApplicationsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLeaveApplicationsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLeaveApplicationsCountAsync(Async)");
         }
 
-        return getLeaveApplicationsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLeaveApplicationsCountAsyncCall(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -808,6 +818,7 @@ public class LeaveApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param leaveApplicationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -818,8 +829,8 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getLeaveApplicationsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getLeaveApplicationsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getLeaveApplicationsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getLeaveApplicationsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -829,6 +840,7 @@ public class LeaveApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param leaveApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -839,8 +851,8 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getLeaveApplicationsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLeaveApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getLeaveApplicationsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLeaveApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -851,6 +863,7 @@ public class LeaveApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param leaveApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -862,9 +875,9 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLeaveApplicationsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getLeaveApplicationsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLeaveApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLeaveApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -875,7 +888,7 @@ public class LeaveApplicationsApi {
      * @param leaveApplicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -888,7 +901,7 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLeaveApplicationAsyncCall(UUID tenantId, UUID leaveApplicationId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchLeaveApplicationAsyncCall(UUID tenantId, UUID leaveApplicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -902,7 +915,7 @@ public class LeaveApplicationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/LeaveApplications/{leaveApplicationId}"
@@ -949,7 +962,7 @@ public class LeaveApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchLeaveApplicationAsyncValidateBeforeCall(UUID tenantId, UUID leaveApplicationId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchLeaveApplicationAsyncValidateBeforeCall(UUID tenantId, UUID leaveApplicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchLeaveApplicationAsync(Async)");
@@ -960,7 +973,7 @@ public class LeaveApplicationsApi {
             throw new ApiException("Missing the required parameter 'leaveApplicationId' when calling patchLeaveApplicationAsync(Async)");
         }
 
-        return patchLeaveApplicationAsyncCall(tenantId, leaveApplicationId, apiVersion, xApiVersion, operation, _callback);
+        return patchLeaveApplicationAsyncCall(tenantId, leaveApplicationId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -971,7 +984,7 @@ public class LeaveApplicationsApi {
      * @param leaveApplicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -983,8 +996,8 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchLeaveApplicationAsync(UUID tenantId, UUID leaveApplicationId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchLeaveApplicationAsyncWithHttpInfo(tenantId, leaveApplicationId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchLeaveApplicationAsync(UUID tenantId, UUID leaveApplicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchLeaveApplicationAsyncWithHttpInfo(tenantId, leaveApplicationId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -995,7 +1008,7 @@ public class LeaveApplicationsApi {
      * @param leaveApplicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1007,8 +1020,8 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchLeaveApplicationAsyncWithHttpInfo(UUID tenantId, UUID leaveApplicationId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchLeaveApplicationAsyncValidateBeforeCall(tenantId, leaveApplicationId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchLeaveApplicationAsyncWithHttpInfo(UUID tenantId, UUID leaveApplicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchLeaveApplicationAsyncValidateBeforeCall(tenantId, leaveApplicationId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1020,7 +1033,7 @@ public class LeaveApplicationsApi {
      * @param leaveApplicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1033,9 +1046,9 @@ public class LeaveApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLeaveApplicationAsyncAsync(UUID tenantId, UUID leaveApplicationId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchLeaveApplicationAsyncAsync(UUID tenantId, UUID leaveApplicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchLeaveApplicationAsyncValidateBeforeCall(tenantId, leaveApplicationId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchLeaveApplicationAsyncValidateBeforeCall(tenantId, leaveApplicationId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * JournalCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:25:56.899133-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class JournalCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,6 +84,14 @@ public class JournalCreateDto {
   public static final String SERIALIZED_NAME_LEDGER_ID = "ledgerId";
   @SerializedName(SERIALIZED_NAME_LEDGER_ID)
   private String ledgerId;
+
+  public static final String SERIALIZED_NAME_FINANCIAL_BOOK_ID = "financialBookId";
+  @SerializedName(SERIALIZED_NAME_FINANCIAL_BOOK_ID)
+  private String financialBookId;
+
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
 
   public JournalCreateDto() {
   }
@@ -240,6 +248,44 @@ public class JournalCreateDto {
   }
 
 
+  public JournalCreateDto financialBookId(String financialBookId) {
+    this.financialBookId = financialBookId;
+    return this;
+  }
+
+  /**
+   * Get financialBookId
+   * @return financialBookId
+   */
+  @javax.annotation.Nullable
+  public String getFinancialBookId() {
+    return financialBookId;
+  }
+
+  public void setFinancialBookId(String financialBookId) {
+    this.financialBookId = financialBookId;
+  }
+
+
+  public JournalCreateDto code(String code) {
+    this.code = code;
+    return this;
+  }
+
+  /**
+   * Get code
+   * @return code
+   */
+  @javax.annotation.Nullable
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -257,7 +303,9 @@ public class JournalCreateDto {
         Objects.equals(this.dateTime, journalCreateDto.dateTime) &&
         Objects.equals(this.parentJournalId, journalCreateDto.parentJournalId) &&
         Objects.equals(this.journalTypeId, journalCreateDto.journalTypeId) &&
-        Objects.equals(this.ledgerId, journalCreateDto.ledgerId);
+        Objects.equals(this.ledgerId, journalCreateDto.ledgerId) &&
+        Objects.equals(this.financialBookId, journalCreateDto.financialBookId) &&
+        Objects.equals(this.code, journalCreateDto.code);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -266,7 +314,7 @@ public class JournalCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, description, dateTime, parentJournalId, journalTypeId, ledgerId);
+    return Objects.hash(id, timestamp, name, description, dateTime, parentJournalId, journalTypeId, ledgerId, financialBookId, code);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -288,6 +336,8 @@ public class JournalCreateDto {
     sb.append("    parentJournalId: ").append(toIndentedString(parentJournalId)).append("\n");
     sb.append("    journalTypeId: ").append(toIndentedString(journalTypeId)).append("\n");
     sb.append("    ledgerId: ").append(toIndentedString(ledgerId)).append("\n");
+    sb.append("    financialBookId: ").append(toIndentedString(financialBookId)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -318,6 +368,8 @@ public class JournalCreateDto {
     openapiFields.add("parentJournalId");
     openapiFields.add("journalTypeId");
     openapiFields.add("ledgerId");
+    openapiFields.add("financialBookId");
+    openapiFields.add("code");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -369,6 +421,12 @@ public class JournalCreateDto {
       }
       if ((jsonObj.get("ledgerId") != null && !jsonObj.get("ledgerId").isJsonNull()) && !jsonObj.get("ledgerId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ledgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ledgerId").toString()));
+      }
+      if ((jsonObj.get("financialBookId") != null && !jsonObj.get("financialBookId").isJsonNull()) && !jsonObj.get("financialBookId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `financialBookId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("financialBookId").toString()));
+      }
+      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
   }
 

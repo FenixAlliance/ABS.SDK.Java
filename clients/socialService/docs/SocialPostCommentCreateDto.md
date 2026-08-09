@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**message** | **String** |  |  |
+|**message** | **String** |  |  [optional] |
 |**bodyHtml** | **String** |  |  [optional] |
 |**bodyFormat** | [**BodyFormatEnum**](#BodyFormatEnum) |  |  [optional] |
 |**parentCommentId** | **String** |  |  [optional] |

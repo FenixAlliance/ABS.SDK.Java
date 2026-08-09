@@ -362,7 +362,7 @@ No authorization required
 
 <a id="getBlockchainBlocksAsync"></a>
 # **getBlockchainBlocksAsync**
-> BlockchainBlockDtoListEnvelope getBlockchainBlocksAsync(tenantId, blockchainId, apiVersion, xApiVersion)
+> BlockchainBlockDtoListEnvelope getBlockchainBlocksAsync(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters)
 
 Get blocks for a blockchain
 
@@ -385,8 +385,9 @@ public class Example {
     UUID blockchainId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters = new BlockchainBlockDtoCollectionQueryParameters(); // BlockchainBlockDtoCollectionQueryParameters | 
     try {
-      BlockchainBlockDtoListEnvelope result = apiInstance.getBlockchainBlocksAsync(tenantId, blockchainId, apiVersion, xApiVersion);
+      BlockchainBlockDtoListEnvelope result = apiInstance.getBlockchainBlocksAsync(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlockchainsApi#getBlockchainBlocksAsync");
@@ -407,6 +408,7 @@ public class Example {
 | **blockchainId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blockchainBlockDtoCollectionQueryParameters** | [**BlockchainBlockDtoCollectionQueryParameters**](BlockchainBlockDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -418,7 +420,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -428,7 +430,7 @@ No authorization required
 
 <a id="getBlockchainBlocksCountAsync"></a>
 # **getBlockchainBlocksCountAsync**
-> Int32Envelope getBlockchainBlocksCountAsync(tenantId, blockchainId, apiVersion, xApiVersion)
+> Int32Envelope getBlockchainBlocksCountAsync(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters)
 
 Get block count for a blockchain
 
@@ -451,8 +453,9 @@ public class Example {
     UUID blockchainId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters = new BlockchainBlockDtoCollectionQueryParameters(); // BlockchainBlockDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBlockchainBlocksCountAsync(tenantId, blockchainId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBlockchainBlocksCountAsync(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlockchainsApi#getBlockchainBlocksCountAsync");
@@ -473,6 +476,7 @@ public class Example {
 | **blockchainId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blockchainBlockDtoCollectionQueryParameters** | [**BlockchainBlockDtoCollectionQueryParameters**](BlockchainBlockDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -484,7 +488,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -564,7 +568,7 @@ No authorization required
 
 <a id="getBlockchainsAsync"></a>
 # **getBlockchainsAsync**
-> BlockchainDtoListEnvelope getBlockchainsAsync(tenantId, apiVersion, xApiVersion)
+> BlockchainDtoListEnvelope getBlockchainsAsync(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters)
 
 Get all blockchains
 
@@ -588,8 +592,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters = new BlockchainDtoCollectionQueryParameters(); // BlockchainDtoCollectionQueryParameters | 
     try {
-      BlockchainDtoListEnvelope result = apiInstance.getBlockchainsAsync(tenantId, apiVersion, xApiVersion);
+      BlockchainDtoListEnvelope result = apiInstance.getBlockchainsAsync(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlockchainsApi#getBlockchainsAsync");
@@ -609,6 +614,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blockchainDtoCollectionQueryParameters** | [**BlockchainDtoCollectionQueryParameters**](BlockchainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -620,7 +626,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -631,7 +637,7 @@ No authorization required
 
 <a id="getBlockchainsCountAsync"></a>
 # **getBlockchainsCountAsync**
-> Int32Envelope getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters)
 
 Get blockchains count
 
@@ -655,8 +661,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters = new BlockchainDtoCollectionQueryParameters(); // BlockchainDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlockchainsApi#getBlockchainsCountAsync");
@@ -676,6 +683,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blockchainDtoCollectionQueryParameters** | [**BlockchainDtoCollectionQueryParameters**](BlockchainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -687,7 +695,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -698,7 +706,7 @@ No authorization required
 
 <a id="patchBlockchainAsync"></a>
 # **patchBlockchainAsync**
-> EmptyEnvelope patchBlockchainAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBlockchainAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a blockchain
 
@@ -723,9 +731,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBlockchainAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBlockchainAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlockchainsApi#patchBlockchainAsync");
@@ -746,7 +754,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -770,7 +778,7 @@ No authorization required
 
 <a id="patchBlockchainBlockAsync"></a>
 # **patchBlockchainBlockAsync**
-> EmptyEnvelope patchBlockchainBlockAsync(tenantId, blockchainId, blockId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBlockchainBlockAsync(tenantId, blockchainId, blockId, apiVersion, xApiVersion, patchOperation)
 
 Patch a blockchain block
 
@@ -796,9 +804,9 @@ public class Example {
     UUID blockId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBlockchainBlockAsync(tenantId, blockchainId, blockId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBlockchainBlockAsync(tenantId, blockchainId, blockId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlockchainsApi#patchBlockchainBlockAsync");
@@ -820,7 +828,7 @@ public class Example {
 | **blockId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

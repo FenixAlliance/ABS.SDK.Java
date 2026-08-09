@@ -219,7 +219,7 @@ No authorization required
 
 <a id="getBillingProfilesAsync"></a>
 # **getBillingProfilesAsync**
-> BillingProfileDtoIReadOnlyListEnvelope getBillingProfilesAsync(tenantId, apiVersion, xApiVersion)
+> BillingProfileDtoIReadOnlyListEnvelope getBillingProfilesAsync(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters)
 
 Gets all billing profiles
 
@@ -243,8 +243,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters = new BillingProfileDtoCollectionQueryParameters(); // BillingProfileDtoCollectionQueryParameters | 
     try {
-      BillingProfileDtoIReadOnlyListEnvelope result = apiInstance.getBillingProfilesAsync(tenantId, apiVersion, xApiVersion);
+      BillingProfileDtoIReadOnlyListEnvelope result = apiInstance.getBillingProfilesAsync(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillingProfilesApi#getBillingProfilesAsync");
@@ -264,6 +265,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **billingProfileDtoCollectionQueryParameters** | [**BillingProfileDtoCollectionQueryParameters**](BillingProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -275,7 +277,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -285,7 +287,7 @@ No authorization required
 
 <a id="getBillingProfilesCountAsync"></a>
 # **getBillingProfilesCountAsync**
-> Int32Envelope getBillingProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBillingProfilesCountAsync(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters)
 
 Gets the count of billing profiles
 
@@ -309,8 +311,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters = new BillingProfileDtoCollectionQueryParameters(); // BillingProfileDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBillingProfilesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBillingProfilesCountAsync(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillingProfilesApi#getBillingProfilesCountAsync");
@@ -330,6 +333,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **billingProfileDtoCollectionQueryParameters** | [**BillingProfileDtoCollectionQueryParameters**](BillingProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -351,7 +355,7 @@ No authorization required
 
 <a id="patchBillingProfileAsync"></a>
 # **patchBillingProfileAsync**
-> EmptyEnvelope patchBillingProfileAsync(tenantId, billingProfileId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBillingProfileAsync(tenantId, billingProfileId, apiVersion, xApiVersion, patchOperation)
 
 Patch a billing profile
 
@@ -376,9 +380,9 @@ public class Example {
     UUID billingProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBillingProfileAsync(tenantId, billingProfileId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBillingProfileAsync(tenantId, billingProfileId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillingProfilesApi#patchBillingProfileAsync");
@@ -399,7 +403,7 @@ public class Example {
 | **billingProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

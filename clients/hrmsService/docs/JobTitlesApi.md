@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getJobTitlesAsync"></a>
 # **getJobTitlesAsync**
-> JobTitleDtoListEnvelope getJobTitlesAsync(tenantId, apiVersion, xApiVersion)
+> JobTitleDtoListEnvelope getJobTitlesAsync(tenantId, apiVersion, xApiVersion, jobTitleDtoCollectionQueryParameters)
 
 Get job titles
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JobTitleDtoCollectionQueryParameters jobTitleDtoCollectionQueryParameters = new JobTitleDtoCollectionQueryParameters(); // JobTitleDtoCollectionQueryParameters | 
     try {
-      JobTitleDtoListEnvelope result = apiInstance.getJobTitlesAsync(tenantId, apiVersion, xApiVersion);
+      JobTitleDtoListEnvelope result = apiInstance.getJobTitlesAsync(tenantId, apiVersion, xApiVersion, jobTitleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobTitlesApi#getJobTitlesAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **jobTitleDtoCollectionQueryParameters** | [**JobTitleDtoCollectionQueryParameters**](JobTitleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getJobTitlesCountAsync"></a>
 # **getJobTitlesCountAsync**
-> Int32Envelope getJobTitlesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getJobTitlesCountAsync(tenantId, apiVersion, xApiVersion, jobTitleDtoCollectionQueryParameters)
 
 Count job titles
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JobTitleDtoCollectionQueryParameters jobTitleDtoCollectionQueryParameters = new JobTitleDtoCollectionQueryParameters(); // JobTitleDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getJobTitlesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getJobTitlesCountAsync(tenantId, apiVersion, xApiVersion, jobTitleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobTitlesApi#getJobTitlesCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **jobTitleDtoCollectionQueryParameters** | [**JobTitleDtoCollectionQueryParameters**](JobTitleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchJobTitleAsync"></a>
 # **patchJobTitleAsync**
-> EmptyEnvelope patchJobTitleAsync(tenantId, jobTitleId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchJobTitleAsync(tenantId, jobTitleId, apiVersion, xApiVersion, patchOperation)
 
 Patch a job title
 
@@ -388,9 +392,9 @@ public class Example {
     UUID jobTitleId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchJobTitleAsync(tenantId, jobTitleId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchJobTitleAsync(tenantId, jobTitleId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobTitlesApi#patchJobTitleAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **jobTitleId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

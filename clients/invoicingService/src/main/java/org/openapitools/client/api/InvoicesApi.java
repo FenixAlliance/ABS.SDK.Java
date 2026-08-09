@@ -31,30 +31,37 @@ import org.openapitools.client.model.EmailDispatchRequest;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.Envelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.ExtendedInvoiceDtoCollectionQueryParameters;
 import org.openapitools.client.model.ExtendedInvoiceDtoListEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.InvoiceAdjustmentCreateDto;
+import org.openapitools.client.model.InvoiceAdjustmentDtoCollectionQueryParameters;
 import org.openapitools.client.model.InvoiceAdjustmentDtoEnvelope;
 import org.openapitools.client.model.InvoiceAdjustmentDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.InvoiceAdjustmentUpdateDto;
 import org.openapitools.client.model.InvoiceCreateDto;
+import org.openapitools.client.model.InvoiceDtoCollectionQueryParameters;
 import org.openapitools.client.model.InvoiceDtoEnvelope;
 import org.openapitools.client.model.InvoiceDtoListEnvelope;
 import org.openapitools.client.model.InvoiceLineAppliedTaxCreateDto;
+import org.openapitools.client.model.InvoiceLineAppliedTaxDtoCollectionQueryParameters;
 import org.openapitools.client.model.InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.InvoiceLineAppliedTaxUpdateDto;
 import org.openapitools.client.model.InvoiceLineCreateDto;
+import org.openapitools.client.model.InvoiceLineDtoCollectionQueryParameters;
 import org.openapitools.client.model.InvoiceLineDtoEnvelope;
 import org.openapitools.client.model.InvoiceLineDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.InvoiceLineDtoListEnvelope;
 import org.openapitools.client.model.InvoiceLineUpdateDto;
 import org.openapitools.client.model.InvoiceReferenceCreateDto;
+import org.openapitools.client.model.InvoiceReferenceDtoCollectionQueryParameters;
 import org.openapitools.client.model.InvoiceReferenceDtoEnvelope;
 import org.openapitools.client.model.InvoiceReferenceDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.InvoiceReferenceUpdateDto;
 import org.openapitools.client.model.InvoiceUpdateDto;
 import org.openapitools.client.model.MoneyEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
+import org.openapitools.client.model.PaymentDtoCollectionQueryParameters;
 import org.openapitools.client.model.PaymentDtoIReadOnlyListEnvelope;
 import java.util.UUID;
 
@@ -2721,6 +2728,7 @@ public class InvoicesApi {
     /**
      * Build call for getExtendedInvoices
      * @param tenantId  (required)
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2731,7 +2739,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedInvoicesCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExtendedInvoicesCall(UUID tenantId, ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2745,7 +2753,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedInvoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/Extended";
@@ -2770,6 +2778,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2781,13 +2791,13 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedInvoicesValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExtendedInvoicesValidateBeforeCall(UUID tenantId, ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExtendedInvoices(Async)");
         }
 
-        return getExtendedInvoicesCall(tenantId, _callback);
+        return getExtendedInvoicesCall(tenantId, extendedInvoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2795,6 +2805,7 @@ public class InvoicesApi {
      * Get a list of extended invoices.
      * Retrieves a list of extended invoice details for the specified tenant.
      * @param tenantId  (required)
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @return ExtendedInvoiceDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2804,8 +2815,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ExtendedInvoiceDtoListEnvelope getExtendedInvoices(UUID tenantId) throws ApiException {
-        ApiResponse<ExtendedInvoiceDtoListEnvelope> localVarResp = getExtendedInvoicesWithHttpInfo(tenantId);
+    public ExtendedInvoiceDtoListEnvelope getExtendedInvoices(UUID tenantId, ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ExtendedInvoiceDtoListEnvelope> localVarResp = getExtendedInvoicesWithHttpInfo(tenantId, extendedInvoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2813,6 +2824,7 @@ public class InvoicesApi {
      * Get a list of extended invoices.
      * Retrieves a list of extended invoice details for the specified tenant.
      * @param tenantId  (required)
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ExtendedInvoiceDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2822,8 +2834,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExtendedInvoiceDtoListEnvelope> getExtendedInvoicesWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedInvoicesValidateBeforeCall(tenantId, null);
+    public ApiResponse<ExtendedInvoiceDtoListEnvelope> getExtendedInvoicesWithHttpInfo(UUID tenantId, ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedInvoicesValidateBeforeCall(tenantId, extendedInvoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ExtendedInvoiceDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2832,6 +2844,7 @@ public class InvoicesApi {
      * Get a list of extended invoices. (asynchronously)
      * Retrieves a list of extended invoice details for the specified tenant.
      * @param tenantId  (required)
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2842,9 +2855,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedInvoicesAsync(UUID tenantId, final ApiCallback<ExtendedInvoiceDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getExtendedInvoicesAsync(UUID tenantId, ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters, final ApiCallback<ExtendedInvoiceDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedInvoicesValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getExtendedInvoicesValidateBeforeCall(tenantId, extendedInvoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ExtendedInvoiceDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2852,6 +2865,7 @@ public class InvoicesApi {
     /**
      * Build call for getExtendedInvoicesCount
      * @param tenantId  (required)
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2862,7 +2876,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedInvoicesCountCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExtendedInvoicesCountCall(UUID tenantId, ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2876,7 +2890,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedInvoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/Extended/Count";
@@ -2901,6 +2915,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2912,13 +2928,13 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedInvoicesCountValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExtendedInvoicesCountValidateBeforeCall(UUID tenantId, ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExtendedInvoicesCount(Async)");
         }
 
-        return getExtendedInvoicesCountCall(tenantId, _callback);
+        return getExtendedInvoicesCountCall(tenantId, extendedInvoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2926,6 +2942,7 @@ public class InvoicesApi {
      * Get the count of extended invoices.
      * Retrieves the total count of extended invoices for the specified tenant.
      * @param tenantId  (required)
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2935,8 +2952,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getExtendedInvoicesCount(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getExtendedInvoicesCountWithHttpInfo(tenantId);
+    public Int32Envelope getExtendedInvoicesCount(UUID tenantId, ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getExtendedInvoicesCountWithHttpInfo(tenantId, extendedInvoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2944,6 +2961,7 @@ public class InvoicesApi {
      * Get the count of extended invoices.
      * Retrieves the total count of extended invoices for the specified tenant.
      * @param tenantId  (required)
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2953,8 +2971,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getExtendedInvoicesCountWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedInvoicesCountValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getExtendedInvoicesCountWithHttpInfo(UUID tenantId, ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedInvoicesCountValidateBeforeCall(tenantId, extendedInvoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2963,6 +2981,7 @@ public class InvoicesApi {
      * Get the count of extended invoices. (asynchronously)
      * Retrieves the total count of extended invoices for the specified tenant.
      * @param tenantId  (required)
+     * @param extendedInvoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2973,9 +2992,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedInvoicesCountAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getExtendedInvoicesCountAsync(UUID tenantId, ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedInvoicesCountValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getExtendedInvoicesCountValidateBeforeCall(tenantId, extendedInvoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3272,6 +3291,7 @@ public class InvoicesApi {
      * Build call for getInvoiceAdjustments
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3281,7 +3301,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceAdjustmentsCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoiceAdjustmentsCall(UUID tenantId, UUID invoiceId, InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3295,7 +3315,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceAdjustmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments"
@@ -3321,6 +3341,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3332,7 +3354,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoiceAdjustmentsValidateBeforeCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoiceAdjustmentsValidateBeforeCall(UUID tenantId, UUID invoiceId, InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoiceAdjustments(Async)");
@@ -3343,7 +3365,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceId' when calling getInvoiceAdjustments(Async)");
         }
 
-        return getInvoiceAdjustmentsCall(tenantId, invoiceId, _callback);
+        return getInvoiceAdjustmentsCall(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3352,6 +3374,7 @@ public class InvoicesApi {
      * Retrieves the adjustments for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @return InvoiceAdjustmentDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3360,8 +3383,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InvoiceAdjustmentDtoIReadOnlyListEnvelope getInvoiceAdjustments(UUID tenantId, UUID invoiceId) throws ApiException {
-        ApiResponse<InvoiceAdjustmentDtoIReadOnlyListEnvelope> localVarResp = getInvoiceAdjustmentsWithHttpInfo(tenantId, invoiceId);
+    public InvoiceAdjustmentDtoIReadOnlyListEnvelope getInvoiceAdjustments(UUID tenantId, UUID invoiceId, InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<InvoiceAdjustmentDtoIReadOnlyListEnvelope> localVarResp = getInvoiceAdjustmentsWithHttpInfo(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3370,6 +3393,7 @@ public class InvoicesApi {
      * Retrieves the adjustments for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;InvoiceAdjustmentDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3378,8 +3402,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InvoiceAdjustmentDtoIReadOnlyListEnvelope> getInvoiceAdjustmentsWithHttpInfo(UUID tenantId, UUID invoiceId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoiceAdjustmentsValidateBeforeCall(tenantId, invoiceId, null);
+    public ApiResponse<InvoiceAdjustmentDtoIReadOnlyListEnvelope> getInvoiceAdjustmentsWithHttpInfo(UUID tenantId, UUID invoiceId, InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoiceAdjustmentsValidateBeforeCall(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<InvoiceAdjustmentDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3389,6 +3413,7 @@ public class InvoicesApi {
      * Retrieves the adjustments for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3398,9 +3423,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceAdjustmentsAsync(UUID tenantId, UUID invoiceId, final ApiCallback<InvoiceAdjustmentDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoiceAdjustmentsAsync(UUID tenantId, UUID invoiceId, InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters, final ApiCallback<InvoiceAdjustmentDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoiceAdjustmentsValidateBeforeCall(tenantId, invoiceId, _callback);
+        okhttp3.Call localVarCall = getInvoiceAdjustmentsValidateBeforeCall(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<InvoiceAdjustmentDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3409,6 +3434,7 @@ public class InvoicesApi {
      * Build call for getInvoiceAdjustmentsCount
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3418,7 +3444,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceAdjustmentsCountCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoiceAdjustmentsCountCall(UUID tenantId, UUID invoiceId, InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3432,7 +3458,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceAdjustmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/Count"
@@ -3458,6 +3484,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3469,7 +3497,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoiceAdjustmentsCountValidateBeforeCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoiceAdjustmentsCountValidateBeforeCall(UUID tenantId, UUID invoiceId, InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoiceAdjustmentsCount(Async)");
@@ -3480,7 +3508,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceId' when calling getInvoiceAdjustmentsCount(Async)");
         }
 
-        return getInvoiceAdjustmentsCountCall(tenantId, invoiceId, _callback);
+        return getInvoiceAdjustmentsCountCall(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3489,6 +3517,7 @@ public class InvoicesApi {
      * Retrieves the total count of adjustments for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3497,8 +3526,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getInvoiceAdjustmentsCount(UUID tenantId, UUID invoiceId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getInvoiceAdjustmentsCountWithHttpInfo(tenantId, invoiceId);
+    public Int32Envelope getInvoiceAdjustmentsCount(UUID tenantId, UUID invoiceId, InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getInvoiceAdjustmentsCountWithHttpInfo(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3507,6 +3536,7 @@ public class InvoicesApi {
      * Retrieves the total count of adjustments for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3515,8 +3545,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getInvoiceAdjustmentsCountWithHttpInfo(UUID tenantId, UUID invoiceId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoiceAdjustmentsCountValidateBeforeCall(tenantId, invoiceId, null);
+    public ApiResponse<Int32Envelope> getInvoiceAdjustmentsCountWithHttpInfo(UUID tenantId, UUID invoiceId, InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoiceAdjustmentsCountValidateBeforeCall(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3526,6 +3556,7 @@ public class InvoicesApi {
      * Retrieves the total count of adjustments for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceAdjustmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3535,9 +3566,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceAdjustmentsCountAsync(UUID tenantId, UUID invoiceId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoiceAdjustmentsCountAsync(UUID tenantId, UUID invoiceId, InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoiceAdjustmentsCountValidateBeforeCall(tenantId, invoiceId, _callback);
+        okhttp3.Call localVarCall = getInvoiceAdjustmentsCountValidateBeforeCall(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3694,6 +3725,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3703,7 +3735,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceLineTaxesCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoiceLineTaxesCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3717,7 +3749,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceLineAppliedTaxDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes"
@@ -3744,6 +3776,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3755,7 +3789,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoiceLineTaxesValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoiceLineTaxesValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoiceLineTaxes(Async)");
@@ -3771,7 +3805,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceLineId' when calling getInvoiceLineTaxes(Async)");
         }
 
-        return getInvoiceLineTaxesCall(tenantId, invoiceId, invoiceLineId, _callback);
+        return getInvoiceLineTaxesCall(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3781,6 +3815,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @return InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3789,8 +3824,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope getInvoiceLineTaxes(UUID tenantId, UUID invoiceId, UUID invoiceLineId) throws ApiException {
-        ApiResponse<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope> localVarResp = getInvoiceLineTaxesWithHttpInfo(tenantId, invoiceId, invoiceLineId);
+    public InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope getInvoiceLineTaxes(UUID tenantId, UUID invoiceId, UUID invoiceLineId, InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope> localVarResp = getInvoiceLineTaxesWithHttpInfo(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3800,6 +3835,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3808,8 +3844,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope> getInvoiceLineTaxesWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceLineId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoiceLineTaxesValidateBeforeCall(tenantId, invoiceId, invoiceLineId, null);
+    public ApiResponse<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope> getInvoiceLineTaxesWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceLineId, InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoiceLineTaxesValidateBeforeCall(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3820,6 +3856,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3829,9 +3866,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceLineTaxesAsync(UUID tenantId, UUID invoiceId, UUID invoiceLineId, final ApiCallback<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoiceLineTaxesAsync(UUID tenantId, UUID invoiceId, UUID invoiceLineId, InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters, final ApiCallback<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoiceLineTaxesValidateBeforeCall(tenantId, invoiceId, invoiceLineId, _callback);
+        okhttp3.Call localVarCall = getInvoiceLineTaxesValidateBeforeCall(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3841,6 +3878,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3850,7 +3888,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceLineTaxesCountCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoiceLineTaxesCountCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3864,7 +3902,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceLineAppliedTaxDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/Count"
@@ -3891,6 +3929,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3902,7 +3942,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoiceLineTaxesCountValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoiceLineTaxesCountValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoiceLineTaxesCount(Async)");
@@ -3918,7 +3958,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceLineId' when calling getInvoiceLineTaxesCount(Async)");
         }
 
-        return getInvoiceLineTaxesCountCall(tenantId, invoiceId, invoiceLineId, _callback);
+        return getInvoiceLineTaxesCountCall(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3928,6 +3968,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3936,8 +3977,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getInvoiceLineTaxesCount(UUID tenantId, UUID invoiceId, UUID invoiceLineId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getInvoiceLineTaxesCountWithHttpInfo(tenantId, invoiceId, invoiceLineId);
+    public Int32Envelope getInvoiceLineTaxesCount(UUID tenantId, UUID invoiceId, UUID invoiceLineId, InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getInvoiceLineTaxesCountWithHttpInfo(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3947,6 +3988,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3955,8 +3997,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getInvoiceLineTaxesCountWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceLineId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoiceLineTaxesCountValidateBeforeCall(tenantId, invoiceId, invoiceLineId, null);
+    public ApiResponse<Int32Envelope> getInvoiceLineTaxesCountWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceLineId, InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoiceLineTaxesCountValidateBeforeCall(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3967,6 +4009,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
+     * @param invoiceLineAppliedTaxDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3976,9 +4019,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceLineTaxesCountAsync(UUID tenantId, UUID invoiceId, UUID invoiceLineId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoiceLineTaxesCountAsync(UUID tenantId, UUID invoiceId, UUID invoiceLineId, InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoiceLineTaxesCountValidateBeforeCall(tenantId, invoiceId, invoiceLineId, _callback);
+        okhttp3.Call localVarCall = getInvoiceLineTaxesCountValidateBeforeCall(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3988,6 +4031,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param itemId  (optional)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3997,7 +4041,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceLinesCall(UUID tenantId, UUID invoiceId, UUID itemId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoiceLinesCall(UUID tenantId, UUID invoiceId, UUID itemId, InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4011,7 +4055,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Lines"
@@ -4041,6 +4085,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4052,7 +4098,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoiceLinesValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID itemId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoiceLinesValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID itemId, InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoiceLines(Async)");
@@ -4063,7 +4109,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceId' when calling getInvoiceLines(Async)");
         }
 
-        return getInvoiceLinesCall(tenantId, invoiceId, itemId, _callback);
+        return getInvoiceLinesCall(tenantId, invoiceId, itemId, invoiceLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4073,6 +4119,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param itemId  (optional)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @return InvoiceLineDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4081,8 +4128,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InvoiceLineDtoListEnvelope getInvoiceLines(UUID tenantId, UUID invoiceId, UUID itemId) throws ApiException {
-        ApiResponse<InvoiceLineDtoListEnvelope> localVarResp = getInvoiceLinesWithHttpInfo(tenantId, invoiceId, itemId);
+    public InvoiceLineDtoListEnvelope getInvoiceLines(UUID tenantId, UUID invoiceId, UUID itemId, InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<InvoiceLineDtoListEnvelope> localVarResp = getInvoiceLinesWithHttpInfo(tenantId, invoiceId, itemId, invoiceLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4092,6 +4139,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param itemId  (optional)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;InvoiceLineDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4100,8 +4148,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InvoiceLineDtoListEnvelope> getInvoiceLinesWithHttpInfo(UUID tenantId, UUID invoiceId, UUID itemId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoiceLinesValidateBeforeCall(tenantId, invoiceId, itemId, null);
+    public ApiResponse<InvoiceLineDtoListEnvelope> getInvoiceLinesWithHttpInfo(UUID tenantId, UUID invoiceId, UUID itemId, InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoiceLinesValidateBeforeCall(tenantId, invoiceId, itemId, invoiceLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<InvoiceLineDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4112,6 +4160,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param itemId  (optional)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4121,9 +4170,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceLinesAsync(UUID tenantId, UUID invoiceId, UUID itemId, final ApiCallback<InvoiceLineDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoiceLinesAsync(UUID tenantId, UUID invoiceId, UUID itemId, InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters, final ApiCallback<InvoiceLineDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoiceLinesValidateBeforeCall(tenantId, invoiceId, itemId, _callback);
+        okhttp3.Call localVarCall = getInvoiceLinesValidateBeforeCall(tenantId, invoiceId, itemId, invoiceLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<InvoiceLineDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4132,6 +4181,7 @@ public class InvoicesApi {
      * Build call for getInvoiceLinesCount
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4141,7 +4191,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceLinesCountCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoiceLinesCountCall(UUID tenantId, UUID invoiceId, InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4155,7 +4205,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/Count"
@@ -4181,6 +4231,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4192,7 +4244,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoiceLinesCountValidateBeforeCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoiceLinesCountValidateBeforeCall(UUID tenantId, UUID invoiceId, InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoiceLinesCount(Async)");
@@ -4203,7 +4255,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceId' when calling getInvoiceLinesCount(Async)");
         }
 
-        return getInvoiceLinesCountCall(tenantId, invoiceId, _callback);
+        return getInvoiceLinesCountCall(tenantId, invoiceId, invoiceLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4212,6 +4264,7 @@ public class InvoicesApi {
      * Retrieves the total count of invoice lines for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4220,8 +4273,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getInvoiceLinesCount(UUID tenantId, UUID invoiceId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getInvoiceLinesCountWithHttpInfo(tenantId, invoiceId);
+    public Int32Envelope getInvoiceLinesCount(UUID tenantId, UUID invoiceId, InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getInvoiceLinesCountWithHttpInfo(tenantId, invoiceId, invoiceLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4230,6 +4283,7 @@ public class InvoicesApi {
      * Retrieves the total count of invoice lines for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4238,8 +4292,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getInvoiceLinesCountWithHttpInfo(UUID tenantId, UUID invoiceId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoiceLinesCountValidateBeforeCall(tenantId, invoiceId, null);
+    public ApiResponse<Int32Envelope> getInvoiceLinesCountWithHttpInfo(UUID tenantId, UUID invoiceId, InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoiceLinesCountValidateBeforeCall(tenantId, invoiceId, invoiceLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4249,6 +4303,7 @@ public class InvoicesApi {
      * Retrieves the total count of invoice lines for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4258,9 +4313,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceLinesCountAsync(UUID tenantId, UUID invoiceId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoiceLinesCountAsync(UUID tenantId, UUID invoiceId, InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoiceLinesCountValidateBeforeCall(tenantId, invoiceId, _callback);
+        okhttp3.Call localVarCall = getInvoiceLinesCountValidateBeforeCall(tenantId, invoiceId, invoiceLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4269,6 +4324,7 @@ public class InvoicesApi {
      * Build call for getInvoicePayments
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4278,7 +4334,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoicePaymentsCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoicePaymentsCall(UUID tenantId, UUID invoiceId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4292,7 +4348,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Payments"
@@ -4318,6 +4374,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4329,7 +4387,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoicePaymentsValidateBeforeCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoicePaymentsValidateBeforeCall(UUID tenantId, UUID invoiceId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoicePayments(Async)");
@@ -4340,7 +4398,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceId' when calling getInvoicePayments(Async)");
         }
 
-        return getInvoicePaymentsCall(tenantId, invoiceId, _callback);
+        return getInvoicePaymentsCall(tenantId, invoiceId, paymentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4349,6 +4407,7 @@ public class InvoicesApi {
      * Retrieves the list of payments related to the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return PaymentDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4357,8 +4416,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentDtoIReadOnlyListEnvelope getInvoicePayments(UUID tenantId, UUID invoiceId) throws ApiException {
-        ApiResponse<PaymentDtoIReadOnlyListEnvelope> localVarResp = getInvoicePaymentsWithHttpInfo(tenantId, invoiceId);
+    public PaymentDtoIReadOnlyListEnvelope getInvoicePayments(UUID tenantId, UUID invoiceId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PaymentDtoIReadOnlyListEnvelope> localVarResp = getInvoicePaymentsWithHttpInfo(tenantId, invoiceId, paymentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4367,6 +4426,7 @@ public class InvoicesApi {
      * Retrieves the list of payments related to the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PaymentDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4375,8 +4435,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentDtoIReadOnlyListEnvelope> getInvoicePaymentsWithHttpInfo(UUID tenantId, UUID invoiceId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoicePaymentsValidateBeforeCall(tenantId, invoiceId, null);
+    public ApiResponse<PaymentDtoIReadOnlyListEnvelope> getInvoicePaymentsWithHttpInfo(UUID tenantId, UUID invoiceId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoicePaymentsValidateBeforeCall(tenantId, invoiceId, paymentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PaymentDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4386,6 +4446,7 @@ public class InvoicesApi {
      * Retrieves the list of payments related to the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4395,9 +4456,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoicePaymentsAsync(UUID tenantId, UUID invoiceId, final ApiCallback<PaymentDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoicePaymentsAsync(UUID tenantId, UUID invoiceId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback<PaymentDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoicePaymentsValidateBeforeCall(tenantId, invoiceId, _callback);
+        okhttp3.Call localVarCall = getInvoicePaymentsValidateBeforeCall(tenantId, invoiceId, paymentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PaymentDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4406,6 +4467,7 @@ public class InvoicesApi {
      * Build call for getInvoicePaymentsCount
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4415,7 +4477,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoicePaymentsCountCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoicePaymentsCountCall(UUID tenantId, UUID invoiceId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4429,7 +4491,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Payments/Count"
@@ -4455,6 +4517,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4466,7 +4530,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoicePaymentsCountValidateBeforeCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoicePaymentsCountValidateBeforeCall(UUID tenantId, UUID invoiceId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoicePaymentsCount(Async)");
@@ -4477,7 +4541,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceId' when calling getInvoicePaymentsCount(Async)");
         }
 
-        return getInvoicePaymentsCountCall(tenantId, invoiceId, _callback);
+        return getInvoicePaymentsCountCall(tenantId, invoiceId, paymentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4486,6 +4550,7 @@ public class InvoicesApi {
      * Retrieves the total count of payments for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4494,8 +4559,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getInvoicePaymentsCount(UUID tenantId, UUID invoiceId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getInvoicePaymentsCountWithHttpInfo(tenantId, invoiceId);
+    public Int32Envelope getInvoicePaymentsCount(UUID tenantId, UUID invoiceId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getInvoicePaymentsCountWithHttpInfo(tenantId, invoiceId, paymentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4504,6 +4569,7 @@ public class InvoicesApi {
      * Retrieves the total count of payments for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4512,8 +4578,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getInvoicePaymentsCountWithHttpInfo(UUID tenantId, UUID invoiceId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoicePaymentsCountValidateBeforeCall(tenantId, invoiceId, null);
+    public ApiResponse<Int32Envelope> getInvoicePaymentsCountWithHttpInfo(UUID tenantId, UUID invoiceId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoicePaymentsCountValidateBeforeCall(tenantId, invoiceId, paymentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4523,6 +4589,7 @@ public class InvoicesApi {
      * Retrieves the total count of payments for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4532,9 +4599,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoicePaymentsCountAsync(UUID tenantId, UUID invoiceId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoicePaymentsCountAsync(UUID tenantId, UUID invoiceId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoicePaymentsCountValidateBeforeCall(tenantId, invoiceId, _callback);
+        okhttp3.Call localVarCall = getInvoicePaymentsCountValidateBeforeCall(tenantId, invoiceId, paymentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4690,6 +4757,7 @@ public class InvoicesApi {
      * Build call for getInvoiceReferences
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4699,7 +4767,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceReferencesCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoiceReferencesCall(UUID tenantId, UUID invoiceId, InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4713,7 +4781,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceReferenceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/References"
@@ -4739,6 +4807,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4750,7 +4820,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoiceReferencesValidateBeforeCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoiceReferencesValidateBeforeCall(UUID tenantId, UUID invoiceId, InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoiceReferences(Async)");
@@ -4761,7 +4831,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceId' when calling getInvoiceReferences(Async)");
         }
 
-        return getInvoiceReferencesCall(tenantId, invoiceId, _callback);
+        return getInvoiceReferencesCall(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4770,6 +4840,7 @@ public class InvoicesApi {
      * Retrieves the references for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @return InvoiceReferenceDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4778,8 +4849,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InvoiceReferenceDtoIReadOnlyListEnvelope getInvoiceReferences(UUID tenantId, UUID invoiceId) throws ApiException {
-        ApiResponse<InvoiceReferenceDtoIReadOnlyListEnvelope> localVarResp = getInvoiceReferencesWithHttpInfo(tenantId, invoiceId);
+    public InvoiceReferenceDtoIReadOnlyListEnvelope getInvoiceReferences(UUID tenantId, UUID invoiceId, InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<InvoiceReferenceDtoIReadOnlyListEnvelope> localVarResp = getInvoiceReferencesWithHttpInfo(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4788,6 +4859,7 @@ public class InvoicesApi {
      * Retrieves the references for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;InvoiceReferenceDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4796,8 +4868,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InvoiceReferenceDtoIReadOnlyListEnvelope> getInvoiceReferencesWithHttpInfo(UUID tenantId, UUID invoiceId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoiceReferencesValidateBeforeCall(tenantId, invoiceId, null);
+    public ApiResponse<InvoiceReferenceDtoIReadOnlyListEnvelope> getInvoiceReferencesWithHttpInfo(UUID tenantId, UUID invoiceId, InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoiceReferencesValidateBeforeCall(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<InvoiceReferenceDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4807,6 +4879,7 @@ public class InvoicesApi {
      * Retrieves the references for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4816,9 +4889,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceReferencesAsync(UUID tenantId, UUID invoiceId, final ApiCallback<InvoiceReferenceDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoiceReferencesAsync(UUID tenantId, UUID invoiceId, InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters, final ApiCallback<InvoiceReferenceDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoiceReferencesValidateBeforeCall(tenantId, invoiceId, _callback);
+        okhttp3.Call localVarCall = getInvoiceReferencesValidateBeforeCall(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<InvoiceReferenceDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4827,6 +4900,7 @@ public class InvoicesApi {
      * Build call for getInvoiceReferencesCount
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4836,7 +4910,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceReferencesCountCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoiceReferencesCountCall(UUID tenantId, UUID invoiceId, InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4850,7 +4924,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceReferenceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/References/Count"
@@ -4876,6 +4950,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4887,7 +4963,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoiceReferencesCountValidateBeforeCall(UUID tenantId, UUID invoiceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoiceReferencesCountValidateBeforeCall(UUID tenantId, UUID invoiceId, InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoiceReferencesCount(Async)");
@@ -4898,7 +4974,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceId' when calling getInvoiceReferencesCount(Async)");
         }
 
-        return getInvoiceReferencesCountCall(tenantId, invoiceId, _callback);
+        return getInvoiceReferencesCountCall(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4907,6 +4983,7 @@ public class InvoicesApi {
      * Retrieves the total count of references for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4915,8 +4992,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getInvoiceReferencesCount(UUID tenantId, UUID invoiceId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getInvoiceReferencesCountWithHttpInfo(tenantId, invoiceId);
+    public Int32Envelope getInvoiceReferencesCount(UUID tenantId, UUID invoiceId, InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getInvoiceReferencesCountWithHttpInfo(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4925,6 +5002,7 @@ public class InvoicesApi {
      * Retrieves the total count of references for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4933,8 +5011,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getInvoiceReferencesCountWithHttpInfo(UUID tenantId, UUID invoiceId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoiceReferencesCountValidateBeforeCall(tenantId, invoiceId, null);
+    public ApiResponse<Int32Envelope> getInvoiceReferencesCountWithHttpInfo(UUID tenantId, UUID invoiceId, InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoiceReferencesCountValidateBeforeCall(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4944,6 +5022,7 @@ public class InvoicesApi {
      * Retrieves the total count of references for the specified invoice.
      * @param tenantId  (required)
      * @param invoiceId  (required)
+     * @param invoiceReferenceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4953,9 +5032,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceReferencesCountAsync(UUID tenantId, UUID invoiceId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoiceReferencesCountAsync(UUID tenantId, UUID invoiceId, InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoiceReferencesCountValidateBeforeCall(tenantId, invoiceId, _callback);
+        okhttp3.Call localVarCall = getInvoiceReferencesCountValidateBeforeCall(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4963,6 +5042,7 @@ public class InvoicesApi {
     /**
      * Build call for getInvoices
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4973,7 +5053,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoicesCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoicesCall(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4987,7 +5067,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices";
@@ -5012,6 +5092,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5023,13 +5105,13 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoicesValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoicesValidateBeforeCall(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoices(Async)");
         }
 
-        return getInvoicesCall(tenantId, _callback);
+        return getInvoicesCall(tenantId, invoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -5037,6 +5119,7 @@ public class InvoicesApi {
      * Get a list of invoices.
      * Retrieves a list of invoices for the specified tenant.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return InvoiceDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5046,8 +5129,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InvoiceDtoListEnvelope getInvoices(UUID tenantId) throws ApiException {
-        ApiResponse<InvoiceDtoListEnvelope> localVarResp = getInvoicesWithHttpInfo(tenantId);
+    public InvoiceDtoListEnvelope getInvoices(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<InvoiceDtoListEnvelope> localVarResp = getInvoicesWithHttpInfo(tenantId, invoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -5055,6 +5138,7 @@ public class InvoicesApi {
      * Get a list of invoices.
      * Retrieves a list of invoices for the specified tenant.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;InvoiceDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5064,8 +5148,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InvoiceDtoListEnvelope> getInvoicesWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoicesValidateBeforeCall(tenantId, null);
+    public ApiResponse<InvoiceDtoListEnvelope> getInvoicesWithHttpInfo(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoicesValidateBeforeCall(tenantId, invoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<InvoiceDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5074,6 +5158,7 @@ public class InvoicesApi {
      * Get a list of invoices. (asynchronously)
      * Retrieves a list of invoices for the specified tenant.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5084,9 +5169,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoicesAsync(UUID tenantId, final ApiCallback<InvoiceDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoicesAsync(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback<InvoiceDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoicesValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getInvoicesValidateBeforeCall(tenantId, invoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<InvoiceDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5094,6 +5179,7 @@ public class InvoicesApi {
     /**
      * Build call for getInvoicesCount
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5104,7 +5190,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoicesCountCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoicesCountCall(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5118,7 +5204,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/Count";
@@ -5143,6 +5229,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5154,13 +5242,13 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoicesCountValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoicesCountValidateBeforeCall(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoicesCount(Async)");
         }
 
-        return getInvoicesCountCall(tenantId, _callback);
+        return getInvoicesCountCall(tenantId, invoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -5168,6 +5256,7 @@ public class InvoicesApi {
      * Get the count of invoices.
      * Retrieves the total count of invoices for the specified tenant.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5177,8 +5266,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getInvoicesCount(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getInvoicesCountWithHttpInfo(tenantId);
+    public Int32Envelope getInvoicesCount(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getInvoicesCountWithHttpInfo(tenantId, invoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -5186,6 +5275,7 @@ public class InvoicesApi {
      * Get the count of invoices.
      * Retrieves the total count of invoices for the specified tenant.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5195,8 +5285,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getInvoicesCountWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getInvoicesCountValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getInvoicesCountWithHttpInfo(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoicesCountValidateBeforeCall(tenantId, invoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5205,6 +5295,7 @@ public class InvoicesApi {
      * Get the count of invoices. (asynchronously)
      * Retrieves the total count of invoices for the specified tenant.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5215,9 +5306,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoicesCountAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoicesCountAsync(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoicesCountValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getInvoicesCountValidateBeforeCall(tenantId, invoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5225,6 +5316,7 @@ public class InvoicesApi {
     /**
      * Build call for getPurchaseInvoicesSum
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5236,7 +5328,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPurchaseInvoicesSumCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPurchaseInvoicesSumCall(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5250,7 +5342,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/PurchaseInvoices/Sum";
@@ -5275,6 +5367,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5286,13 +5380,13 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPurchaseInvoicesSumValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPurchaseInvoicesSumValidateBeforeCall(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPurchaseInvoicesSum(Async)");
         }
 
-        return getPurchaseInvoicesSumCall(tenantId, _callback);
+        return getPurchaseInvoicesSumCall(tenantId, invoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -5300,6 +5394,7 @@ public class InvoicesApi {
      * Sum tenant purchase-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5310,8 +5405,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public MoneyEnvelope getPurchaseInvoicesSum(UUID tenantId) throws ApiException {
-        ApiResponse<MoneyEnvelope> localVarResp = getPurchaseInvoicesSumWithHttpInfo(tenantId);
+    public MoneyEnvelope getPurchaseInvoicesSum(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<MoneyEnvelope> localVarResp = getPurchaseInvoicesSumWithHttpInfo(tenantId, invoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -5319,6 +5414,7 @@ public class InvoicesApi {
      * Sum tenant purchase-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;MoneyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5329,8 +5425,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MoneyEnvelope> getPurchaseInvoicesSumWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getPurchaseInvoicesSumValidateBeforeCall(tenantId, null);
+    public ApiResponse<MoneyEnvelope> getPurchaseInvoicesSumWithHttpInfo(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPurchaseInvoicesSumValidateBeforeCall(tenantId, invoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5339,6 +5435,7 @@ public class InvoicesApi {
      * Sum tenant purchase-invoice totals. (asynchronously)
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5350,9 +5447,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPurchaseInvoicesSumAsync(UUID tenantId, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getPurchaseInvoicesSumAsync(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPurchaseInvoicesSumValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getPurchaseInvoicesSumValidateBeforeCall(tenantId, invoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5360,6 +5457,7 @@ public class InvoicesApi {
     /**
      * Build call for getSalesInvoicesSum
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5371,7 +5469,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSalesInvoicesSumCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSalesInvoicesSumCall(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5385,7 +5483,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/SalesInvoices/Sum";
@@ -5410,6 +5508,8 @@ public class InvoicesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5421,13 +5521,13 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSalesInvoicesSumValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSalesInvoicesSumValidateBeforeCall(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSalesInvoicesSum(Async)");
         }
 
-        return getSalesInvoicesSumCall(tenantId, _callback);
+        return getSalesInvoicesSumCall(tenantId, invoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -5435,6 +5535,7 @@ public class InvoicesApi {
      * Sum tenant sales-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5445,8 +5546,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public MoneyEnvelope getSalesInvoicesSum(UUID tenantId) throws ApiException {
-        ApiResponse<MoneyEnvelope> localVarResp = getSalesInvoicesSumWithHttpInfo(tenantId);
+    public MoneyEnvelope getSalesInvoicesSum(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<MoneyEnvelope> localVarResp = getSalesInvoicesSumWithHttpInfo(tenantId, invoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -5454,6 +5555,7 @@ public class InvoicesApi {
      * Sum tenant sales-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;MoneyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5464,8 +5566,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MoneyEnvelope> getSalesInvoicesSumWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getSalesInvoicesSumValidateBeforeCall(tenantId, null);
+    public ApiResponse<MoneyEnvelope> getSalesInvoicesSumWithHttpInfo(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSalesInvoicesSumValidateBeforeCall(tenantId, invoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5474,6 +5576,7 @@ public class InvoicesApi {
      * Sum tenant sales-invoice totals. (asynchronously)
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
      * @param tenantId  (required)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5485,9 +5588,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSalesInvoicesSumAsync(UUID tenantId, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSalesInvoicesSumAsync(UUID tenantId, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSalesInvoicesSumValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getSalesInvoicesSumValidateBeforeCall(tenantId, invoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5496,7 +5599,7 @@ public class InvoicesApi {
      * Build call for patchInvoice
      * @param tenantId  (required)
      * @param invoiceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5507,7 +5610,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceCall(UUID tenantId, UUID invoiceId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceCall(UUID tenantId, UUID invoiceId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5521,7 +5624,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}"
@@ -5560,7 +5663,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchInvoiceValidateBeforeCall(UUID tenantId, UUID invoiceId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchInvoiceValidateBeforeCall(UUID tenantId, UUID invoiceId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchInvoice(Async)");
@@ -5571,7 +5674,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceId' when calling patchInvoice(Async)");
         }
 
-        return patchInvoiceCall(tenantId, invoiceId, operation, _callback);
+        return patchInvoiceCall(tenantId, invoiceId, patchOperation, _callback);
 
     }
 
@@ -5580,7 +5683,7 @@ public class InvoicesApi {
      * Partially updates the specified invoice for the tenant.
      * @param tenantId  (required)
      * @param invoiceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5590,8 +5693,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchInvoice(UUID tenantId, UUID invoiceId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceWithHttpInfo(tenantId, invoiceId, operation);
+    public EmptyEnvelope patchInvoice(UUID tenantId, UUID invoiceId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceWithHttpInfo(tenantId, invoiceId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -5600,7 +5703,7 @@ public class InvoicesApi {
      * Partially updates the specified invoice for the tenant.
      * @param tenantId  (required)
      * @param invoiceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5610,8 +5713,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchInvoiceWithHttpInfo(UUID tenantId, UUID invoiceId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchInvoiceValidateBeforeCall(tenantId, invoiceId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchInvoiceWithHttpInfo(UUID tenantId, UUID invoiceId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchInvoiceValidateBeforeCall(tenantId, invoiceId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5621,7 +5724,7 @@ public class InvoicesApi {
      * Partially updates the specified invoice for the tenant.
      * @param tenantId  (required)
      * @param invoiceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5632,9 +5735,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceAsync(UUID tenantId, UUID invoiceId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceAsync(UUID tenantId, UUID invoiceId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchInvoiceValidateBeforeCall(tenantId, invoiceId, operation, _callback);
+        okhttp3.Call localVarCall = patchInvoiceValidateBeforeCall(tenantId, invoiceId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5644,7 +5747,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceAdjustmentId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5655,7 +5758,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceAdjustmentCall(UUID tenantId, UUID invoiceId, UUID invoiceAdjustmentId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceAdjustmentCall(UUID tenantId, UUID invoiceId, UUID invoiceAdjustmentId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5669,7 +5772,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId}"
@@ -5709,7 +5812,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchInvoiceAdjustmentValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceAdjustmentId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchInvoiceAdjustmentValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceAdjustmentId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchInvoiceAdjustment(Async)");
@@ -5725,7 +5828,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceAdjustmentId' when calling patchInvoiceAdjustment(Async)");
         }
 
-        return patchInvoiceAdjustmentCall(tenantId, invoiceId, invoiceAdjustmentId, operation, _callback);
+        return patchInvoiceAdjustmentCall(tenantId, invoiceId, invoiceAdjustmentId, patchOperation, _callback);
 
     }
 
@@ -5735,7 +5838,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceAdjustmentId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5745,8 +5848,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchInvoiceAdjustment(UUID tenantId, UUID invoiceId, UUID invoiceAdjustmentId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceAdjustmentWithHttpInfo(tenantId, invoiceId, invoiceAdjustmentId, operation);
+    public EmptyEnvelope patchInvoiceAdjustment(UUID tenantId, UUID invoiceId, UUID invoiceAdjustmentId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceAdjustmentWithHttpInfo(tenantId, invoiceId, invoiceAdjustmentId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -5756,7 +5859,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceAdjustmentId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5766,8 +5869,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchInvoiceAdjustmentWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceAdjustmentId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchInvoiceAdjustmentValidateBeforeCall(tenantId, invoiceId, invoiceAdjustmentId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchInvoiceAdjustmentWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceAdjustmentId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchInvoiceAdjustmentValidateBeforeCall(tenantId, invoiceId, invoiceAdjustmentId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5778,7 +5881,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceAdjustmentId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5789,9 +5892,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceAdjustmentAsync(UUID tenantId, UUID invoiceId, UUID invoiceAdjustmentId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceAdjustmentAsync(UUID tenantId, UUID invoiceId, UUID invoiceAdjustmentId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchInvoiceAdjustmentValidateBeforeCall(tenantId, invoiceId, invoiceAdjustmentId, operation, _callback);
+        okhttp3.Call localVarCall = patchInvoiceAdjustmentValidateBeforeCall(tenantId, invoiceId, invoiceAdjustmentId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5801,7 +5904,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5812,7 +5915,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceLineCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceLineCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5826,7 +5929,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}"
@@ -5866,7 +5969,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchInvoiceLineValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchInvoiceLineValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchInvoiceLine(Async)");
@@ -5882,7 +5985,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceLineId' when calling patchInvoiceLine(Async)");
         }
 
-        return patchInvoiceLineCall(tenantId, invoiceId, invoiceLineId, operation, _callback);
+        return patchInvoiceLineCall(tenantId, invoiceId, invoiceLineId, patchOperation, _callback);
 
     }
 
@@ -5892,7 +5995,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5902,8 +6005,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchInvoiceLine(UUID tenantId, UUID invoiceId, UUID invoiceLineId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceLineWithHttpInfo(tenantId, invoiceId, invoiceLineId, operation);
+    public EmptyEnvelope patchInvoiceLine(UUID tenantId, UUID invoiceId, UUID invoiceLineId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceLineWithHttpInfo(tenantId, invoiceId, invoiceLineId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -5913,7 +6016,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5923,8 +6026,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchInvoiceLineWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceLineId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchInvoiceLineValidateBeforeCall(tenantId, invoiceId, invoiceLineId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchInvoiceLineWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceLineId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchInvoiceLineValidateBeforeCall(tenantId, invoiceId, invoiceLineId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5935,7 +6038,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5946,9 +6049,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceLineAsync(UUID tenantId, UUID invoiceId, UUID invoiceLineId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceLineAsync(UUID tenantId, UUID invoiceId, UUID invoiceLineId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchInvoiceLineValidateBeforeCall(tenantId, invoiceId, invoiceLineId, operation, _callback);
+        okhttp3.Call localVarCall = patchInvoiceLineValidateBeforeCall(tenantId, invoiceId, invoiceLineId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5959,7 +6062,7 @@ public class InvoicesApi {
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
      * @param invoiceLineTaxId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5969,7 +6072,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceLineTaxCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, UUID invoiceLineTaxId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceLineTaxCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, UUID invoiceLineTaxId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5983,7 +6086,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId}"
@@ -6024,7 +6127,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchInvoiceLineTaxValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, UUID invoiceLineTaxId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchInvoiceLineTaxValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceLineId, UUID invoiceLineTaxId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchInvoiceLineTax(Async)");
@@ -6045,7 +6148,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceLineTaxId' when calling patchInvoiceLineTax(Async)");
         }
 
-        return patchInvoiceLineTaxCall(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, operation, _callback);
+        return patchInvoiceLineTaxCall(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, patchOperation, _callback);
 
     }
 
@@ -6056,7 +6159,7 @@ public class InvoicesApi {
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
      * @param invoiceLineTaxId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6065,8 +6168,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchInvoiceLineTax(UUID tenantId, UUID invoiceId, UUID invoiceLineId, UUID invoiceLineTaxId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceLineTaxWithHttpInfo(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, operation);
+    public EmptyEnvelope patchInvoiceLineTax(UUID tenantId, UUID invoiceId, UUID invoiceLineId, UUID invoiceLineTaxId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceLineTaxWithHttpInfo(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -6077,7 +6180,7 @@ public class InvoicesApi {
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
      * @param invoiceLineTaxId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6086,8 +6189,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchInvoiceLineTaxWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceLineId, UUID invoiceLineTaxId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchInvoiceLineTaxValidateBeforeCall(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchInvoiceLineTaxWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceLineId, UUID invoiceLineTaxId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchInvoiceLineTaxValidateBeforeCall(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6099,7 +6202,7 @@ public class InvoicesApi {
      * @param invoiceId  (required)
      * @param invoiceLineId  (required)
      * @param invoiceLineTaxId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6109,9 +6212,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceLineTaxAsync(UUID tenantId, UUID invoiceId, UUID invoiceLineId, UUID invoiceLineTaxId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceLineTaxAsync(UUID tenantId, UUID invoiceId, UUID invoiceLineId, UUID invoiceLineTaxId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchInvoiceLineTaxValidateBeforeCall(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, operation, _callback);
+        okhttp3.Call localVarCall = patchInvoiceLineTaxValidateBeforeCall(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6121,7 +6224,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceReferenceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6131,7 +6234,7 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceReferenceCall(UUID tenantId, UUID invoiceId, UUID invoiceReferenceId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceReferenceCall(UUID tenantId, UUID invoiceId, UUID invoiceReferenceId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6145,7 +6248,7 @@ public class InvoicesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId}"
@@ -6185,7 +6288,7 @@ public class InvoicesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchInvoiceReferenceValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceReferenceId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchInvoiceReferenceValidateBeforeCall(UUID tenantId, UUID invoiceId, UUID invoiceReferenceId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchInvoiceReference(Async)");
@@ -6201,7 +6304,7 @@ public class InvoicesApi {
             throw new ApiException("Missing the required parameter 'invoiceReferenceId' when calling patchInvoiceReference(Async)");
         }
 
-        return patchInvoiceReferenceCall(tenantId, invoiceId, invoiceReferenceId, operation, _callback);
+        return patchInvoiceReferenceCall(tenantId, invoiceId, invoiceReferenceId, patchOperation, _callback);
 
     }
 
@@ -6211,7 +6314,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceReferenceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6220,8 +6323,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchInvoiceReference(UUID tenantId, UUID invoiceId, UUID invoiceReferenceId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceReferenceWithHttpInfo(tenantId, invoiceId, invoiceReferenceId, operation);
+    public EmptyEnvelope patchInvoiceReference(UUID tenantId, UUID invoiceId, UUID invoiceReferenceId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceReferenceWithHttpInfo(tenantId, invoiceId, invoiceReferenceId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -6231,7 +6334,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceReferenceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6240,8 +6343,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchInvoiceReferenceWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceReferenceId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchInvoiceReferenceValidateBeforeCall(tenantId, invoiceId, invoiceReferenceId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchInvoiceReferenceWithHttpInfo(UUID tenantId, UUID invoiceId, UUID invoiceReferenceId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchInvoiceReferenceValidateBeforeCall(tenantId, invoiceId, invoiceReferenceId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6252,7 +6355,7 @@ public class InvoicesApi {
      * @param tenantId  (required)
      * @param invoiceId  (required)
      * @param invoiceReferenceId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6262,9 +6365,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceReferenceAsync(UUID tenantId, UUID invoiceId, UUID invoiceReferenceId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceReferenceAsync(UUID tenantId, UUID invoiceId, UUID invoiceReferenceId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchInvoiceReferenceValidateBeforeCall(tenantId, invoiceId, invoiceReferenceId, operation, _callback);
+        okhttp3.Call localVarCall = patchInvoiceReferenceValidateBeforeCall(tenantId, invoiceId, invoiceReferenceId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

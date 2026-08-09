@@ -213,7 +213,7 @@ No authorization required
 
 <a id="getKnowledgeArticlesAsync"></a>
 # **getKnowledgeArticlesAsync**
-> KnowledgeArticleDtoListEnvelope getKnowledgeArticlesAsync(tenantId, apiVersion, xApiVersion)
+> KnowledgeArticleDtoListEnvelope getKnowledgeArticlesAsync(tenantId, apiVersion, xApiVersion, knowledgeArticleDtoCollectionQueryParameters)
 
 Retrieve knowledge articles
 
@@ -235,8 +235,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    KnowledgeArticleDtoCollectionQueryParameters knowledgeArticleDtoCollectionQueryParameters = new KnowledgeArticleDtoCollectionQueryParameters(); // KnowledgeArticleDtoCollectionQueryParameters | 
     try {
-      KnowledgeArticleDtoListEnvelope result = apiInstance.getKnowledgeArticlesAsync(tenantId, apiVersion, xApiVersion);
+      KnowledgeArticleDtoListEnvelope result = apiInstance.getKnowledgeArticlesAsync(tenantId, apiVersion, xApiVersion, knowledgeArticleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling KnowledgeArticlesApi#getKnowledgeArticlesAsync");
@@ -256,6 +257,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **knowledgeArticleDtoCollectionQueryParameters** | [**KnowledgeArticleDtoCollectionQueryParameters**](KnowledgeArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -267,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -277,7 +279,7 @@ No authorization required
 
 <a id="getKnowledgeArticlesCountAsync"></a>
 # **getKnowledgeArticlesCountAsync**
-> Int32Envelope getKnowledgeArticlesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getKnowledgeArticlesCountAsync(tenantId, apiVersion, xApiVersion, knowledgeArticleDtoCollectionQueryParameters)
 
 Get knowledge articles count
 
@@ -299,8 +301,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    KnowledgeArticleDtoCollectionQueryParameters knowledgeArticleDtoCollectionQueryParameters = new KnowledgeArticleDtoCollectionQueryParameters(); // KnowledgeArticleDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getKnowledgeArticlesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getKnowledgeArticlesCountAsync(tenantId, apiVersion, xApiVersion, knowledgeArticleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling KnowledgeArticlesApi#getKnowledgeArticlesCountAsync");
@@ -320,6 +323,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **knowledgeArticleDtoCollectionQueryParameters** | [**KnowledgeArticleDtoCollectionQueryParameters**](KnowledgeArticleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -331,7 +335,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -341,7 +345,7 @@ No authorization required
 
 <a id="patchKnowledgeArticleAsync"></a>
 # **patchKnowledgeArticleAsync**
-> EmptyEnvelope patchKnowledgeArticleAsync(tenantId, knowledgeArticleId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchKnowledgeArticleAsync(tenantId, knowledgeArticleId, apiVersion, xApiVersion, patchOperation)
 
 Patch a knowledge article
 
@@ -366,9 +370,9 @@ public class Example {
     UUID knowledgeArticleId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchKnowledgeArticleAsync(tenantId, knowledgeArticleId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchKnowledgeArticleAsync(tenantId, knowledgeArticleId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling KnowledgeArticlesApi#patchKnowledgeArticleAsync");
@@ -389,7 +393,7 @@ public class Example {
 | **knowledgeArticleId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

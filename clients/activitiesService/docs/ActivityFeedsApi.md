@@ -26,7 +26,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countActivityTypesAsync"></a>
 # **countActivityTypesAsync**
-> Int32Envelope countActivityTypesAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countActivityTypesAsync(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters)
 
 Count Activity Types
 
@@ -50,8 +50,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters = new ActivityTypeDtoCollectionQueryParameters(); // ActivityTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countActivityTypesAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countActivityTypesAsync(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActivityFeedsApi#countActivityTypesAsync");
@@ -71,6 +72,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **activityTypeDtoCollectionQueryParameters** | [**ActivityTypeDtoCollectionQueryParameters**](ActivityTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -82,7 +84,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -378,7 +380,7 @@ No authorization required
 
 <a id="getActivitiesAsync"></a>
 # **getActivitiesAsync**
-> ActivityRecordDtoListEnvelope getActivitiesAsync(tenantId, activityFeedId, apiVersion, xApiVersion)
+> ActivityRecordDtoListEnvelope getActivitiesAsync(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters)
 
 Get activities
 
@@ -403,8 +405,9 @@ public class Example {
     UUID activityFeedId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters = new ActivityRecordDtoCollectionQueryParameters(); // ActivityRecordDtoCollectionQueryParameters | 
     try {
-      ActivityRecordDtoListEnvelope result = apiInstance.getActivitiesAsync(tenantId, activityFeedId, apiVersion, xApiVersion);
+      ActivityRecordDtoListEnvelope result = apiInstance.getActivitiesAsync(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActivityFeedsApi#getActivitiesAsync");
@@ -425,6 +428,7 @@ public class Example {
 | **activityFeedId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **activityRecordDtoCollectionQueryParameters** | [**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -436,7 +440,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -448,7 +452,7 @@ No authorization required
 
 <a id="getActivitiesCountAsync"></a>
 # **getActivitiesCountAsync**
-> Int32Envelope getActivitiesCountAsync(tenantId, activityFeedId, apiVersion, xApiVersion)
+> Int32Envelope getActivitiesCountAsync(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters)
 
 Count activities
 
@@ -473,8 +477,9 @@ public class Example {
     UUID activityFeedId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters = new ActivityRecordDtoCollectionQueryParameters(); // ActivityRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getActivitiesCountAsync(tenantId, activityFeedId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getActivitiesCountAsync(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActivityFeedsApi#getActivitiesCountAsync");
@@ -495,6 +500,7 @@ public class Example {
 | **activityFeedId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **activityRecordDtoCollectionQueryParameters** | [**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -506,7 +512,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -660,7 +666,7 @@ No authorization required
 
 <a id="getActivityFeedsAsync"></a>
 # **getActivityFeedsAsync**
-> ActivityFeedDtoListEnvelope getActivityFeedsAsync(tenantId, apiVersion, xApiVersion)
+> ActivityFeedDtoListEnvelope getActivityFeedsAsync(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters)
 
 Get activity feeds
 
@@ -684,8 +690,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters = new ActivityFeedDtoCollectionQueryParameters(); // ActivityFeedDtoCollectionQueryParameters | 
     try {
-      ActivityFeedDtoListEnvelope result = apiInstance.getActivityFeedsAsync(tenantId, apiVersion, xApiVersion);
+      ActivityFeedDtoListEnvelope result = apiInstance.getActivityFeedsAsync(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActivityFeedsApi#getActivityFeedsAsync");
@@ -705,6 +712,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **activityFeedDtoCollectionQueryParameters** | [**ActivityFeedDtoCollectionQueryParameters**](ActivityFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -716,7 +724,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -728,7 +736,7 @@ No authorization required
 
 <a id="getActivityFeedsCountAsync"></a>
 # **getActivityFeedsCountAsync**
-> Int32Envelope getActivityFeedsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getActivityFeedsCountAsync(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters)
 
 Count activity feeds
 
@@ -752,8 +760,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters = new ActivityFeedDtoCollectionQueryParameters(); // ActivityFeedDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getActivityFeedsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getActivityFeedsCountAsync(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActivityFeedsApi#getActivityFeedsCountAsync");
@@ -773,6 +782,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **activityFeedDtoCollectionQueryParameters** | [**ActivityFeedDtoCollectionQueryParameters**](ActivityFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -784,7 +794,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -796,7 +806,7 @@ No authorization required
 
 <a id="getActivityRecordsCountAsync"></a>
 # **getActivityRecordsCountAsync**
-> Int32Envelope getActivityRecordsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getActivityRecordsCountAsync(tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters)
 
 Count activity records
 
@@ -820,8 +830,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters = new ActivityRecordDtoCollectionQueryParameters(); // ActivityRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getActivityRecordsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getActivityRecordsCountAsync(tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActivityFeedsApi#getActivityRecordsCountAsync");
@@ -841,6 +852,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **activityRecordDtoCollectionQueryParameters** | [**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -852,7 +864,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -934,7 +946,7 @@ No authorization required
 
 <a id="getActivityTypesAsync"></a>
 # **getActivityTypesAsync**
-> ActivityTypeDtoListEnvelope getActivityTypesAsync(tenantId, apiVersion, xApiVersion)
+> ActivityTypeDtoListEnvelope getActivityTypesAsync(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters)
 
 Get Activity Types
 
@@ -958,8 +970,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters = new ActivityTypeDtoCollectionQueryParameters(); // ActivityTypeDtoCollectionQueryParameters | 
     try {
-      ActivityTypeDtoListEnvelope result = apiInstance.getActivityTypesAsync(tenantId, apiVersion, xApiVersion);
+      ActivityTypeDtoListEnvelope result = apiInstance.getActivityTypesAsync(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActivityFeedsApi#getActivityTypesAsync");
@@ -979,6 +992,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **activityTypeDtoCollectionQueryParameters** | [**ActivityTypeDtoCollectionQueryParameters**](ActivityTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -990,7 +1004,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1002,7 +1016,7 @@ No authorization required
 
 <a id="patchActivityAsync"></a>
 # **patchActivityAsync**
-> EmptyEnvelope patchActivityAsync(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchActivityAsync(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, patchOperation)
 
 Patch an activity
 
@@ -1028,9 +1042,9 @@ public class Example {
     UUID activityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchActivityAsync(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchActivityAsync(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActivityFeedsApi#patchActivityAsync");
@@ -1052,7 +1066,7 @@ public class Example {
 | **activityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1076,7 +1090,7 @@ No authorization required
 
 <a id="patchActivityTypeAsync"></a>
 # **patchActivityTypeAsync**
-> EmptyEnvelope patchActivityTypeAsync(tenantId, activityTypeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchActivityTypeAsync(tenantId, activityTypeId, apiVersion, xApiVersion, patchOperation)
 
 Patch Activity Type
 
@@ -1101,9 +1115,9 @@ public class Example {
     UUID activityTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchActivityTypeAsync(tenantId, activityTypeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchActivityTypeAsync(tenantId, activityTypeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActivityFeedsApi#patchActivityTypeAsync");
@@ -1124,7 +1138,7 @@ public class Example {
 | **activityTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

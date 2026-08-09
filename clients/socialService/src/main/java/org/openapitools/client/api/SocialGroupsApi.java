@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SocialGroupCreateDto;
+import org.openapitools.client.model.SocialGroupDtoCollectionQueryParameters;
 import org.openapitools.client.model.SocialGroupDtoEnvelope;
 import org.openapitools.client.model.SocialGroupDtoListEnvelope;
 import org.openapitools.client.model.SocialGroupUpdateDto;
@@ -85,6 +86,7 @@ public class SocialGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -96,7 +98,7 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countSocialGroupsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countSocialGroupsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -110,7 +112,7 @@ public class SocialGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialGroups/Count";
@@ -143,6 +145,8 @@ public class SocialGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -154,13 +158,13 @@ public class SocialGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countSocialGroupsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countSocialGroupsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countSocialGroupsAsync(Async)");
         }
 
-        return countSocialGroupsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return countSocialGroupsAsyncCall(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -170,6 +174,7 @@ public class SocialGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -180,8 +185,8 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countSocialGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countSocialGroupsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope countSocialGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion, SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countSocialGroupsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -191,6 +196,7 @@ public class SocialGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -201,8 +207,8 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countSocialGroupsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countSocialGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countSocialGroupsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countSocialGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -213,6 +219,7 @@ public class SocialGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -224,9 +231,9 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countSocialGroupsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countSocialGroupsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countSocialGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countSocialGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -741,6 +748,7 @@ public class SocialGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -752,7 +760,7 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialGroupsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSocialGroupsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -766,7 +774,7 @@ public class SocialGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialGroups";
@@ -799,6 +807,8 @@ public class SocialGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -810,13 +820,13 @@ public class SocialGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSocialGroupsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSocialGroupsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSocialGroupsAsync(Async)");
         }
 
-        return getSocialGroupsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSocialGroupsAsyncCall(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -826,6 +836,7 @@ public class SocialGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @return SocialGroupDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -836,8 +847,8 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SocialGroupDtoListEnvelope getSocialGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SocialGroupDtoListEnvelope> localVarResp = getSocialGroupsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SocialGroupDtoListEnvelope getSocialGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion, SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SocialGroupDtoListEnvelope> localVarResp = getSocialGroupsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -847,6 +858,7 @@ public class SocialGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SocialGroupDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -857,8 +869,8 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SocialGroupDtoListEnvelope> getSocialGroupsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSocialGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<SocialGroupDtoListEnvelope> getSocialGroupsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SocialGroupDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -869,6 +881,7 @@ public class SocialGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -880,9 +893,9 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialGroupsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SocialGroupDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSocialGroupsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters, final ApiCallback<SocialGroupDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSocialGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSocialGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SocialGroupDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -894,7 +907,7 @@ public class SocialGroupsApi {
      * @param socialGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -906,7 +919,7 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSocialGroupAsyncCall(UUID tenantId, UUID socialProfileId, UUID socialGroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchSocialGroupAsyncCall(UUID tenantId, UUID socialProfileId, UUID socialGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -920,7 +933,7 @@ public class SocialGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialGroups/{socialGroupId}"
@@ -971,7 +984,7 @@ public class SocialGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchSocialGroupAsyncValidateBeforeCall(UUID tenantId, UUID socialProfileId, UUID socialGroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSocialGroupAsyncValidateBeforeCall(UUID tenantId, UUID socialProfileId, UUID socialGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchSocialGroupAsync(Async)");
@@ -987,7 +1000,7 @@ public class SocialGroupsApi {
             throw new ApiException("Missing the required parameter 'socialGroupId' when calling patchSocialGroupAsync(Async)");
         }
 
-        return patchSocialGroupAsyncCall(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, operation, _callback);
+        return patchSocialGroupAsyncCall(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -999,7 +1012,7 @@ public class SocialGroupsApi {
      * @param socialGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1010,8 +1023,8 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchSocialGroupAsync(UUID tenantId, UUID socialProfileId, UUID socialGroupId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchSocialGroupAsyncWithHttpInfo(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchSocialGroupAsync(UUID tenantId, UUID socialProfileId, UUID socialGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchSocialGroupAsyncWithHttpInfo(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1023,7 +1036,7 @@ public class SocialGroupsApi {
      * @param socialGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1034,8 +1047,8 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchSocialGroupAsyncWithHttpInfo(UUID tenantId, UUID socialProfileId, UUID socialGroupId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchSocialGroupAsyncValidateBeforeCall(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchSocialGroupAsyncWithHttpInfo(UUID tenantId, UUID socialProfileId, UUID socialGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchSocialGroupAsyncValidateBeforeCall(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1048,7 +1061,7 @@ public class SocialGroupsApi {
      * @param socialGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1060,9 +1073,9 @@ public class SocialGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSocialGroupAsyncAsync(UUID tenantId, UUID socialProfileId, UUID socialGroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchSocialGroupAsyncAsync(UUID tenantId, UUID socialProfileId, UUID socialGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchSocialGroupAsyncValidateBeforeCall(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchSocialGroupAsyncValidateBeforeCall(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

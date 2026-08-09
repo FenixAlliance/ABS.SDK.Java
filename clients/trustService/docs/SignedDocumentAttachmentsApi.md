@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getSignedDocumentAttachmentsAsync"></a>
 # **getSignedDocumentAttachmentsAsync**
-> SignedDocumentAttachmentDtoListEnvelope getSignedDocumentAttachmentsAsync(tenantId, apiVersion, xApiVersion)
+> SignedDocumentAttachmentDtoListEnvelope getSignedDocumentAttachmentsAsync(tenantId, apiVersion, xApiVersion, signedDocumentAttachmentDtoCollectionQueryParameters)
 
 Get all signed document attachments
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SignedDocumentAttachmentDtoCollectionQueryParameters signedDocumentAttachmentDtoCollectionQueryParameters = new SignedDocumentAttachmentDtoCollectionQueryParameters(); // SignedDocumentAttachmentDtoCollectionQueryParameters | 
     try {
-      SignedDocumentAttachmentDtoListEnvelope result = apiInstance.getSignedDocumentAttachmentsAsync(tenantId, apiVersion, xApiVersion);
+      SignedDocumentAttachmentDtoListEnvelope result = apiInstance.getSignedDocumentAttachmentsAsync(tenantId, apiVersion, xApiVersion, signedDocumentAttachmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SignedDocumentAttachmentsApi#getSignedDocumentAttachmentsAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signedDocumentAttachmentDtoCollectionQueryParameters** | [**SignedDocumentAttachmentDtoCollectionQueryParameters**](SignedDocumentAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getSignedDocumentAttachmentsCountAsync"></a>
 # **getSignedDocumentAttachmentsCountAsync**
-> Int32Envelope getSignedDocumentAttachmentsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSignedDocumentAttachmentsCountAsync(tenantId, apiVersion, xApiVersion, signedDocumentAttachmentDtoCollectionQueryParameters)
 
 Get signed document attachments count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SignedDocumentAttachmentDtoCollectionQueryParameters signedDocumentAttachmentDtoCollectionQueryParameters = new SignedDocumentAttachmentDtoCollectionQueryParameters(); // SignedDocumentAttachmentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSignedDocumentAttachmentsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSignedDocumentAttachmentsCountAsync(tenantId, apiVersion, xApiVersion, signedDocumentAttachmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SignedDocumentAttachmentsApi#getSignedDocumentAttachmentsCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signedDocumentAttachmentDtoCollectionQueryParameters** | [**SignedDocumentAttachmentDtoCollectionQueryParameters**](SignedDocumentAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchSignedDocumentAttachmentAsync"></a>
 # **patchSignedDocumentAttachmentAsync**
-> EmptyEnvelope patchSignedDocumentAttachmentAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSignedDocumentAttachmentAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a signed document attachment
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSignedDocumentAttachmentAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSignedDocumentAttachmentAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SignedDocumentAttachmentsApi#patchSignedDocumentAttachmentAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

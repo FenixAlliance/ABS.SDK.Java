@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemCategoriesAsync"></a>
 # **countItemCategoriesAsync**
-> Int32Envelope countItemCategoriesAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countItemCategoriesAsync(tenantId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters)
 
 Count item categories
 
@@ -39,8 +39,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemCategoryDtoCollectionQueryParameters itemCategoryDtoCollectionQueryParameters = new ItemCategoryDtoCollectionQueryParameters(); // ItemCategoryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countItemCategoriesAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countItemCategoriesAsync(tenantId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemCategoriesApi#countItemCategoriesAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemCategoryDtoCollectionQueryParameters** | [**ItemCategoryDtoCollectionQueryParameters**](ItemCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -222,7 +224,7 @@ No authorization required
 
 <a id="getItemCategoriesAsync"></a>
 # **getItemCategoriesAsync**
-> ItemCategoryDtoListEnvelope getItemCategoriesAsync(tenantId, apiVersion, xApiVersion)
+> ItemCategoryDtoListEnvelope getItemCategoriesAsync(tenantId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters)
 
 Get all item categories
 
@@ -246,8 +248,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemCategoryDtoCollectionQueryParameters itemCategoryDtoCollectionQueryParameters = new ItemCategoryDtoCollectionQueryParameters(); // ItemCategoryDtoCollectionQueryParameters | 
     try {
-      ItemCategoryDtoListEnvelope result = apiInstance.getItemCategoriesAsync(tenantId, apiVersion, xApiVersion);
+      ItemCategoryDtoListEnvelope result = apiInstance.getItemCategoriesAsync(tenantId, apiVersion, xApiVersion, itemCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemCategoriesApi#getItemCategoriesAsync");
@@ -267,6 +270,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemCategoryDtoCollectionQueryParameters** | [**ItemCategoryDtoCollectionQueryParameters**](ItemCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -278,7 +282,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -360,7 +364,7 @@ No authorization required
 
 <a id="patchItemCategoryAsync"></a>
 # **patchItemCategoryAsync**
-> patchItemCategoryAsync(tenantId, itemCategoryId, apiVersion, xApiVersion, operation)
+> patchItemCategoryAsync(tenantId, itemCategoryId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item category
 
@@ -385,9 +389,9 @@ public class Example {
     UUID itemCategoryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchItemCategoryAsync(tenantId, itemCategoryId, apiVersion, xApiVersion, operation);
+      apiInstance.patchItemCategoryAsync(tenantId, itemCategoryId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemCategoriesApi#patchItemCategoryAsync");
       System.err.println("Status code: " + e.getCode());
@@ -407,7 +411,7 @@ public class Example {
 | **itemCategoryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

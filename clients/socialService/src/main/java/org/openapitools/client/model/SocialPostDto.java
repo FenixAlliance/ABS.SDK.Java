@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * SocialPostDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T12:05:02.483445100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:33:07.422324400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SocialPostDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -87,6 +87,128 @@ public class SocialPostDto {
   public static final String SERIALIZED_NAME_REACTIONS_COUNT = "reactionsCount";
   @SerializedName(SERIALIZED_NAME_REACTIONS_COUNT)
   private Integer reactionsCount;
+
+  /**
+   * Gets or Sets socialProfileType
+   */
+  @JsonAdapter(SocialProfileTypeEnum.Adapter.class)
+  public enum SocialProfileTypeEnum {
+    USER("User"),
+    
+    TENANT("Tenant"),
+    
+    CONTACT("Contact");
+
+    private String value;
+
+    SocialProfileTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SocialProfileTypeEnum fromValue(String value) {
+      for (SocialProfileTypeEnum b : SocialProfileTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<SocialProfileTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SocialProfileTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SocialProfileTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SocialProfileTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SocialProfileTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SOCIAL_PROFILE_TYPE = "socialProfileType";
+  @SerializedName(SERIALIZED_NAME_SOCIAL_PROFILE_TYPE)
+  private SocialProfileTypeEnum socialProfileType;
+
+  public static final String SERIALIZED_NAME_BODY_HTML = "bodyHtml";
+  @SerializedName(SERIALIZED_NAME_BODY_HTML)
+  private String bodyHtml;
+
+  /**
+   * Gets or Sets bodyFormat
+   */
+  @JsonAdapter(BodyFormatEnum.Adapter.class)
+  public enum BodyFormatEnum {
+    PLAIN_TEXT("PlainText"),
+    
+    HTML("Html");
+
+    private String value;
+
+    BodyFormatEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static BodyFormatEnum fromValue(String value) {
+      for (BodyFormatEnum b : BodyFormatEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<BodyFormatEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BodyFormatEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BodyFormatEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return BodyFormatEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      BodyFormatEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_BODY_FORMAT = "bodyFormat";
+  @SerializedName(SERIALIZED_NAME_BODY_FORMAT)
+  private BodyFormatEnum bodyFormat;
+
+  public static final String SERIALIZED_NAME_BACKGROUND_STYLE = "backgroundStyle";
+  @SerializedName(SERIALIZED_NAME_BACKGROUND_STYLE)
+  private String backgroundStyle;
 
   public SocialPostDto() {
   }
@@ -262,6 +384,82 @@ public class SocialPostDto {
   }
 
 
+  public SocialPostDto socialProfileType(SocialProfileTypeEnum socialProfileType) {
+    this.socialProfileType = socialProfileType;
+    return this;
+  }
+
+  /**
+   * Get socialProfileType
+   * @return socialProfileType
+   */
+  @javax.annotation.Nullable
+  public SocialProfileTypeEnum getSocialProfileType() {
+    return socialProfileType;
+  }
+
+  public void setSocialProfileType(SocialProfileTypeEnum socialProfileType) {
+    this.socialProfileType = socialProfileType;
+  }
+
+
+  public SocialPostDto bodyHtml(String bodyHtml) {
+    this.bodyHtml = bodyHtml;
+    return this;
+  }
+
+  /**
+   * Get bodyHtml
+   * @return bodyHtml
+   */
+  @javax.annotation.Nullable
+  public String getBodyHtml() {
+    return bodyHtml;
+  }
+
+  public void setBodyHtml(String bodyHtml) {
+    this.bodyHtml = bodyHtml;
+  }
+
+
+  public SocialPostDto bodyFormat(BodyFormatEnum bodyFormat) {
+    this.bodyFormat = bodyFormat;
+    return this;
+  }
+
+  /**
+   * Get bodyFormat
+   * @return bodyFormat
+   */
+  @javax.annotation.Nullable
+  public BodyFormatEnum getBodyFormat() {
+    return bodyFormat;
+  }
+
+  public void setBodyFormat(BodyFormatEnum bodyFormat) {
+    this.bodyFormat = bodyFormat;
+  }
+
+
+  public SocialPostDto backgroundStyle(String backgroundStyle) {
+    this.backgroundStyle = backgroundStyle;
+    return this;
+  }
+
+  /**
+   * Get backgroundStyle
+   * @return backgroundStyle
+   */
+  @javax.annotation.Nullable
+  public String getBackgroundStyle() {
+    return backgroundStyle;
+  }
+
+  public void setBackgroundStyle(String backgroundStyle) {
+    this.backgroundStyle = backgroundStyle;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -280,7 +478,11 @@ public class SocialPostDto {
         Objects.equals(this.socialProfileName, socialPostDto.socialProfileName) &&
         Objects.equals(this.socialProfileAvatarUrl, socialPostDto.socialProfileAvatarUrl) &&
         Objects.equals(this.commentsCount, socialPostDto.commentsCount) &&
-        Objects.equals(this.reactionsCount, socialPostDto.reactionsCount);
+        Objects.equals(this.reactionsCount, socialPostDto.reactionsCount) &&
+        Objects.equals(this.socialProfileType, socialPostDto.socialProfileType) &&
+        Objects.equals(this.bodyHtml, socialPostDto.bodyHtml) &&
+        Objects.equals(this.bodyFormat, socialPostDto.bodyFormat) &&
+        Objects.equals(this.backgroundStyle, socialPostDto.backgroundStyle);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -289,7 +491,7 @@ public class SocialPostDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, message, socialProfileId, socialProfileName, socialProfileAvatarUrl, commentsCount, reactionsCount);
+    return Objects.hash(id, timestamp, title, message, socialProfileId, socialProfileName, socialProfileAvatarUrl, commentsCount, reactionsCount, socialProfileType, bodyHtml, bodyFormat, backgroundStyle);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -312,6 +514,10 @@ public class SocialPostDto {
     sb.append("    socialProfileAvatarUrl: ").append(toIndentedString(socialProfileAvatarUrl)).append("\n");
     sb.append("    commentsCount: ").append(toIndentedString(commentsCount)).append("\n");
     sb.append("    reactionsCount: ").append(toIndentedString(reactionsCount)).append("\n");
+    sb.append("    socialProfileType: ").append(toIndentedString(socialProfileType)).append("\n");
+    sb.append("    bodyHtml: ").append(toIndentedString(bodyHtml)).append("\n");
+    sb.append("    bodyFormat: ").append(toIndentedString(bodyFormat)).append("\n");
+    sb.append("    backgroundStyle: ").append(toIndentedString(backgroundStyle)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -343,6 +549,10 @@ public class SocialPostDto {
     openapiFields.add("socialProfileAvatarUrl");
     openapiFields.add("commentsCount");
     openapiFields.add("reactionsCount");
+    openapiFields.add("socialProfileType");
+    openapiFields.add("bodyHtml");
+    openapiFields.add("bodyFormat");
+    openapiFields.add("backgroundStyle");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -386,6 +596,26 @@ public class SocialPostDto {
       }
       if ((jsonObj.get("socialProfileAvatarUrl") != null && !jsonObj.get("socialProfileAvatarUrl").isJsonNull()) && !jsonObj.get("socialProfileAvatarUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `socialProfileAvatarUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialProfileAvatarUrl").toString()));
+      }
+      if ((jsonObj.get("socialProfileType") != null && !jsonObj.get("socialProfileType").isJsonNull()) && !jsonObj.get("socialProfileType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `socialProfileType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialProfileType").toString()));
+      }
+      // validate the optional field `socialProfileType`
+      if (jsonObj.get("socialProfileType") != null && !jsonObj.get("socialProfileType").isJsonNull()) {
+        SocialProfileTypeEnum.validateJsonElement(jsonObj.get("socialProfileType"));
+      }
+      if ((jsonObj.get("bodyHtml") != null && !jsonObj.get("bodyHtml").isJsonNull()) && !jsonObj.get("bodyHtml").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bodyHtml` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bodyHtml").toString()));
+      }
+      if ((jsonObj.get("bodyFormat") != null && !jsonObj.get("bodyFormat").isJsonNull()) && !jsonObj.get("bodyFormat").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bodyFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bodyFormat").toString()));
+      }
+      // validate the optional field `bodyFormat`
+      if (jsonObj.get("bodyFormat") != null && !jsonObj.get("bodyFormat").isJsonNull()) {
+        BodyFormatEnum.validateJsonElement(jsonObj.get("bodyFormat"));
+      }
+      if ((jsonObj.get("backgroundStyle") != null && !jsonObj.get("backgroundStyle").isJsonNull()) && !jsonObj.get("backgroundStyle").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `backgroundStyle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backgroundStyle").toString()));
       }
   }
 

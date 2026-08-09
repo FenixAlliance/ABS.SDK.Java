@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getAccountingPeriods"></a>
 # **getAccountingPeriods**
-> AccountingPeriodDtoListEnvelope getAccountingPeriods(tenantId, apiVersion, xApiVersion)
+> AccountingPeriodDtoListEnvelope getAccountingPeriods(tenantId, apiVersion, xApiVersion, accountingPeriodDtoCollectionQueryParameters)
 
 Get all accounting periods for a tenant
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingPeriodDtoCollectionQueryParameters accountingPeriodDtoCollectionQueryParameters = new AccountingPeriodDtoCollectionQueryParameters(); // AccountingPeriodDtoCollectionQueryParameters | 
     try {
-      AccountingPeriodDtoListEnvelope result = apiInstance.getAccountingPeriods(tenantId, apiVersion, xApiVersion);
+      AccountingPeriodDtoListEnvelope result = apiInstance.getAccountingPeriods(tenantId, apiVersion, xApiVersion, accountingPeriodDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountingPeriodsApi#getAccountingPeriods");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingPeriodDtoCollectionQueryParameters** | [**AccountingPeriodDtoCollectionQueryParameters**](AccountingPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getAccountingPeriodsCountAsync"></a>
 # **getAccountingPeriodsCountAsync**
-> Int32Envelope getAccountingPeriodsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAccountingPeriodsCountAsync(tenantId, apiVersion, xApiVersion, accountingPeriodDtoCollectionQueryParameters)
 
 Gets the current tenant accounting periods count
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingPeriodDtoCollectionQueryParameters accountingPeriodDtoCollectionQueryParameters = new AccountingPeriodDtoCollectionQueryParameters(); // AccountingPeriodDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAccountingPeriodsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAccountingPeriodsCountAsync(tenantId, apiVersion, xApiVersion, accountingPeriodDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountingPeriodsApi#getAccountingPeriodsCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingPeriodDtoCollectionQueryParameters** | [**AccountingPeriodDtoCollectionQueryParameters**](AccountingPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchAccountingPeriodAsync"></a>
 # **patchAccountingPeriodAsync**
-> EmptyEnvelope patchAccountingPeriodAsync(tenantId, accountingPeriodId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountingPeriodAsync(tenantId, accountingPeriodId, apiVersion, xApiVersion, patchOperation)
 
 Patch an accounting period
 
@@ -388,9 +392,9 @@ public class Example {
     UUID accountingPeriodId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAccountingPeriodAsync(tenantId, accountingPeriodId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchAccountingPeriodAsync(tenantId, accountingPeriodId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountingPeriodsApi#patchAccountingPeriodAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **accountingPeriodId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

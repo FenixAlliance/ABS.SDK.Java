@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getItemReviewsAsync"></a>
 # **getItemReviewsAsync**
-> ItemReviewDtoListEnvelope getItemReviewsAsync(itemId, apiVersion, xApiVersion)
+> ItemReviewDtoListEnvelope getItemReviewsAsync(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters)
 
 Get all item reviews
 
@@ -247,8 +247,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemReviewDtoCollectionQueryParameters itemReviewDtoCollectionQueryParameters = new ItemReviewDtoCollectionQueryParameters(); // ItemReviewDtoCollectionQueryParameters | 
     try {
-      ItemReviewDtoListEnvelope result = apiInstance.getItemReviewsAsync(itemId, apiVersion, xApiVersion);
+      ItemReviewDtoListEnvelope result = apiInstance.getItemReviewsAsync(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemReviewsApi#getItemReviewsAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemReviewDtoCollectionQueryParameters** | [**ItemReviewDtoCollectionQueryParameters**](ItemReviewDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -291,7 +293,7 @@ No authorization required
 
 <a id="patchItemReviewAsync"></a>
 # **patchItemReviewAsync**
-> patchItemReviewAsync(tenantId, itemReviewId, apiVersion, xApiVersion, operation)
+> patchItemReviewAsync(tenantId, itemReviewId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item review
 
@@ -316,9 +318,9 @@ public class Example {
     UUID itemReviewId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchItemReviewAsync(tenantId, itemReviewId, apiVersion, xApiVersion, operation);
+      apiInstance.patchItemReviewAsync(tenantId, itemReviewId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemReviewsApi#patchItemReviewAsync");
       System.err.println("Status code: " + e.getCode());
@@ -338,7 +340,7 @@ public class Example {
 | **itemReviewId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

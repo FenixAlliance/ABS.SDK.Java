@@ -30,18 +30,22 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ProjectCreateDto;
+import org.openapitools.client.model.ProjectDtoCollectionQueryParameters;
 import org.openapitools.client.model.ProjectDtoEnvelope;
 import org.openapitools.client.model.ProjectDtoListEnvelope;
 import org.openapitools.client.model.ProjectPeriodCreateDto;
 import org.openapitools.client.model.ProjectPeriodDtoListEnvelope;
 import org.openapitools.client.model.ProjectPeriodUpdateDto;
 import org.openapitools.client.model.ProjectTaskCreateDto;
+import org.openapitools.client.model.ProjectTaskDtoCollectionQueryParameters;
 import org.openapitools.client.model.ProjectTaskDtoListEnvelope;
 import org.openapitools.client.model.ProjectTaskUpdateDto;
+import org.openapitools.client.model.ProjectTimeLogDtoCollectionQueryParameters;
 import org.openapitools.client.model.ProjectTimeLogDtoListEnvelope;
 import org.openapitools.client.model.ProjectUpdateDto;
+import org.openapitools.client.model.TaskCategoryDtoCollectionQueryParameters;
 import org.openapitools.client.model.TaskCategoryDtoListEnvelope;
 import java.util.UUID;
 
@@ -1280,6 +1284,7 @@ public class ProjectsApi {
      * Build call for getProjectTaskCategoriesAsync
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1291,7 +1296,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProjectTaskCategoriesAsyncCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProjectTaskCategoriesAsyncCall(UUID projectId, UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1305,7 +1310,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = taskCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects/{projectId}/TaskCategories"
@@ -1331,6 +1336,8 @@ public class ProjectsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1342,7 +1349,7 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProjectTaskCategoriesAsyncValidateBeforeCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProjectTaskCategoriesAsyncValidateBeforeCall(UUID projectId, UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling getProjectTaskCategoriesAsync(Async)");
@@ -1353,7 +1360,7 @@ public class ProjectsApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProjectTaskCategoriesAsync(Async)");
         }
 
-        return getProjectTaskCategoriesAsyncCall(projectId, tenantId, _callback);
+        return getProjectTaskCategoriesAsyncCall(projectId, tenantId, taskCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1362,6 +1369,7 @@ public class ProjectsApi {
      * Gets all task categories for a specific project with OData support.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return TaskCategoryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1372,8 +1380,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TaskCategoryDtoListEnvelope getProjectTaskCategoriesAsync(UUID projectId, UUID tenantId) throws ApiException {
-        ApiResponse<TaskCategoryDtoListEnvelope> localVarResp = getProjectTaskCategoriesAsyncWithHttpInfo(projectId, tenantId);
+    public TaskCategoryDtoListEnvelope getProjectTaskCategoriesAsync(UUID projectId, UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TaskCategoryDtoListEnvelope> localVarResp = getProjectTaskCategoriesAsyncWithHttpInfo(projectId, tenantId, taskCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1382,6 +1390,7 @@ public class ProjectsApi {
      * Gets all task categories for a specific project with OData support.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TaskCategoryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1392,8 +1401,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TaskCategoryDtoListEnvelope> getProjectTaskCategoriesAsyncWithHttpInfo(UUID projectId, UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getProjectTaskCategoriesAsyncValidateBeforeCall(projectId, tenantId, null);
+    public ApiResponse<TaskCategoryDtoListEnvelope> getProjectTaskCategoriesAsyncWithHttpInfo(UUID projectId, UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProjectTaskCategoriesAsyncValidateBeforeCall(projectId, tenantId, taskCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TaskCategoryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1403,6 +1412,7 @@ public class ProjectsApi {
      * Gets all task categories for a specific project with OData support.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1414,9 +1424,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProjectTaskCategoriesAsyncAsync(UUID projectId, UUID tenantId, final ApiCallback<TaskCategoryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getProjectTaskCategoriesAsyncAsync(UUID projectId, UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback<TaskCategoryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProjectTaskCategoriesAsyncValidateBeforeCall(projectId, tenantId, _callback);
+        okhttp3.Call localVarCall = getProjectTaskCategoriesAsyncValidateBeforeCall(projectId, tenantId, taskCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TaskCategoryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1425,6 +1435,7 @@ public class ProjectsApi {
      * Build call for getProjectTaskCategoriesCountAsync
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1436,7 +1447,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProjectTaskCategoriesCountAsyncCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProjectTaskCategoriesCountAsyncCall(UUID projectId, UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1450,7 +1461,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = taskCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count"
@@ -1476,6 +1487,8 @@ public class ProjectsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1487,7 +1500,7 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProjectTaskCategoriesCountAsyncValidateBeforeCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProjectTaskCategoriesCountAsyncValidateBeforeCall(UUID projectId, UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling getProjectTaskCategoriesCountAsync(Async)");
@@ -1498,7 +1511,7 @@ public class ProjectsApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProjectTaskCategoriesCountAsync(Async)");
         }
 
-        return getProjectTaskCategoriesCountAsyncCall(projectId, tenantId, _callback);
+        return getProjectTaskCategoriesCountAsyncCall(projectId, tenantId, taskCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1507,6 +1520,7 @@ public class ProjectsApi {
      * Gets the count of task categories for a specific project.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1517,8 +1531,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getProjectTaskCategoriesCountAsync(UUID projectId, UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getProjectTaskCategoriesCountAsyncWithHttpInfo(projectId, tenantId);
+    public Int32Envelope getProjectTaskCategoriesCountAsync(UUID projectId, UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getProjectTaskCategoriesCountAsyncWithHttpInfo(projectId, tenantId, taskCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1527,6 +1541,7 @@ public class ProjectsApi {
      * Gets the count of task categories for a specific project.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1537,8 +1552,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getProjectTaskCategoriesCountAsyncWithHttpInfo(UUID projectId, UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getProjectTaskCategoriesCountAsyncValidateBeforeCall(projectId, tenantId, null);
+    public ApiResponse<Int32Envelope> getProjectTaskCategoriesCountAsyncWithHttpInfo(UUID projectId, UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProjectTaskCategoriesCountAsyncValidateBeforeCall(projectId, tenantId, taskCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1548,6 +1563,7 @@ public class ProjectsApi {
      * Gets the count of task categories for a specific project.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param taskCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1559,9 +1575,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProjectTaskCategoriesCountAsyncAsync(UUID projectId, UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getProjectTaskCategoriesCountAsyncAsync(UUID projectId, UUID tenantId, TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProjectTaskCategoriesCountAsyncValidateBeforeCall(projectId, tenantId, _callback);
+        okhttp3.Call localVarCall = getProjectTaskCategoriesCountAsyncValidateBeforeCall(projectId, tenantId, taskCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1570,6 +1586,7 @@ public class ProjectsApi {
      * Build call for getProjectTimeLogsCountAsync
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1581,7 +1598,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProjectTimeLogsCountAsyncCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProjectTimeLogsCountAsyncCall(UUID projectId, UUID tenantId, ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1595,7 +1612,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = projectTimeLogDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count"
@@ -1621,6 +1638,8 @@ public class ProjectsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1632,7 +1651,7 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProjectTimeLogsCountAsyncValidateBeforeCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProjectTimeLogsCountAsyncValidateBeforeCall(UUID projectId, UUID tenantId, ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling getProjectTimeLogsCountAsync(Async)");
@@ -1643,7 +1662,7 @@ public class ProjectsApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProjectTimeLogsCountAsync(Async)");
         }
 
-        return getProjectTimeLogsCountAsyncCall(projectId, tenantId, _callback);
+        return getProjectTimeLogsCountAsyncCall(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1652,6 +1671,7 @@ public class ProjectsApi {
      * Gets the count of time log entries for a specific project.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1662,8 +1682,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getProjectTimeLogsCountAsync(UUID projectId, UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getProjectTimeLogsCountAsyncWithHttpInfo(projectId, tenantId);
+    public Int32Envelope getProjectTimeLogsCountAsync(UUID projectId, UUID tenantId, ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getProjectTimeLogsCountAsyncWithHttpInfo(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1672,6 +1692,7 @@ public class ProjectsApi {
      * Gets the count of time log entries for a specific project.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1682,8 +1703,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getProjectTimeLogsCountAsyncWithHttpInfo(UUID projectId, UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getProjectTimeLogsCountAsyncValidateBeforeCall(projectId, tenantId, null);
+    public ApiResponse<Int32Envelope> getProjectTimeLogsCountAsyncWithHttpInfo(UUID projectId, UUID tenantId, ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProjectTimeLogsCountAsyncValidateBeforeCall(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1693,6 +1714,7 @@ public class ProjectsApi {
      * Gets the count of time log entries for a specific project.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1704,9 +1726,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProjectTimeLogsCountAsyncAsync(UUID projectId, UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getProjectTimeLogsCountAsyncAsync(UUID projectId, UUID tenantId, ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProjectTimeLogsCountAsyncValidateBeforeCall(projectId, tenantId, _callback);
+        okhttp3.Call localVarCall = getProjectTimeLogsCountAsyncValidateBeforeCall(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1714,6 +1736,7 @@ public class ProjectsApi {
     /**
      * Build call for getProjectsByTenantIdAsync
      * @param tenantId  (required)
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1725,7 +1748,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProjectsByTenantIdAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProjectsByTenantIdAsyncCall(UUID tenantId, ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1739,7 +1762,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = projectDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects";
@@ -1764,6 +1787,8 @@ public class ProjectsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1775,13 +1800,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProjectsByTenantIdAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProjectsByTenantIdAsyncValidateBeforeCall(UUID tenantId, ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProjectsByTenantIdAsync(Async)");
         }
 
-        return getProjectsByTenantIdAsyncCall(tenantId, _callback);
+        return getProjectsByTenantIdAsyncCall(tenantId, projectDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1789,6 +1814,7 @@ public class ProjectsApi {
      * Retrieves all projects
      * Gets all projects for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @return ProjectDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1799,8 +1825,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectDtoListEnvelope getProjectsByTenantIdAsync(UUID tenantId) throws ApiException {
-        ApiResponse<ProjectDtoListEnvelope> localVarResp = getProjectsByTenantIdAsyncWithHttpInfo(tenantId);
+    public ProjectDtoListEnvelope getProjectsByTenantIdAsync(UUID tenantId, ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ProjectDtoListEnvelope> localVarResp = getProjectsByTenantIdAsyncWithHttpInfo(tenantId, projectDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1808,6 +1834,7 @@ public class ProjectsApi {
      * Retrieves all projects
      * Gets all projects for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ProjectDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1818,8 +1845,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectDtoListEnvelope> getProjectsByTenantIdAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getProjectsByTenantIdAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<ProjectDtoListEnvelope> getProjectsByTenantIdAsyncWithHttpInfo(UUID tenantId, ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProjectsByTenantIdAsyncValidateBeforeCall(tenantId, projectDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ProjectDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1828,6 +1855,7 @@ public class ProjectsApi {
      * Retrieves all projects (asynchronously)
      * Gets all projects for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1839,9 +1867,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProjectsByTenantIdAsyncAsync(UUID tenantId, final ApiCallback<ProjectDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getProjectsByTenantIdAsyncAsync(UUID tenantId, ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters, final ApiCallback<ProjectDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProjectsByTenantIdAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getProjectsByTenantIdAsyncValidateBeforeCall(tenantId, projectDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ProjectDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1849,6 +1877,7 @@ public class ProjectsApi {
     /**
      * Build call for getProjectsCountByTenantIdAsync
      * @param tenantId  (required)
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1860,7 +1889,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProjectsCountByTenantIdAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProjectsCountByTenantIdAsyncCall(UUID tenantId, ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1874,7 +1903,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = projectDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects/Count";
@@ -1899,6 +1928,8 @@ public class ProjectsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1910,13 +1941,13 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProjectsCountByTenantIdAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProjectsCountByTenantIdAsyncValidateBeforeCall(UUID tenantId, ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProjectsCountByTenantIdAsync(Async)");
         }
 
-        return getProjectsCountByTenantIdAsyncCall(tenantId, _callback);
+        return getProjectsCountByTenantIdAsyncCall(tenantId, projectDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1924,6 +1955,7 @@ public class ProjectsApi {
      * Counts projects
      * Gets the count of projects for the current tenant.
      * @param tenantId  (required)
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1934,8 +1966,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getProjectsCountByTenantIdAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getProjectsCountByTenantIdAsyncWithHttpInfo(tenantId);
+    public Int32Envelope getProjectsCountByTenantIdAsync(UUID tenantId, ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getProjectsCountByTenantIdAsyncWithHttpInfo(tenantId, projectDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1943,6 +1975,7 @@ public class ProjectsApi {
      * Counts projects
      * Gets the count of projects for the current tenant.
      * @param tenantId  (required)
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1953,8 +1986,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getProjectsCountByTenantIdAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getProjectsCountByTenantIdAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getProjectsCountByTenantIdAsyncWithHttpInfo(UUID tenantId, ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProjectsCountByTenantIdAsyncValidateBeforeCall(tenantId, projectDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1963,6 +1996,7 @@ public class ProjectsApi {
      * Counts projects (asynchronously)
      * Gets the count of projects for the current tenant.
      * @param tenantId  (required)
+     * @param projectDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1974,9 +2008,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProjectsCountByTenantIdAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getProjectsCountByTenantIdAsyncAsync(UUID tenantId, ProjectDtoCollectionQueryParameters projectDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProjectsCountByTenantIdAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getProjectsCountByTenantIdAsyncValidateBeforeCall(tenantId, projectDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1985,6 +2019,7 @@ public class ProjectsApi {
      * Build call for getTasksForProjectAsync
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1996,7 +2031,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTasksForProjectAsyncCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTasksForProjectAsyncCall(UUID projectId, UUID tenantId, ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2010,7 +2045,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = projectTaskDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects/{projectId}/Tasks"
@@ -2036,6 +2071,8 @@ public class ProjectsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2047,7 +2084,7 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTasksForProjectAsyncValidateBeforeCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTasksForProjectAsyncValidateBeforeCall(UUID projectId, UUID tenantId, ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling getTasksForProjectAsync(Async)");
@@ -2058,7 +2095,7 @@ public class ProjectsApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTasksForProjectAsync(Async)");
         }
 
-        return getTasksForProjectAsyncCall(projectId, tenantId, _callback);
+        return getTasksForProjectAsyncCall(projectId, tenantId, projectTaskDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2067,6 +2104,7 @@ public class ProjectsApi {
      * Gets all tasks for a specific project with OData support.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @return ProjectTaskDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2077,8 +2115,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectTaskDtoListEnvelope getTasksForProjectAsync(UUID projectId, UUID tenantId) throws ApiException {
-        ApiResponse<ProjectTaskDtoListEnvelope> localVarResp = getTasksForProjectAsyncWithHttpInfo(projectId, tenantId);
+    public ProjectTaskDtoListEnvelope getTasksForProjectAsync(UUID projectId, UUID tenantId, ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ProjectTaskDtoListEnvelope> localVarResp = getTasksForProjectAsyncWithHttpInfo(projectId, tenantId, projectTaskDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2087,6 +2125,7 @@ public class ProjectsApi {
      * Gets all tasks for a specific project with OData support.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ProjectTaskDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2097,8 +2136,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectTaskDtoListEnvelope> getTasksForProjectAsyncWithHttpInfo(UUID projectId, UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getTasksForProjectAsyncValidateBeforeCall(projectId, tenantId, null);
+    public ApiResponse<ProjectTaskDtoListEnvelope> getTasksForProjectAsyncWithHttpInfo(UUID projectId, UUID tenantId, ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTasksForProjectAsyncValidateBeforeCall(projectId, tenantId, projectTaskDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ProjectTaskDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2108,6 +2147,7 @@ public class ProjectsApi {
      * Gets all tasks for a specific project with OData support.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2119,9 +2159,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTasksForProjectAsyncAsync(UUID projectId, UUID tenantId, final ApiCallback<ProjectTaskDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTasksForProjectAsyncAsync(UUID projectId, UUID tenantId, ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters, final ApiCallback<ProjectTaskDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTasksForProjectAsyncValidateBeforeCall(projectId, tenantId, _callback);
+        okhttp3.Call localVarCall = getTasksForProjectAsyncValidateBeforeCall(projectId, tenantId, projectTaskDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ProjectTaskDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2130,6 +2170,7 @@ public class ProjectsApi {
      * Build call for getTasksForProjectCountAsync
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2141,7 +2182,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTasksForProjectCountAsyncCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTasksForProjectCountAsyncCall(UUID projectId, UUID tenantId, ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2155,7 +2196,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = projectTaskDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count"
@@ -2181,6 +2222,8 @@ public class ProjectsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2192,7 +2235,7 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTasksForProjectCountAsyncValidateBeforeCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTasksForProjectCountAsyncValidateBeforeCall(UUID projectId, UUID tenantId, ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling getTasksForProjectCountAsync(Async)");
@@ -2203,7 +2246,7 @@ public class ProjectsApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTasksForProjectCountAsync(Async)");
         }
 
-        return getTasksForProjectCountAsyncCall(projectId, tenantId, _callback);
+        return getTasksForProjectCountAsyncCall(projectId, tenantId, projectTaskDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2212,6 +2255,7 @@ public class ProjectsApi {
      * Gets the count of tasks for a specific project.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2222,8 +2266,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTasksForProjectCountAsync(UUID projectId, UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTasksForProjectCountAsyncWithHttpInfo(projectId, tenantId);
+    public Int32Envelope getTasksForProjectCountAsync(UUID projectId, UUID tenantId, ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTasksForProjectCountAsyncWithHttpInfo(projectId, tenantId, projectTaskDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2232,6 +2276,7 @@ public class ProjectsApi {
      * Gets the count of tasks for a specific project.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2242,8 +2287,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTasksForProjectCountAsyncWithHttpInfo(UUID projectId, UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getTasksForProjectCountAsyncValidateBeforeCall(projectId, tenantId, null);
+    public ApiResponse<Int32Envelope> getTasksForProjectCountAsyncWithHttpInfo(UUID projectId, UUID tenantId, ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTasksForProjectCountAsyncValidateBeforeCall(projectId, tenantId, projectTaskDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2253,6 +2298,7 @@ public class ProjectsApi {
      * Gets the count of tasks for a specific project.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTaskDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2264,9 +2310,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTasksForProjectCountAsyncAsync(UUID projectId, UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTasksForProjectCountAsyncAsync(UUID projectId, UUID tenantId, ProjectTaskDtoCollectionQueryParameters projectTaskDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTasksForProjectCountAsyncValidateBeforeCall(projectId, tenantId, _callback);
+        okhttp3.Call localVarCall = getTasksForProjectCountAsyncValidateBeforeCall(projectId, tenantId, projectTaskDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2275,6 +2321,7 @@ public class ProjectsApi {
      * Build call for getTimeLogsForProjectAsync
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2286,7 +2333,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTimeLogsForProjectAsyncCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTimeLogsForProjectAsyncCall(UUID projectId, UUID tenantId, ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2300,7 +2347,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = projectTimeLogDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects/{projectId}/TimeLogs"
@@ -2326,6 +2373,8 @@ public class ProjectsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2337,7 +2386,7 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTimeLogsForProjectAsyncValidateBeforeCall(UUID projectId, UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTimeLogsForProjectAsyncValidateBeforeCall(UUID projectId, UUID tenantId, ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling getTimeLogsForProjectAsync(Async)");
@@ -2348,7 +2397,7 @@ public class ProjectsApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTimeLogsForProjectAsync(Async)");
         }
 
-        return getTimeLogsForProjectAsyncCall(projectId, tenantId, _callback);
+        return getTimeLogsForProjectAsyncCall(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2357,6 +2406,7 @@ public class ProjectsApi {
      * Gets all time log entries for a specific project with OData support.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return ProjectTimeLogDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2367,8 +2417,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectTimeLogDtoListEnvelope getTimeLogsForProjectAsync(UUID projectId, UUID tenantId) throws ApiException {
-        ApiResponse<ProjectTimeLogDtoListEnvelope> localVarResp = getTimeLogsForProjectAsyncWithHttpInfo(projectId, tenantId);
+    public ProjectTimeLogDtoListEnvelope getTimeLogsForProjectAsync(UUID projectId, UUID tenantId, ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ProjectTimeLogDtoListEnvelope> localVarResp = getTimeLogsForProjectAsyncWithHttpInfo(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2377,6 +2427,7 @@ public class ProjectsApi {
      * Gets all time log entries for a specific project with OData support.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ProjectTimeLogDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2387,8 +2438,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectTimeLogDtoListEnvelope> getTimeLogsForProjectAsyncWithHttpInfo(UUID projectId, UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getTimeLogsForProjectAsyncValidateBeforeCall(projectId, tenantId, null);
+    public ApiResponse<ProjectTimeLogDtoListEnvelope> getTimeLogsForProjectAsyncWithHttpInfo(UUID projectId, UUID tenantId, ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTimeLogsForProjectAsyncValidateBeforeCall(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ProjectTimeLogDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2398,6 +2449,7 @@ public class ProjectsApi {
      * Gets all time log entries for a specific project with OData support.
      * @param projectId  (required)
      * @param tenantId  (required)
+     * @param projectTimeLogDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2409,9 +2461,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTimeLogsForProjectAsyncAsync(UUID projectId, UUID tenantId, final ApiCallback<ProjectTimeLogDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTimeLogsForProjectAsyncAsync(UUID projectId, UUID tenantId, ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters, final ApiCallback<ProjectTimeLogDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTimeLogsForProjectAsyncValidateBeforeCall(projectId, tenantId, _callback);
+        okhttp3.Call localVarCall = getTimeLogsForProjectAsyncValidateBeforeCall(projectId, tenantId, projectTimeLogDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ProjectTimeLogDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2420,7 +2472,7 @@ public class ProjectsApi {
      * Build call for patchProjectAsync
      * @param projectId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2432,7 +2484,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchProjectAsyncCall(UUID projectId, UUID tenantId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchProjectAsyncCall(UUID projectId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2446,7 +2498,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects/{projectId}"
@@ -2485,7 +2537,7 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchProjectAsyncValidateBeforeCall(UUID projectId, UUID tenantId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchProjectAsyncValidateBeforeCall(UUID projectId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling patchProjectAsync(Async)");
@@ -2496,7 +2548,7 @@ public class ProjectsApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchProjectAsync(Async)");
         }
 
-        return patchProjectAsyncCall(projectId, tenantId, operation, _callback);
+        return patchProjectAsyncCall(projectId, tenantId, patchOperation, _callback);
 
     }
 
@@ -2505,7 +2557,7 @@ public class ProjectsApi {
      * Partially updates the specified project.
      * @param projectId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2516,8 +2568,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchProjectAsync(UUID projectId, UUID tenantId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchProjectAsyncWithHttpInfo(projectId, tenantId, operation);
+    public EmptyEnvelope patchProjectAsync(UUID projectId, UUID tenantId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchProjectAsyncWithHttpInfo(projectId, tenantId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2526,7 +2578,7 @@ public class ProjectsApi {
      * Partially updates the specified project.
      * @param projectId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2537,8 +2589,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchProjectAsyncWithHttpInfo(UUID projectId, UUID tenantId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchProjectAsyncValidateBeforeCall(projectId, tenantId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchProjectAsyncWithHttpInfo(UUID projectId, UUID tenantId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchProjectAsyncValidateBeforeCall(projectId, tenantId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2548,7 +2600,7 @@ public class ProjectsApi {
      * Partially updates the specified project.
      * @param projectId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2560,9 +2612,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchProjectAsyncAsync(UUID projectId, UUID tenantId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchProjectAsyncAsync(UUID projectId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchProjectAsyncValidateBeforeCall(projectId, tenantId, operation, _callback);
+        okhttp3.Call localVarCall = patchProjectAsyncValidateBeforeCall(projectId, tenantId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2572,7 +2624,7 @@ public class ProjectsApi {
      * @param projectId  (required)
      * @param projectPeriodId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2584,7 +2636,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchProjectPeriodAsyncCall(UUID projectId, UUID projectPeriodId, UUID tenantId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchProjectPeriodAsyncCall(UUID projectId, UUID projectPeriodId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2598,7 +2650,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId}"
@@ -2638,7 +2690,7 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchProjectPeriodAsyncValidateBeforeCall(UUID projectId, UUID projectPeriodId, UUID tenantId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchProjectPeriodAsyncValidateBeforeCall(UUID projectId, UUID projectPeriodId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling patchProjectPeriodAsync(Async)");
@@ -2654,7 +2706,7 @@ public class ProjectsApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchProjectPeriodAsync(Async)");
         }
 
-        return patchProjectPeriodAsyncCall(projectId, projectPeriodId, tenantId, operation, _callback);
+        return patchProjectPeriodAsyncCall(projectId, projectPeriodId, tenantId, patchOperation, _callback);
 
     }
 
@@ -2664,7 +2716,7 @@ public class ProjectsApi {
      * @param projectId  (required)
      * @param projectPeriodId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2675,8 +2727,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchProjectPeriodAsync(UUID projectId, UUID projectPeriodId, UUID tenantId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchProjectPeriodAsyncWithHttpInfo(projectId, projectPeriodId, tenantId, operation);
+    public EmptyEnvelope patchProjectPeriodAsync(UUID projectId, UUID projectPeriodId, UUID tenantId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchProjectPeriodAsyncWithHttpInfo(projectId, projectPeriodId, tenantId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2686,7 +2738,7 @@ public class ProjectsApi {
      * @param projectId  (required)
      * @param projectPeriodId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2697,8 +2749,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchProjectPeriodAsyncWithHttpInfo(UUID projectId, UUID projectPeriodId, UUID tenantId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchProjectPeriodAsyncValidateBeforeCall(projectId, projectPeriodId, tenantId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchProjectPeriodAsyncWithHttpInfo(UUID projectId, UUID projectPeriodId, UUID tenantId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchProjectPeriodAsyncValidateBeforeCall(projectId, projectPeriodId, tenantId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2709,7 +2761,7 @@ public class ProjectsApi {
      * @param projectId  (required)
      * @param projectPeriodId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2721,9 +2773,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchProjectPeriodAsyncAsync(UUID projectId, UUID projectPeriodId, UUID tenantId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchProjectPeriodAsyncAsync(UUID projectId, UUID projectPeriodId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchProjectPeriodAsyncValidateBeforeCall(projectId, projectPeriodId, tenantId, operation, _callback);
+        okhttp3.Call localVarCall = patchProjectPeriodAsyncValidateBeforeCall(projectId, projectPeriodId, tenantId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2733,7 +2785,7 @@ public class ProjectsApi {
      * @param projectId  (required)
      * @param projectTaskId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2745,7 +2797,7 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTaskForProjectAsyncCall(UUID projectId, UUID projectTaskId, UUID tenantId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTaskForProjectAsyncCall(UUID projectId, UUID projectTaskId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2759,7 +2811,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}"
@@ -2799,7 +2851,7 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTaskForProjectAsyncValidateBeforeCall(UUID projectId, UUID projectTaskId, UUID tenantId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTaskForProjectAsyncValidateBeforeCall(UUID projectId, UUID projectTaskId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling patchTaskForProjectAsync(Async)");
@@ -2815,7 +2867,7 @@ public class ProjectsApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTaskForProjectAsync(Async)");
         }
 
-        return patchTaskForProjectAsyncCall(projectId, projectTaskId, tenantId, operation, _callback);
+        return patchTaskForProjectAsyncCall(projectId, projectTaskId, tenantId, patchOperation, _callback);
 
     }
 
@@ -2825,7 +2877,7 @@ public class ProjectsApi {
      * @param projectId  (required)
      * @param projectTaskId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2836,8 +2888,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTaskForProjectAsync(UUID projectId, UUID projectTaskId, UUID tenantId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTaskForProjectAsyncWithHttpInfo(projectId, projectTaskId, tenantId, operation);
+    public EmptyEnvelope patchTaskForProjectAsync(UUID projectId, UUID projectTaskId, UUID tenantId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTaskForProjectAsyncWithHttpInfo(projectId, projectTaskId, tenantId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2847,7 +2899,7 @@ public class ProjectsApi {
      * @param projectId  (required)
      * @param projectTaskId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2858,8 +2910,8 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTaskForProjectAsyncWithHttpInfo(UUID projectId, UUID projectTaskId, UUID tenantId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTaskForProjectAsyncValidateBeforeCall(projectId, projectTaskId, tenantId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTaskForProjectAsyncWithHttpInfo(UUID projectId, UUID projectTaskId, UUID tenantId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTaskForProjectAsyncValidateBeforeCall(projectId, projectTaskId, tenantId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2870,7 +2922,7 @@ public class ProjectsApi {
      * @param projectId  (required)
      * @param projectTaskId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2882,9 +2934,9 @@ public class ProjectsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTaskForProjectAsyncAsync(UUID projectId, UUID projectTaskId, UUID tenantId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTaskForProjectAsyncAsync(UUID projectId, UUID projectTaskId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTaskForProjectAsyncValidateBeforeCall(projectId, projectTaskId, tenantId, operation, _callback);
+        okhttp3.Call localVarCall = patchTaskForProjectAsyncValidateBeforeCall(projectId, projectTaskId, tenantId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

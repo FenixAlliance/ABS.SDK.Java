@@ -12,7 +12,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getCreditsSumAsync"></a>
 # **getCreditsSumAsync**
-> DecimalEnvelope getCreditsSumAsync(tenantId, apiVersion, xApiVersion)
+> DecimalEnvelope getCreditsSumAsync(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Sum tenant accounting-entry credits
 
@@ -36,8 +36,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters = new AccountingEntryDtoCollectionQueryParameters(); // AccountingEntryDtoCollectionQueryParameters | 
     try {
-      DecimalEnvelope result = apiInstance.getCreditsSumAsync(tenantId, apiVersion, xApiVersion);
+      DecimalEnvelope result = apiInstance.getCreditsSumAsync(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountingSummaryApi#getCreditsSumAsync");
@@ -57,6 +58,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -68,7 +70,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -80,7 +82,7 @@ No authorization required
 
 <a id="getDebitsSumAsync"></a>
 # **getDebitsSumAsync**
-> DecimalEnvelope getDebitsSumAsync(tenantId, apiVersion, xApiVersion)
+> DecimalEnvelope getDebitsSumAsync(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Sum tenant accounting-entry debits
 
@@ -104,8 +106,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters = new AccountingEntryDtoCollectionQueryParameters(); // AccountingEntryDtoCollectionQueryParameters | 
     try {
-      DecimalEnvelope result = apiInstance.getDebitsSumAsync(tenantId, apiVersion, xApiVersion);
+      DecimalEnvelope result = apiInstance.getDebitsSumAsync(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountingSummaryApi#getDebitsSumAsync");
@@ -125,6 +128,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -136,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -148,7 +152,7 @@ No authorization required
 
 <a id="getExpensesSumAsync"></a>
 # **getExpensesSumAsync**
-> MoneyEnvelope getExpensesSumAsync(tenantId, apiVersion, xApiVersion)
+> MoneyEnvelope getExpensesSumAsync(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Sum tenant expenses
 
@@ -172,8 +176,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters = new JournalEntryDtoCollectionQueryParameters(); // JournalEntryDtoCollectionQueryParameters | 
     try {
-      MoneyEnvelope result = apiInstance.getExpensesSumAsync(tenantId, apiVersion, xApiVersion);
+      MoneyEnvelope result = apiInstance.getExpensesSumAsync(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountingSummaryApi#getExpensesSumAsync");
@@ -193,6 +198,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -204,7 +210,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -216,7 +222,7 @@ No authorization required
 
 <a id="getIncomesSumAsync"></a>
 # **getIncomesSumAsync**
-> MoneyEnvelope getIncomesSumAsync(tenantId, apiVersion, xApiVersion)
+> MoneyEnvelope getIncomesSumAsync(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Sum tenant incomes
 
@@ -240,8 +246,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters = new JournalEntryDtoCollectionQueryParameters(); // JournalEntryDtoCollectionQueryParameters | 
     try {
-      MoneyEnvelope result = apiInstance.getIncomesSumAsync(tenantId, apiVersion, xApiVersion);
+      MoneyEnvelope result = apiInstance.getIncomesSumAsync(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountingSummaryApi#getIncomesSumAsync");
@@ -261,6 +268,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -272,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

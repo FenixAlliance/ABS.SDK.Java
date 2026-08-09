@@ -222,7 +222,7 @@ No authorization required
 
 <a id="getSupplierProfilesAsync"></a>
 # **getSupplierProfilesAsync**
-> SupplierProfileDtoListEnvelope getSupplierProfilesAsync(tenantId, apiVersion, xApiVersion)
+> SupplierProfileDtoListEnvelope getSupplierProfilesAsync(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters)
 
 Get all supplier profiles
 
@@ -246,8 +246,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters = new SupplierProfileDtoCollectionQueryParameters(); // SupplierProfileDtoCollectionQueryParameters | 
     try {
-      SupplierProfileDtoListEnvelope result = apiInstance.getSupplierProfilesAsync(tenantId, apiVersion, xApiVersion);
+      SupplierProfileDtoListEnvelope result = apiInstance.getSupplierProfilesAsync(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupplierProfilesApi#getSupplierProfilesAsync");
@@ -267,6 +268,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supplierProfileDtoCollectionQueryParameters** | [**SupplierProfileDtoCollectionQueryParameters**](SupplierProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -278,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getSupplierProfilesCountAsync"></a>
 # **getSupplierProfilesCountAsync**
-> Int32Envelope getSupplierProfilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSupplierProfilesCountAsync(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters)
 
 Get supplier profiles count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters = new SupplierProfileDtoCollectionQueryParameters(); // SupplierProfileDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSupplierProfilesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSupplierProfilesCountAsync(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupplierProfilesApi#getSupplierProfilesCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supplierProfileDtoCollectionQueryParameters** | [**SupplierProfileDtoCollectionQueryParameters**](SupplierProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchSupplierProfileAsync"></a>
 # **patchSupplierProfileAsync**
-> EmptyEnvelope patchSupplierProfileAsync(tenantId, supplierProfileId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSupplierProfileAsync(tenantId, supplierProfileId, apiVersion, xApiVersion, patchOperation)
 
 Patch a supplier profile
 
@@ -382,9 +386,9 @@ public class Example {
     UUID supplierProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSupplierProfileAsync(tenantId, supplierProfileId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSupplierProfileAsync(tenantId, supplierProfileId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupplierProfilesApi#patchSupplierProfileAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **supplierProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

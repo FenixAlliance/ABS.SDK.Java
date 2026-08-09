@@ -22,6 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -50,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * Int32Envelope
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:09:05.358081200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:34:17.865858700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class Int32Envelope {
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)
@@ -67,6 +70,18 @@ public class Int32Envelope {
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
+
+  public static final String SERIALIZED_NAME_HTTP_STATUS = "httpStatus";
+  @SerializedName(SERIALIZED_NAME_HTTP_STATUS)
+  private Integer httpStatus;
+
+  public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
+  @SerializedName(SERIALIZED_NAME_ERROR_CODE)
+  private String errorCode;
+
+  public static final String SERIALIZED_NAME_VALIDATION_DETAILS = "validationDetails";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_DETAILS)
+  private Map<String, List<String>> validationDetails;
 
   public static final String SERIALIZED_NAME_ACTIVITY_ID = "activityId";
   @SerializedName(SERIALIZED_NAME_ACTIVITY_ID)
@@ -150,6 +165,71 @@ public class Int32Envelope {
 
 
 
+  public Int32Envelope httpStatus(Integer httpStatus) {
+    this.httpStatus = httpStatus;
+    return this;
+  }
+
+  /**
+   * Get httpStatus
+   * @return httpStatus
+   */
+  @javax.annotation.Nullable
+  public Integer getHttpStatus() {
+    return httpStatus;
+  }
+
+  public void setHttpStatus(Integer httpStatus) {
+    this.httpStatus = httpStatus;
+  }
+
+
+  public Int32Envelope errorCode(String errorCode) {
+    this.errorCode = errorCode;
+    return this;
+  }
+
+  /**
+   * Get errorCode
+   * @return errorCode
+   */
+  @javax.annotation.Nullable
+  public String getErrorCode() {
+    return errorCode;
+  }
+
+  public void setErrorCode(String errorCode) {
+    this.errorCode = errorCode;
+  }
+
+
+  public Int32Envelope validationDetails(Map<String, List<String>> validationDetails) {
+    this.validationDetails = validationDetails;
+    return this;
+  }
+
+  public Int32Envelope putValidationDetailsItem(String key, List<String> validationDetailsItem) {
+    if (this.validationDetails == null) {
+      this.validationDetails = new HashMap<>();
+    }
+    this.validationDetails.put(key, validationDetailsItem);
+    return this;
+  }
+
+  /**
+   * Get validationDetails
+   * @return validationDetails
+   */
+  @javax.annotation.Nullable
+  public Map<String, List<String>> getValidationDetails() {
+    return validationDetails;
+  }
+
+  public void setValidationDetails(Map<String, List<String>> validationDetails) {
+    this.validationDetails = validationDetails;
+  }
+
+
   /**
    * Get activityId
    * @return activityId
@@ -194,6 +274,9 @@ public class Int32Envelope {
         Objects.equals(this.errorMessage, int32Envelope.errorMessage) &&
         Objects.equals(this.correlationId, int32Envelope.correlationId) &&
         Objects.equals(this.timestamp, int32Envelope.timestamp) &&
+        Objects.equals(this.httpStatus, int32Envelope.httpStatus) &&
+        Objects.equals(this.errorCode, int32Envelope.errorCode) &&
+        Objects.equals(this.validationDetails, int32Envelope.validationDetails) &&
         Objects.equals(this.activityId, int32Envelope.activityId) &&
         Objects.equals(this.result, int32Envelope.result);
   }
@@ -204,7 +287,7 @@ public class Int32Envelope {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isSuccess, errorMessage, correlationId, timestamp, activityId, result);
+    return Objects.hash(isSuccess, errorMessage, correlationId, timestamp, httpStatus, errorCode, validationDetails, activityId, result);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -222,6 +305,9 @@ public class Int32Envelope {
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    correlationId: ").append(toIndentedString(correlationId)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    httpStatus: ").append(toIndentedString(httpStatus)).append("\n");
+    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+    sb.append("    validationDetails: ").append(toIndentedString(validationDetails)).append("\n");
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
@@ -250,6 +336,9 @@ public class Int32Envelope {
     openapiFields.add("errorMessage");
     openapiFields.add("correlationId");
     openapiFields.add("timestamp");
+    openapiFields.add("httpStatus");
+    openapiFields.add("errorCode");
+    openapiFields.add("validationDetails");
     openapiFields.add("activityId");
     openapiFields.add("result");
 
@@ -283,6 +372,9 @@ public class Int32Envelope {
       }
       if ((jsonObj.get("correlationId") != null && !jsonObj.get("correlationId").isJsonNull()) && !jsonObj.get("correlationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `correlationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("correlationId").toString()));
+      }
+      if ((jsonObj.get("errorCode") != null && !jsonObj.get("errorCode").isJsonNull()) && !jsonObj.get("errorCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `errorCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorCode").toString()));
       }
       if ((jsonObj.get("activityId") != null && !jsonObj.get("activityId").isJsonNull()) && !jsonObj.get("activityId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `activityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("activityId").toString()));

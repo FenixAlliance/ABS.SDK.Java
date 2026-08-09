@@ -219,7 +219,7 @@ No authorization required
 
 <a id="getSystemPortals"></a>
 # **getSystemPortals**
-> WebPortalDtoListEnvelope getSystemPortals(apiVersion, xApiVersion)
+> WebPortalDtoListEnvelope getSystemPortals(apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
 
 Retrieve a list of system portals
 
@@ -242,8 +242,9 @@ public class Example {
     PortalsApi apiInstance = new PortalsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebPortalDtoCollectionQueryParameters webPortalDtoCollectionQueryParameters = new WebPortalDtoCollectionQueryParameters(); // WebPortalDtoCollectionQueryParameters | 
     try {
-      WebPortalDtoListEnvelope result = apiInstance.getSystemPortals(apiVersion, xApiVersion);
+      WebPortalDtoListEnvelope result = apiInstance.getSystemPortals(apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PortalsApi#getSystemPortals");
@@ -262,6 +263,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webPortalDtoCollectionQueryParameters** | [**WebPortalDtoCollectionQueryParameters**](WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -273,7 +275,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -285,7 +287,7 @@ No authorization required
 
 <a id="getSystemPortalsCount"></a>
 # **getSystemPortalsCount**
-> Int32Envelope getSystemPortalsCount(apiVersion, xApiVersion)
+> Int32Envelope getSystemPortalsCount(apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
 
 Get the count of system portals
 
@@ -308,8 +310,9 @@ public class Example {
     PortalsApi apiInstance = new PortalsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebPortalDtoCollectionQueryParameters webPortalDtoCollectionQueryParameters = new WebPortalDtoCollectionQueryParameters(); // WebPortalDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSystemPortalsCount(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSystemPortalsCount(apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PortalsApi#getSystemPortalsCount");
@@ -328,6 +331,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webPortalDtoCollectionQueryParameters** | [**WebPortalDtoCollectionQueryParameters**](WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -339,7 +343,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -351,7 +355,7 @@ No authorization required
 
 <a id="patchSystemPortal"></a>
 # **patchSystemPortal**
-> EmptyEnvelope patchSystemPortal(portalId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSystemPortal(portalId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a system portal
 
@@ -375,9 +379,9 @@ public class Example {
     UUID portalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSystemPortal(portalId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSystemPortal(portalId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PortalsApi#patchSystemPortal");
@@ -397,7 +401,7 @@ public class Example {
 | **portalId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

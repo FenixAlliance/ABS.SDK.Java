@@ -300,7 +300,7 @@ No authorization required
 
 <a id="getJobApplicationsAsync"></a>
 # **getJobApplicationsAsync**
-> JobOfferApplicationDtoListEnvelope getJobApplicationsAsync(tenantId, apiVersion, xApiVersion)
+> JobOfferApplicationDtoListEnvelope getJobApplicationsAsync(tenantId, apiVersion, xApiVersion, jobOfferApplicationDtoCollectionQueryParameters)
 
 Get job applications
 
@@ -324,8 +324,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JobOfferApplicationDtoCollectionQueryParameters jobOfferApplicationDtoCollectionQueryParameters = new JobOfferApplicationDtoCollectionQueryParameters(); // JobOfferApplicationDtoCollectionQueryParameters | 
     try {
-      JobOfferApplicationDtoListEnvelope result = apiInstance.getJobApplicationsAsync(tenantId, apiVersion, xApiVersion);
+      JobOfferApplicationDtoListEnvelope result = apiInstance.getJobApplicationsAsync(tenantId, apiVersion, xApiVersion, jobOfferApplicationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobApplicationsApi#getJobApplicationsAsync");
@@ -345,6 +346,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **jobOfferApplicationDtoCollectionQueryParameters** | [**JobOfferApplicationDtoCollectionQueryParameters**](JobOfferApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -356,7 +358,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -368,7 +370,7 @@ No authorization required
 
 <a id="getJobApplicationsCountAsync"></a>
 # **getJobApplicationsCountAsync**
-> Int32Envelope getJobApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getJobApplicationsCountAsync(tenantId, apiVersion, xApiVersion, jobOfferApplicationDtoCollectionQueryParameters)
 
 Count job applications
 
@@ -392,8 +394,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JobOfferApplicationDtoCollectionQueryParameters jobOfferApplicationDtoCollectionQueryParameters = new JobOfferApplicationDtoCollectionQueryParameters(); // JobOfferApplicationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getJobApplicationsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getJobApplicationsCountAsync(tenantId, apiVersion, xApiVersion, jobOfferApplicationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobApplicationsApi#getJobApplicationsCountAsync");
@@ -413,6 +416,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **jobOfferApplicationDtoCollectionQueryParameters** | [**JobOfferApplicationDtoCollectionQueryParameters**](JobOfferApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -424,7 +428,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -436,7 +440,7 @@ No authorization required
 
 <a id="patchJobApplicationAsync"></a>
 # **patchJobApplicationAsync**
-> EmptyEnvelope patchJobApplicationAsync(tenantId, jobApplicationId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchJobApplicationAsync(tenantId, jobApplicationId, apiVersion, xApiVersion, patchOperation)
 
 Patch a job application
 
@@ -461,9 +465,9 @@ public class Example {
     UUID jobApplicationId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchJobApplicationAsync(tenantId, jobApplicationId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchJobApplicationAsync(tenantId, jobApplicationId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobApplicationsApi#patchJobApplicationAsync");
@@ -484,7 +488,7 @@ public class Example {
 | **jobApplicationId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

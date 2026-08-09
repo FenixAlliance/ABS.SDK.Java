@@ -373,7 +373,7 @@ No authorization required
 
 <a id="getSeawayBillLinesAsync"></a>
 # **getSeawayBillLinesAsync**
-> WaybillLineDtoListEnvelope getSeawayBillLinesAsync(tenantId, billId, apiVersion, xApiVersion)
+> WaybillLineDtoListEnvelope getSeawayBillLinesAsync(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get seaway bill lines
 
@@ -398,8 +398,9 @@ public class Example {
     UUID billId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters = new WaybillLineDtoCollectionQueryParameters(); // WaybillLineDtoCollectionQueryParameters | 
     try {
-      WaybillLineDtoListEnvelope result = apiInstance.getSeawayBillLinesAsync(tenantId, billId, apiVersion, xApiVersion);
+      WaybillLineDtoListEnvelope result = apiInstance.getSeawayBillLinesAsync(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SeawayBillsApi#getSeawayBillLinesAsync");
@@ -420,6 +421,7 @@ public class Example {
 | **billId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -431,7 +433,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -442,7 +444,7 @@ No authorization required
 
 <a id="getSeawayBillLinesCountAsync"></a>
 # **getSeawayBillLinesCountAsync**
-> Int32Envelope getSeawayBillLinesCountAsync(tenantId, billId, apiVersion, xApiVersion)
+> Int32Envelope getSeawayBillLinesCountAsync(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get seaway bill lines count
 
@@ -467,8 +469,9 @@ public class Example {
     UUID billId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters = new WaybillLineDtoCollectionQueryParameters(); // WaybillLineDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSeawayBillLinesCountAsync(tenantId, billId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSeawayBillLinesCountAsync(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SeawayBillsApi#getSeawayBillLinesCountAsync");
@@ -489,6 +492,7 @@ public class Example {
 | **billId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -500,7 +504,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -511,7 +515,7 @@ No authorization required
 
 <a id="getSeawayBillsAsync"></a>
 # **getSeawayBillsAsync**
-> SeawayBillDtoListEnvelope getSeawayBillsAsync(tenantId, apiVersion, xApiVersion)
+> SeawayBillDtoListEnvelope getSeawayBillsAsync(tenantId, apiVersion, xApiVersion, seawayBillDtoCollectionQueryParameters)
 
 Get all seaway bills
 
@@ -535,8 +539,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SeawayBillDtoCollectionQueryParameters seawayBillDtoCollectionQueryParameters = new SeawayBillDtoCollectionQueryParameters(); // SeawayBillDtoCollectionQueryParameters | 
     try {
-      SeawayBillDtoListEnvelope result = apiInstance.getSeawayBillsAsync(tenantId, apiVersion, xApiVersion);
+      SeawayBillDtoListEnvelope result = apiInstance.getSeawayBillsAsync(tenantId, apiVersion, xApiVersion, seawayBillDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SeawayBillsApi#getSeawayBillsAsync");
@@ -556,6 +561,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **seawayBillDtoCollectionQueryParameters** | [**SeawayBillDtoCollectionQueryParameters**](SeawayBillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -567,7 +573,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -579,7 +585,7 @@ No authorization required
 
 <a id="getSeawayBillsCountAsync"></a>
 # **getSeawayBillsCountAsync**
-> Int32Envelope getSeawayBillsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSeawayBillsCountAsync(tenantId, apiVersion, xApiVersion, seawayBillDtoCollectionQueryParameters)
 
 Get seaway bills count
 
@@ -603,8 +609,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SeawayBillDtoCollectionQueryParameters seawayBillDtoCollectionQueryParameters = new SeawayBillDtoCollectionQueryParameters(); // SeawayBillDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSeawayBillsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSeawayBillsCountAsync(tenantId, apiVersion, xApiVersion, seawayBillDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SeawayBillsApi#getSeawayBillsCountAsync");
@@ -624,6 +631,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **seawayBillDtoCollectionQueryParameters** | [**SeawayBillDtoCollectionQueryParameters**](SeawayBillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -635,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -853,7 +861,7 @@ No authorization required
 
 <a id="patchSeawayBillAsync"></a>
 # **patchSeawayBillAsync**
-> EmptyEnvelope patchSeawayBillAsync(tenantId, billId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSeawayBillAsync(tenantId, billId, apiVersion, xApiVersion, patchOperation)
 
 Patch a seaway bill
 
@@ -878,9 +886,9 @@ public class Example {
     UUID billId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSeawayBillAsync(tenantId, billId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSeawayBillAsync(tenantId, billId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SeawayBillsApi#patchSeawayBillAsync");
@@ -901,7 +909,7 @@ public class Example {
 | **billId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -924,7 +932,7 @@ No authorization required
 
 <a id="patchSeawayBillLineAsync"></a>
 # **patchSeawayBillLineAsync**
-> EmptyEnvelope patchSeawayBillLineAsync(tenantId, billId, lineId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSeawayBillLineAsync(tenantId, billId, lineId, apiVersion, xApiVersion, patchOperation)
 
 Patch a seaway bill line
 
@@ -950,9 +958,9 @@ public class Example {
     UUID lineId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSeawayBillLineAsync(tenantId, billId, lineId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSeawayBillLineAsync(tenantId, billId, lineId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SeawayBillsApi#patchSeawayBillLineAsync");
@@ -974,7 +982,7 @@ public class Example {
 | **lineId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

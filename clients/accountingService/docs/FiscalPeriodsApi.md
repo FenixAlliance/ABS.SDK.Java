@@ -302,7 +302,7 @@ No authorization required
 
 <a id="getFiscalPeriods"></a>
 # **getFiscalPeriods**
-> FiscalPeriodDtoListEnvelope getFiscalPeriods(tenantId, fiscalAuthorityId, fiscalYearId, authorityId, apiVersion, xApiVersion)
+> FiscalPeriodDtoListEnvelope getFiscalPeriods(tenantId, fiscalAuthorityId, fiscalYearId, authorityId, apiVersion, xApiVersion, fiscalPeriodDtoCollectionQueryParameters)
 
 Get fiscal periods for a fiscal year
 
@@ -329,8 +329,9 @@ public class Example {
     String authorityId = "authorityId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalPeriodDtoCollectionQueryParameters fiscalPeriodDtoCollectionQueryParameters = new FiscalPeriodDtoCollectionQueryParameters(); // FiscalPeriodDtoCollectionQueryParameters | 
     try {
-      FiscalPeriodDtoListEnvelope result = apiInstance.getFiscalPeriods(tenantId, fiscalAuthorityId, fiscalYearId, authorityId, apiVersion, xApiVersion);
+      FiscalPeriodDtoListEnvelope result = apiInstance.getFiscalPeriods(tenantId, fiscalAuthorityId, fiscalYearId, authorityId, apiVersion, xApiVersion, fiscalPeriodDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalPeriodsApi#getFiscalPeriods");
@@ -353,6 +354,7 @@ public class Example {
 | **authorityId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalPeriodDtoCollectionQueryParameters** | [**FiscalPeriodDtoCollectionQueryParameters**](FiscalPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -364,7 +366,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -376,7 +378,7 @@ No authorization required
 
 <a id="getFiscalPeriodsCount"></a>
 # **getFiscalPeriodsCount**
-> Int32Envelope getFiscalPeriodsCount(tenantId, fiscalAuthorityId, fiscalYearId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalPeriodsCount(tenantId, fiscalAuthorityId, fiscalYearId, apiVersion, xApiVersion, fiscalPeriodDtoCollectionQueryParameters)
 
 Get fiscal periods count
 
@@ -402,8 +404,9 @@ public class Example {
     UUID fiscalYearId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalPeriodDtoCollectionQueryParameters fiscalPeriodDtoCollectionQueryParameters = new FiscalPeriodDtoCollectionQueryParameters(); // FiscalPeriodDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getFiscalPeriodsCount(tenantId, fiscalAuthorityId, fiscalYearId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFiscalPeriodsCount(tenantId, fiscalAuthorityId, fiscalYearId, apiVersion, xApiVersion, fiscalPeriodDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalPeriodsApi#getFiscalPeriodsCount");
@@ -425,6 +428,7 @@ public class Example {
 | **fiscalYearId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalPeriodDtoCollectionQueryParameters** | [**FiscalPeriodDtoCollectionQueryParameters**](FiscalPeriodDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -436,7 +440,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -519,7 +523,7 @@ No authorization required
 
 <a id="patchFiscalPeriodAsync"></a>
 # **patchFiscalPeriodAsync**
-> EmptyEnvelope patchFiscalPeriodAsync(tenantId, fiscalPeriodId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalPeriodAsync(tenantId, fiscalPeriodId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal period
 
@@ -544,9 +548,9 @@ public class Example {
     UUID fiscalPeriodId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchFiscalPeriodAsync(tenantId, fiscalPeriodId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchFiscalPeriodAsync(tenantId, fiscalPeriodId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalPeriodsApi#patchFiscalPeriodAsync");
@@ -567,7 +571,7 @@ public class Example {
 | **fiscalPeriodId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

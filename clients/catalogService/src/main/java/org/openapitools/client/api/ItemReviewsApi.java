@@ -29,10 +29,11 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.ItemReviewCreateDto;
+import org.openapitools.client.model.ItemReviewDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemReviewDtoEnvelope;
 import org.openapitools.client.model.ItemReviewDtoListEnvelope;
 import org.openapitools.client.model.ItemReviewUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -553,6 +554,7 @@ public class ItemReviewsApi {
      * @param itemId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReviewDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -564,7 +566,7 @@ public class ItemReviewsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemReviewsAsyncCall(UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemReviewsAsyncCall(UUID itemId, String apiVersion, String xApiVersion, ItemReviewDtoCollectionQueryParameters itemReviewDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -578,7 +580,7 @@ public class ItemReviewsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemReviewDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemReviews";
@@ -611,6 +613,8 @@ public class ItemReviewsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -622,13 +626,13 @@ public class ItemReviewsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemReviewsAsyncValidateBeforeCall(UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemReviewsAsyncValidateBeforeCall(UUID itemId, String apiVersion, String xApiVersion, ItemReviewDtoCollectionQueryParameters itemReviewDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'itemId' is set
         if (itemId == null) {
             throw new ApiException("Missing the required parameter 'itemId' when calling getItemReviewsAsync(Async)");
         }
 
-        return getItemReviewsAsyncCall(itemId, apiVersion, xApiVersion, _callback);
+        return getItemReviewsAsyncCall(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -638,6 +642,7 @@ public class ItemReviewsApi {
      * @param itemId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReviewDtoCollectionQueryParameters  (optional)
      * @return ItemReviewDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -648,8 +653,8 @@ public class ItemReviewsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemReviewDtoListEnvelope getItemReviewsAsync(UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemReviewDtoListEnvelope> localVarResp = getItemReviewsAsyncWithHttpInfo(itemId, apiVersion, xApiVersion);
+    public ItemReviewDtoListEnvelope getItemReviewsAsync(UUID itemId, String apiVersion, String xApiVersion, ItemReviewDtoCollectionQueryParameters itemReviewDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemReviewDtoListEnvelope> localVarResp = getItemReviewsAsyncWithHttpInfo(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -659,6 +664,7 @@ public class ItemReviewsApi {
      * @param itemId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReviewDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemReviewDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -669,8 +675,8 @@ public class ItemReviewsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemReviewDtoListEnvelope> getItemReviewsAsyncWithHttpInfo(UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemReviewsAsyncValidateBeforeCall(itemId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemReviewDtoListEnvelope> getItemReviewsAsyncWithHttpInfo(UUID itemId, String apiVersion, String xApiVersion, ItemReviewDtoCollectionQueryParameters itemReviewDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemReviewsAsyncValidateBeforeCall(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemReviewDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -681,6 +687,7 @@ public class ItemReviewsApi {
      * @param itemId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemReviewDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -692,9 +699,9 @@ public class ItemReviewsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemReviewsAsyncAsync(UUID itemId, String apiVersion, String xApiVersion, final ApiCallback<ItemReviewDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemReviewsAsyncAsync(UUID itemId, String apiVersion, String xApiVersion, ItemReviewDtoCollectionQueryParameters itemReviewDtoCollectionQueryParameters, final ApiCallback<ItemReviewDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemReviewsAsyncValidateBeforeCall(itemId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemReviewsAsyncValidateBeforeCall(itemId, apiVersion, xApiVersion, itemReviewDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemReviewDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -705,7 +712,7 @@ public class ItemReviewsApi {
      * @param itemReviewId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -717,7 +724,7 @@ public class ItemReviewsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemReviewAsyncCall(UUID tenantId, UUID itemReviewId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemReviewAsyncCall(UUID tenantId, UUID itemReviewId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -731,7 +738,7 @@ public class ItemReviewsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemReviews/{itemReviewId}"
@@ -778,7 +785,7 @@ public class ItemReviewsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemReviewAsyncValidateBeforeCall(UUID tenantId, UUID itemReviewId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemReviewAsyncValidateBeforeCall(UUID tenantId, UUID itemReviewId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemReviewAsync(Async)");
@@ -789,7 +796,7 @@ public class ItemReviewsApi {
             throw new ApiException("Missing the required parameter 'itemReviewId' when calling patchItemReviewAsync(Async)");
         }
 
-        return patchItemReviewAsyncCall(tenantId, itemReviewId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemReviewAsyncCall(tenantId, itemReviewId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -800,7 +807,7 @@ public class ItemReviewsApi {
      * @param itemReviewId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -810,8 +817,8 @@ public class ItemReviewsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public void patchItemReviewAsync(UUID tenantId, UUID itemReviewId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        patchItemReviewAsyncWithHttpInfo(tenantId, itemReviewId, apiVersion, xApiVersion, operation);
+    public void patchItemReviewAsync(UUID tenantId, UUID itemReviewId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        patchItemReviewAsyncWithHttpInfo(tenantId, itemReviewId, apiVersion, xApiVersion, patchOperation);
     }
 
     /**
@@ -821,7 +828,7 @@ public class ItemReviewsApi {
      * @param itemReviewId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -832,8 +839,8 @@ public class ItemReviewsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> patchItemReviewAsyncWithHttpInfo(UUID tenantId, UUID itemReviewId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemReviewAsyncValidateBeforeCall(tenantId, itemReviewId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<Void> patchItemReviewAsyncWithHttpInfo(UUID tenantId, UUID itemReviewId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemReviewAsyncValidateBeforeCall(tenantId, itemReviewId, apiVersion, xApiVersion, patchOperation, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -844,7 +851,7 @@ public class ItemReviewsApi {
      * @param itemReviewId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -856,9 +863,9 @@ public class ItemReviewsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemReviewAsyncAsync(UUID tenantId, UUID itemReviewId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call patchItemReviewAsyncAsync(UUID tenantId, UUID itemReviewId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemReviewAsyncValidateBeforeCall(tenantId, itemReviewId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemReviewAsyncValidateBeforeCall(tenantId, itemReviewId, apiVersion, xApiVersion, patchOperation, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

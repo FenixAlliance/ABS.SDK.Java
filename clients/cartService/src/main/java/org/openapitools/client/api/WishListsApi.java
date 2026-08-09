@@ -30,7 +30,7 @@ import java.io.IOException;
 import org.openapitools.client.model.BooleanEnvelope;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.NewWishListRequest;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ProductToWishListRequest;
 import java.util.UUID;
 import org.openapitools.client.model.WishListDto;
@@ -1197,7 +1197,7 @@ public class WishListsApi {
      * @param wishListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1207,7 +1207,7 @@ public class WishListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWishListCall(UUID wishListId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchWishListCall(UUID wishListId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1221,7 +1221,7 @@ public class WishListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CartService/WishLists/{wishListId}"
@@ -1264,13 +1264,13 @@ public class WishListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchWishListValidateBeforeCall(UUID wishListId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchWishListValidateBeforeCall(UUID wishListId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'wishListId' is set
         if (wishListId == null) {
             throw new ApiException("Missing the required parameter 'wishListId' when calling patchWishList(Async)");
         }
 
-        return patchWishListCall(wishListId, apiVersion, xApiVersion, operation, _callback);
+        return patchWishListCall(wishListId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1280,7 +1280,7 @@ public class WishListsApi {
      * @param wishListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1289,8 +1289,8 @@ public class WishListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchWishList(UUID wishListId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchWishListWithHttpInfo(wishListId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchWishList(UUID wishListId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchWishListWithHttpInfo(wishListId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1300,7 +1300,7 @@ public class WishListsApi {
      * @param wishListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1309,8 +1309,8 @@ public class WishListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchWishListWithHttpInfo(UUID wishListId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchWishListValidateBeforeCall(wishListId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchWishListWithHttpInfo(UUID wishListId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchWishListValidateBeforeCall(wishListId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1321,7 +1321,7 @@ public class WishListsApi {
      * @param wishListId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1331,9 +1331,9 @@ public class WishListsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWishListAsync(UUID wishListId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchWishListAsync(UUID wishListId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchWishListValidateBeforeCall(wishListId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchWishListValidateBeforeCall(wishListId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

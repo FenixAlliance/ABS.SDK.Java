@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countSocialGroupsAsync"></a>
 # **countSocialGroupsAsync**
-> Int32Envelope countSocialGroupsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countSocialGroupsAsync(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters)
 
 Count social groups
 
@@ -39,8 +39,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters = new SocialGroupDtoCollectionQueryParameters(); // SocialGroupDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countSocialGroupsAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countSocialGroupsAsync(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialGroupsApi#countSocialGroupsAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialGroupDtoCollectionQueryParameters** | [**SocialGroupDtoCollectionQueryParameters**](SocialGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -297,7 +299,7 @@ No authorization required
 
 <a id="getSocialGroupsAsync"></a>
 # **getSocialGroupsAsync**
-> SocialGroupDtoListEnvelope getSocialGroupsAsync(tenantId, apiVersion, xApiVersion)
+> SocialGroupDtoListEnvelope getSocialGroupsAsync(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters)
 
 Get social groups
 
@@ -321,8 +323,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialGroupDtoCollectionQueryParameters socialGroupDtoCollectionQueryParameters = new SocialGroupDtoCollectionQueryParameters(); // SocialGroupDtoCollectionQueryParameters | 
     try {
-      SocialGroupDtoListEnvelope result = apiInstance.getSocialGroupsAsync(tenantId, apiVersion, xApiVersion);
+      SocialGroupDtoListEnvelope result = apiInstance.getSocialGroupsAsync(tenantId, apiVersion, xApiVersion, socialGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialGroupsApi#getSocialGroupsAsync");
@@ -342,6 +345,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialGroupDtoCollectionQueryParameters** | [**SocialGroupDtoCollectionQueryParameters**](SocialGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -353,7 +357,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -365,7 +369,7 @@ No authorization required
 
 <a id="patchSocialGroupAsync"></a>
 # **patchSocialGroupAsync**
-> EmptyEnvelope patchSocialGroupAsync(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSocialGroupAsync(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, patchOperation)
 
 Patch a social group
 
@@ -391,9 +395,9 @@ public class Example {
     UUID socialGroupId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSocialGroupAsync(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSocialGroupAsync(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialGroupsApi#patchSocialGroupAsync");
@@ -415,7 +419,7 @@ public class Example {
 | **socialGroupId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

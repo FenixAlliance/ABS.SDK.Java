@@ -31,6 +31,7 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.LocalizationStringCreateDto;
+import org.openapitools.client.model.LocalizationStringDtoCollectionQueryParameters;
 import org.openapitools.client.model.LocalizationStringDtoEnvelope;
 import org.openapitools.client.model.LocalizationStringDtoListEnvelope;
 import org.openapitools.client.model.LocalizationStringUpdateDto;
@@ -84,6 +85,7 @@ public class LocalizationStringsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -95,7 +97,7 @@ public class LocalizationStringsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countLocalizationStringsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countLocalizationStringsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,7 +111,7 @@ public class LocalizationStringsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = localizationStringDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/LocalizationStrings/Count";
@@ -142,6 +144,8 @@ public class LocalizationStringsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -153,13 +157,13 @@ public class LocalizationStringsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countLocalizationStringsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countLocalizationStringsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countLocalizationStringsAsync(Async)");
         }
 
-        return countLocalizationStringsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return countLocalizationStringsAsyncCall(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -169,6 +173,7 @@ public class LocalizationStringsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -179,8 +184,8 @@ public class LocalizationStringsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countLocalizationStringsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countLocalizationStringsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope countLocalizationStringsAsync(UUID tenantId, String apiVersion, String xApiVersion, LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countLocalizationStringsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -190,6 +195,7 @@ public class LocalizationStringsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -200,8 +206,8 @@ public class LocalizationStringsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countLocalizationStringsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countLocalizationStringsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countLocalizationStringsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countLocalizationStringsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -212,6 +218,7 @@ public class LocalizationStringsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -223,9 +230,9 @@ public class LocalizationStringsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countLocalizationStringsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countLocalizationStringsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countLocalizationStringsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countLocalizationStringsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -719,6 +726,7 @@ public class LocalizationStringsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -730,7 +738,7 @@ public class LocalizationStringsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocalizationStringsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLocalizationStringsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -744,7 +752,7 @@ public class LocalizationStringsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = localizationStringDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/LocalizationStrings";
@@ -777,6 +785,8 @@ public class LocalizationStringsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -788,13 +798,13 @@ public class LocalizationStringsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLocalizationStringsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLocalizationStringsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLocalizationStringsAsync(Async)");
         }
 
-        return getLocalizationStringsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLocalizationStringsAsyncCall(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -804,6 +814,7 @@ public class LocalizationStringsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @return LocalizationStringDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -814,8 +825,8 @@ public class LocalizationStringsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public LocalizationStringDtoListEnvelope getLocalizationStringsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LocalizationStringDtoListEnvelope> localVarResp = getLocalizationStringsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public LocalizationStringDtoListEnvelope getLocalizationStringsAsync(UUID tenantId, String apiVersion, String xApiVersion, LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LocalizationStringDtoListEnvelope> localVarResp = getLocalizationStringsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -825,6 +836,7 @@ public class LocalizationStringsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LocalizationStringDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -835,8 +847,8 @@ public class LocalizationStringsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LocalizationStringDtoListEnvelope> getLocalizationStringsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLocalizationStringsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<LocalizationStringDtoListEnvelope> getLocalizationStringsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLocalizationStringsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LocalizationStringDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -847,6 +859,7 @@ public class LocalizationStringsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param localizationStringDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -858,9 +871,9 @@ public class LocalizationStringsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocalizationStringsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<LocalizationStringDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLocalizationStringsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LocalizationStringDtoCollectionQueryParameters localizationStringDtoCollectionQueryParameters, final ApiCallback<LocalizationStringDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLocalizationStringsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLocalizationStringsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, localizationStringDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LocalizationStringDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

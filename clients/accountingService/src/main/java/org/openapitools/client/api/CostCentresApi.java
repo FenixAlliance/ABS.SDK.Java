@@ -28,13 +28,16 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.CostCentreBudgetCreateDto;
+import org.openapitools.client.model.CostCentreBudgetDtoCollectionQueryParameters;
 import org.openapitools.client.model.CostCentreBudgetDtoEnvelope;
 import org.openapitools.client.model.CostCentreBudgetDtoListEnvelope;
 import org.openapitools.client.model.CostCentreBudgetUpdateDto;
 import org.openapitools.client.model.CostCentreCreateDto;
+import org.openapitools.client.model.CostCentreDtoCollectionQueryParameters;
 import org.openapitools.client.model.CostCentreDtoEnvelope;
 import org.openapitools.client.model.CostCentreDtoListEnvelope;
 import org.openapitools.client.model.CostCentreGroupCreateDto;
+import org.openapitools.client.model.CostCentreGroupDtoCollectionQueryParameters;
 import org.openapitools.client.model.CostCentreGroupDtoEnvelope;
 import org.openapitools.client.model.CostCentreGroupDtoListEnvelope;
 import org.openapitools.client.model.CostCentreGroupUpdateDto;
@@ -42,7 +45,7 @@ import org.openapitools.client.model.CostCentreUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -1384,6 +1387,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreBudgetDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1395,7 +1399,7 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCostCentreBudgetsCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCostCentreBudgetsCall(UUID tenantId, String apiVersion, String xApiVersion, CostCentreBudgetDtoCollectionQueryParameters costCentreBudgetDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1409,7 +1413,7 @@ public class CostCentresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = costCentreBudgetDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/CostCentres/CostCentreBudgets";
@@ -1442,6 +1446,8 @@ public class CostCentresApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1453,13 +1459,13 @@ public class CostCentresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCostCentreBudgetsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCostCentreBudgetsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, CostCentreBudgetDtoCollectionQueryParameters costCentreBudgetDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCostCentreBudgets(Async)");
         }
 
-        return getCostCentreBudgetsCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getCostCentreBudgetsCall(tenantId, apiVersion, xApiVersion, costCentreBudgetDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1469,6 +1475,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreBudgetDtoCollectionQueryParameters  (optional)
      * @return CostCentreBudgetDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1479,8 +1486,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CostCentreBudgetDtoListEnvelope getCostCentreBudgets(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CostCentreBudgetDtoListEnvelope> localVarResp = getCostCentreBudgetsWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public CostCentreBudgetDtoListEnvelope getCostCentreBudgets(UUID tenantId, String apiVersion, String xApiVersion, CostCentreBudgetDtoCollectionQueryParameters costCentreBudgetDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CostCentreBudgetDtoListEnvelope> localVarResp = getCostCentreBudgetsWithHttpInfo(tenantId, apiVersion, xApiVersion, costCentreBudgetDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1490,6 +1497,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreBudgetDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CostCentreBudgetDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1500,8 +1508,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CostCentreBudgetDtoListEnvelope> getCostCentreBudgetsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCostCentreBudgetsValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<CostCentreBudgetDtoListEnvelope> getCostCentreBudgetsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, CostCentreBudgetDtoCollectionQueryParameters costCentreBudgetDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCostCentreBudgetsValidateBeforeCall(tenantId, apiVersion, xApiVersion, costCentreBudgetDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CostCentreBudgetDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1512,6 +1520,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreBudgetDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1523,9 +1532,9 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCostCentreBudgetsAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<CostCentreBudgetDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCostCentreBudgetsAsync(UUID tenantId, String apiVersion, String xApiVersion, CostCentreBudgetDtoCollectionQueryParameters costCentreBudgetDtoCollectionQueryParameters, final ApiCallback<CostCentreBudgetDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCostCentreBudgetsValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCostCentreBudgetsValidateBeforeCall(tenantId, apiVersion, xApiVersion, costCentreBudgetDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CostCentreBudgetDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1696,6 +1705,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1707,7 +1717,7 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCostCentreGroupsCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCostCentreGroupsCall(UUID tenantId, String apiVersion, String xApiVersion, CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1721,7 +1731,7 @@ public class CostCentresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = costCentreGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/CostCentres/CostCentreGroups";
@@ -1754,6 +1764,8 @@ public class CostCentresApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1765,13 +1777,13 @@ public class CostCentresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCostCentreGroupsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCostCentreGroupsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCostCentreGroups(Async)");
         }
 
-        return getCostCentreGroupsCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getCostCentreGroupsCall(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1781,6 +1793,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreGroupDtoCollectionQueryParameters  (optional)
      * @return CostCentreGroupDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1791,8 +1804,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CostCentreGroupDtoListEnvelope getCostCentreGroups(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CostCentreGroupDtoListEnvelope> localVarResp = getCostCentreGroupsWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public CostCentreGroupDtoListEnvelope getCostCentreGroups(UUID tenantId, String apiVersion, String xApiVersion, CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CostCentreGroupDtoListEnvelope> localVarResp = getCostCentreGroupsWithHttpInfo(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1802,6 +1815,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CostCentreGroupDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1812,8 +1826,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CostCentreGroupDtoListEnvelope> getCostCentreGroupsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCostCentreGroupsValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<CostCentreGroupDtoListEnvelope> getCostCentreGroupsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCostCentreGroupsValidateBeforeCall(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CostCentreGroupDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1824,6 +1838,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1835,9 +1850,9 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCostCentreGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<CostCentreGroupDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCostCentreGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion, CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters, final ApiCallback<CostCentreGroupDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCostCentreGroupsValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCostCentreGroupsValidateBeforeCall(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CostCentreGroupDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1847,6 +1862,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1858,7 +1874,7 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCostCentreGroupsCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCostCentreGroupsCountCall(UUID tenantId, String apiVersion, String xApiVersion, CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1872,7 +1888,7 @@ public class CostCentresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = costCentreGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/CostCentres/CostCentreGroups/Count";
@@ -1905,6 +1921,8 @@ public class CostCentresApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1916,13 +1934,13 @@ public class CostCentresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCostCentreGroupsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCostCentreGroupsCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCostCentreGroupsCount(Async)");
         }
 
-        return getCostCentreGroupsCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getCostCentreGroupsCountCall(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1932,6 +1950,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreGroupDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1942,8 +1961,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getCostCentreGroupsCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getCostCentreGroupsCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getCostCentreGroupsCount(UUID tenantId, String apiVersion, String xApiVersion, CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getCostCentreGroupsCountWithHttpInfo(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1953,6 +1972,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1963,8 +1983,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getCostCentreGroupsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCostCentreGroupsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getCostCentreGroupsCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCostCentreGroupsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1975,6 +1995,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1986,9 +2007,9 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCostCentreGroupsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getCostCentreGroupsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCostCentreGroupsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCostCentreGroupsCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1998,6 +2019,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2009,7 +2031,7 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCostCentresCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCostCentresCall(UUID tenantId, String apiVersion, String xApiVersion, CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2023,7 +2045,7 @@ public class CostCentresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = costCentreDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/CostCentres";
@@ -2056,6 +2078,8 @@ public class CostCentresApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2067,13 +2091,13 @@ public class CostCentresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCostCentresValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCostCentresValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCostCentres(Async)");
         }
 
-        return getCostCentresCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getCostCentresCall(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2083,6 +2107,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreDtoCollectionQueryParameters  (optional)
      * @return CostCentreDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2093,8 +2118,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CostCentreDtoListEnvelope getCostCentres(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CostCentreDtoListEnvelope> localVarResp = getCostCentresWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public CostCentreDtoListEnvelope getCostCentres(UUID tenantId, String apiVersion, String xApiVersion, CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CostCentreDtoListEnvelope> localVarResp = getCostCentresWithHttpInfo(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2104,6 +2129,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CostCentreDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2114,8 +2140,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CostCentreDtoListEnvelope> getCostCentresWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCostCentresValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<CostCentreDtoListEnvelope> getCostCentresWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCostCentresValidateBeforeCall(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CostCentreDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2126,6 +2152,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2137,9 +2164,9 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCostCentresAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<CostCentreDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCostCentresAsync(UUID tenantId, String apiVersion, String xApiVersion, CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters, final ApiCallback<CostCentreDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCostCentresValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCostCentresValidateBeforeCall(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CostCentreDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2149,6 +2176,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2160,7 +2188,7 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCostCentresCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCostCentresCountCall(UUID tenantId, String apiVersion, String xApiVersion, CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2174,7 +2202,7 @@ public class CostCentresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = costCentreDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/CostCentres/Count";
@@ -2207,6 +2235,8 @@ public class CostCentresApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2218,13 +2248,13 @@ public class CostCentresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCostCentresCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCostCentresCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCostCentresCount(Async)");
         }
 
-        return getCostCentresCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getCostCentresCountCall(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2234,6 +2264,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2244,8 +2275,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getCostCentresCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getCostCentresCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getCostCentresCount(UUID tenantId, String apiVersion, String xApiVersion, CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getCostCentresCountWithHttpInfo(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2255,6 +2286,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2265,8 +2297,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getCostCentresCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCostCentresCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getCostCentresCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCostCentresCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2277,6 +2309,7 @@ public class CostCentresApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param costCentreDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2288,9 +2321,9 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCostCentresCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getCostCentresCountAsync(UUID tenantId, String apiVersion, String xApiVersion, CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCostCentresCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCostCentresCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2301,7 +2334,7 @@ public class CostCentresApi {
      * @param costCentreId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2313,7 +2346,7 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCostCentreCall(UUID tenantId, UUID costCentreId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchCostCentreCall(UUID tenantId, UUID costCentreId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2327,7 +2360,7 @@ public class CostCentresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/CostCentres/{costCentreId}"
@@ -2374,7 +2407,7 @@ public class CostCentresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchCostCentreValidateBeforeCall(UUID tenantId, UUID costCentreId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchCostCentreValidateBeforeCall(UUID tenantId, UUID costCentreId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchCostCentre(Async)");
@@ -2385,7 +2418,7 @@ public class CostCentresApi {
             throw new ApiException("Missing the required parameter 'costCentreId' when calling patchCostCentre(Async)");
         }
 
-        return patchCostCentreCall(tenantId, costCentreId, apiVersion, xApiVersion, operation, _callback);
+        return patchCostCentreCall(tenantId, costCentreId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2396,7 +2429,7 @@ public class CostCentresApi {
      * @param costCentreId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2407,8 +2440,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchCostCentre(UUID tenantId, UUID costCentreId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchCostCentreWithHttpInfo(tenantId, costCentreId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchCostCentre(UUID tenantId, UUID costCentreId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchCostCentreWithHttpInfo(tenantId, costCentreId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2419,7 +2452,7 @@ public class CostCentresApi {
      * @param costCentreId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2430,8 +2463,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchCostCentreWithHttpInfo(UUID tenantId, UUID costCentreId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchCostCentreValidateBeforeCall(tenantId, costCentreId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchCostCentreWithHttpInfo(UUID tenantId, UUID costCentreId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchCostCentreValidateBeforeCall(tenantId, costCentreId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2443,7 +2476,7 @@ public class CostCentresApi {
      * @param costCentreId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2455,9 +2488,9 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCostCentreAsync(UUID tenantId, UUID costCentreId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchCostCentreAsync(UUID tenantId, UUID costCentreId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchCostCentreValidateBeforeCall(tenantId, costCentreId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchCostCentreValidateBeforeCall(tenantId, costCentreId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2468,7 +2501,7 @@ public class CostCentresApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2480,7 +2513,7 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCostCentreBudgetCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchCostCentreBudgetCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2494,7 +2527,7 @@ public class CostCentresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/CostCentres/CostCentreBudgets/{budgetId}"
@@ -2541,7 +2574,7 @@ public class CostCentresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchCostCentreBudgetValidateBeforeCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchCostCentreBudgetValidateBeforeCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchCostCentreBudget(Async)");
@@ -2552,7 +2585,7 @@ public class CostCentresApi {
             throw new ApiException("Missing the required parameter 'budgetId' when calling patchCostCentreBudget(Async)");
         }
 
-        return patchCostCentreBudgetCall(tenantId, budgetId, apiVersion, xApiVersion, operation, _callback);
+        return patchCostCentreBudgetCall(tenantId, budgetId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2563,7 +2596,7 @@ public class CostCentresApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2574,8 +2607,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchCostCentreBudget(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchCostCentreBudgetWithHttpInfo(tenantId, budgetId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchCostCentreBudget(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchCostCentreBudgetWithHttpInfo(tenantId, budgetId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2586,7 +2619,7 @@ public class CostCentresApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2597,8 +2630,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchCostCentreBudgetWithHttpInfo(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchCostCentreBudgetValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchCostCentreBudgetWithHttpInfo(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchCostCentreBudgetValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2610,7 +2643,7 @@ public class CostCentresApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2622,9 +2655,9 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCostCentreBudgetAsync(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchCostCentreBudgetAsync(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchCostCentreBudgetValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchCostCentreBudgetValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2635,7 +2668,7 @@ public class CostCentresApi {
      * @param groupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2647,7 +2680,7 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCostCentreGroupCall(UUID tenantId, UUID groupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchCostCentreGroupCall(UUID tenantId, UUID groupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2661,7 +2694,7 @@ public class CostCentresApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/CostCentres/CostCentreGroups/{groupId}"
@@ -2708,7 +2741,7 @@ public class CostCentresApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchCostCentreGroupValidateBeforeCall(UUID tenantId, UUID groupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchCostCentreGroupValidateBeforeCall(UUID tenantId, UUID groupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchCostCentreGroup(Async)");
@@ -2719,7 +2752,7 @@ public class CostCentresApi {
             throw new ApiException("Missing the required parameter 'groupId' when calling patchCostCentreGroup(Async)");
         }
 
-        return patchCostCentreGroupCall(tenantId, groupId, apiVersion, xApiVersion, operation, _callback);
+        return patchCostCentreGroupCall(tenantId, groupId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2730,7 +2763,7 @@ public class CostCentresApi {
      * @param groupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2741,8 +2774,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchCostCentreGroup(UUID tenantId, UUID groupId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchCostCentreGroupWithHttpInfo(tenantId, groupId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchCostCentreGroup(UUID tenantId, UUID groupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchCostCentreGroupWithHttpInfo(tenantId, groupId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2753,7 +2786,7 @@ public class CostCentresApi {
      * @param groupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2764,8 +2797,8 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchCostCentreGroupWithHttpInfo(UUID tenantId, UUID groupId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchCostCentreGroupValidateBeforeCall(tenantId, groupId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchCostCentreGroupWithHttpInfo(UUID tenantId, UUID groupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchCostCentreGroupValidateBeforeCall(tenantId, groupId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2777,7 +2810,7 @@ public class CostCentresApi {
      * @param groupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2789,9 +2822,9 @@ public class CostCentresApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCostCentreGroupAsync(UUID tenantId, UUID groupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchCostCentreGroupAsync(UUID tenantId, UUID groupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchCostCentreGroupValidateBeforeCall(tenantId, groupId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchCostCentreGroupValidateBeforeCall(tenantId, groupId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

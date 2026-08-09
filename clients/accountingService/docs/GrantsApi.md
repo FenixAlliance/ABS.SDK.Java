@@ -219,7 +219,7 @@ No authorization required
 
 <a id="getGrantsAsync"></a>
 # **getGrantsAsync**
-> GrantDtoIReadOnlyListEnvelope getGrantsAsync(tenantId, apiVersion, xApiVersion)
+> GrantDtoIReadOnlyListEnvelope getGrantsAsync(tenantId, apiVersion, xApiVersion, grantDtoCollectionQueryParameters)
 
 Get all grants
 
@@ -243,8 +243,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    GrantDtoCollectionQueryParameters grantDtoCollectionQueryParameters = new GrantDtoCollectionQueryParameters(); // GrantDtoCollectionQueryParameters | 
     try {
-      GrantDtoIReadOnlyListEnvelope result = apiInstance.getGrantsAsync(tenantId, apiVersion, xApiVersion);
+      GrantDtoIReadOnlyListEnvelope result = apiInstance.getGrantsAsync(tenantId, apiVersion, xApiVersion, grantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GrantsApi#getGrantsAsync");
@@ -264,6 +265,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **grantDtoCollectionQueryParameters** | [**GrantDtoCollectionQueryParameters**](GrantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -275,7 +277,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -285,7 +287,7 @@ No authorization required
 
 <a id="getGrantsCountAsync"></a>
 # **getGrantsCountAsync**
-> Int32Envelope getGrantsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getGrantsCountAsync(tenantId, apiVersion, xApiVersion, grantDtoCollectionQueryParameters)
 
 Count grants
 
@@ -309,8 +311,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    GrantDtoCollectionQueryParameters grantDtoCollectionQueryParameters = new GrantDtoCollectionQueryParameters(); // GrantDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getGrantsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getGrantsCountAsync(tenantId, apiVersion, xApiVersion, grantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GrantsApi#getGrantsCountAsync");
@@ -330,6 +333,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **grantDtoCollectionQueryParameters** | [**GrantDtoCollectionQueryParameters**](GrantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -351,7 +355,7 @@ No authorization required
 
 <a id="patchGrantAsync"></a>
 # **patchGrantAsync**
-> EmptyEnvelope patchGrantAsync(tenantId, grantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchGrantAsync(tenantId, grantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a grant
 
@@ -376,9 +380,9 @@ public class Example {
     UUID grantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchGrantAsync(tenantId, grantId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchGrantAsync(tenantId, grantId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GrantsApi#patchGrantAsync");
@@ -399,7 +403,7 @@ public class Example {
 | **grantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -26,6 +26,7 @@ tags:
 - name: FenixAlliance.ABS.Web
 - name: PaymentMethods
 - name: PaymentModes
+- name: PaymentProviderRegistrations
 - name: Payments
 - name: PaymentTerms
 paths:
@@ -40,23 +41,6 @@ paths:
       - application/json
   /health:
     get:
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           description: OK
@@ -433,6 +417,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentMethodDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentMethodDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -464,6 +456,7 @@ paths:
       summary: Retrieves all payment methods
       tags:
       - PaymentMethods
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -563,6 +556,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentMethodDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentMethodDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -594,6 +595,7 @@ paths:
       summary: Counts payment methods
       tags:
       - PaymentMethods
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -773,12 +775,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -919,6 +921,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentModeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentModeDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -950,6 +960,7 @@ paths:
       summary: Retrieves all payment modes
       tags:
       - PaymentModes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1049,6 +1060,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentModeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentModeDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -1080,6 +1099,7 @@ paths:
       summary: Counts payment modes
       tags:
       - PaymentModes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1259,12 +1279,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1375,6 +1395,251 @@ paths:
       tags:
       - PaymentModes
       x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PaymentsService/PaymentProviderRegistrations:
+    get:
+      description: Gets all provider registrations for the current tenant with OData
+        support (no secret is ever returned).
+      operationId: GetAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentProviderRegistrationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentProviderRegistrationDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentProviderRegistrationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentProviderRegistrationDtoListEnvelope'
+          description: OK
+      summary: Lists the tenant's provider registrations
+      tags:
+      - PaymentProviderRegistrations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: "Stores the BYO signing secret in the tenant options store, creates\
+        \ + activates the registration, and reveals the one-time plaintext webhook\
+        \ key plus its fully-composed inbound URL."
+      operationId: CreateAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProviderWebhookRegistrationRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CreateProviderWebhookRegistrationRequest'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProviderWebhookRegistrationCreatedDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProviderWebhookRegistrationCreatedDtoEnvelope'
+          description: OK
+      summary: Provisions a provider webhook registration
+      tags:
+      - PaymentProviderRegistrations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PaymentsService/PaymentProviderRegistrations/Count:
+    get:
+      description: Gets the count of provider registrations for the current tenant
+        (OData sibling of the list).
+      operationId: GetCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentProviderRegistrationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentProviderRegistrationDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Counts the tenant's provider registrations
+      tags:
+      - PaymentProviderRegistrations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PaymentsService/PaymentProviderRegistrations/{registrationId}/RotateKey:
+    post:
+      description: "Mints a fresh webhook key (invalidating the previous one) and\
+        \ reveals it once, plus its composed URL."
+      operationId: RotateKeyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: registrationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProviderWebhookRegistrationCreatedDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProviderWebhookRegistrationCreatedDtoEnvelope'
+          description: OK
+      summary: Rotates a registration's webhook key
+      tags:
+      - PaymentProviderRegistrations
       x-accepts:
       - application/json
       - application/xml
@@ -1578,12 +1843,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1705,6 +1970,14 @@ paths:
           format: uuid
           type: string
         style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1745,6 +2018,7 @@ paths:
       summary: Retrieves all payments
       tags:
       - Payments
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1839,6 +2113,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentTermDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentTermDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -1870,6 +2152,7 @@ paths:
       summary: Retrieves all payment terms
       tags:
       - PaymentTerms
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1969,6 +2252,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentTermDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentTermDtoCollectionQueryParameters'
       responses:
         "200":
           content:
@@ -2000,6 +2291,7 @@ paths:
       summary: Counts payment terms
       tags:
       - PaymentTerms
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2179,12 +2471,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2326,12 +2618,42 @@ components:
       - expiresIn
       - refreshToken
       type: object
+    CreateProviderWebhookRegistrationRequest:
+      additionalProperties: false
+      example:
+        providerCode: providerCode
+        externalAccountId: externalAccountId
+        credentialMode: TenantManaged
+        webhookSigningSecret: webhookSigningSecret
+      properties:
+        providerCode:
+          nullable: true
+          type: string
+        externalAccountId:
+          nullable: true
+          type: string
+        webhookSigningSecret:
+          nullable: true
+          type: string
+        credentialMode:
+          enum:
+          - TenantManaged
+          - PlatformManaged
+          - ExternalReference
+          type: string
+      type: object
     EmptyEnvelope:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2348,6 +2670,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2357,8 +2694,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2375,6 +2718,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2453,10 +2811,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2473,6 +2837,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2505,30 +2884,18 @@ components:
       - email
       - password
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:
@@ -2839,16 +3206,16 @@ components:
         dataLabel: dataLabel
         emisorWalletId: emisorWalletId
         data1Label: data1Label
-        antiFraudScore: 5.637376656633329
+        antiFraudScore: 2.3021358869347655
         bankId: bankId
-        forexRate: 0.8008281904610115
+        forexRate: 6.027456183070403
         phone: phone
         bankAccountId: bankAccountId
         markedForRevision: true
         referenceCode: referenceCode
         callRecordURL: callRecordURL
         ipLookupId: ipLookupId
-        totalCost: 6.027456183070403
+        totalCost: 1.4658129805029452
         payerPictureTimestamp: payerPictureTimestamp
         officialId: officialId
         signature: signature
@@ -2866,8 +3233,8 @@ components:
         department: department
         paymentStatus: Unset
         timestamp: 2000-01-23T04:56:07.000+00:00
-        baseCost: 5.962133916683182
-        totalTaxes: 1.4658129805029452
+        baseCost: 5.637376656633329
+        totalTaxes: 5.962133916683182
         identificationBackPictureTimestamp: identificationBackPictureTimestamp
         receiverWalletId: receiverWalletId
         data1: data1
@@ -3079,6 +3446,48 @@ components:
           nullable: true
           type: string
       type: object
+    PaymentDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     PaymentDtoListEnvelope:
       additionalProperties: false
       example:
@@ -3102,16 +3511,16 @@ components:
           dataLabel: dataLabel
           emisorWalletId: emisorWalletId
           data1Label: data1Label
-          antiFraudScore: 5.637376656633329
+          antiFraudScore: 2.3021358869347655
           bankId: bankId
-          forexRate: 0.8008281904610115
+          forexRate: 6.027456183070403
           phone: phone
           bankAccountId: bankAccountId
           markedForRevision: true
           referenceCode: referenceCode
           callRecordURL: callRecordURL
           ipLookupId: ipLookupId
-          totalCost: 6.027456183070403
+          totalCost: 1.4658129805029452
           payerPictureTimestamp: payerPictureTimestamp
           officialId: officialId
           signature: signature
@@ -3129,8 +3538,8 @@ components:
           department: department
           paymentStatus: Unset
           timestamp: 2000-01-23T04:56:07.000+00:00
-          baseCost: 5.962133916683182
-          totalTaxes: 1.4658129805029452
+          baseCost: 5.637376656633329
+          totalTaxes: 5.962133916683182
           identificationBackPictureTimestamp: identificationBackPictureTimestamp
           receiverWalletId: receiverWalletId
           data1: data1
@@ -3163,16 +3572,16 @@ components:
           dataLabel: dataLabel
           emisorWalletId: emisorWalletId
           data1Label: data1Label
-          antiFraudScore: 5.637376656633329
+          antiFraudScore: 2.3021358869347655
           bankId: bankId
-          forexRate: 0.8008281904610115
+          forexRate: 6.027456183070403
           phone: phone
           bankAccountId: bankAccountId
           markedForRevision: true
           referenceCode: referenceCode
           callRecordURL: callRecordURL
           ipLookupId: ipLookupId
-          totalCost: 6.027456183070403
+          totalCost: 1.4658129805029452
           payerPictureTimestamp: payerPictureTimestamp
           officialId: officialId
           signature: signature
@@ -3190,8 +3599,8 @@ components:
           department: department
           paymentStatus: Unset
           timestamp: 2000-01-23T04:56:07.000+00:00
-          baseCost: 5.962133916683182
-          totalTaxes: 1.4658129805029452
+          baseCost: 5.637376656633329
+          totalTaxes: 5.962133916683182
           identificationBackPictureTimestamp: identificationBackPictureTimestamp
           receiverWalletId: receiverWalletId
           data1: data1
@@ -3206,8 +3615,14 @@ components:
           invoiceId: invoiceId
           billingAddress: billingAddress
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3224,6 +3639,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -3290,6 +3720,48 @@ components:
           nullable: true
           type: string
       type: object
+    PaymentMethodDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     PaymentMethodDtoEnvelope:
       additionalProperties: false
       example:
@@ -3301,8 +3773,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3319,6 +3797,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -3343,8 +3836,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3361,6 +3860,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -3452,6 +3966,48 @@ components:
           nullable: true
           type: string
       type: object
+    PaymentModeDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     PaymentModeDtoEnvelope:
       additionalProperties: false
       example:
@@ -3464,8 +4020,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3482,6 +4044,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -3508,8 +4085,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3526,6 +4109,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -3556,6 +4154,197 @@ components:
         paymentMeansCode:
           nullable: true
           type: string
+      type: object
+    PaymentProviderRegistrationDto:
+      additionalProperties: false
+      example:
+        lastModifiedUtc: 2000-01-23T04:56:07.000+00:00
+        enrollmentId: enrollmentId
+        providerCode: providerCode
+        externalAccountId: externalAccountId
+        credentialMode: TenantManaged
+        credentialSetReference: credentialSetReference
+        createdAtUtc: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
+        id: id
+        enabledCapabilities: None
+        hasCredential: true
+        status: Draft
+      properties:
+        id:
+          nullable: true
+          type: string
+        createdAtUtc:
+          format: date-time
+          type: string
+        lastModifiedUtc:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        providerCode:
+          nullable: true
+          type: string
+        credentialSetReference:
+          nullable: true
+          type: string
+        hasCredential:
+          type: boolean
+        credentialMode:
+          enum:
+          - TenantManaged
+          - PlatformManaged
+          - ExternalReference
+          type: string
+        externalAccountId:
+          nullable: true
+          type: string
+        enabledCapabilities:
+          enum:
+          - None
+          - Collection
+          - Authorization
+          - Capture
+          - Refund
+          - Void
+          - SplitPayment
+          - Transfer
+          - Payout
+          - RecipientOnboarding
+          - BalanceInquiry
+          type: string
+        status:
+          enum:
+          - Draft
+          - Active
+          - Disabled
+          - Suspended
+          type: string
+      type: object
+    PaymentProviderRegistrationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    PaymentProviderRegistrationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - lastModifiedUtc: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          providerCode: providerCode
+          externalAccountId: externalAccountId
+          credentialMode: TenantManaged
+          credentialSetReference: credentialSetReference
+          createdAtUtc: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          id: id
+          enabledCapabilities: None
+          hasCredential: true
+          status: Draft
+        - lastModifiedUtc: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          providerCode: providerCode
+          externalAccountId: externalAccountId
+          credentialMode: TenantManaged
+          credentialSetReference: credentialSetReference
+          createdAtUtc: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          id: id
+          enabledCapabilities: None
+          hasCredential: true
+          status: Draft
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PaymentProviderRegistrationDto'
+          nullable: true
+          type: array
       type: object
     PaymentTermCreateDto:
       additionalProperties: false
@@ -3617,13 +4406,13 @@ components:
       example:
         paymentModeId: paymentModeId
         enrollmentId: enrollmentId
-        creditDays: 6.027456183070403
+        creditDays: 1.4658129805029452
         description: description
-        creditYears: 5.637376656633329
-        creditMonths: 5.962133916683182
-        creditWeeks: 1.4658129805029452
+        creditYears: 2.3021358869347655
+        creditMonths: 5.637376656633329
+        creditWeeks: 5.962133916683182
         isTemplate: true
-        percentage: 0.8008281904610115
+        percentage: 6.027456183070403
         name: name
         tenantId: tenantId
         id: id
@@ -3669,26 +4458,74 @@ components:
           nullable: true
           type: string
       type: object
+    PaymentTermDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     PaymentTermDtoEnvelope:
       additionalProperties: false
       example:
         result:
           paymentModeId: paymentModeId
           enrollmentId: enrollmentId
-          creditDays: 6.027456183070403
+          creditDays: 1.4658129805029452
           description: description
-          creditYears: 5.637376656633329
-          creditMonths: 5.962133916683182
-          creditWeeks: 1.4658129805029452
+          creditYears: 2.3021358869347655
+          creditMonths: 5.637376656633329
+          creditWeeks: 5.962133916683182
           isTemplate: true
-          percentage: 0.8008281904610115
+          percentage: 6.027456183070403
           name: name
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3705,6 +4542,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -3718,33 +4570,39 @@ components:
         result:
         - paymentModeId: paymentModeId
           enrollmentId: enrollmentId
-          creditDays: 6.027456183070403
+          creditDays: 1.4658129805029452
           description: description
-          creditYears: 5.637376656633329
-          creditMonths: 5.962133916683182
-          creditWeeks: 1.4658129805029452
+          creditYears: 2.3021358869347655
+          creditMonths: 5.637376656633329
+          creditWeeks: 5.962133916683182
           isTemplate: true
-          percentage: 0.8008281904610115
+          percentage: 6.027456183070403
           name: name
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - paymentModeId: paymentModeId
           enrollmentId: enrollmentId
-          creditDays: 6.027456183070403
+          creditDays: 1.4658129805029452
           description: description
-          creditYears: 5.637376656633329
-          creditMonths: 5.962133916683182
-          creditWeeks: 1.4658129805029452
+          creditYears: 2.3021358869347655
+          creditMonths: 5.637376656633329
+          creditWeeks: 5.962133916683182
           isTemplate: true
-          percentage: 0.8008281904610115
+          percentage: 6.027456183070403
           name: name
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -3761,6 +4619,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -4094,6 +4967,91 @@ components:
           minLength: 0
           nullable: true
           type: string
+      type: object
+    ProviderWebhookRegistrationCreatedDto:
+      additionalProperties: false
+      example:
+        providerCode: providerCode
+        webhookRegistrationKey: webhookRegistrationKey
+        id: id
+        webhookUrl: webhookUrl
+        status: Draft
+      properties:
+        id:
+          nullable: true
+          type: string
+        providerCode:
+          nullable: true
+          type: string
+        status:
+          enum:
+          - Draft
+          - Active
+          - Disabled
+          - Suspended
+          type: string
+        webhookRegistrationKey:
+          nullable: true
+          type: string
+        webhookUrl:
+          nullable: true
+          type: string
+      type: object
+    ProviderWebhookRegistrationCreatedDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          providerCode: providerCode
+          webhookRegistrationKey: webhookRegistrationKey
+          id: id
+          webhookUrl: webhookUrl
+          status: Draft
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ProviderWebhookRegistrationCreatedDto'
       type: object
     RefreshRequest:
       additionalProperties: false

@@ -16,7 +16,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countTenantTaskCategoriesAsync"></a>
 # **countTenantTaskCategoriesAsync**
-> Int32Envelope countTenantTaskCategoriesAsync(tenantId)
+> Int32Envelope countTenantTaskCategoriesAsync(tenantId, taskCategoryDtoCollectionQueryParameters)
 
 Counts task categories
 
@@ -38,8 +38,9 @@ public class Example {
 
     TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters = new TaskCategoryDtoCollectionQueryParameters(); // TaskCategoryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countTenantTaskCategoriesAsync(tenantId);
+      Int32Envelope result = apiInstance.countTenantTaskCategoriesAsync(tenantId, taskCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaskCategoriesApi#countTenantTaskCategoriesAsync");
@@ -57,6 +58,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **taskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -68,7 +70,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -344,7 +346,7 @@ No authorization required
 
 <a id="getTenantTaskCategoriesAsync"></a>
 # **getTenantTaskCategoriesAsync**
-> TaskCategoryDtoListEnvelope getTenantTaskCategoriesAsync(tenantId)
+> TaskCategoryDtoListEnvelope getTenantTaskCategoriesAsync(tenantId, taskCategoryDtoCollectionQueryParameters)
 
 Retrieves all task categories
 
@@ -366,8 +368,9 @@ public class Example {
 
     TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    TaskCategoryDtoCollectionQueryParameters taskCategoryDtoCollectionQueryParameters = new TaskCategoryDtoCollectionQueryParameters(); // TaskCategoryDtoCollectionQueryParameters | 
     try {
-      TaskCategoryDtoListEnvelope result = apiInstance.getTenantTaskCategoriesAsync(tenantId);
+      TaskCategoryDtoListEnvelope result = apiInstance.getTenantTaskCategoriesAsync(tenantId, taskCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaskCategoriesApi#getTenantTaskCategoriesAsync");
@@ -385,6 +388,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **taskCategoryDtoCollectionQueryParameters** | [**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -396,7 +400,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -408,7 +412,7 @@ No authorization required
 
 <a id="patchTaskCategoryAsync"></a>
 # **patchTaskCategoryAsync**
-> EmptyEnvelope patchTaskCategoryAsync(taskCategoryId, tenantId, operation)
+> EmptyEnvelope patchTaskCategoryAsync(taskCategoryId, tenantId, patchOperation)
 
 Patches a task category
 
@@ -431,9 +435,9 @@ public class Example {
     TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
     UUID taskCategoryId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTaskCategoryAsync(taskCategoryId, tenantId, operation);
+      EmptyEnvelope result = apiInstance.patchTaskCategoryAsync(taskCategoryId, tenantId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaskCategoriesApi#patchTaskCategoryAsync");
@@ -452,7 +456,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **taskCategoryId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

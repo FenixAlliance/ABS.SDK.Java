@@ -218,7 +218,7 @@ No authorization required
 
 <a id="getCourseAssignmentComponentsAsync"></a>
 # **getCourseAssignmentComponentsAsync**
-> List&lt;CourseAssignmentComponentDto&gt; getCourseAssignmentComponentsAsync(tenantId, apiVersion, xApiVersion)
+> List&lt;CourseAssignmentComponentDto&gt; getCourseAssignmentComponentsAsync(tenantId, apiVersion, xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters)
 
 Get all course assignment components
 
@@ -242,8 +242,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseAssignmentComponentDtoCollectionQueryParameters courseAssignmentComponentDtoCollectionQueryParameters = new CourseAssignmentComponentDtoCollectionQueryParameters(); // CourseAssignmentComponentDtoCollectionQueryParameters | 
     try {
-      List<CourseAssignmentComponentDto> result = apiInstance.getCourseAssignmentComponentsAsync(tenantId, apiVersion, xApiVersion);
+      List<CourseAssignmentComponentDto> result = apiInstance.getCourseAssignmentComponentsAsync(tenantId, apiVersion, xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseAssignmentComponentsApi#getCourseAssignmentComponentsAsync");
@@ -263,6 +264,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseAssignmentComponentDtoCollectionQueryParameters** | [**CourseAssignmentComponentDtoCollectionQueryParameters**](CourseAssignmentComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -274,7 +276,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -285,7 +287,7 @@ No authorization required
 
 <a id="getCourseAssignmentComponentsCountAsync"></a>
 # **getCourseAssignmentComponentsCountAsync**
-> Integer getCourseAssignmentComponentsCountAsync(tenantId, apiVersion, xApiVersion)
+> Integer getCourseAssignmentComponentsCountAsync(tenantId, apiVersion, xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters)
 
 Get course assignment components count
 
@@ -309,8 +311,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseAssignmentComponentDtoCollectionQueryParameters courseAssignmentComponentDtoCollectionQueryParameters = new CourseAssignmentComponentDtoCollectionQueryParameters(); // CourseAssignmentComponentDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseAssignmentComponentsCountAsync(tenantId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseAssignmentComponentsCountAsync(tenantId, apiVersion, xApiVersion, courseAssignmentComponentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseAssignmentComponentsApi#getCourseAssignmentComponentsCountAsync");
@@ -330,6 +333,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseAssignmentComponentDtoCollectionQueryParameters** | [**CourseAssignmentComponentDtoCollectionQueryParameters**](CourseAssignmentComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -352,7 +356,7 @@ No authorization required
 
 <a id="patchCourseAssignmentComponentAsync"></a>
 # **patchCourseAssignmentComponentAsync**
-> EmptyEnvelope patchCourseAssignmentComponentAsync(tenantId, componentId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseAssignmentComponentAsync(tenantId, componentId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course assignment component
 
@@ -377,9 +381,9 @@ public class Example {
     String componentId = "componentId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCourseAssignmentComponentAsync(tenantId, componentId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCourseAssignmentComponentAsync(tenantId, componentId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseAssignmentComponentsApi#patchCourseAssignmentComponentAsync");
@@ -400,7 +404,7 @@ public class Example {
 | **componentId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

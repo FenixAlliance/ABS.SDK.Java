@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getFiscalYears"></a>
 # **getFiscalYears**
-> FiscalYearDtoListEnvelope getFiscalYears(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion)
+> FiscalYearDtoListEnvelope getFiscalYears(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters)
 
 Get fiscal years for an authority
 
@@ -253,8 +253,9 @@ public class Example {
     String authorityId = "authorityId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters = new FiscalYearDtoCollectionQueryParameters(); // FiscalYearDtoCollectionQueryParameters | 
     try {
-      FiscalYearDtoListEnvelope result = apiInstance.getFiscalYears(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
+      FiscalYearDtoListEnvelope result = apiInstance.getFiscalYears(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalAuthorityYearsApi#getFiscalYears");
@@ -276,6 +277,7 @@ public class Example {
 | **authorityId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalYearDtoCollectionQueryParameters** | [**FiscalYearDtoCollectionQueryParameters**](FiscalYearDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -287,7 +289,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -299,7 +301,7 @@ No authorization required
 
 <a id="getFiscalYearsCount"></a>
 # **getFiscalYearsCount**
-> Int32Envelope getFiscalYearsCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalYearsCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters)
 
 Get fiscal years count for an authority
 
@@ -324,8 +326,9 @@ public class Example {
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters = new FiscalYearDtoCollectionQueryParameters(); // FiscalYearDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getFiscalYearsCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFiscalYearsCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalAuthorityYearsApi#getFiscalYearsCount");
@@ -346,6 +349,7 @@ public class Example {
 | **fiscalAuthorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalYearDtoCollectionQueryParameters** | [**FiscalYearDtoCollectionQueryParameters**](FiscalYearDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -357,7 +361,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -369,7 +373,7 @@ No authorization required
 
 <a id="patchFiscalAuthorityYearAsync"></a>
 # **patchFiscalAuthorityYearAsync**
-> EmptyEnvelope patchFiscalAuthorityYearAsync(tenantId, fiscalYearId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalAuthorityYearAsync(tenantId, fiscalYearId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal authority year
 
@@ -394,9 +398,9 @@ public class Example {
     UUID fiscalYearId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchFiscalAuthorityYearAsync(tenantId, fiscalYearId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchFiscalAuthorityYearAsync(tenantId, fiscalYearId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalAuthorityYearsApi#patchFiscalAuthorityYearAsync");
@@ -417,7 +421,7 @@ public class Example {
 | **fiscalYearId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

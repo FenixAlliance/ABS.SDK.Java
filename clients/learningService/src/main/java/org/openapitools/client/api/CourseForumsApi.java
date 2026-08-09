@@ -29,9 +29,10 @@ import java.io.IOException;
 
 import org.openapitools.client.model.CourseForumCreateDto;
 import org.openapitools.client.model.CourseForumDto;
+import org.openapitools.client.model.CourseForumDtoCollectionQueryParameters;
 import org.openapitools.client.model.CourseForumUpdateDto;
 import org.openapitools.client.model.ErrorEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -532,6 +533,7 @@ public class CourseForumsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseForumDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -542,7 +544,7 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCourseForumsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCourseForumsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -556,7 +558,7 @@ public class CourseForumsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = courseForumDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/CourseForums";
@@ -589,6 +591,8 @@ public class CourseForumsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -600,13 +604,13 @@ public class CourseForumsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCourseForumsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCourseForumsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCourseForumsAsync(Async)");
         }
 
-        return getCourseForumsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getCourseForumsAsyncCall(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -616,6 +620,7 @@ public class CourseForumsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseForumDtoCollectionQueryParameters  (optional)
      * @return List&lt;CourseForumDto&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -625,8 +630,8 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public List<CourseForumDto> getCourseForumsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<List<CourseForumDto>> localVarResp = getCourseForumsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public List<CourseForumDto> getCourseForumsAsync(UUID tenantId, String apiVersion, String xApiVersion, CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<List<CourseForumDto>> localVarResp = getCourseForumsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -636,6 +641,7 @@ public class CourseForumsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseForumDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;List&lt;CourseForumDto&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -645,8 +651,8 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CourseForumDto>> getCourseForumsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCourseForumsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<List<CourseForumDto>> getCourseForumsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCourseForumsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<List<CourseForumDto>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -657,6 +663,7 @@ public class CourseForumsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseForumDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -667,9 +674,9 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCourseForumsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<List<CourseForumDto>> _callback) throws ApiException {
+    public okhttp3.Call getCourseForumsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters, final ApiCallback<List<CourseForumDto>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCourseForumsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCourseForumsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<List<CourseForumDto>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -679,6 +686,7 @@ public class CourseForumsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseForumDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -689,7 +697,7 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCourseForumsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCourseForumsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -703,7 +711,7 @@ public class CourseForumsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = courseForumDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/CourseForums/Count";
@@ -736,6 +744,8 @@ public class CourseForumsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -747,13 +757,13 @@ public class CourseForumsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCourseForumsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCourseForumsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCourseForumsCountAsync(Async)");
         }
 
-        return getCourseForumsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getCourseForumsCountAsyncCall(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -763,6 +773,7 @@ public class CourseForumsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseForumDtoCollectionQueryParameters  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -772,8 +783,8 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Integer getCourseForumsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Integer> localVarResp = getCourseForumsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Integer getCourseForumsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Integer> localVarResp = getCourseForumsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -783,6 +794,7 @@ public class CourseForumsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseForumDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -792,8 +804,8 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> getCourseForumsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCourseForumsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Integer> getCourseForumsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCourseForumsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -804,6 +816,7 @@ public class CourseForumsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param courseForumDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -814,9 +827,9 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCourseForumsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call getCourseForumsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCourseForumsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCourseForumsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -827,7 +840,7 @@ public class CourseForumsApi {
      * @param forumId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -838,7 +851,7 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCourseForumAsyncCall(UUID tenantId, String forumId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchCourseForumAsyncCall(UUID tenantId, String forumId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -852,7 +865,7 @@ public class CourseForumsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/CourseForums/{forumId}"
@@ -899,7 +912,7 @@ public class CourseForumsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchCourseForumAsyncValidateBeforeCall(UUID tenantId, String forumId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchCourseForumAsyncValidateBeforeCall(UUID tenantId, String forumId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchCourseForumAsync(Async)");
@@ -910,7 +923,7 @@ public class CourseForumsApi {
             throw new ApiException("Missing the required parameter 'forumId' when calling patchCourseForumAsync(Async)");
         }
 
-        return patchCourseForumAsyncCall(tenantId, forumId, apiVersion, xApiVersion, operation, _callback);
+        return patchCourseForumAsyncCall(tenantId, forumId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -921,7 +934,7 @@ public class CourseForumsApi {
      * @param forumId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -930,8 +943,8 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public void patchCourseForumAsync(UUID tenantId, String forumId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        patchCourseForumAsyncWithHttpInfo(tenantId, forumId, apiVersion, xApiVersion, operation);
+    public void patchCourseForumAsync(UUID tenantId, String forumId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        patchCourseForumAsyncWithHttpInfo(tenantId, forumId, apiVersion, xApiVersion, patchOperation);
     }
 
     /**
@@ -941,7 +954,7 @@ public class CourseForumsApi {
      * @param forumId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -951,8 +964,8 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> patchCourseForumAsyncWithHttpInfo(UUID tenantId, String forumId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchCourseForumAsyncValidateBeforeCall(tenantId, forumId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<Void> patchCourseForumAsyncWithHttpInfo(UUID tenantId, String forumId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchCourseForumAsyncValidateBeforeCall(tenantId, forumId, apiVersion, xApiVersion, patchOperation, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -963,7 +976,7 @@ public class CourseForumsApi {
      * @param forumId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -974,9 +987,9 @@ public class CourseForumsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCourseForumAsyncAsync(UUID tenantId, String forumId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call patchCourseForumAsyncAsync(UUID tenantId, String forumId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchCourseForumAsyncValidateBeforeCall(tenantId, forumId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchCourseForumAsyncValidateBeforeCall(tenantId, forumId, apiVersion, xApiVersion, patchOperation, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

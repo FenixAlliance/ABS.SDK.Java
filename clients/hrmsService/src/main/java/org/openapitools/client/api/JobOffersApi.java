@@ -31,10 +31,11 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.JobOfferCreateDto;
+import org.openapitools.client.model.JobOfferDtoCollectionQueryParameters;
 import org.openapitools.client.model.JobOfferDtoEnvelope;
 import org.openapitools.client.model.JobOfferDtoListEnvelope;
 import org.openapitools.client.model.JobOfferUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -894,6 +895,7 @@ public class JobOffersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -905,7 +907,7 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getJobOffersAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getJobOffersAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -919,7 +921,7 @@ public class JobOffersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = jobOfferDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/JobOffers";
@@ -952,6 +954,8 @@ public class JobOffersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -963,13 +967,13 @@ public class JobOffersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getJobOffersAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getJobOffersAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getJobOffersAsync(Async)");
         }
 
-        return getJobOffersAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getJobOffersAsyncCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -979,6 +983,7 @@ public class JobOffersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @return JobOfferDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -989,8 +994,8 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public JobOfferDtoListEnvelope getJobOffersAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<JobOfferDtoListEnvelope> localVarResp = getJobOffersAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public JobOfferDtoListEnvelope getJobOffersAsync(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<JobOfferDtoListEnvelope> localVarResp = getJobOffersAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1000,6 +1005,7 @@ public class JobOffersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;JobOfferDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1010,8 +1016,8 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<JobOfferDtoListEnvelope> getJobOffersAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getJobOffersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<JobOfferDtoListEnvelope> getJobOffersAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getJobOffersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<JobOfferDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1022,6 +1028,7 @@ public class JobOffersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1033,9 +1040,9 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getJobOffersAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<JobOfferDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getJobOffersAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback<JobOfferDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getJobOffersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getJobOffersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<JobOfferDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1045,6 +1052,7 @@ public class JobOffersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1056,7 +1064,7 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getJobOffersCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getJobOffersCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1070,7 +1078,7 @@ public class JobOffersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = jobOfferDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/JobOffers/Count";
@@ -1103,6 +1111,8 @@ public class JobOffersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1114,13 +1124,13 @@ public class JobOffersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getJobOffersCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getJobOffersCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getJobOffersCountAsync(Async)");
         }
 
-        return getJobOffersCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getJobOffersCountAsyncCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1130,6 +1140,7 @@ public class JobOffersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1140,8 +1151,8 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getJobOffersCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getJobOffersCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getJobOffersCountAsync(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getJobOffersCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1151,6 +1162,7 @@ public class JobOffersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1161,8 +1173,8 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getJobOffersCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getJobOffersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getJobOffersCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getJobOffersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1173,6 +1185,7 @@ public class JobOffersApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1184,9 +1197,9 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getJobOffersCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getJobOffersCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getJobOffersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getJobOffersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1348,6 +1361,7 @@ public class JobOffersApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1358,7 +1372,7 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPublicJobOffersAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPublicJobOffersAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1372,7 +1386,7 @@ public class JobOffersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = jobOfferDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/JobOffers/Public";
@@ -1405,6 +1419,8 @@ public class JobOffersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1416,8 +1432,8 @@ public class JobOffersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPublicJobOffersAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getPublicJobOffersAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getPublicJobOffersAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getPublicJobOffersAsyncCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1427,6 +1443,7 @@ public class JobOffersApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @return JobOfferDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1436,8 +1453,8 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public JobOfferDtoListEnvelope getPublicJobOffersAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<JobOfferDtoListEnvelope> localVarResp = getPublicJobOffersAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public JobOfferDtoListEnvelope getPublicJobOffersAsync(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<JobOfferDtoListEnvelope> localVarResp = getPublicJobOffersAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1447,6 +1464,7 @@ public class JobOffersApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;JobOfferDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1456,8 +1474,8 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<JobOfferDtoListEnvelope> getPublicJobOffersAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getPublicJobOffersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<JobOfferDtoListEnvelope> getPublicJobOffersAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPublicJobOffersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<JobOfferDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1468,6 +1486,7 @@ public class JobOffersApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1478,9 +1497,9 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPublicJobOffersAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<JobOfferDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getPublicJobOffersAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback<JobOfferDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPublicJobOffersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getPublicJobOffersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<JobOfferDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1490,6 +1509,7 @@ public class JobOffersApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1500,7 +1520,7 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPublicJobOffersCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPublicJobOffersCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1514,7 +1534,7 @@ public class JobOffersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = jobOfferDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/JobOffers/Public/Count";
@@ -1547,6 +1567,8 @@ public class JobOffersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1558,8 +1580,8 @@ public class JobOffersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPublicJobOffersCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getPublicJobOffersCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getPublicJobOffersCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getPublicJobOffersCountAsyncCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1569,6 +1591,7 @@ public class JobOffersApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1578,8 +1601,8 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getPublicJobOffersCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getPublicJobOffersCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getPublicJobOffersCountAsync(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getPublicJobOffersCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1589,6 +1612,7 @@ public class JobOffersApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1598,8 +1622,8 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getPublicJobOffersCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getPublicJobOffersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getPublicJobOffersCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPublicJobOffersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1610,6 +1634,7 @@ public class JobOffersApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param jobOfferDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1620,9 +1645,9 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPublicJobOffersCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getPublicJobOffersCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, JobOfferDtoCollectionQueryParameters jobOfferDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPublicJobOffersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getPublicJobOffersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, jobOfferDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1633,7 +1658,7 @@ public class JobOffersApi {
      * @param jobOfferId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1646,7 +1671,7 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchJobOfferAsyncCall(UUID tenantId, UUID jobOfferId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchJobOfferAsyncCall(UUID tenantId, UUID jobOfferId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1660,7 +1685,7 @@ public class JobOffersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/JobOffers/{jobOfferId}"
@@ -1707,7 +1732,7 @@ public class JobOffersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchJobOfferAsyncValidateBeforeCall(UUID tenantId, UUID jobOfferId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchJobOfferAsyncValidateBeforeCall(UUID tenantId, UUID jobOfferId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchJobOfferAsync(Async)");
@@ -1718,7 +1743,7 @@ public class JobOffersApi {
             throw new ApiException("Missing the required parameter 'jobOfferId' when calling patchJobOfferAsync(Async)");
         }
 
-        return patchJobOfferAsyncCall(tenantId, jobOfferId, apiVersion, xApiVersion, operation, _callback);
+        return patchJobOfferAsyncCall(tenantId, jobOfferId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1729,7 +1754,7 @@ public class JobOffersApi {
      * @param jobOfferId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1741,8 +1766,8 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchJobOfferAsync(UUID tenantId, UUID jobOfferId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchJobOfferAsyncWithHttpInfo(tenantId, jobOfferId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchJobOfferAsync(UUID tenantId, UUID jobOfferId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchJobOfferAsyncWithHttpInfo(tenantId, jobOfferId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1753,7 +1778,7 @@ public class JobOffersApi {
      * @param jobOfferId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1765,8 +1790,8 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchJobOfferAsyncWithHttpInfo(UUID tenantId, UUID jobOfferId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchJobOfferAsyncValidateBeforeCall(tenantId, jobOfferId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchJobOfferAsyncWithHttpInfo(UUID tenantId, UUID jobOfferId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchJobOfferAsyncValidateBeforeCall(tenantId, jobOfferId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1778,7 +1803,7 @@ public class JobOffersApi {
      * @param jobOfferId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1791,9 +1816,9 @@ public class JobOffersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchJobOfferAsyncAsync(UUID tenantId, UUID jobOfferId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchJobOfferAsyncAsync(UUID tenantId, UUID jobOfferId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchJobOfferAsyncValidateBeforeCall(tenantId, jobOfferId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchJobOfferAsyncValidateBeforeCall(tenantId, jobOfferId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

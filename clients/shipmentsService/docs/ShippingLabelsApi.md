@@ -220,7 +220,7 @@ No authorization required
 
 <a id="getShippingLabelsAsync"></a>
 # **getShippingLabelsAsync**
-> ShippingLabelDtoListEnvelope getShippingLabelsAsync(tenantId, apiVersion, xApiVersion)
+> ShippingLabelDtoListEnvelope getShippingLabelsAsync(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters)
 
 Get all shipping labels
 
@@ -244,8 +244,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters = new ShippingLabelDtoCollectionQueryParameters(); // ShippingLabelDtoCollectionQueryParameters | 
     try {
-      ShippingLabelDtoListEnvelope result = apiInstance.getShippingLabelsAsync(tenantId, apiVersion, xApiVersion);
+      ShippingLabelDtoListEnvelope result = apiInstance.getShippingLabelsAsync(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingLabelsApi#getShippingLabelsAsync");
@@ -265,6 +266,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shippingLabelDtoCollectionQueryParameters** | [**ShippingLabelDtoCollectionQueryParameters**](ShippingLabelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -276,7 +278,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -288,7 +290,7 @@ No authorization required
 
 <a id="getShippingLabelsCountAsync"></a>
 # **getShippingLabelsCountAsync**
-> Int32Envelope getShippingLabelsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShippingLabelsCountAsync(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters)
 
 Get shipping labels count
 
@@ -312,8 +314,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShippingLabelDtoCollectionQueryParameters shippingLabelDtoCollectionQueryParameters = new ShippingLabelDtoCollectionQueryParameters(); // ShippingLabelDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getShippingLabelsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getShippingLabelsCountAsync(tenantId, apiVersion, xApiVersion, shippingLabelDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingLabelsApi#getShippingLabelsCountAsync");
@@ -333,6 +336,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shippingLabelDtoCollectionQueryParameters** | [**ShippingLabelDtoCollectionQueryParameters**](ShippingLabelDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -344,7 +348,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -354,7 +358,7 @@ No authorization required
 
 <a id="patchShippingLabelAsync"></a>
 # **patchShippingLabelAsync**
-> EmptyEnvelope patchShippingLabelAsync(tenantId, labelId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShippingLabelAsync(tenantId, labelId, apiVersion, xApiVersion, patchOperation)
 
 Patch a shipping label
 
@@ -379,9 +383,9 @@ public class Example {
     UUID labelId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchShippingLabelAsync(tenantId, labelId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchShippingLabelAsync(tenantId, labelId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShippingLabelsApi#patchShippingLabelAsync");
@@ -402,7 +406,7 @@ public class Example {
 | **labelId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

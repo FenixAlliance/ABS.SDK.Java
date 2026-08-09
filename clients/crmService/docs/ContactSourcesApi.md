@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getContactSourcesAsync"></a>
 # **getContactSourcesAsync**
-> ContactSourceDtoListEnvelope getContactSourcesAsync(tenantId, apiVersion, xApiVersion)
+> ContactSourceDtoListEnvelope getContactSourcesAsync(tenantId, apiVersion, xApiVersion, contactSourceDtoCollectionQueryParameters)
 
 Get all contact sources
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactSourceDtoCollectionQueryParameters contactSourceDtoCollectionQueryParameters = new ContactSourceDtoCollectionQueryParameters(); // ContactSourceDtoCollectionQueryParameters | 
     try {
-      ContactSourceDtoListEnvelope result = apiInstance.getContactSourcesAsync(tenantId, apiVersion, xApiVersion);
+      ContactSourceDtoListEnvelope result = apiInstance.getContactSourcesAsync(tenantId, apiVersion, xApiVersion, contactSourceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactSourcesApi#getContactSourcesAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactSourceDtoCollectionQueryParameters** | [**ContactSourceDtoCollectionQueryParameters**](ContactSourceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getContactSourcesCountAsync"></a>
 # **getContactSourcesCountAsync**
-> Int32Envelope getContactSourcesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getContactSourcesCountAsync(tenantId, apiVersion, xApiVersion, contactSourceDtoCollectionQueryParameters)
 
 Get contact sources count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactSourceDtoCollectionQueryParameters contactSourceDtoCollectionQueryParameters = new ContactSourceDtoCollectionQueryParameters(); // ContactSourceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getContactSourcesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getContactSourcesCountAsync(tenantId, apiVersion, xApiVersion, contactSourceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactSourcesApi#getContactSourcesCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactSourceDtoCollectionQueryParameters** | [**ContactSourceDtoCollectionQueryParameters**](ContactSourceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchContactSourceAsync"></a>
 # **patchContactSourceAsync**
-> EmptyEnvelope patchContactSourceAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactSourceAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact source
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchContactSourceAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchContactSourceAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactSourcesApi#patchContactSourceAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

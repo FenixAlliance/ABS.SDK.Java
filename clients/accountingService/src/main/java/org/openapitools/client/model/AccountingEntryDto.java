@@ -51,11 +51,15 @@ import org.openapitools.client.JSON;
 /**
  * AccountingEntryDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:25:56.899133-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AccountingEntryDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+  @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+  private OffsetDateTime timestamp;
 
   public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
@@ -181,10 +185,6 @@ public class AccountingEntryDto {
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
   private String projectId;
 
-  public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-  @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-  private OffsetDateTime timestamp;
-
   public static final String SERIALIZED_NAME_DEBIT = "debit";
   @SerializedName(SERIALIZED_NAME_DEBIT)
   private Double debit;
@@ -229,6 +229,25 @@ public class AccountingEntryDto {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public AccountingEntryDto timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * Get timestamp
+   * @return timestamp
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
   }
 
 
@@ -574,25 +593,6 @@ public class AccountingEntryDto {
   }
 
 
-  public AccountingEntryDto timestamp(OffsetDateTime timestamp) {
-    this.timestamp = timestamp;
-    return this;
-  }
-
-  /**
-   * Get timestamp
-   * @return timestamp
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getTimestamp() {
-    return timestamp;
-  }
-
-  public void setTimestamp(OffsetDateTime timestamp) {
-    this.timestamp = timestamp;
-  }
-
-
   /**
    * Get debit
    * @return debit
@@ -664,6 +664,7 @@ public class AccountingEntryDto {
     }
     AccountingEntryDto accountingEntryDto = (AccountingEntryDto) o;
     return Objects.equals(this.id, accountingEntryDto.id) &&
+        Objects.equals(this.timestamp, accountingEntryDto.timestamp) &&
         Objects.equals(this.tenantId, accountingEntryDto.tenantId) &&
         Objects.equals(this.enrollmentId, accountingEntryDto.enrollmentId) &&
         Objects.equals(this.journalEntryId, accountingEntryDto.journalEntryId) &&
@@ -682,7 +683,6 @@ public class AccountingEntryDto {
         Objects.equals(this.forexRatesSnapshot, accountingEntryDto.forexRatesSnapshot) &&
         Objects.equals(this.costCentreId, accountingEntryDto.costCentreId) &&
         Objects.equals(this.projectId, accountingEntryDto.projectId) &&
-        Objects.equals(this.timestamp, accountingEntryDto.timestamp) &&
         Objects.equals(this.debit, accountingEntryDto.debit) &&
         Objects.equals(this.credit, accountingEntryDto.credit) &&
         Objects.equals(this.amount, accountingEntryDto.amount) &&
@@ -695,7 +695,7 @@ public class AccountingEntryDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, enrollmentId, journalEntryId, accountId, accountName, direction, description, transactionAmount, transactionCurrencyId, functionalAmount, functionalCurrencyId, accountAmount, accountCurrencyId, reportingAmountInUsd, forexRate, forexRatesSnapshot, costCentreId, projectId, timestamp, debit, credit, amount, amountInUsd);
+    return Objects.hash(id, timestamp, tenantId, enrollmentId, journalEntryId, accountId, accountName, direction, description, transactionAmount, transactionCurrencyId, functionalAmount, functionalCurrencyId, accountAmount, accountCurrencyId, reportingAmountInUsd, forexRate, forexRatesSnapshot, costCentreId, projectId, debit, credit, amount, amountInUsd);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -710,6 +710,7 @@ public class AccountingEntryDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountingEntryDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    journalEntryId: ").append(toIndentedString(journalEntryId)).append("\n");
@@ -728,7 +729,6 @@ public class AccountingEntryDto {
     sb.append("    forexRatesSnapshot: ").append(toIndentedString(forexRatesSnapshot)).append("\n");
     sb.append("    costCentreId: ").append(toIndentedString(costCentreId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    debit: ").append(toIndentedString(debit)).append("\n");
     sb.append("    credit: ").append(toIndentedString(credit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
@@ -756,6 +756,7 @@ public class AccountingEntryDto {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("timestamp");
     openapiFields.add("tenantId");
     openapiFields.add("enrollmentId");
     openapiFields.add("journalEntryId");
@@ -774,7 +775,6 @@ public class AccountingEntryDto {
     openapiFields.add("forexRatesSnapshot");
     openapiFields.add("costCentreId");
     openapiFields.add("projectId");
-    openapiFields.add("timestamp");
     openapiFields.add("debit");
     openapiFields.add("credit");
     openapiFields.add("amount");

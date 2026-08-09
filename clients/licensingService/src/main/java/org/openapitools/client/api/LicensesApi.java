@@ -31,6 +31,7 @@ import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.LicenseCreateDto;
 import org.openapitools.client.model.LicenseDto;
+import org.openapitools.client.model.LicenseDtoCollectionQueryParameters;
 import org.openapitools.client.model.LicenseDtoListEnvelope;
 import org.openapitools.client.model.LicenseUpdateDto;
 import java.util.UUID;
@@ -554,6 +555,7 @@ public class LicensesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -564,7 +566,7 @@ public class LicensesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLicensesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLicensesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -578,7 +580,7 @@ public class LicensesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = licenseDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LicensingService/Licenses";
@@ -611,6 +613,8 @@ public class LicensesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -622,13 +626,13 @@ public class LicensesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLicensesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLicensesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLicensesAsync(Async)");
         }
 
-        return getLicensesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLicensesAsyncCall(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -638,6 +642,7 @@ public class LicensesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseDtoCollectionQueryParameters  (optional)
      * @return LicenseDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -647,8 +652,8 @@ public class LicensesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public LicenseDtoListEnvelope getLicensesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LicenseDtoListEnvelope> localVarResp = getLicensesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public LicenseDtoListEnvelope getLicensesAsync(UUID tenantId, String apiVersion, String xApiVersion, LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LicenseDtoListEnvelope> localVarResp = getLicensesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -658,6 +663,7 @@ public class LicensesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LicenseDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -667,8 +673,8 @@ public class LicensesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LicenseDtoListEnvelope> getLicensesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLicensesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<LicenseDtoListEnvelope> getLicensesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLicensesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LicenseDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -679,6 +685,7 @@ public class LicensesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -689,9 +696,9 @@ public class LicensesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLicensesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<LicenseDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLicensesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters, final ApiCallback<LicenseDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLicensesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLicensesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LicenseDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -701,6 +708,7 @@ public class LicensesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -711,7 +719,7 @@ public class LicensesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLicensesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLicensesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -725,7 +733,7 @@ public class LicensesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = licenseDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LicensingService/Licenses/Count";
@@ -758,6 +766,8 @@ public class LicensesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -769,13 +779,13 @@ public class LicensesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLicensesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLicensesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLicensesCountAsync(Async)");
         }
 
-        return getLicensesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLicensesCountAsyncCall(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -785,6 +795,7 @@ public class LicensesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -794,8 +805,8 @@ public class LicensesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getLicensesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getLicensesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getLicensesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getLicensesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -805,6 +816,7 @@ public class LicensesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -814,8 +826,8 @@ public class LicensesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getLicensesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLicensesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getLicensesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLicensesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -826,6 +838,7 @@ public class LicensesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param licenseDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -836,9 +849,9 @@ public class LicensesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLicensesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getLicensesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LicenseDtoCollectionQueryParameters licenseDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLicensesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLicensesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, licenseDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

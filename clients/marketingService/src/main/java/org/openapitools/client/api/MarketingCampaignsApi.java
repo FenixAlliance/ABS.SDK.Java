@@ -31,9 +31,10 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.MarketingCampaignCreateDto;
+import org.openapitools.client.model.MarketingCampaignDtoCollectionQueryParameters;
 import org.openapitools.client.model.MarketingCampaignDtoEnvelope;
 import org.openapitools.client.model.MarketingCampaignUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -580,6 +581,7 @@ public class MarketingCampaignsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingCampaignDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -591,7 +593,7 @@ public class MarketingCampaignsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMarketingCampaignODataAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMarketingCampaignODataAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, MarketingCampaignDtoCollectionQueryParameters marketingCampaignDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -605,7 +607,7 @@ public class MarketingCampaignsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = marketingCampaignDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/MarketingService/MarketingCampaigns";
@@ -638,6 +640,8 @@ public class MarketingCampaignsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -649,13 +653,13 @@ public class MarketingCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMarketingCampaignODataAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMarketingCampaignODataAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, MarketingCampaignDtoCollectionQueryParameters marketingCampaignDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getMarketingCampaignODataAsync(Async)");
         }
 
-        return getMarketingCampaignODataAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getMarketingCampaignODataAsyncCall(tenantId, apiVersion, xApiVersion, marketingCampaignDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -665,6 +669,7 @@ public class MarketingCampaignsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingCampaignDtoCollectionQueryParameters  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -674,8 +679,8 @@ public class MarketingCampaignsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public void getMarketingCampaignODataAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        getMarketingCampaignODataAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public void getMarketingCampaignODataAsync(UUID tenantId, String apiVersion, String xApiVersion, MarketingCampaignDtoCollectionQueryParameters marketingCampaignDtoCollectionQueryParameters) throws ApiException {
+        getMarketingCampaignODataAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, marketingCampaignDtoCollectionQueryParameters);
     }
 
     /**
@@ -684,6 +689,7 @@ public class MarketingCampaignsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingCampaignDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -694,8 +700,8 @@ public class MarketingCampaignsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getMarketingCampaignODataAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMarketingCampaignODataAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Void> getMarketingCampaignODataAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, MarketingCampaignDtoCollectionQueryParameters marketingCampaignDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMarketingCampaignODataAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, marketingCampaignDtoCollectionQueryParameters, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -705,6 +711,7 @@ public class MarketingCampaignsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingCampaignDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -716,9 +723,9 @@ public class MarketingCampaignsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMarketingCampaignODataAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getMarketingCampaignODataAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, MarketingCampaignDtoCollectionQueryParameters marketingCampaignDtoCollectionQueryParameters, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMarketingCampaignODataAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMarketingCampaignODataAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, marketingCampaignDtoCollectionQueryParameters, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -727,6 +734,7 @@ public class MarketingCampaignsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingCampaignDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -739,7 +747,7 @@ public class MarketingCampaignsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMarketingCampaignsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMarketingCampaignsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, MarketingCampaignDtoCollectionQueryParameters marketingCampaignDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -753,7 +761,7 @@ public class MarketingCampaignsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = marketingCampaignDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/MarketingService/MarketingCampaigns/Count";
@@ -786,6 +794,8 @@ public class MarketingCampaignsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -797,13 +807,13 @@ public class MarketingCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMarketingCampaignsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMarketingCampaignsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, MarketingCampaignDtoCollectionQueryParameters marketingCampaignDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getMarketingCampaignsCountAsync(Async)");
         }
 
-        return getMarketingCampaignsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getMarketingCampaignsCountAsyncCall(tenantId, apiVersion, xApiVersion, marketingCampaignDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -813,6 +823,7 @@ public class MarketingCampaignsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingCampaignDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -824,8 +835,8 @@ public class MarketingCampaignsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getMarketingCampaignsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getMarketingCampaignsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getMarketingCampaignsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, MarketingCampaignDtoCollectionQueryParameters marketingCampaignDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getMarketingCampaignsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, marketingCampaignDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -835,6 +846,7 @@ public class MarketingCampaignsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingCampaignDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -846,8 +858,8 @@ public class MarketingCampaignsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getMarketingCampaignsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMarketingCampaignsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getMarketingCampaignsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, MarketingCampaignDtoCollectionQueryParameters marketingCampaignDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMarketingCampaignsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, marketingCampaignDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -858,6 +870,7 @@ public class MarketingCampaignsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param marketingCampaignDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -870,9 +883,9 @@ public class MarketingCampaignsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMarketingCampaignsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getMarketingCampaignsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, MarketingCampaignDtoCollectionQueryParameters marketingCampaignDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMarketingCampaignsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMarketingCampaignsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, marketingCampaignDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -883,7 +896,7 @@ public class MarketingCampaignsApi {
      * @param marketingcampaignId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -895,7 +908,7 @@ public class MarketingCampaignsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchMarketingCampaignAsyncCall(UUID tenantId, UUID marketingcampaignId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchMarketingCampaignAsyncCall(UUID tenantId, UUID marketingcampaignId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -909,7 +922,7 @@ public class MarketingCampaignsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId}"
@@ -956,7 +969,7 @@ public class MarketingCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchMarketingCampaignAsyncValidateBeforeCall(UUID tenantId, UUID marketingcampaignId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchMarketingCampaignAsyncValidateBeforeCall(UUID tenantId, UUID marketingcampaignId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchMarketingCampaignAsync(Async)");
@@ -967,7 +980,7 @@ public class MarketingCampaignsApi {
             throw new ApiException("Missing the required parameter 'marketingcampaignId' when calling patchMarketingCampaignAsync(Async)");
         }
 
-        return patchMarketingCampaignAsyncCall(tenantId, marketingcampaignId, apiVersion, xApiVersion, operation, _callback);
+        return patchMarketingCampaignAsyncCall(tenantId, marketingcampaignId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -978,7 +991,7 @@ public class MarketingCampaignsApi {
      * @param marketingcampaignId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -989,8 +1002,8 @@ public class MarketingCampaignsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchMarketingCampaignAsync(UUID tenantId, UUID marketingcampaignId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchMarketingCampaignAsyncWithHttpInfo(tenantId, marketingcampaignId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchMarketingCampaignAsync(UUID tenantId, UUID marketingcampaignId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchMarketingCampaignAsyncWithHttpInfo(tenantId, marketingcampaignId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1001,7 +1014,7 @@ public class MarketingCampaignsApi {
      * @param marketingcampaignId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1012,8 +1025,8 @@ public class MarketingCampaignsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchMarketingCampaignAsyncWithHttpInfo(UUID tenantId, UUID marketingcampaignId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchMarketingCampaignAsyncValidateBeforeCall(tenantId, marketingcampaignId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchMarketingCampaignAsyncWithHttpInfo(UUID tenantId, UUID marketingcampaignId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchMarketingCampaignAsyncValidateBeforeCall(tenantId, marketingcampaignId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1025,7 +1038,7 @@ public class MarketingCampaignsApi {
      * @param marketingcampaignId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1037,9 +1050,9 @@ public class MarketingCampaignsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchMarketingCampaignAsyncAsync(UUID tenantId, UUID marketingcampaignId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchMarketingCampaignAsyncAsync(UUID tenantId, UUID marketingcampaignId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchMarketingCampaignAsyncValidateBeforeCall(tenantId, marketingcampaignId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchMarketingCampaignAsyncValidateBeforeCall(tenantId, marketingcampaignId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

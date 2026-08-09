@@ -31,14 +31,16 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.ItemPackingSlipCreateDto;
+import org.openapitools.client.model.ItemPackingSlipDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemPackingSlipDtoEnvelope;
 import org.openapitools.client.model.ItemPackingSlipDtoListEnvelope;
 import org.openapitools.client.model.ItemPackingSlipEntryCreateDto;
+import org.openapitools.client.model.ItemPackingSlipEntryDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemPackingSlipEntryDtoEnvelope;
 import org.openapitools.client.model.ItemPackingSlipEntryDtoListEnvelope;
 import org.openapitools.client.model.ItemPackingSlipEntryUpdateDto;
 import org.openapitools.client.model.ItemPackingSlipUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -887,6 +889,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -896,7 +899,7 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPackingSlipEntriesAsyncCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemPackingSlipEntriesAsyncCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -910,7 +913,7 @@ public class ItemPackingSlipsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemPackingSlipEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries"
@@ -944,6 +947,8 @@ public class ItemPackingSlipsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -955,7 +960,7 @@ public class ItemPackingSlipsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemPackingSlipEntriesAsyncValidateBeforeCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemPackingSlipEntriesAsyncValidateBeforeCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemPackingSlipEntriesAsync(Async)");
@@ -966,7 +971,7 @@ public class ItemPackingSlipsApi {
             throw new ApiException("Missing the required parameter 'packingSlipId' when calling getItemPackingSlipEntriesAsync(Async)");
         }
 
-        return getItemPackingSlipEntriesAsyncCall(tenantId, packingSlipId, apiVersion, xApiVersion, _callback);
+        return getItemPackingSlipEntriesAsyncCall(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -977,6 +982,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @return ItemPackingSlipEntryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -985,8 +991,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemPackingSlipEntryDtoListEnvelope getItemPackingSlipEntriesAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemPackingSlipEntryDtoListEnvelope> localVarResp = getItemPackingSlipEntriesAsyncWithHttpInfo(tenantId, packingSlipId, apiVersion, xApiVersion);
+    public ItemPackingSlipEntryDtoListEnvelope getItemPackingSlipEntriesAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemPackingSlipEntryDtoListEnvelope> localVarResp = getItemPackingSlipEntriesAsyncWithHttpInfo(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -997,6 +1003,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemPackingSlipEntryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1005,8 +1012,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemPackingSlipEntryDtoListEnvelope> getItemPackingSlipEntriesAsyncWithHttpInfo(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemPackingSlipEntriesAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemPackingSlipEntryDtoListEnvelope> getItemPackingSlipEntriesAsyncWithHttpInfo(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemPackingSlipEntriesAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemPackingSlipEntryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1018,6 +1025,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1027,9 +1035,9 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPackingSlipEntriesAsyncAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, final ApiCallback<ItemPackingSlipEntryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemPackingSlipEntriesAsyncAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters, final ApiCallback<ItemPackingSlipEntryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemPackingSlipEntriesAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemPackingSlipEntriesAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemPackingSlipEntryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1040,6 +1048,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1049,7 +1058,7 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPackingSlipEntriesCountAsyncCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemPackingSlipEntriesCountAsyncCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1063,7 +1072,7 @@ public class ItemPackingSlipsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemPackingSlipEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries/Count"
@@ -1097,6 +1106,8 @@ public class ItemPackingSlipsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1108,7 +1119,7 @@ public class ItemPackingSlipsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemPackingSlipEntriesCountAsyncValidateBeforeCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemPackingSlipEntriesCountAsyncValidateBeforeCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemPackingSlipEntriesCountAsync(Async)");
@@ -1119,7 +1130,7 @@ public class ItemPackingSlipsApi {
             throw new ApiException("Missing the required parameter 'packingSlipId' when calling getItemPackingSlipEntriesCountAsync(Async)");
         }
 
-        return getItemPackingSlipEntriesCountAsyncCall(tenantId, packingSlipId, apiVersion, xApiVersion, _callback);
+        return getItemPackingSlipEntriesCountAsyncCall(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1130,6 +1141,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1138,8 +1150,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getItemPackingSlipEntriesCountAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getItemPackingSlipEntriesCountAsyncWithHttpInfo(tenantId, packingSlipId, apiVersion, xApiVersion);
+    public Int32Envelope getItemPackingSlipEntriesCountAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getItemPackingSlipEntriesCountAsyncWithHttpInfo(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1150,6 +1162,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1158,8 +1171,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getItemPackingSlipEntriesCountAsyncWithHttpInfo(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemPackingSlipEntriesCountAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getItemPackingSlipEntriesCountAsyncWithHttpInfo(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemPackingSlipEntriesCountAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1171,6 +1184,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1180,9 +1194,9 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPackingSlipEntriesCountAsyncAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getItemPackingSlipEntriesCountAsyncAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemPackingSlipEntriesCountAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemPackingSlipEntriesCountAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1359,6 +1373,7 @@ public class ItemPackingSlipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1370,7 +1385,7 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPackingSlipsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemPackingSlipsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1384,7 +1399,7 @@ public class ItemPackingSlipsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemPackingSlipDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPackingSlips";
@@ -1417,6 +1432,8 @@ public class ItemPackingSlipsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1428,13 +1445,13 @@ public class ItemPackingSlipsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemPackingSlipsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemPackingSlipsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemPackingSlipsAsync(Async)");
         }
 
-        return getItemPackingSlipsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getItemPackingSlipsAsyncCall(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1444,6 +1461,7 @@ public class ItemPackingSlipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @return ItemPackingSlipDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1454,8 +1472,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemPackingSlipDtoListEnvelope getItemPackingSlipsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemPackingSlipDtoListEnvelope> localVarResp = getItemPackingSlipsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ItemPackingSlipDtoListEnvelope getItemPackingSlipsAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemPackingSlipDtoListEnvelope> localVarResp = getItemPackingSlipsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1465,6 +1483,7 @@ public class ItemPackingSlipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemPackingSlipDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1475,8 +1494,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemPackingSlipDtoListEnvelope> getItemPackingSlipsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemPackingSlipsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemPackingSlipDtoListEnvelope> getItemPackingSlipsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemPackingSlipsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemPackingSlipDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1487,6 +1506,7 @@ public class ItemPackingSlipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1498,9 +1518,9 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPackingSlipsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ItemPackingSlipDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemPackingSlipsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters, final ApiCallback<ItemPackingSlipDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemPackingSlipsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemPackingSlipsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemPackingSlipDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1510,6 +1530,7 @@ public class ItemPackingSlipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1519,7 +1540,7 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPackingSlipsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemPackingSlipsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1533,7 +1554,7 @@ public class ItemPackingSlipsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemPackingSlipDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPackingSlips/Count";
@@ -1566,6 +1587,8 @@ public class ItemPackingSlipsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1577,13 +1600,13 @@ public class ItemPackingSlipsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemPackingSlipsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemPackingSlipsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemPackingSlipsCountAsync(Async)");
         }
 
-        return getItemPackingSlipsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getItemPackingSlipsCountAsyncCall(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1593,6 +1616,7 @@ public class ItemPackingSlipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1601,8 +1625,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getItemPackingSlipsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getItemPackingSlipsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getItemPackingSlipsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getItemPackingSlipsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1612,6 +1636,7 @@ public class ItemPackingSlipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1620,8 +1645,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getItemPackingSlipsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemPackingSlipsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getItemPackingSlipsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemPackingSlipsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1632,6 +1657,7 @@ public class ItemPackingSlipsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemPackingSlipDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1641,9 +1667,9 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemPackingSlipsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getItemPackingSlipsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemPackingSlipsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemPackingSlipsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1654,7 +1680,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1665,7 +1691,7 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemPackingSlipAsyncCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemPackingSlipAsyncCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1679,7 +1705,7 @@ public class ItemPackingSlipsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}"
@@ -1726,7 +1752,7 @@ public class ItemPackingSlipsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemPackingSlipAsyncValidateBeforeCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemPackingSlipAsyncValidateBeforeCall(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemPackingSlipAsync(Async)");
@@ -1737,7 +1763,7 @@ public class ItemPackingSlipsApi {
             throw new ApiException("Missing the required parameter 'packingSlipId' when calling patchItemPackingSlipAsync(Async)");
         }
 
-        return patchItemPackingSlipAsyncCall(tenantId, packingSlipId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemPackingSlipAsyncCall(tenantId, packingSlipId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1748,7 +1774,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1758,8 +1784,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchItemPackingSlipAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchItemPackingSlipAsyncWithHttpInfo(tenantId, packingSlipId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchItemPackingSlipAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchItemPackingSlipAsyncWithHttpInfo(tenantId, packingSlipId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1770,7 +1796,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1780,8 +1806,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchItemPackingSlipAsyncWithHttpInfo(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemPackingSlipAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchItemPackingSlipAsyncWithHttpInfo(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemPackingSlipAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1793,7 +1819,7 @@ public class ItemPackingSlipsApi {
      * @param packingSlipId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1804,9 +1830,9 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemPackingSlipAsyncAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchItemPackingSlipAsyncAsync(UUID tenantId, UUID packingSlipId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemPackingSlipAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemPackingSlipAsyncValidateBeforeCall(tenantId, packingSlipId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1818,7 +1844,7 @@ public class ItemPackingSlipsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1829,7 +1855,7 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemPackingSlipEntryAsyncCall(UUID tenantId, UUID packingSlipId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemPackingSlipEntryAsyncCall(UUID tenantId, UUID packingSlipId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1843,7 +1869,7 @@ public class ItemPackingSlipsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries/{entryId}"
@@ -1891,7 +1917,7 @@ public class ItemPackingSlipsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemPackingSlipEntryAsyncValidateBeforeCall(UUID tenantId, UUID packingSlipId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemPackingSlipEntryAsyncValidateBeforeCall(UUID tenantId, UUID packingSlipId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemPackingSlipEntryAsync(Async)");
@@ -1907,7 +1933,7 @@ public class ItemPackingSlipsApi {
             throw new ApiException("Missing the required parameter 'entryId' when calling patchItemPackingSlipEntryAsync(Async)");
         }
 
-        return patchItemPackingSlipEntryAsyncCall(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemPackingSlipEntryAsyncCall(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1919,7 +1945,7 @@ public class ItemPackingSlipsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1929,8 +1955,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchItemPackingSlipEntryAsync(UUID tenantId, UUID packingSlipId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchItemPackingSlipEntryAsyncWithHttpInfo(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchItemPackingSlipEntryAsync(UUID tenantId, UUID packingSlipId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchItemPackingSlipEntryAsyncWithHttpInfo(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1942,7 +1968,7 @@ public class ItemPackingSlipsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1952,8 +1978,8 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchItemPackingSlipEntryAsyncWithHttpInfo(UUID tenantId, UUID packingSlipId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemPackingSlipEntryAsyncValidateBeforeCall(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchItemPackingSlipEntryAsyncWithHttpInfo(UUID tenantId, UUID packingSlipId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemPackingSlipEntryAsyncValidateBeforeCall(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1966,7 +1992,7 @@ public class ItemPackingSlipsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1977,9 +2003,9 @@ public class ItemPackingSlipsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemPackingSlipEntryAsyncAsync(UUID tenantId, UUID packingSlipId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchItemPackingSlipEntryAsyncAsync(UUID tenantId, UUID packingSlipId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemPackingSlipEntryAsyncValidateBeforeCall(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemPackingSlipEntryAsyncValidateBeforeCall(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

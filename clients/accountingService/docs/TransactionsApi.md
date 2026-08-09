@@ -377,7 +377,7 @@ No authorization required
 
 <a id="getTransactionCategories"></a>
 # **getTransactionCategories**
-> TransactionCategoryDtoListEnvelope getTransactionCategories(tenantId, apiVersion, xApiVersion)
+> TransactionCategoryDtoListEnvelope getTransactionCategories(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters)
 
 Get all transaction categories
 
@@ -401,8 +401,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters = new TransactionCategoryDtoCollectionQueryParameters(); // TransactionCategoryDtoCollectionQueryParameters | 
     try {
-      TransactionCategoryDtoListEnvelope result = apiInstance.getTransactionCategories(tenantId, apiVersion, xApiVersion);
+      TransactionCategoryDtoListEnvelope result = apiInstance.getTransactionCategories(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TransactionsApi#getTransactionCategories");
@@ -422,6 +423,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **transactionCategoryDtoCollectionQueryParameters** | [**TransactionCategoryDtoCollectionQueryParameters**](TransactionCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -433,7 +435,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -445,7 +447,7 @@ No authorization required
 
 <a id="getTransactionCategoriesCount"></a>
 # **getTransactionCategoriesCount**
-> Int32Envelope getTransactionCategoriesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTransactionCategoriesCount(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters)
 
 Get transaction categories count
 
@@ -469,8 +471,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TransactionCategoryDtoCollectionQueryParameters transactionCategoryDtoCollectionQueryParameters = new TransactionCategoryDtoCollectionQueryParameters(); // TransactionCategoryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTransactionCategoriesCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTransactionCategoriesCount(tenantId, apiVersion, xApiVersion, transactionCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TransactionsApi#getTransactionCategoriesCount");
@@ -490,6 +493,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **transactionCategoryDtoCollectionQueryParameters** | [**TransactionCategoryDtoCollectionQueryParameters**](TransactionCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -501,7 +505,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -584,7 +588,7 @@ No authorization required
 
 <a id="getTransactions"></a>
 # **getTransactions**
-> TransactionDtoListEnvelope getTransactions(tenantId, apiVersion, xApiVersion)
+> TransactionDtoListEnvelope getTransactions(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters)
 
 Get all transactions for a tenant
 
@@ -608,8 +612,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters = new TransactionDtoCollectionQueryParameters(); // TransactionDtoCollectionQueryParameters | 
     try {
-      TransactionDtoListEnvelope result = apiInstance.getTransactions(tenantId, apiVersion, xApiVersion);
+      TransactionDtoListEnvelope result = apiInstance.getTransactions(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TransactionsApi#getTransactions");
@@ -629,6 +634,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **transactionDtoCollectionQueryParameters** | [**TransactionDtoCollectionQueryParameters**](TransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -640,7 +646,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -652,7 +658,7 @@ No authorization required
 
 <a id="getTransactionsCount"></a>
 # **getTransactionsCount**
-> Int32Envelope getTransactionsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTransactionsCount(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters)
 
 Get transactions count
 
@@ -676,8 +682,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TransactionDtoCollectionQueryParameters transactionDtoCollectionQueryParameters = new TransactionDtoCollectionQueryParameters(); // TransactionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTransactionsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTransactionsCount(tenantId, apiVersion, xApiVersion, transactionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TransactionsApi#getTransactionsCount");
@@ -697,6 +704,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **transactionDtoCollectionQueryParameters** | [**TransactionDtoCollectionQueryParameters**](TransactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -708,7 +716,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -720,7 +728,7 @@ No authorization required
 
 <a id="patchTransaction"></a>
 # **patchTransaction**
-> EmptyEnvelope patchTransaction(tenantId, transactionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTransaction(tenantId, transactionId, apiVersion, xApiVersion, patchOperation)
 
 Patch a transaction
 
@@ -745,9 +753,9 @@ public class Example {
     UUID transactionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTransaction(tenantId, transactionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTransaction(tenantId, transactionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TransactionsApi#patchTransaction");
@@ -768,7 +776,7 @@ public class Example {
 | **transactionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -792,7 +800,7 @@ No authorization required
 
 <a id="patchTransactionCategory"></a>
 # **patchTransactionCategory**
-> EmptyEnvelope patchTransactionCategory(tenantId, categoryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTransactionCategory(tenantId, categoryId, apiVersion, xApiVersion, patchOperation)
 
 Patch a transaction category
 
@@ -817,9 +825,9 @@ public class Example {
     UUID categoryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTransactionCategory(tenantId, categoryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTransactionCategory(tenantId, categoryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TransactionsApi#patchTransactionCategory");
@@ -840,7 +848,7 @@ public class Example {
 | **categoryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

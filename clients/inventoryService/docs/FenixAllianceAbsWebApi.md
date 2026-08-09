@@ -8,7 +8,6 @@ All URIs are relative to *https://absuite.net*
 | [**accountManageDownloadPersonalDataPost**](FenixAllianceAbsWebApi.md#accountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | [**accountManageLinkExternalLoginPost**](FenixAllianceAbsWebApi.md#accountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | [**accountPerformExternalLoginPost**](FenixAllianceAbsWebApi.md#accountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin |  |
-| [**apiV2AIServiceAgentsAgentIdAguiPost**](FenixAllianceAbsWebApi.md#apiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | [**forgotPasswordPost**](FenixAllianceAbsWebApi.md#forgotPasswordPost) | **POST** /forgotPassword |  |
 | [**healthGet**](FenixAllianceAbsWebApi.md#healthGet) | **GET** /health |  |
 | [**helloGet**](FenixAllianceAbsWebApi.md#helloGet) | **GET** /hello |  |
@@ -251,65 +250,6 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data, application/x-www-form-urlencoded
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-<a id="apiV2AIServiceAgentsAgentIdAguiPost"></a>
-# **apiV2AIServiceAgentsAgentIdAguiPost**
-> apiV2AIServiceAgentsAgentIdAguiPost(agentId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.FenixAllianceAbsWebApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
-
-    FenixAllianceAbsWebApi apiInstance = new FenixAllianceAbsWebApi(defaultClient);
-    String agentId = "agentId_example"; // String | 
-    try {
-      apiInstance.apiV2AIServiceAgentsAgentIdAguiPost(agentId);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FenixAllianceAbsWebApi#apiV2AIServiceAgentsAgentIdAguiPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **agentId** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 ### HTTP response details

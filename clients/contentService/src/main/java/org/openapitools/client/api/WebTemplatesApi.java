@@ -29,9 +29,10 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 import org.openapitools.client.model.WebTemplateCreateDto;
+import org.openapitools.client.model.WebTemplateDtoCollectionQueryParameters;
 import org.openapitools.client.model.WebTemplateDtoEnvelope;
 import org.openapitools.client.model.WebTemplateDtoListEnvelope;
 import org.openapitools.client.model.WebTemplateUpdateDto;
@@ -84,6 +85,7 @@ public class WebTemplatesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webTemplateDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -95,7 +97,7 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countWebTemplatesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countWebTemplatesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,7 +111,7 @@ public class WebTemplatesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = webTemplateDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebTemplates/Count";
@@ -142,6 +144,8 @@ public class WebTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -153,13 +157,13 @@ public class WebTemplatesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countWebTemplatesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countWebTemplatesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countWebTemplatesAsync(Async)");
         }
 
-        return countWebTemplatesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return countWebTemplatesAsyncCall(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -169,6 +173,7 @@ public class WebTemplatesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webTemplateDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -179,8 +184,8 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countWebTemplatesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countWebTemplatesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope countWebTemplatesAsync(UUID tenantId, String apiVersion, String xApiVersion, WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countWebTemplatesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -190,6 +195,7 @@ public class WebTemplatesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webTemplateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -200,8 +206,8 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countWebTemplatesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countWebTemplatesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countWebTemplatesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countWebTemplatesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -212,6 +218,7 @@ public class WebTemplatesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webTemplateDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -223,9 +230,9 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countWebTemplatesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countWebTemplatesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countWebTemplatesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countWebTemplatesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -706,6 +713,7 @@ public class WebTemplatesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webTemplateDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -717,7 +725,7 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebTemplatesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWebTemplatesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -731,7 +739,7 @@ public class WebTemplatesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = webTemplateDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebTemplates";
@@ -764,6 +772,8 @@ public class WebTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -775,13 +785,13 @@ public class WebTemplatesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWebTemplatesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebTemplatesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWebTemplatesAsync(Async)");
         }
 
-        return getWebTemplatesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getWebTemplatesAsyncCall(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -791,6 +801,7 @@ public class WebTemplatesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webTemplateDtoCollectionQueryParameters  (optional)
      * @return WebTemplateDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -801,8 +812,8 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WebTemplateDtoListEnvelope getWebTemplatesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WebTemplateDtoListEnvelope> localVarResp = getWebTemplatesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public WebTemplateDtoListEnvelope getWebTemplatesAsync(UUID tenantId, String apiVersion, String xApiVersion, WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WebTemplateDtoListEnvelope> localVarResp = getWebTemplatesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -812,6 +823,7 @@ public class WebTemplatesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webTemplateDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WebTemplateDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -822,8 +834,8 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebTemplateDtoListEnvelope> getWebTemplatesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWebTemplatesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<WebTemplateDtoListEnvelope> getWebTemplatesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWebTemplatesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WebTemplateDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -834,6 +846,7 @@ public class WebTemplatesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webTemplateDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -845,9 +858,9 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebTemplatesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<WebTemplateDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWebTemplatesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WebTemplateDtoCollectionQueryParameters webTemplateDtoCollectionQueryParameters, final ApiCallback<WebTemplateDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWebTemplatesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWebTemplatesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webTemplateDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WebTemplateDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -858,7 +871,7 @@ public class WebTemplatesApi {
      * @param webTemplateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -870,7 +883,7 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWebTemplateAsyncCall(UUID tenantId, UUID webTemplateId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchWebTemplateAsyncCall(UUID tenantId, UUID webTemplateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -884,7 +897,7 @@ public class WebTemplatesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebTemplates/{webTemplateId}"
@@ -931,7 +944,7 @@ public class WebTemplatesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchWebTemplateAsyncValidateBeforeCall(UUID tenantId, UUID webTemplateId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchWebTemplateAsyncValidateBeforeCall(UUID tenantId, UUID webTemplateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchWebTemplateAsync(Async)");
@@ -942,7 +955,7 @@ public class WebTemplatesApi {
             throw new ApiException("Missing the required parameter 'webTemplateId' when calling patchWebTemplateAsync(Async)");
         }
 
-        return patchWebTemplateAsyncCall(tenantId, webTemplateId, apiVersion, xApiVersion, operation, _callback);
+        return patchWebTemplateAsyncCall(tenantId, webTemplateId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -953,7 +966,7 @@ public class WebTemplatesApi {
      * @param webTemplateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -963,8 +976,8 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public void patchWebTemplateAsync(UUID tenantId, UUID webTemplateId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        patchWebTemplateAsyncWithHttpInfo(tenantId, webTemplateId, apiVersion, xApiVersion, operation);
+    public void patchWebTemplateAsync(UUID tenantId, UUID webTemplateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        patchWebTemplateAsyncWithHttpInfo(tenantId, webTemplateId, apiVersion, xApiVersion, patchOperation);
     }
 
     /**
@@ -974,7 +987,7 @@ public class WebTemplatesApi {
      * @param webTemplateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -985,8 +998,8 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> patchWebTemplateAsyncWithHttpInfo(UUID tenantId, UUID webTemplateId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchWebTemplateAsyncValidateBeforeCall(tenantId, webTemplateId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<Void> patchWebTemplateAsyncWithHttpInfo(UUID tenantId, UUID webTemplateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchWebTemplateAsyncValidateBeforeCall(tenantId, webTemplateId, apiVersion, xApiVersion, patchOperation, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -997,7 +1010,7 @@ public class WebTemplatesApi {
      * @param webTemplateId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1009,9 +1022,9 @@ public class WebTemplatesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWebTemplateAsyncAsync(UUID tenantId, UUID webTemplateId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call patchWebTemplateAsyncAsync(UUID tenantId, UUID webTemplateId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchWebTemplateAsyncValidateBeforeCall(tenantId, webTemplateId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchWebTemplateAsyncValidateBeforeCall(tenantId, webTemplateId, apiVersion, xApiVersion, patchOperation, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

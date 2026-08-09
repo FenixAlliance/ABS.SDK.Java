@@ -12,6 +12,9 @@
 |**siteKey** | **String** |  |  [optional] |
 |**secretKey** | **String** |  |  [optional] |
 |**version** | **String** |  |  [optional] |
+|**projectId** | **String** |  |  [optional] |
+|**apiKey** | **String** |  |  [optional] |
+|**scoreThreshold** | **Double** |  |  [optional] |
 
 
 

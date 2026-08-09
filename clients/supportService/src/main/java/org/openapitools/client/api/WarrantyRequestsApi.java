@@ -30,9 +30,10 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 import org.openapitools.client.model.WarrantyRequestCreateDto;
+import org.openapitools.client.model.WarrantyRequestDtoCollectionQueryParameters;
 import org.openapitools.client.model.WarrantyRequestDtoEnvelope;
 import org.openapitools.client.model.WarrantyRequestDtoListEnvelope;
 import org.openapitools.client.model.WarrantyRequestUpdateDto;
@@ -540,6 +541,7 @@ public class WarrantyRequestsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param warrantyRequestDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -549,7 +551,7 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWarrantyRequestsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWarrantyRequestsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -563,7 +565,7 @@ public class WarrantyRequestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = warrantyRequestDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/WarrantyRequests";
@@ -596,6 +598,8 @@ public class WarrantyRequestsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -607,13 +611,13 @@ public class WarrantyRequestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWarrantyRequestsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWarrantyRequestsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWarrantyRequestsAsync(Async)");
         }
 
-        return getWarrantyRequestsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getWarrantyRequestsAsyncCall(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -623,6 +627,7 @@ public class WarrantyRequestsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param warrantyRequestDtoCollectionQueryParameters  (optional)
      * @return WarrantyRequestDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -631,8 +636,8 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WarrantyRequestDtoListEnvelope getWarrantyRequestsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WarrantyRequestDtoListEnvelope> localVarResp = getWarrantyRequestsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public WarrantyRequestDtoListEnvelope getWarrantyRequestsAsync(UUID tenantId, String apiVersion, String xApiVersion, WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WarrantyRequestDtoListEnvelope> localVarResp = getWarrantyRequestsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -642,6 +647,7 @@ public class WarrantyRequestsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param warrantyRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WarrantyRequestDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -650,8 +656,8 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WarrantyRequestDtoListEnvelope> getWarrantyRequestsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWarrantyRequestsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<WarrantyRequestDtoListEnvelope> getWarrantyRequestsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWarrantyRequestsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WarrantyRequestDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -662,6 +668,7 @@ public class WarrantyRequestsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param warrantyRequestDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -671,9 +678,9 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWarrantyRequestsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<WarrantyRequestDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWarrantyRequestsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters, final ApiCallback<WarrantyRequestDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWarrantyRequestsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWarrantyRequestsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WarrantyRequestDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -683,6 +690,7 @@ public class WarrantyRequestsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param warrantyRequestDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -692,7 +700,7 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWarrantyRequestsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWarrantyRequestsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -706,7 +714,7 @@ public class WarrantyRequestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = warrantyRequestDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/WarrantyRequests/Count";
@@ -739,6 +747,8 @@ public class WarrantyRequestsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -750,13 +760,13 @@ public class WarrantyRequestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWarrantyRequestsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWarrantyRequestsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWarrantyRequestsCountAsync(Async)");
         }
 
-        return getWarrantyRequestsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getWarrantyRequestsCountAsyncCall(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -766,6 +776,7 @@ public class WarrantyRequestsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param warrantyRequestDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -774,8 +785,8 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWarrantyRequestsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWarrantyRequestsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getWarrantyRequestsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWarrantyRequestsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -785,6 +796,7 @@ public class WarrantyRequestsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param warrantyRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -793,8 +805,8 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWarrantyRequestsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWarrantyRequestsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWarrantyRequestsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWarrantyRequestsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -805,6 +817,7 @@ public class WarrantyRequestsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param warrantyRequestDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -814,9 +827,9 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWarrantyRequestsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWarrantyRequestsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWarrantyRequestsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWarrantyRequestsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -827,7 +840,7 @@ public class WarrantyRequestsApi {
      * @param warrantyRequestId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -839,7 +852,7 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWarrantyRequestAsyncCall(UUID tenantId, UUID warrantyRequestId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchWarrantyRequestAsyncCall(UUID tenantId, UUID warrantyRequestId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -853,7 +866,7 @@ public class WarrantyRequestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/WarrantyRequests/{warrantyRequestId}"
@@ -900,7 +913,7 @@ public class WarrantyRequestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchWarrantyRequestAsyncValidateBeforeCall(UUID tenantId, UUID warrantyRequestId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchWarrantyRequestAsyncValidateBeforeCall(UUID tenantId, UUID warrantyRequestId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchWarrantyRequestAsync(Async)");
@@ -911,7 +924,7 @@ public class WarrantyRequestsApi {
             throw new ApiException("Missing the required parameter 'warrantyRequestId' when calling patchWarrantyRequestAsync(Async)");
         }
 
-        return patchWarrantyRequestAsyncCall(tenantId, warrantyRequestId, apiVersion, xApiVersion, operation, _callback);
+        return patchWarrantyRequestAsyncCall(tenantId, warrantyRequestId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -922,7 +935,7 @@ public class WarrantyRequestsApi {
      * @param warrantyRequestId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -933,8 +946,8 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchWarrantyRequestAsync(UUID tenantId, UUID warrantyRequestId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchWarrantyRequestAsyncWithHttpInfo(tenantId, warrantyRequestId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchWarrantyRequestAsync(UUID tenantId, UUID warrantyRequestId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchWarrantyRequestAsyncWithHttpInfo(tenantId, warrantyRequestId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -945,7 +958,7 @@ public class WarrantyRequestsApi {
      * @param warrantyRequestId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -956,8 +969,8 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchWarrantyRequestAsyncWithHttpInfo(UUID tenantId, UUID warrantyRequestId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchWarrantyRequestAsyncValidateBeforeCall(tenantId, warrantyRequestId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchWarrantyRequestAsyncWithHttpInfo(UUID tenantId, UUID warrantyRequestId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchWarrantyRequestAsyncValidateBeforeCall(tenantId, warrantyRequestId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -969,7 +982,7 @@ public class WarrantyRequestsApi {
      * @param warrantyRequestId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -981,9 +994,9 @@ public class WarrantyRequestsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWarrantyRequestAsyncAsync(UUID tenantId, UUID warrantyRequestId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchWarrantyRequestAsyncAsync(UUID tenantId, UUID warrantyRequestId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchWarrantyRequestAsyncValidateBeforeCall(tenantId, warrantyRequestId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchWarrantyRequestAsyncValidateBeforeCall(tenantId, warrantyRequestId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

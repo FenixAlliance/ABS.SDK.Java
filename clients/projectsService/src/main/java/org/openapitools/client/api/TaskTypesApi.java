@@ -29,7 +29,7 @@ import java.io.IOException;
 
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TaskTypeCreateDto;
 import org.openapitools.client.model.TaskTypeDto;
 import org.openapitools.client.model.TaskTypeUpdateDto;
@@ -513,7 +513,7 @@ public class TaskTypesApi {
      * Build call for patchTaskTypeAsync
      * @param taskTypeId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -525,7 +525,7 @@ public class TaskTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTaskTypeAsyncCall(UUID taskTypeId, UUID tenantId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTaskTypeAsyncCall(UUID taskTypeId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -539,7 +539,7 @@ public class TaskTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ProjectsService/TaskTypes/{taskTypeId}"
@@ -578,7 +578,7 @@ public class TaskTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTaskTypeAsyncValidateBeforeCall(UUID taskTypeId, UUID tenantId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTaskTypeAsyncValidateBeforeCall(UUID taskTypeId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'taskTypeId' is set
         if (taskTypeId == null) {
             throw new ApiException("Missing the required parameter 'taskTypeId' when calling patchTaskTypeAsync(Async)");
@@ -589,7 +589,7 @@ public class TaskTypesApi {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTaskTypeAsync(Async)");
         }
 
-        return patchTaskTypeAsyncCall(taskTypeId, tenantId, operation, _callback);
+        return patchTaskTypeAsyncCall(taskTypeId, tenantId, patchOperation, _callback);
 
     }
 
@@ -598,7 +598,7 @@ public class TaskTypesApi {
      * Partially updates the specified task type.
      * @param taskTypeId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -609,8 +609,8 @@ public class TaskTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTaskTypeAsync(UUID taskTypeId, UUID tenantId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTaskTypeAsyncWithHttpInfo(taskTypeId, tenantId, operation);
+    public EmptyEnvelope patchTaskTypeAsync(UUID taskTypeId, UUID tenantId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTaskTypeAsyncWithHttpInfo(taskTypeId, tenantId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -619,7 +619,7 @@ public class TaskTypesApi {
      * Partially updates the specified task type.
      * @param taskTypeId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -630,8 +630,8 @@ public class TaskTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTaskTypeAsyncWithHttpInfo(UUID taskTypeId, UUID tenantId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTaskTypeAsyncValidateBeforeCall(taskTypeId, tenantId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTaskTypeAsyncWithHttpInfo(UUID taskTypeId, UUID tenantId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTaskTypeAsyncValidateBeforeCall(taskTypeId, tenantId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -641,7 +641,7 @@ public class TaskTypesApi {
      * Partially updates the specified task type.
      * @param taskTypeId  (required)
      * @param tenantId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -653,9 +653,9 @@ public class TaskTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTaskTypeAsyncAsync(UUID taskTypeId, UUID tenantId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTaskTypeAsyncAsync(UUID taskTypeId, UUID tenantId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTaskTypeAsyncValidateBeforeCall(taskTypeId, tenantId, operation, _callback);
+        okhttp3.Call localVarCall = patchTaskTypeAsyncValidateBeforeCall(taskTypeId, tenantId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -213,7 +213,7 @@ No authorization required
 
 <a id="getInquiryRequestsAsync"></a>
 # **getInquiryRequestsAsync**
-> InquiryRequestDtoListEnvelope getInquiryRequestsAsync(tenantId, apiVersion, xApiVersion)
+> InquiryRequestDtoListEnvelope getInquiryRequestsAsync(tenantId, apiVersion, xApiVersion, inquiryRequestDtoCollectionQueryParameters)
 
 Retrieve inquiry requests
 
@@ -235,8 +235,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InquiryRequestDtoCollectionQueryParameters inquiryRequestDtoCollectionQueryParameters = new InquiryRequestDtoCollectionQueryParameters(); // InquiryRequestDtoCollectionQueryParameters | 
     try {
-      InquiryRequestDtoListEnvelope result = apiInstance.getInquiryRequestsAsync(tenantId, apiVersion, xApiVersion);
+      InquiryRequestDtoListEnvelope result = apiInstance.getInquiryRequestsAsync(tenantId, apiVersion, xApiVersion, inquiryRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InquiryRequestsApi#getInquiryRequestsAsync");
@@ -256,6 +257,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **inquiryRequestDtoCollectionQueryParameters** | [**InquiryRequestDtoCollectionQueryParameters**](InquiryRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -267,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -277,7 +279,7 @@ No authorization required
 
 <a id="getInquiryRequestsCountAsync"></a>
 # **getInquiryRequestsCountAsync**
-> Int32Envelope getInquiryRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getInquiryRequestsCountAsync(tenantId, apiVersion, xApiVersion, inquiryRequestDtoCollectionQueryParameters)
 
 Get inquiry requests count
 
@@ -299,8 +301,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InquiryRequestDtoCollectionQueryParameters inquiryRequestDtoCollectionQueryParameters = new InquiryRequestDtoCollectionQueryParameters(); // InquiryRequestDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getInquiryRequestsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getInquiryRequestsCountAsync(tenantId, apiVersion, xApiVersion, inquiryRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InquiryRequestsApi#getInquiryRequestsCountAsync");
@@ -320,6 +323,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **inquiryRequestDtoCollectionQueryParameters** | [**InquiryRequestDtoCollectionQueryParameters**](InquiryRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -331,7 +335,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -341,7 +345,7 @@ No authorization required
 
 <a id="patchInquiryRequestAsync"></a>
 # **patchInquiryRequestAsync**
-> EmptyEnvelope patchInquiryRequestAsync(tenantId, inquiryRequestId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchInquiryRequestAsync(tenantId, inquiryRequestId, apiVersion, xApiVersion, patchOperation)
 
 Patch an inquiry request
 
@@ -366,9 +370,9 @@ public class Example {
     UUID inquiryRequestId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchInquiryRequestAsync(tenantId, inquiryRequestId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchInquiryRequestAsync(tenantId, inquiryRequestId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InquiryRequestsApi#patchInquiryRequestAsync");
@@ -389,7 +393,7 @@ public class Example {
 | **inquiryRequestId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

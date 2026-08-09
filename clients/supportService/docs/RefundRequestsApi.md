@@ -213,7 +213,7 @@ No authorization required
 
 <a id="getRefundRequestsAsync"></a>
 # **getRefundRequestsAsync**
-> RefundRequestDtoListEnvelope getRefundRequestsAsync(tenantId, apiVersion, xApiVersion)
+> RefundRequestDtoListEnvelope getRefundRequestsAsync(tenantId, apiVersion, xApiVersion, refundRequestDtoCollectionQueryParameters)
 
 Retrieve refund requests
 
@@ -235,8 +235,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    RefundRequestDtoCollectionQueryParameters refundRequestDtoCollectionQueryParameters = new RefundRequestDtoCollectionQueryParameters(); // RefundRequestDtoCollectionQueryParameters | 
     try {
-      RefundRequestDtoListEnvelope result = apiInstance.getRefundRequestsAsync(tenantId, apiVersion, xApiVersion);
+      RefundRequestDtoListEnvelope result = apiInstance.getRefundRequestsAsync(tenantId, apiVersion, xApiVersion, refundRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RefundRequestsApi#getRefundRequestsAsync");
@@ -256,6 +257,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **refundRequestDtoCollectionQueryParameters** | [**RefundRequestDtoCollectionQueryParameters**](RefundRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -267,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -277,7 +279,7 @@ No authorization required
 
 <a id="getRefundRequestsCountAsync"></a>
 # **getRefundRequestsCountAsync**
-> Int32Envelope getRefundRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRefundRequestsCountAsync(tenantId, apiVersion, xApiVersion, refundRequestDtoCollectionQueryParameters)
 
 Get refund requests count
 
@@ -299,8 +301,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    RefundRequestDtoCollectionQueryParameters refundRequestDtoCollectionQueryParameters = new RefundRequestDtoCollectionQueryParameters(); // RefundRequestDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getRefundRequestsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getRefundRequestsCountAsync(tenantId, apiVersion, xApiVersion, refundRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RefundRequestsApi#getRefundRequestsCountAsync");
@@ -320,6 +323,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **refundRequestDtoCollectionQueryParameters** | [**RefundRequestDtoCollectionQueryParameters**](RefundRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -331,7 +335,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -341,7 +345,7 @@ No authorization required
 
 <a id="patchRefundRequestAsync"></a>
 # **patchRefundRequestAsync**
-> EmptyEnvelope patchRefundRequestAsync(tenantId, refundRequestId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRefundRequestAsync(tenantId, refundRequestId, apiVersion, xApiVersion, patchOperation)
 
 Patch a refund request
 
@@ -366,9 +370,9 @@ public class Example {
     UUID refundRequestId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchRefundRequestAsync(tenantId, refundRequestId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchRefundRequestAsync(tenantId, refundRequestId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RefundRequestsApi#patchRefundRequestAsync");
@@ -389,7 +393,7 @@ public class Example {
 | **refundRequestId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

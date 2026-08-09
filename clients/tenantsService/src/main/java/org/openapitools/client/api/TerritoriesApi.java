@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TenantTerritoryCreateDto;
+import org.openapitools.client.model.TenantTerritoryDtoCollectionQueryParameters;
 import org.openapitools.client.model.TenantTerritoryDtoEnvelope;
 import org.openapitools.client.model.TenantTerritoryDtoListEnvelope;
 import org.openapitools.client.model.TenantTerritoryUpdateDto;
@@ -403,6 +404,7 @@ public class TerritoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTerritoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -414,7 +416,7 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantTerritoriesCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantTerritoriesCall(UUID tenantId, String apiVersion, String xApiVersion, TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -428,7 +430,7 @@ public class TerritoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantTerritoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Territories";
@@ -461,6 +463,8 @@ public class TerritoriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -472,13 +476,13 @@ public class TerritoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantTerritoriesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantTerritoriesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantTerritories(Async)");
         }
 
-        return getTenantTerritoriesCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTenantTerritoriesCall(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -488,6 +492,7 @@ public class TerritoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTerritoryDtoCollectionQueryParameters  (optional)
      * @return TenantTerritoryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -498,8 +503,8 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TenantTerritoryDtoListEnvelope getTenantTerritories(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TenantTerritoryDtoListEnvelope> localVarResp = getTenantTerritoriesWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TenantTerritoryDtoListEnvelope getTenantTerritories(UUID tenantId, String apiVersion, String xApiVersion, TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TenantTerritoryDtoListEnvelope> localVarResp = getTenantTerritoriesWithHttpInfo(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -509,6 +514,7 @@ public class TerritoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTerritoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TenantTerritoryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -519,8 +525,8 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TenantTerritoryDtoListEnvelope> getTenantTerritoriesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantTerritoriesValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TenantTerritoryDtoListEnvelope> getTenantTerritoriesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantTerritoriesValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TenantTerritoryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -531,6 +537,7 @@ public class TerritoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTerritoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -542,9 +549,9 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantTerritoriesAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TenantTerritoryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantTerritoriesAsync(UUID tenantId, String apiVersion, String xApiVersion, TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters, final ApiCallback<TenantTerritoryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantTerritoriesValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTenantTerritoriesValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TenantTerritoryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -554,6 +561,7 @@ public class TerritoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTerritoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -565,7 +573,7 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantTerritoriesCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantTerritoriesCountCall(UUID tenantId, String apiVersion, String xApiVersion, TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -579,7 +587,7 @@ public class TerritoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantTerritoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Territories/Count";
@@ -612,6 +620,8 @@ public class TerritoriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -623,13 +633,13 @@ public class TerritoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantTerritoriesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantTerritoriesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantTerritoriesCount(Async)");
         }
 
-        return getTenantTerritoriesCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTenantTerritoriesCountCall(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -639,6 +649,7 @@ public class TerritoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTerritoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -649,8 +660,8 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTenantTerritoriesCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTenantTerritoriesCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTenantTerritoriesCount(UUID tenantId, String apiVersion, String xApiVersion, TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTenantTerritoriesCountWithHttpInfo(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -660,6 +671,7 @@ public class TerritoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTerritoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -670,8 +682,8 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTenantTerritoriesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantTerritoriesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTenantTerritoriesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantTerritoriesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -682,6 +694,7 @@ public class TerritoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantTerritoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -693,9 +706,9 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantTerritoriesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantTerritoriesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantTerritoriesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTenantTerritoriesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -867,7 +880,7 @@ public class TerritoriesApi {
      * @param tenantTerritoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +892,7 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantTerritoryCall(UUID tenantId, UUID tenantTerritoryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchTenantTerritoryCall(UUID tenantId, UUID tenantTerritoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +906,7 @@ public class TerritoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/Territories/{tenantTerritoryId}"
@@ -940,7 +953,7 @@ public class TerritoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTenantTerritoryValidateBeforeCall(UUID tenantId, UUID tenantTerritoryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTenantTerritoryValidateBeforeCall(UUID tenantId, UUID tenantTerritoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTenantTerritory(Async)");
@@ -951,7 +964,7 @@ public class TerritoriesApi {
             throw new ApiException("Missing the required parameter 'tenantTerritoryId' when calling patchTenantTerritory(Async)");
         }
 
-        return patchTenantTerritoryCall(tenantId, tenantTerritoryId, apiVersion, xApiVersion, operation, _callback);
+        return patchTenantTerritoryCall(tenantId, tenantTerritoryId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -962,7 +975,7 @@ public class TerritoriesApi {
      * @param tenantTerritoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -973,8 +986,8 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTenantTerritory(UUID tenantId, UUID tenantTerritoryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTenantTerritoryWithHttpInfo(tenantId, tenantTerritoryId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTenantTerritory(UUID tenantId, UUID tenantTerritoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTenantTerritoryWithHttpInfo(tenantId, tenantTerritoryId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -985,7 +998,7 @@ public class TerritoriesApi {
      * @param tenantTerritoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -996,8 +1009,8 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTenantTerritoryWithHttpInfo(UUID tenantId, UUID tenantTerritoryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTenantTerritoryValidateBeforeCall(tenantId, tenantTerritoryId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTenantTerritoryWithHttpInfo(UUID tenantId, UUID tenantTerritoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTenantTerritoryValidateBeforeCall(tenantId, tenantTerritoryId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +1022,7 @@ public class TerritoriesApi {
      * @param tenantTerritoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1021,9 +1034,9 @@ public class TerritoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantTerritoryAsync(UUID tenantId, UUID tenantTerritoryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTenantTerritoryAsync(UUID tenantId, UUID tenantTerritoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTenantTerritoryValidateBeforeCall(tenantId, tenantTerritoryId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTenantTerritoryValidateBeforeCall(tenantId, tenantTerritoryId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

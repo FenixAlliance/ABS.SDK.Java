@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getServiceCaseTypesAsync"></a>
 # **getServiceCaseTypesAsync**
-> ServiceCaseTypeDtoIReadOnlyListEnvelope getServiceCaseTypesAsync(tenantId, apiVersion, xApiVersion)
+> ServiceCaseTypeDtoIReadOnlyListEnvelope getServiceCaseTypesAsync(tenantId, apiVersion, xApiVersion, serviceCaseTypeDtoCollectionQueryParameters)
 
 Get all service case types
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceCaseTypeDtoCollectionQueryParameters serviceCaseTypeDtoCollectionQueryParameters = new ServiceCaseTypeDtoCollectionQueryParameters(); // ServiceCaseTypeDtoCollectionQueryParameters | 
     try {
-      ServiceCaseTypeDtoIReadOnlyListEnvelope result = apiInstance.getServiceCaseTypesAsync(tenantId, apiVersion, xApiVersion);
+      ServiceCaseTypeDtoIReadOnlyListEnvelope result = apiInstance.getServiceCaseTypesAsync(tenantId, apiVersion, xApiVersion, serviceCaseTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceCaseTypesApi#getServiceCaseTypesAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceCaseTypeDtoCollectionQueryParameters** | [**ServiceCaseTypeDtoCollectionQueryParameters**](ServiceCaseTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getServiceCaseTypesCountAsync"></a>
 # **getServiceCaseTypesCountAsync**
-> Int32Envelope getServiceCaseTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getServiceCaseTypesCountAsync(tenantId, apiVersion, xApiVersion, serviceCaseTypeDtoCollectionQueryParameters)
 
 Get service case types count
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceCaseTypeDtoCollectionQueryParameters serviceCaseTypeDtoCollectionQueryParameters = new ServiceCaseTypeDtoCollectionQueryParameters(); // ServiceCaseTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getServiceCaseTypesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getServiceCaseTypesCountAsync(tenantId, apiVersion, xApiVersion, serviceCaseTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceCaseTypesApi#getServiceCaseTypesCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceCaseTypeDtoCollectionQueryParameters** | [**ServiceCaseTypeDtoCollectionQueryParameters**](ServiceCaseTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchServiceCaseTypeAsync"></a>
 # **patchServiceCaseTypeAsync**
-> Envelope patchServiceCaseTypeAsync(tenantId, serviceCaseTypeId, apiVersion, xApiVersion, operation)
+> Envelope patchServiceCaseTypeAsync(tenantId, serviceCaseTypeId, apiVersion, xApiVersion, patchOperation)
 
 Patch a service case type
 
@@ -386,9 +390,9 @@ public class Example {
     UUID serviceCaseTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      Envelope result = apiInstance.patchServiceCaseTypeAsync(tenantId, serviceCaseTypeId, apiVersion, xApiVersion, operation);
+      Envelope result = apiInstance.patchServiceCaseTypeAsync(tenantId, serviceCaseTypeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceCaseTypesApi#patchServiceCaseTypeAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **serviceCaseTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

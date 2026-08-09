@@ -81,7 +81,7 @@ No authorization required
 
 <a id="getSignaturesAsync"></a>
 # **getSignaturesAsync**
-> SignatureDtoListEnvelope getSignaturesAsync(tenantId, apiVersion, xApiVersion)
+> SignatureDtoListEnvelope getSignaturesAsync(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters)
 
 Get all signatures
 
@@ -105,8 +105,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters = new SignatureDtoCollectionQueryParameters(); // SignatureDtoCollectionQueryParameters | 
     try {
-      SignatureDtoListEnvelope result = apiInstance.getSignaturesAsync(tenantId, apiVersion, xApiVersion);
+      SignatureDtoListEnvelope result = apiInstance.getSignaturesAsync(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SignaturesApi#getSignaturesAsync");
@@ -126,6 +127,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signatureDtoCollectionQueryParameters** | [**SignatureDtoCollectionQueryParameters**](SignatureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -137,7 +139,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -148,7 +150,7 @@ No authorization required
 
 <a id="getSignaturesCountAsync"></a>
 # **getSignaturesCountAsync**
-> Int32Envelope getSignaturesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSignaturesCountAsync(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters)
 
 Get signatures count
 
@@ -172,8 +174,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters = new SignatureDtoCollectionQueryParameters(); // SignatureDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSignaturesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSignaturesCountAsync(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SignaturesApi#getSignaturesCountAsync");
@@ -193,6 +196,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signatureDtoCollectionQueryParameters** | [**SignatureDtoCollectionQueryParameters**](SignatureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -204,7 +208,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

@@ -18,7 +18,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countProjectPeriodTimeLogsAsync"></a>
 # **countProjectPeriodTimeLogsAsync**
-> Int32Envelope countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
+> Int32Envelope countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion, projectTimeLogDtoCollectionQueryParameters)
 
 Get the count of project period time logs
 
@@ -43,8 +43,9 @@ public class Example {
     UUID projectPeriodId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters = new ProjectTimeLogDtoCollectionQueryParameters(); // ProjectTimeLogDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion, projectTimeLogDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TimeLogsApi#countProjectPeriodTimeLogsAsync");
@@ -65,6 +66,7 @@ public class Example {
 | **projectPeriodId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **projectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -76,7 +78,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -226,7 +228,7 @@ No authorization required
 
 <a id="getProjectPeriodTimeLogsAsync"></a>
 # **getProjectPeriodTimeLogsAsync**
-> ProjectTimeLogDtoListEnvelope getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion)
+> ProjectTimeLogDtoListEnvelope getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion, projectTimeLogDtoCollectionQueryParameters)
 
 Retrieve project period time logs
 
@@ -251,8 +253,9 @@ public class Example {
     UUID projectPeriodId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ProjectTimeLogDtoCollectionQueryParameters projectTimeLogDtoCollectionQueryParameters = new ProjectTimeLogDtoCollectionQueryParameters(); // ProjectTimeLogDtoCollectionQueryParameters | 
     try {
-      ProjectTimeLogDtoListEnvelope result = apiInstance.getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion);
+      ProjectTimeLogDtoListEnvelope result = apiInstance.getProjectPeriodTimeLogsAsync(tenantId, projectPeriodId, apiVersion, xApiVersion, projectTimeLogDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TimeLogsApi#getProjectPeriodTimeLogsAsync");
@@ -273,6 +276,7 @@ public class Example {
 | **projectPeriodId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **projectTimeLogDtoCollectionQueryParameters** | [**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -284,7 +288,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -576,7 +580,7 @@ No authorization required
 
 <a id="patchProjectTimeLogAsync"></a>
 # **patchProjectTimeLogAsync**
-> patchProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, operation)
+> patchProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a project time log
 
@@ -601,9 +605,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, operation);
+      apiInstance.patchProjectTimeLogAsync(timeLogId, tenantId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling TimeLogsApi#patchProjectTimeLogAsync");
       System.err.println("Status code: " + e.getCode());
@@ -623,7 +627,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -4,14 +4,19 @@ All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**createSocialCommentReactionAsync**](SocialPostsApi.md#createSocialCommentReactionAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Create a social comment reaction |
 | [**createSocialPostAsync**](SocialPostsApi.md#createSocialPostAsync) | **POST** /api/v2/SocialService/SocialPosts | Create a social post |
 | [**createSocialPostAttachmentAsync**](SocialPostsApi.md#createSocialPostAttachmentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Create a social post attachment |
 | [**createSocialPostCommentAsync**](SocialPostsApi.md#createSocialPostCommentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments | Create a social post comment |
 | [**createSocialPostReactionAsync**](SocialPostsApi.md#createSocialPostReactionAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions | Create a social post reaction |
+| [**deleteSocialCommentReactionAsync**](SocialPostsApi.md#deleteSocialCommentReactionAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Delete a social comment reaction |
 | [**deleteSocialPostAsync**](SocialPostsApi.md#deleteSocialPostAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId} | Delete a social post |
 | [**deleteSocialPostAttachmentAsync**](SocialPostsApi.md#deleteSocialPostAttachmentAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Delete a social post attachment |
 | [**deleteSocialPostCommentAsync**](SocialPostsApi.md#deleteSocialPostCommentAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Delete a social post comment |
 | [**deleteSocialPostReactionAsync**](SocialPostsApi.md#deleteSocialPostReactionAsync) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Delete a social post reaction |
+| [**getSocialCommentReactionAsync**](SocialPostsApi.md#getSocialCommentReactionAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Get social comment reaction by ID |
+| [**getSocialCommentReactionsAsync**](SocialPostsApi.md#getSocialCommentReactionsAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Get social comment reactions |
+| [**getSocialCommentReactionsCountAsync**](SocialPostsApi.md#getSocialCommentReactionsCountAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count | Count social comment reactions |
 | [**getSocialPostAsync**](SocialPostsApi.md#getSocialPostAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId} | Get social post by ID |
 | [**getSocialPostAttachmentAsync**](SocialPostsApi.md#getSocialPostAttachmentAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Get social post attachment by ID |
 | [**getSocialPostAttachmentsAsync**](SocialPostsApi.md#getSocialPostAttachmentsAsync) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Get social post attachments |
@@ -25,11 +30,87 @@ All URIs are relative to *https://absuite.net*
 | [**getSocialPostsAsync**](SocialPostsApi.md#getSocialPostsAsync) | **GET** /api/v2/SocialService/SocialPosts | Get social posts |
 | [**getSocialPostsCountAsync**](SocialPostsApi.md#getSocialPostsCountAsync) | **GET** /api/v2/SocialService/SocialPosts/Count | Count social posts |
 | [**patchSocialPostAsync**](SocialPostsApi.md#patchSocialPostAsync) | **PATCH** /api/v2/SocialService/SocialPosts/{socialPostId} | Patch a social post |
+| [**updateSocialCommentReactionAsync**](SocialPostsApi.md#updateSocialCommentReactionAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Update a social comment reaction |
 | [**updateSocialPostAsync**](SocialPostsApi.md#updateSocialPostAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId} | Update a social post |
 | [**updateSocialPostAttachmentAsync**](SocialPostsApi.md#updateSocialPostAttachmentAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Update a social post attachment |
 | [**updateSocialPostCommentAsync**](SocialPostsApi.md#updateSocialPostCommentAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Update a social post comment |
 | [**updateSocialPostReactionAsync**](SocialPostsApi.md#updateSocialPostReactionAsync) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Update a social post reaction |
+| [**uploadSocialPostImageAttachmentAsync**](SocialPostsApi.md#uploadSocialPostImageAttachmentAsync) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image | Upload a social post image attachment |
 
+
+<a id="createSocialCommentReactionAsync"></a>
+# **createSocialCommentReactionAsync**
+> SocialCommentReactionDtoEnvelope createSocialCommentReactionAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto)
+
+Create a social comment reaction
+
+Creates a new reaction on a specific social comment.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SocialPostsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    SocialPostsApi apiInstance = new SocialPostsApi(defaultClient);
+    UUID socialPostId = UUID.randomUUID(); // UUID | 
+    UUID commentId = UUID.randomUUID(); // UUID | 
+    UUID socialProfileId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    SocialReactionCreateDto socialReactionCreateDto = new SocialReactionCreateDto(); // SocialReactionCreateDto | 
+    try {
+      SocialCommentReactionDtoEnvelope result = apiInstance.createSocialCommentReactionAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SocialPostsApi#createSocialCommentReactionAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **socialPostId** | **UUID**|  | |
+| **commentId** | **UUID**|  | |
+| **socialProfileId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **socialReactionCreateDto** | [**SocialReactionCreateDto**](SocialReactionCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
 
 <a id="createSocialPostAsync"></a>
 # **createSocialPostAsync**
@@ -247,7 +328,7 @@ No authorization required
 
 <a id="createSocialPostReactionAsync"></a>
 # **createSocialPostReactionAsync**
-> SocialReactionDtoEnvelope createSocialPostReactionAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto)
+> SocialPostReactionDtoEnvelope createSocialPostReactionAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto)
 
 Create a social post reaction
 
@@ -274,7 +355,7 @@ public class Example {
     String xApiVersion = "xApiVersion_example"; // String | 
     SocialReactionCreateDto socialReactionCreateDto = new SocialReactionCreateDto(); // SocialReactionCreateDto | 
     try {
-      SocialReactionDtoEnvelope result = apiInstance.createSocialPostReactionAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto);
+      SocialPostReactionDtoEnvelope result = apiInstance.createSocialPostReactionAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#createSocialPostReactionAsync");
@@ -299,7 +380,7 @@ public class Example {
 
 ### Return type
 
-[**SocialReactionDtoEnvelope**](SocialReactionDtoEnvelope.md)
+[**SocialPostReactionDtoEnvelope**](SocialPostReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -315,7 +396,81 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-| **201** | Created |  -  |
+| **200** | OK |  -  |
+
+<a id="deleteSocialCommentReactionAsync"></a>
+# **deleteSocialCommentReactionAsync**
+> EmptyEnvelope deleteSocialCommentReactionAsync(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion)
+
+Delete a social comment reaction
+
+Deletes a reaction from a specific social comment.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SocialPostsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    SocialPostsApi apiInstance = new SocialPostsApi(defaultClient);
+    UUID socialPostId = UUID.randomUUID(); // UUID | 
+    UUID commentId = UUID.randomUUID(); // UUID | 
+    UUID reactionId = UUID.randomUUID(); // UUID | 
+    UUID socialProfileId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.deleteSocialCommentReactionAsync(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SocialPostsApi#deleteSocialCommentReactionAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **socialPostId** | **UUID**|  | |
+| **commentId** | **UUID**|  | |
+| **reactionId** | **UUID**|  | |
+| **socialProfileId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
 
 <a id="deleteSocialPostAsync"></a>
 # **deleteSocialPostAsync**
@@ -603,6 +758,226 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
+<a id="getSocialCommentReactionAsync"></a>
+# **getSocialCommentReactionAsync**
+> SocialCommentReactionDtoEnvelope getSocialCommentReactionAsync(socialPostId, commentId, reactionId, apiVersion, xApiVersion)
+
+Get social comment reaction by ID
+
+Retrieves a specific reaction from a social comment by its ID.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SocialPostsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    SocialPostsApi apiInstance = new SocialPostsApi(defaultClient);
+    UUID socialPostId = UUID.randomUUID(); // UUID | 
+    UUID commentId = UUID.randomUUID(); // UUID | 
+    UUID reactionId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SocialCommentReactionDtoEnvelope result = apiInstance.getSocialCommentReactionAsync(socialPostId, commentId, reactionId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SocialPostsApi#getSocialCommentReactionAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **socialPostId** | **UUID**|  | |
+| **commentId** | **UUID**|  | |
+| **reactionId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getSocialCommentReactionsAsync"></a>
+# **getSocialCommentReactionsAsync**
+> SocialCommentReactionDtoListEnvelope getSocialCommentReactionsAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters)
+
+Get social comment reactions
+
+Retrieves a list of reactions for a specific social comment.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SocialPostsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    SocialPostsApi apiInstance = new SocialPostsApi(defaultClient);
+    UUID socialPostId = UUID.randomUUID(); // UUID | 
+    UUID commentId = UUID.randomUUID(); // UUID | 
+    UUID socialProfileId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters = new SocialCommentReactionDtoCollectionQueryParameters(); // SocialCommentReactionDtoCollectionQueryParameters | 
+    try {
+      SocialCommentReactionDtoListEnvelope result = apiInstance.getSocialCommentReactionsAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SocialPostsApi#getSocialCommentReactionsAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **socialPostId** | **UUID**|  | |
+| **commentId** | **UUID**|  | |
+| **socialProfileId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **socialCommentReactionDtoCollectionQueryParameters** | [**SocialCommentReactionDtoCollectionQueryParameters**](SocialCommentReactionDtoCollectionQueryParameters.md)|  | [optional] |
+
+### Return type
+
+[**SocialCommentReactionDtoListEnvelope**](SocialCommentReactionDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getSocialCommentReactionsCountAsync"></a>
+# **getSocialCommentReactionsCountAsync**
+> Int32Envelope getSocialCommentReactionsCountAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters)
+
+Count social comment reactions
+
+Returns the count of reactions for a specific social comment.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SocialPostsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    SocialPostsApi apiInstance = new SocialPostsApi(defaultClient);
+    UUID socialPostId = UUID.randomUUID(); // UUID | 
+    UUID commentId = UUID.randomUUID(); // UUID | 
+    UUID socialProfileId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters = new SocialCommentReactionDtoCollectionQueryParameters(); // SocialCommentReactionDtoCollectionQueryParameters | 
+    try {
+      Int32Envelope result = apiInstance.getSocialCommentReactionsCountAsync(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SocialPostsApi#getSocialCommentReactionsCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **socialPostId** | **UUID**|  | |
+| **commentId** | **UUID**|  | |
+| **socialProfileId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **socialCommentReactionDtoCollectionQueryParameters** | [**SocialCommentReactionDtoCollectionQueryParameters**](SocialCommentReactionDtoCollectionQueryParameters.md)|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
 <a id="getSocialPostAsync"></a>
 # **getSocialPostAsync**
 > SocialPostDtoEnvelope getSocialPostAsync(socialProfileId, socialPostId, apiVersion, xApiVersion)
@@ -745,7 +1120,7 @@ No authorization required
 
 <a id="getSocialPostAttachmentsAsync"></a>
 # **getSocialPostAttachmentsAsync**
-> SocialPostAttachmentDtoListEnvelope getSocialPostAttachmentsAsync(socialPostId, apiVersion, xApiVersion)
+> SocialPostAttachmentDtoListEnvelope getSocialPostAttachmentsAsync(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters)
 
 Get social post attachments
 
@@ -769,8 +1144,9 @@ public class Example {
     UUID socialPostId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters = new SocialPostAttachmentDtoCollectionQueryParameters(); // SocialPostAttachmentDtoCollectionQueryParameters | 
     try {
-      SocialPostAttachmentDtoListEnvelope result = apiInstance.getSocialPostAttachmentsAsync(socialPostId, apiVersion, xApiVersion);
+      SocialPostAttachmentDtoListEnvelope result = apiInstance.getSocialPostAttachmentsAsync(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#getSocialPostAttachmentsAsync");
@@ -790,6 +1166,7 @@ public class Example {
 | **socialPostId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialPostAttachmentDtoCollectionQueryParameters** | [**SocialPostAttachmentDtoCollectionQueryParameters**](SocialPostAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -801,7 +1178,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -813,7 +1190,7 @@ No authorization required
 
 <a id="getSocialPostAttachmentsCountAsync"></a>
 # **getSocialPostAttachmentsCountAsync**
-> Int32Envelope getSocialPostAttachmentsCountAsync(socialPostId, apiVersion, xApiVersion)
+> Int32Envelope getSocialPostAttachmentsCountAsync(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters)
 
 Count social post attachments
 
@@ -837,8 +1214,9 @@ public class Example {
     UUID socialPostId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters = new SocialPostAttachmentDtoCollectionQueryParameters(); // SocialPostAttachmentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSocialPostAttachmentsCountAsync(socialPostId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSocialPostAttachmentsCountAsync(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#getSocialPostAttachmentsCountAsync");
@@ -858,6 +1236,7 @@ public class Example {
 | **socialPostId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialPostAttachmentDtoCollectionQueryParameters** | [**SocialPostAttachmentDtoCollectionQueryParameters**](SocialPostAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -869,7 +1248,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -953,7 +1332,7 @@ No authorization required
 
 <a id="getSocialPostCommentsAsync"></a>
 # **getSocialPostCommentsAsync**
-> SocialPostCommentDtoListEnvelope getSocialPostCommentsAsync(socialProfileId, socialPostId, apiVersion, xApiVersion)
+> SocialPostCommentDtoListEnvelope getSocialPostCommentsAsync(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters)
 
 Get social post comments
 
@@ -976,10 +1355,12 @@ public class Example {
     SocialPostsApi apiInstance = new SocialPostsApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     UUID socialPostId = UUID.randomUUID(); // UUID | 
+    String parentCommentId = "parentCommentId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters = new SocialPostCommentDtoCollectionQueryParameters(); // SocialPostCommentDtoCollectionQueryParameters | 
     try {
-      SocialPostCommentDtoListEnvelope result = apiInstance.getSocialPostCommentsAsync(socialProfileId, socialPostId, apiVersion, xApiVersion);
+      SocialPostCommentDtoListEnvelope result = apiInstance.getSocialPostCommentsAsync(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#getSocialPostCommentsAsync");
@@ -998,8 +1379,10 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **socialProfileId** | **UUID**|  | |
 | **socialPostId** | **UUID**|  | |
+| **parentCommentId** | **String**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialPostCommentDtoCollectionQueryParameters** | [**SocialPostCommentDtoCollectionQueryParameters**](SocialPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1011,7 +1394,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1023,7 +1406,7 @@ No authorization required
 
 <a id="getSocialPostCommentsCountAsync"></a>
 # **getSocialPostCommentsCountAsync**
-> Int32Envelope getSocialPostCommentsCountAsync(socialProfileId, socialPostId, apiVersion, xApiVersion)
+> Int32Envelope getSocialPostCommentsCountAsync(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters)
 
 Count social post comments
 
@@ -1046,10 +1429,12 @@ public class Example {
     SocialPostsApi apiInstance = new SocialPostsApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     UUID socialPostId = UUID.randomUUID(); // UUID | 
+    String parentCommentId = "parentCommentId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters = new SocialPostCommentDtoCollectionQueryParameters(); // SocialPostCommentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSocialPostCommentsCountAsync(socialProfileId, socialPostId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSocialPostCommentsCountAsync(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#getSocialPostCommentsCountAsync");
@@ -1068,8 +1453,10 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **socialProfileId** | **UUID**|  | |
 | **socialPostId** | **UUID**|  | |
+| **parentCommentId** | **String**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialPostCommentDtoCollectionQueryParameters** | [**SocialPostCommentDtoCollectionQueryParameters**](SocialPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1081,7 +1468,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1163,7 +1550,7 @@ No authorization required
 
 <a id="getSocialPostReactionsAsync"></a>
 # **getSocialPostReactionsAsync**
-> SocialReactionDtoListEnvelope getSocialPostReactionsAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
+> SocialReactionDtoListEnvelope getSocialPostReactionsAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters)
 
 Get social post reactions
 
@@ -1188,8 +1575,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters = new SocialPostReactionDtoCollectionQueryParameters(); // SocialPostReactionDtoCollectionQueryParameters | 
     try {
-      SocialReactionDtoListEnvelope result = apiInstance.getSocialPostReactionsAsync(socialPostId, socialProfileId, apiVersion, xApiVersion);
+      SocialReactionDtoListEnvelope result = apiInstance.getSocialPostReactionsAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#getSocialPostReactionsAsync");
@@ -1210,6 +1598,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialPostReactionDtoCollectionQueryParameters** | [**SocialPostReactionDtoCollectionQueryParameters**](SocialPostReactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1221,7 +1610,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1233,7 +1622,7 @@ No authorization required
 
 <a id="getSocialPostReactionsCountAsync"></a>
 # **getSocialPostReactionsCountAsync**
-> Int32Envelope getSocialPostReactionsCountAsync(socialPostId, socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope getSocialPostReactionsCountAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters)
 
 Count social post reactions
 
@@ -1258,8 +1647,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters = new SocialPostReactionDtoCollectionQueryParameters(); // SocialPostReactionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSocialPostReactionsCountAsync(socialPostId, socialProfileId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSocialPostReactionsCountAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#getSocialPostReactionsCountAsync");
@@ -1280,6 +1670,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialPostReactionDtoCollectionQueryParameters** | [**SocialPostReactionDtoCollectionQueryParameters**](SocialPostReactionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1291,7 +1682,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1303,7 +1694,7 @@ No authorization required
 
 <a id="getSocialPostsAsync"></a>
 # **getSocialPostsAsync**
-> SocialPostDtoListEnvelope getSocialPostsAsync(socialProfileId, apiVersion, xApiVersion)
+> SocialPostDtoListEnvelope getSocialPostsAsync(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters)
 
 Get social posts
 
@@ -1327,8 +1718,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters = new SocialPostDtoCollectionQueryParameters(); // SocialPostDtoCollectionQueryParameters | 
     try {
-      SocialPostDtoListEnvelope result = apiInstance.getSocialPostsAsync(socialProfileId, apiVersion, xApiVersion);
+      SocialPostDtoListEnvelope result = apiInstance.getSocialPostsAsync(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#getSocialPostsAsync");
@@ -1348,6 +1740,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialPostDtoCollectionQueryParameters** | [**SocialPostDtoCollectionQueryParameters**](SocialPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1359,7 +1752,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1371,7 +1764,7 @@ No authorization required
 
 <a id="getSocialPostsCountAsync"></a>
 # **getSocialPostsCountAsync**
-> Int32Envelope getSocialPostsCountAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope getSocialPostsCountAsync(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters)
 
 Count social posts
 
@@ -1395,8 +1788,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters = new SocialPostDtoCollectionQueryParameters(); // SocialPostDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSocialPostsCountAsync(socialProfileId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSocialPostsCountAsync(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#getSocialPostsCountAsync");
@@ -1416,6 +1810,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialPostDtoCollectionQueryParameters** | [**SocialPostDtoCollectionQueryParameters**](SocialPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1427,7 +1822,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1439,7 +1834,7 @@ No authorization required
 
 <a id="patchSocialPostAsync"></a>
 # **patchSocialPostAsync**
-> EmptyEnvelope patchSocialPostAsync(socialProfileId, socialPostId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSocialPostAsync(socialProfileId, socialPostId, apiVersion, xApiVersion, patchOperation)
 
 Patch a social post
 
@@ -1464,9 +1859,9 @@ public class Example {
     UUID socialPostId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSocialPostAsync(socialProfileId, socialPostId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSocialPostAsync(socialProfileId, socialPostId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#patchSocialPostAsync");
@@ -1487,11 +1882,87 @@ public class Example {
 | **socialPostId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
 [**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="updateSocialCommentReactionAsync"></a>
+# **updateSocialCommentReactionAsync**
+> SocialCommentReactionDtoEnvelope updateSocialCommentReactionAsync(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto)
+
+Update a social comment reaction
+
+Updates an existing reaction on a specific social comment.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SocialPostsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    SocialPostsApi apiInstance = new SocialPostsApi(defaultClient);
+    UUID socialPostId = UUID.randomUUID(); // UUID | 
+    UUID commentId = UUID.randomUUID(); // UUID | 
+    UUID reactionId = UUID.randomUUID(); // UUID | 
+    UUID socialProfileId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    SocialReactionUpdateDto socialReactionUpdateDto = new SocialReactionUpdateDto(); // SocialReactionUpdateDto | 
+    try {
+      SocialCommentReactionDtoEnvelope result = apiInstance.updateSocialCommentReactionAsync(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SocialPostsApi#updateSocialCommentReactionAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **socialPostId** | **UUID**|  | |
+| **commentId** | **UUID**|  | |
+| **reactionId** | **UUID**|  | |
+| **socialProfileId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **socialReactionUpdateDto** | [**SocialReactionUpdateDto**](SocialReactionUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -1731,7 +2202,7 @@ No authorization required
 
 <a id="updateSocialPostReactionAsync"></a>
 # **updateSocialPostReactionAsync**
-> EmptyEnvelope updateSocialPostReactionAsync(socialProfileId, socialPostId, reactionId, apiVersion, xApiVersion, socialReactionUpdateDto)
+> SocialPostReactionDtoEnvelope updateSocialPostReactionAsync(socialProfileId, socialPostId, reactionId, apiVersion, xApiVersion, socialReactionUpdateDto)
 
 Update a social post reaction
 
@@ -1759,7 +2230,7 @@ public class Example {
     String xApiVersion = "xApiVersion_example"; // String | 
     SocialReactionUpdateDto socialReactionUpdateDto = new SocialReactionUpdateDto(); // SocialReactionUpdateDto | 
     try {
-      EmptyEnvelope result = apiInstance.updateSocialPostReactionAsync(socialProfileId, socialPostId, reactionId, apiVersion, xApiVersion, socialReactionUpdateDto);
+      SocialPostReactionDtoEnvelope result = apiInstance.updateSocialPostReactionAsync(socialProfileId, socialPostId, reactionId, apiVersion, xApiVersion, socialReactionUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialPostsApi#updateSocialPostReactionAsync");
@@ -1785,7 +2256,7 @@ public class Example {
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md)
+[**SocialPostReactionDtoEnvelope**](SocialPostReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -1801,5 +2272,78 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="uploadSocialPostImageAttachmentAsync"></a>
+# **uploadSocialPostImageAttachmentAsync**
+> SocialPostAttachmentDtoEnvelope uploadSocialPostImageAttachmentAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, _file)
+
+Upload a social post image attachment
+
+Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SocialPostsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    SocialPostsApi apiInstance = new SocialPostsApi(defaultClient);
+    UUID socialPostId = UUID.randomUUID(); // UUID | 
+    UUID socialProfileId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    File _file = new File("/path/to/file"); // File | 
+    try {
+      SocialPostAttachmentDtoEnvelope result = apiInstance.uploadSocialPostImageAttachmentAsync(socialPostId, socialProfileId, apiVersion, xApiVersion, _file);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SocialPostsApi#uploadSocialPostImageAttachmentAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **socialPostId** | **UUID**|  | |
+| **socialProfileId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **_file** | **File**|  | [optional] |
+
+### Return type
+
+[**SocialPostAttachmentDtoEnvelope**](SocialPostAttachmentDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data, application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
 | **200** | OK |  -  |
 

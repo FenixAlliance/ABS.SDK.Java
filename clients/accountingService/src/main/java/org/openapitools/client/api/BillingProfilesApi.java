@@ -28,13 +28,14 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.BillingProfileCreateDto;
+import org.openapitools.client.model.BillingProfileDtoCollectionQueryParameters;
 import org.openapitools.client.model.BillingProfileDtoEnvelope;
 import org.openapitools.client.model.BillingProfileDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.BillingProfileUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -545,6 +546,7 @@ public class BillingProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billingProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -554,7 +556,7 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillingProfilesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBillingProfilesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -568,7 +570,7 @@ public class BillingProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = billingProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/BillingProfiles";
@@ -601,6 +603,8 @@ public class BillingProfilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -612,13 +616,13 @@ public class BillingProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBillingProfilesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBillingProfilesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBillingProfilesAsync(Async)");
         }
 
-        return getBillingProfilesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBillingProfilesAsyncCall(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -628,6 +632,7 @@ public class BillingProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billingProfileDtoCollectionQueryParameters  (optional)
      * @return BillingProfileDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -636,8 +641,8 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BillingProfileDtoIReadOnlyListEnvelope getBillingProfilesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BillingProfileDtoIReadOnlyListEnvelope> localVarResp = getBillingProfilesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public BillingProfileDtoIReadOnlyListEnvelope getBillingProfilesAsync(UUID tenantId, String apiVersion, String xApiVersion, BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BillingProfileDtoIReadOnlyListEnvelope> localVarResp = getBillingProfilesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -647,6 +652,7 @@ public class BillingProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billingProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BillingProfileDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -655,8 +661,8 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BillingProfileDtoIReadOnlyListEnvelope> getBillingProfilesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBillingProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<BillingProfileDtoIReadOnlyListEnvelope> getBillingProfilesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBillingProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BillingProfileDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -667,6 +673,7 @@ public class BillingProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billingProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -676,9 +683,9 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillingProfilesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<BillingProfileDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBillingProfilesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters, final ApiCallback<BillingProfileDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBillingProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBillingProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BillingProfileDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -688,6 +695,7 @@ public class BillingProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billingProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -697,7 +705,7 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillingProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBillingProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -711,7 +719,7 @@ public class BillingProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = billingProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/BillingProfiles/Count";
@@ -744,6 +752,8 @@ public class BillingProfilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -755,13 +765,13 @@ public class BillingProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBillingProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBillingProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBillingProfilesCountAsync(Async)");
         }
 
-        return getBillingProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBillingProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -771,6 +781,7 @@ public class BillingProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billingProfileDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -779,8 +790,8 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBillingProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBillingProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getBillingProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBillingProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -790,6 +801,7 @@ public class BillingProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billingProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -798,8 +810,8 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBillingProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBillingProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBillingProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBillingProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -810,6 +822,7 @@ public class BillingProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billingProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -819,9 +832,9 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillingProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBillingProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BillingProfileDtoCollectionQueryParameters billingProfileDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBillingProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBillingProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, billingProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -832,7 +845,7 @@ public class BillingProfilesApi {
      * @param billingProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -844,7 +857,7 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBillingProfileAsyncCall(UUID tenantId, UUID billingProfileId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBillingProfileAsyncCall(UUID tenantId, UUID billingProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -858,7 +871,7 @@ public class BillingProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/BillingProfiles/{billingProfileId}"
@@ -905,7 +918,7 @@ public class BillingProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBillingProfileAsyncValidateBeforeCall(UUID tenantId, UUID billingProfileId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBillingProfileAsyncValidateBeforeCall(UUID tenantId, UUID billingProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBillingProfileAsync(Async)");
@@ -916,7 +929,7 @@ public class BillingProfilesApi {
             throw new ApiException("Missing the required parameter 'billingProfileId' when calling patchBillingProfileAsync(Async)");
         }
 
-        return patchBillingProfileAsyncCall(tenantId, billingProfileId, apiVersion, xApiVersion, operation, _callback);
+        return patchBillingProfileAsyncCall(tenantId, billingProfileId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -927,7 +940,7 @@ public class BillingProfilesApi {
      * @param billingProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -938,8 +951,8 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBillingProfileAsync(UUID tenantId, UUID billingProfileId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBillingProfileAsyncWithHttpInfo(tenantId, billingProfileId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBillingProfileAsync(UUID tenantId, UUID billingProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBillingProfileAsyncWithHttpInfo(tenantId, billingProfileId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -950,7 +963,7 @@ public class BillingProfilesApi {
      * @param billingProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -961,8 +974,8 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBillingProfileAsyncWithHttpInfo(UUID tenantId, UUID billingProfileId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBillingProfileAsyncValidateBeforeCall(tenantId, billingProfileId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBillingProfileAsyncWithHttpInfo(UUID tenantId, UUID billingProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBillingProfileAsyncValidateBeforeCall(tenantId, billingProfileId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -974,7 +987,7 @@ public class BillingProfilesApi {
      * @param billingProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -986,9 +999,9 @@ public class BillingProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBillingProfileAsyncAsync(UUID tenantId, UUID billingProfileId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBillingProfileAsyncAsync(UUID tenantId, UUID billingProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBillingProfileAsyncValidateBeforeCall(tenantId, billingProfileId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBillingProfileAsyncValidateBeforeCall(tenantId, billingProfileId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

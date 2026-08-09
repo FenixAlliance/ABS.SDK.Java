@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.TrustSigningProviderDescriptorDtoCollectionQueryParameters;
 import org.openapitools.client.model.TrustSigningProviderDescriptorDtoListEnvelope;
 import org.openapitools.client.model.TrustSigningReadinessDtoEnvelope;
 import org.openapitools.client.model.TrustSigningRequestDto;
@@ -82,6 +83,7 @@ public class SigningEngineApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -92,7 +94,7 @@ public class SigningEngineApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProvidersAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProvidersAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -106,7 +108,7 @@ public class SigningEngineApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = trustSigningProviderDescriptorDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TrustService/SigningEngine/Providers";
@@ -139,6 +141,8 @@ public class SigningEngineApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -150,13 +154,13 @@ public class SigningEngineApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProvidersAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProvidersAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProvidersAsync(Async)");
         }
 
-        return getProvidersAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getProvidersAsyncCall(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -166,6 +170,7 @@ public class SigningEngineApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @return TrustSigningProviderDescriptorDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -175,8 +180,8 @@ public class SigningEngineApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TrustSigningProviderDescriptorDtoListEnvelope getProvidersAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TrustSigningProviderDescriptorDtoListEnvelope> localVarResp = getProvidersAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TrustSigningProviderDescriptorDtoListEnvelope getProvidersAsync(UUID tenantId, String apiVersion, String xApiVersion, TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TrustSigningProviderDescriptorDtoListEnvelope> localVarResp = getProvidersAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -186,6 +191,7 @@ public class SigningEngineApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TrustSigningProviderDescriptorDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -195,8 +201,8 @@ public class SigningEngineApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TrustSigningProviderDescriptorDtoListEnvelope> getProvidersAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getProvidersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TrustSigningProviderDescriptorDtoListEnvelope> getProvidersAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProvidersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TrustSigningProviderDescriptorDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -207,6 +213,7 @@ public class SigningEngineApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -217,9 +224,9 @@ public class SigningEngineApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProvidersAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TrustSigningProviderDescriptorDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getProvidersAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters, final ApiCallback<TrustSigningProviderDescriptorDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProvidersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getProvidersAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TrustSigningProviderDescriptorDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -229,6 +236,7 @@ public class SigningEngineApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -239,7 +247,7 @@ public class SigningEngineApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProvidersCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProvidersCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -253,7 +261,7 @@ public class SigningEngineApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = trustSigningProviderDescriptorDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TrustService/SigningEngine/Providers/Count";
@@ -286,6 +294,8 @@ public class SigningEngineApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -297,13 +307,13 @@ public class SigningEngineApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProvidersCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProvidersCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProvidersCountAsync(Async)");
         }
 
-        return getProvidersCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getProvidersCountAsyncCall(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -313,6 +323,7 @@ public class SigningEngineApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -322,8 +333,8 @@ public class SigningEngineApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getProvidersCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getProvidersCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getProvidersCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getProvidersCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -333,6 +344,7 @@ public class SigningEngineApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -342,8 +354,8 @@ public class SigningEngineApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getProvidersCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getProvidersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getProvidersCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProvidersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -354,6 +366,7 @@ public class SigningEngineApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trustSigningProviderDescriptorDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -364,9 +377,9 @@ public class SigningEngineApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProvidersCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getProvidersCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProvidersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getProvidersCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

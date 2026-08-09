@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getJobOfferFieldsAsync"></a>
 # **getJobOfferFieldsAsync**
-> JobOfferFieldRecordDtoListEnvelope getJobOfferFieldsAsync(tenantId, apiVersion, xApiVersion)
+> JobOfferFieldRecordDtoListEnvelope getJobOfferFieldsAsync(tenantId, apiVersion, xApiVersion, jobOfferFieldRecordDtoCollectionQueryParameters)
 
 Get job offer fields
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JobOfferFieldRecordDtoCollectionQueryParameters jobOfferFieldRecordDtoCollectionQueryParameters = new JobOfferFieldRecordDtoCollectionQueryParameters(); // JobOfferFieldRecordDtoCollectionQueryParameters | 
     try {
-      JobOfferFieldRecordDtoListEnvelope result = apiInstance.getJobOfferFieldsAsync(tenantId, apiVersion, xApiVersion);
+      JobOfferFieldRecordDtoListEnvelope result = apiInstance.getJobOfferFieldsAsync(tenantId, apiVersion, xApiVersion, jobOfferFieldRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobOfferFieldsApi#getJobOfferFieldsAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **jobOfferFieldRecordDtoCollectionQueryParameters** | [**JobOfferFieldRecordDtoCollectionQueryParameters**](JobOfferFieldRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getJobOfferFieldsCountAsync"></a>
 # **getJobOfferFieldsCountAsync**
-> Int32Envelope getJobOfferFieldsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getJobOfferFieldsCountAsync(tenantId, apiVersion, xApiVersion, jobOfferFieldRecordDtoCollectionQueryParameters)
 
 Count job offer fields
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JobOfferFieldRecordDtoCollectionQueryParameters jobOfferFieldRecordDtoCollectionQueryParameters = new JobOfferFieldRecordDtoCollectionQueryParameters(); // JobOfferFieldRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getJobOfferFieldsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getJobOfferFieldsCountAsync(tenantId, apiVersion, xApiVersion, jobOfferFieldRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobOfferFieldsApi#getJobOfferFieldsCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **jobOfferFieldRecordDtoCollectionQueryParameters** | [**JobOfferFieldRecordDtoCollectionQueryParameters**](JobOfferFieldRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchJobOfferFieldAsync"></a>
 # **patchJobOfferFieldAsync**
-> EmptyEnvelope patchJobOfferFieldAsync(tenantId, jobOfferFieldId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchJobOfferFieldAsync(tenantId, jobOfferFieldId, apiVersion, xApiVersion, patchOperation)
 
 Patch a job offer field
 
@@ -388,9 +392,9 @@ public class Example {
     UUID jobOfferFieldId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchJobOfferFieldAsync(tenantId, jobOfferFieldId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchJobOfferFieldAsync(tenantId, jobOfferFieldId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobOfferFieldsApi#patchJobOfferFieldAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **jobOfferFieldId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

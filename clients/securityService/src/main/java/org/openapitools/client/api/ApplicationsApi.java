@@ -28,13 +28,14 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.BusinessApplicationCreateDto;
+import org.openapitools.client.model.BusinessApplicationDtoCollectionQueryParameters;
 import org.openapitools.client.model.BusinessApplicationDtoEnvelope;
 import org.openapitools.client.model.BusinessApplicationDtoListEnvelope;
 import org.openapitools.client.model.BusinessApplicationUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SecurityPermissionDtoListEnvelope;
 import org.openapitools.client.model.SecurityRoleDtoListEnvelope;
 import java.util.UUID;
@@ -579,6 +580,7 @@ public class ApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -590,7 +592,7 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessApplicationsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBusinessApplicationsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -604,7 +606,7 @@ public class ApplicationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = businessApplicationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Applications";
@@ -637,6 +639,8 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -648,13 +652,13 @@ public class ApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBusinessApplicationsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBusinessApplicationsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBusinessApplicationsAsync(Async)");
         }
 
-        return getBusinessApplicationsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBusinessApplicationsAsyncCall(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -664,6 +668,7 @@ public class ApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @return BusinessApplicationDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -674,8 +679,8 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BusinessApplicationDtoListEnvelope getBusinessApplicationsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BusinessApplicationDtoListEnvelope> localVarResp = getBusinessApplicationsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public BusinessApplicationDtoListEnvelope getBusinessApplicationsAsync(UUID tenantId, String apiVersion, String xApiVersion, BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BusinessApplicationDtoListEnvelope> localVarResp = getBusinessApplicationsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -685,6 +690,7 @@ public class ApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BusinessApplicationDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -695,8 +701,8 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BusinessApplicationDtoListEnvelope> getBusinessApplicationsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBusinessApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<BusinessApplicationDtoListEnvelope> getBusinessApplicationsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BusinessApplicationDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -707,6 +713,7 @@ public class ApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -718,9 +725,9 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessApplicationsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<BusinessApplicationDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBusinessApplicationsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters, final ApiCallback<BusinessApplicationDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBusinessApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBusinessApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BusinessApplicationDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -730,6 +737,7 @@ public class ApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -741,7 +749,7 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessApplicationsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBusinessApplicationsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -755,7 +763,7 @@ public class ApplicationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = businessApplicationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Applications/Count";
@@ -788,6 +796,8 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -799,13 +809,13 @@ public class ApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBusinessApplicationsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBusinessApplicationsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBusinessApplicationsCountAsync(Async)");
         }
 
-        return getBusinessApplicationsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBusinessApplicationsCountAsyncCall(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -815,6 +825,7 @@ public class ApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -825,8 +836,8 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBusinessApplicationsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBusinessApplicationsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getBusinessApplicationsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBusinessApplicationsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -836,6 +847,7 @@ public class ApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -846,8 +858,8 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBusinessApplicationsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBusinessApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBusinessApplicationsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -858,6 +870,7 @@ public class ApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param businessApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -869,9 +882,9 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessApplicationsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBusinessApplicationsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBusinessApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBusinessApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1202,7 +1215,7 @@ public class ApplicationsApi {
      * Build call for patchBusinessApplicationAsync
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -1217,7 +1230,7 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBusinessApplicationAsyncCall(UUID tenantId, String applicationId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBusinessApplicationAsyncCall(UUID tenantId, String applicationId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1231,7 +1244,7 @@ public class ApplicationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Applications/{applicationId}"
@@ -1278,7 +1291,7 @@ public class ApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBusinessApplicationAsyncValidateBeforeCall(UUID tenantId, String applicationId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBusinessApplicationAsyncValidateBeforeCall(UUID tenantId, String applicationId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBusinessApplicationAsync(Async)");
@@ -1289,12 +1302,12 @@ public class ApplicationsApi {
             throw new ApiException("Missing the required parameter 'applicationId' when calling patchBusinessApplicationAsync(Async)");
         }
 
-        // verify the required parameter 'operation' is set
-        if (operation == null) {
-            throw new ApiException("Missing the required parameter 'operation' when calling patchBusinessApplicationAsync(Async)");
+        // verify the required parameter 'patchOperation' is set
+        if (patchOperation == null) {
+            throw new ApiException("Missing the required parameter 'patchOperation' when calling patchBusinessApplicationAsync(Async)");
         }
 
-        return patchBusinessApplicationAsyncCall(tenantId, applicationId, operation, apiVersion, xApiVersion, _callback);
+        return patchBusinessApplicationAsyncCall(tenantId, applicationId, patchOperation, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -1303,7 +1316,7 @@ public class ApplicationsApi {
      * Partially updates an existing business application using a JSON Patch document.
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -1317,8 +1330,8 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBusinessApplicationAsync(UUID tenantId, String applicationId, List<Operation> operation, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBusinessApplicationAsyncWithHttpInfo(tenantId, applicationId, operation, apiVersion, xApiVersion);
+    public EmptyEnvelope patchBusinessApplicationAsync(UUID tenantId, String applicationId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBusinessApplicationAsyncWithHttpInfo(tenantId, applicationId, patchOperation, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -1327,7 +1340,7 @@ public class ApplicationsApi {
      * Partially updates an existing business application using a JSON Patch document.
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
@@ -1341,8 +1354,8 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBusinessApplicationAsyncWithHttpInfo(UUID tenantId, String applicationId, List<Operation> operation, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = patchBusinessApplicationAsyncValidateBeforeCall(tenantId, applicationId, operation, apiVersion, xApiVersion, null);
+    public ApiResponse<EmptyEnvelope> patchBusinessApplicationAsyncWithHttpInfo(UUID tenantId, String applicationId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = patchBusinessApplicationAsyncValidateBeforeCall(tenantId, applicationId, patchOperation, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1352,7 +1365,7 @@ public class ApplicationsApi {
      * Partially updates an existing business application using a JSON Patch document.
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1367,9 +1380,9 @@ public class ApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBusinessApplicationAsyncAsync(UUID tenantId, String applicationId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBusinessApplicationAsyncAsync(UUID tenantId, String applicationId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBusinessApplicationAsyncValidateBeforeCall(tenantId, applicationId, operation, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = patchBusinessApplicationAsyncValidateBeforeCall(tenantId, applicationId, patchOperation, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

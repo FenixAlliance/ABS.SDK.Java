@@ -50,7 +50,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="aggregateAccountsBalanceAsync"></a>
 # **aggregateAccountsBalanceAsync**
-> MoneyEnvelope aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion)
+> MoneyEnvelope aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
 
 Aggregate accounts balance
 
@@ -75,8 +75,9 @@ public class Example {
     String currencyId = "USD.USA"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountDtoCollectionQueryParameters accountDtoCollectionQueryParameters = new AccountDtoCollectionQueryParameters(); // AccountDtoCollectionQueryParameters | 
     try {
-      MoneyEnvelope result = apiInstance.aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion);
+      MoneyEnvelope result = apiInstance.aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#aggregateAccountsBalanceAsync");
@@ -97,6 +98,7 @@ public class Example {
 | **currencyId** | **String**|  | [optional] [default to USD.USA] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -108,7 +110,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1044,7 +1046,7 @@ No authorization required
 
 <a id="getAccountCreditsAsync"></a>
 # **getAccountCreditsAsync**
-> AccountingEntryDtoListEnvelope getAccountCreditsAsync(tenantId, accountId, apiVersion, xApiVersion)
+> AccountingEntryDtoListEnvelope getAccountCreditsAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get account credits
 
@@ -1069,8 +1071,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters = new AccountingEntryDtoCollectionQueryParameters(); // AccountingEntryDtoCollectionQueryParameters | 
     try {
-      AccountingEntryDtoListEnvelope result = apiInstance.getAccountCreditsAsync(tenantId, accountId, apiVersion, xApiVersion);
+      AccountingEntryDtoListEnvelope result = apiInstance.getAccountCreditsAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountCreditsAsync");
@@ -1091,6 +1094,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1102,7 +1106,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1114,7 +1118,7 @@ No authorization required
 
 <a id="getAccountCreditsCountAsync"></a>
 # **getAccountCreditsCountAsync**
-> Int32Envelope getAccountCreditsCountAsync(tenantId, accountId, apiVersion, xApiVersion)
+> Int32Envelope getAccountCreditsCountAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get account credits count
 
@@ -1139,8 +1143,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters = new AccountingEntryDtoCollectionQueryParameters(); // AccountingEntryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAccountCreditsCountAsync(tenantId, accountId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAccountCreditsCountAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountCreditsCountAsync");
@@ -1161,6 +1166,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1172,7 +1178,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1184,7 +1190,7 @@ No authorization required
 
 <a id="getAccountDebitsAsync"></a>
 # **getAccountDebitsAsync**
-> AccountingEntryDtoListEnvelope getAccountDebitsAsync(tenantId, accountId, apiVersion, xApiVersion)
+> AccountingEntryDtoListEnvelope getAccountDebitsAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get account debits
 
@@ -1209,8 +1215,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters = new AccountingEntryDtoCollectionQueryParameters(); // AccountingEntryDtoCollectionQueryParameters | 
     try {
-      AccountingEntryDtoListEnvelope result = apiInstance.getAccountDebitsAsync(tenantId, accountId, apiVersion, xApiVersion);
+      AccountingEntryDtoListEnvelope result = apiInstance.getAccountDebitsAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountDebitsAsync");
@@ -1231,6 +1238,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1242,7 +1250,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1254,7 +1262,7 @@ No authorization required
 
 <a id="getAccountDebitsCountAsync"></a>
 # **getAccountDebitsCountAsync**
-> Int32Envelope getAccountDebitsCountAsync(tenantId, accountId, apiVersion, xApiVersion)
+> Int32Envelope getAccountDebitsCountAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get account debits count
 
@@ -1279,8 +1287,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters = new AccountingEntryDtoCollectionQueryParameters(); // AccountingEntryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAccountDebitsCountAsync(tenantId, accountId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAccountDebitsCountAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountDebitsCountAsync");
@@ -1301,6 +1310,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1312,7 +1322,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1394,7 +1404,7 @@ No authorization required
 
 <a id="getAccountEntriesAsync"></a>
 # **getAccountEntriesAsync**
-> AccountingEntryDtoListEnvelope getAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion)
+> AccountingEntryDtoListEnvelope getAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get account entries
 
@@ -1419,8 +1429,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters = new AccountingEntryDtoCollectionQueryParameters(); // AccountingEntryDtoCollectionQueryParameters | 
     try {
-      AccountingEntryDtoListEnvelope result = apiInstance.getAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion);
+      AccountingEntryDtoListEnvelope result = apiInstance.getAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountEntriesAsync");
@@ -1441,6 +1452,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1452,7 +1464,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1536,7 +1548,7 @@ No authorization required
 
 <a id="getAccountRelationsAsync"></a>
 # **getAccountRelationsAsync**
-> AccountRelationDtoListEnvelope getAccountRelationsAsync(tenantId, accountId, apiVersion, xApiVersion)
+> AccountRelationDtoListEnvelope getAccountRelationsAsync(tenantId, accountId, apiVersion, xApiVersion, accountRelationDtoCollectionQueryParameters)
 
 Get account relations
 
@@ -1561,8 +1573,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountRelationDtoCollectionQueryParameters accountRelationDtoCollectionQueryParameters = new AccountRelationDtoCollectionQueryParameters(); // AccountRelationDtoCollectionQueryParameters | 
     try {
-      AccountRelationDtoListEnvelope result = apiInstance.getAccountRelationsAsync(tenantId, accountId, apiVersion, xApiVersion);
+      AccountRelationDtoListEnvelope result = apiInstance.getAccountRelationsAsync(tenantId, accountId, apiVersion, xApiVersion, accountRelationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountRelationsAsync");
@@ -1583,6 +1596,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountRelationDtoCollectionQueryParameters** | [**AccountRelationDtoCollectionQueryParameters**](AccountRelationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1594,7 +1608,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1606,7 +1620,7 @@ No authorization required
 
 <a id="getAccountRelationsCountAsync"></a>
 # **getAccountRelationsCountAsync**
-> Int32Envelope getAccountRelationsCountAsync(tenantId, accountId, apiVersion, xApiVersion)
+> Int32Envelope getAccountRelationsCountAsync(tenantId, accountId, apiVersion, xApiVersion, accountRelationDtoCollectionQueryParameters)
 
 Get account relations count
 
@@ -1631,8 +1645,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountRelationDtoCollectionQueryParameters accountRelationDtoCollectionQueryParameters = new AccountRelationDtoCollectionQueryParameters(); // AccountRelationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAccountRelationsCountAsync(tenantId, accountId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAccountRelationsCountAsync(tenantId, accountId, apiVersion, xApiVersion, accountRelationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountRelationsCountAsync");
@@ -1653,6 +1668,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountRelationDtoCollectionQueryParameters** | [**AccountRelationDtoCollectionQueryParameters**](AccountRelationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1664,7 +1680,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1746,7 +1762,7 @@ No authorization required
 
 <a id="getAccountTypesAsync"></a>
 # **getAccountTypesAsync**
-> AccountTypeDtoListEnvelope getAccountTypesAsync(tenantId, apiVersion, xApiVersion)
+> AccountTypeDtoListEnvelope getAccountTypesAsync(tenantId, apiVersion, xApiVersion, accountTypeDtoCollectionQueryParameters)
 
 Get account types
 
@@ -1770,8 +1786,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountTypeDtoCollectionQueryParameters accountTypeDtoCollectionQueryParameters = new AccountTypeDtoCollectionQueryParameters(); // AccountTypeDtoCollectionQueryParameters | 
     try {
-      AccountTypeDtoListEnvelope result = apiInstance.getAccountTypesAsync(tenantId, apiVersion, xApiVersion);
+      AccountTypeDtoListEnvelope result = apiInstance.getAccountTypesAsync(tenantId, apiVersion, xApiVersion, accountTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountTypesAsync");
@@ -1791,6 +1808,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountTypeDtoCollectionQueryParameters** | [**AccountTypeDtoCollectionQueryParameters**](AccountTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1802,7 +1820,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1814,7 +1832,7 @@ No authorization required
 
 <a id="getAccountTypesCountAsync"></a>
 # **getAccountTypesCountAsync**
-> Int32Envelope getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion, accountTypeDtoCollectionQueryParameters)
 
 Get account types count
 
@@ -1838,8 +1856,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountTypeDtoCollectionQueryParameters accountTypeDtoCollectionQueryParameters = new AccountTypeDtoCollectionQueryParameters(); // AccountTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion, accountTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountTypesCountAsync");
@@ -1859,6 +1878,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountTypeDtoCollectionQueryParameters** | [**AccountTypeDtoCollectionQueryParameters**](AccountTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1870,7 +1890,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1882,7 +1902,7 @@ No authorization required
 
 <a id="getAccountsAsync"></a>
 # **getAccountsAsync**
-> AccountDtoListEnvelope getAccountsAsync(tenantId, apiVersion, xApiVersion)
+> AccountDtoListEnvelope getAccountsAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
 
 Creates a new account
 
@@ -1906,8 +1926,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountDtoCollectionQueryParameters accountDtoCollectionQueryParameters = new AccountDtoCollectionQueryParameters(); // AccountDtoCollectionQueryParameters | 
     try {
-      AccountDtoListEnvelope result = apiInstance.getAccountsAsync(tenantId, apiVersion, xApiVersion);
+      AccountDtoListEnvelope result = apiInstance.getAccountsAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountsAsync");
@@ -1927,6 +1948,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1938,7 +1960,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1950,7 +1972,7 @@ No authorization required
 
 <a id="getAccountsCountAsync"></a>
 # **getAccountsCountAsync**
-> Int32Envelope getAccountsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAccountsCountAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
 
 Get the number of accounts
 
@@ -1974,8 +1996,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountDtoCollectionQueryParameters accountDtoCollectionQueryParameters = new AccountDtoCollectionQueryParameters(); // AccountDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAccountsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAccountsCountAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountsCountAsync");
@@ -1995,6 +2018,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2006,7 +2030,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2154,7 +2178,7 @@ No authorization required
 
 <a id="getCreditAccountEntriesAsync"></a>
 # **getCreditAccountEntriesAsync**
-> AccountingEntryDtoListEnvelope getCreditAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion)
+> AccountingEntryDtoListEnvelope getCreditAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get credit account entries
 
@@ -2179,8 +2203,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters = new AccountingEntryDtoCollectionQueryParameters(); // AccountingEntryDtoCollectionQueryParameters | 
     try {
-      AccountingEntryDtoListEnvelope result = apiInstance.getCreditAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion);
+      AccountingEntryDtoListEnvelope result = apiInstance.getCreditAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getCreditAccountEntriesAsync");
@@ -2201,6 +2226,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2212,7 +2238,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2224,7 +2250,7 @@ No authorization required
 
 <a id="getDebitAccountEntriesAsync"></a>
 # **getDebitAccountEntriesAsync**
-> AccountingEntryDtoListEnvelope getDebitAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion)
+> AccountingEntryDtoListEnvelope getDebitAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters)
 
 Get debit account entries
 
@@ -2249,8 +2275,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters = new AccountingEntryDtoCollectionQueryParameters(); // AccountingEntryDtoCollectionQueryParameters | 
     try {
-      AccountingEntryDtoListEnvelope result = apiInstance.getDebitAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion);
+      AccountingEntryDtoListEnvelope result = apiInstance.getDebitAccountEntriesAsync(tenantId, accountId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getDebitAccountEntriesAsync");
@@ -2271,6 +2298,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountingEntryDtoCollectionQueryParameters** | [**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2282,7 +2310,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2294,7 +2322,7 @@ No authorization required
 
 <a id="getRootAccountsAsync"></a>
 # **getRootAccountsAsync**
-> AccountDtoListEnvelope getRootAccountsAsync(tenantId, apiVersion, xApiVersion)
+> AccountDtoListEnvelope getRootAccountsAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters)
 
 Get root accounts
 
@@ -2318,8 +2346,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountDtoCollectionQueryParameters accountDtoCollectionQueryParameters = new AccountDtoCollectionQueryParameters(); // AccountDtoCollectionQueryParameters | 
     try {
-      AccountDtoListEnvelope result = apiInstance.getRootAccountsAsync(tenantId, apiVersion, xApiVersion);
+      AccountDtoListEnvelope result = apiInstance.getRootAccountsAsync(tenantId, apiVersion, xApiVersion, accountDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getRootAccountsAsync");
@@ -2339,6 +2368,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountDtoCollectionQueryParameters** | [**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2350,7 +2380,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2362,7 +2392,7 @@ No authorization required
 
 <a id="patchAccountAsync"></a>
 # **patchAccountAsync**
-> EmptyEnvelope patchAccountAsync(tenantId, accountId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountAsync(tenantId, accountId, apiVersion, xApiVersion, patchOperation)
 
 Patch an account
 
@@ -2387,9 +2417,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAccountAsync(tenantId, accountId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchAccountAsync(tenantId, accountId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#patchAccountAsync");
@@ -2410,7 +2440,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2434,7 +2464,7 @@ No authorization required
 
 <a id="patchAccountEntryAsync"></a>
 # **patchAccountEntryAsync**
-> EmptyEnvelope patchAccountEntryAsync(tenantId, accountId, entryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountEntryAsync(tenantId, accountId, entryId, apiVersion, xApiVersion, patchOperation)
 
 Patch account entry
 
@@ -2460,9 +2490,9 @@ public class Example {
     UUID entryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAccountEntryAsync(tenantId, accountId, entryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchAccountEntryAsync(tenantId, accountId, entryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#patchAccountEntryAsync");
@@ -2484,7 +2514,7 @@ public class Example {
 | **entryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2508,7 +2538,7 @@ No authorization required
 
 <a id="patchAccountRelationAsync"></a>
 # **patchAccountRelationAsync**
-> EmptyEnvelope patchAccountRelationAsync(tenantId, accountRelationId, accountId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountRelationAsync(tenantId, accountRelationId, accountId, apiVersion, xApiVersion, patchOperation)
 
 Patch account relation
 
@@ -2534,9 +2564,9 @@ public class Example {
     UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAccountRelationAsync(tenantId, accountRelationId, accountId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchAccountRelationAsync(tenantId, accountRelationId, accountId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#patchAccountRelationAsync");
@@ -2558,7 +2588,7 @@ public class Example {
 | **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2582,7 +2612,7 @@ No authorization required
 
 <a id="patchAccountTypeAsync"></a>
 # **patchAccountTypeAsync**
-> EmptyEnvelope patchAccountTypeAsync(tenantId, accountTypeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountTypeAsync(tenantId, accountTypeId, apiVersion, xApiVersion, patchOperation)
 
 Patch account type
 
@@ -2607,9 +2637,9 @@ public class Example {
     UUID accountTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAccountTypeAsync(tenantId, accountTypeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchAccountTypeAsync(tenantId, accountTypeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#patchAccountTypeAsync");
@@ -2630,7 +2660,7 @@ public class Example {
 | **accountTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

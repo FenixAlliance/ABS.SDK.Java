@@ -11,7 +11,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countLanguagesAsync"></a>
 # **countLanguagesAsync**
-> Int32Envelope countLanguagesAsync(apiVersion, xApiVersion)
+> Int32Envelope countLanguagesAsync(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters)
 
 Count languages
 
@@ -34,8 +34,9 @@ public class Example {
     LanguagesApi apiInstance = new LanguagesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters = new CountryLanguageDtoCollectionQueryParameters(); // CountryLanguageDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countLanguagesAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countLanguagesAsync(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LanguagesApi#countLanguagesAsync");
@@ -54,6 +55,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryLanguageDtoCollectionQueryParameters** | [**CountryLanguageDtoCollectionQueryParameters**](CountryLanguageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -65,7 +67,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -145,7 +147,7 @@ No authorization required
 
 <a id="getLanguagesAsync"></a>
 # **getLanguagesAsync**
-> CountryLanguageDtoListEnvelope getLanguagesAsync(apiVersion, xApiVersion)
+> CountryLanguageDtoListEnvelope getLanguagesAsync(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters)
 
 Get all languages
 
@@ -168,8 +170,9 @@ public class Example {
     LanguagesApi apiInstance = new LanguagesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CountryLanguageDtoCollectionQueryParameters countryLanguageDtoCollectionQueryParameters = new CountryLanguageDtoCollectionQueryParameters(); // CountryLanguageDtoCollectionQueryParameters | 
     try {
-      CountryLanguageDtoListEnvelope result = apiInstance.getLanguagesAsync(apiVersion, xApiVersion);
+      CountryLanguageDtoListEnvelope result = apiInstance.getLanguagesAsync(apiVersion, xApiVersion, countryLanguageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LanguagesApi#getLanguagesAsync");
@@ -188,6 +191,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **countryLanguageDtoCollectionQueryParameters** | [**CountryLanguageDtoCollectionQueryParameters**](CountryLanguageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -199,7 +203,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

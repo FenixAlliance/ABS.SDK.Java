@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * QuoteCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:05:58.934060500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:31:51.744654200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class QuoteCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -91,6 +91,10 @@ public class QuoteCreateDto {
   public static final String SERIALIZED_NAME_ORGANIZATION_ID = "organizationId";
   @SerializedName(SERIALIZED_NAME_ORGANIZATION_ID)
   private String organizationId;
+
+  public static final String SERIALIZED_NAME_RECEIVER_TENANT_ID = "receiverTenantId";
+  @SerializedName(SERIALIZED_NAME_RECEIVER_TENANT_ID)
+  private String receiverTenantId;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -356,10 +360,6 @@ public class QuoteCreateDto {
   @SerializedName(SERIALIZED_NAME_DEAL_UNIT_ID)
   private String dealUnitId;
 
-  public static final String SERIALIZED_NAME_RECEIVER_TENANT_ID = "receiverTenantId";
-  @SerializedName(SERIALIZED_NAME_RECEIVER_TENANT_ID)
-  private String receiverTenantId;
-
   public static final String SERIALIZED_NAME_EFFECTIVE_TO = "effectiveTo";
   @SerializedName(SERIALIZED_NAME_EFFECTIVE_TO)
   private OffsetDateTime effectiveTo;
@@ -605,6 +605,25 @@ public class QuoteCreateDto {
 
   public void setOrganizationId(String organizationId) {
     this.organizationId = organizationId;
+  }
+
+
+  public QuoteCreateDto receiverTenantId(String receiverTenantId) {
+    this.receiverTenantId = receiverTenantId;
+    return this;
+  }
+
+  /**
+   * Get receiverTenantId
+   * @return receiverTenantId
+   */
+  @javax.annotation.Nullable
+  public String getReceiverTenantId() {
+    return receiverTenantId;
+  }
+
+  public void setReceiverTenantId(String receiverTenantId) {
+    this.receiverTenantId = receiverTenantId;
   }
 
 
@@ -1368,25 +1387,6 @@ public class QuoteCreateDto {
   }
 
 
-  public QuoteCreateDto receiverTenantId(String receiverTenantId) {
-    this.receiverTenantId = receiverTenantId;
-    return this;
-  }
-
-  /**
-   * Get receiverTenantId
-   * @return receiverTenantId
-   */
-  @javax.annotation.Nullable
-  public String getReceiverTenantId() {
-    return receiverTenantId;
-  }
-
-  public void setReceiverTenantId(String receiverTenantId) {
-    this.receiverTenantId = receiverTenantId;
-  }
-
-
   public QuoteCreateDto effectiveTo(OffsetDateTime effectiveTo) {
     this.effectiveTo = effectiveTo;
     return this;
@@ -1490,6 +1490,7 @@ public class QuoteCreateDto {
         Objects.equals(this.individualId, quoteCreateDto.individualId) &&
         Objects.equals(this.paymentTermId, quoteCreateDto.paymentTermId) &&
         Objects.equals(this.organizationId, quoteCreateDto.organizationId) &&
+        Objects.equals(this.receiverTenantId, quoteCreateDto.receiverTenantId) &&
         Objects.equals(this.firstName, quoteCreateDto.firstName) &&
         Objects.equals(this.lastName, quoteCreateDto.lastName) &&
         Objects.equals(this.companyName, quoteCreateDto.companyName) &&
@@ -1530,7 +1531,6 @@ public class QuoteCreateDto {
         Objects.equals(this.taxCalculationMethod, quoteCreateDto.taxCalculationMethod) &&
         Objects.equals(this.cartId, quoteCreateDto.cartId) &&
         Objects.equals(this.dealUnitId, quoteCreateDto.dealUnitId) &&
-        Objects.equals(this.receiverTenantId, quoteCreateDto.receiverTenantId) &&
         Objects.equals(this.effectiveTo, quoteCreateDto.effectiveTo) &&
         Objects.equals(this.effectiveFrom, quoteCreateDto.effectiveFrom) &&
         Objects.equals(this.quoteStatus, quoteCreateDto.quoteStatus) &&
@@ -1543,7 +1543,7 @@ public class QuoteCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, closed, title, priceListId, description, individualId, paymentTermId, organizationId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, forexRate, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, cartId, dealUnitId, receiverTenantId, effectiveTo, effectiveFrom, quoteStatus, quoteLines);
+    return Objects.hash(id, timestamp, closed, title, priceListId, description, individualId, paymentTermId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, forexRate, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, cartId, dealUnitId, effectiveTo, effectiveFrom, quoteStatus, quoteLines);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1566,6 +1566,7 @@ public class QuoteCreateDto {
     sb.append("    individualId: ").append(toIndentedString(individualId)).append("\n");
     sb.append("    paymentTermId: ").append(toIndentedString(paymentTermId)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
+    sb.append("    receiverTenantId: ").append(toIndentedString(receiverTenantId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
@@ -1606,7 +1607,6 @@ public class QuoteCreateDto {
     sb.append("    taxCalculationMethod: ").append(toIndentedString(taxCalculationMethod)).append("\n");
     sb.append("    cartId: ").append(toIndentedString(cartId)).append("\n");
     sb.append("    dealUnitId: ").append(toIndentedString(dealUnitId)).append("\n");
-    sb.append("    receiverTenantId: ").append(toIndentedString(receiverTenantId)).append("\n");
     sb.append("    effectiveTo: ").append(toIndentedString(effectiveTo)).append("\n");
     sb.append("    effectiveFrom: ").append(toIndentedString(effectiveFrom)).append("\n");
     sb.append("    quoteStatus: ").append(toIndentedString(quoteStatus)).append("\n");
@@ -1642,6 +1642,7 @@ public class QuoteCreateDto {
     openapiFields.add("individualId");
     openapiFields.add("paymentTermId");
     openapiFields.add("organizationId");
+    openapiFields.add("receiverTenantId");
     openapiFields.add("firstName");
     openapiFields.add("lastName");
     openapiFields.add("companyName");
@@ -1682,7 +1683,6 @@ public class QuoteCreateDto {
     openapiFields.add("taxCalculationMethod");
     openapiFields.add("cartId");
     openapiFields.add("dealUnitId");
-    openapiFields.add("receiverTenantId");
     openapiFields.add("effectiveTo");
     openapiFields.add("effectiveFrom");
     openapiFields.add("quoteStatus");
@@ -1733,6 +1733,9 @@ public class QuoteCreateDto {
       }
       if ((jsonObj.get("organizationId") != null && !jsonObj.get("organizationId").isJsonNull()) && !jsonObj.get("organizationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `organizationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organizationId").toString()));
+      }
+      if ((jsonObj.get("receiverTenantId") != null && !jsonObj.get("receiverTenantId").isJsonNull()) && !jsonObj.get("receiverTenantId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `receiverTenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiverTenantId").toString()));
       }
       if ((jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonNull()) && !jsonObj.get("firstName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
@@ -1822,9 +1825,6 @@ public class QuoteCreateDto {
       }
       if ((jsonObj.get("dealUnitId") != null && !jsonObj.get("dealUnitId").isJsonNull()) && !jsonObj.get("dealUnitId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dealUnitId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dealUnitId").toString()));
-      }
-      if ((jsonObj.get("receiverTenantId") != null && !jsonObj.get("receiverTenantId").isJsonNull()) && !jsonObj.get("receiverTenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `receiverTenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiverTenantId").toString()));
       }
       if ((jsonObj.get("quoteStatus") != null && !jsonObj.get("quoteStatus").isJsonNull()) && !jsonObj.get("quoteStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `quoteStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quoteStatus").toString()));

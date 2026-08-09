@@ -30,10 +30,11 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 import org.openapitools.client.model.WorkOrderTypeCreateDto;
 import org.openapitools.client.model.WorkOrderTypeDto;
+import org.openapitools.client.model.WorkOrderTypeDtoCollectionQueryParameters;
 import org.openapitools.client.model.WorkOrderTypeDtoListEnvelope;
 import org.openapitools.client.model.WorkOrderTypeUpdateDto;
 
@@ -556,6 +557,7 @@ public class WorkOrderTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderTypeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -566,7 +568,7 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWorkOrderTypesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWorkOrderTypesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -580,7 +582,7 @@ public class WorkOrderTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = workOrderTypeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ManufacturingService/WorkOrderTypes";
@@ -613,6 +615,8 @@ public class WorkOrderTypesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -624,13 +628,13 @@ public class WorkOrderTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWorkOrderTypesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWorkOrderTypesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWorkOrderTypesAsync(Async)");
         }
 
-        return getWorkOrderTypesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getWorkOrderTypesAsyncCall(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -640,6 +644,7 @@ public class WorkOrderTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderTypeDtoCollectionQueryParameters  (optional)
      * @return WorkOrderTypeDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -649,8 +654,8 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WorkOrderTypeDtoListEnvelope getWorkOrderTypesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WorkOrderTypeDtoListEnvelope> localVarResp = getWorkOrderTypesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public WorkOrderTypeDtoListEnvelope getWorkOrderTypesAsync(UUID tenantId, String apiVersion, String xApiVersion, WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WorkOrderTypeDtoListEnvelope> localVarResp = getWorkOrderTypesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -660,6 +665,7 @@ public class WorkOrderTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WorkOrderTypeDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -669,8 +675,8 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WorkOrderTypeDtoListEnvelope> getWorkOrderTypesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWorkOrderTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<WorkOrderTypeDtoListEnvelope> getWorkOrderTypesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWorkOrderTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WorkOrderTypeDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -681,6 +687,7 @@ public class WorkOrderTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderTypeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -691,9 +698,9 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWorkOrderTypesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<WorkOrderTypeDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWorkOrderTypesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters, final ApiCallback<WorkOrderTypeDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWorkOrderTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWorkOrderTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WorkOrderTypeDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -703,6 +710,7 @@ public class WorkOrderTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderTypeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -713,7 +721,7 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWorkOrderTypesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWorkOrderTypesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -727,7 +735,7 @@ public class WorkOrderTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = workOrderTypeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ManufacturingService/WorkOrderTypes/Count";
@@ -760,6 +768,8 @@ public class WorkOrderTypesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -771,13 +781,13 @@ public class WorkOrderTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWorkOrderTypesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWorkOrderTypesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWorkOrderTypesCountAsync(Async)");
         }
 
-        return getWorkOrderTypesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getWorkOrderTypesCountAsyncCall(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -787,6 +797,7 @@ public class WorkOrderTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderTypeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -796,8 +807,8 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWorkOrderTypesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWorkOrderTypesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getWorkOrderTypesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWorkOrderTypesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -807,6 +818,7 @@ public class WorkOrderTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -816,8 +828,8 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWorkOrderTypesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWorkOrderTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWorkOrderTypesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWorkOrderTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,6 +840,7 @@ public class WorkOrderTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param workOrderTypeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -838,9 +851,9 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWorkOrderTypesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWorkOrderTypesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WorkOrderTypeDtoCollectionQueryParameters workOrderTypeDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWorkOrderTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWorkOrderTypesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, workOrderTypeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -851,7 +864,7 @@ public class WorkOrderTypesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -863,7 +876,7 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWorkOrderTypeAsyncCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchWorkOrderTypeAsyncCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -877,7 +890,7 @@ public class WorkOrderTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ManufacturingService/WorkOrderTypes/{id}"
@@ -924,7 +937,7 @@ public class WorkOrderTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchWorkOrderTypeAsyncValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchWorkOrderTypeAsyncValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchWorkOrderTypeAsync(Async)");
@@ -935,7 +948,7 @@ public class WorkOrderTypesApi {
             throw new ApiException("Missing the required parameter 'id' when calling patchWorkOrderTypeAsync(Async)");
         }
 
-        return patchWorkOrderTypeAsyncCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        return patchWorkOrderTypeAsyncCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -946,7 +959,7 @@ public class WorkOrderTypesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -957,8 +970,8 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchWorkOrderTypeAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchWorkOrderTypeAsyncWithHttpInfo(tenantId, id, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchWorkOrderTypeAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchWorkOrderTypeAsyncWithHttpInfo(tenantId, id, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -969,7 +982,7 @@ public class WorkOrderTypesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -980,8 +993,8 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchWorkOrderTypeAsyncWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchWorkOrderTypeAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchWorkOrderTypeAsyncWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchWorkOrderTypeAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -993,7 +1006,7 @@ public class WorkOrderTypesApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1005,9 +1018,9 @@ public class WorkOrderTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWorkOrderTypeAsyncAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchWorkOrderTypeAsyncAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchWorkOrderTypeAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchWorkOrderTypeAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

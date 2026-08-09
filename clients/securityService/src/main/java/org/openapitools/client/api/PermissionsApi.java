@@ -31,8 +31,9 @@ import org.openapitools.client.model.BusinessApplicationSimpleDtoListEnvelope;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SecurityPermissionCreateDto;
+import org.openapitools.client.model.SecurityPermissionDtoCollectionQueryParameters;
 import org.openapitools.client.model.SecurityPermissionDtoEnvelope;
 import org.openapitools.client.model.SecurityPermissionDtoListEnvelope;
 import org.openapitools.client.model.SecurityPermissionUpdateDto;
@@ -1427,6 +1428,7 @@ public class PermissionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityPermissionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1438,7 +1440,7 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPermissionsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPermissionsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1452,7 +1454,7 @@ public class PermissionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = securityPermissionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Permissions";
@@ -1485,6 +1487,8 @@ public class PermissionsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1496,13 +1500,13 @@ public class PermissionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPermissionsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPermissionsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPermissionsAsync(Async)");
         }
 
-        return getPermissionsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getPermissionsAsyncCall(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1512,6 +1516,7 @@ public class PermissionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityPermissionDtoCollectionQueryParameters  (optional)
      * @return SecurityPermissionDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1522,8 +1527,8 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SecurityPermissionDtoListEnvelope getPermissionsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SecurityPermissionDtoListEnvelope> localVarResp = getPermissionsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SecurityPermissionDtoListEnvelope getPermissionsAsync(UUID tenantId, String apiVersion, String xApiVersion, SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SecurityPermissionDtoListEnvelope> localVarResp = getPermissionsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1533,6 +1538,7 @@ public class PermissionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityPermissionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SecurityPermissionDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1543,8 +1549,8 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SecurityPermissionDtoListEnvelope> getPermissionsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getPermissionsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<SecurityPermissionDtoListEnvelope> getPermissionsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPermissionsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SecurityPermissionDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1555,6 +1561,7 @@ public class PermissionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityPermissionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1566,9 +1573,9 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPermissionsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SecurityPermissionDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getPermissionsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters, final ApiCallback<SecurityPermissionDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPermissionsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getPermissionsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SecurityPermissionDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1739,6 +1746,7 @@ public class PermissionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityPermissionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1750,7 +1758,7 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPermissionsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPermissionsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1764,7 +1772,7 @@ public class PermissionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = securityPermissionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Permissions/Count";
@@ -1797,6 +1805,8 @@ public class PermissionsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1808,13 +1818,13 @@ public class PermissionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPermissionsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPermissionsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPermissionsCountAsync(Async)");
         }
 
-        return getPermissionsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getPermissionsCountAsyncCall(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1824,6 +1834,7 @@ public class PermissionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityPermissionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1834,8 +1845,8 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getPermissionsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getPermissionsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getPermissionsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getPermissionsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1845,6 +1856,7 @@ public class PermissionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityPermissionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1855,8 +1867,8 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getPermissionsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getPermissionsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getPermissionsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPermissionsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1867,6 +1879,7 @@ public class PermissionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityPermissionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1878,9 +1891,9 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPermissionsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getPermissionsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPermissionsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getPermissionsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2050,7 +2063,7 @@ public class PermissionsApi {
      * Build call for patchPermissionAsync
      * @param tenantId  (required)
      * @param securityPermissionId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -2065,7 +2078,7 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPermissionAsyncCall(UUID tenantId, String securityPermissionId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchPermissionAsyncCall(UUID tenantId, String securityPermissionId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2079,7 +2092,7 @@ public class PermissionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Permissions/{securityPermissionId}"
@@ -2126,7 +2139,7 @@ public class PermissionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchPermissionAsyncValidateBeforeCall(UUID tenantId, String securityPermissionId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPermissionAsyncValidateBeforeCall(UUID tenantId, String securityPermissionId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchPermissionAsync(Async)");
@@ -2137,12 +2150,12 @@ public class PermissionsApi {
             throw new ApiException("Missing the required parameter 'securityPermissionId' when calling patchPermissionAsync(Async)");
         }
 
-        // verify the required parameter 'operation' is set
-        if (operation == null) {
-            throw new ApiException("Missing the required parameter 'operation' when calling patchPermissionAsync(Async)");
+        // verify the required parameter 'patchOperation' is set
+        if (patchOperation == null) {
+            throw new ApiException("Missing the required parameter 'patchOperation' when calling patchPermissionAsync(Async)");
         }
 
-        return patchPermissionAsyncCall(tenantId, securityPermissionId, operation, apiVersion, xApiVersion, _callback);
+        return patchPermissionAsyncCall(tenantId, securityPermissionId, patchOperation, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -2151,7 +2164,7 @@ public class PermissionsApi {
      * Partially updates an existing security permission using a JSON Patch document.
      * @param tenantId  (required)
      * @param securityPermissionId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -2165,8 +2178,8 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchPermissionAsync(UUID tenantId, String securityPermissionId, List<Operation> operation, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchPermissionAsyncWithHttpInfo(tenantId, securityPermissionId, operation, apiVersion, xApiVersion);
+    public EmptyEnvelope patchPermissionAsync(UUID tenantId, String securityPermissionId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchPermissionAsyncWithHttpInfo(tenantId, securityPermissionId, patchOperation, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -2175,7 +2188,7 @@ public class PermissionsApi {
      * Partially updates an existing security permission using a JSON Patch document.
      * @param tenantId  (required)
      * @param securityPermissionId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
@@ -2189,8 +2202,8 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchPermissionAsyncWithHttpInfo(UUID tenantId, String securityPermissionId, List<Operation> operation, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = patchPermissionAsyncValidateBeforeCall(tenantId, securityPermissionId, operation, apiVersion, xApiVersion, null);
+    public ApiResponse<EmptyEnvelope> patchPermissionAsyncWithHttpInfo(UUID tenantId, String securityPermissionId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = patchPermissionAsyncValidateBeforeCall(tenantId, securityPermissionId, patchOperation, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2200,7 +2213,7 @@ public class PermissionsApi {
      * Partially updates an existing security permission using a JSON Patch document.
      * @param tenantId  (required)
      * @param securityPermissionId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2215,9 +2228,9 @@ public class PermissionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPermissionAsyncAsync(UUID tenantId, String securityPermissionId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchPermissionAsyncAsync(UUID tenantId, String securityPermissionId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchPermissionAsyncValidateBeforeCall(tenantId, securityPermissionId, operation, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = patchPermissionAsyncValidateBeforeCall(tenantId, securityPermissionId, patchOperation, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

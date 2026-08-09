@@ -730,7 +730,7 @@ No authorization required
 
 <a id="getTruckTripsAsync"></a>
 # **getTruckTripsAsync**
-> TruckTripDtoListEnvelope getTruckTripsAsync(tenantId, truckId, apiVersion, xApiVersion)
+> TruckTripDtoListEnvelope getTruckTripsAsync(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters)
 
 Get truck trips
 
@@ -755,8 +755,9 @@ public class Example {
     UUID truckId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters = new TruckTripDtoCollectionQueryParameters(); // TruckTripDtoCollectionQueryParameters | 
     try {
-      TruckTripDtoListEnvelope result = apiInstance.getTruckTripsAsync(tenantId, truckId, apiVersion, xApiVersion);
+      TruckTripDtoListEnvelope result = apiInstance.getTruckTripsAsync(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrucksApi#getTruckTripsAsync");
@@ -777,6 +778,7 @@ public class Example {
 | **truckId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **truckTripDtoCollectionQueryParameters** | [**TruckTripDtoCollectionQueryParameters**](TruckTripDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -788,7 +790,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -799,7 +801,7 @@ No authorization required
 
 <a id="getTruckTripsCountAsync"></a>
 # **getTruckTripsCountAsync**
-> Int32Envelope getTruckTripsCountAsync(tenantId, truckId, apiVersion, xApiVersion)
+> Int32Envelope getTruckTripsCountAsync(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters)
 
 Get truck trips count
 
@@ -824,8 +826,9 @@ public class Example {
     UUID truckId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TruckTripDtoCollectionQueryParameters truckTripDtoCollectionQueryParameters = new TruckTripDtoCollectionQueryParameters(); // TruckTripDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTruckTripsCountAsync(tenantId, truckId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTruckTripsCountAsync(tenantId, truckId, apiVersion, xApiVersion, truckTripDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrucksApi#getTruckTripsCountAsync");
@@ -846,6 +849,7 @@ public class Example {
 | **truckId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **truckTripDtoCollectionQueryParameters** | [**TruckTripDtoCollectionQueryParameters**](TruckTripDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -857,7 +861,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -868,7 +872,7 @@ No authorization required
 
 <a id="getTrucksAsync"></a>
 # **getTrucksAsync**
-> TruckDtoListEnvelope getTrucksAsync(tenantId, apiVersion, xApiVersion)
+> TruckDtoListEnvelope getTrucksAsync(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters)
 
 Get all trucks
 
@@ -892,8 +896,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters = new TruckDtoCollectionQueryParameters(); // TruckDtoCollectionQueryParameters | 
     try {
-      TruckDtoListEnvelope result = apiInstance.getTrucksAsync(tenantId, apiVersion, xApiVersion);
+      TruckDtoListEnvelope result = apiInstance.getTrucksAsync(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrucksApi#getTrucksAsync");
@@ -913,6 +918,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **truckDtoCollectionQueryParameters** | [**TruckDtoCollectionQueryParameters**](TruckDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -924,7 +930,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -936,7 +942,7 @@ No authorization required
 
 <a id="getTrucksCountAsync"></a>
 # **getTrucksCountAsync**
-> Int32Envelope getTrucksCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTrucksCountAsync(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters)
 
 Get trucks count
 
@@ -960,8 +966,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TruckDtoCollectionQueryParameters truckDtoCollectionQueryParameters = new TruckDtoCollectionQueryParameters(); // TruckDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTrucksCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTrucksCountAsync(tenantId, apiVersion, xApiVersion, truckDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrucksApi#getTrucksCountAsync");
@@ -981,6 +988,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **truckDtoCollectionQueryParameters** | [**TruckDtoCollectionQueryParameters**](TruckDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -992,7 +1000,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1003,7 +1011,7 @@ No authorization required
 
 <a id="patchTruckAsync"></a>
 # **patchTruckAsync**
-> EmptyEnvelope patchTruckAsync(tenantId, truckId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTruckAsync(tenantId, truckId, apiVersion, xApiVersion, patchOperation)
 
 Patch a truck
 
@@ -1028,9 +1036,9 @@ public class Example {
     UUID truckId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTruckAsync(tenantId, truckId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTruckAsync(tenantId, truckId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrucksApi#patchTruckAsync");
@@ -1051,7 +1059,7 @@ public class Example {
 | **truckId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1076,7 +1084,7 @@ No authorization required
 
 <a id="patchTruckTripAsync"></a>
 # **patchTruckTripAsync**
-> EmptyEnvelope patchTruckTripAsync(tenantId, truckId, tripId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTruckTripAsync(tenantId, truckId, tripId, apiVersion, xApiVersion, patchOperation)
 
 Patch a truck trip
 
@@ -1102,9 +1110,9 @@ public class Example {
     UUID tripId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTruckTripAsync(tenantId, truckId, tripId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTruckTripAsync(tenantId, truckId, tripId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrucksApi#patchTruckTripAsync");
@@ -1126,7 +1134,7 @@ public class Example {
 | **tripId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

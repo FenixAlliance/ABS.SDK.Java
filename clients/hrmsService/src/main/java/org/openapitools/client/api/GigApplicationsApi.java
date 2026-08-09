@@ -30,11 +30,12 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.GigApplicationCreateDto;
+import org.openapitools.client.model.GigApplicationDtoCollectionQueryParameters;
 import org.openapitools.client.model.GigApplicationDtoEnvelope;
 import org.openapitools.client.model.GigApplicationDtoListEnvelope;
 import org.openapitools.client.model.GigApplicationUpdateDto;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -733,6 +734,7 @@ public class GigApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param gigApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -744,7 +746,7 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGigApplicationsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getGigApplicationsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -758,7 +760,7 @@ public class GigApplicationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = gigApplicationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/GigApplications";
@@ -791,6 +793,8 @@ public class GigApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -802,13 +806,13 @@ public class GigApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getGigApplicationsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getGigApplicationsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getGigApplicationsAsync(Async)");
         }
 
-        return getGigApplicationsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getGigApplicationsAsyncCall(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -818,6 +822,7 @@ public class GigApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param gigApplicationDtoCollectionQueryParameters  (optional)
      * @return GigApplicationDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -828,8 +833,8 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GigApplicationDtoListEnvelope getGigApplicationsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<GigApplicationDtoListEnvelope> localVarResp = getGigApplicationsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public GigApplicationDtoListEnvelope getGigApplicationsAsync(UUID tenantId, String apiVersion, String xApiVersion, GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<GigApplicationDtoListEnvelope> localVarResp = getGigApplicationsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -839,6 +844,7 @@ public class GigApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param gigApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;GigApplicationDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -849,8 +855,8 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GigApplicationDtoListEnvelope> getGigApplicationsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getGigApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<GigApplicationDtoListEnvelope> getGigApplicationsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getGigApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<GigApplicationDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -861,6 +867,7 @@ public class GigApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param gigApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -872,9 +879,9 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGigApplicationsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<GigApplicationDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getGigApplicationsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters, final ApiCallback<GigApplicationDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getGigApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getGigApplicationsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<GigApplicationDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -884,6 +891,7 @@ public class GigApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param gigApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -895,7 +903,7 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGigApplicationsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getGigApplicationsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -909,7 +917,7 @@ public class GigApplicationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = gigApplicationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/GigApplications/Count";
@@ -942,6 +950,8 @@ public class GigApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -953,13 +963,13 @@ public class GigApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getGigApplicationsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getGigApplicationsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getGigApplicationsCountAsync(Async)");
         }
 
-        return getGigApplicationsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getGigApplicationsCountAsyncCall(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -969,6 +979,7 @@ public class GigApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param gigApplicationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -979,8 +990,8 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getGigApplicationsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getGigApplicationsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getGigApplicationsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getGigApplicationsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -990,6 +1001,7 @@ public class GigApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param gigApplicationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1000,8 +1012,8 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getGigApplicationsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getGigApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getGigApplicationsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getGigApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1012,6 +1024,7 @@ public class GigApplicationsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param gigApplicationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1023,9 +1036,9 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGigApplicationsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getGigApplicationsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getGigApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getGigApplicationsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1036,7 +1049,7 @@ public class GigApplicationsApi {
      * @param gigApplicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1049,7 +1062,7 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchGigApplicationAsyncCall(UUID tenantId, UUID gigApplicationId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchGigApplicationAsyncCall(UUID tenantId, UUID gigApplicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1063,7 +1076,7 @@ public class GigApplicationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/GigApplications/{gigApplicationId}"
@@ -1110,7 +1123,7 @@ public class GigApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchGigApplicationAsyncValidateBeforeCall(UUID tenantId, UUID gigApplicationId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchGigApplicationAsyncValidateBeforeCall(UUID tenantId, UUID gigApplicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchGigApplicationAsync(Async)");
@@ -1121,7 +1134,7 @@ public class GigApplicationsApi {
             throw new ApiException("Missing the required parameter 'gigApplicationId' when calling patchGigApplicationAsync(Async)");
         }
 
-        return patchGigApplicationAsyncCall(tenantId, gigApplicationId, apiVersion, xApiVersion, operation, _callback);
+        return patchGigApplicationAsyncCall(tenantId, gigApplicationId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1132,7 +1145,7 @@ public class GigApplicationsApi {
      * @param gigApplicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1144,8 +1157,8 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchGigApplicationAsync(UUID tenantId, UUID gigApplicationId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchGigApplicationAsyncWithHttpInfo(tenantId, gigApplicationId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchGigApplicationAsync(UUID tenantId, UUID gigApplicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchGigApplicationAsyncWithHttpInfo(tenantId, gigApplicationId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1156,7 +1169,7 @@ public class GigApplicationsApi {
      * @param gigApplicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1168,8 +1181,8 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchGigApplicationAsyncWithHttpInfo(UUID tenantId, UUID gigApplicationId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchGigApplicationAsyncValidateBeforeCall(tenantId, gigApplicationId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchGigApplicationAsyncWithHttpInfo(UUID tenantId, UUID gigApplicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchGigApplicationAsyncValidateBeforeCall(tenantId, gigApplicationId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1181,7 +1194,7 @@ public class GigApplicationsApi {
      * @param gigApplicationId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1194,9 +1207,9 @@ public class GigApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchGigApplicationAsyncAsync(UUID tenantId, UUID gigApplicationId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchGigApplicationAsyncAsync(UUID tenantId, UUID gigApplicationId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchGigApplicationAsyncValidateBeforeCall(tenantId, gigApplicationId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchGigApplicationAsyncValidateBeforeCall(tenantId, gigApplicationId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

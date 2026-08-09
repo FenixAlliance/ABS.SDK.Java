@@ -226,7 +226,7 @@ No authorization required
 
 <a id="getBusinessDomainsAsync"></a>
 # **getBusinessDomainsAsync**
-> BusinessDomainDtoListEnvelope getBusinessDomainsAsync(tenantId, apiVersion, xApiVersion)
+> BusinessDomainDtoListEnvelope getBusinessDomainsAsync(tenantId, apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
 
 Get business domains
 
@@ -250,8 +250,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters = new BusinessDomainDtoCollectionQueryParameters(); // BusinessDomainDtoCollectionQueryParameters | 
     try {
-      BusinessDomainDtoListEnvelope result = apiInstance.getBusinessDomainsAsync(tenantId, apiVersion, xApiVersion);
+      BusinessDomainDtoListEnvelope result = apiInstance.getBusinessDomainsAsync(tenantId, apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BusinessDomainsApi#getBusinessDomainsAsync");
@@ -271,6 +272,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **businessDomainDtoCollectionQueryParameters** | [**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -282,7 +284,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -294,7 +296,7 @@ No authorization required
 
 <a id="getBusinessDomainsCountAsync"></a>
 # **getBusinessDomainsCountAsync**
-> Int32Envelope getBusinessDomainsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBusinessDomainsCountAsync(tenantId, apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters)
 
 Get business domains count
 
@@ -318,8 +320,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BusinessDomainDtoCollectionQueryParameters businessDomainDtoCollectionQueryParameters = new BusinessDomainDtoCollectionQueryParameters(); // BusinessDomainDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBusinessDomainsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBusinessDomainsCountAsync(tenantId, apiVersion, xApiVersion, businessDomainDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BusinessDomainsApi#getBusinessDomainsCountAsync");
@@ -339,6 +342,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **businessDomainDtoCollectionQueryParameters** | [**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -350,7 +354,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

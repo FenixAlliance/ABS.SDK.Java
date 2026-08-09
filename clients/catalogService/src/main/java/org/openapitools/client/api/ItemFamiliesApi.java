@@ -31,10 +31,11 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.ItemFamilyCreateDto;
+import org.openapitools.client.model.ItemFamilyDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemFamilyDtoEnvelope;
 import org.openapitools.client.model.ItemFamilyDtoListEnvelope;
 import org.openapitools.client.model.ItemFamilyUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -399,6 +400,7 @@ public class ItemFamiliesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemFamilyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -410,7 +412,7 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemFamiliesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemFamiliesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -424,7 +426,7 @@ public class ItemFamiliesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemFamilyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemFamilies";
@@ -457,6 +459,8 @@ public class ItemFamiliesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -468,8 +472,8 @@ public class ItemFamiliesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemFamiliesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getItemFamiliesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getItemFamiliesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getItemFamiliesAsyncCall(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -479,6 +483,7 @@ public class ItemFamiliesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemFamilyDtoCollectionQueryParameters  (optional)
      * @return ItemFamilyDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -489,8 +494,8 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemFamilyDtoListEnvelope getItemFamiliesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemFamilyDtoListEnvelope> localVarResp = getItemFamiliesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ItemFamilyDtoListEnvelope getItemFamiliesAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemFamilyDtoListEnvelope> localVarResp = getItemFamiliesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -500,6 +505,7 @@ public class ItemFamiliesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemFamilyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemFamilyDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -510,8 +516,8 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemFamilyDtoListEnvelope> getItemFamiliesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemFamiliesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemFamilyDtoListEnvelope> getItemFamiliesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemFamiliesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemFamilyDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -522,6 +528,7 @@ public class ItemFamiliesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemFamilyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -533,9 +540,9 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemFamiliesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ItemFamilyDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemFamiliesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters, final ApiCallback<ItemFamilyDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemFamiliesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemFamiliesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemFamilyDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -545,6 +552,7 @@ public class ItemFamiliesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemFamilyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -556,7 +564,7 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemFamiliesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemFamiliesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -570,7 +578,7 @@ public class ItemFamiliesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemFamilyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemFamilies/Count";
@@ -603,6 +611,8 @@ public class ItemFamiliesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -614,8 +624,8 @@ public class ItemFamiliesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemFamiliesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getItemFamiliesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getItemFamiliesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getItemFamiliesCountAsyncCall(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -625,6 +635,7 @@ public class ItemFamiliesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemFamilyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -635,8 +646,8 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getItemFamiliesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getItemFamiliesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getItemFamiliesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getItemFamiliesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -646,6 +657,7 @@ public class ItemFamiliesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemFamilyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -656,8 +668,8 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getItemFamiliesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemFamiliesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getItemFamiliesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemFamiliesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -668,6 +680,7 @@ public class ItemFamiliesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemFamilyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -679,9 +692,9 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemFamiliesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getItemFamiliesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemFamilyDtoCollectionQueryParameters itemFamilyDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemFamiliesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemFamiliesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemFamilyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -848,7 +861,7 @@ public class ItemFamiliesApi {
      * @param itemFamilyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -860,7 +873,7 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemFamilyAsyncCall(UUID tenantId, UUID itemFamilyId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemFamilyAsyncCall(UUID tenantId, UUID itemFamilyId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -874,7 +887,7 @@ public class ItemFamiliesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemFamilies/{itemFamilyId}"
@@ -921,7 +934,7 @@ public class ItemFamiliesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemFamilyAsyncValidateBeforeCall(UUID tenantId, UUID itemFamilyId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemFamilyAsyncValidateBeforeCall(UUID tenantId, UUID itemFamilyId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemFamilyAsync(Async)");
@@ -932,7 +945,7 @@ public class ItemFamiliesApi {
             throw new ApiException("Missing the required parameter 'itemFamilyId' when calling patchItemFamilyAsync(Async)");
         }
 
-        return patchItemFamilyAsyncCall(tenantId, itemFamilyId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemFamilyAsyncCall(tenantId, itemFamilyId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -943,7 +956,7 @@ public class ItemFamiliesApi {
      * @param itemFamilyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -954,8 +967,8 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchItemFamilyAsync(UUID tenantId, UUID itemFamilyId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchItemFamilyAsyncWithHttpInfo(tenantId, itemFamilyId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchItemFamilyAsync(UUID tenantId, UUID itemFamilyId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchItemFamilyAsyncWithHttpInfo(tenantId, itemFamilyId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -966,7 +979,7 @@ public class ItemFamiliesApi {
      * @param itemFamilyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -977,8 +990,8 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchItemFamilyAsyncWithHttpInfo(UUID tenantId, UUID itemFamilyId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemFamilyAsyncValidateBeforeCall(tenantId, itemFamilyId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchItemFamilyAsyncWithHttpInfo(UUID tenantId, UUID itemFamilyId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemFamilyAsyncValidateBeforeCall(tenantId, itemFamilyId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -990,7 +1003,7 @@ public class ItemFamiliesApi {
      * @param itemFamilyId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1002,9 +1015,9 @@ public class ItemFamiliesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemFamilyAsyncAsync(UUID tenantId, UUID itemFamilyId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchItemFamilyAsyncAsync(UUID tenantId, UUID itemFamilyId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemFamilyAsyncValidateBeforeCall(tenantId, itemFamilyId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemFamilyAsyncValidateBeforeCall(tenantId, itemFamilyId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

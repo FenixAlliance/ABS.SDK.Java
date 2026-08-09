@@ -228,7 +228,7 @@ No authorization required
 
 <a id="getNewsletterODataAsync"></a>
 # **getNewsletterODataAsync**
-> getNewsletterODataAsync(tenantId, apiVersion, xApiVersion)
+> getNewsletterODataAsync(tenantId, apiVersion, xApiVersion, newsletterDtoCollectionQueryParameters)
 
 Get newsletters
 
@@ -252,8 +252,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NewsletterDtoCollectionQueryParameters newsletterDtoCollectionQueryParameters = new NewsletterDtoCollectionQueryParameters(); // NewsletterDtoCollectionQueryParameters | 
     try {
-      apiInstance.getNewsletterODataAsync(tenantId, apiVersion, xApiVersion);
+      apiInstance.getNewsletterODataAsync(tenantId, apiVersion, xApiVersion, newsletterDtoCollectionQueryParameters);
     } catch (ApiException e) {
       System.err.println("Exception when calling NewslettersApi#getNewsletterODataAsync");
       System.err.println("Status code: " + e.getCode());
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **newsletterDtoCollectionQueryParameters** | [**NewsletterDtoCollectionQueryParameters**](NewsletterDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getNewslettersCountAsync"></a>
 # **getNewslettersCountAsync**
-> Int32Envelope getNewslettersCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getNewslettersCountAsync(tenantId, apiVersion, xApiVersion, newsletterDtoCollectionQueryParameters)
 
 Get newsletters count
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NewsletterDtoCollectionQueryParameters newsletterDtoCollectionQueryParameters = new NewsletterDtoCollectionQueryParameters(); // NewsletterDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getNewslettersCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getNewslettersCountAsync(tenantId, apiVersion, xApiVersion, newsletterDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NewslettersApi#getNewslettersCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **newsletterDtoCollectionQueryParameters** | [**NewsletterDtoCollectionQueryParameters**](NewsletterDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -364,7 +368,7 @@ No authorization required
 
 <a id="patchNewsletterAsync"></a>
 # **patchNewsletterAsync**
-> EmptyEnvelope patchNewsletterAsync(tenantId, newsletterId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchNewsletterAsync(tenantId, newsletterId, apiVersion, xApiVersion, patchOperation)
 
 Patch a newsletter
 
@@ -389,9 +393,9 @@ public class Example {
     UUID newsletterId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchNewsletterAsync(tenantId, newsletterId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchNewsletterAsync(tenantId, newsletterId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NewslettersApi#patchNewsletterAsync");
@@ -412,7 +416,7 @@ public class Example {
 | **newsletterId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

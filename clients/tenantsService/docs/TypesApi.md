@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getTenantTypes"></a>
 # **getTenantTypes**
-> TenantTypeDtoListEnvelope getTenantTypes(tenantId, apiVersion, xApiVersion)
+> TenantTypeDtoListEnvelope getTenantTypes(tenantId, apiVersion, xApiVersion, tenantTypeDtoCollectionQueryParameters)
 
 Retrieve a list of tenant types
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantTypeDtoCollectionQueryParameters tenantTypeDtoCollectionQueryParameters = new TenantTypeDtoCollectionQueryParameters(); // TenantTypeDtoCollectionQueryParameters | 
     try {
-      TenantTypeDtoListEnvelope result = apiInstance.getTenantTypes(tenantId, apiVersion, xApiVersion);
+      TenantTypeDtoListEnvelope result = apiInstance.getTenantTypes(tenantId, apiVersion, xApiVersion, tenantTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TypesApi#getTenantTypes");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantTypeDtoCollectionQueryParameters** | [**TenantTypeDtoCollectionQueryParameters**](TenantTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getTenantTypesCount"></a>
 # **getTenantTypesCount**
-> Int32Envelope getTenantTypesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantTypesCount(tenantId, apiVersion, xApiVersion, tenantTypeDtoCollectionQueryParameters)
 
 Get the count of tenant types
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantTypeDtoCollectionQueryParameters tenantTypeDtoCollectionQueryParameters = new TenantTypeDtoCollectionQueryParameters(); // TenantTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantTypesCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantTypesCount(tenantId, apiVersion, xApiVersion, tenantTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TypesApi#getTenantTypesCount");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantTypeDtoCollectionQueryParameters** | [**TenantTypeDtoCollectionQueryParameters**](TenantTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchTenantType"></a>
 # **patchTenantType**
-> EmptyEnvelope patchTenantType(tenantId, tenantTypeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantType(tenantId, tenantTypeId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant type
 
@@ -386,9 +390,9 @@ public class Example {
     UUID tenantTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantType(tenantId, tenantTypeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantType(tenantId, tenantTypeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TypesApi#patchTenantType");
@@ -409,7 +413,7 @@ public class Example {
 | **tenantTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

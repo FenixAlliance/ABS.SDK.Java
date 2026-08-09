@@ -927,7 +927,7 @@ No authorization required
 
 <a id="getAssetAssetCategories"></a>
 # **getAssetAssetCategories**
-> AssetCategoryDtoListEnvelope getAssetAssetCategories(tenantId)
+> AssetCategoryDtoListEnvelope getAssetAssetCategories(tenantId, assetCategoryDtoCollectionQueryParameters)
 
 Gets all asset categories
 
@@ -949,8 +949,9 @@ public class Example {
 
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters = new AssetCategoryDtoCollectionQueryParameters(); // AssetCategoryDtoCollectionQueryParameters | 
     try {
-      AssetCategoryDtoListEnvelope result = apiInstance.getAssetAssetCategories(tenantId);
+      AssetCategoryDtoListEnvelope result = apiInstance.getAssetAssetCategories(tenantId, assetCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetAssetCategories");
@@ -968,6 +969,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **assetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -979,7 +981,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -991,7 +993,7 @@ No authorization required
 
 <a id="getAssetAssetCategoriesCount"></a>
 # **getAssetAssetCategoriesCount**
-> Int32Envelope getAssetAssetCategoriesCount(tenantId)
+> Int32Envelope getAssetAssetCategoriesCount(tenantId, assetCategoryDtoCollectionQueryParameters)
 
 Gets the count of asset categories
 
@@ -1013,8 +1015,9 @@ public class Example {
 
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters = new AssetCategoryDtoCollectionQueryParameters(); // AssetCategoryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAssetAssetCategoriesCount(tenantId);
+      Int32Envelope result = apiInstance.getAssetAssetCategoriesCount(tenantId, assetCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetAssetCategoriesCount");
@@ -1032,6 +1035,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **assetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1043,7 +1047,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1190,7 +1194,7 @@ No authorization required
 
 <a id="getAssetDepreciationRecords"></a>
 # **getAssetDepreciationRecords**
-> AssetDepreciationRecordDtoListEnvelope getAssetDepreciationRecords(tenantId, assetId)
+> AssetDepreciationRecordDtoListEnvelope getAssetDepreciationRecords(tenantId, assetId, assetDepreciationRecordDtoCollectionQueryParameters)
 
 Gets depreciation records for a specific asset
 
@@ -1213,8 +1217,9 @@ public class Example {
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
+    AssetDepreciationRecordDtoCollectionQueryParameters assetDepreciationRecordDtoCollectionQueryParameters = new AssetDepreciationRecordDtoCollectionQueryParameters(); // AssetDepreciationRecordDtoCollectionQueryParameters | 
     try {
-      AssetDepreciationRecordDtoListEnvelope result = apiInstance.getAssetDepreciationRecords(tenantId, assetId);
+      AssetDepreciationRecordDtoListEnvelope result = apiInstance.getAssetDepreciationRecords(tenantId, assetId, assetDepreciationRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetDepreciationRecords");
@@ -1233,6 +1238,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
+| **assetDepreciationRecordDtoCollectionQueryParameters** | [**AssetDepreciationRecordDtoCollectionQueryParameters**](AssetDepreciationRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1244,7 +1250,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1256,7 +1262,7 @@ No authorization required
 
 <a id="getAssetDepreciationRecordsCount"></a>
 # **getAssetDepreciationRecordsCount**
-> Int32Envelope getAssetDepreciationRecordsCount(tenantId, assetId)
+> Int32Envelope getAssetDepreciationRecordsCount(tenantId, assetId, assetDepreciationRecordDtoCollectionQueryParameters)
 
 Gets count of depreciation records for a specific asset
 
@@ -1279,8 +1285,9 @@ public class Example {
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
+    AssetDepreciationRecordDtoCollectionQueryParameters assetDepreciationRecordDtoCollectionQueryParameters = new AssetDepreciationRecordDtoCollectionQueryParameters(); // AssetDepreciationRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAssetDepreciationRecordsCount(tenantId, assetId);
+      Int32Envelope result = apiInstance.getAssetDepreciationRecordsCount(tenantId, assetId, assetDepreciationRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetDepreciationRecordsCount");
@@ -1299,6 +1306,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
+| **assetDepreciationRecordDtoCollectionQueryParameters** | [**AssetDepreciationRecordDtoCollectionQueryParameters**](AssetDepreciationRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1310,7 +1318,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1390,7 +1398,7 @@ No authorization required
 
 <a id="getAssetRepairs"></a>
 # **getAssetRepairs**
-> AssetRepairDtoListEnvelope getAssetRepairs(tenantId, assetId)
+> AssetRepairDtoListEnvelope getAssetRepairs(tenantId, assetId, assetRepairDtoCollectionQueryParameters)
 
 Gets repairs for a specific asset
 
@@ -1413,8 +1421,9 @@ public class Example {
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
+    AssetRepairDtoCollectionQueryParameters assetRepairDtoCollectionQueryParameters = new AssetRepairDtoCollectionQueryParameters(); // AssetRepairDtoCollectionQueryParameters | 
     try {
-      AssetRepairDtoListEnvelope result = apiInstance.getAssetRepairs(tenantId, assetId);
+      AssetRepairDtoListEnvelope result = apiInstance.getAssetRepairs(tenantId, assetId, assetRepairDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetRepairs");
@@ -1433,6 +1442,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
+| **assetRepairDtoCollectionQueryParameters** | [**AssetRepairDtoCollectionQueryParameters**](AssetRepairDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1444,7 +1454,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1456,7 +1466,7 @@ No authorization required
 
 <a id="getAssetRepairsCount"></a>
 # **getAssetRepairsCount**
-> Int32Envelope getAssetRepairsCount(tenantId, assetId)
+> Int32Envelope getAssetRepairsCount(tenantId, assetId, assetRepairDtoCollectionQueryParameters)
 
 Gets count of repairs for a specific asset
 
@@ -1479,8 +1489,9 @@ public class Example {
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
+    AssetRepairDtoCollectionQueryParameters assetRepairDtoCollectionQueryParameters = new AssetRepairDtoCollectionQueryParameters(); // AssetRepairDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAssetRepairsCount(tenantId, assetId);
+      Int32Envelope result = apiInstance.getAssetRepairsCount(tenantId, assetId, assetRepairDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetRepairsCount");
@@ -1499,6 +1510,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
+| **assetRepairDtoCollectionQueryParameters** | [**AssetRepairDtoCollectionQueryParameters**](AssetRepairDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1510,7 +1522,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1590,7 +1602,7 @@ No authorization required
 
 <a id="getAssetTransfers"></a>
 # **getAssetTransfers**
-> AssetTransferDtoListEnvelope getAssetTransfers(tenantId, assetId)
+> AssetTransferDtoListEnvelope getAssetTransfers(tenantId, assetId, assetTransferDtoCollectionQueryParameters)
 
 Gets transfers for a specific asset
 
@@ -1613,8 +1625,9 @@ public class Example {
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
+    AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters = new AssetTransferDtoCollectionQueryParameters(); // AssetTransferDtoCollectionQueryParameters | 
     try {
-      AssetTransferDtoListEnvelope result = apiInstance.getAssetTransfers(tenantId, assetId);
+      AssetTransferDtoListEnvelope result = apiInstance.getAssetTransfers(tenantId, assetId, assetTransferDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetTransfers");
@@ -1633,6 +1646,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
+| **assetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1644,7 +1658,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1656,7 +1670,7 @@ No authorization required
 
 <a id="getAssetTransfersCount"></a>
 # **getAssetTransfersCount**
-> Int32Envelope getAssetTransfersCount(tenantId, assetId)
+> Int32Envelope getAssetTransfersCount(tenantId, assetId, assetTransferDtoCollectionQueryParameters)
 
 Gets count of transfers for a specific asset
 
@@ -1679,8 +1693,9 @@ public class Example {
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
+    AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters = new AssetTransferDtoCollectionQueryParameters(); // AssetTransferDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAssetTransfersCount(tenantId, assetId);
+      Int32Envelope result = apiInstance.getAssetTransfersCount(tenantId, assetId, assetTransferDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetTransfersCount");
@@ -1699,6 +1714,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
+| **assetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1710,7 +1726,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1790,7 +1806,7 @@ No authorization required
 
 <a id="getAssetValueAmends"></a>
 # **getAssetValueAmends**
-> AssetValueAmendDtoListEnvelope getAssetValueAmends(tenantId, assetId)
+> AssetValueAmendDtoListEnvelope getAssetValueAmends(tenantId, assetId, assetValueAmendDtoCollectionQueryParameters)
 
 Gets value amendments for a specific asset
 
@@ -1813,8 +1829,9 @@ public class Example {
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
+    AssetValueAmendDtoCollectionQueryParameters assetValueAmendDtoCollectionQueryParameters = new AssetValueAmendDtoCollectionQueryParameters(); // AssetValueAmendDtoCollectionQueryParameters | 
     try {
-      AssetValueAmendDtoListEnvelope result = apiInstance.getAssetValueAmends(tenantId, assetId);
+      AssetValueAmendDtoListEnvelope result = apiInstance.getAssetValueAmends(tenantId, assetId, assetValueAmendDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetValueAmends");
@@ -1833,6 +1850,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
+| **assetValueAmendDtoCollectionQueryParameters** | [**AssetValueAmendDtoCollectionQueryParameters**](AssetValueAmendDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1844,7 +1862,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1856,7 +1874,7 @@ No authorization required
 
 <a id="getAssetValueAmendsCount"></a>
 # **getAssetValueAmendsCount**
-> Int32Envelope getAssetValueAmendsCount(tenantId, assetId)
+> Int32Envelope getAssetValueAmendsCount(tenantId, assetId, assetValueAmendDtoCollectionQueryParameters)
 
 Gets count of value amendments for a specific asset
 
@@ -1879,8 +1897,9 @@ public class Example {
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
+    AssetValueAmendDtoCollectionQueryParameters assetValueAmendDtoCollectionQueryParameters = new AssetValueAmendDtoCollectionQueryParameters(); // AssetValueAmendDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAssetValueAmendsCount(tenantId, assetId);
+      Int32Envelope result = apiInstance.getAssetValueAmendsCount(tenantId, assetId, assetValueAmendDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetValueAmendsCount");
@@ -1899,6 +1918,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
+| **assetValueAmendDtoCollectionQueryParameters** | [**AssetValueAmendDtoCollectionQueryParameters**](AssetValueAmendDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1910,7 +1930,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1922,7 +1942,7 @@ No authorization required
 
 <a id="getAssets"></a>
 # **getAssets**
-> AssetDtoListEnvelope getAssets(tenantId)
+> AssetDtoListEnvelope getAssets(tenantId, assetDtoCollectionQueryParameters)
 
 Gets all assets for the current tenant
 
@@ -1944,8 +1964,9 @@ public class Example {
 
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    AssetDtoCollectionQueryParameters assetDtoCollectionQueryParameters = new AssetDtoCollectionQueryParameters(); // AssetDtoCollectionQueryParameters | 
     try {
-      AssetDtoListEnvelope result = apiInstance.getAssets(tenantId);
+      AssetDtoListEnvelope result = apiInstance.getAssets(tenantId, assetDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssets");
@@ -1963,6 +1984,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **assetDtoCollectionQueryParameters** | [**AssetDtoCollectionQueryParameters**](AssetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1974,7 +1996,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1986,7 +2008,7 @@ No authorization required
 
 <a id="getAssetsCount"></a>
 # **getAssetsCount**
-> Int32Envelope getAssetsCount(tenantId)
+> Int32Envelope getAssetsCount(tenantId, assetDtoCollectionQueryParameters)
 
 Gets the count of assets
 
@@ -2008,8 +2030,9 @@ public class Example {
 
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    AssetDtoCollectionQueryParameters assetDtoCollectionQueryParameters = new AssetDtoCollectionQueryParameters(); // AssetDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAssetsCount(tenantId);
+      Int32Envelope result = apiInstance.getAssetsCount(tenantId, assetDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#getAssetsCount");
@@ -2027,6 +2050,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **assetDtoCollectionQueryParameters** | [**AssetDtoCollectionQueryParameters**](AssetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2038,7 +2062,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2050,7 +2074,7 @@ No authorization required
 
 <a id="patchAsset"></a>
 # **patchAsset**
-> EmptyEnvelope patchAsset(tenantId, assetId, operation)
+> EmptyEnvelope patchAsset(tenantId, assetId, patchOperation)
 
 Partially updates an existing asset
 
@@ -2073,9 +2097,9 @@ public class Example {
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAsset(tenantId, assetId, operation);
+      EmptyEnvelope result = apiInstance.patchAsset(tenantId, assetId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#patchAsset");
@@ -2094,7 +2118,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2120,7 +2144,7 @@ No authorization required
 
 <a id="patchAssetAssetCategory"></a>
 # **patchAssetAssetCategory**
-> EmptyEnvelope patchAssetAssetCategory(tenantId, categoryId, operation)
+> EmptyEnvelope patchAssetAssetCategory(tenantId, categoryId, patchOperation)
 
 Partially updates an existing asset category
 
@@ -2143,9 +2167,9 @@ public class Example {
     AssetsApi apiInstance = new AssetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID categoryId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAssetAssetCategory(tenantId, categoryId, operation);
+      EmptyEnvelope result = apiInstance.patchAssetAssetCategory(tenantId, categoryId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#patchAssetAssetCategory");
@@ -2164,7 +2188,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **categoryId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2190,7 +2214,7 @@ No authorization required
 
 <a id="patchAssetDepreciationRecord"></a>
 # **patchAssetDepreciationRecord**
-> EmptyEnvelope patchAssetDepreciationRecord(tenantId, assetId, recordId, operation)
+> EmptyEnvelope patchAssetDepreciationRecord(tenantId, assetId, recordId, patchOperation)
 
 Partially updates a depreciation record for an asset
 
@@ -2214,9 +2238,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
     UUID recordId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAssetDepreciationRecord(tenantId, assetId, recordId, operation);
+      EmptyEnvelope result = apiInstance.patchAssetDepreciationRecord(tenantId, assetId, recordId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#patchAssetDepreciationRecord");
@@ -2236,7 +2260,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
 | **recordId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2262,7 +2286,7 @@ No authorization required
 
 <a id="patchAssetRepair"></a>
 # **patchAssetRepair**
-> EmptyEnvelope patchAssetRepair(tenantId, assetId, repairId, operation)
+> EmptyEnvelope patchAssetRepair(tenantId, assetId, repairId, patchOperation)
 
 Partially updates a repair for an asset
 
@@ -2286,9 +2310,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
     UUID repairId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAssetRepair(tenantId, assetId, repairId, operation);
+      EmptyEnvelope result = apiInstance.patchAssetRepair(tenantId, assetId, repairId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#patchAssetRepair");
@@ -2308,7 +2332,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
 | **repairId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2334,7 +2358,7 @@ No authorization required
 
 <a id="patchAssetTransfer"></a>
 # **patchAssetTransfer**
-> EmptyEnvelope patchAssetTransfer(tenantId, assetId, transferId, operation)
+> EmptyEnvelope patchAssetTransfer(tenantId, assetId, transferId, patchOperation)
 
 Partially updates a transfer for an asset
 
@@ -2358,9 +2382,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
     UUID transferId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAssetTransfer(tenantId, assetId, transferId, operation);
+      EmptyEnvelope result = apiInstance.patchAssetTransfer(tenantId, assetId, transferId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#patchAssetTransfer");
@@ -2380,7 +2404,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
 | **transferId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2406,7 +2430,7 @@ No authorization required
 
 <a id="patchAssetValueAmend"></a>
 # **patchAssetValueAmend**
-> EmptyEnvelope patchAssetValueAmend(tenantId, assetId, amendId, operation)
+> EmptyEnvelope patchAssetValueAmend(tenantId, assetId, amendId, patchOperation)
 
 Partially updates a value amendment for an asset
 
@@ -2430,9 +2454,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID assetId = UUID.randomUUID(); // UUID | 
     UUID amendId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAssetValueAmend(tenantId, assetId, amendId, operation);
+      EmptyEnvelope result = apiInstance.patchAssetValueAmend(tenantId, assetId, amendId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetsApi#patchAssetValueAmend");
@@ -2452,7 +2476,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **assetId** | **UUID**|  | |
 | **amendId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

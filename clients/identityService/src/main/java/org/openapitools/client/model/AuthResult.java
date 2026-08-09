@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.ExecutionProvenance;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -51,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * AuthResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:02:32.233434-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:29:15.052558300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AuthResult {
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -84,6 +85,132 @@ public class AuthResult {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
   private String error;
+
+  /**
+   * Gets or Sets runAs
+   */
+  @JsonAdapter(RunAsEnum.Adapter.class)
+  public enum RunAsEnum {
+    INVOKER("Invoker"),
+    
+    APPLICATION("Application"),
+    
+    SYSTEM("System"),
+    
+    SERVICE("Service");
+
+    private String value;
+
+    RunAsEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RunAsEnum fromValue(String value) {
+      for (RunAsEnum b : RunAsEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<RunAsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RunAsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RunAsEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RunAsEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      RunAsEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_RUN_AS = "runAs";
+  @SerializedName(SERIALIZED_NAME_RUN_AS)
+  private RunAsEnum runAs;
+
+  /**
+   * Gets or Sets principalKind
+   */
+  @JsonAdapter(PrincipalKindEnum.Adapter.class)
+  public enum PrincipalKindEnum {
+    HUMAN("Human"),
+    
+    AGENT("Agent"),
+    
+    APPLICATION("Application"),
+    
+    SERVICE("Service"),
+    
+    SYSTEM("System");
+
+    private String value;
+
+    PrincipalKindEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PrincipalKindEnum fromValue(String value) {
+      for (PrincipalKindEnum b : PrincipalKindEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<PrincipalKindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PrincipalKindEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PrincipalKindEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return PrincipalKindEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      PrincipalKindEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_PRINCIPAL_KIND = "principalKind";
+  @SerializedName(SERIALIZED_NAME_PRINCIPAL_KIND)
+  private PrincipalKindEnum principalKind;
+
+  public static final String SERIALIZED_NAME_PROVENANCE = "provenance";
+  @SerializedName(SERIALIZED_NAME_PROVENANCE)
+  private ExecutionProvenance provenance;
 
   public AuthResult() {
   }
@@ -248,6 +375,63 @@ public class AuthResult {
   }
 
 
+  public AuthResult runAs(RunAsEnum runAs) {
+    this.runAs = runAs;
+    return this;
+  }
+
+  /**
+   * Get runAs
+   * @return runAs
+   */
+  @javax.annotation.Nullable
+  public RunAsEnum getRunAs() {
+    return runAs;
+  }
+
+  public void setRunAs(RunAsEnum runAs) {
+    this.runAs = runAs;
+  }
+
+
+  public AuthResult principalKind(PrincipalKindEnum principalKind) {
+    this.principalKind = principalKind;
+    return this;
+  }
+
+  /**
+   * Get principalKind
+   * @return principalKind
+   */
+  @javax.annotation.Nullable
+  public PrincipalKindEnum getPrincipalKind() {
+    return principalKind;
+  }
+
+  public void setPrincipalKind(PrincipalKindEnum principalKind) {
+    this.principalKind = principalKind;
+  }
+
+
+  public AuthResult provenance(ExecutionProvenance provenance) {
+    this.provenance = provenance;
+    return this;
+  }
+
+  /**
+   * Get provenance
+   * @return provenance
+   */
+  @javax.annotation.Nullable
+  public ExecutionProvenance getProvenance() {
+    return provenance;
+  }
+
+  public void setProvenance(ExecutionProvenance provenance) {
+    this.provenance = provenance;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -265,7 +449,10 @@ public class AuthResult {
         Objects.equals(this.enrollmentId, authResult.enrollmentId) &&
         Objects.equals(this.correlationId, authResult.correlationId) &&
         Objects.equals(this.scopes, authResult.scopes) &&
-        Objects.equals(this.error, authResult.error);
+        Objects.equals(this.error, authResult.error) &&
+        Objects.equals(this.runAs, authResult.runAs) &&
+        Objects.equals(this.principalKind, authResult.principalKind) &&
+        Objects.equals(this.provenance, authResult.provenance);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -274,7 +461,7 @@ public class AuthResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, tenantId, portalId, applicationId, enrollmentId, correlationId, scopes, error);
+    return Objects.hash(userId, tenantId, portalId, applicationId, enrollmentId, correlationId, scopes, error, runAs, principalKind, provenance);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -296,6 +483,9 @@ public class AuthResult {
     sb.append("    correlationId: ").append(toIndentedString(correlationId)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    runAs: ").append(toIndentedString(runAs)).append("\n");
+    sb.append("    principalKind: ").append(toIndentedString(principalKind)).append("\n");
+    sb.append("    provenance: ").append(toIndentedString(provenance)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -326,6 +516,9 @@ public class AuthResult {
     openapiFields.add("correlationId");
     openapiFields.add("scopes");
     openapiFields.add("error");
+    openapiFields.add("runAs");
+    openapiFields.add("principalKind");
+    openapiFields.add("provenance");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -361,6 +554,24 @@ public class AuthResult {
       }
       if ((jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) && !jsonObj.get("error").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
+      }
+      if ((jsonObj.get("runAs") != null && !jsonObj.get("runAs").isJsonNull()) && !jsonObj.get("runAs").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `runAs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("runAs").toString()));
+      }
+      // validate the optional field `runAs`
+      if (jsonObj.get("runAs") != null && !jsonObj.get("runAs").isJsonNull()) {
+        RunAsEnum.validateJsonElement(jsonObj.get("runAs"));
+      }
+      if ((jsonObj.get("principalKind") != null && !jsonObj.get("principalKind").isJsonNull()) && !jsonObj.get("principalKind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `principalKind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("principalKind").toString()));
+      }
+      // validate the optional field `principalKind`
+      if (jsonObj.get("principalKind") != null && !jsonObj.get("principalKind").isJsonNull()) {
+        PrincipalKindEnum.validateJsonElement(jsonObj.get("principalKind"));
+      }
+      // validate the optional field `provenance`
+      if (jsonObj.get("provenance") != null && !jsonObj.get("provenance").isJsonNull()) {
+        ExecutionProvenance.validateJsonElement(jsonObj.get("provenance"));
       }
   }
 

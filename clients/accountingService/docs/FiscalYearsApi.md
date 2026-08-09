@@ -219,7 +219,7 @@ No authorization required
 
 <a id="getFiscalYearsAsync"></a>
 # **getFiscalYearsAsync**
-> FiscalYearDtoIReadOnlyListEnvelope getFiscalYearsAsync(tenantId, apiVersion, xApiVersion)
+> FiscalYearDtoIReadOnlyListEnvelope getFiscalYearsAsync(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters)
 
 Get all fiscal years
 
@@ -243,8 +243,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters = new FiscalYearDtoCollectionQueryParameters(); // FiscalYearDtoCollectionQueryParameters | 
     try {
-      FiscalYearDtoIReadOnlyListEnvelope result = apiInstance.getFiscalYearsAsync(tenantId, apiVersion, xApiVersion);
+      FiscalYearDtoIReadOnlyListEnvelope result = apiInstance.getFiscalYearsAsync(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalYearsApi#getFiscalYearsAsync");
@@ -264,6 +265,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalYearDtoCollectionQueryParameters** | [**FiscalYearDtoCollectionQueryParameters**](FiscalYearDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -275,7 +277,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -285,7 +287,7 @@ No authorization required
 
 <a id="getFiscalYearsCountAsync"></a>
 # **getFiscalYearsCountAsync**
-> Int32Envelope getFiscalYearsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalYearsCountAsync(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters)
 
 Count fiscal years
 
@@ -309,8 +311,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalYearDtoCollectionQueryParameters fiscalYearDtoCollectionQueryParameters = new FiscalYearDtoCollectionQueryParameters(); // FiscalYearDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getFiscalYearsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFiscalYearsCountAsync(tenantId, apiVersion, xApiVersion, fiscalYearDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalYearsApi#getFiscalYearsCountAsync");
@@ -330,6 +333,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalYearDtoCollectionQueryParameters** | [**FiscalYearDtoCollectionQueryParameters**](FiscalYearDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -351,7 +355,7 @@ No authorization required
 
 <a id="patchFiscalYearAsync"></a>
 # **patchFiscalYearAsync**
-> EmptyEnvelope patchFiscalYearAsync(tenantId, fiscalYearId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalYearAsync(tenantId, fiscalYearId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal year
 
@@ -376,9 +380,9 @@ public class Example {
     UUID fiscalYearId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchFiscalYearAsync(tenantId, fiscalYearId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchFiscalYearAsync(tenantId, fiscalYearId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalYearsApi#patchFiscalYearAsync");
@@ -399,7 +403,7 @@ public class Example {
 | **fiscalYearId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

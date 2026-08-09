@@ -28,13 +28,14 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.BlogPostCategoryCreateDto;
+import org.openapitools.client.model.BlogPostCategoryDtoCollectionQueryParameters;
 import org.openapitools.client.model.BlogPostCategoryDtoEnvelope;
 import org.openapitools.client.model.BlogPostCategoryDtoListEnvelope;
 import org.openapitools.client.model.BlogPostCategoryUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -85,6 +86,7 @@ public class BlogPostCategoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -96,7 +98,7 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countBlogPostCategoriesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countBlogPostCategoriesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -110,7 +112,7 @@ public class BlogPostCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blogPostCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/BlogPostCategories/Count";
@@ -143,6 +145,8 @@ public class BlogPostCategoriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -154,13 +158,13 @@ public class BlogPostCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countBlogPostCategoriesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countBlogPostCategoriesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countBlogPostCategoriesAsync(Async)");
         }
 
-        return countBlogPostCategoriesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return countBlogPostCategoriesAsyncCall(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -170,6 +174,7 @@ public class BlogPostCategoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -180,8 +185,8 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countBlogPostCategoriesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countBlogPostCategoriesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope countBlogPostCategoriesAsync(UUID tenantId, String apiVersion, String xApiVersion, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countBlogPostCategoriesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -191,6 +196,7 @@ public class BlogPostCategoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -201,8 +207,8 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countBlogPostCategoriesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countBlogPostCategoriesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countBlogPostCategoriesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countBlogPostCategoriesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -213,6 +219,7 @@ public class BlogPostCategoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -224,9 +231,9 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countBlogPostCategoriesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countBlogPostCategoriesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countBlogPostCategoriesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countBlogPostCategoriesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -554,6 +561,7 @@ public class BlogPostCategoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -565,7 +573,7 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlogPostCategoriesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBlogPostCategoriesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -579,7 +587,7 @@ public class BlogPostCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blogPostCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/BlogPostCategories";
@@ -612,6 +620,8 @@ public class BlogPostCategoriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -623,13 +633,13 @@ public class BlogPostCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBlogPostCategoriesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBlogPostCategoriesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBlogPostCategoriesAsync(Async)");
         }
 
-        return getBlogPostCategoriesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBlogPostCategoriesAsyncCall(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -639,6 +649,7 @@ public class BlogPostCategoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @return BlogPostCategoryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -649,8 +660,8 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BlogPostCategoryDtoListEnvelope getBlogPostCategoriesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BlogPostCategoryDtoListEnvelope> localVarResp = getBlogPostCategoriesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public BlogPostCategoryDtoListEnvelope getBlogPostCategoriesAsync(UUID tenantId, String apiVersion, String xApiVersion, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BlogPostCategoryDtoListEnvelope> localVarResp = getBlogPostCategoriesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -660,6 +671,7 @@ public class BlogPostCategoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BlogPostCategoryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -670,8 +682,8 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BlogPostCategoryDtoListEnvelope> getBlogPostCategoriesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBlogPostCategoriesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<BlogPostCategoryDtoListEnvelope> getBlogPostCategoriesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBlogPostCategoriesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BlogPostCategoryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -682,6 +694,7 @@ public class BlogPostCategoriesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blogPostCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -693,9 +706,9 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlogPostCategoriesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<BlogPostCategoryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBlogPostCategoriesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters, final ApiCallback<BlogPostCategoryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBlogPostCategoriesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBlogPostCategoriesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, blogPostCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BlogPostCategoryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -867,7 +880,7 @@ public class BlogPostCategoriesApi {
      * @param blogPostCategoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +892,7 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBlogPostCategoryAsyncCall(UUID tenantId, UUID blogPostCategoryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBlogPostCategoryAsyncCall(UUID tenantId, UUID blogPostCategoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +906,7 @@ public class BlogPostCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/BlogPostCategories/{blogPostCategoryId}"
@@ -940,7 +953,7 @@ public class BlogPostCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBlogPostCategoryAsyncValidateBeforeCall(UUID tenantId, UUID blogPostCategoryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBlogPostCategoryAsyncValidateBeforeCall(UUID tenantId, UUID blogPostCategoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBlogPostCategoryAsync(Async)");
@@ -951,7 +964,7 @@ public class BlogPostCategoriesApi {
             throw new ApiException("Missing the required parameter 'blogPostCategoryId' when calling patchBlogPostCategoryAsync(Async)");
         }
 
-        return patchBlogPostCategoryAsyncCall(tenantId, blogPostCategoryId, apiVersion, xApiVersion, operation, _callback);
+        return patchBlogPostCategoryAsyncCall(tenantId, blogPostCategoryId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -962,7 +975,7 @@ public class BlogPostCategoriesApi {
      * @param blogPostCategoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -973,8 +986,8 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBlogPostCategoryAsync(UUID tenantId, UUID blogPostCategoryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBlogPostCategoryAsyncWithHttpInfo(tenantId, blogPostCategoryId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBlogPostCategoryAsync(UUID tenantId, UUID blogPostCategoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBlogPostCategoryAsyncWithHttpInfo(tenantId, blogPostCategoryId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -985,7 +998,7 @@ public class BlogPostCategoriesApi {
      * @param blogPostCategoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -996,8 +1009,8 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBlogPostCategoryAsyncWithHttpInfo(UUID tenantId, UUID blogPostCategoryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBlogPostCategoryAsyncValidateBeforeCall(tenantId, blogPostCategoryId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBlogPostCategoryAsyncWithHttpInfo(UUID tenantId, UUID blogPostCategoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBlogPostCategoryAsyncValidateBeforeCall(tenantId, blogPostCategoryId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +1022,7 @@ public class BlogPostCategoriesApi {
      * @param blogPostCategoryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1021,9 +1034,9 @@ public class BlogPostCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBlogPostCategoryAsyncAsync(UUID tenantId, UUID blogPostCategoryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBlogPostCategoryAsyncAsync(UUID tenantId, UUID blogPostCategoryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBlogPostCategoryAsyncValidateBeforeCall(tenantId, blogPostCategoryId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBlogPostCategoryAsyncValidateBeforeCall(tenantId, blogPostCategoryId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

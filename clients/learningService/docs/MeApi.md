@@ -86,7 +86,7 @@ No authorization required
 
 <a id="getMyCertificatesAsync"></a>
 # **getMyCertificatesAsync**
-> CourseCompletionCertificateDtoIReadOnlyListEnvelope getMyCertificatesAsync(apiVersion, xApiVersion)
+> CourseCompletionCertificateDtoIReadOnlyListEnvelope getMyCertificatesAsync(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters)
 
 Get current user&#39;s completion certificates
 
@@ -107,8 +107,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters = new CourseCompletionCertificateDtoCollectionQueryParameters(); // CourseCompletionCertificateDtoCollectionQueryParameters | 
     try {
-      CourseCompletionCertificateDtoIReadOnlyListEnvelope result = apiInstance.getMyCertificatesAsync(apiVersion, xApiVersion);
+      CourseCompletionCertificateDtoIReadOnlyListEnvelope result = apiInstance.getMyCertificatesAsync(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyCertificatesAsync");
@@ -127,6 +128,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseCompletionCertificateDtoCollectionQueryParameters** | [**CourseCompletionCertificateDtoCollectionQueryParameters**](CourseCompletionCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -138,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -149,7 +151,7 @@ No authorization required
 
 <a id="getMyCertificatesCountAsync"></a>
 # **getMyCertificatesCountAsync**
-> Integer getMyCertificatesCountAsync(apiVersion, xApiVersion)
+> Integer getMyCertificatesCountAsync(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters)
 
 Get current user&#39;s certificates count
 
@@ -170,8 +172,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseCompletionCertificateDtoCollectionQueryParameters courseCompletionCertificateDtoCollectionQueryParameters = new CourseCompletionCertificateDtoCollectionQueryParameters(); // CourseCompletionCertificateDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getMyCertificatesCountAsync(apiVersion, xApiVersion);
+      Integer result = apiInstance.getMyCertificatesCountAsync(apiVersion, xApiVersion, courseCompletionCertificateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyCertificatesCountAsync");
@@ -190,6 +193,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseCompletionCertificateDtoCollectionQueryParameters** | [**CourseCompletionCertificateDtoCollectionQueryParameters**](CourseCompletionCertificateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -201,7 +205,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -212,7 +216,7 @@ No authorization required
 
 <a id="getMyEnrollmentsAsync"></a>
 # **getMyEnrollmentsAsync**
-> CourseEnrollmentDtoIReadOnlyListEnvelope getMyEnrollmentsAsync(apiVersion, xApiVersion)
+> CourseEnrollmentDtoIReadOnlyListEnvelope getMyEnrollmentsAsync(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters)
 
 Get current user&#39;s course enrollments
 
@@ -233,8 +237,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters = new CourseEnrollmentDtoCollectionQueryParameters(); // CourseEnrollmentDtoCollectionQueryParameters | 
     try {
-      CourseEnrollmentDtoIReadOnlyListEnvelope result = apiInstance.getMyEnrollmentsAsync(apiVersion, xApiVersion);
+      CourseEnrollmentDtoIReadOnlyListEnvelope result = apiInstance.getMyEnrollmentsAsync(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyEnrollmentsAsync");
@@ -253,6 +258,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,7 +270,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -275,7 +281,7 @@ No authorization required
 
 <a id="getMyEnrollmentsCountAsync"></a>
 # **getMyEnrollmentsCountAsync**
-> Integer getMyEnrollmentsCountAsync(apiVersion, xApiVersion)
+> Integer getMyEnrollmentsCountAsync(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters)
 
 Get current user&#39;s enrollment count
 
@@ -296,8 +302,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseEnrollmentDtoCollectionQueryParameters courseEnrollmentDtoCollectionQueryParameters = new CourseEnrollmentDtoCollectionQueryParameters(); // CourseEnrollmentDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getMyEnrollmentsCountAsync(apiVersion, xApiVersion);
+      Integer result = apiInstance.getMyEnrollmentsCountAsync(apiVersion, xApiVersion, courseEnrollmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyEnrollmentsCountAsync");
@@ -316,6 +323,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseEnrollmentDtoCollectionQueryParameters** | [**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -327,7 +335,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -401,7 +409,7 @@ No authorization required
 
 <a id="getMyInstructorCoursesAsync"></a>
 # **getMyInstructorCoursesAsync**
-> CourseDtoIReadOnlyListEnvelope getMyInstructorCoursesAsync(apiVersion, xApiVersion)
+> CourseDtoIReadOnlyListEnvelope getMyInstructorCoursesAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get current user&#39;s instructor courses
 
@@ -422,8 +430,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters = new CourseDtoCollectionQueryParameters(); // CourseDtoCollectionQueryParameters | 
     try {
-      CourseDtoIReadOnlyListEnvelope result = apiInstance.getMyInstructorCoursesAsync(apiVersion, xApiVersion);
+      CourseDtoIReadOnlyListEnvelope result = apiInstance.getMyInstructorCoursesAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyInstructorCoursesAsync");
@@ -442,6 +451,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -453,7 +463,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -464,7 +474,7 @@ No authorization required
 
 <a id="getMyInstructorCoursesCountAsync"></a>
 # **getMyInstructorCoursesCountAsync**
-> Integer getMyInstructorCoursesCountAsync(apiVersion, xApiVersion)
+> Integer getMyInstructorCoursesCountAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get current user&#39;s instructor courses count
 
@@ -485,8 +495,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters = new CourseDtoCollectionQueryParameters(); // CourseDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getMyInstructorCoursesCountAsync(apiVersion, xApiVersion);
+      Integer result = apiInstance.getMyInstructorCoursesCountAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyInstructorCoursesCountAsync");
@@ -505,6 +516,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -516,7 +528,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -527,7 +539,7 @@ No authorization required
 
 <a id="getMyInstructorProfilesAsync"></a>
 # **getMyInstructorProfilesAsync**
-> InstructorProfileDtoIReadOnlyListEnvelope getMyInstructorProfilesAsync(apiVersion, xApiVersion)
+> InstructorProfileDtoIReadOnlyListEnvelope getMyInstructorProfilesAsync(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters)
 
 Get current user&#39;s instructor profiles
 
@@ -548,8 +560,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters = new InstructorProfileDtoCollectionQueryParameters(); // InstructorProfileDtoCollectionQueryParameters | 
     try {
-      InstructorProfileDtoIReadOnlyListEnvelope result = apiInstance.getMyInstructorProfilesAsync(apiVersion, xApiVersion);
+      InstructorProfileDtoIReadOnlyListEnvelope result = apiInstance.getMyInstructorProfilesAsync(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyInstructorProfilesAsync");
@@ -568,6 +581,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **instructorProfileDtoCollectionQueryParameters** | [**InstructorProfileDtoCollectionQueryParameters**](InstructorProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -579,7 +593,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -590,7 +604,7 @@ No authorization required
 
 <a id="getMyInstructorProfilesCountAsync"></a>
 # **getMyInstructorProfilesCountAsync**
-> Integer getMyInstructorProfilesCountAsync(apiVersion, xApiVersion)
+> Integer getMyInstructorProfilesCountAsync(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters)
 
 Get current user&#39;s instructor profiles count
 
@@ -611,8 +625,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    InstructorProfileDtoCollectionQueryParameters instructorProfileDtoCollectionQueryParameters = new InstructorProfileDtoCollectionQueryParameters(); // InstructorProfileDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getMyInstructorProfilesCountAsync(apiVersion, xApiVersion);
+      Integer result = apiInstance.getMyInstructorProfilesCountAsync(apiVersion, xApiVersion, instructorProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyInstructorProfilesCountAsync");
@@ -631,6 +646,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **instructorProfileDtoCollectionQueryParameters** | [**InstructorProfileDtoCollectionQueryParameters**](InstructorProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -642,7 +658,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -716,7 +732,7 @@ No authorization required
 
 <a id="getMyStudentCoursesAsync"></a>
 # **getMyStudentCoursesAsync**
-> CourseDtoIReadOnlyListEnvelope getMyStudentCoursesAsync(apiVersion, xApiVersion)
+> CourseDtoIReadOnlyListEnvelope getMyStudentCoursesAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get current user&#39;s enrolled courses
 
@@ -737,8 +753,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters = new CourseDtoCollectionQueryParameters(); // CourseDtoCollectionQueryParameters | 
     try {
-      CourseDtoIReadOnlyListEnvelope result = apiInstance.getMyStudentCoursesAsync(apiVersion, xApiVersion);
+      CourseDtoIReadOnlyListEnvelope result = apiInstance.getMyStudentCoursesAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyStudentCoursesAsync");
@@ -757,6 +774,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -768,7 +786,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -779,7 +797,7 @@ No authorization required
 
 <a id="getMyStudentCoursesCountAsync"></a>
 # **getMyStudentCoursesCountAsync**
-> Integer getMyStudentCoursesCountAsync(apiVersion, xApiVersion)
+> Integer getMyStudentCoursesCountAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters)
 
 Get current user&#39;s enrolled courses count
 
@@ -800,8 +818,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseDtoCollectionQueryParameters courseDtoCollectionQueryParameters = new CourseDtoCollectionQueryParameters(); // CourseDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getMyStudentCoursesCountAsync(apiVersion, xApiVersion);
+      Integer result = apiInstance.getMyStudentCoursesCountAsync(apiVersion, xApiVersion, courseDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyStudentCoursesCountAsync");
@@ -820,6 +839,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseDtoCollectionQueryParameters** | [**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -831,7 +851,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -842,7 +862,7 @@ No authorization required
 
 <a id="getMyStudentProfilesAsync"></a>
 # **getMyStudentProfilesAsync**
-> StudentProfileDtoIReadOnlyListEnvelope getMyStudentProfilesAsync(apiVersion, xApiVersion)
+> StudentProfileDtoIReadOnlyListEnvelope getMyStudentProfilesAsync(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters)
 
 Get current user&#39;s student profiles
 
@@ -863,8 +883,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters = new StudentProfileDtoCollectionQueryParameters(); // StudentProfileDtoCollectionQueryParameters | 
     try {
-      StudentProfileDtoIReadOnlyListEnvelope result = apiInstance.getMyStudentProfilesAsync(apiVersion, xApiVersion);
+      StudentProfileDtoIReadOnlyListEnvelope result = apiInstance.getMyStudentProfilesAsync(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyStudentProfilesAsync");
@@ -883,6 +904,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **studentProfileDtoCollectionQueryParameters** | [**StudentProfileDtoCollectionQueryParameters**](StudentProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -894,7 +916,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -905,7 +927,7 @@ No authorization required
 
 <a id="getMyStudentProfilesCountAsync"></a>
 # **getMyStudentProfilesCountAsync**
-> Integer getMyStudentProfilesCountAsync(apiVersion, xApiVersion)
+> Integer getMyStudentProfilesCountAsync(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters)
 
 Get current user&#39;s student profiles count
 
@@ -926,8 +948,9 @@ public class Example {
     MeApi apiInstance = new MeApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    StudentProfileDtoCollectionQueryParameters studentProfileDtoCollectionQueryParameters = new StudentProfileDtoCollectionQueryParameters(); // StudentProfileDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getMyStudentProfilesCountAsync(apiVersion, xApiVersion);
+      Integer result = apiInstance.getMyStudentProfilesCountAsync(apiVersion, xApiVersion, studentProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MeApi#getMyStudentProfilesCountAsync");
@@ -946,6 +969,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **studentProfileDtoCollectionQueryParameters** | [**StudentProfileDtoCollectionQueryParameters**](StudentProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -957,7 +981,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

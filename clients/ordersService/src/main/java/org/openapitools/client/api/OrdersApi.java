@@ -30,17 +30,20 @@ import java.io.IOException;
 import org.openapitools.client.model.EmailDispatchRequest;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.ExtendedOrderDtoCollectionQueryParameters;
 import org.openapitools.client.model.ExtendedOrderDtoListEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
 import org.openapitools.client.model.OrderCreateDto;
+import org.openapitools.client.model.OrderDtoCollectionQueryParameters;
 import org.openapitools.client.model.OrderDtoEnvelope;
 import org.openapitools.client.model.OrderDtoListEnvelope;
 import org.openapitools.client.model.OrderLineCreateDto;
+import org.openapitools.client.model.OrderLineDtoCollectionQueryParameters;
 import org.openapitools.client.model.OrderLineDtoEnvelope;
 import org.openapitools.client.model.OrderLineDtoListEnvelope;
 import org.openapitools.client.model.OrderLineUpdateDto;
 import org.openapitools.client.model.OrderUpdateDto;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -957,6 +960,7 @@ public class OrdersApi {
     /**
      * Build call for getExtendedOrders
      * @param tenantId  (required)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -967,7 +971,7 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedOrdersCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExtendedOrdersCall(UUID tenantId, ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -981,7 +985,7 @@ public class OrdersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedOrderDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/OrdersService/Orders/Extended";
@@ -1006,6 +1010,8 @@ public class OrdersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1017,13 +1023,13 @@ public class OrdersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedOrdersValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExtendedOrdersValidateBeforeCall(UUID tenantId, ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExtendedOrders(Async)");
         }
 
-        return getExtendedOrdersCall(tenantId, _callback);
+        return getExtendedOrdersCall(tenantId, extendedOrderDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1031,6 +1037,7 @@ public class OrdersApi {
      * Gets a list of extended orders for a tenant.
      * Retrieves a list of extended order details for the specified tenant.
      * @param tenantId  (required)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @return ExtendedOrderDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1040,8 +1047,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ExtendedOrderDtoListEnvelope getExtendedOrders(UUID tenantId) throws ApiException {
-        ApiResponse<ExtendedOrderDtoListEnvelope> localVarResp = getExtendedOrdersWithHttpInfo(tenantId);
+    public ExtendedOrderDtoListEnvelope getExtendedOrders(UUID tenantId, ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ExtendedOrderDtoListEnvelope> localVarResp = getExtendedOrdersWithHttpInfo(tenantId, extendedOrderDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1049,6 +1056,7 @@ public class OrdersApi {
      * Gets a list of extended orders for a tenant.
      * Retrieves a list of extended order details for the specified tenant.
      * @param tenantId  (required)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ExtendedOrderDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1058,8 +1066,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExtendedOrderDtoListEnvelope> getExtendedOrdersWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedOrdersValidateBeforeCall(tenantId, null);
+    public ApiResponse<ExtendedOrderDtoListEnvelope> getExtendedOrdersWithHttpInfo(UUID tenantId, ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedOrdersValidateBeforeCall(tenantId, extendedOrderDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ExtendedOrderDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1068,6 +1076,7 @@ public class OrdersApi {
      * Gets a list of extended orders for a tenant. (asynchronously)
      * Retrieves a list of extended order details for the specified tenant.
      * @param tenantId  (required)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1078,9 +1087,9 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedOrdersAsync(UUID tenantId, final ApiCallback<ExtendedOrderDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getExtendedOrdersAsync(UUID tenantId, ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters, final ApiCallback<ExtendedOrderDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedOrdersValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getExtendedOrdersValidateBeforeCall(tenantId, extendedOrderDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ExtendedOrderDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1382,6 +1391,7 @@ public class OrdersApi {
      * @param tenantId  (required)
      * @param orderId  (required)
      * @param itemId  (optional)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1392,7 +1402,7 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrderLinesCall(UUID tenantId, UUID orderId, UUID itemId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOrderLinesCall(UUID tenantId, UUID orderId, UUID itemId, OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1406,7 +1416,7 @@ public class OrdersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = orderLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/OrdersService/Orders/{orderId}/Lines"
@@ -1436,6 +1446,8 @@ public class OrdersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1447,7 +1459,7 @@ public class OrdersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOrderLinesValidateBeforeCall(UUID tenantId, UUID orderId, UUID itemId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOrderLinesValidateBeforeCall(UUID tenantId, UUID orderId, UUID itemId, OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getOrderLines(Async)");
@@ -1458,7 +1470,7 @@ public class OrdersApi {
             throw new ApiException("Missing the required parameter 'orderId' when calling getOrderLines(Async)");
         }
 
-        return getOrderLinesCall(tenantId, orderId, itemId, _callback);
+        return getOrderLinesCall(tenantId, orderId, itemId, orderLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1468,6 +1480,7 @@ public class OrdersApi {
      * @param tenantId  (required)
      * @param orderId  (required)
      * @param itemId  (optional)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @return OrderLineDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1477,8 +1490,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public OrderLineDtoListEnvelope getOrderLines(UUID tenantId, UUID orderId, UUID itemId) throws ApiException {
-        ApiResponse<OrderLineDtoListEnvelope> localVarResp = getOrderLinesWithHttpInfo(tenantId, orderId, itemId);
+    public OrderLineDtoListEnvelope getOrderLines(UUID tenantId, UUID orderId, UUID itemId, OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<OrderLineDtoListEnvelope> localVarResp = getOrderLinesWithHttpInfo(tenantId, orderId, itemId, orderLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1488,6 +1501,7 @@ public class OrdersApi {
      * @param tenantId  (required)
      * @param orderId  (required)
      * @param itemId  (optional)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;OrderLineDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1497,8 +1511,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderLineDtoListEnvelope> getOrderLinesWithHttpInfo(UUID tenantId, UUID orderId, UUID itemId) throws ApiException {
-        okhttp3.Call localVarCall = getOrderLinesValidateBeforeCall(tenantId, orderId, itemId, null);
+    public ApiResponse<OrderLineDtoListEnvelope> getOrderLinesWithHttpInfo(UUID tenantId, UUID orderId, UUID itemId, OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getOrderLinesValidateBeforeCall(tenantId, orderId, itemId, orderLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<OrderLineDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1509,6 +1523,7 @@ public class OrdersApi {
      * @param tenantId  (required)
      * @param orderId  (required)
      * @param itemId  (optional)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1519,9 +1534,9 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrderLinesAsync(UUID tenantId, UUID orderId, UUID itemId, final ApiCallback<OrderLineDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getOrderLinesAsync(UUID tenantId, UUID orderId, UUID itemId, OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters, final ApiCallback<OrderLineDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOrderLinesValidateBeforeCall(tenantId, orderId, itemId, _callback);
+        okhttp3.Call localVarCall = getOrderLinesValidateBeforeCall(tenantId, orderId, itemId, orderLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<OrderLineDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1530,6 +1545,7 @@ public class OrdersApi {
      * Build call for getOrderLinesCount
      * @param tenantId  (required)
      * @param orderId  (required)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1540,7 +1556,7 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrderLinesCountCall(UUID tenantId, UUID orderId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOrderLinesCountCall(UUID tenantId, UUID orderId, OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1554,7 +1570,7 @@ public class OrdersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = orderLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/OrdersService/Orders/{orderId}/Lines/Count"
@@ -1580,6 +1596,8 @@ public class OrdersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1591,7 +1609,7 @@ public class OrdersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOrderLinesCountValidateBeforeCall(UUID tenantId, UUID orderId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOrderLinesCountValidateBeforeCall(UUID tenantId, UUID orderId, OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getOrderLinesCount(Async)");
@@ -1602,7 +1620,7 @@ public class OrdersApi {
             throw new ApiException("Missing the required parameter 'orderId' when calling getOrderLinesCount(Async)");
         }
 
-        return getOrderLinesCountCall(tenantId, orderId, _callback);
+        return getOrderLinesCountCall(tenantId, orderId, orderLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1611,6 +1629,7 @@ public class OrdersApi {
      * Retrieves the total number of lines for the specified order.
      * @param tenantId  (required)
      * @param orderId  (required)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1620,8 +1639,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getOrderLinesCount(UUID tenantId, UUID orderId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getOrderLinesCountWithHttpInfo(tenantId, orderId);
+    public Int32Envelope getOrderLinesCount(UUID tenantId, UUID orderId, OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getOrderLinesCountWithHttpInfo(tenantId, orderId, orderLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1630,6 +1649,7 @@ public class OrdersApi {
      * Retrieves the total number of lines for the specified order.
      * @param tenantId  (required)
      * @param orderId  (required)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1639,8 +1659,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getOrderLinesCountWithHttpInfo(UUID tenantId, UUID orderId) throws ApiException {
-        okhttp3.Call localVarCall = getOrderLinesCountValidateBeforeCall(tenantId, orderId, null);
+    public ApiResponse<Int32Envelope> getOrderLinesCountWithHttpInfo(UUID tenantId, UUID orderId, OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getOrderLinesCountValidateBeforeCall(tenantId, orderId, orderLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1650,6 +1670,7 @@ public class OrdersApi {
      * Retrieves the total number of lines for the specified order.
      * @param tenantId  (required)
      * @param orderId  (required)
+     * @param orderLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1660,9 +1681,9 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrderLinesCountAsync(UUID tenantId, UUID orderId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getOrderLinesCountAsync(UUID tenantId, UUID orderId, OrderLineDtoCollectionQueryParameters orderLineDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOrderLinesCountValidateBeforeCall(tenantId, orderId, _callback);
+        okhttp3.Call localVarCall = getOrderLinesCountValidateBeforeCall(tenantId, orderId, orderLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1670,6 +1691,7 @@ public class OrdersApi {
     /**
      * Build call for getOrders
      * @param tenantId  (required)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1680,7 +1702,7 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrdersCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOrdersCall(UUID tenantId, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1694,7 +1716,7 @@ public class OrdersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = orderDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/OrdersService/Orders";
@@ -1719,6 +1741,8 @@ public class OrdersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1730,13 +1754,13 @@ public class OrdersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOrdersValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOrdersValidateBeforeCall(UUID tenantId, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getOrders(Async)");
         }
 
-        return getOrdersCall(tenantId, _callback);
+        return getOrdersCall(tenantId, orderDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1744,6 +1768,7 @@ public class OrdersApi {
      * Gets a list of orders for a tenant.
      * Retrieves a list of orders for the specified tenant.
      * @param tenantId  (required)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return OrderDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1753,8 +1778,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public OrderDtoListEnvelope getOrders(UUID tenantId) throws ApiException {
-        ApiResponse<OrderDtoListEnvelope> localVarResp = getOrdersWithHttpInfo(tenantId);
+    public OrderDtoListEnvelope getOrders(UUID tenantId, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<OrderDtoListEnvelope> localVarResp = getOrdersWithHttpInfo(tenantId, orderDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1762,6 +1787,7 @@ public class OrdersApi {
      * Gets a list of orders for a tenant.
      * Retrieves a list of orders for the specified tenant.
      * @param tenantId  (required)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;OrderDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1771,8 +1797,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderDtoListEnvelope> getOrdersWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getOrdersValidateBeforeCall(tenantId, null);
+    public ApiResponse<OrderDtoListEnvelope> getOrdersWithHttpInfo(UUID tenantId, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getOrdersValidateBeforeCall(tenantId, orderDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<OrderDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1781,6 +1807,7 @@ public class OrdersApi {
      * Gets a list of orders for a tenant. (asynchronously)
      * Retrieves a list of orders for the specified tenant.
      * @param tenantId  (required)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1791,9 +1818,9 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrdersAsync(UUID tenantId, final ApiCallback<OrderDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getOrdersAsync(UUID tenantId, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback<OrderDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOrdersValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getOrdersValidateBeforeCall(tenantId, orderDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<OrderDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1801,6 +1828,7 @@ public class OrdersApi {
     /**
      * Build call for getOrdersCount
      * @param tenantId  (required)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1811,7 +1839,7 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrdersCountCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOrdersCountCall(UUID tenantId, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1825,7 +1853,7 @@ public class OrdersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = orderDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/OrdersService/Orders/Count";
@@ -1850,6 +1878,8 @@ public class OrdersApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1861,13 +1891,13 @@ public class OrdersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOrdersCountValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOrdersCountValidateBeforeCall(UUID tenantId, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getOrdersCount(Async)");
         }
 
-        return getOrdersCountCall(tenantId, _callback);
+        return getOrdersCountCall(tenantId, orderDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1875,6 +1905,7 @@ public class OrdersApi {
      * Gets the count of orders for a tenant.
      * Retrieves the total number of orders for the specified tenant.
      * @param tenantId  (required)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1884,8 +1915,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getOrdersCount(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getOrdersCountWithHttpInfo(tenantId);
+    public Int32Envelope getOrdersCount(UUID tenantId, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getOrdersCountWithHttpInfo(tenantId, orderDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1893,6 +1924,7 @@ public class OrdersApi {
      * Gets the count of orders for a tenant.
      * Retrieves the total number of orders for the specified tenant.
      * @param tenantId  (required)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1902,8 +1934,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getOrdersCountWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getOrdersCountValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getOrdersCountWithHttpInfo(UUID tenantId, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getOrdersCountValidateBeforeCall(tenantId, orderDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1912,6 +1944,7 @@ public class OrdersApi {
      * Gets the count of orders for a tenant. (asynchronously)
      * Retrieves the total number of orders for the specified tenant.
      * @param tenantId  (required)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1922,9 +1955,9 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrdersCountAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getOrdersCountAsync(UUID tenantId, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOrdersCountValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getOrdersCountValidateBeforeCall(tenantId, orderDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1933,7 +1966,7 @@ public class OrdersApi {
      * Build call for patchOrder
      * @param tenantId  (required)
      * @param orderId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1944,7 +1977,7 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchOrderCall(UUID tenantId, UUID orderId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchOrderCall(UUID tenantId, UUID orderId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1958,7 +1991,7 @@ public class OrdersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/OrdersService/Orders/{orderId}"
@@ -1997,7 +2030,7 @@ public class OrdersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchOrderValidateBeforeCall(UUID tenantId, UUID orderId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchOrderValidateBeforeCall(UUID tenantId, UUID orderId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchOrder(Async)");
@@ -2008,7 +2041,7 @@ public class OrdersApi {
             throw new ApiException("Missing the required parameter 'orderId' when calling patchOrder(Async)");
         }
 
-        return patchOrderCall(tenantId, orderId, operation, _callback);
+        return patchOrderCall(tenantId, orderId, patchOperation, _callback);
 
     }
 
@@ -2017,7 +2050,7 @@ public class OrdersApi {
      * Applies a JSON Patch document to partially update an existing order.
      * @param tenantId  (required)
      * @param orderId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2027,8 +2060,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchOrder(UUID tenantId, UUID orderId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchOrderWithHttpInfo(tenantId, orderId, operation);
+    public EmptyEnvelope patchOrder(UUID tenantId, UUID orderId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchOrderWithHttpInfo(tenantId, orderId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2037,7 +2070,7 @@ public class OrdersApi {
      * Applies a JSON Patch document to partially update an existing order.
      * @param tenantId  (required)
      * @param orderId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2047,8 +2080,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchOrderWithHttpInfo(UUID tenantId, UUID orderId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchOrderValidateBeforeCall(tenantId, orderId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchOrderWithHttpInfo(UUID tenantId, UUID orderId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchOrderValidateBeforeCall(tenantId, orderId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2058,7 +2091,7 @@ public class OrdersApi {
      * Applies a JSON Patch document to partially update an existing order.
      * @param tenantId  (required)
      * @param orderId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2069,9 +2102,9 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchOrderAsync(UUID tenantId, UUID orderId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchOrderAsync(UUID tenantId, UUID orderId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchOrderValidateBeforeCall(tenantId, orderId, operation, _callback);
+        okhttp3.Call localVarCall = patchOrderValidateBeforeCall(tenantId, orderId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2081,7 +2114,7 @@ public class OrdersApi {
      * @param tenantId  (required)
      * @param orderId  (required)
      * @param orderLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2092,7 +2125,7 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchOrderLineCall(UUID tenantId, UUID orderId, UUID orderLineId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchOrderLineCall(UUID tenantId, UUID orderId, UUID orderLineId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2106,7 +2139,7 @@ public class OrdersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}"
@@ -2146,7 +2179,7 @@ public class OrdersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchOrderLineValidateBeforeCall(UUID tenantId, UUID orderId, UUID orderLineId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchOrderLineValidateBeforeCall(UUID tenantId, UUID orderId, UUID orderLineId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchOrderLine(Async)");
@@ -2162,7 +2195,7 @@ public class OrdersApi {
             throw new ApiException("Missing the required parameter 'orderLineId' when calling patchOrderLine(Async)");
         }
 
-        return patchOrderLineCall(tenantId, orderId, orderLineId, operation, _callback);
+        return patchOrderLineCall(tenantId, orderId, orderLineId, patchOperation, _callback);
 
     }
 
@@ -2172,7 +2205,7 @@ public class OrdersApi {
      * @param tenantId  (required)
      * @param orderId  (required)
      * @param orderLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2182,8 +2215,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchOrderLine(UUID tenantId, UUID orderId, UUID orderLineId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchOrderLineWithHttpInfo(tenantId, orderId, orderLineId, operation);
+    public EmptyEnvelope patchOrderLine(UUID tenantId, UUID orderId, UUID orderLineId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchOrderLineWithHttpInfo(tenantId, orderId, orderLineId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2193,7 +2226,7 @@ public class OrdersApi {
      * @param tenantId  (required)
      * @param orderId  (required)
      * @param orderLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2203,8 +2236,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchOrderLineWithHttpInfo(UUID tenantId, UUID orderId, UUID orderLineId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchOrderLineValidateBeforeCall(tenantId, orderId, orderLineId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchOrderLineWithHttpInfo(UUID tenantId, UUID orderId, UUID orderLineId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchOrderLineValidateBeforeCall(tenantId, orderId, orderLineId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2215,7 +2248,7 @@ public class OrdersApi {
      * @param tenantId  (required)
      * @param orderId  (required)
      * @param orderLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2226,9 +2259,9 @@ public class OrdersApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchOrderLineAsync(UUID tenantId, UUID orderId, UUID orderLineId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchOrderLineAsync(UUID tenantId, UUID orderId, UUID orderLineId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchOrderLineValidateBeforeCall(tenantId, orderId, orderLineId, operation, _callback);
+        okhttp3.Call localVarCall = patchOrderLineValidateBeforeCall(tenantId, orderId, orderLineId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

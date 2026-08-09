@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * JobOfferFieldRecordUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:01:53.803270800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:28:50.780064700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class JobOfferFieldRecordUpdateDto {
   public static final String SERIALIZED_NAME_JOB_FIELD_ID = "jobFieldId";
   @SerializedName(SERIALIZED_NAME_JOB_FIELD_ID)

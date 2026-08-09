@@ -30,6 +30,7 @@ import java.io.IOException;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.SignatureDto;
+import org.openapitools.client.model.SignatureDtoCollectionQueryParameters;
 import org.openapitools.client.model.SignatureDtoListEnvelope;
 import java.util.UUID;
 
@@ -242,6 +243,7 @@ public class SignaturesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -252,7 +254,7 @@ public class SignaturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSignaturesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSignaturesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -266,7 +268,7 @@ public class SignaturesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = signatureDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TrustService/Signatures";
@@ -299,6 +301,8 @@ public class SignaturesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -310,13 +314,13 @@ public class SignaturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSignaturesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSignaturesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSignaturesAsync(Async)");
         }
 
-        return getSignaturesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSignaturesAsyncCall(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -326,6 +330,7 @@ public class SignaturesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @return SignatureDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -335,8 +340,8 @@ public class SignaturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SignatureDtoListEnvelope getSignaturesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SignatureDtoListEnvelope> localVarResp = getSignaturesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SignatureDtoListEnvelope getSignaturesAsync(UUID tenantId, String apiVersion, String xApiVersion, SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SignatureDtoListEnvelope> localVarResp = getSignaturesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -346,6 +351,7 @@ public class SignaturesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SignatureDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -355,8 +361,8 @@ public class SignaturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SignatureDtoListEnvelope> getSignaturesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSignaturesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<SignatureDtoListEnvelope> getSignaturesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSignaturesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SignatureDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -367,6 +373,7 @@ public class SignaturesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -377,9 +384,9 @@ public class SignaturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSignaturesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SignatureDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSignaturesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters, final ApiCallback<SignatureDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSignaturesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSignaturesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SignatureDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -389,6 +396,7 @@ public class SignaturesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -399,7 +407,7 @@ public class SignaturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSignaturesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSignaturesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -413,7 +421,7 @@ public class SignaturesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = signatureDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TrustService/Signatures/Count";
@@ -446,6 +454,8 @@ public class SignaturesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -457,13 +467,13 @@ public class SignaturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSignaturesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSignaturesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSignaturesCountAsync(Async)");
         }
 
-        return getSignaturesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSignaturesCountAsyncCall(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -473,6 +483,7 @@ public class SignaturesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -482,8 +493,8 @@ public class SignaturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSignaturesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSignaturesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getSignaturesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSignaturesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -493,6 +504,7 @@ public class SignaturesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -502,8 +514,8 @@ public class SignaturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSignaturesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSignaturesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSignaturesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSignaturesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -514,6 +526,7 @@ public class SignaturesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param signatureDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -524,9 +537,9 @@ public class SignaturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSignaturesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSignaturesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SignatureDtoCollectionQueryParameters signatureDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSignaturesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSignaturesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, signatureDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

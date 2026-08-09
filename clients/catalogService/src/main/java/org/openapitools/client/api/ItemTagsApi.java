@@ -29,10 +29,11 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.ItemTagCreateDto;
+import org.openapitools.client.model.ItemTagDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemTagDtoEnvelope;
 import org.openapitools.client.model.ItemTagDtoListEnvelope;
 import org.openapitools.client.model.ItemTagUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -553,6 +554,7 @@ public class ItemTagsApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTagDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -564,7 +566,7 @@ public class ItemTagsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemTagsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemTagsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemTagDtoCollectionQueryParameters itemTagDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -578,7 +580,7 @@ public class ItemTagsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemTagDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemTags";
@@ -611,6 +613,8 @@ public class ItemTagsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -622,8 +626,8 @@ public class ItemTagsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemTagsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getItemTagsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getItemTagsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemTagDtoCollectionQueryParameters itemTagDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getItemTagsAsyncCall(tenantId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -633,6 +637,7 @@ public class ItemTagsApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTagDtoCollectionQueryParameters  (optional)
      * @return ItemTagDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -643,8 +648,8 @@ public class ItemTagsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemTagDtoListEnvelope getItemTagsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemTagDtoListEnvelope> localVarResp = getItemTagsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ItemTagDtoListEnvelope getItemTagsAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemTagDtoCollectionQueryParameters itemTagDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemTagDtoListEnvelope> localVarResp = getItemTagsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -654,6 +659,7 @@ public class ItemTagsApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTagDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemTagDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -664,8 +670,8 @@ public class ItemTagsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemTagDtoListEnvelope> getItemTagsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemTagsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemTagDtoListEnvelope> getItemTagsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemTagDtoCollectionQueryParameters itemTagDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemTagsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemTagDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -676,6 +682,7 @@ public class ItemTagsApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemTagDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -687,9 +694,9 @@ public class ItemTagsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemTagsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ItemTagDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemTagsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemTagDtoCollectionQueryParameters itemTagDtoCollectionQueryParameters, final ApiCallback<ItemTagDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemTagsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemTagsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemTagDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemTagDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -700,7 +707,7 @@ public class ItemTagsApi {
      * @param itemTagId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -712,7 +719,7 @@ public class ItemTagsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemTagAsyncCall(UUID tenantId, UUID itemTagId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemTagAsyncCall(UUID tenantId, UUID itemTagId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -726,7 +733,7 @@ public class ItemTagsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemTags/{itemTagId}"
@@ -773,7 +780,7 @@ public class ItemTagsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemTagAsyncValidateBeforeCall(UUID tenantId, UUID itemTagId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemTagAsyncValidateBeforeCall(UUID tenantId, UUID itemTagId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemTagAsync(Async)");
@@ -784,7 +791,7 @@ public class ItemTagsApi {
             throw new ApiException("Missing the required parameter 'itemTagId' when calling patchItemTagAsync(Async)");
         }
 
-        return patchItemTagAsyncCall(tenantId, itemTagId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemTagAsyncCall(tenantId, itemTagId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -795,7 +802,7 @@ public class ItemTagsApi {
      * @param itemTagId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -805,8 +812,8 @@ public class ItemTagsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public void patchItemTagAsync(UUID tenantId, UUID itemTagId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        patchItemTagAsyncWithHttpInfo(tenantId, itemTagId, apiVersion, xApiVersion, operation);
+    public void patchItemTagAsync(UUID tenantId, UUID itemTagId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        patchItemTagAsyncWithHttpInfo(tenantId, itemTagId, apiVersion, xApiVersion, patchOperation);
     }
 
     /**
@@ -816,7 +823,7 @@ public class ItemTagsApi {
      * @param itemTagId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -827,8 +834,8 @@ public class ItemTagsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> patchItemTagAsyncWithHttpInfo(UUID tenantId, UUID itemTagId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemTagAsyncValidateBeforeCall(tenantId, itemTagId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<Void> patchItemTagAsyncWithHttpInfo(UUID tenantId, UUID itemTagId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemTagAsyncValidateBeforeCall(tenantId, itemTagId, apiVersion, xApiVersion, patchOperation, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -839,7 +846,7 @@ public class ItemTagsApi {
      * @param itemTagId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -851,9 +858,9 @@ public class ItemTagsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemTagAsyncAsync(UUID tenantId, UUID itemTagId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call patchItemTagAsyncAsync(UUID tenantId, UUID itemTagId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemTagAsyncValidateBeforeCall(tenantId, itemTagId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemTagAsyncValidateBeforeCall(tenantId, itemTagId, apiVersion, xApiVersion, patchOperation, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

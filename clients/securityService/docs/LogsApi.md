@@ -10,7 +10,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getLogsAsync"></a>
 # **getLogsAsync**
-> LogDtoListEnvelope getLogsAsync(tenantId, apiVersion, xApiVersion)
+> LogDtoListEnvelope getLogsAsync(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters)
 
 Get tenant logs
 
@@ -34,8 +34,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LogDtoCollectionQueryParameters logDtoCollectionQueryParameters = new LogDtoCollectionQueryParameters(); // LogDtoCollectionQueryParameters | 
     try {
-      LogDtoListEnvelope result = apiInstance.getLogsAsync(tenantId, apiVersion, xApiVersion);
+      LogDtoListEnvelope result = apiInstance.getLogsAsync(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LogsApi#getLogsAsync");
@@ -55,6 +56,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **logDtoCollectionQueryParameters** | [**LogDtoCollectionQueryParameters**](LogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -66,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -78,7 +80,7 @@ No authorization required
 
 <a id="getLogsCountAsync"></a>
 # **getLogsCountAsync**
-> Int32Envelope getLogsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLogsCountAsync(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters)
 
 Get tenant logs count
 
@@ -102,8 +104,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LogDtoCollectionQueryParameters logDtoCollectionQueryParameters = new LogDtoCollectionQueryParameters(); // LogDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLogsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLogsCountAsync(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LogsApi#getLogsCountAsync");
@@ -123,6 +126,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **logDtoCollectionQueryParameters** | [**LogDtoCollectionQueryParameters**](LogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -134,7 +138,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

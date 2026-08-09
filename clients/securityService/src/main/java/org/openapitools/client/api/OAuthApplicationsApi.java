@@ -36,7 +36,7 @@ import org.openapitools.client.model.OAuthApplicationDtoListEnvelope;
 import org.openapitools.client.model.OAuthApplicationUpdateDto;
 import org.openapitools.client.model.OAuthAuthorizationDtoEnvelope;
 import org.openapitools.client.model.OAuthAuthorizationDtoListEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -1359,7 +1359,7 @@ public class OAuthApplicationsApi {
      * Build call for patchOAuthApplicationAsync
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -1374,7 +1374,7 @@ public class OAuthApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchOAuthApplicationAsyncCall(UUID tenantId, String applicationId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchOAuthApplicationAsyncCall(UUID tenantId, String applicationId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1388,7 +1388,7 @@ public class OAuthApplicationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/OAuthApplications/{applicationId}"
@@ -1435,7 +1435,7 @@ public class OAuthApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchOAuthApplicationAsyncValidateBeforeCall(UUID tenantId, String applicationId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchOAuthApplicationAsyncValidateBeforeCall(UUID tenantId, String applicationId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchOAuthApplicationAsync(Async)");
@@ -1446,12 +1446,12 @@ public class OAuthApplicationsApi {
             throw new ApiException("Missing the required parameter 'applicationId' when calling patchOAuthApplicationAsync(Async)");
         }
 
-        // verify the required parameter 'operation' is set
-        if (operation == null) {
-            throw new ApiException("Missing the required parameter 'operation' when calling patchOAuthApplicationAsync(Async)");
+        // verify the required parameter 'patchOperation' is set
+        if (patchOperation == null) {
+            throw new ApiException("Missing the required parameter 'patchOperation' when calling patchOAuthApplicationAsync(Async)");
         }
 
-        return patchOAuthApplicationAsyncCall(tenantId, applicationId, operation, apiVersion, xApiVersion, _callback);
+        return patchOAuthApplicationAsyncCall(tenantId, applicationId, patchOperation, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -1460,7 +1460,7 @@ public class OAuthApplicationsApi {
      * Partially updates an existing OAuth application using a JSON Patch document.
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -1474,8 +1474,8 @@ public class OAuthApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchOAuthApplicationAsync(UUID tenantId, String applicationId, List<Operation> operation, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchOAuthApplicationAsyncWithHttpInfo(tenantId, applicationId, operation, apiVersion, xApiVersion);
+    public EmptyEnvelope patchOAuthApplicationAsync(UUID tenantId, String applicationId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchOAuthApplicationAsyncWithHttpInfo(tenantId, applicationId, patchOperation, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -1484,7 +1484,7 @@ public class OAuthApplicationsApi {
      * Partially updates an existing OAuth application using a JSON Patch document.
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
@@ -1498,8 +1498,8 @@ public class OAuthApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchOAuthApplicationAsyncWithHttpInfo(UUID tenantId, String applicationId, List<Operation> operation, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = patchOAuthApplicationAsyncValidateBeforeCall(tenantId, applicationId, operation, apiVersion, xApiVersion, null);
+    public ApiResponse<EmptyEnvelope> patchOAuthApplicationAsyncWithHttpInfo(UUID tenantId, String applicationId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = patchOAuthApplicationAsyncValidateBeforeCall(tenantId, applicationId, patchOperation, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1509,7 +1509,7 @@ public class OAuthApplicationsApi {
      * Partially updates an existing OAuth application using a JSON Patch document.
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1524,9 +1524,9 @@ public class OAuthApplicationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchOAuthApplicationAsyncAsync(UUID tenantId, String applicationId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchOAuthApplicationAsyncAsync(UUID tenantId, String applicationId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchOAuthApplicationAsyncValidateBeforeCall(tenantId, applicationId, operation, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = patchOAuthApplicationAsyncValidateBeforeCall(tenantId, applicationId, patchOperation, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -30,13 +30,15 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.RailWaybillCreateDto;
+import org.openapitools.client.model.RailWaybillDtoCollectionQueryParameters;
 import org.openapitools.client.model.RailWaybillDtoEnvelope;
 import org.openapitools.client.model.RailWaybillDtoListEnvelope;
 import org.openapitools.client.model.RailWaybillUpdateDto;
 import java.util.UUID;
 import org.openapitools.client.model.WaybillLineCreateDto;
+import org.openapitools.client.model.WaybillLineDtoCollectionQueryParameters;
 import org.openapitools.client.model.WaybillLineDtoListEnvelope;
 import org.openapitools.client.model.WaybillLineUpdateDto;
 
@@ -876,6 +878,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -886,7 +889,7 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRailWaybillLinesAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRailWaybillLinesAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -900,7 +903,7 @@ public class RailWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = waybillLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RailWaybills/{waybillId}/Lines"
@@ -934,6 +937,8 @@ public class RailWaybillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -945,7 +950,7 @@ public class RailWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRailWaybillLinesAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRailWaybillLinesAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRailWaybillLinesAsync(Async)");
@@ -956,7 +961,7 @@ public class RailWaybillsApi {
             throw new ApiException("Missing the required parameter 'waybillId' when calling getRailWaybillLinesAsync(Async)");
         }
 
-        return getRailWaybillLinesAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, _callback);
+        return getRailWaybillLinesAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -967,6 +972,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return WaybillLineDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -976,8 +982,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WaybillLineDtoListEnvelope getRailWaybillLinesAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WaybillLineDtoListEnvelope> localVarResp = getRailWaybillLinesAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion);
+    public WaybillLineDtoListEnvelope getRailWaybillLinesAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WaybillLineDtoListEnvelope> localVarResp = getRailWaybillLinesAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -988,6 +994,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WaybillLineDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -997,8 +1004,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WaybillLineDtoListEnvelope> getRailWaybillLinesAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRailWaybillLinesAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, null);
+    public ApiResponse<WaybillLineDtoListEnvelope> getRailWaybillLinesAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRailWaybillLinesAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WaybillLineDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1010,6 +1017,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1020,9 +1028,9 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRailWaybillLinesAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback<WaybillLineDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getRailWaybillLinesAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback<WaybillLineDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRailWaybillLinesAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRailWaybillLinesAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WaybillLineDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1033,6 +1041,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1043,7 +1052,7 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRailWaybillLinesCountAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRailWaybillLinesCountAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1057,7 +1066,7 @@ public class RailWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = waybillLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/Count"
@@ -1091,6 +1100,8 @@ public class RailWaybillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1102,7 +1113,7 @@ public class RailWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRailWaybillLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRailWaybillLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRailWaybillLinesCountAsync(Async)");
@@ -1113,7 +1124,7 @@ public class RailWaybillsApi {
             throw new ApiException("Missing the required parameter 'waybillId' when calling getRailWaybillLinesCountAsync(Async)");
         }
 
-        return getRailWaybillLinesCountAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, _callback);
+        return getRailWaybillLinesCountAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1124,6 +1135,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1133,8 +1145,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getRailWaybillLinesCountAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getRailWaybillLinesCountAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion);
+    public Int32Envelope getRailWaybillLinesCountAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getRailWaybillLinesCountAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1145,6 +1157,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1154,8 +1167,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getRailWaybillLinesCountAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRailWaybillLinesCountAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getRailWaybillLinesCountAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRailWaybillLinesCountAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1167,6 +1180,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1177,9 +1191,9 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRailWaybillLinesCountAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getRailWaybillLinesCountAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRailWaybillLinesCountAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRailWaybillLinesCountAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1189,6 +1203,7 @@ public class RailWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1200,7 +1215,7 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRailWaybillsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRailWaybillsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1214,7 +1229,7 @@ public class RailWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = railWaybillDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RailWaybills";
@@ -1247,6 +1262,8 @@ public class RailWaybillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1258,13 +1275,13 @@ public class RailWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRailWaybillsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRailWaybillsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRailWaybillsAsync(Async)");
         }
 
-        return getRailWaybillsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getRailWaybillsAsyncCall(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1274,6 +1291,7 @@ public class RailWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @return RailWaybillDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1284,8 +1302,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public RailWaybillDtoListEnvelope getRailWaybillsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<RailWaybillDtoListEnvelope> localVarResp = getRailWaybillsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public RailWaybillDtoListEnvelope getRailWaybillsAsync(UUID tenantId, String apiVersion, String xApiVersion, RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<RailWaybillDtoListEnvelope> localVarResp = getRailWaybillsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1295,6 +1313,7 @@ public class RailWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;RailWaybillDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1305,8 +1324,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RailWaybillDtoListEnvelope> getRailWaybillsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRailWaybillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<RailWaybillDtoListEnvelope> getRailWaybillsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRailWaybillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<RailWaybillDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1317,6 +1336,7 @@ public class RailWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1328,9 +1348,9 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRailWaybillsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<RailWaybillDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getRailWaybillsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters, final ApiCallback<RailWaybillDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRailWaybillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRailWaybillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<RailWaybillDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1340,6 +1360,7 @@ public class RailWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1350,7 +1371,7 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRailWaybillsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRailWaybillsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1364,7 +1385,7 @@ public class RailWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = railWaybillDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RailWaybills/Count";
@@ -1397,6 +1418,8 @@ public class RailWaybillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1408,13 +1431,13 @@ public class RailWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRailWaybillsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRailWaybillsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRailWaybillsCountAsync(Async)");
         }
 
-        return getRailWaybillsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getRailWaybillsCountAsyncCall(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1424,6 +1447,7 @@ public class RailWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1433,8 +1457,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getRailWaybillsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getRailWaybillsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getRailWaybillsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getRailWaybillsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1444,6 +1468,7 @@ public class RailWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1453,8 +1478,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getRailWaybillsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRailWaybillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getRailWaybillsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRailWaybillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1465,6 +1490,7 @@ public class RailWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param railWaybillDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1475,9 +1501,9 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRailWaybillsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getRailWaybillsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, RailWaybillDtoCollectionQueryParameters railWaybillDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRailWaybillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRailWaybillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, railWaybillDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1959,7 +1985,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1970,7 +1996,7 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRailWaybillAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchRailWaybillAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1984,7 +2010,7 @@ public class RailWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RailWaybills/{waybillId}"
@@ -2031,7 +2057,7 @@ public class RailWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchRailWaybillAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchRailWaybillAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchRailWaybillAsync(Async)");
@@ -2042,7 +2068,7 @@ public class RailWaybillsApi {
             throw new ApiException("Missing the required parameter 'waybillId' when calling patchRailWaybillAsync(Async)");
         }
 
-        return patchRailWaybillAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, operation, _callback);
+        return patchRailWaybillAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2053,7 +2079,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2063,8 +2089,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchRailWaybillAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchRailWaybillAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchRailWaybillAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchRailWaybillAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2075,7 +2101,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2085,8 +2111,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchRailWaybillAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchRailWaybillAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchRailWaybillAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchRailWaybillAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2098,7 +2124,7 @@ public class RailWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2109,9 +2135,9 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRailWaybillAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchRailWaybillAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchRailWaybillAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchRailWaybillAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2123,7 +2149,7 @@ public class RailWaybillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2134,7 +2160,7 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRailWaybillLineAsyncCall(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchRailWaybillLineAsyncCall(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2148,7 +2174,7 @@ public class RailWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/{lineId}"
@@ -2196,7 +2222,7 @@ public class RailWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchRailWaybillLineAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchRailWaybillLineAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchRailWaybillLineAsync(Async)");
@@ -2212,7 +2238,7 @@ public class RailWaybillsApi {
             throw new ApiException("Missing the required parameter 'lineId' when calling patchRailWaybillLineAsync(Async)");
         }
 
-        return patchRailWaybillLineAsyncCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation, _callback);
+        return patchRailWaybillLineAsyncCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2224,7 +2250,7 @@ public class RailWaybillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2234,8 +2260,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchRailWaybillLineAsync(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchRailWaybillLineAsyncWithHttpInfo(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchRailWaybillLineAsync(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchRailWaybillLineAsyncWithHttpInfo(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2247,7 +2273,7 @@ public class RailWaybillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2257,8 +2283,8 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchRailWaybillLineAsyncWithHttpInfo(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchRailWaybillLineAsyncValidateBeforeCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchRailWaybillLineAsyncWithHttpInfo(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchRailWaybillLineAsyncValidateBeforeCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2271,7 +2297,7 @@ public class RailWaybillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2282,9 +2308,9 @@ public class RailWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRailWaybillLineAsyncAsync(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchRailWaybillLineAsyncAsync(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchRailWaybillLineAsyncValidateBeforeCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchRailWaybillLineAsyncValidateBeforeCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -371,7 +371,7 @@ No authorization required
 
 <a id="getItemPackingSlipEntriesAsync"></a>
 # **getItemPackingSlipEntriesAsync**
-> ItemPackingSlipEntryDtoListEnvelope getItemPackingSlipEntriesAsync(tenantId, packingSlipId, apiVersion, xApiVersion)
+> ItemPackingSlipEntryDtoListEnvelope getItemPackingSlipEntriesAsync(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters)
 
 Get packing slip entries
 
@@ -396,8 +396,9 @@ public class Example {
     UUID packingSlipId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters = new ItemPackingSlipEntryDtoCollectionQueryParameters(); // ItemPackingSlipEntryDtoCollectionQueryParameters | 
     try {
-      ItemPackingSlipEntryDtoListEnvelope result = apiInstance.getItemPackingSlipEntriesAsync(tenantId, packingSlipId, apiVersion, xApiVersion);
+      ItemPackingSlipEntryDtoListEnvelope result = apiInstance.getItemPackingSlipEntriesAsync(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPackingSlipsApi#getItemPackingSlipEntriesAsync");
@@ -418,6 +419,7 @@ public class Example {
 | **packingSlipId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemPackingSlipEntryDtoCollectionQueryParameters** | [**ItemPackingSlipEntryDtoCollectionQueryParameters**](ItemPackingSlipEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -429,7 +431,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -439,7 +441,7 @@ No authorization required
 
 <a id="getItemPackingSlipEntriesCountAsync"></a>
 # **getItemPackingSlipEntriesCountAsync**
-> Int32Envelope getItemPackingSlipEntriesCountAsync(tenantId, packingSlipId, apiVersion, xApiVersion)
+> Int32Envelope getItemPackingSlipEntriesCountAsync(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters)
 
 Get packing slip entries count
 
@@ -464,8 +466,9 @@ public class Example {
     UUID packingSlipId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemPackingSlipEntryDtoCollectionQueryParameters itemPackingSlipEntryDtoCollectionQueryParameters = new ItemPackingSlipEntryDtoCollectionQueryParameters(); // ItemPackingSlipEntryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemPackingSlipEntriesCountAsync(tenantId, packingSlipId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemPackingSlipEntriesCountAsync(tenantId, packingSlipId, apiVersion, xApiVersion, itemPackingSlipEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPackingSlipsApi#getItemPackingSlipEntriesCountAsync");
@@ -486,6 +489,7 @@ public class Example {
 | **packingSlipId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemPackingSlipEntryDtoCollectionQueryParameters** | [**ItemPackingSlipEntryDtoCollectionQueryParameters**](ItemPackingSlipEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -497,7 +501,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -578,7 +582,7 @@ No authorization required
 
 <a id="getItemPackingSlipsAsync"></a>
 # **getItemPackingSlipsAsync**
-> ItemPackingSlipDtoListEnvelope getItemPackingSlipsAsync(tenantId, apiVersion, xApiVersion)
+> ItemPackingSlipDtoListEnvelope getItemPackingSlipsAsync(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters)
 
 Get all item packing slips
 
@@ -602,8 +606,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters = new ItemPackingSlipDtoCollectionQueryParameters(); // ItemPackingSlipDtoCollectionQueryParameters | 
     try {
-      ItemPackingSlipDtoListEnvelope result = apiInstance.getItemPackingSlipsAsync(tenantId, apiVersion, xApiVersion);
+      ItemPackingSlipDtoListEnvelope result = apiInstance.getItemPackingSlipsAsync(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPackingSlipsApi#getItemPackingSlipsAsync");
@@ -623,6 +628,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemPackingSlipDtoCollectionQueryParameters** | [**ItemPackingSlipDtoCollectionQueryParameters**](ItemPackingSlipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -634,7 +640,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -646,7 +652,7 @@ No authorization required
 
 <a id="getItemPackingSlipsCountAsync"></a>
 # **getItemPackingSlipsCountAsync**
-> Int32Envelope getItemPackingSlipsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemPackingSlipsCountAsync(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters)
 
 Get item packing slips count
 
@@ -670,8 +676,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemPackingSlipDtoCollectionQueryParameters itemPackingSlipDtoCollectionQueryParameters = new ItemPackingSlipDtoCollectionQueryParameters(); // ItemPackingSlipDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemPackingSlipsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemPackingSlipsCountAsync(tenantId, apiVersion, xApiVersion, itemPackingSlipDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPackingSlipsApi#getItemPackingSlipsCountAsync");
@@ -691,6 +698,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemPackingSlipDtoCollectionQueryParameters** | [**ItemPackingSlipDtoCollectionQueryParameters**](ItemPackingSlipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -702,7 +710,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -712,7 +720,7 @@ No authorization required
 
 <a id="patchItemPackingSlipAsync"></a>
 # **patchItemPackingSlipAsync**
-> EmptyEnvelope patchItemPackingSlipAsync(tenantId, packingSlipId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemPackingSlipAsync(tenantId, packingSlipId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item packing slip
 
@@ -737,9 +745,9 @@ public class Example {
     UUID packingSlipId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemPackingSlipAsync(tenantId, packingSlipId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemPackingSlipAsync(tenantId, packingSlipId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPackingSlipsApi#patchItemPackingSlipAsync");
@@ -760,7 +768,7 @@ public class Example {
 | **packingSlipId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -783,7 +791,7 @@ No authorization required
 
 <a id="patchItemPackingSlipEntryAsync"></a>
 # **patchItemPackingSlipEntryAsync**
-> EmptyEnvelope patchItemPackingSlipEntryAsync(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemPackingSlipEntryAsync(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, patchOperation)
 
 Patch a packing slip entry
 
@@ -809,9 +817,9 @@ public class Example {
     UUID entryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemPackingSlipEntryAsync(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemPackingSlipEntryAsync(tenantId, packingSlipId, entryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemPackingSlipsApi#patchItemPackingSlipEntryAsync");
@@ -833,7 +841,7 @@ public class Example {
 | **entryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

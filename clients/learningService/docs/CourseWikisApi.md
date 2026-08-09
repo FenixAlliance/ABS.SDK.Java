@@ -218,7 +218,7 @@ No authorization required
 
 <a id="getCourseWikisAsync"></a>
 # **getCourseWikisAsync**
-> List&lt;CourseWikiDto&gt; getCourseWikisAsync(tenantId, apiVersion, xApiVersion)
+> List&lt;CourseWikiDto&gt; getCourseWikisAsync(tenantId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
 
 Get all course wikis
 
@@ -242,8 +242,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseWikiDtoCollectionQueryParameters courseWikiDtoCollectionQueryParameters = new CourseWikiDtoCollectionQueryParameters(); // CourseWikiDtoCollectionQueryParameters | 
     try {
-      List<CourseWikiDto> result = apiInstance.getCourseWikisAsync(tenantId, apiVersion, xApiVersion);
+      List<CourseWikiDto> result = apiInstance.getCourseWikisAsync(tenantId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseWikisApi#getCourseWikisAsync");
@@ -263,6 +264,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -274,7 +276,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -285,7 +287,7 @@ No authorization required
 
 <a id="getCourseWikisCountAsync"></a>
 # **getCourseWikisCountAsync**
-> Integer getCourseWikisCountAsync(tenantId, apiVersion, xApiVersion)
+> Integer getCourseWikisCountAsync(tenantId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters)
 
 Get course wikis count
 
@@ -309,8 +311,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseWikiDtoCollectionQueryParameters courseWikiDtoCollectionQueryParameters = new CourseWikiDtoCollectionQueryParameters(); // CourseWikiDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseWikisCountAsync(tenantId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseWikisCountAsync(tenantId, apiVersion, xApiVersion, courseWikiDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseWikisApi#getCourseWikisCountAsync");
@@ -330,6 +333,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseWikiDtoCollectionQueryParameters** | [**CourseWikiDtoCollectionQueryParameters**](CourseWikiDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -352,7 +356,7 @@ No authorization required
 
 <a id="patchCourseWikiAsync"></a>
 # **patchCourseWikiAsync**
-> EmptyEnvelope patchCourseWikiAsync(tenantId, wikiId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseWikiAsync(tenantId, wikiId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course wiki
 
@@ -377,9 +381,9 @@ public class Example {
     String wikiId = "wikiId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCourseWikiAsync(tenantId, wikiId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCourseWikiAsync(tenantId, wikiId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseWikisApi#patchCourseWikiAsync");
@@ -400,7 +404,7 @@ public class Example {
 | **wikiId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getNonFungibleTokensAsync"></a>
 # **getNonFungibleTokensAsync**
-> NonFungibleTokenDtoListEnvelope getNonFungibleTokensAsync(tenantId, apiVersion, xApiVersion)
+> NonFungibleTokenDtoListEnvelope getNonFungibleTokensAsync(tenantId, apiVersion, xApiVersion, nonFungibleTokenDtoCollectionQueryParameters)
 
 Get all non-fungible tokens
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NonFungibleTokenDtoCollectionQueryParameters nonFungibleTokenDtoCollectionQueryParameters = new NonFungibleTokenDtoCollectionQueryParameters(); // NonFungibleTokenDtoCollectionQueryParameters | 
     try {
-      NonFungibleTokenDtoListEnvelope result = apiInstance.getNonFungibleTokensAsync(tenantId, apiVersion, xApiVersion);
+      NonFungibleTokenDtoListEnvelope result = apiInstance.getNonFungibleTokensAsync(tenantId, apiVersion, xApiVersion, nonFungibleTokenDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NonFungibleTokensApi#getNonFungibleTokensAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **nonFungibleTokenDtoCollectionQueryParameters** | [**NonFungibleTokenDtoCollectionQueryParameters**](NonFungibleTokenDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getNonFungibleTokensCountAsync"></a>
 # **getNonFungibleTokensCountAsync**
-> Int32Envelope getNonFungibleTokensCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getNonFungibleTokensCountAsync(tenantId, apiVersion, xApiVersion, nonFungibleTokenDtoCollectionQueryParameters)
 
 Get NFTs count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NonFungibleTokenDtoCollectionQueryParameters nonFungibleTokenDtoCollectionQueryParameters = new NonFungibleTokenDtoCollectionQueryParameters(); // NonFungibleTokenDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getNonFungibleTokensCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getNonFungibleTokensCountAsync(tenantId, apiVersion, xApiVersion, nonFungibleTokenDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NonFungibleTokensApi#getNonFungibleTokensCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **nonFungibleTokenDtoCollectionQueryParameters** | [**NonFungibleTokenDtoCollectionQueryParameters**](NonFungibleTokenDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchNonFungibleTokenAsync"></a>
 # **patchNonFungibleTokenAsync**
-> EmptyEnvelope patchNonFungibleTokenAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchNonFungibleTokenAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a non-fungible token
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchNonFungibleTokenAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchNonFungibleTokenAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NonFungibleTokensApi#patchNonFungibleTokenAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getTenantTeams"></a>
 # **getTenantTeams**
-> TenantTeamDtoListEnvelope getTenantTeams(tenantId, apiVersion, xApiVersion)
+> TenantTeamDtoListEnvelope getTenantTeams(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters)
 
 Retrieve a list of tenant teams
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters = new TenantTeamDtoCollectionQueryParameters(); // TenantTeamDtoCollectionQueryParameters | 
     try {
-      TenantTeamDtoListEnvelope result = apiInstance.getTenantTeams(tenantId, apiVersion, xApiVersion);
+      TenantTeamDtoListEnvelope result = apiInstance.getTenantTeams(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamsApi#getTenantTeams");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantTeamDtoCollectionQueryParameters** | [**TenantTeamDtoCollectionQueryParameters**](TenantTeamDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getTenantTeamsCount"></a>
 # **getTenantTeamsCount**
-> Int32Envelope getTenantTeamsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantTeamsCount(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters)
 
 Get the count of tenant teams
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantTeamDtoCollectionQueryParameters tenantTeamDtoCollectionQueryParameters = new TenantTeamDtoCollectionQueryParameters(); // TenantTeamDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantTeamsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantTeamsCount(tenantId, apiVersion, xApiVersion, tenantTeamDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamsApi#getTenantTeamsCount");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantTeamDtoCollectionQueryParameters** | [**TenantTeamDtoCollectionQueryParameters**](TenantTeamDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchTenantTeam"></a>
 # **patchTenantTeam**
-> EmptyEnvelope patchTenantTeam(tenantId, tenantTeamId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantTeam(tenantId, tenantTeamId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant team
 
@@ -386,9 +390,9 @@ public class Example {
     UUID tenantTeamId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantTeam(tenantId, tenantTeamId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantTeam(tenantId, tenantTeamId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamsApi#patchTenantTeam");
@@ -409,7 +413,7 @@ public class Example {
 | **tenantTeamId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

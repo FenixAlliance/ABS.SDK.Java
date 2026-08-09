@@ -30,10 +30,14 @@ import java.io.IOException;
 import org.openapitools.client.model.EmailDispatchRequest;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.ExtendedTenantDtoCollectionQueryParameters;
 import org.openapitools.client.model.ExtendedTenantDtoListEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.ModuleGrantDto;
+import org.openapitools.client.model.ModuleGrantDtoListEnvelope;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.TenantCreateDto;
+import org.openapitools.client.model.TenantDtoCollectionQueryParameters;
 import org.openapitools.client.model.TenantDtoEnvelope;
 import org.openapitools.client.model.TenantDtoListEnvelope;
 import org.openapitools.client.model.TenantUpdateDto;
@@ -658,6 +662,7 @@ public class TenantsApi {
      * Build call for getAllExtendedTenants
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -669,7 +674,7 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllExtendedTenantsCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAllExtendedTenantsCall(String apiVersion, String xApiVersion, ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -683,7 +688,7 @@ public class TenantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedTenantDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/Tenants/Extended";
@@ -712,6 +717,8 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -723,8 +730,8 @@ public class TenantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAllExtendedTenantsValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getAllExtendedTenantsCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getAllExtendedTenantsValidateBeforeCall(String apiVersion, String xApiVersion, ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getAllExtendedTenantsCall(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -733,6 +740,7 @@ public class TenantsApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @return ExtendedTenantDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -743,8 +751,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ExtendedTenantDtoListEnvelope getAllExtendedTenants(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ExtendedTenantDtoListEnvelope> localVarResp = getAllExtendedTenantsWithHttpInfo(apiVersion, xApiVersion);
+    public ExtendedTenantDtoListEnvelope getAllExtendedTenants(String apiVersion, String xApiVersion, ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ExtendedTenantDtoListEnvelope> localVarResp = getAllExtendedTenantsWithHttpInfo(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -753,6 +761,7 @@ public class TenantsApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ExtendedTenantDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -763,8 +772,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExtendedTenantDtoListEnvelope> getAllExtendedTenantsWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAllExtendedTenantsValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<ExtendedTenantDtoListEnvelope> getAllExtendedTenantsWithHttpInfo(String apiVersion, String xApiVersion, ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAllExtendedTenantsValidateBeforeCall(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ExtendedTenantDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -774,6 +783,7 @@ public class TenantsApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -785,9 +795,9 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllExtendedTenantsAsync(String apiVersion, String xApiVersion, final ApiCallback<ExtendedTenantDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAllExtendedTenantsAsync(String apiVersion, String xApiVersion, ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters, final ApiCallback<ExtendedTenantDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAllExtendedTenantsValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAllExtendedTenantsValidateBeforeCall(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ExtendedTenantDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -796,6 +806,7 @@ public class TenantsApi {
      * Build call for getAllTenants
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -807,7 +818,7 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllTenantsCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAllTenantsCall(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -821,7 +832,7 @@ public class TenantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = tenantDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/Tenants";
@@ -850,6 +861,8 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -861,8 +874,8 @@ public class TenantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAllTenantsValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getAllTenantsCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getAllTenantsValidateBeforeCall(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getAllTenantsCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -871,6 +884,7 @@ public class TenantsApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return TenantDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -881,8 +895,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TenantDtoListEnvelope getAllTenants(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TenantDtoListEnvelope> localVarResp = getAllTenantsWithHttpInfo(apiVersion, xApiVersion);
+    public TenantDtoListEnvelope getAllTenants(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TenantDtoListEnvelope> localVarResp = getAllTenantsWithHttpInfo(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -891,6 +905,7 @@ public class TenantsApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TenantDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -901,8 +916,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TenantDtoListEnvelope> getAllTenantsWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAllTenantsValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<TenantDtoListEnvelope> getAllTenantsWithHttpInfo(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAllTenantsValidateBeforeCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TenantDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -912,6 +927,7 @@ public class TenantsApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -923,9 +939,9 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllTenantsAsync(String apiVersion, String xApiVersion, final ApiCallback<TenantDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAllTenantsAsync(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback<TenantDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAllTenantsValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAllTenantsValidateBeforeCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TenantDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -934,6 +950,7 @@ public class TenantsApi {
      * Build call for getExtendedTenantsCount
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -945,7 +962,7 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedTenantsCountCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExtendedTenantsCountCall(String apiVersion, String xApiVersion, ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -959,7 +976,7 @@ public class TenantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedTenantDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/Tenants/Extended/Count";
@@ -988,6 +1005,8 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -999,8 +1018,8 @@ public class TenantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedTenantsCountValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getExtendedTenantsCountCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getExtendedTenantsCountValidateBeforeCall(String apiVersion, String xApiVersion, ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getExtendedTenantsCountCall(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1009,6 +1028,7 @@ public class TenantsApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1019,8 +1039,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getExtendedTenantsCount(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getExtendedTenantsCountWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope getExtendedTenantsCount(String apiVersion, String xApiVersion, ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getExtendedTenantsCountWithHttpInfo(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1029,6 +1049,7 @@ public class TenantsApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1039,8 +1060,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getExtendedTenantsCountWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedTenantsCountValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getExtendedTenantsCountWithHttpInfo(String apiVersion, String xApiVersion, ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedTenantsCountValidateBeforeCall(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1050,6 +1071,7 @@ public class TenantsApi {
      * This action is only available for global administrators.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedTenantDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1061,9 +1083,9 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedTenantsCountAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getExtendedTenantsCountAsync(String apiVersion, String xApiVersion, ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedTenantsCountValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getExtendedTenantsCountValidateBeforeCall(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1217,7 +1239,8 @@ public class TenantsApi {
         return localVarCall;
     }
     /**
-     * Build call for getTenantsCount
+     * Build call for getTenantModuleGrants
+     * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -1231,7 +1254,7 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantsCountCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantModuleGrantsCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1248,7 +1271,8 @@ public class TenantsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/v2/SystemService/Tenants/Count";
+        String localVarPath = "/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1285,17 +1309,23 @@ public class TenantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantsCountValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getTenantsCountCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getTenantModuleGrantsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantModuleGrants(Async)");
+        }
+
+        return getTenantModuleGrantsCall(tenantId, apiVersion, xApiVersion, _callback);
 
     }
 
     /**
-     * Get the total count of tenants available on this suite server instance.
+     * Get the per-tenant admin module grants for a specific tenant.
      * This action is only available for global administrators.
+     * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return Int32Envelope
+     * @return ModuleGrantDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1305,17 +1335,18 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTenantsCount(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTenantsCountWithHttpInfo(apiVersion, xApiVersion);
+    public ModuleGrantDtoListEnvelope getTenantModuleGrants(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<ModuleGrantDtoListEnvelope> localVarResp = getTenantModuleGrantsWithHttpInfo(tenantId, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
     /**
-     * Get the total count of tenants available on this suite server instance.
+     * Get the per-tenant admin module grants for a specific tenant.
      * This action is only available for global administrators.
+     * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @return ApiResponse&lt;ModuleGrantDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1325,15 +1356,16 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTenantsCountWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantsCountValidateBeforeCall(apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+    public ApiResponse<ModuleGrantDtoListEnvelope> getTenantModuleGrantsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getTenantModuleGrantsValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<ModuleGrantDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get the total count of tenants available on this suite server instance. (asynchronously)
+     * Get the per-tenant admin module grants for a specific tenant. (asynchronously)
      * This action is only available for global administrators.
+     * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1347,19 +1379,18 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTenantsCountAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTenantModuleGrantsAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ModuleGrantDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTenantsCountValidateBeforeCall(apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        okhttp3.Call localVarCall = getTenantModuleGrantsValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<ModuleGrantDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for patchTenant
-     * @param tenantId  (required)
+     * Build call for getTenantsCount
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1371,7 +1402,7 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantCall(UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTenantsCountCall(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1385,7 +1416,152 @@ public class TenantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = tenantDtoCollectionQueryParameters;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SystemService/Tenants/Count";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getTenantsCountValidateBeforeCall(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getTenantsCountCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, _callback);
+
+    }
+
+    /**
+     * Get the total count of tenants available on this suite server instance.
+     * This action is only available for global administrators.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
+     * @return Int32Envelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public Int32Envelope getTenantsCount(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTenantsCountWithHttpInfo(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the total count of tenants available on this suite server instance.
+     * This action is only available for global administrators.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
+     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Int32Envelope> getTenantsCountWithHttpInfo(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTenantsCountValidateBeforeCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, null);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the total count of tenants available on this suite server instance. (asynchronously)
+     * This action is only available for global administrators.
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param tenantDtoCollectionQueryParameters  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTenantsCountAsync(String apiVersion, String xApiVersion, TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getTenantsCountValidateBeforeCall(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters, _callback);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for patchTenant
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param patchOperation  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchTenantCall(UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/Tenants/{tenantId}"
@@ -1428,13 +1604,13 @@ public class TenantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchTenantValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchTenantValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchTenant(Async)");
         }
 
-        return patchTenantCall(tenantId, apiVersion, xApiVersion, operation, _callback);
+        return patchTenantCall(tenantId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1444,7 +1620,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1455,8 +1631,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchTenant(UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchTenantWithHttpInfo(tenantId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchTenant(UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchTenantWithHttpInfo(tenantId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1466,7 +1642,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1477,8 +1653,8 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchTenantWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchTenantValidateBeforeCall(tenantId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchTenantWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchTenantValidateBeforeCall(tenantId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1489,7 +1665,7 @@ public class TenantsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1501,9 +1677,163 @@ public class TenantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchTenantAsync(UUID tenantId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchTenantAsync(UUID tenantId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchTenantValidateBeforeCall(tenantId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchTenantValidateBeforeCall(tenantId, apiVersion, xApiVersion, patchOperation, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for setTenantModuleGrants
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param moduleGrantDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setTenantModuleGrantsCall(UUID tenantId, String apiVersion, String xApiVersion, List<ModuleGrantDto> moduleGrantDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = moduleGrantDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setTenantModuleGrantsValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, List<ModuleGrantDto> moduleGrantDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling setTenantModuleGrants(Async)");
+        }
+
+        return setTenantModuleGrantsCall(tenantId, apiVersion, xApiVersion, moduleGrantDto, _callback);
+
+    }
+
+    /**
+     * Replace the per-tenant admin module grants for a specific tenant.
+     * This action is only available for global administrators. Grants supplement licensing.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param moduleGrantDto  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope setTenantModuleGrants(UUID tenantId, String apiVersion, String xApiVersion, List<ModuleGrantDto> moduleGrantDto) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = setTenantModuleGrantsWithHttpInfo(tenantId, apiVersion, xApiVersion, moduleGrantDto);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Replace the per-tenant admin module grants for a specific tenant.
+     * This action is only available for global administrators. Grants supplement licensing.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param moduleGrantDto  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> setTenantModuleGrantsWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, List<ModuleGrantDto> moduleGrantDto) throws ApiException {
+        okhttp3.Call localVarCall = setTenantModuleGrantsValidateBeforeCall(tenantId, apiVersion, xApiVersion, moduleGrantDto, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Replace the per-tenant admin module grants for a specific tenant. (asynchronously)
+     * This action is only available for global administrators. Grants supplement licensing.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param moduleGrantDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setTenantModuleGrantsAsync(UUID tenantId, String apiVersion, String xApiVersion, List<ModuleGrantDto> moduleGrantDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = setTenantModuleGrantsValidateBeforeCall(tenantId, apiVersion, xApiVersion, moduleGrantDto, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

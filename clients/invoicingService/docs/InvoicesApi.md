@@ -1246,7 +1246,7 @@ No authorization required
 
 <a id="getExtendedInvoices"></a>
 # **getExtendedInvoices**
-> ExtendedInvoiceDtoListEnvelope getExtendedInvoices(tenantId)
+> ExtendedInvoiceDtoListEnvelope getExtendedInvoices(tenantId, extendedInvoiceDtoCollectionQueryParameters)
 
 Get a list of extended invoices.
 
@@ -1268,8 +1268,9 @@ public class Example {
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters = new ExtendedInvoiceDtoCollectionQueryParameters(); // ExtendedInvoiceDtoCollectionQueryParameters | 
     try {
-      ExtendedInvoiceDtoListEnvelope result = apiInstance.getExtendedInvoices(tenantId);
+      ExtendedInvoiceDtoListEnvelope result = apiInstance.getExtendedInvoices(tenantId, extendedInvoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getExtendedInvoices");
@@ -1287,6 +1288,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **extendedInvoiceDtoCollectionQueryParameters** | [**ExtendedInvoiceDtoCollectionQueryParameters**](ExtendedInvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1298,7 +1300,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1309,7 +1311,7 @@ No authorization required
 
 <a id="getExtendedInvoicesCount"></a>
 # **getExtendedInvoicesCount**
-> Int32Envelope getExtendedInvoicesCount(tenantId)
+> Int32Envelope getExtendedInvoicesCount(tenantId, extendedInvoiceDtoCollectionQueryParameters)
 
 Get the count of extended invoices.
 
@@ -1331,8 +1333,9 @@ public class Example {
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ExtendedInvoiceDtoCollectionQueryParameters extendedInvoiceDtoCollectionQueryParameters = new ExtendedInvoiceDtoCollectionQueryParameters(); // ExtendedInvoiceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getExtendedInvoicesCount(tenantId);
+      Int32Envelope result = apiInstance.getExtendedInvoicesCount(tenantId, extendedInvoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getExtendedInvoicesCount");
@@ -1350,6 +1353,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **extendedInvoiceDtoCollectionQueryParameters** | [**ExtendedInvoiceDtoCollectionQueryParameters**](ExtendedInvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1361,7 +1365,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1503,7 +1507,7 @@ No authorization required
 
 <a id="getInvoiceAdjustments"></a>
 # **getInvoiceAdjustments**
-> InvoiceAdjustmentDtoIReadOnlyListEnvelope getInvoiceAdjustments(tenantId, invoiceId)
+> InvoiceAdjustmentDtoIReadOnlyListEnvelope getInvoiceAdjustments(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters)
 
 Get invoice adjustments.
 
@@ -1526,8 +1530,9 @@ public class Example {
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
+    InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters = new InvoiceAdjustmentDtoCollectionQueryParameters(); // InvoiceAdjustmentDtoCollectionQueryParameters | 
     try {
-      InvoiceAdjustmentDtoIReadOnlyListEnvelope result = apiInstance.getInvoiceAdjustments(tenantId, invoiceId);
+      InvoiceAdjustmentDtoIReadOnlyListEnvelope result = apiInstance.getInvoiceAdjustments(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoiceAdjustments");
@@ -1546,6 +1551,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
+| **invoiceAdjustmentDtoCollectionQueryParameters** | [**InvoiceAdjustmentDtoCollectionQueryParameters**](InvoiceAdjustmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1557,7 +1563,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1567,7 +1573,7 @@ No authorization required
 
 <a id="getInvoiceAdjustmentsCount"></a>
 # **getInvoiceAdjustmentsCount**
-> Int32Envelope getInvoiceAdjustmentsCount(tenantId, invoiceId)
+> Int32Envelope getInvoiceAdjustmentsCount(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters)
 
 Get the count of invoice adjustments.
 
@@ -1590,8 +1596,9 @@ public class Example {
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
+    InvoiceAdjustmentDtoCollectionQueryParameters invoiceAdjustmentDtoCollectionQueryParameters = new InvoiceAdjustmentDtoCollectionQueryParameters(); // InvoiceAdjustmentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getInvoiceAdjustmentsCount(tenantId, invoiceId);
+      Int32Envelope result = apiInstance.getInvoiceAdjustmentsCount(tenantId, invoiceId, invoiceAdjustmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoiceAdjustmentsCount");
@@ -1610,6 +1617,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
+| **invoiceAdjustmentDtoCollectionQueryParameters** | [**InvoiceAdjustmentDtoCollectionQueryParameters**](InvoiceAdjustmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1621,7 +1629,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1697,7 +1705,7 @@ No authorization required
 
 <a id="getInvoiceLineTaxes"></a>
 # **getInvoiceLineTaxes**
-> InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope getInvoiceLineTaxes(tenantId, invoiceId, invoiceLineId)
+> InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope getInvoiceLineTaxes(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters)
 
 Get taxes for an invoice line.
 
@@ -1721,8 +1729,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
     UUID invoiceLineId = UUID.randomUUID(); // UUID | 
+    InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters = new InvoiceLineAppliedTaxDtoCollectionQueryParameters(); // InvoiceLineAppliedTaxDtoCollectionQueryParameters | 
     try {
-      InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope result = apiInstance.getInvoiceLineTaxes(tenantId, invoiceId, invoiceLineId);
+      InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope result = apiInstance.getInvoiceLineTaxes(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoiceLineTaxes");
@@ -1742,6 +1751,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
 | **invoiceLineId** | **UUID**|  | |
+| **invoiceLineAppliedTaxDtoCollectionQueryParameters** | [**InvoiceLineAppliedTaxDtoCollectionQueryParameters**](InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1753,7 +1763,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1763,7 +1773,7 @@ No authorization required
 
 <a id="getInvoiceLineTaxesCount"></a>
 # **getInvoiceLineTaxesCount**
-> Int32Envelope getInvoiceLineTaxesCount(tenantId, invoiceId, invoiceLineId)
+> Int32Envelope getInvoiceLineTaxesCount(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters)
 
 Get the count of taxes for an invoice line.
 
@@ -1787,8 +1797,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
     UUID invoiceLineId = UUID.randomUUID(); // UUID | 
+    InvoiceLineAppliedTaxDtoCollectionQueryParameters invoiceLineAppliedTaxDtoCollectionQueryParameters = new InvoiceLineAppliedTaxDtoCollectionQueryParameters(); // InvoiceLineAppliedTaxDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getInvoiceLineTaxesCount(tenantId, invoiceId, invoiceLineId);
+      Int32Envelope result = apiInstance.getInvoiceLineTaxesCount(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoiceLineTaxesCount");
@@ -1808,6 +1819,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
 | **invoiceLineId** | **UUID**|  | |
+| **invoiceLineAppliedTaxDtoCollectionQueryParameters** | [**InvoiceLineAppliedTaxDtoCollectionQueryParameters**](InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1819,7 +1831,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1829,7 +1841,7 @@ No authorization required
 
 <a id="getInvoiceLines"></a>
 # **getInvoiceLines**
-> InvoiceLineDtoListEnvelope getInvoiceLines(tenantId, invoiceId, itemId)
+> InvoiceLineDtoListEnvelope getInvoiceLines(tenantId, invoiceId, itemId, invoiceLineDtoCollectionQueryParameters)
 
 Get invoice lines.
 
@@ -1853,8 +1865,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
+    InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters = new InvoiceLineDtoCollectionQueryParameters(); // InvoiceLineDtoCollectionQueryParameters | 
     try {
-      InvoiceLineDtoListEnvelope result = apiInstance.getInvoiceLines(tenantId, invoiceId, itemId);
+      InvoiceLineDtoListEnvelope result = apiInstance.getInvoiceLines(tenantId, invoiceId, itemId, invoiceLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoiceLines");
@@ -1874,6 +1887,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
 | **itemId** | **UUID**|  | [optional] |
+| **invoiceLineDtoCollectionQueryParameters** | [**InvoiceLineDtoCollectionQueryParameters**](InvoiceLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1885,7 +1899,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1895,7 +1909,7 @@ No authorization required
 
 <a id="getInvoiceLinesCount"></a>
 # **getInvoiceLinesCount**
-> Int32Envelope getInvoiceLinesCount(tenantId, invoiceId)
+> Int32Envelope getInvoiceLinesCount(tenantId, invoiceId, invoiceLineDtoCollectionQueryParameters)
 
 Get the count of invoice lines.
 
@@ -1918,8 +1932,9 @@ public class Example {
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
+    InvoiceLineDtoCollectionQueryParameters invoiceLineDtoCollectionQueryParameters = new InvoiceLineDtoCollectionQueryParameters(); // InvoiceLineDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getInvoiceLinesCount(tenantId, invoiceId);
+      Int32Envelope result = apiInstance.getInvoiceLinesCount(tenantId, invoiceId, invoiceLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoiceLinesCount");
@@ -1938,6 +1953,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
+| **invoiceLineDtoCollectionQueryParameters** | [**InvoiceLineDtoCollectionQueryParameters**](InvoiceLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1949,7 +1965,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1959,7 +1975,7 @@ No authorization required
 
 <a id="getInvoicePayments"></a>
 # **getInvoicePayments**
-> PaymentDtoIReadOnlyListEnvelope getInvoicePayments(tenantId, invoiceId)
+> PaymentDtoIReadOnlyListEnvelope getInvoicePayments(tenantId, invoiceId, paymentDtoCollectionQueryParameters)
 
 Get payments for an invoice.
 
@@ -1982,8 +1998,9 @@ public class Example {
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
+    PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters = new PaymentDtoCollectionQueryParameters(); // PaymentDtoCollectionQueryParameters | 
     try {
-      PaymentDtoIReadOnlyListEnvelope result = apiInstance.getInvoicePayments(tenantId, invoiceId);
+      PaymentDtoIReadOnlyListEnvelope result = apiInstance.getInvoicePayments(tenantId, invoiceId, paymentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoicePayments");
@@ -2002,6 +2019,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2013,7 +2031,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2023,7 +2041,7 @@ No authorization required
 
 <a id="getInvoicePaymentsCount"></a>
 # **getInvoicePaymentsCount**
-> Int32Envelope getInvoicePaymentsCount(tenantId, invoiceId)
+> Int32Envelope getInvoicePaymentsCount(tenantId, invoiceId, paymentDtoCollectionQueryParameters)
 
 Get the count of payments for an invoice.
 
@@ -2046,8 +2064,9 @@ public class Example {
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
+    PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters = new PaymentDtoCollectionQueryParameters(); // PaymentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getInvoicePaymentsCount(tenantId, invoiceId);
+      Int32Envelope result = apiInstance.getInvoicePaymentsCount(tenantId, invoiceId, paymentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoicePaymentsCount");
@@ -2066,6 +2085,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
+| **paymentDtoCollectionQueryParameters** | [**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2077,7 +2097,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2153,7 +2173,7 @@ No authorization required
 
 <a id="getInvoiceReferences"></a>
 # **getInvoiceReferences**
-> InvoiceReferenceDtoIReadOnlyListEnvelope getInvoiceReferences(tenantId, invoiceId)
+> InvoiceReferenceDtoIReadOnlyListEnvelope getInvoiceReferences(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters)
 
 Get invoice references.
 
@@ -2176,8 +2196,9 @@ public class Example {
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
+    InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters = new InvoiceReferenceDtoCollectionQueryParameters(); // InvoiceReferenceDtoCollectionQueryParameters | 
     try {
-      InvoiceReferenceDtoIReadOnlyListEnvelope result = apiInstance.getInvoiceReferences(tenantId, invoiceId);
+      InvoiceReferenceDtoIReadOnlyListEnvelope result = apiInstance.getInvoiceReferences(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoiceReferences");
@@ -2196,6 +2217,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
+| **invoiceReferenceDtoCollectionQueryParameters** | [**InvoiceReferenceDtoCollectionQueryParameters**](InvoiceReferenceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2207,7 +2229,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2217,7 +2239,7 @@ No authorization required
 
 <a id="getInvoiceReferencesCount"></a>
 # **getInvoiceReferencesCount**
-> Int32Envelope getInvoiceReferencesCount(tenantId, invoiceId)
+> Int32Envelope getInvoiceReferencesCount(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters)
 
 Get the count of invoice references.
 
@@ -2240,8 +2262,9 @@ public class Example {
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
+    InvoiceReferenceDtoCollectionQueryParameters invoiceReferenceDtoCollectionQueryParameters = new InvoiceReferenceDtoCollectionQueryParameters(); // InvoiceReferenceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getInvoiceReferencesCount(tenantId, invoiceId);
+      Int32Envelope result = apiInstance.getInvoiceReferencesCount(tenantId, invoiceId, invoiceReferenceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoiceReferencesCount");
@@ -2260,6 +2283,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
+| **invoiceReferenceDtoCollectionQueryParameters** | [**InvoiceReferenceDtoCollectionQueryParameters**](InvoiceReferenceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2271,7 +2295,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2281,7 +2305,7 @@ No authorization required
 
 <a id="getInvoices"></a>
 # **getInvoices**
-> InvoiceDtoListEnvelope getInvoices(tenantId)
+> InvoiceDtoListEnvelope getInvoices(tenantId, invoiceDtoCollectionQueryParameters)
 
 Get a list of invoices.
 
@@ -2303,8 +2327,9 @@ public class Example {
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters = new InvoiceDtoCollectionQueryParameters(); // InvoiceDtoCollectionQueryParameters | 
     try {
-      InvoiceDtoListEnvelope result = apiInstance.getInvoices(tenantId);
+      InvoiceDtoListEnvelope result = apiInstance.getInvoices(tenantId, invoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoices");
@@ -2322,6 +2347,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2333,7 +2359,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2344,7 +2370,7 @@ No authorization required
 
 <a id="getInvoicesCount"></a>
 # **getInvoicesCount**
-> Int32Envelope getInvoicesCount(tenantId)
+> Int32Envelope getInvoicesCount(tenantId, invoiceDtoCollectionQueryParameters)
 
 Get the count of invoices.
 
@@ -2366,8 +2392,9 @@ public class Example {
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters = new InvoiceDtoCollectionQueryParameters(); // InvoiceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getInvoicesCount(tenantId);
+      Int32Envelope result = apiInstance.getInvoicesCount(tenantId, invoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getInvoicesCount");
@@ -2385,6 +2412,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2396,7 +2424,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2407,7 +2435,7 @@ No authorization required
 
 <a id="getPurchaseInvoicesSum"></a>
 # **getPurchaseInvoicesSum**
-> MoneyEnvelope getPurchaseInvoicesSum(tenantId)
+> MoneyEnvelope getPurchaseInvoicesSum(tenantId, invoiceDtoCollectionQueryParameters)
 
 Sum tenant purchase-invoice totals.
 
@@ -2429,8 +2457,9 @@ public class Example {
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters = new InvoiceDtoCollectionQueryParameters(); // InvoiceDtoCollectionQueryParameters | 
     try {
-      MoneyEnvelope result = apiInstance.getPurchaseInvoicesSum(tenantId);
+      MoneyEnvelope result = apiInstance.getPurchaseInvoicesSum(tenantId, invoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getPurchaseInvoicesSum");
@@ -2448,6 +2477,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2459,7 +2489,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2471,7 +2501,7 @@ No authorization required
 
 <a id="getSalesInvoicesSum"></a>
 # **getSalesInvoicesSum**
-> MoneyEnvelope getSalesInvoicesSum(tenantId)
+> MoneyEnvelope getSalesInvoicesSum(tenantId, invoiceDtoCollectionQueryParameters)
 
 Sum tenant sales-invoice totals.
 
@@ -2493,8 +2523,9 @@ public class Example {
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters = new InvoiceDtoCollectionQueryParameters(); // InvoiceDtoCollectionQueryParameters | 
     try {
-      MoneyEnvelope result = apiInstance.getSalesInvoicesSum(tenantId);
+      MoneyEnvelope result = apiInstance.getSalesInvoicesSum(tenantId, invoiceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getSalesInvoicesSum");
@@ -2512,6 +2543,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **invoiceDtoCollectionQueryParameters** | [**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -2523,7 +2555,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -2535,7 +2567,7 @@ No authorization required
 
 <a id="patchInvoice"></a>
 # **patchInvoice**
-> EmptyEnvelope patchInvoice(tenantId, invoiceId, operation)
+> EmptyEnvelope patchInvoice(tenantId, invoiceId, patchOperation)
 
 Patch an invoice.
 
@@ -2558,9 +2590,9 @@ public class Example {
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchInvoice(tenantId, invoiceId, operation);
+      EmptyEnvelope result = apiInstance.patchInvoice(tenantId, invoiceId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#patchInvoice");
@@ -2579,7 +2611,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2602,7 +2634,7 @@ No authorization required
 
 <a id="patchInvoiceAdjustment"></a>
 # **patchInvoiceAdjustment**
-> EmptyEnvelope patchInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentId, operation)
+> EmptyEnvelope patchInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentId, patchOperation)
 
 Patch an invoice adjustment.
 
@@ -2626,9 +2658,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
     UUID invoiceAdjustmentId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentId, operation);
+      EmptyEnvelope result = apiInstance.patchInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#patchInvoiceAdjustment");
@@ -2648,7 +2680,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
 | **invoiceAdjustmentId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2671,7 +2703,7 @@ No authorization required
 
 <a id="patchInvoiceLine"></a>
 # **patchInvoiceLine**
-> EmptyEnvelope patchInvoiceLine(tenantId, invoiceId, invoiceLineId, operation)
+> EmptyEnvelope patchInvoiceLine(tenantId, invoiceId, invoiceLineId, patchOperation)
 
 Patch an invoice line.
 
@@ -2695,9 +2727,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
     UUID invoiceLineId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchInvoiceLine(tenantId, invoiceId, invoiceLineId, operation);
+      EmptyEnvelope result = apiInstance.patchInvoiceLine(tenantId, invoiceId, invoiceLineId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#patchInvoiceLine");
@@ -2717,7 +2749,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
 | **invoiceLineId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2740,7 +2772,7 @@ No authorization required
 
 <a id="patchInvoiceLineTax"></a>
 # **patchInvoiceLineTax**
-> EmptyEnvelope patchInvoiceLineTax(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, operation)
+> EmptyEnvelope patchInvoiceLineTax(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, patchOperation)
 
 Patch a tax for an invoice line.
 
@@ -2765,9 +2797,9 @@ public class Example {
     UUID invoiceId = UUID.randomUUID(); // UUID | 
     UUID invoiceLineId = UUID.randomUUID(); // UUID | 
     UUID invoiceLineTaxId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchInvoiceLineTax(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, operation);
+      EmptyEnvelope result = apiInstance.patchInvoiceLineTax(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#patchInvoiceLineTax");
@@ -2788,7 +2820,7 @@ public class Example {
 | **invoiceId** | **UUID**|  | |
 | **invoiceLineId** | **UUID**|  | |
 | **invoiceLineTaxId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -2810,7 +2842,7 @@ No authorization required
 
 <a id="patchInvoiceReference"></a>
 # **patchInvoiceReference**
-> EmptyEnvelope patchInvoiceReference(tenantId, invoiceId, invoiceReferenceId, operation)
+> EmptyEnvelope patchInvoiceReference(tenantId, invoiceId, invoiceReferenceId, patchOperation)
 
 Patch an invoice reference.
 
@@ -2834,9 +2866,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
     UUID invoiceReferenceId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchInvoiceReference(tenantId, invoiceId, invoiceReferenceId, operation);
+      EmptyEnvelope result = apiInstance.patchInvoiceReference(tenantId, invoiceId, invoiceReferenceId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#patchInvoiceReference");
@@ -2856,7 +2888,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
 | **invoiceReferenceId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

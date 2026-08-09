@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getBusinessRelationshipsAsync"></a>
 # **getBusinessRelationshipsAsync**
-> BusinessRelationshipDtoListEnvelope getBusinessRelationshipsAsync(tenantId, apiVersion, xApiVersion)
+> BusinessRelationshipDtoListEnvelope getBusinessRelationshipsAsync(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters)
 
 Get business relationships
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters = new BusinessRelationshipDtoCollectionQueryParameters(); // BusinessRelationshipDtoCollectionQueryParameters | 
     try {
-      BusinessRelationshipDtoListEnvelope result = apiInstance.getBusinessRelationshipsAsync(tenantId, apiVersion, xApiVersion);
+      BusinessRelationshipDtoListEnvelope result = apiInstance.getBusinessRelationshipsAsync(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BusinessRelationshipsApi#getBusinessRelationshipsAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **businessRelationshipDtoCollectionQueryParameters** | [**BusinessRelationshipDtoCollectionQueryParameters**](BusinessRelationshipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -296,7 +298,7 @@ No authorization required
 
 <a id="getBusinessRelationshipsCountAsync"></a>
 # **getBusinessRelationshipsCountAsync**
-> Int32Envelope getBusinessRelationshipsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBusinessRelationshipsCountAsync(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters)
 
 Get business relationships count
 
@@ -320,8 +322,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BusinessRelationshipDtoCollectionQueryParameters businessRelationshipDtoCollectionQueryParameters = new BusinessRelationshipDtoCollectionQueryParameters(); // BusinessRelationshipDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBusinessRelationshipsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBusinessRelationshipsCountAsync(tenantId, apiVersion, xApiVersion, businessRelationshipDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BusinessRelationshipsApi#getBusinessRelationshipsCountAsync");
@@ -341,6 +344,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **businessRelationshipDtoCollectionQueryParameters** | [**BusinessRelationshipDtoCollectionQueryParameters**](BusinessRelationshipDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -352,7 +356,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

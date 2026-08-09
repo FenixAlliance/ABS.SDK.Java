@@ -14,7 +14,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countWebComponentsAsync"></a>
 # **countWebComponentsAsync**
-> Int32Envelope countWebComponentsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countWebComponentsAsync(tenantId, apiVersion, xApiVersion, webComponentDtoCollectionQueryParameters)
 
 Count web components
 
@@ -38,8 +38,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebComponentDtoCollectionQueryParameters webComponentDtoCollectionQueryParameters = new WebComponentDtoCollectionQueryParameters(); // WebComponentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countWebComponentsAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countWebComponentsAsync(tenantId, apiVersion, xApiVersion, webComponentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebComponentsApi#countWebComponentsAsync");
@@ -59,6 +60,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webComponentDtoCollectionQueryParameters** | [**WebComponentDtoCollectionQueryParameters**](WebComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -70,7 +72,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -292,7 +294,7 @@ No authorization required
 
 <a id="getWebComponentsAsync"></a>
 # **getWebComponentsAsync**
-> WebComponentDtoListEnvelope getWebComponentsAsync(tenantId, apiVersion, xApiVersion)
+> WebComponentDtoListEnvelope getWebComponentsAsync(tenantId, apiVersion, xApiVersion, webComponentDtoCollectionQueryParameters)
 
 Get web components
 
@@ -316,8 +318,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebComponentDtoCollectionQueryParameters webComponentDtoCollectionQueryParameters = new WebComponentDtoCollectionQueryParameters(); // WebComponentDtoCollectionQueryParameters | 
     try {
-      WebComponentDtoListEnvelope result = apiInstance.getWebComponentsAsync(tenantId, apiVersion, xApiVersion);
+      WebComponentDtoListEnvelope result = apiInstance.getWebComponentsAsync(tenantId, apiVersion, xApiVersion, webComponentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebComponentsApi#getWebComponentsAsync");
@@ -337,6 +340,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webComponentDtoCollectionQueryParameters** | [**WebComponentDtoCollectionQueryParameters**](WebComponentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -348,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

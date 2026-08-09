@@ -28,33 +28,45 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.BankAccountCreateDto;
+import org.openapitools.client.model.BankAccountDtoCollectionQueryParameters;
 import org.openapitools.client.model.BankAccountDtoEnvelope;
 import org.openapitools.client.model.BankAccountDtoListEnvelope;
 import org.openapitools.client.model.BankAccountUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.ExtendedOrderDtoCollectionQueryParameters;
 import org.openapitools.client.model.ExtendedOrderDtoListEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.InvoiceDtoCollectionQueryParameters;
 import org.openapitools.client.model.InvoiceDtoListEnvelope;
 import org.openapitools.client.model.LocationCreateDto;
+import org.openapitools.client.model.LocationDtoCollectionQueryParameters;
 import org.openapitools.client.model.LocationDtoEnvelope;
 import org.openapitools.client.model.LocationDtoListEnvelope;
 import org.openapitools.client.model.LocationUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.OrderDtoCollectionQueryParameters;
 import org.openapitools.client.model.OrderDtoListEnvelope;
+import org.openapitools.client.model.PatchOperation;
+import org.openapitools.client.model.PaymentChargebackDtoCollectionQueryParameters;
 import org.openapitools.client.model.PaymentChargebackDtoListEnvelope;
 import org.openapitools.client.model.PaymentCreateDto;
+import org.openapitools.client.model.PaymentDtoCollectionQueryParameters;
 import org.openapitools.client.model.PaymentDtoListEnvelope;
+import org.openapitools.client.model.PaymentRefundDtoCollectionQueryParameters;
 import org.openapitools.client.model.PaymentRefundDtoListEnvelope;
 import org.openapitools.client.model.PaymentTokenCreateDto;
+import org.openapitools.client.model.PaymentTokenDtoCollectionQueryParameters;
 import org.openapitools.client.model.PaymentTokenDtoEnvelope;
 import org.openapitools.client.model.PaymentTokenDtoListEnvelope;
 import org.openapitools.client.model.PaymentTokenUpdateDto;
+import org.openapitools.client.model.QuoteDtoCollectionQueryParameters;
 import org.openapitools.client.model.QuoteDtoListEnvelope;
 import java.util.UUID;
 import org.openapitools.client.model.WalletDtoEnvelope;
+import org.openapitools.client.model.WalletWithdrawDtoCollectionQueryParameters;
 import org.openapitools.client.model.WalletWithdrawDtoListEnvelope;
 import org.openapitools.client.model.WalletWithdrawRequestCreateDto;
+import org.openapitools.client.model.WalletWithdrawRequestDtoCollectionQueryParameters;
 import org.openapitools.client.model.WalletWithdrawRequestDtoListEnvelope;
 
 import java.lang.reflect.Type;
@@ -1349,6 +1361,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1360,7 +1373,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIncomingPaymentsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getIncomingPaymentsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1374,7 +1387,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming"
@@ -1404,6 +1417,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1415,13 +1430,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getIncomingPaymentsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getIncomingPaymentsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getIncomingPaymentsAsync(Async)");
         }
 
-        return getIncomingPaymentsAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getIncomingPaymentsAsyncCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1431,6 +1446,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return PaymentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1441,8 +1457,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentDtoListEnvelope getIncomingPaymentsAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<PaymentDtoListEnvelope> localVarResp = getIncomingPaymentsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public PaymentDtoListEnvelope getIncomingPaymentsAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PaymentDtoListEnvelope> localVarResp = getIncomingPaymentsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1452,6 +1468,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PaymentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1462,8 +1479,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentDtoListEnvelope> getIncomingPaymentsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getIncomingPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<PaymentDtoListEnvelope> getIncomingPaymentsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getIncomingPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PaymentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1474,6 +1491,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1485,9 +1503,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIncomingPaymentsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<PaymentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getIncomingPaymentsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback<PaymentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getIncomingPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getIncomingPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PaymentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1497,6 +1515,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1508,7 +1527,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIncomingPaymentsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getIncomingPaymentsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1522,7 +1541,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming/Count"
@@ -1552,6 +1571,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1563,13 +1584,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getIncomingPaymentsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getIncomingPaymentsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getIncomingPaymentsCountAsync(Async)");
         }
 
-        return getIncomingPaymentsCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getIncomingPaymentsCountAsyncCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1579,6 +1600,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1589,8 +1611,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getIncomingPaymentsCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getIncomingPaymentsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getIncomingPaymentsCountAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getIncomingPaymentsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1600,6 +1622,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1610,8 +1633,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getIncomingPaymentsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getIncomingPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getIncomingPaymentsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getIncomingPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1622,6 +1645,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1633,9 +1657,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIncomingPaymentsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getIncomingPaymentsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getIncomingPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getIncomingPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1645,6 +1669,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1656,7 +1681,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIncomingWalletInvoicesAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getIncomingWalletInvoicesAsyncCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1670,7 +1695,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming"
@@ -1700,6 +1725,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1711,13 +1738,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getIncomingWalletInvoicesAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getIncomingWalletInvoicesAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getIncomingWalletInvoicesAsync(Async)");
         }
 
-        return getIncomingWalletInvoicesAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getIncomingWalletInvoicesAsyncCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1727,6 +1754,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return InvoiceDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1737,8 +1765,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InvoiceDtoListEnvelope getIncomingWalletInvoicesAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<InvoiceDtoListEnvelope> localVarResp = getIncomingWalletInvoicesAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public InvoiceDtoListEnvelope getIncomingWalletInvoicesAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<InvoiceDtoListEnvelope> localVarResp = getIncomingWalletInvoicesAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1748,6 +1776,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;InvoiceDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1758,8 +1787,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InvoiceDtoListEnvelope> getIncomingWalletInvoicesAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getIncomingWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<InvoiceDtoListEnvelope> getIncomingWalletInvoicesAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getIncomingWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<InvoiceDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1770,6 +1799,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1781,9 +1811,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIncomingWalletInvoicesAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<InvoiceDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getIncomingWalletInvoicesAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback<InvoiceDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getIncomingWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getIncomingWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<InvoiceDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1793,6 +1823,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1804,7 +1835,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIncomingWalletInvoicesCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getIncomingWalletInvoicesCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1818,7 +1849,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming/Count"
@@ -1848,6 +1879,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1859,13 +1892,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getIncomingWalletInvoicesCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getIncomingWalletInvoicesCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getIncomingWalletInvoicesCountAsync(Async)");
         }
 
-        return getIncomingWalletInvoicesCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getIncomingWalletInvoicesCountAsyncCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1875,6 +1908,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1885,8 +1919,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getIncomingWalletInvoicesCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getIncomingWalletInvoicesCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getIncomingWalletInvoicesCountAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getIncomingWalletInvoicesCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1896,6 +1930,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1906,8 +1941,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getIncomingWalletInvoicesCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getIncomingWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getIncomingWalletInvoicesCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getIncomingWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1918,6 +1953,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1929,9 +1965,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIncomingWalletInvoicesCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getIncomingWalletInvoicesCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getIncomingWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getIncomingWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2099,6 +2135,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2110,7 +2147,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationsForWalletAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLocationsForWalletAsyncCall(UUID walletId, String apiVersion, String xApiVersion, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2124,7 +2161,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = locationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations"
@@ -2154,6 +2191,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2165,13 +2204,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLocationsForWalletAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLocationsForWalletAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getLocationsForWalletAsync(Async)");
         }
 
-        return getLocationsForWalletAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getLocationsForWalletAsyncCall(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2181,6 +2220,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return LocationDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2191,8 +2231,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public LocationDtoListEnvelope getLocationsForWalletAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LocationDtoListEnvelope> localVarResp = getLocationsForWalletAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public LocationDtoListEnvelope getLocationsForWalletAsync(UUID walletId, String apiVersion, String xApiVersion, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LocationDtoListEnvelope> localVarResp = getLocationsForWalletAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2202,6 +2242,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LocationDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2212,8 +2253,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LocationDtoListEnvelope> getLocationsForWalletAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLocationsForWalletAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<LocationDtoListEnvelope> getLocationsForWalletAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLocationsForWalletAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LocationDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2224,6 +2265,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2235,9 +2277,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationsForWalletAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<LocationDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLocationsForWalletAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback<LocationDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLocationsForWalletAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLocationsForWalletAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LocationDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2247,6 +2289,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2258,7 +2301,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationsForWalletCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLocationsForWalletCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2272,7 +2315,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = locationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations/Count"
@@ -2302,6 +2345,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2313,13 +2358,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLocationsForWalletCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLocationsForWalletCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getLocationsForWalletCountAsync(Async)");
         }
 
-        return getLocationsForWalletCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getLocationsForWalletCountAsyncCall(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2329,6 +2374,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2339,8 +2385,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getLocationsForWalletCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getLocationsForWalletCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getLocationsForWalletCountAsync(UUID walletId, String apiVersion, String xApiVersion, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getLocationsForWalletCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2350,6 +2396,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2360,8 +2407,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getLocationsForWalletCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLocationsForWalletCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getLocationsForWalletCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLocationsForWalletCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2372,6 +2419,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2383,9 +2431,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationsForWalletCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getLocationsForWalletCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLocationsForWalletCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLocationsForWalletCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, locationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2395,6 +2443,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2406,7 +2455,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOutgoingPaymentsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOutgoingPaymentsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2420,7 +2469,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing"
@@ -2450,6 +2499,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2461,13 +2512,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOutgoingPaymentsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOutgoingPaymentsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getOutgoingPaymentsAsync(Async)");
         }
 
-        return getOutgoingPaymentsAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getOutgoingPaymentsAsyncCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2477,6 +2528,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return PaymentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2487,8 +2539,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentDtoListEnvelope getOutgoingPaymentsAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<PaymentDtoListEnvelope> localVarResp = getOutgoingPaymentsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public PaymentDtoListEnvelope getOutgoingPaymentsAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PaymentDtoListEnvelope> localVarResp = getOutgoingPaymentsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2498,6 +2550,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PaymentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2508,8 +2561,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentDtoListEnvelope> getOutgoingPaymentsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getOutgoingPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<PaymentDtoListEnvelope> getOutgoingPaymentsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getOutgoingPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PaymentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2520,6 +2573,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2531,9 +2585,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOutgoingPaymentsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<PaymentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getOutgoingPaymentsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback<PaymentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOutgoingPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getOutgoingPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PaymentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2543,6 +2597,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2554,7 +2609,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOutgoingPaymentsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOutgoingPaymentsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2568,7 +2623,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing/Count"
@@ -2598,6 +2653,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2609,13 +2666,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOutgoingPaymentsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOutgoingPaymentsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getOutgoingPaymentsCountAsync(Async)");
         }
 
-        return getOutgoingPaymentsCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getOutgoingPaymentsCountAsyncCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2625,6 +2682,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2635,8 +2693,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getOutgoingPaymentsCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getOutgoingPaymentsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getOutgoingPaymentsCountAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getOutgoingPaymentsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2646,6 +2704,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2656,8 +2715,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getOutgoingPaymentsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getOutgoingPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getOutgoingPaymentsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getOutgoingPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2668,6 +2727,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2679,9 +2739,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOutgoingPaymentsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getOutgoingPaymentsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOutgoingPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getOutgoingPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2691,6 +2751,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2702,7 +2763,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOutgoingWalletInvoicesAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOutgoingWalletInvoicesAsyncCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2716,7 +2777,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing"
@@ -2746,6 +2807,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2757,13 +2820,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOutgoingWalletInvoicesAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOutgoingWalletInvoicesAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getOutgoingWalletInvoicesAsync(Async)");
         }
 
-        return getOutgoingWalletInvoicesAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getOutgoingWalletInvoicesAsyncCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2773,6 +2836,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return InvoiceDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2783,8 +2847,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InvoiceDtoListEnvelope getOutgoingWalletInvoicesAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<InvoiceDtoListEnvelope> localVarResp = getOutgoingWalletInvoicesAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public InvoiceDtoListEnvelope getOutgoingWalletInvoicesAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<InvoiceDtoListEnvelope> localVarResp = getOutgoingWalletInvoicesAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2794,6 +2858,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;InvoiceDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2804,8 +2869,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InvoiceDtoListEnvelope> getOutgoingWalletInvoicesAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getOutgoingWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<InvoiceDtoListEnvelope> getOutgoingWalletInvoicesAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getOutgoingWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<InvoiceDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2816,6 +2881,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2827,9 +2893,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOutgoingWalletInvoicesAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<InvoiceDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getOutgoingWalletInvoicesAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback<InvoiceDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOutgoingWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getOutgoingWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<InvoiceDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2839,6 +2905,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2850,7 +2917,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOutgoingWalletInvoicesCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOutgoingWalletInvoicesCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2864,7 +2931,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing/Count"
@@ -2894,6 +2961,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2905,13 +2974,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOutgoingWalletInvoicesCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOutgoingWalletInvoicesCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getOutgoingWalletInvoicesCountAsync(Async)");
         }
 
-        return getOutgoingWalletInvoicesCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getOutgoingWalletInvoicesCountAsyncCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2921,6 +2990,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2931,8 +3001,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getOutgoingWalletInvoicesCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getOutgoingWalletInvoicesCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getOutgoingWalletInvoicesCountAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getOutgoingWalletInvoicesCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2942,6 +3012,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2952,8 +3023,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getOutgoingWalletInvoicesCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getOutgoingWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getOutgoingWalletInvoicesCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getOutgoingWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2964,6 +3035,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2975,9 +3047,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOutgoingWalletInvoicesCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getOutgoingWalletInvoicesCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOutgoingWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getOutgoingWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3145,6 +3217,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3156,7 +3229,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletBankAccountsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletBankAccountsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3170,7 +3243,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = bankAccountDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/BankAccounts"
@@ -3200,6 +3273,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3211,13 +3286,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletBankAccountsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletBankAccountsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletBankAccountsAsync(Async)");
         }
 
-        return getWalletBankAccountsAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletBankAccountsAsyncCall(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3227,6 +3302,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return BankAccountDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3237,8 +3313,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BankAccountDtoListEnvelope getWalletBankAccountsAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BankAccountDtoListEnvelope> localVarResp = getWalletBankAccountsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public BankAccountDtoListEnvelope getWalletBankAccountsAsync(UUID walletId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BankAccountDtoListEnvelope> localVarResp = getWalletBankAccountsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3248,6 +3324,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BankAccountDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3258,8 +3335,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BankAccountDtoListEnvelope> getWalletBankAccountsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletBankAccountsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<BankAccountDtoListEnvelope> getWalletBankAccountsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletBankAccountsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BankAccountDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3270,6 +3347,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3281,9 +3359,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletBankAccountsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<BankAccountDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletBankAccountsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback<BankAccountDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletBankAccountsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletBankAccountsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BankAccountDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3293,6 +3371,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3304,7 +3383,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletBankAccountsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletBankAccountsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3318,7 +3397,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = bankAccountDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/BankAccounts/Count"
@@ -3348,6 +3427,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3359,13 +3440,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletBankAccountsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletBankAccountsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletBankAccountsCountAsync(Async)");
         }
 
-        return getWalletBankAccountsCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletBankAccountsCountAsyncCall(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3375,6 +3456,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3385,8 +3467,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletBankAccountsCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletBankAccountsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getWalletBankAccountsCountAsync(UUID walletId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletBankAccountsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3396,6 +3478,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3406,8 +3489,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletBankAccountsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletBankAccountsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWalletBankAccountsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletBankAccountsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3418,6 +3501,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3429,9 +3513,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletBankAccountsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletBankAccountsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletBankAccountsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletBankAccountsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3441,6 +3525,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3452,7 +3537,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletChargebacksAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletChargebacksAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3466,7 +3551,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentChargebackDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Chargebacks"
@@ -3496,6 +3581,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3507,13 +3594,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletChargebacksAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletChargebacksAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletChargebacksAsync(Async)");
         }
 
-        return getWalletChargebacksAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletChargebacksAsyncCall(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3523,6 +3610,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @return PaymentChargebackDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3533,8 +3621,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentChargebackDtoListEnvelope getWalletChargebacksAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<PaymentChargebackDtoListEnvelope> localVarResp = getWalletChargebacksAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public PaymentChargebackDtoListEnvelope getWalletChargebacksAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PaymentChargebackDtoListEnvelope> localVarResp = getWalletChargebacksAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3544,6 +3632,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PaymentChargebackDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3554,8 +3643,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentChargebackDtoListEnvelope> getWalletChargebacksAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletChargebacksAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<PaymentChargebackDtoListEnvelope> getWalletChargebacksAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletChargebacksAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PaymentChargebackDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3566,6 +3655,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3577,9 +3667,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletChargebacksAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<PaymentChargebackDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletChargebacksAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters, final ApiCallback<PaymentChargebackDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletChargebacksAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletChargebacksAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PaymentChargebackDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3589,6 +3679,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3600,7 +3691,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletChargebacksCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletChargebacksCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3614,7 +3705,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentChargebackDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Chargebacks/Count"
@@ -3644,6 +3735,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3655,13 +3748,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletChargebacksCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletChargebacksCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletChargebacksCountAsync(Async)");
         }
 
-        return getWalletChargebacksCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletChargebacksCountAsyncCall(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3671,6 +3764,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3681,8 +3775,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletChargebacksCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletChargebacksCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getWalletChargebacksCountAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletChargebacksCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3692,6 +3786,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3702,8 +3797,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletChargebacksCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletChargebacksCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWalletChargebacksCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletChargebacksCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3714,6 +3809,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentChargebackDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3725,9 +3821,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletChargebacksCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletChargebacksCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentChargebackDtoCollectionQueryParameters paymentChargebackDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletChargebacksCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletChargebacksCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentChargebackDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3885,6 +3981,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3896,7 +3993,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletExtendedOrdersAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletExtendedOrdersAsyncCall(UUID walletId, String apiVersion, String xApiVersion, ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3910,7 +4007,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedOrderDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Orders/Extended"
@@ -3940,6 +4037,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3951,13 +4050,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletExtendedOrdersAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletExtendedOrdersAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletExtendedOrdersAsync(Async)");
         }
 
-        return getWalletExtendedOrdersAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletExtendedOrdersAsyncCall(walletId, apiVersion, xApiVersion, extendedOrderDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3967,6 +4066,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @return ExtendedOrderDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3977,8 +4077,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ExtendedOrderDtoListEnvelope getWalletExtendedOrdersAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ExtendedOrderDtoListEnvelope> localVarResp = getWalletExtendedOrdersAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public ExtendedOrderDtoListEnvelope getWalletExtendedOrdersAsync(UUID walletId, String apiVersion, String xApiVersion, ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ExtendedOrderDtoListEnvelope> localVarResp = getWalletExtendedOrdersAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, extendedOrderDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3988,6 +4088,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ExtendedOrderDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3998,8 +4099,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExtendedOrderDtoListEnvelope> getWalletExtendedOrdersAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletExtendedOrdersAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<ExtendedOrderDtoListEnvelope> getWalletExtendedOrdersAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletExtendedOrdersAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, extendedOrderDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ExtendedOrderDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4010,6 +4111,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param extendedOrderDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4021,9 +4123,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletExtendedOrdersAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<ExtendedOrderDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletExtendedOrdersAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, ExtendedOrderDtoCollectionQueryParameters extendedOrderDtoCollectionQueryParameters, final ApiCallback<ExtendedOrderDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletExtendedOrdersAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletExtendedOrdersAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, extendedOrderDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ExtendedOrderDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4033,6 +4135,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4044,7 +4147,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletInvoicesAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletInvoicesAsyncCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4058,7 +4161,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Invoices"
@@ -4088,6 +4191,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4099,13 +4204,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletInvoicesAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletInvoicesAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletInvoicesAsync(Async)");
         }
 
-        return getWalletInvoicesAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletInvoicesAsyncCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4115,6 +4220,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return InvoiceDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4125,8 +4231,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InvoiceDtoListEnvelope getWalletInvoicesAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<InvoiceDtoListEnvelope> localVarResp = getWalletInvoicesAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public InvoiceDtoListEnvelope getWalletInvoicesAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<InvoiceDtoListEnvelope> localVarResp = getWalletInvoicesAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4136,6 +4242,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;InvoiceDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4146,8 +4253,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InvoiceDtoListEnvelope> getWalletInvoicesAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<InvoiceDtoListEnvelope> getWalletInvoicesAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<InvoiceDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4158,6 +4265,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4169,9 +4277,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletInvoicesAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<InvoiceDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletInvoicesAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback<InvoiceDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletInvoicesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<InvoiceDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4181,6 +4289,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4192,7 +4301,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletInvoicesCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletInvoicesCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4206,7 +4315,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Invoices/Count"
@@ -4236,6 +4345,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4247,13 +4358,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletInvoicesCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletInvoicesCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletInvoicesCountAsync(Async)");
         }
 
-        return getWalletInvoicesCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletInvoicesCountAsyncCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4263,6 +4374,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4273,8 +4385,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletInvoicesCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletInvoicesCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getWalletInvoicesCountAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletInvoicesCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4284,6 +4396,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4294,8 +4407,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletInvoicesCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWalletInvoicesCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4306,6 +4419,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4317,9 +4431,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletInvoicesCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletInvoicesCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, InvoiceDtoCollectionQueryParameters invoiceDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, invoiceDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4329,6 +4443,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4340,7 +4455,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletOrdersAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletOrdersAsyncCall(UUID walletId, String apiVersion, String xApiVersion, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4354,7 +4469,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = orderDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Orders"
@@ -4384,6 +4499,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4395,13 +4512,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletOrdersAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletOrdersAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletOrdersAsync(Async)");
         }
 
-        return getWalletOrdersAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletOrdersAsyncCall(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4411,6 +4528,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return OrderDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4421,8 +4539,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public OrderDtoListEnvelope getWalletOrdersAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<OrderDtoListEnvelope> localVarResp = getWalletOrdersAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public OrderDtoListEnvelope getWalletOrdersAsync(UUID walletId, String apiVersion, String xApiVersion, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<OrderDtoListEnvelope> localVarResp = getWalletOrdersAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4432,6 +4550,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;OrderDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4442,8 +4561,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderDtoListEnvelope> getWalletOrdersAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletOrdersAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<OrderDtoListEnvelope> getWalletOrdersAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletOrdersAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<OrderDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4454,6 +4573,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4465,9 +4585,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletOrdersAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<OrderDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletOrdersAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback<OrderDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletOrdersAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletOrdersAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<OrderDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4477,6 +4597,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4488,7 +4609,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletOrdersCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletOrdersCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4502,7 +4623,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = orderDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Orders/Count"
@@ -4532,6 +4653,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4543,13 +4666,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletOrdersCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletOrdersCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletOrdersCountAsync(Async)");
         }
 
-        return getWalletOrdersCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletOrdersCountAsyncCall(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4559,6 +4682,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4569,8 +4693,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletOrdersCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletOrdersCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getWalletOrdersCountAsync(UUID walletId, String apiVersion, String xApiVersion, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletOrdersCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4580,6 +4704,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4590,8 +4715,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletOrdersCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletOrdersCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWalletOrdersCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletOrdersCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4602,6 +4727,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param orderDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4613,9 +4739,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletOrdersCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletOrdersCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, OrderDtoCollectionQueryParameters orderDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletOrdersCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletOrdersCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, orderDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4625,6 +4751,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4636,7 +4763,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletPaymentsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletPaymentsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4650,7 +4777,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Payments"
@@ -4680,6 +4807,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4691,13 +4820,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletPaymentsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletPaymentsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletPaymentsAsync(Async)");
         }
 
-        return getWalletPaymentsAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletPaymentsAsyncCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4707,6 +4836,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return PaymentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4717,8 +4847,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentDtoListEnvelope getWalletPaymentsAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<PaymentDtoListEnvelope> localVarResp = getWalletPaymentsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public PaymentDtoListEnvelope getWalletPaymentsAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PaymentDtoListEnvelope> localVarResp = getWalletPaymentsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4728,6 +4858,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PaymentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4738,8 +4869,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentDtoListEnvelope> getWalletPaymentsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<PaymentDtoListEnvelope> getWalletPaymentsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PaymentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4750,6 +4881,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4761,9 +4893,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletPaymentsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<PaymentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletPaymentsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback<PaymentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletPaymentsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PaymentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4773,6 +4905,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4784,7 +4917,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletPaymentsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletPaymentsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4798,7 +4931,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Payments/Count"
@@ -4828,6 +4961,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4839,13 +4974,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletPaymentsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletPaymentsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletPaymentsCountAsync(Async)");
         }
 
-        return getWalletPaymentsCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletPaymentsCountAsyncCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -4855,6 +4990,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4865,8 +5001,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletPaymentsCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletPaymentsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getWalletPaymentsCountAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletPaymentsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -4876,6 +5012,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4886,8 +5023,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletPaymentsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWalletPaymentsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4898,6 +5035,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4909,9 +5047,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletPaymentsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletPaymentsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletPaymentsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4921,6 +5059,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4932,7 +5071,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletQuotesAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletQuotesAsyncCall(UUID walletId, String apiVersion, String xApiVersion, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4946,7 +5085,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = quoteDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Quotes"
@@ -4976,6 +5115,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4987,13 +5128,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletQuotesAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletQuotesAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletQuotesAsync(Async)");
         }
 
-        return getWalletQuotesAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletQuotesAsyncCall(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -5003,6 +5144,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return QuoteDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5013,8 +5155,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public QuoteDtoListEnvelope getWalletQuotesAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<QuoteDtoListEnvelope> localVarResp = getWalletQuotesAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public QuoteDtoListEnvelope getWalletQuotesAsync(UUID walletId, String apiVersion, String xApiVersion, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<QuoteDtoListEnvelope> localVarResp = getWalletQuotesAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -5024,6 +5166,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;QuoteDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5034,8 +5177,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QuoteDtoListEnvelope> getWalletQuotesAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletQuotesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<QuoteDtoListEnvelope> getWalletQuotesAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletQuotesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<QuoteDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5046,6 +5189,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5057,9 +5201,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletQuotesAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<QuoteDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletQuotesAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback<QuoteDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletQuotesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletQuotesAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<QuoteDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5069,6 +5213,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5080,7 +5225,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletQuotesCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletQuotesCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5094,7 +5239,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = quoteDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Quotes/Count"
@@ -5124,6 +5269,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5135,13 +5282,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletQuotesCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletQuotesCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletQuotesCountAsync(Async)");
         }
 
-        return getWalletQuotesCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletQuotesCountAsyncCall(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -5151,6 +5298,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5161,8 +5309,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletQuotesCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletQuotesCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getWalletQuotesCountAsync(UUID walletId, String apiVersion, String xApiVersion, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletQuotesCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -5172,6 +5320,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5182,8 +5331,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletQuotesCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletQuotesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWalletQuotesCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletQuotesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5194,6 +5343,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5205,9 +5355,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletQuotesCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletQuotesCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletQuotesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletQuotesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, quoteDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5217,6 +5367,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5228,7 +5379,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletRefundsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletRefundsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5242,7 +5393,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentRefundDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Refunds"
@@ -5272,6 +5423,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5283,13 +5436,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletRefundsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletRefundsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletRefundsAsync(Async)");
         }
 
-        return getWalletRefundsAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletRefundsAsyncCall(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -5299,6 +5452,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @return PaymentRefundDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5309,8 +5463,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentRefundDtoListEnvelope getWalletRefundsAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<PaymentRefundDtoListEnvelope> localVarResp = getWalletRefundsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public PaymentRefundDtoListEnvelope getWalletRefundsAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PaymentRefundDtoListEnvelope> localVarResp = getWalletRefundsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -5320,6 +5474,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PaymentRefundDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5330,8 +5485,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentRefundDtoListEnvelope> getWalletRefundsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletRefundsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<PaymentRefundDtoListEnvelope> getWalletRefundsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletRefundsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PaymentRefundDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5342,6 +5497,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5353,9 +5509,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletRefundsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<PaymentRefundDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletRefundsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters, final ApiCallback<PaymentRefundDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletRefundsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletRefundsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PaymentRefundDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5365,6 +5521,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5376,7 +5533,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletRefundsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletRefundsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5390,7 +5547,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentRefundDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Refunds/Count"
@@ -5420,6 +5577,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5431,13 +5590,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletRefundsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletRefundsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletRefundsCountAsync(Async)");
         }
 
-        return getWalletRefundsCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletRefundsCountAsyncCall(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -5447,6 +5606,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5457,8 +5617,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletRefundsCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletRefundsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getWalletRefundsCountAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletRefundsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -5468,6 +5628,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5478,8 +5639,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletRefundsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletRefundsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWalletRefundsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletRefundsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5490,6 +5651,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentRefundDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5501,9 +5663,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletRefundsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletRefundsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentRefundDtoCollectionQueryParameters paymentRefundDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletRefundsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletRefundsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentRefundDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5671,6 +5833,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5682,7 +5845,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletTokensAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletTokensAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5696,7 +5859,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentTokenDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Tokens"
@@ -5726,6 +5889,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5737,13 +5902,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletTokensAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletTokensAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletTokensAsync(Async)");
         }
 
-        return getWalletTokensAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletTokensAsyncCall(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -5753,6 +5918,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @return PaymentTokenDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5763,8 +5929,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentTokenDtoListEnvelope getWalletTokensAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<PaymentTokenDtoListEnvelope> localVarResp = getWalletTokensAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public PaymentTokenDtoListEnvelope getWalletTokensAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PaymentTokenDtoListEnvelope> localVarResp = getWalletTokensAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -5774,6 +5940,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PaymentTokenDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5784,8 +5951,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentTokenDtoListEnvelope> getWalletTokensAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletTokensAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<PaymentTokenDtoListEnvelope> getWalletTokensAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletTokensAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PaymentTokenDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5796,6 +5963,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5807,9 +5975,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletTokensAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<PaymentTokenDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletTokensAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters, final ApiCallback<PaymentTokenDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletTokensAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletTokensAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PaymentTokenDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5819,6 +5987,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5830,7 +5999,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletTokensCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletTokensCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5844,7 +6013,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentTokenDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Tokens/Count"
@@ -5874,6 +6043,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5885,13 +6056,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletTokensCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletTokensCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletTokensCountAsync(Async)");
         }
 
-        return getWalletTokensCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletTokensCountAsyncCall(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -5901,6 +6072,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5911,8 +6083,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletTokensCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletTokensCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getWalletTokensCountAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletTokensCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -5922,6 +6094,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5932,8 +6105,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletTokensCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletTokensCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWalletTokensCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletTokensCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5944,6 +6117,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param paymentTokenDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5955,9 +6129,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletTokensCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletTokensCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, PaymentTokenDtoCollectionQueryParameters paymentTokenDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletTokensCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletTokensCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, paymentTokenDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5967,6 +6141,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5978,7 +6153,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletWithdrawRequestsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletWithdrawRequestsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5992,7 +6167,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = walletWithdrawRequestDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/WithdrawRequests"
@@ -6022,6 +6197,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6033,13 +6210,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletWithdrawRequestsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletWithdrawRequestsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletWithdrawRequestsAsync(Async)");
         }
 
-        return getWalletWithdrawRequestsAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletWithdrawRequestsAsyncCall(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -6049,6 +6226,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @return WalletWithdrawRequestDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6059,8 +6237,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WalletWithdrawRequestDtoListEnvelope getWalletWithdrawRequestsAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WalletWithdrawRequestDtoListEnvelope> localVarResp = getWalletWithdrawRequestsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public WalletWithdrawRequestDtoListEnvelope getWalletWithdrawRequestsAsync(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WalletWithdrawRequestDtoListEnvelope> localVarResp = getWalletWithdrawRequestsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -6070,6 +6248,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WalletWithdrawRequestDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6080,8 +6259,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WalletWithdrawRequestDtoListEnvelope> getWalletWithdrawRequestsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletWithdrawRequestsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<WalletWithdrawRequestDtoListEnvelope> getWalletWithdrawRequestsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletWithdrawRequestsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WalletWithdrawRequestDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6092,6 +6271,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6103,9 +6283,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletWithdrawRequestsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<WalletWithdrawRequestDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletWithdrawRequestsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters, final ApiCallback<WalletWithdrawRequestDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletWithdrawRequestsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletWithdrawRequestsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WalletWithdrawRequestDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6115,6 +6295,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6126,7 +6307,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletWithdrawRequestsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletWithdrawRequestsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6140,7 +6321,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = walletWithdrawRequestDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/WithdrawRequests/Count"
@@ -6170,6 +6351,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6181,13 +6364,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletWithdrawRequestsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletWithdrawRequestsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletWithdrawRequestsCountAsync(Async)");
         }
 
-        return getWalletWithdrawRequestsCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletWithdrawRequestsCountAsyncCall(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -6197,6 +6380,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6207,8 +6391,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletWithdrawRequestsCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletWithdrawRequestsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getWalletWithdrawRequestsCountAsync(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletWithdrawRequestsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -6218,6 +6402,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6228,8 +6413,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletWithdrawRequestsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletWithdrawRequestsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWalletWithdrawRequestsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletWithdrawRequestsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6240,6 +6425,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawRequestDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6251,9 +6437,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletWithdrawRequestsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletWithdrawRequestsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawRequestDtoCollectionQueryParameters walletWithdrawRequestDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletWithdrawRequestsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletWithdrawRequestsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, walletWithdrawRequestDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6263,6 +6449,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6274,7 +6461,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletWithdrawsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletWithdrawsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6288,7 +6475,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = walletWithdrawDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Withdraws"
@@ -6318,6 +6505,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6329,13 +6518,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletWithdrawsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletWithdrawsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletWithdrawsAsync(Async)");
         }
 
-        return getWalletWithdrawsAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletWithdrawsAsyncCall(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -6345,6 +6534,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @return WalletWithdrawDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6355,8 +6545,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WalletWithdrawDtoListEnvelope getWalletWithdrawsAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WalletWithdrawDtoListEnvelope> localVarResp = getWalletWithdrawsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public WalletWithdrawDtoListEnvelope getWalletWithdrawsAsync(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WalletWithdrawDtoListEnvelope> localVarResp = getWalletWithdrawsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -6366,6 +6556,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WalletWithdrawDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6376,8 +6567,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WalletWithdrawDtoListEnvelope> getWalletWithdrawsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletWithdrawsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<WalletWithdrawDtoListEnvelope> getWalletWithdrawsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletWithdrawsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WalletWithdrawDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6388,6 +6579,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6399,9 +6591,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletWithdrawsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<WalletWithdrawDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletWithdrawsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters, final ApiCallback<WalletWithdrawDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletWithdrawsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletWithdrawsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WalletWithdrawDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6411,6 +6603,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6422,7 +6615,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletWithdrawsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletWithdrawsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6436,7 +6629,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = walletWithdrawDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Withdraws/Count"
@@ -6466,6 +6659,8 @@ public class WalletsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6477,13 +6672,13 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletWithdrawsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletWithdrawsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletWithdrawsCountAsync(Async)");
         }
 
-        return getWalletWithdrawsCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+        return getWalletWithdrawsCountAsyncCall(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -6493,6 +6688,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6503,8 +6699,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletWithdrawsCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletWithdrawsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+    public Int32Envelope getWalletWithdrawsCountAsync(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletWithdrawsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -6514,6 +6710,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6524,8 +6721,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletWithdrawsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletWithdrawsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWalletWithdrawsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletWithdrawsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6536,6 +6733,7 @@ public class WalletsApi {
      * @param walletId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param walletWithdrawDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6547,9 +6745,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletWithdrawsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletWithdrawsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, WalletWithdrawDtoCollectionQueryParameters walletWithdrawDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletWithdrawsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWalletWithdrawsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, walletWithdrawDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6560,7 +6758,7 @@ public class WalletsApi {
      * @param bankAccountId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6572,7 +6770,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWalletBankAccountAsyncCall(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchWalletBankAccountAsyncCall(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6586,7 +6784,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId}"
@@ -6630,7 +6828,7 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchWalletBankAccountAsyncValidateBeforeCall(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchWalletBankAccountAsyncValidateBeforeCall(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling patchWalletBankAccountAsync(Async)");
@@ -6641,7 +6839,7 @@ public class WalletsApi {
             throw new ApiException("Missing the required parameter 'bankAccountId' when calling patchWalletBankAccountAsync(Async)");
         }
 
-        return patchWalletBankAccountAsyncCall(walletId, bankAccountId, apiVersion, xApiVersion, operation, _callback);
+        return patchWalletBankAccountAsyncCall(walletId, bankAccountId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -6652,7 +6850,7 @@ public class WalletsApi {
      * @param bankAccountId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6663,8 +6861,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchWalletBankAccountAsync(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchWalletBankAccountAsyncWithHttpInfo(walletId, bankAccountId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchWalletBankAccountAsync(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchWalletBankAccountAsyncWithHttpInfo(walletId, bankAccountId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -6675,7 +6873,7 @@ public class WalletsApi {
      * @param bankAccountId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6686,8 +6884,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchWalletBankAccountAsyncWithHttpInfo(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchWalletBankAccountAsyncValidateBeforeCall(walletId, bankAccountId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchWalletBankAccountAsyncWithHttpInfo(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchWalletBankAccountAsyncValidateBeforeCall(walletId, bankAccountId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6699,7 +6897,7 @@ public class WalletsApi {
      * @param bankAccountId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6711,9 +6909,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWalletBankAccountAsyncAsync(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchWalletBankAccountAsyncAsync(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchWalletBankAccountAsyncValidateBeforeCall(walletId, bankAccountId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchWalletBankAccountAsyncValidateBeforeCall(walletId, bankAccountId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6724,7 +6922,7 @@ public class WalletsApi {
      * @param tokenId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6736,7 +6934,7 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWalletTokenAsyncCall(UUID walletId, UUID tokenId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchWalletTokenAsyncCall(UUID walletId, UUID tokenId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6750,7 +6948,7 @@ public class WalletsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId}"
@@ -6794,7 +6992,7 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchWalletTokenAsyncValidateBeforeCall(UUID walletId, UUID tokenId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchWalletTokenAsyncValidateBeforeCall(UUID walletId, UUID tokenId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling patchWalletTokenAsync(Async)");
@@ -6805,7 +7003,7 @@ public class WalletsApi {
             throw new ApiException("Missing the required parameter 'tokenId' when calling patchWalletTokenAsync(Async)");
         }
 
-        return patchWalletTokenAsyncCall(walletId, tokenId, apiVersion, xApiVersion, operation, _callback);
+        return patchWalletTokenAsyncCall(walletId, tokenId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -6816,7 +7014,7 @@ public class WalletsApi {
      * @param tokenId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6827,8 +7025,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchWalletTokenAsync(UUID walletId, UUID tokenId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchWalletTokenAsyncWithHttpInfo(walletId, tokenId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchWalletTokenAsync(UUID walletId, UUID tokenId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchWalletTokenAsyncWithHttpInfo(walletId, tokenId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -6839,7 +7037,7 @@ public class WalletsApi {
      * @param tokenId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6850,8 +7048,8 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchWalletTokenAsyncWithHttpInfo(UUID walletId, UUID tokenId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchWalletTokenAsyncValidateBeforeCall(walletId, tokenId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchWalletTokenAsyncWithHttpInfo(UUID walletId, UUID tokenId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchWalletTokenAsyncValidateBeforeCall(walletId, tokenId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6863,7 +7061,7 @@ public class WalletsApi {
      * @param tokenId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6875,9 +7073,9 @@ public class WalletsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWalletTokenAsyncAsync(UUID walletId, UUID tokenId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchWalletTokenAsyncAsync(UUID walletId, UUID tokenId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchWalletTokenAsyncValidateBeforeCall(walletId, tokenId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchWalletTokenAsyncValidateBeforeCall(walletId, tokenId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

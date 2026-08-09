@@ -226,7 +226,7 @@ No authorization required
 
 <a id="getAccountGroups"></a>
 # **getAccountGroups**
-> AccountGroupDtoListEnvelope getAccountGroups(tenantId, apiVersion, xApiVersion)
+> AccountGroupDtoListEnvelope getAccountGroups(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters)
 
 Gets the current tenant account groups
 
@@ -250,8 +250,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters = new AccountGroupDtoCollectionQueryParameters(); // AccountGroupDtoCollectionQueryParameters | 
     try {
-      AccountGroupDtoListEnvelope result = apiInstance.getAccountGroups(tenantId, apiVersion, xApiVersion);
+      AccountGroupDtoListEnvelope result = apiInstance.getAccountGroups(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountGroupsApi#getAccountGroups");
@@ -271,6 +272,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountGroupDtoCollectionQueryParameters** | [**AccountGroupDtoCollectionQueryParameters**](AccountGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -282,7 +284,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -294,7 +296,7 @@ No authorization required
 
 <a id="getAccountGroupsCountAsync"></a>
 # **getAccountGroupsCountAsync**
-> Int32Envelope getAccountGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAccountGroupsCountAsync(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters)
 
 Gets the current tenant accounts count
 
@@ -318,8 +320,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AccountGroupDtoCollectionQueryParameters accountGroupDtoCollectionQueryParameters = new AccountGroupDtoCollectionQueryParameters(); // AccountGroupDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAccountGroupsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAccountGroupsCountAsync(tenantId, apiVersion, xApiVersion, accountGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountGroupsApi#getAccountGroupsCountAsync");
@@ -339,6 +342,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **accountGroupDtoCollectionQueryParameters** | [**AccountGroupDtoCollectionQueryParameters**](AccountGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -350,7 +354,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -362,7 +366,7 @@ No authorization required
 
 <a id="patchAccountGroupAsync"></a>
 # **patchAccountGroupAsync**
-> EmptyEnvelope patchAccountGroupAsync(tenantId, accountGroupId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAccountGroupAsync(tenantId, accountGroupId, apiVersion, xApiVersion, patchOperation)
 
 Patch an account group
 
@@ -387,9 +391,9 @@ public class Example {
     UUID accountGroupId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAccountGroupAsync(tenantId, accountGroupId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchAccountGroupAsync(tenantId, accountGroupId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountGroupsApi#patchAccountGroupAsync");
@@ -410,7 +414,7 @@ public class Example {
 | **accountGroupId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

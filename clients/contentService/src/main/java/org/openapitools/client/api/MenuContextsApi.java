@@ -31,6 +31,7 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.MenuContextCreateDto;
+import org.openapitools.client.model.MenuContextDtoCollectionQueryParameters;
 import org.openapitools.client.model.MenuContextDtoEnvelope;
 import org.openapitools.client.model.MenuContextDtoListEnvelope;
 import org.openapitools.client.model.MenuContextUpdateDto;
@@ -84,6 +85,7 @@ public class MenuContextsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -95,7 +97,7 @@ public class MenuContextsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countMenuContextsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countMenuContextsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, MenuContextDtoCollectionQueryParameters menuContextDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,7 +111,7 @@ public class MenuContextsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = menuContextDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/MenuContexts/Count";
@@ -142,6 +144,8 @@ public class MenuContextsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -153,13 +157,13 @@ public class MenuContextsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countMenuContextsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countMenuContextsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, MenuContextDtoCollectionQueryParameters menuContextDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countMenuContextsAsync(Async)");
         }
 
-        return countMenuContextsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return countMenuContextsAsyncCall(tenantId, apiVersion, xApiVersion, menuContextDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -169,6 +173,7 @@ public class MenuContextsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -179,8 +184,8 @@ public class MenuContextsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countMenuContextsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countMenuContextsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope countMenuContextsAsync(UUID tenantId, String apiVersion, String xApiVersion, MenuContextDtoCollectionQueryParameters menuContextDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countMenuContextsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, menuContextDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -190,6 +195,7 @@ public class MenuContextsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -200,8 +206,8 @@ public class MenuContextsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countMenuContextsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countMenuContextsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countMenuContextsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, MenuContextDtoCollectionQueryParameters menuContextDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countMenuContextsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, menuContextDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -212,6 +218,7 @@ public class MenuContextsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -223,9 +230,9 @@ public class MenuContextsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countMenuContextsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countMenuContextsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, MenuContextDtoCollectionQueryParameters menuContextDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countMenuContextsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countMenuContextsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, menuContextDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -719,6 +726,7 @@ public class MenuContextsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -730,7 +738,7 @@ public class MenuContextsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMenuContextsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMenuContextsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, MenuContextDtoCollectionQueryParameters menuContextDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -744,7 +752,7 @@ public class MenuContextsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = menuContextDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/MenuContexts";
@@ -777,6 +785,8 @@ public class MenuContextsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -788,13 +798,13 @@ public class MenuContextsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMenuContextsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMenuContextsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, MenuContextDtoCollectionQueryParameters menuContextDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getMenuContextsAsync(Async)");
         }
 
-        return getMenuContextsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getMenuContextsAsyncCall(tenantId, apiVersion, xApiVersion, menuContextDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -804,6 +814,7 @@ public class MenuContextsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @return MenuContextDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -814,8 +825,8 @@ public class MenuContextsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public MenuContextDtoListEnvelope getMenuContextsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<MenuContextDtoListEnvelope> localVarResp = getMenuContextsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public MenuContextDtoListEnvelope getMenuContextsAsync(UUID tenantId, String apiVersion, String xApiVersion, MenuContextDtoCollectionQueryParameters menuContextDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<MenuContextDtoListEnvelope> localVarResp = getMenuContextsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, menuContextDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -825,6 +836,7 @@ public class MenuContextsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;MenuContextDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -835,8 +847,8 @@ public class MenuContextsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MenuContextDtoListEnvelope> getMenuContextsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getMenuContextsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<MenuContextDtoListEnvelope> getMenuContextsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, MenuContextDtoCollectionQueryParameters menuContextDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getMenuContextsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, menuContextDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<MenuContextDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -847,6 +859,7 @@ public class MenuContextsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param menuContextDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -858,9 +871,9 @@ public class MenuContextsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMenuContextsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<MenuContextDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getMenuContextsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, MenuContextDtoCollectionQueryParameters menuContextDtoCollectionQueryParameters, final ApiCallback<MenuContextDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMenuContextsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getMenuContextsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, menuContextDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<MenuContextDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

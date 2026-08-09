@@ -98,7 +98,7 @@ No authorization required
 
 <a id="countPortalsAsync"></a>
 # **countPortalsAsync**
-> Int32Envelope countPortalsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countPortalsAsync(tenantId, apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
 
 Count portals
 
@@ -122,8 +122,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebPortalDtoCollectionQueryParameters webPortalDtoCollectionQueryParameters = new WebPortalDtoCollectionQueryParameters(); // WebPortalDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countPortalsAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countPortalsAsync(tenantId, apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PortalsApi#countPortalsAsync");
@@ -143,6 +144,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webPortalDtoCollectionQueryParameters** | [**WebPortalDtoCollectionQueryParameters**](WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -154,7 +156,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -438,7 +440,7 @@ No authorization required
 
 <a id="getPortalsAsync"></a>
 # **getPortalsAsync**
-> WebPortalDtoListEnvelope getPortalsAsync(tenantId, apiVersion, xApiVersion)
+> WebPortalDtoListEnvelope getPortalsAsync(tenantId, apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters)
 
 Get portals
 
@@ -462,8 +464,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebPortalDtoCollectionQueryParameters webPortalDtoCollectionQueryParameters = new WebPortalDtoCollectionQueryParameters(); // WebPortalDtoCollectionQueryParameters | 
     try {
-      WebPortalDtoListEnvelope result = apiInstance.getPortalsAsync(tenantId, apiVersion, xApiVersion);
+      WebPortalDtoListEnvelope result = apiInstance.getPortalsAsync(tenantId, apiVersion, xApiVersion, webPortalDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PortalsApi#getPortalsAsync");
@@ -483,6 +486,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webPortalDtoCollectionQueryParameters** | [**WebPortalDtoCollectionQueryParameters**](WebPortalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -494,7 +498,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -846,7 +850,7 @@ No authorization required
 
 <a id="initializeCurrentWebPortalAsync"></a>
 # **initializeCurrentWebPortalAsync**
-> WebPortalDtoEnvelope initializeCurrentWebPortalAsync(apiVersion, xApiVersion)
+> ExecutionContextEnvelope initializeCurrentWebPortalAsync(apiVersion, xApiVersion)
 
 Initialize the current portal
 
@@ -870,7 +874,7 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      WebPortalDtoEnvelope result = apiInstance.initializeCurrentWebPortalAsync(apiVersion, xApiVersion);
+      ExecutionContextEnvelope result = apiInstance.initializeCurrentWebPortalAsync(apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PortalsApi#initializeCurrentWebPortalAsync");
@@ -892,7 +896,7 @@ public class Example {
 
 ### Return type
 
-[**WebPortalDtoEnvelope**](WebPortalDtoEnvelope.md)
+[**ExecutionContextEnvelope**](ExecutionContextEnvelope.md)
 
 ### Authorization
 
@@ -912,7 +916,7 @@ No authorization required
 
 <a id="patchWebPortalAsync"></a>
 # **patchWebPortalAsync**
-> EmptyEnvelope patchWebPortalAsync(tenantId, portalId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWebPortalAsync(tenantId, portalId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a web portal
 
@@ -937,9 +941,9 @@ public class Example {
     UUID portalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWebPortalAsync(tenantId, portalId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchWebPortalAsync(tenantId, portalId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PortalsApi#patchWebPortalAsync");
@@ -960,7 +964,7 @@ public class Example {
 | **portalId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

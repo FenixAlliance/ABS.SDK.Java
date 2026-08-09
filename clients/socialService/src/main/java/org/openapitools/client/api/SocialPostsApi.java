@@ -29,19 +29,28 @@ import java.io.IOException;
 
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import java.io.File;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
+import org.openapitools.client.model.SocialCommentReactionDtoCollectionQueryParameters;
+import org.openapitools.client.model.SocialCommentReactionDtoEnvelope;
+import org.openapitools.client.model.SocialCommentReactionDtoListEnvelope;
 import org.openapitools.client.model.SocialPostAttachmentCreateDto;
+import org.openapitools.client.model.SocialPostAttachmentDtoCollectionQueryParameters;
 import org.openapitools.client.model.SocialPostAttachmentDtoEnvelope;
 import org.openapitools.client.model.SocialPostAttachmentDtoListEnvelope;
 import org.openapitools.client.model.SocialPostAttachmentUpdateDto;
 import org.openapitools.client.model.SocialPostCommentCreateDto;
+import org.openapitools.client.model.SocialPostCommentDtoCollectionQueryParameters;
 import org.openapitools.client.model.SocialPostCommentDtoEnvelope;
 import org.openapitools.client.model.SocialPostCommentDtoListEnvelope;
 import org.openapitools.client.model.SocialPostCommentUpdateDto;
 import org.openapitools.client.model.SocialPostCreateDto;
+import org.openapitools.client.model.SocialPostDtoCollectionQueryParameters;
 import org.openapitools.client.model.SocialPostDtoEnvelope;
 import org.openapitools.client.model.SocialPostDtoListEnvelope;
+import org.openapitools.client.model.SocialPostReactionDtoCollectionQueryParameters;
+import org.openapitools.client.model.SocialPostReactionDtoEnvelope;
 import org.openapitools.client.model.SocialPostUpdateDto;
 import org.openapitools.client.model.SocialReactionCreateDto;
 import org.openapitools.client.model.SocialReactionDtoEnvelope;
@@ -92,6 +101,183 @@ public class SocialPostsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for createSocialCommentReactionAsync
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionCreateDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSocialCommentReactionAsyncCall(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = socialReactionCreateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions"
+            .replace("{" + "socialPostId" + "}", localVarApiClient.escapeString(socialPostId.toString()))
+            .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (socialProfileId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("socialProfileId", socialProfileId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSocialCommentReactionAsyncValidateBeforeCall(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'socialPostId' is set
+        if (socialPostId == null) {
+            throw new ApiException("Missing the required parameter 'socialPostId' when calling createSocialCommentReactionAsync(Async)");
+        }
+
+        // verify the required parameter 'commentId' is set
+        if (commentId == null) {
+            throw new ApiException("Missing the required parameter 'commentId' when calling createSocialCommentReactionAsync(Async)");
+        }
+
+        // verify the required parameter 'socialProfileId' is set
+        if (socialProfileId == null) {
+            throw new ApiException("Missing the required parameter 'socialProfileId' when calling createSocialCommentReactionAsync(Async)");
+        }
+
+        return createSocialCommentReactionAsyncCall(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto, _callback);
+
+    }
+
+    /**
+     * Create a social comment reaction
+     * Creates a new reaction on a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionCreateDto  (optional)
+     * @return SocialCommentReactionDtoEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SocialCommentReactionDtoEnvelope createSocialCommentReactionAsync(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto) throws ApiException {
+        ApiResponse<SocialCommentReactionDtoEnvelope> localVarResp = createSocialCommentReactionAsyncWithHttpInfo(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a social comment reaction
+     * Creates a new reaction on a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionCreateDto  (optional)
+     * @return ApiResponse&lt;SocialCommentReactionDtoEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SocialCommentReactionDtoEnvelope> createSocialCommentReactionAsyncWithHttpInfo(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto) throws ApiException {
+        okhttp3.Call localVarCall = createSocialCommentReactionAsyncValidateBeforeCall(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto, null);
+        Type localVarReturnType = new TypeToken<SocialCommentReactionDtoEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a social comment reaction (asynchronously)
+     * Creates a new reaction on a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionCreateDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSocialCommentReactionAsyncAsync(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto, final ApiCallback<SocialCommentReactionDtoEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createSocialCommentReactionAsyncValidateBeforeCall(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto, _callback);
+        Type localVarReturnType = new TypeToken<SocialCommentReactionDtoEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for createSocialPostAsync
      * @param socialProfileId  (required)
@@ -598,7 +784,7 @@ public class SocialPostsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSocialPostReactionAsyncCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto, final ApiCallback _callback) throws ApiException {
@@ -685,18 +871,18 @@ public class SocialPostsApi {
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialReactionCreateDto  (optional)
-     * @return SocialReactionDtoEnvelope
+     * @return SocialPostReactionDtoEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SocialReactionDtoEnvelope createSocialPostReactionAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto) throws ApiException {
-        ApiResponse<SocialReactionDtoEnvelope> localVarResp = createSocialPostReactionAsyncWithHttpInfo(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto);
+    public SocialPostReactionDtoEnvelope createSocialPostReactionAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto) throws ApiException {
+        ApiResponse<SocialPostReactionDtoEnvelope> localVarResp = createSocialPostReactionAsyncWithHttpInfo(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto);
         return localVarResp.getData();
     }
 
@@ -708,19 +894,19 @@ public class SocialPostsApi {
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialReactionCreateDto  (optional)
-     * @return ApiResponse&lt;SocialReactionDtoEnvelope&gt;
+     * @return ApiResponse&lt;SocialPostReactionDtoEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SocialReactionDtoEnvelope> createSocialPostReactionAsyncWithHttpInfo(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto) throws ApiException {
+    public ApiResponse<SocialPostReactionDtoEnvelope> createSocialPostReactionAsyncWithHttpInfo(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto) throws ApiException {
         okhttp3.Call localVarCall = createSocialPostReactionAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto, null);
-        Type localVarReturnType = new TypeToken<SocialReactionDtoEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<SocialPostReactionDtoEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -740,13 +926,194 @@ public class SocialPostsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSocialPostReactionAsyncAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto, final ApiCallback<SocialReactionDtoEnvelope> _callback) throws ApiException {
+    public okhttp3.Call createSocialPostReactionAsyncAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionCreateDto socialReactionCreateDto, final ApiCallback<SocialPostReactionDtoEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSocialPostReactionAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, socialReactionCreateDto, _callback);
-        Type localVarReturnType = new TypeToken<SocialReactionDtoEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<SocialPostReactionDtoEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteSocialCommentReactionAsync
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSocialCommentReactionAsyncCall(UUID socialPostId, UUID commentId, UUID reactionId, UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}"
+            .replace("{" + "socialPostId" + "}", localVarApiClient.escapeString(socialPostId.toString()))
+            .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()))
+            .replace("{" + "reactionId" + "}", localVarApiClient.escapeString(reactionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (socialProfileId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("socialProfileId", socialProfileId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSocialCommentReactionAsyncValidateBeforeCall(UUID socialPostId, UUID commentId, UUID reactionId, UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'socialPostId' is set
+        if (socialPostId == null) {
+            throw new ApiException("Missing the required parameter 'socialPostId' when calling deleteSocialCommentReactionAsync(Async)");
+        }
+
+        // verify the required parameter 'commentId' is set
+        if (commentId == null) {
+            throw new ApiException("Missing the required parameter 'commentId' when calling deleteSocialCommentReactionAsync(Async)");
+        }
+
+        // verify the required parameter 'reactionId' is set
+        if (reactionId == null) {
+            throw new ApiException("Missing the required parameter 'reactionId' when calling deleteSocialCommentReactionAsync(Async)");
+        }
+
+        // verify the required parameter 'socialProfileId' is set
+        if (socialProfileId == null) {
+            throw new ApiException("Missing the required parameter 'socialProfileId' when calling deleteSocialCommentReactionAsync(Async)");
+        }
+
+        return deleteSocialCommentReactionAsyncCall(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Delete a social comment reaction
+     * Deletes a reaction from a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope deleteSocialCommentReactionAsync(UUID socialPostId, UUID commentId, UUID reactionId, UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = deleteSocialCommentReactionAsyncWithHttpInfo(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a social comment reaction
+     * Deletes a reaction from a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> deleteSocialCommentReactionAsyncWithHttpInfo(UUID socialPostId, UUID commentId, UUID reactionId, UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = deleteSocialCommentReactionAsyncValidateBeforeCall(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a social comment reaction (asynchronously)
+     * Deletes a reaction from a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSocialCommentReactionAsyncAsync(UUID socialPostId, UUID commentId, UUID reactionId, UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSocialCommentReactionAsyncValidateBeforeCall(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1425,6 +1792,528 @@ public class SocialPostsApi {
         return localVarCall;
     }
     /**
+     * Build call for getSocialCommentReactionAsync
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSocialCommentReactionAsyncCall(UUID socialPostId, UUID commentId, UUID reactionId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}"
+            .replace("{" + "socialPostId" + "}", localVarApiClient.escapeString(socialPostId.toString()))
+            .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()))
+            .replace("{" + "reactionId" + "}", localVarApiClient.escapeString(reactionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSocialCommentReactionAsyncValidateBeforeCall(UUID socialPostId, UUID commentId, UUID reactionId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'socialPostId' is set
+        if (socialPostId == null) {
+            throw new ApiException("Missing the required parameter 'socialPostId' when calling getSocialCommentReactionAsync(Async)");
+        }
+
+        // verify the required parameter 'commentId' is set
+        if (commentId == null) {
+            throw new ApiException("Missing the required parameter 'commentId' when calling getSocialCommentReactionAsync(Async)");
+        }
+
+        // verify the required parameter 'reactionId' is set
+        if (reactionId == null) {
+            throw new ApiException("Missing the required parameter 'reactionId' when calling getSocialCommentReactionAsync(Async)");
+        }
+
+        return getSocialCommentReactionAsyncCall(socialPostId, commentId, reactionId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get social comment reaction by ID
+     * Retrieves a specific reaction from a social comment by its ID.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SocialCommentReactionDtoEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SocialCommentReactionDtoEnvelope getSocialCommentReactionAsync(UUID socialPostId, UUID commentId, UUID reactionId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<SocialCommentReactionDtoEnvelope> localVarResp = getSocialCommentReactionAsyncWithHttpInfo(socialPostId, commentId, reactionId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get social comment reaction by ID
+     * Retrieves a specific reaction from a social comment by its ID.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;SocialCommentReactionDtoEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SocialCommentReactionDtoEnvelope> getSocialCommentReactionAsyncWithHttpInfo(UUID socialPostId, UUID commentId, UUID reactionId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getSocialCommentReactionAsyncValidateBeforeCall(socialPostId, commentId, reactionId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<SocialCommentReactionDtoEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get social comment reaction by ID (asynchronously)
+     * Retrieves a specific reaction from a social comment by its ID.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSocialCommentReactionAsyncAsync(UUID socialPostId, UUID commentId, UUID reactionId, String apiVersion, String xApiVersion, final ApiCallback<SocialCommentReactionDtoEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSocialCommentReactionAsyncValidateBeforeCall(socialPostId, commentId, reactionId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<SocialCommentReactionDtoEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSocialCommentReactionsAsync
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSocialCommentReactionsAsyncCall(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = socialCommentReactionDtoCollectionQueryParameters;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions"
+            .replace("{" + "socialPostId" + "}", localVarApiClient.escapeString(socialPostId.toString()))
+            .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (socialProfileId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("socialProfileId", socialProfileId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSocialCommentReactionsAsyncValidateBeforeCall(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'socialPostId' is set
+        if (socialPostId == null) {
+            throw new ApiException("Missing the required parameter 'socialPostId' when calling getSocialCommentReactionsAsync(Async)");
+        }
+
+        // verify the required parameter 'commentId' is set
+        if (commentId == null) {
+            throw new ApiException("Missing the required parameter 'commentId' when calling getSocialCommentReactionsAsync(Async)");
+        }
+
+        // verify the required parameter 'socialProfileId' is set
+        if (socialProfileId == null) {
+            throw new ApiException("Missing the required parameter 'socialProfileId' when calling getSocialCommentReactionsAsync(Async)");
+        }
+
+        return getSocialCommentReactionsAsyncCall(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters, _callback);
+
+    }
+
+    /**
+     * Get social comment reactions
+     * Retrieves a list of reactions for a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @return SocialCommentReactionDtoListEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SocialCommentReactionDtoListEnvelope getSocialCommentReactionsAsync(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SocialCommentReactionDtoListEnvelope> localVarResp = getSocialCommentReactionsAsyncWithHttpInfo(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get social comment reactions
+     * Retrieves a list of reactions for a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @return ApiResponse&lt;SocialCommentReactionDtoListEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SocialCommentReactionDtoListEnvelope> getSocialCommentReactionsAsyncWithHttpInfo(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialCommentReactionsAsyncValidateBeforeCall(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters, null);
+        Type localVarReturnType = new TypeToken<SocialCommentReactionDtoListEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get social comment reactions (asynchronously)
+     * Retrieves a list of reactions for a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSocialCommentReactionsAsyncAsync(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters, final ApiCallback<SocialCommentReactionDtoListEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSocialCommentReactionsAsyncValidateBeforeCall(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters, _callback);
+        Type localVarReturnType = new TypeToken<SocialCommentReactionDtoListEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSocialCommentReactionsCountAsync
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSocialCommentReactionsCountAsyncCall(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = socialCommentReactionDtoCollectionQueryParameters;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count"
+            .replace("{" + "socialPostId" + "}", localVarApiClient.escapeString(socialPostId.toString()))
+            .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (socialProfileId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("socialProfileId", socialProfileId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSocialCommentReactionsCountAsyncValidateBeforeCall(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'socialPostId' is set
+        if (socialPostId == null) {
+            throw new ApiException("Missing the required parameter 'socialPostId' when calling getSocialCommentReactionsCountAsync(Async)");
+        }
+
+        // verify the required parameter 'commentId' is set
+        if (commentId == null) {
+            throw new ApiException("Missing the required parameter 'commentId' when calling getSocialCommentReactionsCountAsync(Async)");
+        }
+
+        // verify the required parameter 'socialProfileId' is set
+        if (socialProfileId == null) {
+            throw new ApiException("Missing the required parameter 'socialProfileId' when calling getSocialCommentReactionsCountAsync(Async)");
+        }
+
+        return getSocialCommentReactionsCountAsyncCall(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters, _callback);
+
+    }
+
+    /**
+     * Count social comment reactions
+     * Returns the count of reactions for a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @return Int32Envelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public Int32Envelope getSocialCommentReactionsCountAsync(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSocialCommentReactionsCountAsyncWithHttpInfo(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Count social comment reactions
+     * Returns the count of reactions for a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Int32Envelope> getSocialCommentReactionsCountAsyncWithHttpInfo(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialCommentReactionsCountAsyncValidateBeforeCall(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters, null);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Count social comment reactions (asynchronously)
+     * Returns the count of reactions for a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialCommentReactionDtoCollectionQueryParameters  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSocialCommentReactionsCountAsyncAsync(UUID socialPostId, UUID commentId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialCommentReactionDtoCollectionQueryParameters socialCommentReactionDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSocialCommentReactionsCountAsyncValidateBeforeCall(socialPostId, commentId, socialProfileId, apiVersion, xApiVersion, socialCommentReactionDtoCollectionQueryParameters, _callback);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getSocialPostAsync
      * @param socialProfileId  (required)
      * @param socialPostId  (required)
@@ -1748,6 +2637,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1759,7 +2649,7 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostAttachmentsAsyncCall(UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSocialPostAttachmentsAsyncCall(UUID socialPostId, String apiVersion, String xApiVersion, SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1773,7 +2663,7 @@ public class SocialPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialPostAttachmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Attachments"
@@ -1803,6 +2693,8 @@ public class SocialPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1814,13 +2706,13 @@ public class SocialPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSocialPostAttachmentsAsyncValidateBeforeCall(UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSocialPostAttachmentsAsyncValidateBeforeCall(UUID socialPostId, String apiVersion, String xApiVersion, SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialPostId' is set
         if (socialPostId == null) {
             throw new ApiException("Missing the required parameter 'socialPostId' when calling getSocialPostAttachmentsAsync(Async)");
         }
 
-        return getSocialPostAttachmentsAsyncCall(socialPostId, apiVersion, xApiVersion, _callback);
+        return getSocialPostAttachmentsAsyncCall(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1830,6 +2722,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @return SocialPostAttachmentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1840,8 +2733,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SocialPostAttachmentDtoListEnvelope getSocialPostAttachmentsAsync(UUID socialPostId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SocialPostAttachmentDtoListEnvelope> localVarResp = getSocialPostAttachmentsAsyncWithHttpInfo(socialPostId, apiVersion, xApiVersion);
+    public SocialPostAttachmentDtoListEnvelope getSocialPostAttachmentsAsync(UUID socialPostId, String apiVersion, String xApiVersion, SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SocialPostAttachmentDtoListEnvelope> localVarResp = getSocialPostAttachmentsAsyncWithHttpInfo(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1851,6 +2744,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SocialPostAttachmentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1861,8 +2755,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SocialPostAttachmentDtoListEnvelope> getSocialPostAttachmentsAsyncWithHttpInfo(UUID socialPostId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSocialPostAttachmentsAsyncValidateBeforeCall(socialPostId, apiVersion, xApiVersion, null);
+    public ApiResponse<SocialPostAttachmentDtoListEnvelope> getSocialPostAttachmentsAsyncWithHttpInfo(UUID socialPostId, String apiVersion, String xApiVersion, SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialPostAttachmentsAsyncValidateBeforeCall(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SocialPostAttachmentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1873,6 +2767,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1884,9 +2779,9 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostAttachmentsAsyncAsync(UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback<SocialPostAttachmentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSocialPostAttachmentsAsyncAsync(UUID socialPostId, String apiVersion, String xApiVersion, SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters, final ApiCallback<SocialPostAttachmentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSocialPostAttachmentsAsyncValidateBeforeCall(socialPostId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSocialPostAttachmentsAsyncValidateBeforeCall(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SocialPostAttachmentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1896,6 +2791,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1907,7 +2803,7 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostAttachmentsCountAsyncCall(UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSocialPostAttachmentsCountAsyncCall(UUID socialPostId, String apiVersion, String xApiVersion, SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1921,7 +2817,7 @@ public class SocialPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialPostAttachmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Count"
@@ -1951,6 +2847,8 @@ public class SocialPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1962,13 +2860,13 @@ public class SocialPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSocialPostAttachmentsCountAsyncValidateBeforeCall(UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSocialPostAttachmentsCountAsyncValidateBeforeCall(UUID socialPostId, String apiVersion, String xApiVersion, SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialPostId' is set
         if (socialPostId == null) {
             throw new ApiException("Missing the required parameter 'socialPostId' when calling getSocialPostAttachmentsCountAsync(Async)");
         }
 
-        return getSocialPostAttachmentsCountAsyncCall(socialPostId, apiVersion, xApiVersion, _callback);
+        return getSocialPostAttachmentsCountAsyncCall(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1978,6 +2876,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1988,8 +2887,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSocialPostAttachmentsCountAsync(UUID socialPostId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSocialPostAttachmentsCountAsyncWithHttpInfo(socialPostId, apiVersion, xApiVersion);
+    public Int32Envelope getSocialPostAttachmentsCountAsync(UUID socialPostId, String apiVersion, String xApiVersion, SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSocialPostAttachmentsCountAsyncWithHttpInfo(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1999,6 +2898,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2009,8 +2909,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSocialPostAttachmentsCountAsyncWithHttpInfo(UUID socialPostId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSocialPostAttachmentsCountAsyncValidateBeforeCall(socialPostId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSocialPostAttachmentsCountAsyncWithHttpInfo(UUID socialPostId, String apiVersion, String xApiVersion, SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialPostAttachmentsCountAsyncValidateBeforeCall(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2021,6 +2921,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostAttachmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2032,9 +2933,9 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostAttachmentsCountAsyncAsync(UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSocialPostAttachmentsCountAsyncAsync(UUID socialPostId, String apiVersion, String xApiVersion, SocialPostAttachmentDtoCollectionQueryParameters socialPostAttachmentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSocialPostAttachmentsCountAsyncValidateBeforeCall(socialPostId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSocialPostAttachmentsCountAsyncValidateBeforeCall(socialPostId, apiVersion, xApiVersion, socialPostAttachmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2214,8 +3115,10 @@ public class SocialPostsApi {
      * Build call for getSocialPostCommentsAsync
      * @param socialProfileId  (required)
      * @param socialPostId  (required)
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2227,7 +3130,7 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostCommentsAsyncCall(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSocialPostCommentsAsyncCall(UUID socialProfileId, UUID socialPostId, String parentCommentId, String apiVersion, String xApiVersion, SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2241,7 +3144,7 @@ public class SocialPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialPostCommentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments"
@@ -2257,6 +3160,10 @@ public class SocialPostsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("socialProfileId", socialProfileId));
         }
 
+        if (parentCommentId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("parentCommentId", parentCommentId));
+        }
+
         if (apiVersion != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
         }
@@ -2275,6 +3182,8 @@ public class SocialPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2286,7 +3195,7 @@ public class SocialPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSocialPostCommentsAsyncValidateBeforeCall(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSocialPostCommentsAsyncValidateBeforeCall(UUID socialProfileId, UUID socialPostId, String parentCommentId, String apiVersion, String xApiVersion, SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialProfileId' is set
         if (socialProfileId == null) {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getSocialPostCommentsAsync(Async)");
@@ -2297,7 +3206,7 @@ public class SocialPostsApi {
             throw new ApiException("Missing the required parameter 'socialPostId' when calling getSocialPostCommentsAsync(Async)");
         }
 
-        return getSocialPostCommentsAsyncCall(socialProfileId, socialPostId, apiVersion, xApiVersion, _callback);
+        return getSocialPostCommentsAsyncCall(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2306,8 +3215,10 @@ public class SocialPostsApi {
      * Retrieves a list of comments for a specific social post.
      * @param socialProfileId  (required)
      * @param socialPostId  (required)
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @return SocialPostCommentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2318,8 +3229,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SocialPostCommentDtoListEnvelope getSocialPostCommentsAsync(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SocialPostCommentDtoListEnvelope> localVarResp = getSocialPostCommentsAsyncWithHttpInfo(socialProfileId, socialPostId, apiVersion, xApiVersion);
+    public SocialPostCommentDtoListEnvelope getSocialPostCommentsAsync(UUID socialProfileId, UUID socialPostId, String parentCommentId, String apiVersion, String xApiVersion, SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SocialPostCommentDtoListEnvelope> localVarResp = getSocialPostCommentsAsyncWithHttpInfo(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2328,8 +3239,10 @@ public class SocialPostsApi {
      * Retrieves a list of comments for a specific social post.
      * @param socialProfileId  (required)
      * @param socialPostId  (required)
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SocialPostCommentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2340,8 +3253,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SocialPostCommentDtoListEnvelope> getSocialPostCommentsAsyncWithHttpInfo(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSocialPostCommentsAsyncValidateBeforeCall(socialProfileId, socialPostId, apiVersion, xApiVersion, null);
+    public ApiResponse<SocialPostCommentDtoListEnvelope> getSocialPostCommentsAsyncWithHttpInfo(UUID socialProfileId, UUID socialPostId, String parentCommentId, String apiVersion, String xApiVersion, SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialPostCommentsAsyncValidateBeforeCall(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SocialPostCommentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2351,8 +3264,10 @@ public class SocialPostsApi {
      * Retrieves a list of comments for a specific social post.
      * @param socialProfileId  (required)
      * @param socialPostId  (required)
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2364,9 +3279,9 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostCommentsAsyncAsync(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback<SocialPostCommentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSocialPostCommentsAsyncAsync(UUID socialProfileId, UUID socialPostId, String parentCommentId, String apiVersion, String xApiVersion, SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters, final ApiCallback<SocialPostCommentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSocialPostCommentsAsyncValidateBeforeCall(socialProfileId, socialPostId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSocialPostCommentsAsyncValidateBeforeCall(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SocialPostCommentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2375,8 +3290,10 @@ public class SocialPostsApi {
      * Build call for getSocialPostCommentsCountAsync
      * @param socialProfileId  (required)
      * @param socialPostId  (required)
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2388,7 +3305,7 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostCommentsCountAsyncCall(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSocialPostCommentsCountAsyncCall(UUID socialProfileId, UUID socialPostId, String parentCommentId, String apiVersion, String xApiVersion, SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2402,7 +3319,7 @@ public class SocialPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialPostCommentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/Count"
@@ -2418,6 +3335,10 @@ public class SocialPostsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("socialProfileId", socialProfileId));
         }
 
+        if (parentCommentId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("parentCommentId", parentCommentId));
+        }
+
         if (apiVersion != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
         }
@@ -2436,6 +3357,8 @@ public class SocialPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2447,7 +3370,7 @@ public class SocialPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSocialPostCommentsCountAsyncValidateBeforeCall(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSocialPostCommentsCountAsyncValidateBeforeCall(UUID socialProfileId, UUID socialPostId, String parentCommentId, String apiVersion, String xApiVersion, SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialProfileId' is set
         if (socialProfileId == null) {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getSocialPostCommentsCountAsync(Async)");
@@ -2458,7 +3381,7 @@ public class SocialPostsApi {
             throw new ApiException("Missing the required parameter 'socialPostId' when calling getSocialPostCommentsCountAsync(Async)");
         }
 
-        return getSocialPostCommentsCountAsyncCall(socialProfileId, socialPostId, apiVersion, xApiVersion, _callback);
+        return getSocialPostCommentsCountAsyncCall(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2467,8 +3390,10 @@ public class SocialPostsApi {
      * Returns the count of comments for a specific social post.
      * @param socialProfileId  (required)
      * @param socialPostId  (required)
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2479,8 +3404,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSocialPostCommentsCountAsync(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSocialPostCommentsCountAsyncWithHttpInfo(socialProfileId, socialPostId, apiVersion, xApiVersion);
+    public Int32Envelope getSocialPostCommentsCountAsync(UUID socialProfileId, UUID socialPostId, String parentCommentId, String apiVersion, String xApiVersion, SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSocialPostCommentsCountAsyncWithHttpInfo(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2489,8 +3414,10 @@ public class SocialPostsApi {
      * Returns the count of comments for a specific social post.
      * @param socialProfileId  (required)
      * @param socialPostId  (required)
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2501,8 +3428,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSocialPostCommentsCountAsyncWithHttpInfo(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSocialPostCommentsCountAsyncValidateBeforeCall(socialProfileId, socialPostId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSocialPostCommentsCountAsyncWithHttpInfo(UUID socialProfileId, UUID socialPostId, String parentCommentId, String apiVersion, String xApiVersion, SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialPostCommentsCountAsyncValidateBeforeCall(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2512,8 +3439,10 @@ public class SocialPostsApi {
      * Returns the count of comments for a specific social post.
      * @param socialProfileId  (required)
      * @param socialPostId  (required)
+     * @param parentCommentId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostCommentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2525,9 +3454,9 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostCommentsCountAsyncAsync(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSocialPostCommentsCountAsyncAsync(UUID socialProfileId, UUID socialPostId, String parentCommentId, String apiVersion, String xApiVersion, SocialPostCommentDtoCollectionQueryParameters socialPostCommentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSocialPostCommentsCountAsyncValidateBeforeCall(socialProfileId, socialPostId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSocialPostCommentsCountAsyncValidateBeforeCall(socialProfileId, socialPostId, parentCommentId, apiVersion, xApiVersion, socialPostCommentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2696,6 +3625,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2707,7 +3637,7 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostReactionsAsyncCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSocialPostReactionsAsyncCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2721,7 +3651,7 @@ public class SocialPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialPostReactionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Reactions"
@@ -2755,6 +3685,8 @@ public class SocialPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2766,7 +3698,7 @@ public class SocialPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSocialPostReactionsAsyncValidateBeforeCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSocialPostReactionsAsyncValidateBeforeCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialPostId' is set
         if (socialPostId == null) {
             throw new ApiException("Missing the required parameter 'socialPostId' when calling getSocialPostReactionsAsync(Async)");
@@ -2777,7 +3709,7 @@ public class SocialPostsApi {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getSocialPostReactionsAsync(Async)");
         }
 
-        return getSocialPostReactionsAsyncCall(socialPostId, socialProfileId, apiVersion, xApiVersion, _callback);
+        return getSocialPostReactionsAsyncCall(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2788,6 +3720,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @return SocialReactionDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2798,8 +3731,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SocialReactionDtoListEnvelope getSocialPostReactionsAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SocialReactionDtoListEnvelope> localVarResp = getSocialPostReactionsAsyncWithHttpInfo(socialPostId, socialProfileId, apiVersion, xApiVersion);
+    public SocialReactionDtoListEnvelope getSocialPostReactionsAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SocialReactionDtoListEnvelope> localVarResp = getSocialPostReactionsAsyncWithHttpInfo(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2810,6 +3743,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SocialReactionDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2820,8 +3754,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SocialReactionDtoListEnvelope> getSocialPostReactionsAsyncWithHttpInfo(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSocialPostReactionsAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, null);
+    public ApiResponse<SocialReactionDtoListEnvelope> getSocialPostReactionsAsyncWithHttpInfo(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialPostReactionsAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SocialReactionDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2833,6 +3767,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2844,9 +3779,9 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostReactionsAsyncAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback<SocialReactionDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSocialPostReactionsAsyncAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters, final ApiCallback<SocialReactionDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSocialPostReactionsAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSocialPostReactionsAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SocialReactionDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2857,6 +3792,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2868,7 +3804,7 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostReactionsCountAsyncCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSocialPostReactionsCountAsyncCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2882,7 +3818,7 @@ public class SocialPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialPostReactionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/Count"
@@ -2916,6 +3852,8 @@ public class SocialPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2927,7 +3865,7 @@ public class SocialPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSocialPostReactionsCountAsyncValidateBeforeCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSocialPostReactionsCountAsyncValidateBeforeCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialPostId' is set
         if (socialPostId == null) {
             throw new ApiException("Missing the required parameter 'socialPostId' when calling getSocialPostReactionsCountAsync(Async)");
@@ -2938,7 +3876,7 @@ public class SocialPostsApi {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getSocialPostReactionsCountAsync(Async)");
         }
 
-        return getSocialPostReactionsCountAsyncCall(socialPostId, socialProfileId, apiVersion, xApiVersion, _callback);
+        return getSocialPostReactionsCountAsyncCall(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2949,6 +3887,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2959,8 +3898,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSocialPostReactionsCountAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSocialPostReactionsCountAsyncWithHttpInfo(socialPostId, socialProfileId, apiVersion, xApiVersion);
+    public Int32Envelope getSocialPostReactionsCountAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSocialPostReactionsCountAsyncWithHttpInfo(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2971,6 +3910,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2981,8 +3921,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSocialPostReactionsCountAsyncWithHttpInfo(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSocialPostReactionsCountAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSocialPostReactionsCountAsyncWithHttpInfo(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialPostReactionsCountAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2994,6 +3934,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostReactionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3005,9 +3946,9 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostReactionsCountAsyncAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSocialPostReactionsCountAsyncAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostReactionDtoCollectionQueryParameters socialPostReactionDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSocialPostReactionsCountAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSocialPostReactionsCountAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, socialPostReactionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3017,6 +3958,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3028,7 +3970,7 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostsAsyncCall(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSocialPostsAsyncCall(UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3042,7 +3984,7 @@ public class SocialPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialPostDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialPosts";
@@ -3075,6 +4017,8 @@ public class SocialPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3086,13 +4030,13 @@ public class SocialPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSocialPostsAsyncValidateBeforeCall(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSocialPostsAsyncValidateBeforeCall(UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialProfileId' is set
         if (socialProfileId == null) {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getSocialPostsAsync(Async)");
         }
 
-        return getSocialPostsAsyncCall(socialProfileId, apiVersion, xApiVersion, _callback);
+        return getSocialPostsAsyncCall(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3102,6 +4046,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @return SocialPostDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3112,8 +4057,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SocialPostDtoListEnvelope getSocialPostsAsync(UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SocialPostDtoListEnvelope> localVarResp = getSocialPostsAsyncWithHttpInfo(socialProfileId, apiVersion, xApiVersion);
+    public SocialPostDtoListEnvelope getSocialPostsAsync(UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SocialPostDtoListEnvelope> localVarResp = getSocialPostsAsyncWithHttpInfo(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3123,6 +4068,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SocialPostDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3133,8 +4079,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SocialPostDtoListEnvelope> getSocialPostsAsyncWithHttpInfo(UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSocialPostsAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, null);
+    public ApiResponse<SocialPostDtoListEnvelope> getSocialPostsAsyncWithHttpInfo(UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialPostsAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SocialPostDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3145,6 +4091,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3156,9 +4103,9 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostsAsyncAsync(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback<SocialPostDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSocialPostsAsyncAsync(UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters, final ApiCallback<SocialPostDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSocialPostsAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSocialPostsAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SocialPostDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3168,6 +4115,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3179,7 +4127,7 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostsCountAsyncCall(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSocialPostsCountAsyncCall(UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3193,7 +4141,7 @@ public class SocialPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialPostDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialPosts/Count";
@@ -3226,6 +4174,8 @@ public class SocialPostsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3237,13 +4187,13 @@ public class SocialPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSocialPostsCountAsyncValidateBeforeCall(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSocialPostsCountAsyncValidateBeforeCall(UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialProfileId' is set
         if (socialProfileId == null) {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getSocialPostsCountAsync(Async)");
         }
 
-        return getSocialPostsCountAsyncCall(socialProfileId, apiVersion, xApiVersion, _callback);
+        return getSocialPostsCountAsyncCall(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3253,6 +4203,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3263,8 +4214,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSocialPostsCountAsync(UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSocialPostsCountAsyncWithHttpInfo(socialProfileId, apiVersion, xApiVersion);
+    public Int32Envelope getSocialPostsCountAsync(UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSocialPostsCountAsyncWithHttpInfo(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3274,6 +4225,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3284,8 +4236,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSocialPostsCountAsyncWithHttpInfo(UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSocialPostsCountAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSocialPostsCountAsyncWithHttpInfo(UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSocialPostsCountAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3296,6 +4248,7 @@ public class SocialPostsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialPostDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3307,9 +4260,9 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSocialPostsCountAsyncAsync(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSocialPostsCountAsyncAsync(UUID socialProfileId, String apiVersion, String xApiVersion, SocialPostDtoCollectionQueryParameters socialPostDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSocialPostsCountAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSocialPostsCountAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, socialPostDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3320,7 +4273,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3332,7 +4285,7 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSocialPostAsyncCall(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchSocialPostAsyncCall(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3346,7 +4299,7 @@ public class SocialPostsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}"
@@ -3393,7 +4346,7 @@ public class SocialPostsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchSocialPostAsyncValidateBeforeCall(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSocialPostAsyncValidateBeforeCall(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialProfileId' is set
         if (socialProfileId == null) {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling patchSocialPostAsync(Async)");
@@ -3404,7 +4357,7 @@ public class SocialPostsApi {
             throw new ApiException("Missing the required parameter 'socialPostId' when calling patchSocialPostAsync(Async)");
         }
 
-        return patchSocialPostAsyncCall(socialProfileId, socialPostId, apiVersion, xApiVersion, operation, _callback);
+        return patchSocialPostAsyncCall(socialProfileId, socialPostId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -3415,7 +4368,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3426,8 +4379,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchSocialPostAsync(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchSocialPostAsyncWithHttpInfo(socialProfileId, socialPostId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchSocialPostAsync(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchSocialPostAsyncWithHttpInfo(socialProfileId, socialPostId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -3438,7 +4391,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3449,8 +4402,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchSocialPostAsyncWithHttpInfo(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchSocialPostAsyncValidateBeforeCall(socialProfileId, socialPostId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchSocialPostAsyncWithHttpInfo(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchSocialPostAsyncValidateBeforeCall(socialProfileId, socialPostId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3462,7 +4415,7 @@ public class SocialPostsApi {
      * @param socialPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3474,10 +4427,197 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSocialPostAsyncAsync(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchSocialPostAsyncAsync(UUID socialProfileId, UUID socialPostId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchSocialPostAsyncValidateBeforeCall(socialProfileId, socialPostId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchSocialPostAsyncValidateBeforeCall(socialProfileId, socialPostId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateSocialCommentReactionAsync
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionUpdateDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSocialCommentReactionAsyncCall(UUID socialPostId, UUID commentId, UUID reactionId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = socialReactionUpdateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}"
+            .replace("{" + "socialPostId" + "}", localVarApiClient.escapeString(socialPostId.toString()))
+            .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()))
+            .replace("{" + "reactionId" + "}", localVarApiClient.escapeString(reactionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (socialProfileId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("socialProfileId", socialProfileId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateSocialCommentReactionAsyncValidateBeforeCall(UUID socialPostId, UUID commentId, UUID reactionId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'socialPostId' is set
+        if (socialPostId == null) {
+            throw new ApiException("Missing the required parameter 'socialPostId' when calling updateSocialCommentReactionAsync(Async)");
+        }
+
+        // verify the required parameter 'commentId' is set
+        if (commentId == null) {
+            throw new ApiException("Missing the required parameter 'commentId' when calling updateSocialCommentReactionAsync(Async)");
+        }
+
+        // verify the required parameter 'reactionId' is set
+        if (reactionId == null) {
+            throw new ApiException("Missing the required parameter 'reactionId' when calling updateSocialCommentReactionAsync(Async)");
+        }
+
+        // verify the required parameter 'socialProfileId' is set
+        if (socialProfileId == null) {
+            throw new ApiException("Missing the required parameter 'socialProfileId' when calling updateSocialCommentReactionAsync(Async)");
+        }
+
+        return updateSocialCommentReactionAsyncCall(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto, _callback);
+
+    }
+
+    /**
+     * Update a social comment reaction
+     * Updates an existing reaction on a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionUpdateDto  (optional)
+     * @return SocialCommentReactionDtoEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SocialCommentReactionDtoEnvelope updateSocialCommentReactionAsync(UUID socialPostId, UUID commentId, UUID reactionId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto) throws ApiException {
+        ApiResponse<SocialCommentReactionDtoEnvelope> localVarResp = updateSocialCommentReactionAsyncWithHttpInfo(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a social comment reaction
+     * Updates an existing reaction on a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionUpdateDto  (optional)
+     * @return ApiResponse&lt;SocialCommentReactionDtoEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SocialCommentReactionDtoEnvelope> updateSocialCommentReactionAsyncWithHttpInfo(UUID socialPostId, UUID commentId, UUID reactionId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto) throws ApiException {
+        okhttp3.Call localVarCall = updateSocialCommentReactionAsyncValidateBeforeCall(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto, null);
+        Type localVarReturnType = new TypeToken<SocialCommentReactionDtoEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a social comment reaction (asynchronously)
+     * Updates an existing reaction on a specific social comment.
+     * @param socialPostId  (required)
+     * @param commentId  (required)
+     * @param reactionId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param socialReactionUpdateDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSocialCommentReactionAsyncAsync(UUID socialPostId, UUID commentId, UUID reactionId, UUID socialProfileId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto, final ApiCallback<SocialCommentReactionDtoEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateSocialCommentReactionAsyncValidateBeforeCall(socialPostId, commentId, reactionId, socialProfileId, apiVersion, xApiVersion, socialReactionUpdateDto, _callback);
+        Type localVarReturnType = new TypeToken<SocialCommentReactionDtoEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4112,7 +5252,7 @@ public class SocialPostsApi {
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialReactionUpdateDto  (optional)
-     * @return EmptyEnvelope
+     * @return SocialPostReactionDtoEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4122,8 +5262,8 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope updateSocialPostReactionAsync(UUID socialProfileId, UUID socialPostId, UUID reactionId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = updateSocialPostReactionAsyncWithHttpInfo(socialProfileId, socialPostId, reactionId, apiVersion, xApiVersion, socialReactionUpdateDto);
+    public SocialPostReactionDtoEnvelope updateSocialPostReactionAsync(UUID socialProfileId, UUID socialPostId, UUID reactionId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto) throws ApiException {
+        ApiResponse<SocialPostReactionDtoEnvelope> localVarResp = updateSocialPostReactionAsyncWithHttpInfo(socialProfileId, socialPostId, reactionId, apiVersion, xApiVersion, socialReactionUpdateDto);
         return localVarResp.getData();
     }
 
@@ -4136,7 +5276,7 @@ public class SocialPostsApi {
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialReactionUpdateDto  (optional)
-     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @return ApiResponse&lt;SocialPostReactionDtoEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4146,9 +5286,9 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> updateSocialPostReactionAsyncWithHttpInfo(UUID socialProfileId, UUID socialPostId, UUID reactionId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto) throws ApiException {
+    public ApiResponse<SocialPostReactionDtoEnvelope> updateSocialPostReactionAsyncWithHttpInfo(UUID socialProfileId, UUID socialPostId, UUID reactionId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto) throws ApiException {
         okhttp3.Call localVarCall = updateSocialPostReactionAsyncValidateBeforeCall(socialProfileId, socialPostId, reactionId, apiVersion, xApiVersion, socialReactionUpdateDto, null);
-        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<SocialPostReactionDtoEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4172,10 +5312,186 @@ public class SocialPostsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSocialPostReactionAsyncAsync(UUID socialProfileId, UUID socialPostId, UUID reactionId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call updateSocialPostReactionAsyncAsync(UUID socialProfileId, UUID socialPostId, UUID reactionId, String apiVersion, String xApiVersion, SocialReactionUpdateDto socialReactionUpdateDto, final ApiCallback<SocialPostReactionDtoEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateSocialPostReactionAsyncValidateBeforeCall(socialProfileId, socialPostId, reactionId, apiVersion, xApiVersion, socialReactionUpdateDto, _callback);
-        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<SocialPostReactionDtoEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for uploadSocialPostImageAttachmentAsync
+     * @param socialPostId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _file  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call uploadSocialPostImageAttachmentAsyncCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, File _file, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image"
+            .replace("{" + "socialPostId" + "}", localVarApiClient.escapeString(socialPostId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (_file != null) {
+            localVarFormParams.put("file", _file);
+        }
+
+        if (socialProfileId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("socialProfileId", socialProfileId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data",
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call uploadSocialPostImageAttachmentAsyncValidateBeforeCall(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, File _file, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'socialPostId' is set
+        if (socialPostId == null) {
+            throw new ApiException("Missing the required parameter 'socialPostId' when calling uploadSocialPostImageAttachmentAsync(Async)");
+        }
+
+        // verify the required parameter 'socialProfileId' is set
+        if (socialProfileId == null) {
+            throw new ApiException("Missing the required parameter 'socialProfileId' when calling uploadSocialPostImageAttachmentAsync(Async)");
+        }
+
+        return uploadSocialPostImageAttachmentAsyncCall(socialPostId, socialProfileId, apiVersion, xApiVersion, _file, _callback);
+
+    }
+
+    /**
+     * Upload a social post image attachment
+     * Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+     * @param socialPostId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _file  (optional)
+     * @return SocialPostAttachmentDtoEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SocialPostAttachmentDtoEnvelope uploadSocialPostImageAttachmentAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, File _file) throws ApiException {
+        ApiResponse<SocialPostAttachmentDtoEnvelope> localVarResp = uploadSocialPostImageAttachmentAsyncWithHttpInfo(socialPostId, socialProfileId, apiVersion, xApiVersion, _file);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Upload a social post image attachment
+     * Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+     * @param socialPostId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _file  (optional)
+     * @return ApiResponse&lt;SocialPostAttachmentDtoEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SocialPostAttachmentDtoEnvelope> uploadSocialPostImageAttachmentAsyncWithHttpInfo(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, File _file) throws ApiException {
+        okhttp3.Call localVarCall = uploadSocialPostImageAttachmentAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, _file, null);
+        Type localVarReturnType = new TypeToken<SocialPostAttachmentDtoEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Upload a social post image attachment (asynchronously)
+     * Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+     * @param socialPostId  (required)
+     * @param socialProfileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _file  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call uploadSocialPostImageAttachmentAsyncAsync(UUID socialPostId, UUID socialProfileId, String apiVersion, String xApiVersion, File _file, final ApiCallback<SocialPostAttachmentDtoEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = uploadSocialPostImageAttachmentAsyncValidateBeforeCall(socialPostId, socialProfileId, apiVersion, xApiVersion, _file, _callback);
+        Type localVarReturnType = new TypeToken<SocialPostAttachmentDtoEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

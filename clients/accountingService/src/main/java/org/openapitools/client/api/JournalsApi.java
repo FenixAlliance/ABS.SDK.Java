@@ -27,19 +27,22 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.AssignJournalToBookRequest;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.JournalCreateDto;
+import org.openapitools.client.model.JournalDtoCollectionQueryParameters;
 import org.openapitools.client.model.JournalDtoEnvelope;
 import org.openapitools.client.model.JournalDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.JournalEntryCreateDto;
+import org.openapitools.client.model.JournalEntryDtoCollectionQueryParameters;
 import org.openapitools.client.model.JournalEntryDtoEnvelope;
 import org.openapitools.client.model.JournalEntryDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.JournalEntryUpdateDto;
 import org.openapitools.client.model.JournalUpdateDto;
 import org.openapitools.client.model.MoneyEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ReverseJournalEntryRequest;
 import java.util.UUID;
 
@@ -93,6 +96,7 @@ public class JournalsApi {
      * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -104,7 +108,7 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aggregateJournalEntryCreditsAsyncCall(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call aggregateJournalEntryCreditsAsyncCall(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,7 +122,7 @@ public class JournalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = journalEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits"
@@ -156,6 +160,8 @@ public class JournalsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -167,7 +173,7 @@ public class JournalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aggregateJournalEntryCreditsAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call aggregateJournalEntryCreditsAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling aggregateJournalEntryCreditsAsync(Async)");
@@ -178,7 +184,7 @@ public class JournalsApi {
             throw new ApiException("Missing the required parameter 'journalId' when calling aggregateJournalEntryCreditsAsync(Async)");
         }
 
-        return aggregateJournalEntryCreditsAsyncCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, _callback);
+        return aggregateJournalEntryCreditsAsyncCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -190,6 +196,7 @@ public class JournalsApi {
      * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -200,8 +207,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public MoneyEnvelope aggregateJournalEntryCreditsAsync(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<MoneyEnvelope> localVarResp = aggregateJournalEntryCreditsAsyncWithHttpInfo(tenantId, journalId, currencyId, apiVersion, xApiVersion);
+    public MoneyEnvelope aggregateJournalEntryCreditsAsync(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<MoneyEnvelope> localVarResp = aggregateJournalEntryCreditsAsyncWithHttpInfo(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -213,6 +220,7 @@ public class JournalsApi {
      * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;MoneyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -223,8 +231,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MoneyEnvelope> aggregateJournalEntryCreditsAsyncWithHttpInfo(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = aggregateJournalEntryCreditsAsyncValidateBeforeCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, null);
+    public ApiResponse<MoneyEnvelope> aggregateJournalEntryCreditsAsyncWithHttpInfo(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = aggregateJournalEntryCreditsAsyncValidateBeforeCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -237,6 +245,7 @@ public class JournalsApi {
      * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -248,9 +257,9 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aggregateJournalEntryCreditsAsyncAsync(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call aggregateJournalEntryCreditsAsyncAsync(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = aggregateJournalEntryCreditsAsyncValidateBeforeCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = aggregateJournalEntryCreditsAsyncValidateBeforeCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -262,6 +271,7 @@ public class JournalsApi {
      * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -273,7 +283,7 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aggregateJournalEntryDebitsAsyncCall(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call aggregateJournalEntryDebitsAsyncCall(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -287,7 +297,7 @@ public class JournalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = journalEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits"
@@ -325,6 +335,8 @@ public class JournalsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -336,7 +348,7 @@ public class JournalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aggregateJournalEntryDebitsAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call aggregateJournalEntryDebitsAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling aggregateJournalEntryDebitsAsync(Async)");
@@ -347,7 +359,7 @@ public class JournalsApi {
             throw new ApiException("Missing the required parameter 'journalId' when calling aggregateJournalEntryDebitsAsync(Async)");
         }
 
-        return aggregateJournalEntryDebitsAsyncCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, _callback);
+        return aggregateJournalEntryDebitsAsyncCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -359,6 +371,7 @@ public class JournalsApi {
      * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -369,8 +382,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public MoneyEnvelope aggregateJournalEntryDebitsAsync(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<MoneyEnvelope> localVarResp = aggregateJournalEntryDebitsAsyncWithHttpInfo(tenantId, journalId, currencyId, apiVersion, xApiVersion);
+    public MoneyEnvelope aggregateJournalEntryDebitsAsync(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<MoneyEnvelope> localVarResp = aggregateJournalEntryDebitsAsyncWithHttpInfo(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -382,6 +395,7 @@ public class JournalsApi {
      * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;MoneyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -392,8 +406,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MoneyEnvelope> aggregateJournalEntryDebitsAsyncWithHttpInfo(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = aggregateJournalEntryDebitsAsyncValidateBeforeCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, null);
+    public ApiResponse<MoneyEnvelope> aggregateJournalEntryDebitsAsyncWithHttpInfo(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = aggregateJournalEntryDebitsAsyncValidateBeforeCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -406,6 +420,7 @@ public class JournalsApi {
      * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -417,18 +432,20 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aggregateJournalEntryDebitsAsyncAsync(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call aggregateJournalEntryDebitsAsyncAsync(UUID tenantId, UUID journalId, String currencyId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = aggregateJournalEntryDebitsAsyncValidateBeforeCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = aggregateJournalEntryDebitsAsyncValidateBeforeCall(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for countJournalsAsync
+     * Build call for assignJournalToBookAsync
      * @param tenantId  (required)
+     * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param assignJournalToBookRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -436,11 +453,12 @@ public class JournalsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countJournalsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignJournalToBookAsyncCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, AssignJournalToBookRequest assignJournalToBookRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -454,7 +472,176 @@ public class JournalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = assignJournalToBookRequest;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/AccountingService/Journals/{journalId}/AssignToBook"
+            .replace("{" + "journalId" + "}", localVarApiClient.escapeString(journalId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call assignJournalToBookAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, AssignJournalToBookRequest assignJournalToBookRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling assignJournalToBookAsync(Async)");
+        }
+
+        // verify the required parameter 'journalId' is set
+        if (journalId == null) {
+            throw new ApiException("Missing the required parameter 'journalId' when calling assignJournalToBookAsync(Async)");
+        }
+
+        return assignJournalToBookAsyncCall(tenantId, journalId, apiVersion, xApiVersion, assignJournalToBookRequest, _callback);
+
+    }
+
+    /**
+     * Bind a journal to a financial book
+     * Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+     * @param tenantId  (required)
+     * @param journalId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param assignJournalToBookRequest  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope assignJournalToBookAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, AssignJournalToBookRequest assignJournalToBookRequest) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = assignJournalToBookAsyncWithHttpInfo(tenantId, journalId, apiVersion, xApiVersion, assignJournalToBookRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Bind a journal to a financial book
+     * Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+     * @param tenantId  (required)
+     * @param journalId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param assignJournalToBookRequest  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> assignJournalToBookAsyncWithHttpInfo(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, AssignJournalToBookRequest assignJournalToBookRequest) throws ApiException {
+        okhttp3.Call localVarCall = assignJournalToBookAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, assignJournalToBookRequest, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Bind a journal to a financial book (asynchronously)
+     * Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+     * @param tenantId  (required)
+     * @param journalId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param assignJournalToBookRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call assignJournalToBookAsyncAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, AssignJournalToBookRequest assignJournalToBookRequest, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = assignJournalToBookAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, assignJournalToBookRequest, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for countJournalsAsync
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call countJournalsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = journalDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Journals/Count";
@@ -487,6 +674,8 @@ public class JournalsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -498,13 +687,13 @@ public class JournalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countJournalsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countJournalsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countJournalsAsync(Async)");
         }
 
-        return countJournalsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return countJournalsAsyncCall(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -514,6 +703,7 @@ public class JournalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -524,8 +714,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countJournalsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countJournalsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope countJournalsAsync(UUID tenantId, String apiVersion, String xApiVersion, JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countJournalsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -535,6 +725,7 @@ public class JournalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -545,8 +736,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countJournalsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countJournalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countJournalsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countJournalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -557,6 +748,7 @@ public class JournalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -568,9 +760,9 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countJournalsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countJournalsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countJournalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countJournalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1398,6 +1590,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1409,7 +1602,7 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getJournalEntriesAsyncCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getJournalEntriesAsyncCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1423,7 +1616,7 @@ public class JournalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = journalEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Journals/{journalId}/Entries"
@@ -1457,6 +1650,8 @@ public class JournalsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1468,7 +1663,7 @@ public class JournalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getJournalEntriesAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getJournalEntriesAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getJournalEntriesAsync(Async)");
@@ -1479,7 +1674,7 @@ public class JournalsApi {
             throw new ApiException("Missing the required parameter 'journalId' when calling getJournalEntriesAsync(Async)");
         }
 
-        return getJournalEntriesAsyncCall(tenantId, journalId, apiVersion, xApiVersion, _callback);
+        return getJournalEntriesAsyncCall(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1490,6 +1685,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return JournalEntryDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1500,8 +1696,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public JournalEntryDtoIReadOnlyListEnvelope getJournalEntriesAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<JournalEntryDtoIReadOnlyListEnvelope> localVarResp = getJournalEntriesAsyncWithHttpInfo(tenantId, journalId, apiVersion, xApiVersion);
+    public JournalEntryDtoIReadOnlyListEnvelope getJournalEntriesAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<JournalEntryDtoIReadOnlyListEnvelope> localVarResp = getJournalEntriesAsyncWithHttpInfo(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1512,6 +1708,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;JournalEntryDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1522,8 +1719,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<JournalEntryDtoIReadOnlyListEnvelope> getJournalEntriesAsyncWithHttpInfo(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getJournalEntriesAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, null);
+    public ApiResponse<JournalEntryDtoIReadOnlyListEnvelope> getJournalEntriesAsyncWithHttpInfo(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getJournalEntriesAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<JournalEntryDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1535,6 +1732,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1546,9 +1744,9 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getJournalEntriesAsyncAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, final ApiCallback<JournalEntryDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getJournalEntriesAsyncAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback<JournalEntryDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getJournalEntriesAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getJournalEntriesAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<JournalEntryDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1559,6 +1757,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1570,7 +1769,7 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getJournalEntriesCountAsyncCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getJournalEntriesCountAsyncCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1584,7 +1783,7 @@ public class JournalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = journalEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Journals/{journalId}/Entries/Count"
@@ -1618,6 +1817,8 @@ public class JournalsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1629,7 +1830,7 @@ public class JournalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getJournalEntriesCountAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getJournalEntriesCountAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getJournalEntriesCountAsync(Async)");
@@ -1640,7 +1841,7 @@ public class JournalsApi {
             throw new ApiException("Missing the required parameter 'journalId' when calling getJournalEntriesCountAsync(Async)");
         }
 
-        return getJournalEntriesCountAsyncCall(tenantId, journalId, apiVersion, xApiVersion, _callback);
+        return getJournalEntriesCountAsyncCall(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1651,6 +1852,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1661,8 +1863,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getJournalEntriesCountAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getJournalEntriesCountAsyncWithHttpInfo(tenantId, journalId, apiVersion, xApiVersion);
+    public Int32Envelope getJournalEntriesCountAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getJournalEntriesCountAsyncWithHttpInfo(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1673,6 +1875,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1683,8 +1886,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getJournalEntriesCountAsyncWithHttpInfo(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getJournalEntriesCountAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getJournalEntriesCountAsyncWithHttpInfo(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getJournalEntriesCountAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1696,6 +1899,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1707,9 +1911,9 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getJournalEntriesCountAsyncAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getJournalEntriesCountAsyncAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getJournalEntriesCountAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getJournalEntriesCountAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1890,6 +2094,7 @@ public class JournalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1901,7 +2106,7 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getJournalsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getJournalsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1915,7 +2120,7 @@ public class JournalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = journalDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Journals";
@@ -1948,6 +2153,8 @@ public class JournalsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1959,13 +2166,13 @@ public class JournalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getJournalsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getJournalsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getJournalsAsync(Async)");
         }
 
-        return getJournalsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getJournalsAsyncCall(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1975,6 +2182,7 @@ public class JournalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @return JournalDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1985,8 +2193,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public JournalDtoIReadOnlyListEnvelope getJournalsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<JournalDtoIReadOnlyListEnvelope> localVarResp = getJournalsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public JournalDtoIReadOnlyListEnvelope getJournalsAsync(UUID tenantId, String apiVersion, String xApiVersion, JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<JournalDtoIReadOnlyListEnvelope> localVarResp = getJournalsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1996,6 +2204,7 @@ public class JournalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;JournalDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2006,8 +2215,8 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<JournalDtoIReadOnlyListEnvelope> getJournalsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getJournalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<JournalDtoIReadOnlyListEnvelope> getJournalsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getJournalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<JournalDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2018,6 +2227,7 @@ public class JournalsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2029,9 +2239,9 @@ public class JournalsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getJournalsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<JournalDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getJournalsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters, final ApiCallback<JournalDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getJournalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getJournalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<JournalDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2042,7 +2252,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2054,7 +2264,7 @@ public class JournalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchJournalAsyncCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchJournalAsyncCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2068,7 +2278,7 @@ public class JournalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Journals/{journalId}"
@@ -2115,7 +2325,7 @@ public class JournalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchJournalAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchJournalAsyncValidateBeforeCall(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchJournalAsync(Async)");
@@ -2126,7 +2336,7 @@ public class JournalsApi {
             throw new ApiException("Missing the required parameter 'journalId' when calling patchJournalAsync(Async)");
         }
 
-        return patchJournalAsyncCall(tenantId, journalId, apiVersion, xApiVersion, operation, _callback);
+        return patchJournalAsyncCall(tenantId, journalId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2137,7 +2347,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2148,8 +2358,8 @@ public class JournalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchJournalAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchJournalAsyncWithHttpInfo(tenantId, journalId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchJournalAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchJournalAsyncWithHttpInfo(tenantId, journalId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2160,7 +2370,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2171,8 +2381,8 @@ public class JournalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchJournalAsyncWithHttpInfo(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchJournalAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchJournalAsyncWithHttpInfo(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchJournalAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2184,7 +2394,7 @@ public class JournalsApi {
      * @param journalId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2196,9 +2406,9 @@ public class JournalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchJournalAsyncAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchJournalAsyncAsync(UUID tenantId, UUID journalId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchJournalAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchJournalAsyncValidateBeforeCall(tenantId, journalId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2210,7 +2420,7 @@ public class JournalsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2222,7 +2432,7 @@ public class JournalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchJournalEntryAsyncCall(UUID tenantId, UUID journalId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchJournalEntryAsyncCall(UUID tenantId, UUID journalId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2236,7 +2446,7 @@ public class JournalsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}"
@@ -2284,7 +2494,7 @@ public class JournalsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchJournalEntryAsyncValidateBeforeCall(UUID tenantId, UUID journalId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchJournalEntryAsyncValidateBeforeCall(UUID tenantId, UUID journalId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchJournalEntryAsync(Async)");
@@ -2300,7 +2510,7 @@ public class JournalsApi {
             throw new ApiException("Missing the required parameter 'entryId' when calling patchJournalEntryAsync(Async)");
         }
 
-        return patchJournalEntryAsyncCall(tenantId, journalId, entryId, apiVersion, xApiVersion, operation, _callback);
+        return patchJournalEntryAsyncCall(tenantId, journalId, entryId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2312,7 +2522,7 @@ public class JournalsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2323,8 +2533,8 @@ public class JournalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchJournalEntryAsync(UUID tenantId, UUID journalId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchJournalEntryAsyncWithHttpInfo(tenantId, journalId, entryId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchJournalEntryAsync(UUID tenantId, UUID journalId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchJournalEntryAsyncWithHttpInfo(tenantId, journalId, entryId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2336,7 +2546,7 @@ public class JournalsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2347,8 +2557,8 @@ public class JournalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchJournalEntryAsyncWithHttpInfo(UUID tenantId, UUID journalId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchJournalEntryAsyncValidateBeforeCall(tenantId, journalId, entryId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchJournalEntryAsyncWithHttpInfo(UUID tenantId, UUID journalId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchJournalEntryAsyncValidateBeforeCall(tenantId, journalId, entryId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2361,7 +2571,7 @@ public class JournalsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2373,9 +2583,9 @@ public class JournalsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchJournalEntryAsyncAsync(UUID tenantId, UUID journalId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchJournalEntryAsyncAsync(UUID tenantId, UUID journalId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchJournalEntryAsyncValidateBeforeCall(tenantId, journalId, entryId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchJournalEntryAsyncValidateBeforeCall(tenantId, journalId, entryId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

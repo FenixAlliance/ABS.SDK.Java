@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * OrderCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:04:46.528394700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:31:04.230073-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class OrderCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -91,6 +91,10 @@ public class OrderCreateDto {
   public static final String SERIALIZED_NAME_ORGANIZATION_ID = "organizationId";
   @SerializedName(SERIALIZED_NAME_ORGANIZATION_ID)
   private String organizationId;
+
+  public static final String SERIALIZED_NAME_RECEIVER_TENANT_ID = "receiverTenantId";
+  @SerializedName(SERIALIZED_NAME_RECEIVER_TENANT_ID)
+  private String receiverTenantId;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -566,10 +570,6 @@ public class OrderCreateDto {
   @SerializedName(SERIALIZED_NAME_FREIGHT_TERMS)
   private FreightTermsEnum freightTerms;
 
-  public static final String SERIALIZED_NAME_RECEIVER_TENANT_ID = "receiverTenantId";
-  @SerializedName(SERIALIZED_NAME_RECEIVER_TENANT_ID)
-  private String receiverTenantId;
-
   public static final String SERIALIZED_NAME_SHIPPING_LOCATION_ID = "shippingLocationId";
   @SerializedName(SERIALIZED_NAME_SHIPPING_LOCATION_ID)
   private String shippingLocationId;
@@ -785,6 +785,25 @@ public class OrderCreateDto {
 
   public void setOrganizationId(String organizationId) {
     this.organizationId = organizationId;
+  }
+
+
+  public OrderCreateDto receiverTenantId(String receiverTenantId) {
+    this.receiverTenantId = receiverTenantId;
+    return this;
+  }
+
+  /**
+   * Get receiverTenantId
+   * @return receiverTenantId
+   */
+  @javax.annotation.Nullable
+  public String getReceiverTenantId() {
+    return receiverTenantId;
+  }
+
+  public void setReceiverTenantId(String receiverTenantId) {
+    this.receiverTenantId = receiverTenantId;
   }
 
 
@@ -1700,25 +1719,6 @@ public class OrderCreateDto {
   }
 
 
-  public OrderCreateDto receiverTenantId(String receiverTenantId) {
-    this.receiverTenantId = receiverTenantId;
-    return this;
-  }
-
-  /**
-   * Get receiverTenantId
-   * @return receiverTenantId
-   */
-  @javax.annotation.Nullable
-  public String getReceiverTenantId() {
-    return receiverTenantId;
-  }
-
-  public void setReceiverTenantId(String receiverTenantId) {
-    this.receiverTenantId = receiverTenantId;
-  }
-
-
   public OrderCreateDto shippingLocationId(String shippingLocationId) {
     this.shippingLocationId = shippingLocationId;
     return this;
@@ -1955,6 +1955,7 @@ public class OrderCreateDto {
         Objects.equals(this.individualId, orderCreateDto.individualId) &&
         Objects.equals(this.paymentTermId, orderCreateDto.paymentTermId) &&
         Objects.equals(this.organizationId, orderCreateDto.organizationId) &&
+        Objects.equals(this.receiverTenantId, orderCreateDto.receiverTenantId) &&
         Objects.equals(this.firstName, orderCreateDto.firstName) &&
         Objects.equals(this.lastName, orderCreateDto.lastName) &&
         Objects.equals(this.companyName, orderCreateDto.companyName) &&
@@ -2003,7 +2004,6 @@ public class OrderCreateDto {
         Objects.equals(this.orderStatus, orderCreateDto.orderStatus) &&
         Objects.equals(this.quoteStatus, orderCreateDto.quoteStatus) &&
         Objects.equals(this.freightTerms, orderCreateDto.freightTerms) &&
-        Objects.equals(this.receiverTenantId, orderCreateDto.receiverTenantId) &&
         Objects.equals(this.shippingLocationId, orderCreateDto.shippingLocationId) &&
         Objects.equals(this.qualifiedIdentifier, orderCreateDto.qualifiedIdentifier) &&
         Objects.equals(this.totalTaxesInUsd, orderCreateDto.totalTaxesInUsd) &&
@@ -2023,7 +2023,7 @@ public class OrderCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, closed, title, priceListId, description, individualId, paymentTermId, organizationId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, forexRate, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, cartId, quoteId, walletId, parentOrderId, shippingMethodId, billingLocationId, customerNotes, orderStatus, quoteStatus, freightTerms, receiverTenantId, shippingLocationId, qualifiedIdentifier, totalTaxesInUsd, totalDiscountsInUsd, totalSurchargesInUsd, totalShippingCostInUsd, totalShippingTaxInUsd, totalAmountInUsd, effectiveTo, effectiveFrom, orderLines);
+    return Objects.hash(id, timestamp, closed, title, priceListId, description, individualId, paymentTermId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, forexRate, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, cartId, quoteId, walletId, parentOrderId, shippingMethodId, billingLocationId, customerNotes, orderStatus, quoteStatus, freightTerms, shippingLocationId, qualifiedIdentifier, totalTaxesInUsd, totalDiscountsInUsd, totalSurchargesInUsd, totalShippingCostInUsd, totalShippingTaxInUsd, totalAmountInUsd, effectiveTo, effectiveFrom, orderLines);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2046,6 +2046,7 @@ public class OrderCreateDto {
     sb.append("    individualId: ").append(toIndentedString(individualId)).append("\n");
     sb.append("    paymentTermId: ").append(toIndentedString(paymentTermId)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
+    sb.append("    receiverTenantId: ").append(toIndentedString(receiverTenantId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
@@ -2094,7 +2095,6 @@ public class OrderCreateDto {
     sb.append("    orderStatus: ").append(toIndentedString(orderStatus)).append("\n");
     sb.append("    quoteStatus: ").append(toIndentedString(quoteStatus)).append("\n");
     sb.append("    freightTerms: ").append(toIndentedString(freightTerms)).append("\n");
-    sb.append("    receiverTenantId: ").append(toIndentedString(receiverTenantId)).append("\n");
     sb.append("    shippingLocationId: ").append(toIndentedString(shippingLocationId)).append("\n");
     sb.append("    qualifiedIdentifier: ").append(toIndentedString(qualifiedIdentifier)).append("\n");
     sb.append("    totalTaxesInUsd: ").append(toIndentedString(totalTaxesInUsd)).append("\n");
@@ -2137,6 +2137,7 @@ public class OrderCreateDto {
     openapiFields.add("individualId");
     openapiFields.add("paymentTermId");
     openapiFields.add("organizationId");
+    openapiFields.add("receiverTenantId");
     openapiFields.add("firstName");
     openapiFields.add("lastName");
     openapiFields.add("companyName");
@@ -2185,7 +2186,6 @@ public class OrderCreateDto {
     openapiFields.add("orderStatus");
     openapiFields.add("quoteStatus");
     openapiFields.add("freightTerms");
-    openapiFields.add("receiverTenantId");
     openapiFields.add("shippingLocationId");
     openapiFields.add("qualifiedIdentifier");
     openapiFields.add("totalTaxesInUsd");
@@ -2243,6 +2243,9 @@ public class OrderCreateDto {
       }
       if ((jsonObj.get("organizationId") != null && !jsonObj.get("organizationId").isJsonNull()) && !jsonObj.get("organizationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `organizationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organizationId").toString()));
+      }
+      if ((jsonObj.get("receiverTenantId") != null && !jsonObj.get("receiverTenantId").isJsonNull()) && !jsonObj.get("receiverTenantId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `receiverTenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiverTenantId").toString()));
       }
       if ((jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonNull()) && !jsonObj.get("firstName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
@@ -2368,9 +2371,6 @@ public class OrderCreateDto {
       // validate the optional field `freightTerms`
       if (jsonObj.get("freightTerms") != null && !jsonObj.get("freightTerms").isJsonNull()) {
         FreightTermsEnum.validateJsonElement(jsonObj.get("freightTerms"));
-      }
-      if ((jsonObj.get("receiverTenantId") != null && !jsonObj.get("receiverTenantId").isJsonNull()) && !jsonObj.get("receiverTenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `receiverTenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiverTenantId").toString()));
       }
       if ((jsonObj.get("shippingLocationId") != null && !jsonObj.get("shippingLocationId").isJsonNull()) && !jsonObj.get("shippingLocationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shippingLocationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shippingLocationId").toString()));

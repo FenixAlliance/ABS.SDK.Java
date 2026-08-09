@@ -23,7 +23,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countWebPagesAsync"></a>
 # **countWebPagesAsync**
-> Int32Envelope countWebPagesAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countWebPagesAsync(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters)
 
 Count web pages
 
@@ -47,8 +47,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters = new WebPageDtoCollectionQueryParameters(); // WebPageDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countWebPagesAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countWebPagesAsync(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebPagesApi#countWebPagesAsync");
@@ -68,6 +69,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webPageDtoCollectionQueryParameters** | [**WebPageDtoCollectionQueryParameters**](WebPageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -79,7 +81,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -366,7 +368,7 @@ No authorization required
 
 <a id="getCategoriesByWebPageAsync"></a>
 # **getCategoriesByWebPageAsync**
-> WebPageCategoryDtoListEnvelope getCategoriesByWebPageAsync(webPageId, apiVersion, xApiVersion)
+> WebPageCategoryDtoListEnvelope getCategoriesByWebPageAsync(webPageId, apiVersion, xApiVersion, webPageCategoryDtoCollectionQueryParameters)
 
 Get categories by web page
 
@@ -390,8 +392,9 @@ public class Example {
     UUID webPageId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebPageCategoryDtoCollectionQueryParameters webPageCategoryDtoCollectionQueryParameters = new WebPageCategoryDtoCollectionQueryParameters(); // WebPageCategoryDtoCollectionQueryParameters | 
     try {
-      WebPageCategoryDtoListEnvelope result = apiInstance.getCategoriesByWebPageAsync(webPageId, apiVersion, xApiVersion);
+      WebPageCategoryDtoListEnvelope result = apiInstance.getCategoriesByWebPageAsync(webPageId, apiVersion, xApiVersion, webPageCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebPagesApi#getCategoriesByWebPageAsync");
@@ -411,6 +414,7 @@ public class Example {
 | **webPageId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webPageCategoryDtoCollectionQueryParameters** | [**WebPageCategoryDtoCollectionQueryParameters**](WebPageCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -422,7 +426,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -433,7 +437,7 @@ No authorization required
 
 <a id="getTagsByWebPageAsync"></a>
 # **getTagsByWebPageAsync**
-> WebPageTagDtoListEnvelope getTagsByWebPageAsync(webPageId, apiVersion, xApiVersion)
+> WebPageTagDtoListEnvelope getTagsByWebPageAsync(webPageId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters)
 
 Get tags by web page
 
@@ -457,8 +461,9 @@ public class Example {
     UUID webPageId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebPageTagDtoCollectionQueryParameters webPageTagDtoCollectionQueryParameters = new WebPageTagDtoCollectionQueryParameters(); // WebPageTagDtoCollectionQueryParameters | 
     try {
-      WebPageTagDtoListEnvelope result = apiInstance.getTagsByWebPageAsync(webPageId, apiVersion, xApiVersion);
+      WebPageTagDtoListEnvelope result = apiInstance.getTagsByWebPageAsync(webPageId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebPagesApi#getTagsByWebPageAsync");
@@ -478,6 +483,7 @@ public class Example {
 | **webPageId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webPageTagDtoCollectionQueryParameters** | [**WebPageTagDtoCollectionQueryParameters**](WebPageTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -489,7 +495,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -569,7 +575,7 @@ No authorization required
 
 <a id="getWebPagesAsync"></a>
 # **getWebPagesAsync**
-> WebPageDtoListEnvelope getWebPagesAsync(tenantId, apiVersion, xApiVersion)
+> WebPageDtoListEnvelope getWebPagesAsync(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters)
 
 Get web pages
 
@@ -593,8 +599,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebPageDtoCollectionQueryParameters webPageDtoCollectionQueryParameters = new WebPageDtoCollectionQueryParameters(); // WebPageDtoCollectionQueryParameters | 
     try {
-      WebPageDtoListEnvelope result = apiInstance.getWebPagesAsync(tenantId, apiVersion, xApiVersion);
+      WebPageDtoListEnvelope result = apiInstance.getWebPagesAsync(tenantId, apiVersion, xApiVersion, webPageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebPagesApi#getWebPagesAsync");
@@ -614,6 +621,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webPageDtoCollectionQueryParameters** | [**WebPageDtoCollectionQueryParameters**](WebPageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -625,7 +633,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -636,7 +644,7 @@ No authorization required
 
 <a id="patchWebPageAsync"></a>
 # **patchWebPageAsync**
-> patchWebPageAsync(tenantId, webPageId, apiVersion, xApiVersion, operation)
+> patchWebPageAsync(tenantId, webPageId, apiVersion, xApiVersion, patchOperation)
 
 Patch a web page
 
@@ -661,9 +669,9 @@ public class Example {
     UUID webPageId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchWebPageAsync(tenantId, webPageId, apiVersion, xApiVersion, operation);
+      apiInstance.patchWebPageAsync(tenantId, webPageId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebPagesApi#patchWebPageAsync");
       System.err.println("Status code: " + e.getCode());
@@ -683,7 +691,7 @@ public class Example {
 | **webPageId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.CurrencyDtoCollectionQueryParameters;
 import org.openapitools.client.model.CurrencyDtoEnvelope;
 import org.openapitools.client.model.CurrencyDtoListEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
@@ -79,6 +80,7 @@ public class CurrenciesApi {
      * Build call for countCurrenciesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -90,7 +92,7 @@ public class CurrenciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCurrenciesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countCurrenciesAsyncCall(String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -104,7 +106,7 @@ public class CurrenciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = currencyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Currencies/Count";
@@ -133,6 +135,8 @@ public class CurrenciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -144,8 +148,8 @@ public class CurrenciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countCurrenciesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return countCurrenciesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call countCurrenciesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return countCurrenciesAsyncCall(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -154,6 +158,7 @@ public class CurrenciesApi {
      * Returns the total number of enabled currencies, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -164,8 +169,8 @@ public class CurrenciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countCurrenciesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countCurrenciesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope countCurrenciesAsync(String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countCurrenciesAsyncWithHttpInfo(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -174,6 +179,7 @@ public class CurrenciesApi {
      * Returns the total number of enabled currencies, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -184,8 +190,8 @@ public class CurrenciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countCurrenciesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countCurrenciesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countCurrenciesAsyncWithHttpInfo(String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countCurrenciesAsyncValidateBeforeCall(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -195,6 +201,7 @@ public class CurrenciesApi {
      * Returns the total number of enabled currencies, with optional OData filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -206,9 +213,9 @@ public class CurrenciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countCurrenciesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countCurrenciesAsyncAsync(String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countCurrenciesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countCurrenciesAsyncValidateBeforeCall(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -365,6 +372,7 @@ public class CurrenciesApi {
      * Build call for getEnabledCurrenciesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -376,7 +384,7 @@ public class CurrenciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEnabledCurrenciesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEnabledCurrenciesAsyncCall(String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -390,7 +398,7 @@ public class CurrenciesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = currencyDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/GlobeService/Currencies";
@@ -419,6 +427,8 @@ public class CurrenciesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -430,8 +440,8 @@ public class CurrenciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEnabledCurrenciesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getEnabledCurrenciesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getEnabledCurrenciesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getEnabledCurrenciesAsyncCall(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -440,6 +450,7 @@ public class CurrenciesApi {
      * Retrieves the list of all enabled currencies with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return CurrencyDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -450,8 +461,8 @@ public class CurrenciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CurrencyDtoListEnvelope getEnabledCurrenciesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CurrencyDtoListEnvelope> localVarResp = getEnabledCurrenciesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public CurrencyDtoListEnvelope getEnabledCurrenciesAsync(String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CurrencyDtoListEnvelope> localVarResp = getEnabledCurrenciesAsyncWithHttpInfo(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -460,6 +471,7 @@ public class CurrenciesApi {
      * Retrieves the list of all enabled currencies with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CurrencyDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -470,8 +482,8 @@ public class CurrenciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CurrencyDtoListEnvelope> getEnabledCurrenciesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getEnabledCurrenciesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<CurrencyDtoListEnvelope> getEnabledCurrenciesAsyncWithHttpInfo(String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getEnabledCurrenciesAsyncValidateBeforeCall(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CurrencyDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -481,6 +493,7 @@ public class CurrenciesApi {
      * Retrieves the list of all enabled currencies with optional OData pagination and filtering.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param currencyDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -492,9 +505,9 @@ public class CurrenciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEnabledCurrenciesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<CurrencyDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getEnabledCurrenciesAsyncAsync(String apiVersion, String xApiVersion, CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters, final ApiCallback<CurrencyDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEnabledCurrenciesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getEnabledCurrenciesAsyncValidateBeforeCall(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CurrencyDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -148,7 +148,7 @@ No authorization required
 
 <a id="getAssetCategories"></a>
 # **getAssetCategories**
-> AssetCategoryDtoListEnvelope getAssetCategories(tenantId)
+> AssetCategoryDtoListEnvelope getAssetCategories(tenantId, assetCategoryDtoCollectionQueryParameters)
 
 Gets all asset categories for the current tenant
 
@@ -170,8 +170,9 @@ public class Example {
 
     AssetCategoriesApi apiInstance = new AssetCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters = new AssetCategoryDtoCollectionQueryParameters(); // AssetCategoryDtoCollectionQueryParameters | 
     try {
-      AssetCategoryDtoListEnvelope result = apiInstance.getAssetCategories(tenantId);
+      AssetCategoryDtoListEnvelope result = apiInstance.getAssetCategories(tenantId, assetCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetCategoriesApi#getAssetCategories");
@@ -189,6 +190,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **assetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -200,7 +202,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -212,7 +214,7 @@ No authorization required
 
 <a id="getAssetCategoriesCount"></a>
 # **getAssetCategoriesCount**
-> Int32Envelope getAssetCategoriesCount(tenantId)
+> Int32Envelope getAssetCategoriesCount(tenantId, assetCategoryDtoCollectionQueryParameters)
 
 Gets the count of asset categories
 
@@ -234,8 +236,9 @@ public class Example {
 
     AssetCategoriesApi apiInstance = new AssetCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters = new AssetCategoryDtoCollectionQueryParameters(); // AssetCategoryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAssetCategoriesCount(tenantId);
+      Int32Envelope result = apiInstance.getAssetCategoriesCount(tenantId, assetCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetCategoriesApi#getAssetCategoriesCount");
@@ -253,6 +256,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **assetCategoryDtoCollectionQueryParameters** | [**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -264,7 +268,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -343,7 +347,7 @@ No authorization required
 
 <a id="patchAssetCategory"></a>
 # **patchAssetCategory**
-> EmptyEnvelope patchAssetCategory(tenantId, categoryId, operation)
+> EmptyEnvelope patchAssetCategory(tenantId, categoryId, patchOperation)
 
 Partially updates an existing asset category
 
@@ -366,9 +370,9 @@ public class Example {
     AssetCategoriesApi apiInstance = new AssetCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID categoryId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAssetCategory(tenantId, categoryId, operation);
+      EmptyEnvelope result = apiInstance.patchAssetCategory(tenantId, categoryId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetCategoriesApi#patchAssetCategory");
@@ -387,7 +391,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **categoryId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

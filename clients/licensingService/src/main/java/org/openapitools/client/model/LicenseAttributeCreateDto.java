@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * LicenseAttributeCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:09:31.465055300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:34:35.116490400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class LicenseAttributeCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

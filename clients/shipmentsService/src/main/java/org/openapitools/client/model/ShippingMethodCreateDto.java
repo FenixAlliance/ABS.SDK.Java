@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ShippingMethodCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:07:18.485785700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:32:41.671601800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ShippingMethodCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

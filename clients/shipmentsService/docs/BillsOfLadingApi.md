@@ -442,7 +442,7 @@ No authorization required
 
 <a id="getBillOfLadingLinesAsync"></a>
 # **getBillOfLadingLinesAsync**
-> BillOfLadingLineDtoListEnvelope getBillOfLadingLinesAsync(tenantId, billOfLadingId, apiVersion, xApiVersion)
+> BillOfLadingLineDtoListEnvelope getBillOfLadingLinesAsync(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters)
 
 Get bill of lading lines
 
@@ -467,8 +467,9 @@ public class Example {
     UUID billOfLadingId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters = new BillOfLadingLineDtoCollectionQueryParameters(); // BillOfLadingLineDtoCollectionQueryParameters | 
     try {
-      BillOfLadingLineDtoListEnvelope result = apiInstance.getBillOfLadingLinesAsync(tenantId, billOfLadingId, apiVersion, xApiVersion);
+      BillOfLadingLineDtoListEnvelope result = apiInstance.getBillOfLadingLinesAsync(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillsOfLadingApi#getBillOfLadingLinesAsync");
@@ -489,6 +490,7 @@ public class Example {
 | **billOfLadingId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **billOfLadingLineDtoCollectionQueryParameters** | [**BillOfLadingLineDtoCollectionQueryParameters**](BillOfLadingLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -500,7 +502,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -511,7 +513,7 @@ No authorization required
 
 <a id="getBillOfLadingLinesCountAsync"></a>
 # **getBillOfLadingLinesCountAsync**
-> Int32Envelope getBillOfLadingLinesCountAsync(tenantId, billOfLadingId, apiVersion, xApiVersion)
+> Int32Envelope getBillOfLadingLinesCountAsync(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters)
 
 Get bill of lading lines count
 
@@ -536,8 +538,9 @@ public class Example {
     UUID billOfLadingId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters = new BillOfLadingLineDtoCollectionQueryParameters(); // BillOfLadingLineDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBillOfLadingLinesCountAsync(tenantId, billOfLadingId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBillOfLadingLinesCountAsync(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillsOfLadingApi#getBillOfLadingLinesCountAsync");
@@ -558,6 +561,7 @@ public class Example {
 | **billOfLadingId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **billOfLadingLineDtoCollectionQueryParameters** | [**BillOfLadingLineDtoCollectionQueryParameters**](BillOfLadingLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -569,7 +573,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -579,7 +583,7 @@ No authorization required
 
 <a id="getBillsOfLadingAsync"></a>
 # **getBillsOfLadingAsync**
-> BillOfLadingDtoListEnvelope getBillsOfLadingAsync(tenantId, apiVersion, xApiVersion)
+> BillOfLadingDtoListEnvelope getBillsOfLadingAsync(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters)
 
 Get all bills of lading
 
@@ -603,8 +607,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters = new BillOfLadingDtoCollectionQueryParameters(); // BillOfLadingDtoCollectionQueryParameters | 
     try {
-      BillOfLadingDtoListEnvelope result = apiInstance.getBillsOfLadingAsync(tenantId, apiVersion, xApiVersion);
+      BillOfLadingDtoListEnvelope result = apiInstance.getBillsOfLadingAsync(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillsOfLadingApi#getBillsOfLadingAsync");
@@ -624,6 +629,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **billOfLadingDtoCollectionQueryParameters** | [**BillOfLadingDtoCollectionQueryParameters**](BillOfLadingDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -635,7 +641,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -647,7 +653,7 @@ No authorization required
 
 <a id="getBillsOfLadingCountAsync"></a>
 # **getBillsOfLadingCountAsync**
-> Int32Envelope getBillsOfLadingCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBillsOfLadingCountAsync(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters)
 
 Get bills of lading count
 
@@ -671,8 +677,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters = new BillOfLadingDtoCollectionQueryParameters(); // BillOfLadingDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBillsOfLadingCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBillsOfLadingCountAsync(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillsOfLadingApi#getBillsOfLadingCountAsync");
@@ -692,6 +699,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **billOfLadingDtoCollectionQueryParameters** | [**BillOfLadingDtoCollectionQueryParameters**](BillOfLadingDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -703,7 +711,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -714,7 +722,7 @@ No authorization required
 
 <a id="patchBillOfLadingAsync"></a>
 # **patchBillOfLadingAsync**
-> EmptyEnvelope patchBillOfLadingAsync(tenantId, billOfLadingId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBillOfLadingAsync(tenantId, billOfLadingId, apiVersion, xApiVersion, patchOperation)
 
 Patch a bill of lading
 
@@ -739,9 +747,9 @@ public class Example {
     UUID billOfLadingId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBillOfLadingAsync(tenantId, billOfLadingId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBillOfLadingAsync(tenantId, billOfLadingId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillsOfLadingApi#patchBillOfLadingAsync");
@@ -762,7 +770,7 @@ public class Example {
 | **billOfLadingId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -787,7 +795,7 @@ No authorization required
 
 <a id="patchBillOfLadingLineAsync"></a>
 # **patchBillOfLadingLineAsync**
-> EmptyEnvelope patchBillOfLadingLineAsync(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBillOfLadingLineAsync(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, patchOperation)
 
 Patch a bill of lading line
 
@@ -813,9 +821,9 @@ public class Example {
     UUID lineId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBillOfLadingLineAsync(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBillOfLadingLineAsync(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BillsOfLadingApi#patchBillOfLadingLineAsync");
@@ -837,7 +845,7 @@ public class Example {
 | **lineId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

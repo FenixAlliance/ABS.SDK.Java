@@ -28,9 +28,11 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.DiscountCreateDto;
+import org.openapitools.client.model.DiscountDtoCollectionQueryParameters;
 import org.openapitools.client.model.DiscountDtoEnvelope;
 import org.openapitools.client.model.DiscountDtoListEnvelope;
 import org.openapitools.client.model.DiscountListCreateDto;
+import org.openapitools.client.model.DiscountListDtoCollectionQueryParameters;
 import org.openapitools.client.model.DiscountListDtoEnvelope;
 import org.openapitools.client.model.DiscountListDtoListEnvelope;
 import org.openapitools.client.model.DiscountListUpdateDto;
@@ -38,7 +40,7 @@ import org.openapitools.client.model.DiscountUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -845,6 +847,7 @@ public class DiscountListsApi {
      * Build call for getDiscountListEntries
      * @param tenantId  (required)
      * @param discountListId  (required)
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -857,7 +860,7 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDiscountListEntriesCall(UUID tenantId, UUID discountListId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDiscountListEntriesCall(UUID tenantId, UUID discountListId, DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -871,7 +874,7 @@ public class DiscountListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = discountDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts"
@@ -897,6 +900,8 @@ public class DiscountListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -908,7 +913,7 @@ public class DiscountListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDiscountListEntriesValidateBeforeCall(UUID tenantId, UUID discountListId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDiscountListEntriesValidateBeforeCall(UUID tenantId, UUID discountListId, DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDiscountListEntries(Async)");
@@ -919,7 +924,7 @@ public class DiscountListsApi {
             throw new ApiException("Missing the required parameter 'discountListId' when calling getDiscountListEntries(Async)");
         }
 
-        return getDiscountListEntriesCall(tenantId, discountListId, _callback);
+        return getDiscountListEntriesCall(tenantId, discountListId, discountDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -928,6 +933,7 @@ public class DiscountListsApi {
      * Gets all discount entries for a specific discount list with OData support.
      * @param tenantId  (required)
      * @param discountListId  (required)
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @return DiscountDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -939,8 +945,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public DiscountDtoListEnvelope getDiscountListEntries(UUID tenantId, UUID discountListId) throws ApiException {
-        ApiResponse<DiscountDtoListEnvelope> localVarResp = getDiscountListEntriesWithHttpInfo(tenantId, discountListId);
+    public DiscountDtoListEnvelope getDiscountListEntries(UUID tenantId, UUID discountListId, DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<DiscountDtoListEnvelope> localVarResp = getDiscountListEntriesWithHttpInfo(tenantId, discountListId, discountDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -949,6 +955,7 @@ public class DiscountListsApi {
      * Gets all discount entries for a specific discount list with OData support.
      * @param tenantId  (required)
      * @param discountListId  (required)
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;DiscountDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -960,8 +967,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DiscountDtoListEnvelope> getDiscountListEntriesWithHttpInfo(UUID tenantId, UUID discountListId) throws ApiException {
-        okhttp3.Call localVarCall = getDiscountListEntriesValidateBeforeCall(tenantId, discountListId, null);
+    public ApiResponse<DiscountDtoListEnvelope> getDiscountListEntriesWithHttpInfo(UUID tenantId, UUID discountListId, DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getDiscountListEntriesValidateBeforeCall(tenantId, discountListId, discountDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<DiscountDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -971,6 +978,7 @@ public class DiscountListsApi {
      * Gets all discount entries for a specific discount list with OData support.
      * @param tenantId  (required)
      * @param discountListId  (required)
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -983,9 +991,9 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDiscountListEntriesAsync(UUID tenantId, UUID discountListId, final ApiCallback<DiscountDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getDiscountListEntriesAsync(UUID tenantId, UUID discountListId, DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters, final ApiCallback<DiscountDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDiscountListEntriesValidateBeforeCall(tenantId, discountListId, _callback);
+        okhttp3.Call localVarCall = getDiscountListEntriesValidateBeforeCall(tenantId, discountListId, discountDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<DiscountDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -994,6 +1002,7 @@ public class DiscountListsApi {
      * Build call for getDiscountListEntriesCount
      * @param tenantId  (required)
      * @param discountListId  (required)
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1006,7 +1015,7 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDiscountListEntriesCountCall(UUID tenantId, UUID discountListId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDiscountListEntriesCountCall(UUID tenantId, UUID discountListId, DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1020,7 +1029,7 @@ public class DiscountListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = discountDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/Count"
@@ -1046,6 +1055,8 @@ public class DiscountListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1057,7 +1068,7 @@ public class DiscountListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDiscountListEntriesCountValidateBeforeCall(UUID tenantId, UUID discountListId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDiscountListEntriesCountValidateBeforeCall(UUID tenantId, UUID discountListId, DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDiscountListEntriesCount(Async)");
@@ -1068,7 +1079,7 @@ public class DiscountListsApi {
             throw new ApiException("Missing the required parameter 'discountListId' when calling getDiscountListEntriesCount(Async)");
         }
 
-        return getDiscountListEntriesCountCall(tenantId, discountListId, _callback);
+        return getDiscountListEntriesCountCall(tenantId, discountListId, discountDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1077,6 +1088,7 @@ public class DiscountListsApi {
      * Gets the count of discount entries for a specific discount list.
      * @param tenantId  (required)
      * @param discountListId  (required)
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1088,8 +1100,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getDiscountListEntriesCount(UUID tenantId, UUID discountListId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getDiscountListEntriesCountWithHttpInfo(tenantId, discountListId);
+    public Int32Envelope getDiscountListEntriesCount(UUID tenantId, UUID discountListId, DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getDiscountListEntriesCountWithHttpInfo(tenantId, discountListId, discountDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1098,6 +1110,7 @@ public class DiscountListsApi {
      * Gets the count of discount entries for a specific discount list.
      * @param tenantId  (required)
      * @param discountListId  (required)
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1109,8 +1122,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getDiscountListEntriesCountWithHttpInfo(UUID tenantId, UUID discountListId) throws ApiException {
-        okhttp3.Call localVarCall = getDiscountListEntriesCountValidateBeforeCall(tenantId, discountListId, null);
+    public ApiResponse<Int32Envelope> getDiscountListEntriesCountWithHttpInfo(UUID tenantId, UUID discountListId, DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getDiscountListEntriesCountValidateBeforeCall(tenantId, discountListId, discountDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1120,6 +1133,7 @@ public class DiscountListsApi {
      * Gets the count of discount entries for a specific discount list.
      * @param tenantId  (required)
      * @param discountListId  (required)
+     * @param discountDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1132,9 +1146,9 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDiscountListEntriesCountAsync(UUID tenantId, UUID discountListId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getDiscountListEntriesCountAsync(UUID tenantId, UUID discountListId, DiscountDtoCollectionQueryParameters discountDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDiscountListEntriesCountValidateBeforeCall(tenantId, discountListId, _callback);
+        okhttp3.Call localVarCall = getDiscountListEntriesCountValidateBeforeCall(tenantId, discountListId, discountDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1301,6 +1315,7 @@ public class DiscountListsApi {
     /**
      * Build call for getDiscountLists
      * @param tenantId  (required)
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1313,7 +1328,7 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDiscountListsCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDiscountListsCall(UUID tenantId, DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1327,7 +1342,7 @@ public class DiscountListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = discountListDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/DiscountLists";
@@ -1352,6 +1367,8 @@ public class DiscountListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1363,13 +1380,13 @@ public class DiscountListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDiscountListsValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDiscountListsValidateBeforeCall(UUID tenantId, DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDiscountLists(Async)");
         }
 
-        return getDiscountListsCall(tenantId, _callback);
+        return getDiscountListsCall(tenantId, discountListDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1377,6 +1394,7 @@ public class DiscountListsApi {
      * Retrieves all discount lists
      * Gets all discount lists for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @return DiscountListDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1388,8 +1406,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public DiscountListDtoListEnvelope getDiscountLists(UUID tenantId) throws ApiException {
-        ApiResponse<DiscountListDtoListEnvelope> localVarResp = getDiscountListsWithHttpInfo(tenantId);
+    public DiscountListDtoListEnvelope getDiscountLists(UUID tenantId, DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<DiscountListDtoListEnvelope> localVarResp = getDiscountListsWithHttpInfo(tenantId, discountListDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1397,6 +1415,7 @@ public class DiscountListsApi {
      * Retrieves all discount lists
      * Gets all discount lists for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;DiscountListDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1408,8 +1427,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DiscountListDtoListEnvelope> getDiscountListsWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getDiscountListsValidateBeforeCall(tenantId, null);
+    public ApiResponse<DiscountListDtoListEnvelope> getDiscountListsWithHttpInfo(UUID tenantId, DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getDiscountListsValidateBeforeCall(tenantId, discountListDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<DiscountListDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1418,6 +1437,7 @@ public class DiscountListsApi {
      * Retrieves all discount lists (asynchronously)
      * Gets all discount lists for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1430,9 +1450,9 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDiscountListsAsync(UUID tenantId, final ApiCallback<DiscountListDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getDiscountListsAsync(UUID tenantId, DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters, final ApiCallback<DiscountListDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDiscountListsValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getDiscountListsValidateBeforeCall(tenantId, discountListDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<DiscountListDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1440,6 +1460,7 @@ public class DiscountListsApi {
     /**
      * Build call for getDiscountListsCount
      * @param tenantId  (required)
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1452,7 +1473,7 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDiscountListsCountCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDiscountListsCountCall(UUID tenantId, DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1466,7 +1487,7 @@ public class DiscountListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = discountListDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/DiscountLists/Count";
@@ -1491,6 +1512,8 @@ public class DiscountListsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1502,13 +1525,13 @@ public class DiscountListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDiscountListsCountValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDiscountListsCountValidateBeforeCall(UUID tenantId, DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDiscountListsCount(Async)");
         }
 
-        return getDiscountListsCountCall(tenantId, _callback);
+        return getDiscountListsCountCall(tenantId, discountListDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1516,6 +1539,7 @@ public class DiscountListsApi {
      * Counts discount lists
      * Gets the count of discount lists for the current tenant.
      * @param tenantId  (required)
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1527,8 +1551,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getDiscountListsCount(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getDiscountListsCountWithHttpInfo(tenantId);
+    public Int32Envelope getDiscountListsCount(UUID tenantId, DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getDiscountListsCountWithHttpInfo(tenantId, discountListDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1536,6 +1560,7 @@ public class DiscountListsApi {
      * Counts discount lists
      * Gets the count of discount lists for the current tenant.
      * @param tenantId  (required)
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1547,8 +1572,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getDiscountListsCountWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getDiscountListsCountValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getDiscountListsCountWithHttpInfo(UUID tenantId, DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getDiscountListsCountValidateBeforeCall(tenantId, discountListDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1557,6 +1582,7 @@ public class DiscountListsApi {
      * Counts discount lists (asynchronously)
      * Gets the count of discount lists for the current tenant.
      * @param tenantId  (required)
+     * @param discountListDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1569,9 +1595,9 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDiscountListsCountAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getDiscountListsCountAsync(UUID tenantId, DiscountListDtoCollectionQueryParameters discountListDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDiscountListsCountValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getDiscountListsCountValidateBeforeCall(tenantId, discountListDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1580,7 +1606,7 @@ public class DiscountListsApi {
      * Build call for patchDiscountList
      * @param tenantId  (required)
      * @param discountListId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1593,7 +1619,7 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchDiscountListCall(UUID tenantId, UUID discountListId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchDiscountListCall(UUID tenantId, UUID discountListId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1607,7 +1633,7 @@ public class DiscountListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/DiscountLists/{discountListId}"
@@ -1646,7 +1672,7 @@ public class DiscountListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchDiscountListValidateBeforeCall(UUID tenantId, UUID discountListId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchDiscountListValidateBeforeCall(UUID tenantId, UUID discountListId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchDiscountList(Async)");
@@ -1657,7 +1683,7 @@ public class DiscountListsApi {
             throw new ApiException("Missing the required parameter 'discountListId' when calling patchDiscountList(Async)");
         }
 
-        return patchDiscountListCall(tenantId, discountListId, operation, _callback);
+        return patchDiscountListCall(tenantId, discountListId, patchOperation, _callback);
 
     }
 
@@ -1666,7 +1692,7 @@ public class DiscountListsApi {
      * Partially updates the specified discount list using a JSON Patch document.
      * @param tenantId  (required)
      * @param discountListId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1678,8 +1704,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchDiscountList(UUID tenantId, UUID discountListId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchDiscountListWithHttpInfo(tenantId, discountListId, operation);
+    public EmptyEnvelope patchDiscountList(UUID tenantId, UUID discountListId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchDiscountListWithHttpInfo(tenantId, discountListId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1688,7 +1714,7 @@ public class DiscountListsApi {
      * Partially updates the specified discount list using a JSON Patch document.
      * @param tenantId  (required)
      * @param discountListId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1700,8 +1726,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchDiscountListWithHttpInfo(UUID tenantId, UUID discountListId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchDiscountListValidateBeforeCall(tenantId, discountListId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchDiscountListWithHttpInfo(UUID tenantId, UUID discountListId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchDiscountListValidateBeforeCall(tenantId, discountListId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1711,7 +1737,7 @@ public class DiscountListsApi {
      * Partially updates the specified discount list using a JSON Patch document.
      * @param tenantId  (required)
      * @param discountListId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1724,9 +1750,9 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchDiscountListAsync(UUID tenantId, UUID discountListId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchDiscountListAsync(UUID tenantId, UUID discountListId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchDiscountListValidateBeforeCall(tenantId, discountListId, operation, _callback);
+        okhttp3.Call localVarCall = patchDiscountListValidateBeforeCall(tenantId, discountListId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1736,7 +1762,7 @@ public class DiscountListsApi {
      * @param tenantId  (required)
      * @param discountListId  (required)
      * @param discountListEntryId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1749,7 +1775,7 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchDiscountListEntryCall(UUID tenantId, UUID discountListId, UUID discountListEntryId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchDiscountListEntryCall(UUID tenantId, UUID discountListId, UUID discountListEntryId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1763,7 +1789,7 @@ public class DiscountListsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId}"
@@ -1803,7 +1829,7 @@ public class DiscountListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchDiscountListEntryValidateBeforeCall(UUID tenantId, UUID discountListId, UUID discountListEntryId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchDiscountListEntryValidateBeforeCall(UUID tenantId, UUID discountListId, UUID discountListEntryId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchDiscountListEntry(Async)");
@@ -1819,7 +1845,7 @@ public class DiscountListsApi {
             throw new ApiException("Missing the required parameter 'discountListEntryId' when calling patchDiscountListEntry(Async)");
         }
 
-        return patchDiscountListEntryCall(tenantId, discountListId, discountListEntryId, operation, _callback);
+        return patchDiscountListEntryCall(tenantId, discountListId, discountListEntryId, patchOperation, _callback);
 
     }
 
@@ -1829,7 +1855,7 @@ public class DiscountListsApi {
      * @param tenantId  (required)
      * @param discountListId  (required)
      * @param discountListEntryId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1841,8 +1867,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchDiscountListEntry(UUID tenantId, UUID discountListId, UUID discountListEntryId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchDiscountListEntryWithHttpInfo(tenantId, discountListId, discountListEntryId, operation);
+    public EmptyEnvelope patchDiscountListEntry(UUID tenantId, UUID discountListId, UUID discountListEntryId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchDiscountListEntryWithHttpInfo(tenantId, discountListId, discountListEntryId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1852,7 +1878,7 @@ public class DiscountListsApi {
      * @param tenantId  (required)
      * @param discountListId  (required)
      * @param discountListEntryId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1864,8 +1890,8 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchDiscountListEntryWithHttpInfo(UUID tenantId, UUID discountListId, UUID discountListEntryId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchDiscountListEntryValidateBeforeCall(tenantId, discountListId, discountListEntryId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchDiscountListEntryWithHttpInfo(UUID tenantId, UUID discountListId, UUID discountListEntryId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchDiscountListEntryValidateBeforeCall(tenantId, discountListId, discountListEntryId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1876,7 +1902,7 @@ public class DiscountListsApi {
      * @param tenantId  (required)
      * @param discountListId  (required)
      * @param discountListEntryId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1889,9 +1915,9 @@ public class DiscountListsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchDiscountListEntryAsync(UUID tenantId, UUID discountListId, UUID discountListEntryId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchDiscountListEntryAsync(UUID tenantId, UUID discountListId, UUID discountListEntryId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchDiscountListEntryValidateBeforeCall(tenantId, discountListId, discountListEntryId, operation, _callback);
+        okhttp3.Call localVarCall = patchDiscountListEntryValidateBeforeCall(tenantId, discountListId, discountListEntryId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

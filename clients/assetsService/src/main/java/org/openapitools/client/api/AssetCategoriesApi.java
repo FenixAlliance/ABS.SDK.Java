@@ -28,13 +28,14 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AssetCategoryCreateDto;
+import org.openapitools.client.model.AssetCategoryDtoCollectionQueryParameters;
 import org.openapitools.client.model.AssetCategoryDtoEnvelope;
 import org.openapitools.client.model.AssetCategoryDtoListEnvelope;
 import org.openapitools.client.model.AssetCategoryUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -373,6 +374,7 @@ public class AssetCategoriesApi {
     /**
      * Build call for getAssetCategories
      * @param tenantId  (required)
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -384,7 +386,7 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssetCategoriesCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAssetCategoriesCall(UUID tenantId, AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -398,7 +400,7 @@ public class AssetCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = assetCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AssetsService/AssetCategories";
@@ -423,6 +425,8 @@ public class AssetCategoriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -434,13 +438,13 @@ public class AssetCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAssetCategoriesValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAssetCategoriesValidateBeforeCall(UUID tenantId, AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAssetCategories(Async)");
         }
 
-        return getAssetCategoriesCall(tenantId, _callback);
+        return getAssetCategoriesCall(tenantId, assetCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -448,6 +452,7 @@ public class AssetCategoriesApi {
      * Gets all asset categories for the current tenant
      * Retrieves all asset categories for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return AssetCategoryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -458,8 +463,8 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AssetCategoryDtoListEnvelope getAssetCategories(UUID tenantId) throws ApiException {
-        ApiResponse<AssetCategoryDtoListEnvelope> localVarResp = getAssetCategoriesWithHttpInfo(tenantId);
+    public AssetCategoryDtoListEnvelope getAssetCategories(UUID tenantId, AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<AssetCategoryDtoListEnvelope> localVarResp = getAssetCategoriesWithHttpInfo(tenantId, assetCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -467,6 +472,7 @@ public class AssetCategoriesApi {
      * Gets all asset categories for the current tenant
      * Retrieves all asset categories for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;AssetCategoryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -477,8 +483,8 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssetCategoryDtoListEnvelope> getAssetCategoriesWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getAssetCategoriesValidateBeforeCall(tenantId, null);
+    public ApiResponse<AssetCategoryDtoListEnvelope> getAssetCategoriesWithHttpInfo(UUID tenantId, AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAssetCategoriesValidateBeforeCall(tenantId, assetCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<AssetCategoryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -487,6 +493,7 @@ public class AssetCategoriesApi {
      * Gets all asset categories for the current tenant (asynchronously)
      * Retrieves all asset categories for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -498,9 +505,9 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssetCategoriesAsync(UUID tenantId, final ApiCallback<AssetCategoryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAssetCategoriesAsync(UUID tenantId, AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters, final ApiCallback<AssetCategoryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAssetCategoriesValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getAssetCategoriesValidateBeforeCall(tenantId, assetCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<AssetCategoryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -508,6 +515,7 @@ public class AssetCategoriesApi {
     /**
      * Build call for getAssetCategoriesCount
      * @param tenantId  (required)
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -519,7 +527,7 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssetCategoriesCountCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAssetCategoriesCountCall(UUID tenantId, AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -533,7 +541,7 @@ public class AssetCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = assetCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AssetsService/AssetCategories/count";
@@ -558,6 +566,8 @@ public class AssetCategoriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -569,13 +579,13 @@ public class AssetCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAssetCategoriesCountValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAssetCategoriesCountValidateBeforeCall(UUID tenantId, AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAssetCategoriesCount(Async)");
         }
 
-        return getAssetCategoriesCountCall(tenantId, _callback);
+        return getAssetCategoriesCountCall(tenantId, assetCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -583,6 +593,7 @@ public class AssetCategoriesApi {
      * Gets the count of asset categories
      * Returns the total number of asset categories for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -593,8 +604,8 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getAssetCategoriesCount(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getAssetCategoriesCountWithHttpInfo(tenantId);
+    public Int32Envelope getAssetCategoriesCount(UUID tenantId, AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getAssetCategoriesCountWithHttpInfo(tenantId, assetCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -602,6 +613,7 @@ public class AssetCategoriesApi {
      * Gets the count of asset categories
      * Returns the total number of asset categories for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -612,8 +624,8 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getAssetCategoriesCountWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getAssetCategoriesCountValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getAssetCategoriesCountWithHttpInfo(UUID tenantId, AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAssetCategoriesCountValidateBeforeCall(tenantId, assetCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -622,6 +634,7 @@ public class AssetCategoriesApi {
      * Gets the count of asset categories (asynchronously)
      * Returns the total number of asset categories for the authenticated tenant.
      * @param tenantId  (required)
+     * @param assetCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -633,9 +646,9 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssetCategoriesCountAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getAssetCategoriesCountAsync(UUID tenantId, AssetCategoryDtoCollectionQueryParameters assetCategoryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAssetCategoriesCountValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getAssetCategoriesCountValidateBeforeCall(tenantId, assetCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -793,7 +806,7 @@ public class AssetCategoriesApi {
      * Build call for patchAssetCategory
      * @param tenantId  (required)
      * @param categoryId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -807,7 +820,7 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAssetCategoryCall(UUID tenantId, UUID categoryId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchAssetCategoryCall(UUID tenantId, UUID categoryId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -821,7 +834,7 @@ public class AssetCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AssetsService/AssetCategories/{categoryId}"
@@ -860,7 +873,7 @@ public class AssetCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchAssetCategoryValidateBeforeCall(UUID tenantId, UUID categoryId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchAssetCategoryValidateBeforeCall(UUID tenantId, UUID categoryId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchAssetCategory(Async)");
@@ -871,7 +884,7 @@ public class AssetCategoriesApi {
             throw new ApiException("Missing the required parameter 'categoryId' when calling patchAssetCategory(Async)");
         }
 
-        return patchAssetCategoryCall(tenantId, categoryId, operation, _callback);
+        return patchAssetCategoryCall(tenantId, categoryId, patchOperation, _callback);
 
     }
 
@@ -880,7 +893,7 @@ public class AssetCategoriesApi {
      * Applies a JSON Patch document to an existing asset category for the authenticated tenant.
      * @param tenantId  (required)
      * @param categoryId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -893,8 +906,8 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchAssetCategory(UUID tenantId, UUID categoryId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchAssetCategoryWithHttpInfo(tenantId, categoryId, operation);
+    public EmptyEnvelope patchAssetCategory(UUID tenantId, UUID categoryId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchAssetCategoryWithHttpInfo(tenantId, categoryId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -903,7 +916,7 @@ public class AssetCategoriesApi {
      * Applies a JSON Patch document to an existing asset category for the authenticated tenant.
      * @param tenantId  (required)
      * @param categoryId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -916,8 +929,8 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchAssetCategoryWithHttpInfo(UUID tenantId, UUID categoryId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchAssetCategoryValidateBeforeCall(tenantId, categoryId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchAssetCategoryWithHttpInfo(UUID tenantId, UUID categoryId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchAssetCategoryValidateBeforeCall(tenantId, categoryId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -927,7 +940,7 @@ public class AssetCategoriesApi {
      * Applies a JSON Patch document to an existing asset category for the authenticated tenant.
      * @param tenantId  (required)
      * @param categoryId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -941,9 +954,9 @@ public class AssetCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAssetCategoryAsync(UUID tenantId, UUID categoryId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchAssetCategoryAsync(UUID tenantId, UUID categoryId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchAssetCategoryValidateBeforeCall(tenantId, categoryId, operation, _callback);
+        okhttp3.Call localVarCall = patchAssetCategoryValidateBeforeCall(tenantId, categoryId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

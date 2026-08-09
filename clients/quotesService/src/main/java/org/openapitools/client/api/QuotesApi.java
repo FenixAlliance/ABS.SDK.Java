@@ -31,13 +31,16 @@ import org.openapitools.client.model.BooleanEnvelope;
 import org.openapitools.client.model.EmailDispatchRequest;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.ExtendedQuoteDtoCollectionQueryParameters;
 import org.openapitools.client.model.ExtendedQuoteDtoListEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.QuoteCreateDto;
+import org.openapitools.client.model.QuoteDtoCollectionQueryParameters;
 import org.openapitools.client.model.QuoteDtoEnvelope;
 import org.openapitools.client.model.QuoteDtoListEnvelope;
 import org.openapitools.client.model.QuoteLineCreateDto;
+import org.openapitools.client.model.QuoteLineDtoCollectionQueryParameters;
 import org.openapitools.client.model.QuoteLineDtoEnvelope;
 import org.openapitools.client.model.QuoteLineDtoListEnvelope;
 import org.openapitools.client.model.QuoteLineUpdateDto;
@@ -1241,6 +1244,7 @@ public class QuotesApi {
     /**
      * Build call for getExtendedQuotes
      * @param tenantId  (required)
+     * @param extendedQuoteDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1251,7 +1255,7 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedQuotesCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExtendedQuotesCall(UUID tenantId, ExtendedQuoteDtoCollectionQueryParameters extendedQuoteDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1265,7 +1269,7 @@ public class QuotesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedQuoteDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/QuotesService/Quotes/Extended";
@@ -1290,6 +1294,8 @@ public class QuotesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1301,13 +1307,13 @@ public class QuotesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedQuotesValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExtendedQuotesValidateBeforeCall(UUID tenantId, ExtendedQuoteDtoCollectionQueryParameters extendedQuoteDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExtendedQuotes(Async)");
         }
 
-        return getExtendedQuotesCall(tenantId, _callback);
+        return getExtendedQuotesCall(tenantId, extendedQuoteDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1315,6 +1321,7 @@ public class QuotesApi {
      * Get a list of extended quotes.
      * Retrieves a list of extended quotes for the specified tenant, supporting OData query options.
      * @param tenantId  (required)
+     * @param extendedQuoteDtoCollectionQueryParameters  (optional)
      * @return ExtendedQuoteDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1324,8 +1331,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ExtendedQuoteDtoListEnvelope getExtendedQuotes(UUID tenantId) throws ApiException {
-        ApiResponse<ExtendedQuoteDtoListEnvelope> localVarResp = getExtendedQuotesWithHttpInfo(tenantId);
+    public ExtendedQuoteDtoListEnvelope getExtendedQuotes(UUID tenantId, ExtendedQuoteDtoCollectionQueryParameters extendedQuoteDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ExtendedQuoteDtoListEnvelope> localVarResp = getExtendedQuotesWithHttpInfo(tenantId, extendedQuoteDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1333,6 +1340,7 @@ public class QuotesApi {
      * Get a list of extended quotes.
      * Retrieves a list of extended quotes for the specified tenant, supporting OData query options.
      * @param tenantId  (required)
+     * @param extendedQuoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ExtendedQuoteDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1342,8 +1350,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExtendedQuoteDtoListEnvelope> getExtendedQuotesWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedQuotesValidateBeforeCall(tenantId, null);
+    public ApiResponse<ExtendedQuoteDtoListEnvelope> getExtendedQuotesWithHttpInfo(UUID tenantId, ExtendedQuoteDtoCollectionQueryParameters extendedQuoteDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedQuotesValidateBeforeCall(tenantId, extendedQuoteDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ExtendedQuoteDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1352,6 +1360,7 @@ public class QuotesApi {
      * Get a list of extended quotes. (asynchronously)
      * Retrieves a list of extended quotes for the specified tenant, supporting OData query options.
      * @param tenantId  (required)
+     * @param extendedQuoteDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1362,9 +1371,9 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedQuotesAsync(UUID tenantId, final ApiCallback<ExtendedQuoteDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getExtendedQuotesAsync(UUID tenantId, ExtendedQuoteDtoCollectionQueryParameters extendedQuoteDtoCollectionQueryParameters, final ApiCallback<ExtendedQuoteDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedQuotesValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getExtendedQuotesValidateBeforeCall(tenantId, extendedQuoteDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ExtendedQuoteDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1666,6 +1675,7 @@ public class QuotesApi {
      * @param tenantId  (required)
      * @param quoteId  (required)
      * @param itemId  (optional)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1676,7 +1686,7 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuoteLinesCall(UUID tenantId, UUID quoteId, UUID itemId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getQuoteLinesCall(UUID tenantId, UUID quoteId, UUID itemId, QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1690,7 +1700,7 @@ public class QuotesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = quoteLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/QuotesService/Quotes/{quoteId}/Lines"
@@ -1720,6 +1730,8 @@ public class QuotesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1731,7 +1743,7 @@ public class QuotesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getQuoteLinesValidateBeforeCall(UUID tenantId, UUID quoteId, UUID itemId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuoteLinesValidateBeforeCall(UUID tenantId, UUID quoteId, UUID itemId, QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getQuoteLines(Async)");
@@ -1742,7 +1754,7 @@ public class QuotesApi {
             throw new ApiException("Missing the required parameter 'quoteId' when calling getQuoteLines(Async)");
         }
 
-        return getQuoteLinesCall(tenantId, quoteId, itemId, _callback);
+        return getQuoteLinesCall(tenantId, quoteId, itemId, quoteLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1752,6 +1764,7 @@ public class QuotesApi {
      * @param tenantId  (required)
      * @param quoteId  (required)
      * @param itemId  (optional)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @return QuoteLineDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1761,8 +1774,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public QuoteLineDtoListEnvelope getQuoteLines(UUID tenantId, UUID quoteId, UUID itemId) throws ApiException {
-        ApiResponse<QuoteLineDtoListEnvelope> localVarResp = getQuoteLinesWithHttpInfo(tenantId, quoteId, itemId);
+    public QuoteLineDtoListEnvelope getQuoteLines(UUID tenantId, UUID quoteId, UUID itemId, QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<QuoteLineDtoListEnvelope> localVarResp = getQuoteLinesWithHttpInfo(tenantId, quoteId, itemId, quoteLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1772,6 +1785,7 @@ public class QuotesApi {
      * @param tenantId  (required)
      * @param quoteId  (required)
      * @param itemId  (optional)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;QuoteLineDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1781,8 +1795,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QuoteLineDtoListEnvelope> getQuoteLinesWithHttpInfo(UUID tenantId, UUID quoteId, UUID itemId) throws ApiException {
-        okhttp3.Call localVarCall = getQuoteLinesValidateBeforeCall(tenantId, quoteId, itemId, null);
+    public ApiResponse<QuoteLineDtoListEnvelope> getQuoteLinesWithHttpInfo(UUID tenantId, UUID quoteId, UUID itemId, QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getQuoteLinesValidateBeforeCall(tenantId, quoteId, itemId, quoteLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<QuoteLineDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1793,6 +1807,7 @@ public class QuotesApi {
      * @param tenantId  (required)
      * @param quoteId  (required)
      * @param itemId  (optional)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1803,9 +1818,9 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuoteLinesAsync(UUID tenantId, UUID quoteId, UUID itemId, final ApiCallback<QuoteLineDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getQuoteLinesAsync(UUID tenantId, UUID quoteId, UUID itemId, QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters, final ApiCallback<QuoteLineDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getQuoteLinesValidateBeforeCall(tenantId, quoteId, itemId, _callback);
+        okhttp3.Call localVarCall = getQuoteLinesValidateBeforeCall(tenantId, quoteId, itemId, quoteLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<QuoteLineDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1814,6 +1829,7 @@ public class QuotesApi {
      * Build call for getQuoteLinesCount
      * @param tenantId  (required)
      * @param quoteId  (required)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1824,7 +1840,7 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuoteLinesCountCall(UUID tenantId, UUID quoteId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getQuoteLinesCountCall(UUID tenantId, UUID quoteId, QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1838,7 +1854,7 @@ public class QuotesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = quoteLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/Count"
@@ -1864,6 +1880,8 @@ public class QuotesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1875,7 +1893,7 @@ public class QuotesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getQuoteLinesCountValidateBeforeCall(UUID tenantId, UUID quoteId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuoteLinesCountValidateBeforeCall(UUID tenantId, UUID quoteId, QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getQuoteLinesCount(Async)");
@@ -1886,7 +1904,7 @@ public class QuotesApi {
             throw new ApiException("Missing the required parameter 'quoteId' when calling getQuoteLinesCount(Async)");
         }
 
-        return getQuoteLinesCountCall(tenantId, quoteId, _callback);
+        return getQuoteLinesCountCall(tenantId, quoteId, quoteLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1895,6 +1913,7 @@ public class QuotesApi {
      * Retrieves the total count of quote lines for the specified quote and tenant.
      * @param tenantId  (required)
      * @param quoteId  (required)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1904,8 +1923,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getQuoteLinesCount(UUID tenantId, UUID quoteId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getQuoteLinesCountWithHttpInfo(tenantId, quoteId);
+    public Int32Envelope getQuoteLinesCount(UUID tenantId, UUID quoteId, QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getQuoteLinesCountWithHttpInfo(tenantId, quoteId, quoteLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1914,6 +1933,7 @@ public class QuotesApi {
      * Retrieves the total count of quote lines for the specified quote and tenant.
      * @param tenantId  (required)
      * @param quoteId  (required)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1923,8 +1943,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getQuoteLinesCountWithHttpInfo(UUID tenantId, UUID quoteId) throws ApiException {
-        okhttp3.Call localVarCall = getQuoteLinesCountValidateBeforeCall(tenantId, quoteId, null);
+    public ApiResponse<Int32Envelope> getQuoteLinesCountWithHttpInfo(UUID tenantId, UUID quoteId, QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getQuoteLinesCountValidateBeforeCall(tenantId, quoteId, quoteLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1934,6 +1954,7 @@ public class QuotesApi {
      * Retrieves the total count of quote lines for the specified quote and tenant.
      * @param tenantId  (required)
      * @param quoteId  (required)
+     * @param quoteLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1944,9 +1965,9 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuoteLinesCountAsync(UUID tenantId, UUID quoteId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getQuoteLinesCountAsync(UUID tenantId, UUID quoteId, QuoteLineDtoCollectionQueryParameters quoteLineDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getQuoteLinesCountValidateBeforeCall(tenantId, quoteId, _callback);
+        okhttp3.Call localVarCall = getQuoteLinesCountValidateBeforeCall(tenantId, quoteId, quoteLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1954,6 +1975,7 @@ public class QuotesApi {
     /**
      * Build call for getQuotes
      * @param tenantId  (required)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1964,7 +1986,7 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuotesCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getQuotesCall(UUID tenantId, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1978,7 +2000,7 @@ public class QuotesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = quoteDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/QuotesService/Quotes";
@@ -2003,6 +2025,8 @@ public class QuotesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2014,13 +2038,13 @@ public class QuotesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getQuotesValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuotesValidateBeforeCall(UUID tenantId, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getQuotes(Async)");
         }
 
-        return getQuotesCall(tenantId, _callback);
+        return getQuotesCall(tenantId, quoteDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2028,6 +2052,7 @@ public class QuotesApi {
      * Get a list of quotes.
      * Retrieves a list of quotes for the specified tenant, supporting OData query options.
      * @param tenantId  (required)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return QuoteDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2037,8 +2062,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public QuoteDtoListEnvelope getQuotes(UUID tenantId) throws ApiException {
-        ApiResponse<QuoteDtoListEnvelope> localVarResp = getQuotesWithHttpInfo(tenantId);
+    public QuoteDtoListEnvelope getQuotes(UUID tenantId, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<QuoteDtoListEnvelope> localVarResp = getQuotesWithHttpInfo(tenantId, quoteDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2046,6 +2071,7 @@ public class QuotesApi {
      * Get a list of quotes.
      * Retrieves a list of quotes for the specified tenant, supporting OData query options.
      * @param tenantId  (required)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;QuoteDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2055,8 +2081,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QuoteDtoListEnvelope> getQuotesWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getQuotesValidateBeforeCall(tenantId, null);
+    public ApiResponse<QuoteDtoListEnvelope> getQuotesWithHttpInfo(UUID tenantId, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getQuotesValidateBeforeCall(tenantId, quoteDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<QuoteDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2065,6 +2091,7 @@ public class QuotesApi {
      * Get a list of quotes. (asynchronously)
      * Retrieves a list of quotes for the specified tenant, supporting OData query options.
      * @param tenantId  (required)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2075,9 +2102,9 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuotesAsync(UUID tenantId, final ApiCallback<QuoteDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getQuotesAsync(UUID tenantId, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback<QuoteDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getQuotesValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getQuotesValidateBeforeCall(tenantId, quoteDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<QuoteDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2085,6 +2112,7 @@ public class QuotesApi {
     /**
      * Build call for getQuotesCount
      * @param tenantId  (required)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2095,7 +2123,7 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuotesCountCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getQuotesCountCall(UUID tenantId, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2109,7 +2137,7 @@ public class QuotesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = quoteDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/QuotesService/Quotes/Count";
@@ -2134,6 +2162,8 @@ public class QuotesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2145,13 +2175,13 @@ public class QuotesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getQuotesCountValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuotesCountValidateBeforeCall(UUID tenantId, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getQuotesCount(Async)");
         }
 
-        return getQuotesCountCall(tenantId, _callback);
+        return getQuotesCountCall(tenantId, quoteDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2159,6 +2189,7 @@ public class QuotesApi {
      * Get the count of quotes.
      * Retrieves the total count of quotes for the specified tenant, supporting OData query options.
      * @param tenantId  (required)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2168,8 +2199,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getQuotesCount(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getQuotesCountWithHttpInfo(tenantId);
+    public Int32Envelope getQuotesCount(UUID tenantId, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getQuotesCountWithHttpInfo(tenantId, quoteDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2177,6 +2208,7 @@ public class QuotesApi {
      * Get the count of quotes.
      * Retrieves the total count of quotes for the specified tenant, supporting OData query options.
      * @param tenantId  (required)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2186,8 +2218,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getQuotesCountWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getQuotesCountValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getQuotesCountWithHttpInfo(UUID tenantId, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getQuotesCountValidateBeforeCall(tenantId, quoteDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2196,6 +2228,7 @@ public class QuotesApi {
      * Get the count of quotes. (asynchronously)
      * Retrieves the total count of quotes for the specified tenant, supporting OData query options.
      * @param tenantId  (required)
+     * @param quoteDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2206,9 +2239,9 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuotesCountAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getQuotesCountAsync(UUID tenantId, QuoteDtoCollectionQueryParameters quoteDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getQuotesCountValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getQuotesCountValidateBeforeCall(tenantId, quoteDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2217,7 +2250,7 @@ public class QuotesApi {
      * Build call for patchQuoteAsync
      * @param tenantId  (required)
      * @param quoteId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2230,7 +2263,7 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchQuoteAsyncCall(UUID tenantId, UUID quoteId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchQuoteAsyncCall(UUID tenantId, UUID quoteId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2244,7 +2277,7 @@ public class QuotesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/QuotesService/Quotes/{quoteId}"
@@ -2283,7 +2316,7 @@ public class QuotesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchQuoteAsyncValidateBeforeCall(UUID tenantId, UUID quoteId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchQuoteAsyncValidateBeforeCall(UUID tenantId, UUID quoteId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchQuoteAsync(Async)");
@@ -2294,7 +2327,7 @@ public class QuotesApi {
             throw new ApiException("Missing the required parameter 'quoteId' when calling patchQuoteAsync(Async)");
         }
 
-        return patchQuoteAsyncCall(tenantId, quoteId, operation, _callback);
+        return patchQuoteAsyncCall(tenantId, quoteId, patchOperation, _callback);
 
     }
 
@@ -2303,7 +2336,7 @@ public class QuotesApi {
      * Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
      * @param tenantId  (required)
      * @param quoteId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2315,8 +2348,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchQuoteAsync(UUID tenantId, UUID quoteId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchQuoteAsyncWithHttpInfo(tenantId, quoteId, operation);
+    public EmptyEnvelope patchQuoteAsync(UUID tenantId, UUID quoteId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchQuoteAsyncWithHttpInfo(tenantId, quoteId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2325,7 +2358,7 @@ public class QuotesApi {
      * Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
      * @param tenantId  (required)
      * @param quoteId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2337,8 +2370,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchQuoteAsyncWithHttpInfo(UUID tenantId, UUID quoteId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchQuoteAsyncValidateBeforeCall(tenantId, quoteId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchQuoteAsyncWithHttpInfo(UUID tenantId, UUID quoteId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchQuoteAsyncValidateBeforeCall(tenantId, quoteId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2348,7 +2381,7 @@ public class QuotesApi {
      * Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
      * @param tenantId  (required)
      * @param quoteId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2361,9 +2394,9 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchQuoteAsyncAsync(UUID tenantId, UUID quoteId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchQuoteAsyncAsync(UUID tenantId, UUID quoteId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchQuoteAsyncValidateBeforeCall(tenantId, quoteId, operation, _callback);
+        okhttp3.Call localVarCall = patchQuoteAsyncValidateBeforeCall(tenantId, quoteId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2373,7 +2406,7 @@ public class QuotesApi {
      * @param tenantId  (required)
      * @param quoteId  (required)
      * @param quoteLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2386,7 +2419,7 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchQuoteLineAsyncCall(UUID tenantId, UUID quoteId, UUID quoteLineId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchQuoteLineAsyncCall(UUID tenantId, UUID quoteId, UUID quoteLineId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2400,7 +2433,7 @@ public class QuotesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId}"
@@ -2440,7 +2473,7 @@ public class QuotesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchQuoteLineAsyncValidateBeforeCall(UUID tenantId, UUID quoteId, UUID quoteLineId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchQuoteLineAsyncValidateBeforeCall(UUID tenantId, UUID quoteId, UUID quoteLineId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchQuoteLineAsync(Async)");
@@ -2456,7 +2489,7 @@ public class QuotesApi {
             throw new ApiException("Missing the required parameter 'quoteLineId' when calling patchQuoteLineAsync(Async)");
         }
 
-        return patchQuoteLineAsyncCall(tenantId, quoteId, quoteLineId, operation, _callback);
+        return patchQuoteLineAsyncCall(tenantId, quoteId, quoteLineId, patchOperation, _callback);
 
     }
 
@@ -2466,7 +2499,7 @@ public class QuotesApi {
      * @param tenantId  (required)
      * @param quoteId  (required)
      * @param quoteLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2478,8 +2511,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchQuoteLineAsync(UUID tenantId, UUID quoteId, UUID quoteLineId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchQuoteLineAsyncWithHttpInfo(tenantId, quoteId, quoteLineId, operation);
+    public EmptyEnvelope patchQuoteLineAsync(UUID tenantId, UUID quoteId, UUID quoteLineId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchQuoteLineAsyncWithHttpInfo(tenantId, quoteId, quoteLineId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2489,7 +2522,7 @@ public class QuotesApi {
      * @param tenantId  (required)
      * @param quoteId  (required)
      * @param quoteLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2501,8 +2534,8 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchQuoteLineAsyncWithHttpInfo(UUID tenantId, UUID quoteId, UUID quoteLineId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchQuoteLineAsyncValidateBeforeCall(tenantId, quoteId, quoteLineId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchQuoteLineAsyncWithHttpInfo(UUID tenantId, UUID quoteId, UUID quoteLineId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchQuoteLineAsyncValidateBeforeCall(tenantId, quoteId, quoteLineId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2513,7 +2546,7 @@ public class QuotesApi {
      * @param tenantId  (required)
      * @param quoteId  (required)
      * @param quoteLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2526,9 +2559,9 @@ public class QuotesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchQuoteLineAsyncAsync(UUID tenantId, UUID quoteId, UUID quoteLineId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchQuoteLineAsyncAsync(UUID tenantId, UUID quoteId, UUID quoteLineId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchQuoteLineAsyncValidateBeforeCall(tenantId, quoteId, quoteLineId, operation, _callback);
+        okhttp3.Call localVarCall = patchQuoteLineAsyncValidateBeforeCall(tenantId, quoteId, quoteLineId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,8 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.AccountingEntryDtoCollectionQueryParameters;
 import org.openapitools.client.model.DecimalEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.JournalEntryDtoCollectionQueryParameters;
 import org.openapitools.client.model.MoneyEnvelope;
 import java.util.UUID;
 
@@ -80,6 +82,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -91,7 +94,7 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCreditsSumAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCreditsSumAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,7 +108,7 @@ public class AccountingSummaryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = accountingEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Summary/Credits/Sum";
@@ -138,6 +141,8 @@ public class AccountingSummaryApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -149,13 +154,13 @@ public class AccountingSummaryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCreditsSumAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCreditsSumAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCreditsSumAsync(Async)");
         }
 
-        return getCreditsSumAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getCreditsSumAsyncCall(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -165,6 +170,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @return DecimalEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -175,8 +181,8 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public DecimalEnvelope getCreditsSumAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<DecimalEnvelope> localVarResp = getCreditsSumAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public DecimalEnvelope getCreditsSumAsync(UUID tenantId, String apiVersion, String xApiVersion, AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<DecimalEnvelope> localVarResp = getCreditsSumAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -186,6 +192,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;DecimalEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -196,8 +203,8 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DecimalEnvelope> getCreditsSumAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCreditsSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<DecimalEnvelope> getCreditsSumAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCreditsSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<DecimalEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -208,6 +215,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -219,9 +227,9 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCreditsSumAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<DecimalEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCreditsSumAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters, final ApiCallback<DecimalEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCreditsSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCreditsSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<DecimalEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -231,6 +239,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -242,7 +251,7 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDebitsSumAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDebitsSumAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -256,7 +265,7 @@ public class AccountingSummaryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = accountingEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Summary/Debits/Sum";
@@ -289,6 +298,8 @@ public class AccountingSummaryApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -300,13 +311,13 @@ public class AccountingSummaryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDebitsSumAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDebitsSumAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDebitsSumAsync(Async)");
         }
 
-        return getDebitsSumAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getDebitsSumAsyncCall(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -316,6 +327,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @return DecimalEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -326,8 +338,8 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public DecimalEnvelope getDebitsSumAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<DecimalEnvelope> localVarResp = getDebitsSumAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public DecimalEnvelope getDebitsSumAsync(UUID tenantId, String apiVersion, String xApiVersion, AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<DecimalEnvelope> localVarResp = getDebitsSumAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -337,6 +349,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;DecimalEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -347,8 +360,8 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DecimalEnvelope> getDebitsSumAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getDebitsSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<DecimalEnvelope> getDebitsSumAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getDebitsSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<DecimalEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -359,6 +372,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param accountingEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -370,9 +384,9 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDebitsSumAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<DecimalEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getDebitsSumAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, AccountingEntryDtoCollectionQueryParameters accountingEntryDtoCollectionQueryParameters, final ApiCallback<DecimalEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDebitsSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getDebitsSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, accountingEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<DecimalEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -382,6 +396,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -393,7 +408,7 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExpensesSumAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExpensesSumAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -407,7 +422,7 @@ public class AccountingSummaryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = journalEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Summary/Expenses/Sum";
@@ -440,6 +455,8 @@ public class AccountingSummaryApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -451,13 +468,13 @@ public class AccountingSummaryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExpensesSumAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExpensesSumAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExpensesSumAsync(Async)");
         }
 
-        return getExpensesSumAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getExpensesSumAsyncCall(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -467,6 +484,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -477,8 +495,8 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public MoneyEnvelope getExpensesSumAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<MoneyEnvelope> localVarResp = getExpensesSumAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public MoneyEnvelope getExpensesSumAsync(UUID tenantId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<MoneyEnvelope> localVarResp = getExpensesSumAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -488,6 +506,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;MoneyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -498,8 +517,8 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MoneyEnvelope> getExpensesSumAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getExpensesSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<MoneyEnvelope> getExpensesSumAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExpensesSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -510,6 +529,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -521,9 +541,9 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExpensesSumAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getExpensesSumAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExpensesSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getExpensesSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -533,6 +553,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -544,7 +565,7 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIncomesSumAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getIncomesSumAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -558,7 +579,7 @@ public class AccountingSummaryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = journalEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Summary/Incomes/Sum";
@@ -591,6 +612,8 @@ public class AccountingSummaryApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -602,13 +625,13 @@ public class AccountingSummaryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getIncomesSumAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getIncomesSumAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getIncomesSumAsync(Async)");
         }
 
-        return getIncomesSumAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getIncomesSumAsyncCall(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -618,6 +641,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return MoneyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -628,8 +652,8 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public MoneyEnvelope getIncomesSumAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<MoneyEnvelope> localVarResp = getIncomesSumAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public MoneyEnvelope getIncomesSumAsync(UUID tenantId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<MoneyEnvelope> localVarResp = getIncomesSumAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -639,6 +663,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;MoneyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -649,8 +674,8 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MoneyEnvelope> getIncomesSumAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getIncomesSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<MoneyEnvelope> getIncomesSumAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getIncomesSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -661,6 +686,7 @@ public class AccountingSummaryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param journalEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -672,9 +698,9 @@ public class AccountingSummaryApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getIncomesSumAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getIncomesSumAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getIncomesSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getIncomesSumAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

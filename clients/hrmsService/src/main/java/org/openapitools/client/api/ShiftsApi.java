@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ShiftCreateDto;
+import org.openapitools.client.model.ShiftDtoCollectionQueryParameters;
 import org.openapitools.client.model.ShiftDtoEnvelope;
 import org.openapitools.client.model.ShiftDtoListEnvelope;
 import org.openapitools.client.model.ShiftUpdateDto;
@@ -572,6 +573,7 @@ public class ShiftsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shiftDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -583,7 +585,7 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShiftsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShiftsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -597,7 +599,7 @@ public class ShiftsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shiftDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/Shifts";
@@ -630,6 +632,8 @@ public class ShiftsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -641,13 +645,13 @@ public class ShiftsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShiftsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShiftsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShiftsAsync(Async)");
         }
 
-        return getShiftsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShiftsAsyncCall(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -657,6 +661,7 @@ public class ShiftsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shiftDtoCollectionQueryParameters  (optional)
      * @return ShiftDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -667,8 +672,8 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ShiftDtoListEnvelope getShiftsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ShiftDtoListEnvelope> localVarResp = getShiftsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ShiftDtoListEnvelope getShiftsAsync(UUID tenantId, String apiVersion, String xApiVersion, ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ShiftDtoListEnvelope> localVarResp = getShiftsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -678,6 +683,7 @@ public class ShiftsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shiftDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ShiftDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -688,8 +694,8 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShiftDtoListEnvelope> getShiftsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShiftsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ShiftDtoListEnvelope> getShiftsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShiftsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ShiftDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -700,6 +706,7 @@ public class ShiftsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shiftDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -711,9 +718,9 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShiftsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ShiftDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getShiftsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters, final ApiCallback<ShiftDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShiftsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShiftsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ShiftDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -723,6 +730,7 @@ public class ShiftsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shiftDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -734,7 +742,7 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShiftsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShiftsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -748,7 +756,7 @@ public class ShiftsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = shiftDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/Shifts/Count";
@@ -781,6 +789,8 @@ public class ShiftsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -792,13 +802,13 @@ public class ShiftsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShiftsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getShiftsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getShiftsCountAsync(Async)");
         }
 
-        return getShiftsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getShiftsCountAsyncCall(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -808,6 +818,7 @@ public class ShiftsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shiftDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -818,8 +829,8 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getShiftsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getShiftsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getShiftsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getShiftsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -829,6 +840,7 @@ public class ShiftsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shiftDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -839,8 +851,8 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getShiftsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getShiftsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getShiftsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getShiftsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -851,6 +863,7 @@ public class ShiftsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param shiftDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -862,9 +875,9 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShiftsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getShiftsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShiftsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getShiftsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -875,7 +888,7 @@ public class ShiftsApi {
      * @param shiftId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -888,7 +901,7 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShiftAsyncCall(UUID tenantId, UUID shiftId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchShiftAsyncCall(UUID tenantId, UUID shiftId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -902,7 +915,7 @@ public class ShiftsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/Shifts/{shiftId}"
@@ -949,7 +962,7 @@ public class ShiftsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchShiftAsyncValidateBeforeCall(UUID tenantId, UUID shiftId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchShiftAsyncValidateBeforeCall(UUID tenantId, UUID shiftId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchShiftAsync(Async)");
@@ -960,7 +973,7 @@ public class ShiftsApi {
             throw new ApiException("Missing the required parameter 'shiftId' when calling patchShiftAsync(Async)");
         }
 
-        return patchShiftAsyncCall(tenantId, shiftId, apiVersion, xApiVersion, operation, _callback);
+        return patchShiftAsyncCall(tenantId, shiftId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -971,7 +984,7 @@ public class ShiftsApi {
      * @param shiftId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -983,8 +996,8 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchShiftAsync(UUID tenantId, UUID shiftId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchShiftAsyncWithHttpInfo(tenantId, shiftId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchShiftAsync(UUID tenantId, UUID shiftId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchShiftAsyncWithHttpInfo(tenantId, shiftId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -995,7 +1008,7 @@ public class ShiftsApi {
      * @param shiftId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1007,8 +1020,8 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchShiftAsyncWithHttpInfo(UUID tenantId, UUID shiftId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchShiftAsyncValidateBeforeCall(tenantId, shiftId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchShiftAsyncWithHttpInfo(UUID tenantId, UUID shiftId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchShiftAsyncValidateBeforeCall(tenantId, shiftId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1020,7 +1033,7 @@ public class ShiftsApi {
      * @param shiftId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1033,9 +1046,9 @@ public class ShiftsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchShiftAsyncAsync(UUID tenantId, UUID shiftId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchShiftAsyncAsync(UUID tenantId, UUID shiftId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchShiftAsyncValidateBeforeCall(tenantId, shiftId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchShiftAsyncValidateBeforeCall(tenantId, shiftId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

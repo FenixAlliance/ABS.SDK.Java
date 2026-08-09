@@ -218,7 +218,7 @@ No authorization required
 
 <a id="getCourseFilesAsync"></a>
 # **getCourseFilesAsync**
-> List&lt;CourseFileDto&gt; getCourseFilesAsync(tenantId, apiVersion, xApiVersion)
+> List&lt;CourseFileDto&gt; getCourseFilesAsync(tenantId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters)
 
 Get all course files
 
@@ -242,8 +242,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseFileDtoCollectionQueryParameters courseFileDtoCollectionQueryParameters = new CourseFileDtoCollectionQueryParameters(); // CourseFileDtoCollectionQueryParameters | 
     try {
-      List<CourseFileDto> result = apiInstance.getCourseFilesAsync(tenantId, apiVersion, xApiVersion);
+      List<CourseFileDto> result = apiInstance.getCourseFilesAsync(tenantId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseFilesApi#getCourseFilesAsync");
@@ -263,6 +264,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseFileDtoCollectionQueryParameters** | [**CourseFileDtoCollectionQueryParameters**](CourseFileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -274,7 +276,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -285,7 +287,7 @@ No authorization required
 
 <a id="getCourseFilesCountAsync"></a>
 # **getCourseFilesCountAsync**
-> Integer getCourseFilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Integer getCourseFilesCountAsync(tenantId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters)
 
 Get course files count
 
@@ -309,8 +311,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseFileDtoCollectionQueryParameters courseFileDtoCollectionQueryParameters = new CourseFileDtoCollectionQueryParameters(); // CourseFileDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseFilesCountAsync(tenantId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseFilesCountAsync(tenantId, apiVersion, xApiVersion, courseFileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseFilesApi#getCourseFilesCountAsync");
@@ -330,6 +333,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseFileDtoCollectionQueryParameters** | [**CourseFileDtoCollectionQueryParameters**](CourseFileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -352,7 +356,7 @@ No authorization required
 
 <a id="patchCourseFileAsync"></a>
 # **patchCourseFileAsync**
-> patchCourseFileAsync(tenantId, fileId, apiVersion, xApiVersion, operation)
+> patchCourseFileAsync(tenantId, fileId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course file
 
@@ -377,9 +381,9 @@ public class Example {
     String fileId = "fileId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchCourseFileAsync(tenantId, fileId, apiVersion, xApiVersion, operation);
+      apiInstance.patchCourseFileAsync(tenantId, fileId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseFilesApi#patchCourseFileAsync");
       System.err.println("Status code: " + e.getCode());
@@ -399,7 +403,7 @@ public class Example {
 | **fileId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

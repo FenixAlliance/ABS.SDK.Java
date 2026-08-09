@@ -29,10 +29,12 @@ import java.io.IOException;
 
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.ExtendedSalesLiteratureDtoCollectionQueryParameters;
 import org.openapitools.client.model.ExtendedSalesLiteratureDtoListEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SalesLiteratureCreateDto;
+import org.openapitools.client.model.SalesLiteratureDtoCollectionQueryParameters;
 import org.openapitools.client.model.SalesLiteratureDtoEnvelope;
 import org.openapitools.client.model.SalesLiteratureDtoListEnvelope;
 import org.openapitools.client.model.SalesLiteratureUpdateDto;
@@ -84,6 +86,7 @@ public class SalesLiteraturesApi {
     /**
      * Build call for countSalesLiteraturesAsync
      * @param tenantId  (required)
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -94,7 +97,7 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countSalesLiteraturesAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countSalesLiteraturesAsyncCall(UUID tenantId, SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,7 +111,7 @@ public class SalesLiteraturesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = salesLiteratureDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/SalesLiteratures/Count";
@@ -133,6 +136,8 @@ public class SalesLiteraturesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -144,13 +149,13 @@ public class SalesLiteraturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countSalesLiteraturesAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countSalesLiteraturesAsyncValidateBeforeCall(UUID tenantId, SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countSalesLiteraturesAsync(Async)");
         }
 
-        return countSalesLiteraturesAsyncCall(tenantId, _callback);
+        return countSalesLiteraturesAsyncCall(tenantId, salesLiteratureDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -158,6 +163,7 @@ public class SalesLiteraturesApi {
      * Get sales literatures count
      * Returns the total count of sales literatures for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -167,8 +173,8 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countSalesLiteraturesAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countSalesLiteraturesAsyncWithHttpInfo(tenantId);
+    public Int32Envelope countSalesLiteraturesAsync(UUID tenantId, SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countSalesLiteraturesAsyncWithHttpInfo(tenantId, salesLiteratureDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -176,6 +182,7 @@ public class SalesLiteraturesApi {
      * Get sales literatures count
      * Returns the total count of sales literatures for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -185,8 +192,8 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countSalesLiteraturesAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = countSalesLiteraturesAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> countSalesLiteraturesAsyncWithHttpInfo(UUID tenantId, SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countSalesLiteraturesAsyncValidateBeforeCall(tenantId, salesLiteratureDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -195,6 +202,7 @@ public class SalesLiteraturesApi {
      * Get sales literatures count (asynchronously)
      * Returns the total count of sales literatures for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -205,9 +213,9 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countSalesLiteraturesAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countSalesLiteraturesAsyncAsync(UUID tenantId, SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countSalesLiteraturesAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = countSalesLiteraturesAsyncValidateBeforeCall(tenantId, salesLiteratureDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -493,6 +501,7 @@ public class SalesLiteraturesApi {
     /**
      * Build call for getExtendedSalesLiteraturesAsync
      * @param tenantId  (required)
+     * @param extendedSalesLiteratureDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -503,7 +512,7 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedSalesLiteraturesAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExtendedSalesLiteraturesAsyncCall(UUID tenantId, ExtendedSalesLiteratureDtoCollectionQueryParameters extendedSalesLiteratureDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -517,7 +526,7 @@ public class SalesLiteraturesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedSalesLiteratureDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/SalesLiteratures/Extended";
@@ -542,6 +551,8 @@ public class SalesLiteraturesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -553,13 +564,13 @@ public class SalesLiteraturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedSalesLiteraturesAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExtendedSalesLiteraturesAsyncValidateBeforeCall(UUID tenantId, ExtendedSalesLiteratureDtoCollectionQueryParameters extendedSalesLiteratureDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExtendedSalesLiteraturesAsync(Async)");
         }
 
-        return getExtendedSalesLiteraturesAsyncCall(tenantId, _callback);
+        return getExtendedSalesLiteraturesAsyncCall(tenantId, extendedSalesLiteratureDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -567,6 +578,7 @@ public class SalesLiteraturesApi {
      * Get extended sales literatures
      * Retrieves a list of sales literatures with extended details for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param extendedSalesLiteratureDtoCollectionQueryParameters  (optional)
      * @return ExtendedSalesLiteratureDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -576,8 +588,8 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ExtendedSalesLiteratureDtoListEnvelope getExtendedSalesLiteraturesAsync(UUID tenantId) throws ApiException {
-        ApiResponse<ExtendedSalesLiteratureDtoListEnvelope> localVarResp = getExtendedSalesLiteraturesAsyncWithHttpInfo(tenantId);
+    public ExtendedSalesLiteratureDtoListEnvelope getExtendedSalesLiteraturesAsync(UUID tenantId, ExtendedSalesLiteratureDtoCollectionQueryParameters extendedSalesLiteratureDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ExtendedSalesLiteratureDtoListEnvelope> localVarResp = getExtendedSalesLiteraturesAsyncWithHttpInfo(tenantId, extendedSalesLiteratureDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -585,6 +597,7 @@ public class SalesLiteraturesApi {
      * Get extended sales literatures
      * Retrieves a list of sales literatures with extended details for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param extendedSalesLiteratureDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ExtendedSalesLiteratureDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -594,8 +607,8 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExtendedSalesLiteratureDtoListEnvelope> getExtendedSalesLiteraturesAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedSalesLiteraturesAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<ExtendedSalesLiteratureDtoListEnvelope> getExtendedSalesLiteraturesAsyncWithHttpInfo(UUID tenantId, ExtendedSalesLiteratureDtoCollectionQueryParameters extendedSalesLiteratureDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedSalesLiteraturesAsyncValidateBeforeCall(tenantId, extendedSalesLiteratureDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ExtendedSalesLiteratureDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -604,6 +617,7 @@ public class SalesLiteraturesApi {
      * Get extended sales literatures (asynchronously)
      * Retrieves a list of sales literatures with extended details for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param extendedSalesLiteratureDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -614,9 +628,9 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedSalesLiteraturesAsyncAsync(UUID tenantId, final ApiCallback<ExtendedSalesLiteratureDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getExtendedSalesLiteraturesAsyncAsync(UUID tenantId, ExtendedSalesLiteratureDtoCollectionQueryParameters extendedSalesLiteratureDtoCollectionQueryParameters, final ApiCallback<ExtendedSalesLiteratureDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedSalesLiteraturesAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getExtendedSalesLiteraturesAsyncValidateBeforeCall(tenantId, extendedSalesLiteratureDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ExtendedSalesLiteratureDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -765,6 +779,7 @@ public class SalesLiteraturesApi {
     /**
      * Build call for getSalesLiteraturesAsync
      * @param tenantId  (required)
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -775,7 +790,7 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSalesLiteraturesAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSalesLiteraturesAsyncCall(UUID tenantId, SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -789,7 +804,7 @@ public class SalesLiteraturesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = salesLiteratureDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/SalesLiteratures";
@@ -814,6 +829,8 @@ public class SalesLiteraturesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -825,13 +842,13 @@ public class SalesLiteraturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSalesLiteraturesAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSalesLiteraturesAsyncValidateBeforeCall(UUID tenantId, SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSalesLiteraturesAsync(Async)");
         }
 
-        return getSalesLiteraturesAsyncCall(tenantId, _callback);
+        return getSalesLiteraturesAsyncCall(tenantId, salesLiteratureDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -839,6 +856,7 @@ public class SalesLiteraturesApi {
      * Get sales literatures
      * Retrieves a list of sales literatures for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @return SalesLiteratureDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -848,8 +866,8 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SalesLiteratureDtoListEnvelope getSalesLiteraturesAsync(UUID tenantId) throws ApiException {
-        ApiResponse<SalesLiteratureDtoListEnvelope> localVarResp = getSalesLiteraturesAsyncWithHttpInfo(tenantId);
+    public SalesLiteratureDtoListEnvelope getSalesLiteraturesAsync(UUID tenantId, SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SalesLiteratureDtoListEnvelope> localVarResp = getSalesLiteraturesAsyncWithHttpInfo(tenantId, salesLiteratureDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -857,6 +875,7 @@ public class SalesLiteraturesApi {
      * Get sales literatures
      * Retrieves a list of sales literatures for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SalesLiteratureDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -866,8 +885,8 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SalesLiteratureDtoListEnvelope> getSalesLiteraturesAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getSalesLiteraturesAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<SalesLiteratureDtoListEnvelope> getSalesLiteraturesAsyncWithHttpInfo(UUID tenantId, SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSalesLiteraturesAsyncValidateBeforeCall(tenantId, salesLiteratureDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SalesLiteratureDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -876,6 +895,7 @@ public class SalesLiteraturesApi {
      * Get sales literatures (asynchronously)
      * Retrieves a list of sales literatures for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param salesLiteratureDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -886,9 +906,9 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSalesLiteraturesAsyncAsync(UUID tenantId, final ApiCallback<SalesLiteratureDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSalesLiteraturesAsyncAsync(UUID tenantId, SalesLiteratureDtoCollectionQueryParameters salesLiteratureDtoCollectionQueryParameters, final ApiCallback<SalesLiteratureDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSalesLiteraturesAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getSalesLiteraturesAsyncValidateBeforeCall(tenantId, salesLiteratureDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SalesLiteratureDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -897,7 +917,7 @@ public class SalesLiteraturesApi {
      * Build call for patchSalesLiteratureAsync
      * @param tenantId  (required)
      * @param salesLiteratureId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -908,7 +928,7 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSalesLiteratureAsyncCall(UUID tenantId, UUID salesLiteratureId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchSalesLiteratureAsyncCall(UUID tenantId, UUID salesLiteratureId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -922,7 +942,7 @@ public class SalesLiteraturesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SalesService/SalesLiteratures/{salesLiteratureId}"
@@ -961,7 +981,7 @@ public class SalesLiteraturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchSalesLiteratureAsyncValidateBeforeCall(UUID tenantId, UUID salesLiteratureId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSalesLiteratureAsyncValidateBeforeCall(UUID tenantId, UUID salesLiteratureId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchSalesLiteratureAsync(Async)");
@@ -972,7 +992,7 @@ public class SalesLiteraturesApi {
             throw new ApiException("Missing the required parameter 'salesLiteratureId' when calling patchSalesLiteratureAsync(Async)");
         }
 
-        return patchSalesLiteratureAsyncCall(tenantId, salesLiteratureId, operation, _callback);
+        return patchSalesLiteratureAsyncCall(tenantId, salesLiteratureId, patchOperation, _callback);
 
     }
 
@@ -981,7 +1001,7 @@ public class SalesLiteraturesApi {
      * Partially updates an existing sales literature using a JSON Patch document.
      * @param tenantId  (required)
      * @param salesLiteratureId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -991,8 +1011,8 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchSalesLiteratureAsync(UUID tenantId, UUID salesLiteratureId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchSalesLiteratureAsyncWithHttpInfo(tenantId, salesLiteratureId, operation);
+    public EmptyEnvelope patchSalesLiteratureAsync(UUID tenantId, UUID salesLiteratureId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchSalesLiteratureAsyncWithHttpInfo(tenantId, salesLiteratureId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1001,7 +1021,7 @@ public class SalesLiteraturesApi {
      * Partially updates an existing sales literature using a JSON Patch document.
      * @param tenantId  (required)
      * @param salesLiteratureId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1011,8 +1031,8 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchSalesLiteratureAsyncWithHttpInfo(UUID tenantId, UUID salesLiteratureId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchSalesLiteratureAsyncValidateBeforeCall(tenantId, salesLiteratureId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchSalesLiteratureAsyncWithHttpInfo(UUID tenantId, UUID salesLiteratureId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchSalesLiteratureAsyncValidateBeforeCall(tenantId, salesLiteratureId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1022,7 +1042,7 @@ public class SalesLiteraturesApi {
      * Partially updates an existing sales literature using a JSON Patch document.
      * @param tenantId  (required)
      * @param salesLiteratureId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1033,9 +1053,9 @@ public class SalesLiteraturesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSalesLiteratureAsyncAsync(UUID tenantId, UUID salesLiteratureId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchSalesLiteratureAsyncAsync(UUID tenantId, UUID salesLiteratureId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchSalesLiteratureAsyncValidateBeforeCall(tenantId, salesLiteratureId, operation, _callback);
+        okhttp3.Call localVarCall = patchSalesLiteratureAsyncValidateBeforeCall(tenantId, salesLiteratureId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

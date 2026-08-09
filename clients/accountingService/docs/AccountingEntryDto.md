@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
 |**journalEntryId** | **String** |  |  [optional] |
@@ -26,7 +27,6 @@
 |**forexRatesSnapshot** | **String** |  |  [optional] |
 |**costCentreId** | **String** |  |  [optional] |
 |**projectId** | **String** |  |  [optional] |
-|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**debit** | **Double** |  |  [optional] [readonly] |
 |**credit** | **Double** |  |  [optional] [readonly] |
 |**amount** | [**Money**](Money.md) |  |  [optional] |

@@ -33,7 +33,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countCurrentUserFollowersAsync"></a>
 # **countCurrentUserFollowersAsync**
-> Int32Envelope countCurrentUserFollowersAsync(apiVersion, xApiVersion)
+> Int32Envelope countCurrentUserFollowersAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Count the social profiles that follow the current user
 
@@ -56,8 +56,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters = new FollowRecordDtoCollectionQueryParameters(); // FollowRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countCurrentUserFollowersAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countCurrentUserFollowersAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#countCurrentUserFollowersAsync");
@@ -76,6 +77,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -87,7 +89,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 ### HTTP response details
@@ -98,7 +100,7 @@ No authorization required
 
 <a id="countCurrentUserFollowsAsync"></a>
 # **countCurrentUserFollowsAsync**
-> Int32Envelope countCurrentUserFollowsAsync(apiVersion, xApiVersion)
+> Int32Envelope countCurrentUserFollowsAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Count the social profiles that the current user follows
 
@@ -121,8 +123,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters = new FollowRecordDtoCollectionQueryParameters(); // FollowRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countCurrentUserFollowsAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countCurrentUserFollowsAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#countCurrentUserFollowsAsync");
@@ -141,6 +144,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -152,7 +156,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 ### HTTP response details
@@ -163,7 +167,7 @@ No authorization required
 
 <a id="countCurrentUserNotificationsAsync"></a>
 # **countCurrentUserNotificationsAsync**
-> Int32Envelope countCurrentUserNotificationsAsync(apiVersion, xApiVersion)
+> Int32Envelope countCurrentUserNotificationsAsync(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Count the notifications for the current user
 
@@ -186,8 +190,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters = new NotificationDtoCollectionQueryParameters(); // NotificationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countCurrentUserNotificationsAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countCurrentUserNotificationsAsync(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#countCurrentUserNotificationsAsync");
@@ -206,6 +211,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -217,7 +223,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 ### HTTP response details
@@ -228,7 +234,7 @@ No authorization required
 
 <a id="countCurrentUserTenantsAsync"></a>
 # **countCurrentUserTenantsAsync**
-> Int32Envelope countCurrentUserTenantsAsync(apiVersion, xApiVersion)
+> Int32Envelope countCurrentUserTenantsAsync(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
 
 Count the tenants that the current user is enrolled in
 
@@ -251,8 +257,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters = new TenantDtoCollectionQueryParameters(); // TenantDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countCurrentUserTenantsAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countCurrentUserTenantsAsync(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#countCurrentUserTenantsAsync");
@@ -271,6 +278,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -282,7 +290,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 ### HTTP response details
@@ -294,7 +302,7 @@ No authorization required
 
 <a id="getCurrentUserAddressesAsync"></a>
 # **getCurrentUserAddressesAsync**
-> AddressDtoListEnvelope getCurrentUserAddressesAsync(apiVersion, xApiVersion)
+> AddressDtoListEnvelope getCurrentUserAddressesAsync(apiVersion, xApiVersion, addressDtoCollectionQueryParameters)
 
 Get the list of addresses for the current user
 
@@ -317,8 +325,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AddressDtoCollectionQueryParameters addressDtoCollectionQueryParameters = new AddressDtoCollectionQueryParameters(); // AddressDtoCollectionQueryParameters | 
     try {
-      AddressDtoListEnvelope result = apiInstance.getCurrentUserAddressesAsync(apiVersion, xApiVersion);
+      AddressDtoListEnvelope result = apiInstance.getCurrentUserAddressesAsync(apiVersion, xApiVersion, addressDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#getCurrentUserAddressesAsync");
@@ -337,6 +346,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **addressDtoCollectionQueryParameters** | [**AddressDtoCollectionQueryParameters**](AddressDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -348,7 +358,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 ### HTTP response details
@@ -685,7 +695,7 @@ No authorization required
 
 <a id="getCurrentUserFollowersAsync"></a>
 # **getCurrentUserFollowersAsync**
-> FollowRecordDtoListEnvelope getCurrentUserFollowersAsync(apiVersion, xApiVersion)
+> FollowRecordDtoListEnvelope getCurrentUserFollowersAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Get the social profiles that follow the current user
 
@@ -708,8 +718,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters = new FollowRecordDtoCollectionQueryParameters(); // FollowRecordDtoCollectionQueryParameters | 
     try {
-      FollowRecordDtoListEnvelope result = apiInstance.getCurrentUserFollowersAsync(apiVersion, xApiVersion);
+      FollowRecordDtoListEnvelope result = apiInstance.getCurrentUserFollowersAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#getCurrentUserFollowersAsync");
@@ -728,6 +739,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -739,7 +751,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 ### HTTP response details
@@ -750,7 +762,7 @@ No authorization required
 
 <a id="getCurrentUserFollowsAsync"></a>
 # **getCurrentUserFollowsAsync**
-> FollowRecordDtoListEnvelope getCurrentUserFollowsAsync(apiVersion, xApiVersion)
+> FollowRecordDtoListEnvelope getCurrentUserFollowsAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Get the social profiles that the current user follows
 
@@ -773,8 +785,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters = new FollowRecordDtoCollectionQueryParameters(); // FollowRecordDtoCollectionQueryParameters | 
     try {
-      FollowRecordDtoListEnvelope result = apiInstance.getCurrentUserFollowsAsync(apiVersion, xApiVersion);
+      FollowRecordDtoListEnvelope result = apiInstance.getCurrentUserFollowsAsync(apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#getCurrentUserFollowsAsync");
@@ -793,6 +806,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -804,7 +818,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 ### HTTP response details
@@ -880,7 +894,7 @@ No authorization required
 
 <a id="getCurrentUserNotificationsAsync"></a>
 # **getCurrentUserNotificationsAsync**
-> NotificationDtoListEnvelope getCurrentUserNotificationsAsync(apiVersion, xApiVersion)
+> NotificationDtoListEnvelope getCurrentUserNotificationsAsync(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Get the list of notifications for the current user
 
@@ -903,8 +917,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters = new NotificationDtoCollectionQueryParameters(); // NotificationDtoCollectionQueryParameters | 
     try {
-      NotificationDtoListEnvelope result = apiInstance.getCurrentUserNotificationsAsync(apiVersion, xApiVersion);
+      NotificationDtoListEnvelope result = apiInstance.getCurrentUserNotificationsAsync(apiVersion, xApiVersion, notificationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#getCurrentUserNotificationsAsync");
@@ -923,6 +938,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -934,7 +950,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 ### HTTP response details
@@ -1075,7 +1091,7 @@ No authorization required
 
 <a id="getCurrentUserTenantsAsync"></a>
 # **getCurrentUserTenantsAsync**
-> TenantDtoListEnvelope getCurrentUserTenantsAsync(apiVersion, xApiVersion)
+> TenantDtoListEnvelope getCurrentUserTenantsAsync(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
 
 Get the tenants that the current user is enrolled in
 
@@ -1098,8 +1114,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters = new TenantDtoCollectionQueryParameters(); // TenantDtoCollectionQueryParameters | 
     try {
-      TenantDtoListEnvelope result = apiInstance.getCurrentUserTenantsAsync(apiVersion, xApiVersion);
+      TenantDtoListEnvelope result = apiInstance.getCurrentUserTenantsAsync(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#getCurrentUserTenantsAsync");
@@ -1118,6 +1135,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1129,7 +1147,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml, multipart/form-data
  - **Accept**: application/json, application/xml, multipart/form-data
 
 ### HTTP response details
@@ -1404,7 +1422,7 @@ No authorization required
 
 <a id="patchCurrentUserAsync"></a>
 # **patchCurrentUserAsync**
-> EmptyEnvelope patchCurrentUserAsync(apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCurrentUserAsync(apiVersion, xApiVersion, patchOperation)
 
 Partially update the current user&#39;s profile
 
@@ -1427,9 +1445,9 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCurrentUserAsync(apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCurrentUserAsync(apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsersApi#patchCurrentUserAsync");
@@ -1448,7 +1466,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

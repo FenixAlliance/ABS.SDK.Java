@@ -31,10 +31,11 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.LocationCreateDto;
+import org.openapitools.client.model.LocationDtoCollectionQueryParameters;
 import org.openapitools.client.model.LocationDtoEnvelope;
 import org.openapitools.client.model.LocationDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.LocationUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -794,6 +795,7 @@ public class LocationsApi {
     /**
      * Build call for getLocationsAsync
      * @param tenantId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -805,7 +807,7 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationsAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLocationsAsyncCall(UUID tenantId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -819,7 +821,7 @@ public class LocationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = locationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LocationsService/Locations";
@@ -844,6 +846,8 @@ public class LocationsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -855,13 +859,13 @@ public class LocationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLocationsAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLocationsAsyncValidateBeforeCall(UUID tenantId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLocationsAsync(Async)");
         }
 
-        return getLocationsAsyncCall(tenantId, _callback);
+        return getLocationsAsyncCall(tenantId, locationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -869,6 +873,7 @@ public class LocationsApi {
      * Get Locations
      * Get all locations with OData query support.
      * @param tenantId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return LocationDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -879,8 +884,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public LocationDtoIReadOnlyListEnvelope getLocationsAsync(UUID tenantId) throws ApiException {
-        ApiResponse<LocationDtoIReadOnlyListEnvelope> localVarResp = getLocationsAsyncWithHttpInfo(tenantId);
+    public LocationDtoIReadOnlyListEnvelope getLocationsAsync(UUID tenantId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LocationDtoIReadOnlyListEnvelope> localVarResp = getLocationsAsyncWithHttpInfo(tenantId, locationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -888,6 +893,7 @@ public class LocationsApi {
      * Get Locations
      * Get all locations with OData query support.
      * @param tenantId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LocationDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -898,8 +904,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LocationDtoIReadOnlyListEnvelope> getLocationsAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getLocationsAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<LocationDtoIReadOnlyListEnvelope> getLocationsAsyncWithHttpInfo(UUID tenantId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLocationsAsyncValidateBeforeCall(tenantId, locationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LocationDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -908,6 +914,7 @@ public class LocationsApi {
      * Get Locations (asynchronously)
      * Get all locations with OData query support.
      * @param tenantId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -919,9 +926,9 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationsAsyncAsync(UUID tenantId, final ApiCallback<LocationDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLocationsAsyncAsync(UUID tenantId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback<LocationDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLocationsAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getLocationsAsyncValidateBeforeCall(tenantId, locationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LocationDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -929,6 +936,7 @@ public class LocationsApi {
     /**
      * Build call for getLocationsCountAsync
      * @param tenantId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -940,7 +948,7 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationsCountAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLocationsCountAsyncCall(UUID tenantId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -954,7 +962,7 @@ public class LocationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = locationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LocationsService/Locations/count";
@@ -979,6 +987,8 @@ public class LocationsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -990,13 +1000,13 @@ public class LocationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLocationsCountAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLocationsCountAsyncValidateBeforeCall(UUID tenantId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLocationsCountAsync(Async)");
         }
 
-        return getLocationsCountAsyncCall(tenantId, _callback);
+        return getLocationsCountAsyncCall(tenantId, locationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1004,6 +1014,7 @@ public class LocationsApi {
      * Get Locations Count
      * Get the count of locations with OData query support.
      * @param tenantId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1014,8 +1025,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getLocationsCountAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getLocationsCountAsyncWithHttpInfo(tenantId);
+    public Int32Envelope getLocationsCountAsync(UUID tenantId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getLocationsCountAsyncWithHttpInfo(tenantId, locationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1023,6 +1034,7 @@ public class LocationsApi {
      * Get Locations Count
      * Get the count of locations with OData query support.
      * @param tenantId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1033,8 +1045,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getLocationsCountAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getLocationsCountAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getLocationsCountAsyncWithHttpInfo(UUID tenantId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLocationsCountAsyncValidateBeforeCall(tenantId, locationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1043,6 +1055,7 @@ public class LocationsApi {
      * Get Locations Count (asynchronously)
      * Get the count of locations with OData query support.
      * @param tenantId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1054,9 +1067,9 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationsCountAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getLocationsCountAsyncAsync(UUID tenantId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLocationsCountAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getLocationsCountAsyncValidateBeforeCall(tenantId, locationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1206,6 +1219,7 @@ public class LocationsApi {
     /**
      * Build call for getWalletLocationsAsync
      * @param walletId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1217,7 +1231,7 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletLocationsAsyncCall(UUID walletId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletLocationsAsyncCall(UUID walletId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1231,7 +1245,7 @@ public class LocationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = locationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LocationsService/Locations/wallet/{walletId}"
@@ -1253,6 +1267,8 @@ public class LocationsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1264,13 +1280,13 @@ public class LocationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletLocationsAsyncValidateBeforeCall(UUID walletId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletLocationsAsyncValidateBeforeCall(UUID walletId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletLocationsAsync(Async)");
         }
 
-        return getWalletLocationsAsyncCall(walletId, _callback);
+        return getWalletLocationsAsyncCall(walletId, locationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1278,6 +1294,7 @@ public class LocationsApi {
      * Get Wallet Locations
      * Get locations for a specific wallet by ID.
      * @param walletId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return LocationDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1288,8 +1305,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public LocationDtoIReadOnlyListEnvelope getWalletLocationsAsync(UUID walletId) throws ApiException {
-        ApiResponse<LocationDtoIReadOnlyListEnvelope> localVarResp = getWalletLocationsAsyncWithHttpInfo(walletId);
+    public LocationDtoIReadOnlyListEnvelope getWalletLocationsAsync(UUID walletId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LocationDtoIReadOnlyListEnvelope> localVarResp = getWalletLocationsAsyncWithHttpInfo(walletId, locationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1297,6 +1314,7 @@ public class LocationsApi {
      * Get Wallet Locations
      * Get locations for a specific wallet by ID.
      * @param walletId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LocationDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1307,8 +1325,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LocationDtoIReadOnlyListEnvelope> getWalletLocationsAsyncWithHttpInfo(UUID walletId) throws ApiException {
-        okhttp3.Call localVarCall = getWalletLocationsAsyncValidateBeforeCall(walletId, null);
+    public ApiResponse<LocationDtoIReadOnlyListEnvelope> getWalletLocationsAsyncWithHttpInfo(UUID walletId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletLocationsAsyncValidateBeforeCall(walletId, locationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LocationDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1317,6 +1335,7 @@ public class LocationsApi {
      * Get Wallet Locations (asynchronously)
      * Get locations for a specific wallet by ID.
      * @param walletId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1328,9 +1347,9 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletLocationsAsyncAsync(UUID walletId, final ApiCallback<LocationDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletLocationsAsyncAsync(UUID walletId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback<LocationDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletLocationsAsyncValidateBeforeCall(walletId, _callback);
+        okhttp3.Call localVarCall = getWalletLocationsAsyncValidateBeforeCall(walletId, locationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LocationDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1338,6 +1357,7 @@ public class LocationsApi {
     /**
      * Build call for getWalletLocationsCountAsync
      * @param walletId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1349,7 +1369,7 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletLocationsCountAsyncCall(UUID walletId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWalletLocationsCountAsyncCall(UUID walletId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1363,7 +1383,7 @@ public class LocationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = locationDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LocationsService/Locations/wallet/{walletId}/count"
@@ -1385,6 +1405,8 @@ public class LocationsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1396,13 +1418,13 @@ public class LocationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletLocationsCountAsyncValidateBeforeCall(UUID walletId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWalletLocationsCountAsyncValidateBeforeCall(UUID walletId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling getWalletLocationsCountAsync(Async)");
         }
 
-        return getWalletLocationsCountAsyncCall(walletId, _callback);
+        return getWalletLocationsCountAsyncCall(walletId, locationDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1410,6 +1432,7 @@ public class LocationsApi {
      * Get Wallet Locations Count
      * Get the count of locations for a specific wallet by ID.
      * @param walletId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1420,8 +1443,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWalletLocationsCountAsync(UUID walletId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletLocationsCountAsyncWithHttpInfo(walletId);
+    public Int32Envelope getWalletLocationsCountAsync(UUID walletId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWalletLocationsCountAsyncWithHttpInfo(walletId, locationDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1429,6 +1452,7 @@ public class LocationsApi {
      * Get Wallet Locations Count
      * Get the count of locations for a specific wallet by ID.
      * @param walletId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1439,8 +1463,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWalletLocationsCountAsyncWithHttpInfo(UUID walletId) throws ApiException {
-        okhttp3.Call localVarCall = getWalletLocationsCountAsyncValidateBeforeCall(walletId, null);
+    public ApiResponse<Int32Envelope> getWalletLocationsCountAsyncWithHttpInfo(UUID walletId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWalletLocationsCountAsyncValidateBeforeCall(walletId, locationDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1449,6 +1473,7 @@ public class LocationsApi {
      * Get Wallet Locations Count (asynchronously)
      * Get the count of locations for a specific wallet by ID.
      * @param walletId  (required)
+     * @param locationDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1460,9 +1485,9 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWalletLocationsCountAsyncAsync(UUID walletId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWalletLocationsCountAsyncAsync(UUID walletId, LocationDtoCollectionQueryParameters locationDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWalletLocationsCountAsyncValidateBeforeCall(walletId, _callback);
+        okhttp3.Call localVarCall = getWalletLocationsCountAsyncValidateBeforeCall(walletId, locationDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1471,7 +1496,7 @@ public class LocationsApi {
      * Build call for patchLocationAsync
      * @param tenantId  (required)
      * @param locationId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1483,7 +1508,7 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLocationAsyncCall(UUID tenantId, UUID locationId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchLocationAsyncCall(UUID tenantId, UUID locationId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1497,7 +1522,7 @@ public class LocationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LocationsService/Locations/{locationId}"
@@ -1536,7 +1561,7 @@ public class LocationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchLocationAsyncValidateBeforeCall(UUID tenantId, UUID locationId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchLocationAsyncValidateBeforeCall(UUID tenantId, UUID locationId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchLocationAsync(Async)");
@@ -1547,7 +1572,7 @@ public class LocationsApi {
             throw new ApiException("Missing the required parameter 'locationId' when calling patchLocationAsync(Async)");
         }
 
-        return patchLocationAsyncCall(tenantId, locationId, operation, _callback);
+        return patchLocationAsyncCall(tenantId, locationId, patchOperation, _callback);
 
     }
 
@@ -1556,7 +1581,7 @@ public class LocationsApi {
      * Patch a location
      * @param tenantId  (required)
      * @param locationId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1567,8 +1592,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchLocationAsync(UUID tenantId, UUID locationId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchLocationAsyncWithHttpInfo(tenantId, locationId, operation);
+    public EmptyEnvelope patchLocationAsync(UUID tenantId, UUID locationId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchLocationAsyncWithHttpInfo(tenantId, locationId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1577,7 +1602,7 @@ public class LocationsApi {
      * Patch a location
      * @param tenantId  (required)
      * @param locationId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1588,8 +1613,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchLocationAsyncWithHttpInfo(UUID tenantId, UUID locationId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchLocationAsyncValidateBeforeCall(tenantId, locationId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchLocationAsyncWithHttpInfo(UUID tenantId, UUID locationId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchLocationAsyncValidateBeforeCall(tenantId, locationId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1599,7 +1624,7 @@ public class LocationsApi {
      * Patch a location
      * @param tenantId  (required)
      * @param locationId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1611,9 +1636,9 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchLocationAsyncAsync(UUID tenantId, UUID locationId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchLocationAsyncAsync(UUID tenantId, UUID locationId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchLocationAsyncValidateBeforeCall(tenantId, locationId, operation, _callback);
+        okhttp3.Call localVarCall = patchLocationAsyncValidateBeforeCall(tenantId, locationId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1622,7 +1647,7 @@ public class LocationsApi {
      * Build call for patchWalletLocationAsync
      * @param walletId  (required)
      * @param locationId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1634,7 +1659,7 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWalletLocationAsyncCall(UUID walletId, UUID locationId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchWalletLocationAsyncCall(UUID walletId, UUID locationId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1648,7 +1673,7 @@ public class LocationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LocationsService/Locations/wallet/{walletId}/{locationId}"
@@ -1684,7 +1709,7 @@ public class LocationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchWalletLocationAsyncValidateBeforeCall(UUID walletId, UUID locationId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchWalletLocationAsyncValidateBeforeCall(UUID walletId, UUID locationId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
             throw new ApiException("Missing the required parameter 'walletId' when calling patchWalletLocationAsync(Async)");
@@ -1695,7 +1720,7 @@ public class LocationsApi {
             throw new ApiException("Missing the required parameter 'locationId' when calling patchWalletLocationAsync(Async)");
         }
 
-        return patchWalletLocationAsyncCall(walletId, locationId, operation, _callback);
+        return patchWalletLocationAsyncCall(walletId, locationId, patchOperation, _callback);
 
     }
 
@@ -1704,7 +1729,7 @@ public class LocationsApi {
      * Patch a wallet location
      * @param walletId  (required)
      * @param locationId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1715,8 +1740,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchWalletLocationAsync(UUID walletId, UUID locationId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchWalletLocationAsyncWithHttpInfo(walletId, locationId, operation);
+    public EmptyEnvelope patchWalletLocationAsync(UUID walletId, UUID locationId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchWalletLocationAsyncWithHttpInfo(walletId, locationId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1725,7 +1750,7 @@ public class LocationsApi {
      * Patch a wallet location
      * @param walletId  (required)
      * @param locationId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1736,8 +1761,8 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchWalletLocationAsyncWithHttpInfo(UUID walletId, UUID locationId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchWalletLocationAsyncValidateBeforeCall(walletId, locationId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchWalletLocationAsyncWithHttpInfo(UUID walletId, UUID locationId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchWalletLocationAsyncValidateBeforeCall(walletId, locationId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1747,7 +1772,7 @@ public class LocationsApi {
      * Patch a wallet location
      * @param walletId  (required)
      * @param locationId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1759,9 +1784,9 @@ public class LocationsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWalletLocationAsyncAsync(UUID walletId, UUID locationId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchWalletLocationAsyncAsync(UUID walletId, UUID locationId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchWalletLocationAsyncValidateBeforeCall(walletId, locationId, operation, _callback);
+        okhttp3.Call localVarCall = patchWalletLocationAsyncValidateBeforeCall(walletId, locationId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -28,15 +28,17 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AirwayBillCreateDto;
+import org.openapitools.client.model.AirwayBillDtoCollectionQueryParameters;
 import org.openapitools.client.model.AirwayBillDtoEnvelope;
 import org.openapitools.client.model.AirwayBillDtoListEnvelope;
 import org.openapitools.client.model.AirwayBillUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 import org.openapitools.client.model.WaybillLineCreateDto;
+import org.openapitools.client.model.WaybillLineDtoCollectionQueryParameters;
 import org.openapitools.client.model.WaybillLineDtoListEnvelope;
 import org.openapitools.client.model.WaybillLineUpdateDto;
 
@@ -876,6 +878,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -886,7 +889,7 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAirwayBillLinesAsyncCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAirwayBillLinesAsyncCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -900,7 +903,7 @@ public class AirwayBillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = waybillLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/AirwayBills/{billId}/Lines"
@@ -934,6 +937,8 @@ public class AirwayBillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -945,7 +950,7 @@ public class AirwayBillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAirwayBillLinesAsyncValidateBeforeCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAirwayBillLinesAsyncValidateBeforeCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAirwayBillLinesAsync(Async)");
@@ -956,7 +961,7 @@ public class AirwayBillsApi {
             throw new ApiException("Missing the required parameter 'billId' when calling getAirwayBillLinesAsync(Async)");
         }
 
-        return getAirwayBillLinesAsyncCall(tenantId, billId, apiVersion, xApiVersion, _callback);
+        return getAirwayBillLinesAsyncCall(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -967,6 +972,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return WaybillLineDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -976,8 +982,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WaybillLineDtoListEnvelope getAirwayBillLinesAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WaybillLineDtoListEnvelope> localVarResp = getAirwayBillLinesAsyncWithHttpInfo(tenantId, billId, apiVersion, xApiVersion);
+    public WaybillLineDtoListEnvelope getAirwayBillLinesAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WaybillLineDtoListEnvelope> localVarResp = getAirwayBillLinesAsyncWithHttpInfo(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -988,6 +994,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WaybillLineDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -997,8 +1004,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WaybillLineDtoListEnvelope> getAirwayBillLinesAsyncWithHttpInfo(UUID tenantId, UUID billId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAirwayBillLinesAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, null);
+    public ApiResponse<WaybillLineDtoListEnvelope> getAirwayBillLinesAsyncWithHttpInfo(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAirwayBillLinesAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WaybillLineDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1010,6 +1017,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1020,9 +1028,9 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAirwayBillLinesAsyncAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, final ApiCallback<WaybillLineDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAirwayBillLinesAsyncAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback<WaybillLineDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAirwayBillLinesAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAirwayBillLinesAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WaybillLineDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1033,6 +1041,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1043,7 +1052,7 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAirwayBillLinesCountAsyncCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAirwayBillLinesCountAsyncCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1057,7 +1066,7 @@ public class AirwayBillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = waybillLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/AirwayBills/{billId}/Lines/Count"
@@ -1091,6 +1100,8 @@ public class AirwayBillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1102,7 +1113,7 @@ public class AirwayBillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAirwayBillLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAirwayBillLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAirwayBillLinesCountAsync(Async)");
@@ -1113,7 +1124,7 @@ public class AirwayBillsApi {
             throw new ApiException("Missing the required parameter 'billId' when calling getAirwayBillLinesCountAsync(Async)");
         }
 
-        return getAirwayBillLinesCountAsyncCall(tenantId, billId, apiVersion, xApiVersion, _callback);
+        return getAirwayBillLinesCountAsyncCall(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1124,6 +1135,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1133,8 +1145,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getAirwayBillLinesCountAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getAirwayBillLinesCountAsyncWithHttpInfo(tenantId, billId, apiVersion, xApiVersion);
+    public Int32Envelope getAirwayBillLinesCountAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getAirwayBillLinesCountAsyncWithHttpInfo(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1145,6 +1157,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1154,8 +1167,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getAirwayBillLinesCountAsyncWithHttpInfo(UUID tenantId, UUID billId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAirwayBillLinesCountAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getAirwayBillLinesCountAsyncWithHttpInfo(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAirwayBillLinesCountAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1167,6 +1180,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1177,9 +1191,9 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAirwayBillLinesCountAsyncAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getAirwayBillLinesCountAsyncAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAirwayBillLinesCountAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAirwayBillLinesCountAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1189,6 +1203,7 @@ public class AirwayBillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1200,7 +1215,7 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAirwayBillsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAirwayBillsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1214,7 +1229,7 @@ public class AirwayBillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = airwayBillDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/AirwayBills";
@@ -1247,6 +1262,8 @@ public class AirwayBillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1258,13 +1275,13 @@ public class AirwayBillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAirwayBillsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAirwayBillsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAirwayBillsAsync(Async)");
         }
 
-        return getAirwayBillsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getAirwayBillsAsyncCall(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1274,6 +1291,7 @@ public class AirwayBillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @return AirwayBillDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1284,8 +1302,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AirwayBillDtoListEnvelope getAirwayBillsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<AirwayBillDtoListEnvelope> localVarResp = getAirwayBillsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public AirwayBillDtoListEnvelope getAirwayBillsAsync(UUID tenantId, String apiVersion, String xApiVersion, AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<AirwayBillDtoListEnvelope> localVarResp = getAirwayBillsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1295,6 +1313,7 @@ public class AirwayBillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;AirwayBillDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1305,8 +1324,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AirwayBillDtoListEnvelope> getAirwayBillsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAirwayBillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<AirwayBillDtoListEnvelope> getAirwayBillsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAirwayBillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<AirwayBillDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1317,6 +1336,7 @@ public class AirwayBillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1328,9 +1348,9 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAirwayBillsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<AirwayBillDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAirwayBillsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters, final ApiCallback<AirwayBillDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAirwayBillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAirwayBillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<AirwayBillDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1340,6 +1360,7 @@ public class AirwayBillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1350,7 +1371,7 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAirwayBillsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAirwayBillsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1364,7 +1385,7 @@ public class AirwayBillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = airwayBillDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/AirwayBills/Count";
@@ -1397,6 +1418,8 @@ public class AirwayBillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1408,13 +1431,13 @@ public class AirwayBillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAirwayBillsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAirwayBillsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAirwayBillsCountAsync(Async)");
         }
 
-        return getAirwayBillsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getAirwayBillsCountAsyncCall(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1424,6 +1447,7 @@ public class AirwayBillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1433,8 +1457,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getAirwayBillsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getAirwayBillsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getAirwayBillsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getAirwayBillsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1444,6 +1468,7 @@ public class AirwayBillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1453,8 +1478,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getAirwayBillsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getAirwayBillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getAirwayBillsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getAirwayBillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1465,6 +1490,7 @@ public class AirwayBillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param airwayBillDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1475,9 +1501,9 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAirwayBillsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getAirwayBillsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAirwayBillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getAirwayBillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2116,7 +2142,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2127,7 +2153,7 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAirwayBillAsyncCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchAirwayBillAsyncCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2141,7 +2167,7 @@ public class AirwayBillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/AirwayBills/{billId}"
@@ -2188,7 +2214,7 @@ public class AirwayBillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchAirwayBillAsyncValidateBeforeCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchAirwayBillAsyncValidateBeforeCall(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchAirwayBillAsync(Async)");
@@ -2199,7 +2225,7 @@ public class AirwayBillsApi {
             throw new ApiException("Missing the required parameter 'billId' when calling patchAirwayBillAsync(Async)");
         }
 
-        return patchAirwayBillAsyncCall(tenantId, billId, apiVersion, xApiVersion, operation, _callback);
+        return patchAirwayBillAsyncCall(tenantId, billId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2210,7 +2236,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2220,8 +2246,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchAirwayBillAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchAirwayBillAsyncWithHttpInfo(tenantId, billId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchAirwayBillAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchAirwayBillAsyncWithHttpInfo(tenantId, billId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2232,7 +2258,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2242,8 +2268,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchAirwayBillAsyncWithHttpInfo(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchAirwayBillAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchAirwayBillAsyncWithHttpInfo(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchAirwayBillAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2255,7 +2281,7 @@ public class AirwayBillsApi {
      * @param billId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2266,9 +2292,9 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAirwayBillAsyncAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchAirwayBillAsyncAsync(UUID tenantId, UUID billId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchAirwayBillAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchAirwayBillAsyncValidateBeforeCall(tenantId, billId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2280,7 +2306,7 @@ public class AirwayBillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2291,7 +2317,7 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAirwayBillLineAsyncCall(UUID tenantId, UUID billId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchAirwayBillLineAsyncCall(UUID tenantId, UUID billId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2305,7 +2331,7 @@ public class AirwayBillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/AirwayBills/{billId}/Lines/{lineId}"
@@ -2353,7 +2379,7 @@ public class AirwayBillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchAirwayBillLineAsyncValidateBeforeCall(UUID tenantId, UUID billId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchAirwayBillLineAsyncValidateBeforeCall(UUID tenantId, UUID billId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchAirwayBillLineAsync(Async)");
@@ -2369,7 +2395,7 @@ public class AirwayBillsApi {
             throw new ApiException("Missing the required parameter 'lineId' when calling patchAirwayBillLineAsync(Async)");
         }
 
-        return patchAirwayBillLineAsyncCall(tenantId, billId, lineId, apiVersion, xApiVersion, operation, _callback);
+        return patchAirwayBillLineAsyncCall(tenantId, billId, lineId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2381,7 +2407,7 @@ public class AirwayBillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2391,8 +2417,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchAirwayBillLineAsync(UUID tenantId, UUID billId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchAirwayBillLineAsyncWithHttpInfo(tenantId, billId, lineId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchAirwayBillLineAsync(UUID tenantId, UUID billId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchAirwayBillLineAsyncWithHttpInfo(tenantId, billId, lineId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2404,7 +2430,7 @@ public class AirwayBillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2414,8 +2440,8 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchAirwayBillLineAsyncWithHttpInfo(UUID tenantId, UUID billId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchAirwayBillLineAsyncValidateBeforeCall(tenantId, billId, lineId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchAirwayBillLineAsyncWithHttpInfo(UUID tenantId, UUID billId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchAirwayBillLineAsyncValidateBeforeCall(tenantId, billId, lineId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2428,7 +2454,7 @@ public class AirwayBillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2439,9 +2465,9 @@ public class AirwayBillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAirwayBillLineAsyncAsync(UUID tenantId, UUID billId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchAirwayBillLineAsyncAsync(UUID tenantId, UUID billId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchAirwayBillLineAsyncValidateBeforeCall(tenantId, billId, lineId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchAirwayBillLineAsyncValidateBeforeCall(tenantId, billId, lineId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

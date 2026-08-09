@@ -155,7 +155,7 @@ No authorization required
 
 <a id="getTenantIndustries"></a>
 # **getTenantIndustries**
-> TenantIndustryDtoListEnvelope getTenantIndustries(tenantId, apiVersion, xApiVersion)
+> TenantIndustryDtoListEnvelope getTenantIndustries(tenantId, apiVersion, xApiVersion, tenantIndustryDtoCollectionQueryParameters)
 
 Retrieve a list of tenant industries
 
@@ -179,8 +179,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantIndustryDtoCollectionQueryParameters tenantIndustryDtoCollectionQueryParameters = new TenantIndustryDtoCollectionQueryParameters(); // TenantIndustryDtoCollectionQueryParameters | 
     try {
-      TenantIndustryDtoListEnvelope result = apiInstance.getTenantIndustries(tenantId, apiVersion, xApiVersion);
+      TenantIndustryDtoListEnvelope result = apiInstance.getTenantIndustries(tenantId, apiVersion, xApiVersion, tenantIndustryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IndustriesApi#getTenantIndustries");
@@ -200,6 +201,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantIndustryDtoCollectionQueryParameters** | [**TenantIndustryDtoCollectionQueryParameters**](TenantIndustryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -211,7 +213,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -223,7 +225,7 @@ No authorization required
 
 <a id="getTenantIndustriesCount"></a>
 # **getTenantIndustriesCount**
-> Int32Envelope getTenantIndustriesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantIndustriesCount(tenantId, apiVersion, xApiVersion, tenantIndustryDtoCollectionQueryParameters)
 
 Get the count of tenant industries
 
@@ -247,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantIndustryDtoCollectionQueryParameters tenantIndustryDtoCollectionQueryParameters = new TenantIndustryDtoCollectionQueryParameters(); // TenantIndustryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantIndustriesCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantIndustriesCount(tenantId, apiVersion, xApiVersion, tenantIndustryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IndustriesApi#getTenantIndustriesCount");
@@ -268,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantIndustryDtoCollectionQueryParameters** | [**TenantIndustryDtoCollectionQueryParameters**](TenantIndustryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchTenantIndustryAsync"></a>
 # **patchTenantIndustryAsync**
-> EmptyEnvelope patchTenantIndustryAsync(tenantId, tenantIndustryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantIndustryAsync(tenantId, tenantIndustryId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant industry
 
@@ -386,9 +390,9 @@ public class Example {
     UUID tenantIndustryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantIndustryAsync(tenantId, tenantIndustryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantIndustryAsync(tenantId, tenantIndustryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IndustriesApi#patchTenantIndustryAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **tenantIndustryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

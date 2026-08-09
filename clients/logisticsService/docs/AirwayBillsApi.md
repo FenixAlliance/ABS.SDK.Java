@@ -373,7 +373,7 @@ No authorization required
 
 <a id="getAirwayBillLinesAsync"></a>
 # **getAirwayBillLinesAsync**
-> WaybillLineDtoListEnvelope getAirwayBillLinesAsync(tenantId, billId, apiVersion, xApiVersion)
+> WaybillLineDtoListEnvelope getAirwayBillLinesAsync(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get airway bill lines
 
@@ -398,8 +398,9 @@ public class Example {
     UUID billId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters = new WaybillLineDtoCollectionQueryParameters(); // WaybillLineDtoCollectionQueryParameters | 
     try {
-      WaybillLineDtoListEnvelope result = apiInstance.getAirwayBillLinesAsync(tenantId, billId, apiVersion, xApiVersion);
+      WaybillLineDtoListEnvelope result = apiInstance.getAirwayBillLinesAsync(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AirwayBillsApi#getAirwayBillLinesAsync");
@@ -420,6 +421,7 @@ public class Example {
 | **billId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -431,7 +433,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -442,7 +444,7 @@ No authorization required
 
 <a id="getAirwayBillLinesCountAsync"></a>
 # **getAirwayBillLinesCountAsync**
-> Int32Envelope getAirwayBillLinesCountAsync(tenantId, billId, apiVersion, xApiVersion)
+> Int32Envelope getAirwayBillLinesCountAsync(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters)
 
 Get airway bill lines count
 
@@ -467,8 +469,9 @@ public class Example {
     UUID billId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters = new WaybillLineDtoCollectionQueryParameters(); // WaybillLineDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAirwayBillLinesCountAsync(tenantId, billId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAirwayBillLinesCountAsync(tenantId, billId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AirwayBillsApi#getAirwayBillLinesCountAsync");
@@ -489,6 +492,7 @@ public class Example {
 | **billId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **waybillLineDtoCollectionQueryParameters** | [**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -500,7 +504,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -511,7 +515,7 @@ No authorization required
 
 <a id="getAirwayBillsAsync"></a>
 # **getAirwayBillsAsync**
-> AirwayBillDtoListEnvelope getAirwayBillsAsync(tenantId, apiVersion, xApiVersion)
+> AirwayBillDtoListEnvelope getAirwayBillsAsync(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters)
 
 Get all airway bills
 
@@ -535,8 +539,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters = new AirwayBillDtoCollectionQueryParameters(); // AirwayBillDtoCollectionQueryParameters | 
     try {
-      AirwayBillDtoListEnvelope result = apiInstance.getAirwayBillsAsync(tenantId, apiVersion, xApiVersion);
+      AirwayBillDtoListEnvelope result = apiInstance.getAirwayBillsAsync(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AirwayBillsApi#getAirwayBillsAsync");
@@ -556,6 +561,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **airwayBillDtoCollectionQueryParameters** | [**AirwayBillDtoCollectionQueryParameters**](AirwayBillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -567,7 +573,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -579,7 +585,7 @@ No authorization required
 
 <a id="getAirwayBillsCountAsync"></a>
 # **getAirwayBillsCountAsync**
-> Int32Envelope getAirwayBillsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getAirwayBillsCountAsync(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters)
 
 Get airway bills count
 
@@ -603,8 +609,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AirwayBillDtoCollectionQueryParameters airwayBillDtoCollectionQueryParameters = new AirwayBillDtoCollectionQueryParameters(); // AirwayBillDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAirwayBillsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAirwayBillsCountAsync(tenantId, apiVersion, xApiVersion, airwayBillDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AirwayBillsApi#getAirwayBillsCountAsync");
@@ -624,6 +631,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **airwayBillDtoCollectionQueryParameters** | [**AirwayBillDtoCollectionQueryParameters**](AirwayBillDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -635,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -922,7 +930,7 @@ No authorization required
 
 <a id="patchAirwayBillAsync"></a>
 # **patchAirwayBillAsync**
-> EmptyEnvelope patchAirwayBillAsync(tenantId, billId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAirwayBillAsync(tenantId, billId, apiVersion, xApiVersion, patchOperation)
 
 Patch an airway bill
 
@@ -947,9 +955,9 @@ public class Example {
     UUID billId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAirwayBillAsync(tenantId, billId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchAirwayBillAsync(tenantId, billId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AirwayBillsApi#patchAirwayBillAsync");
@@ -970,7 +978,7 @@ public class Example {
 | **billId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -993,7 +1001,7 @@ No authorization required
 
 <a id="patchAirwayBillLineAsync"></a>
 # **patchAirwayBillLineAsync**
-> EmptyEnvelope patchAirwayBillLineAsync(tenantId, billId, lineId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAirwayBillLineAsync(tenantId, billId, lineId, apiVersion, xApiVersion, patchOperation)
 
 Patch an airway bill line
 
@@ -1019,9 +1027,9 @@ public class Example {
     UUID lineId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAirwayBillLineAsync(tenantId, billId, lineId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchAirwayBillLineAsync(tenantId, billId, lineId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AirwayBillsApi#patchAirwayBillLineAsync");
@@ -1043,7 +1051,7 @@ public class Example {
 | **lineId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

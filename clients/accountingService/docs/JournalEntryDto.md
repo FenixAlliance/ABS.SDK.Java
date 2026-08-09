@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
 |**journalId** | **String** |  |  [optional] |
@@ -28,7 +29,6 @@
 |**postedBy** | **String** |  |  [optional] |
 |**forexRate** | **Double** |  |  [optional] |
 |**forexRatesSnapshot** | **String** |  |  [optional] |
-|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**debitInUsd** | **Double** |  |  [optional] |
 |**creditInUsd** | **Double** |  |  [optional] |
 |**accountingEntries** | [**List&lt;AccountingEntryDto&gt;**](AccountingEntryDto.md) |  |  [optional] |
@@ -36,6 +36,8 @@
 |**totalCredit** | **Double** |  |  [optional] [readonly] |
 |**totalDebitAmount** | [**Money**](Money.md) |  |  [optional] |
 |**totalCreditAmount** | [**Money**](Money.md) |  |  [optional] |
+|**debitInUsdAmount** | [**Money**](Money.md) |  |  [optional] |
+|**creditInUsdAmount** | [**Money**](Money.md) |  |  [optional] |
 
 
 

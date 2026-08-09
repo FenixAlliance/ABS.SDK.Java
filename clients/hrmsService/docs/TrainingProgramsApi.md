@@ -226,7 +226,7 @@ No authorization required
 
 <a id="getTrainingProgramsAsync"></a>
 # **getTrainingProgramsAsync**
-> TrainingProgramDtoListEnvelope getTrainingProgramsAsync(tenantId, apiVersion, xApiVersion)
+> TrainingProgramDtoListEnvelope getTrainingProgramsAsync(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters)
 
 Get training programs
 
@@ -250,8 +250,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters = new TrainingProgramDtoCollectionQueryParameters(); // TrainingProgramDtoCollectionQueryParameters | 
     try {
-      TrainingProgramDtoListEnvelope result = apiInstance.getTrainingProgramsAsync(tenantId, apiVersion, xApiVersion);
+      TrainingProgramDtoListEnvelope result = apiInstance.getTrainingProgramsAsync(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrainingProgramsApi#getTrainingProgramsAsync");
@@ -271,6 +272,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **trainingProgramDtoCollectionQueryParameters** | [**TrainingProgramDtoCollectionQueryParameters**](TrainingProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -282,7 +284,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -294,7 +296,7 @@ No authorization required
 
 <a id="getTrainingProgramsCountAsync"></a>
 # **getTrainingProgramsCountAsync**
-> Int32Envelope getTrainingProgramsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTrainingProgramsCountAsync(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters)
 
 Count training programs
 
@@ -318,8 +320,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters = new TrainingProgramDtoCollectionQueryParameters(); // TrainingProgramDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTrainingProgramsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTrainingProgramsCountAsync(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrainingProgramsApi#getTrainingProgramsCountAsync");
@@ -339,6 +342,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **trainingProgramDtoCollectionQueryParameters** | [**TrainingProgramDtoCollectionQueryParameters**](TrainingProgramDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -350,7 +354,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

@@ -28,19 +28,22 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.DealUnitCreateDto;
+import org.openapitools.client.model.DealUnitDtoCollectionQueryParameters;
 import org.openapitools.client.model.DealUnitDtoEnvelope;
 import org.openapitools.client.model.DealUnitDtoListEnvelope;
 import org.openapitools.client.model.DealUnitLineCreateDto;
+import org.openapitools.client.model.DealUnitLineDtoCollectionQueryParameters;
 import org.openapitools.client.model.DealUnitLineDtoEnvelope;
 import org.openapitools.client.model.DealUnitLineDtoListEnvelope;
 import org.openapitools.client.model.DealUnitLineUpdateDto;
 import org.openapitools.client.model.DealUnitUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.ExtendedDealUnitDtoCollectionQueryParameters;
 import org.openapitools.client.model.ExtendedDealUnitDtoEnvelope;
 import org.openapitools.client.model.ExtendedDealUnitDtoListEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -1100,6 +1103,7 @@ public class DealUnitsApi {
      * @param tenantId  (required)
      * @param dealUnitId  (required)
      * @param itemId  (optional)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1110,7 +1114,7 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDealUnitLinesAsyncCall(UUID tenantId, UUID dealUnitId, UUID itemId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDealUnitLinesAsyncCall(UUID tenantId, UUID dealUnitId, UUID itemId, DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1124,7 +1128,7 @@ public class DealUnitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = dealUnitLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines"
@@ -1154,6 +1158,8 @@ public class DealUnitsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1165,7 +1171,7 @@ public class DealUnitsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDealUnitLinesAsyncValidateBeforeCall(UUID tenantId, UUID dealUnitId, UUID itemId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDealUnitLinesAsyncValidateBeforeCall(UUID tenantId, UUID dealUnitId, UUID itemId, DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDealUnitLinesAsync(Async)");
@@ -1176,7 +1182,7 @@ public class DealUnitsApi {
             throw new ApiException("Missing the required parameter 'dealUnitId' when calling getDealUnitLinesAsync(Async)");
         }
 
-        return getDealUnitLinesAsyncCall(tenantId, dealUnitId, itemId, _callback);
+        return getDealUnitLinesAsyncCall(tenantId, dealUnitId, itemId, dealUnitLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1186,6 +1192,7 @@ public class DealUnitsApi {
      * @param tenantId  (required)
      * @param dealUnitId  (required)
      * @param itemId  (optional)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @return DealUnitLineDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1195,8 +1202,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public DealUnitLineDtoListEnvelope getDealUnitLinesAsync(UUID tenantId, UUID dealUnitId, UUID itemId) throws ApiException {
-        ApiResponse<DealUnitLineDtoListEnvelope> localVarResp = getDealUnitLinesAsyncWithHttpInfo(tenantId, dealUnitId, itemId);
+    public DealUnitLineDtoListEnvelope getDealUnitLinesAsync(UUID tenantId, UUID dealUnitId, UUID itemId, DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<DealUnitLineDtoListEnvelope> localVarResp = getDealUnitLinesAsyncWithHttpInfo(tenantId, dealUnitId, itemId, dealUnitLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1206,6 +1213,7 @@ public class DealUnitsApi {
      * @param tenantId  (required)
      * @param dealUnitId  (required)
      * @param itemId  (optional)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;DealUnitLineDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1215,8 +1223,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DealUnitLineDtoListEnvelope> getDealUnitLinesAsyncWithHttpInfo(UUID tenantId, UUID dealUnitId, UUID itemId) throws ApiException {
-        okhttp3.Call localVarCall = getDealUnitLinesAsyncValidateBeforeCall(tenantId, dealUnitId, itemId, null);
+    public ApiResponse<DealUnitLineDtoListEnvelope> getDealUnitLinesAsyncWithHttpInfo(UUID tenantId, UUID dealUnitId, UUID itemId, DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getDealUnitLinesAsyncValidateBeforeCall(tenantId, dealUnitId, itemId, dealUnitLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<DealUnitLineDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1227,6 +1235,7 @@ public class DealUnitsApi {
      * @param tenantId  (required)
      * @param dealUnitId  (required)
      * @param itemId  (optional)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1237,9 +1246,9 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDealUnitLinesAsyncAsync(UUID tenantId, UUID dealUnitId, UUID itemId, final ApiCallback<DealUnitLineDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getDealUnitLinesAsyncAsync(UUID tenantId, UUID dealUnitId, UUID itemId, DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters, final ApiCallback<DealUnitLineDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDealUnitLinesAsyncValidateBeforeCall(tenantId, dealUnitId, itemId, _callback);
+        okhttp3.Call localVarCall = getDealUnitLinesAsyncValidateBeforeCall(tenantId, dealUnitId, itemId, dealUnitLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<DealUnitLineDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1248,6 +1257,7 @@ public class DealUnitsApi {
      * Build call for getDealUnitLinesCountAsync
      * @param tenantId  (required)
      * @param dealUnitId  (required)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1258,7 +1268,7 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDealUnitLinesCountAsyncCall(UUID tenantId, UUID dealUnitId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDealUnitLinesCountAsyncCall(UUID tenantId, UUID dealUnitId, DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1272,7 +1282,7 @@ public class DealUnitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = dealUnitLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/Count"
@@ -1298,6 +1308,8 @@ public class DealUnitsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1309,7 +1321,7 @@ public class DealUnitsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDealUnitLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID dealUnitId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDealUnitLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID dealUnitId, DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDealUnitLinesCountAsync(Async)");
@@ -1320,7 +1332,7 @@ public class DealUnitsApi {
             throw new ApiException("Missing the required parameter 'dealUnitId' when calling getDealUnitLinesCountAsync(Async)");
         }
 
-        return getDealUnitLinesCountAsyncCall(tenantId, dealUnitId, _callback);
+        return getDealUnitLinesCountAsyncCall(tenantId, dealUnitId, dealUnitLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1329,6 +1341,7 @@ public class DealUnitsApi {
      * Returns the total count of lines for a specific deal unit with OData filter support.
      * @param tenantId  (required)
      * @param dealUnitId  (required)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1338,8 +1351,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getDealUnitLinesCountAsync(UUID tenantId, UUID dealUnitId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getDealUnitLinesCountAsyncWithHttpInfo(tenantId, dealUnitId);
+    public Int32Envelope getDealUnitLinesCountAsync(UUID tenantId, UUID dealUnitId, DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getDealUnitLinesCountAsyncWithHttpInfo(tenantId, dealUnitId, dealUnitLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1348,6 +1361,7 @@ public class DealUnitsApi {
      * Returns the total count of lines for a specific deal unit with OData filter support.
      * @param tenantId  (required)
      * @param dealUnitId  (required)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1357,8 +1371,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getDealUnitLinesCountAsyncWithHttpInfo(UUID tenantId, UUID dealUnitId) throws ApiException {
-        okhttp3.Call localVarCall = getDealUnitLinesCountAsyncValidateBeforeCall(tenantId, dealUnitId, null);
+    public ApiResponse<Int32Envelope> getDealUnitLinesCountAsyncWithHttpInfo(UUID tenantId, UUID dealUnitId, DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getDealUnitLinesCountAsyncValidateBeforeCall(tenantId, dealUnitId, dealUnitLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1368,6 +1382,7 @@ public class DealUnitsApi {
      * Returns the total count of lines for a specific deal unit with OData filter support.
      * @param tenantId  (required)
      * @param dealUnitId  (required)
+     * @param dealUnitLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1378,9 +1393,9 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDealUnitLinesCountAsyncAsync(UUID tenantId, UUID dealUnitId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getDealUnitLinesCountAsyncAsync(UUID tenantId, UUID dealUnitId, DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDealUnitLinesCountAsyncValidateBeforeCall(tenantId, dealUnitId, _callback);
+        okhttp3.Call localVarCall = getDealUnitLinesCountAsyncValidateBeforeCall(tenantId, dealUnitId, dealUnitLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1539,6 +1554,7 @@ public class DealUnitsApi {
     /**
      * Build call for getDealUnitsAsync
      * @param tenantId  (required)
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1549,7 +1565,7 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDealUnitsAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDealUnitsAsyncCall(UUID tenantId, DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1563,7 +1579,7 @@ public class DealUnitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = dealUnitDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/DealsService/DealUnits";
@@ -1588,6 +1604,8 @@ public class DealUnitsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1599,13 +1617,13 @@ public class DealUnitsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDealUnitsAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDealUnitsAsyncValidateBeforeCall(UUID tenantId, DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDealUnitsAsync(Async)");
         }
 
-        return getDealUnitsAsyncCall(tenantId, _callback);
+        return getDealUnitsAsyncCall(tenantId, dealUnitDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1613,6 +1631,7 @@ public class DealUnitsApi {
      * Get deal units
      * Retrieves a list of deal units for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @return DealUnitDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1622,8 +1641,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public DealUnitDtoListEnvelope getDealUnitsAsync(UUID tenantId) throws ApiException {
-        ApiResponse<DealUnitDtoListEnvelope> localVarResp = getDealUnitsAsyncWithHttpInfo(tenantId);
+    public DealUnitDtoListEnvelope getDealUnitsAsync(UUID tenantId, DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<DealUnitDtoListEnvelope> localVarResp = getDealUnitsAsyncWithHttpInfo(tenantId, dealUnitDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1631,6 +1650,7 @@ public class DealUnitsApi {
      * Get deal units
      * Retrieves a list of deal units for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;DealUnitDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1640,8 +1660,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DealUnitDtoListEnvelope> getDealUnitsAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getDealUnitsAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<DealUnitDtoListEnvelope> getDealUnitsAsyncWithHttpInfo(UUID tenantId, DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getDealUnitsAsyncValidateBeforeCall(tenantId, dealUnitDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<DealUnitDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1650,6 +1670,7 @@ public class DealUnitsApi {
      * Get deal units (asynchronously)
      * Retrieves a list of deal units for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1660,9 +1681,9 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDealUnitsAsyncAsync(UUID tenantId, final ApiCallback<DealUnitDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getDealUnitsAsyncAsync(UUID tenantId, DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters, final ApiCallback<DealUnitDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDealUnitsAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getDealUnitsAsyncValidateBeforeCall(tenantId, dealUnitDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<DealUnitDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1670,6 +1691,7 @@ public class DealUnitsApi {
     /**
      * Build call for getDealUnitsCountAsync
      * @param tenantId  (required)
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1680,7 +1702,7 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDealUnitsCountAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDealUnitsCountAsyncCall(UUID tenantId, DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1694,7 +1716,7 @@ public class DealUnitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = dealUnitDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/DealsService/DealUnits/Count";
@@ -1719,6 +1741,8 @@ public class DealUnitsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1730,13 +1754,13 @@ public class DealUnitsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDealUnitsCountAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDealUnitsCountAsyncValidateBeforeCall(UUID tenantId, DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDealUnitsCountAsync(Async)");
         }
 
-        return getDealUnitsCountAsyncCall(tenantId, _callback);
+        return getDealUnitsCountAsyncCall(tenantId, dealUnitDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1744,6 +1768,7 @@ public class DealUnitsApi {
      * Get deal units count
      * Returns the total count of deal units for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1753,8 +1778,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getDealUnitsCountAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getDealUnitsCountAsyncWithHttpInfo(tenantId);
+    public Int32Envelope getDealUnitsCountAsync(UUID tenantId, DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getDealUnitsCountAsyncWithHttpInfo(tenantId, dealUnitDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1762,6 +1787,7 @@ public class DealUnitsApi {
      * Get deal units count
      * Returns the total count of deal units for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1771,8 +1797,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getDealUnitsCountAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getDealUnitsCountAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getDealUnitsCountAsyncWithHttpInfo(UUID tenantId, DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getDealUnitsCountAsyncValidateBeforeCall(tenantId, dealUnitDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1781,6 +1807,7 @@ public class DealUnitsApi {
      * Get deal units count (asynchronously)
      * Returns the total count of deal units for the specified tenant with OData filter support.
      * @param tenantId  (required)
+     * @param dealUnitDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1791,9 +1818,9 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDealUnitsCountAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getDealUnitsCountAsyncAsync(UUID tenantId, DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDealUnitsCountAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getDealUnitsCountAsyncValidateBeforeCall(tenantId, dealUnitDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1942,6 +1969,7 @@ public class DealUnitsApi {
     /**
      * Build call for getExtendedDealUnitsAsync
      * @param tenantId  (required)
+     * @param extendedDealUnitDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1952,7 +1980,7 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedDealUnitsAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExtendedDealUnitsAsyncCall(UUID tenantId, ExtendedDealUnitDtoCollectionQueryParameters extendedDealUnitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1966,7 +1994,7 @@ public class DealUnitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extendedDealUnitDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/DealsService/DealUnits/Extended";
@@ -1991,6 +2019,8 @@ public class DealUnitsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2002,13 +2032,13 @@ public class DealUnitsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExtendedDealUnitsAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExtendedDealUnitsAsyncValidateBeforeCall(UUID tenantId, ExtendedDealUnitDtoCollectionQueryParameters extendedDealUnitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExtendedDealUnitsAsync(Async)");
         }
 
-        return getExtendedDealUnitsAsyncCall(tenantId, _callback);
+        return getExtendedDealUnitsAsyncCall(tenantId, extendedDealUnitDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2016,6 +2046,7 @@ public class DealUnitsApi {
      * Get extended deal units
      * Retrieves a list of deal units with extended details for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param extendedDealUnitDtoCollectionQueryParameters  (optional)
      * @return ExtendedDealUnitDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2025,8 +2056,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ExtendedDealUnitDtoListEnvelope getExtendedDealUnitsAsync(UUID tenantId) throws ApiException {
-        ApiResponse<ExtendedDealUnitDtoListEnvelope> localVarResp = getExtendedDealUnitsAsyncWithHttpInfo(tenantId);
+    public ExtendedDealUnitDtoListEnvelope getExtendedDealUnitsAsync(UUID tenantId, ExtendedDealUnitDtoCollectionQueryParameters extendedDealUnitDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ExtendedDealUnitDtoListEnvelope> localVarResp = getExtendedDealUnitsAsyncWithHttpInfo(tenantId, extendedDealUnitDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2034,6 +2065,7 @@ public class DealUnitsApi {
      * Get extended deal units
      * Retrieves a list of deal units with extended details for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param extendedDealUnitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ExtendedDealUnitDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2043,8 +2075,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExtendedDealUnitDtoListEnvelope> getExtendedDealUnitsAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getExtendedDealUnitsAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<ExtendedDealUnitDtoListEnvelope> getExtendedDealUnitsAsyncWithHttpInfo(UUID tenantId, ExtendedDealUnitDtoCollectionQueryParameters extendedDealUnitDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExtendedDealUnitsAsyncValidateBeforeCall(tenantId, extendedDealUnitDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ExtendedDealUnitDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2053,6 +2085,7 @@ public class DealUnitsApi {
      * Get extended deal units (asynchronously)
      * Retrieves a list of deal units with extended details for the specified tenant with OData query support.
      * @param tenantId  (required)
+     * @param extendedDealUnitDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2063,9 +2096,9 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExtendedDealUnitsAsyncAsync(UUID tenantId, final ApiCallback<ExtendedDealUnitDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getExtendedDealUnitsAsyncAsync(UUID tenantId, ExtendedDealUnitDtoCollectionQueryParameters extendedDealUnitDtoCollectionQueryParameters, final ApiCallback<ExtendedDealUnitDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExtendedDealUnitsAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getExtendedDealUnitsAsyncValidateBeforeCall(tenantId, extendedDealUnitDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ExtendedDealUnitDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2074,7 +2107,7 @@ public class DealUnitsApi {
      * Build call for patchDealUnitAsync
      * @param tenantId  (required)
      * @param dealUnitId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2085,7 +2118,7 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchDealUnitAsyncCall(UUID tenantId, UUID dealUnitId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchDealUnitAsyncCall(UUID tenantId, UUID dealUnitId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2099,7 +2132,7 @@ public class DealUnitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/DealsService/DealUnits/{dealUnitId}"
@@ -2138,7 +2171,7 @@ public class DealUnitsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchDealUnitAsyncValidateBeforeCall(UUID tenantId, UUID dealUnitId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchDealUnitAsyncValidateBeforeCall(UUID tenantId, UUID dealUnitId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchDealUnitAsync(Async)");
@@ -2149,7 +2182,7 @@ public class DealUnitsApi {
             throw new ApiException("Missing the required parameter 'dealUnitId' when calling patchDealUnitAsync(Async)");
         }
 
-        return patchDealUnitAsyncCall(tenantId, dealUnitId, operation, _callback);
+        return patchDealUnitAsyncCall(tenantId, dealUnitId, patchOperation, _callback);
 
     }
 
@@ -2158,7 +2191,7 @@ public class DealUnitsApi {
      * Partially updates an existing deal unit by its unique identifier using a JSON Patch document.
      * @param tenantId  (required)
      * @param dealUnitId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2168,8 +2201,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchDealUnitAsync(UUID tenantId, UUID dealUnitId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchDealUnitAsyncWithHttpInfo(tenantId, dealUnitId, operation);
+    public EmptyEnvelope patchDealUnitAsync(UUID tenantId, UUID dealUnitId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchDealUnitAsyncWithHttpInfo(tenantId, dealUnitId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2178,7 +2211,7 @@ public class DealUnitsApi {
      * Partially updates an existing deal unit by its unique identifier using a JSON Patch document.
      * @param tenantId  (required)
      * @param dealUnitId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2188,8 +2221,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchDealUnitAsyncWithHttpInfo(UUID tenantId, UUID dealUnitId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchDealUnitAsyncValidateBeforeCall(tenantId, dealUnitId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchDealUnitAsyncWithHttpInfo(UUID tenantId, UUID dealUnitId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchDealUnitAsyncValidateBeforeCall(tenantId, dealUnitId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2199,7 +2232,7 @@ public class DealUnitsApi {
      * Partially updates an existing deal unit by its unique identifier using a JSON Patch document.
      * @param tenantId  (required)
      * @param dealUnitId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2210,9 +2243,9 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchDealUnitAsyncAsync(UUID tenantId, UUID dealUnitId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchDealUnitAsyncAsync(UUID tenantId, UUID dealUnitId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchDealUnitAsyncValidateBeforeCall(tenantId, dealUnitId, operation, _callback);
+        okhttp3.Call localVarCall = patchDealUnitAsyncValidateBeforeCall(tenantId, dealUnitId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2222,7 +2255,7 @@ public class DealUnitsApi {
      * @param tenantId  (required)
      * @param dealUnitId  (required)
      * @param dealUnitLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2233,7 +2266,7 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchDealUnitLineAsyncCall(UUID tenantId, UUID dealUnitId, UUID dealUnitLineId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchDealUnitLineAsyncCall(UUID tenantId, UUID dealUnitId, UUID dealUnitLineId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2247,7 +2280,7 @@ public class DealUnitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId}"
@@ -2287,7 +2320,7 @@ public class DealUnitsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchDealUnitLineAsyncValidateBeforeCall(UUID tenantId, UUID dealUnitId, UUID dealUnitLineId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchDealUnitLineAsyncValidateBeforeCall(UUID tenantId, UUID dealUnitId, UUID dealUnitLineId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchDealUnitLineAsync(Async)");
@@ -2303,7 +2336,7 @@ public class DealUnitsApi {
             throw new ApiException("Missing the required parameter 'dealUnitLineId' when calling patchDealUnitLineAsync(Async)");
         }
 
-        return patchDealUnitLineAsyncCall(tenantId, dealUnitId, dealUnitLineId, operation, _callback);
+        return patchDealUnitLineAsyncCall(tenantId, dealUnitId, dealUnitLineId, patchOperation, _callback);
 
     }
 
@@ -2313,7 +2346,7 @@ public class DealUnitsApi {
      * @param tenantId  (required)
      * @param dealUnitId  (required)
      * @param dealUnitLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2323,8 +2356,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchDealUnitLineAsync(UUID tenantId, UUID dealUnitId, UUID dealUnitLineId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchDealUnitLineAsyncWithHttpInfo(tenantId, dealUnitId, dealUnitLineId, operation);
+    public EmptyEnvelope patchDealUnitLineAsync(UUID tenantId, UUID dealUnitId, UUID dealUnitLineId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchDealUnitLineAsyncWithHttpInfo(tenantId, dealUnitId, dealUnitLineId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2334,7 +2367,7 @@ public class DealUnitsApi {
      * @param tenantId  (required)
      * @param dealUnitId  (required)
      * @param dealUnitLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2344,8 +2377,8 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchDealUnitLineAsyncWithHttpInfo(UUID tenantId, UUID dealUnitId, UUID dealUnitLineId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchDealUnitLineAsyncValidateBeforeCall(tenantId, dealUnitId, dealUnitLineId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchDealUnitLineAsyncWithHttpInfo(UUID tenantId, UUID dealUnitId, UUID dealUnitLineId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchDealUnitLineAsyncValidateBeforeCall(tenantId, dealUnitId, dealUnitLineId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2356,7 +2389,7 @@ public class DealUnitsApi {
      * @param tenantId  (required)
      * @param dealUnitId  (required)
      * @param dealUnitLineId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2367,9 +2400,9 @@ public class DealUnitsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchDealUnitLineAsyncAsync(UUID tenantId, UUID dealUnitId, UUID dealUnitLineId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchDealUnitLineAsyncAsync(UUID tenantId, UUID dealUnitId, UUID dealUnitLineId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchDealUnitLineAsyncValidateBeforeCall(tenantId, dealUnitId, dealUnitLineId, operation, _callback);
+        okhttp3.Call localVarCall = patchDealUnitLineAsyncValidateBeforeCall(tenantId, dealUnitId, dealUnitLineId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

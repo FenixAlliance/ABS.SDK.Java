@@ -362,7 +362,7 @@ No authorization required
 
 <a id="getTruckDriversAsync"></a>
 # **getTruckDriversAsync**
-> TruckDriverDtoListEnvelope getTruckDriversAsync(tenantId, apiVersion, xApiVersion)
+> TruckDriverDtoListEnvelope getTruckDriversAsync(tenantId, apiVersion, xApiVersion, truckDriverDtoCollectionQueryParameters)
 
 Get all truck drivers
 
@@ -386,8 +386,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TruckDriverDtoCollectionQueryParameters truckDriverDtoCollectionQueryParameters = new TruckDriverDtoCollectionQueryParameters(); // TruckDriverDtoCollectionQueryParameters | 
     try {
-      TruckDriverDtoListEnvelope result = apiInstance.getTruckDriversAsync(tenantId, apiVersion, xApiVersion);
+      TruckDriverDtoListEnvelope result = apiInstance.getTruckDriversAsync(tenantId, apiVersion, xApiVersion, truckDriverDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TruckDriversApi#getTruckDriversAsync");
@@ -407,6 +408,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **truckDriverDtoCollectionQueryParameters** | [**TruckDriverDtoCollectionQueryParameters**](TruckDriverDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -418,7 +420,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -430,7 +432,7 @@ No authorization required
 
 <a id="getTruckDriversCountAsync"></a>
 # **getTruckDriversCountAsync**
-> Int32Envelope getTruckDriversCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTruckDriversCountAsync(tenantId, apiVersion, xApiVersion, truckDriverDtoCollectionQueryParameters)
 
 Get truck drivers count
 
@@ -454,8 +456,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TruckDriverDtoCollectionQueryParameters truckDriverDtoCollectionQueryParameters = new TruckDriverDtoCollectionQueryParameters(); // TruckDriverDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTruckDriversCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTruckDriversCountAsync(tenantId, apiVersion, xApiVersion, truckDriverDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TruckDriversApi#getTruckDriversCountAsync");
@@ -475,6 +478,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **truckDriverDtoCollectionQueryParameters** | [**TruckDriverDtoCollectionQueryParameters**](TruckDriverDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -486,7 +490,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -497,7 +501,7 @@ No authorization required
 
 <a id="patchTruckDriverAsync"></a>
 # **patchTruckDriverAsync**
-> EmptyEnvelope patchTruckDriverAsync(tenantId, driverId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTruckDriverAsync(tenantId, driverId, apiVersion, xApiVersion, patchOperation)
 
 Patch a truck driver
 
@@ -522,9 +526,9 @@ public class Example {
     UUID driverId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTruckDriverAsync(tenantId, driverId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTruckDriverAsync(tenantId, driverId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TruckDriversApi#patchTruckDriverAsync");
@@ -545,7 +549,7 @@ public class Example {
 | **driverId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

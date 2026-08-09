@@ -219,7 +219,7 @@ No authorization required
 
 <a id="getCourseForumsAsync"></a>
 # **getCourseForumsAsync**
-> List&lt;CourseForumDto&gt; getCourseForumsAsync(tenantId, apiVersion, xApiVersion)
+> List&lt;CourseForumDto&gt; getCourseForumsAsync(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
 
 Get all course forums
 
@@ -243,8 +243,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters = new CourseForumDtoCollectionQueryParameters(); // CourseForumDtoCollectionQueryParameters | 
     try {
-      List<CourseForumDto> result = apiInstance.getCourseForumsAsync(tenantId, apiVersion, xApiVersion);
+      List<CourseForumDto> result = apiInstance.getCourseForumsAsync(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseForumsApi#getCourseForumsAsync");
@@ -264,6 +265,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -275,7 +277,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -286,7 +288,7 @@ No authorization required
 
 <a id="getCourseForumsCountAsync"></a>
 # **getCourseForumsCountAsync**
-> Integer getCourseForumsCountAsync(tenantId, apiVersion, xApiVersion)
+> Integer getCourseForumsCountAsync(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters)
 
 Get course forums count
 
@@ -310,8 +312,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseForumDtoCollectionQueryParameters courseForumDtoCollectionQueryParameters = new CourseForumDtoCollectionQueryParameters(); // CourseForumDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseForumsCountAsync(tenantId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseForumsCountAsync(tenantId, apiVersion, xApiVersion, courseForumDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseForumsApi#getCourseForumsCountAsync");
@@ -331,6 +334,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseForumDtoCollectionQueryParameters** | [**CourseForumDtoCollectionQueryParameters**](CourseForumDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -342,7 +346,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -353,7 +357,7 @@ No authorization required
 
 <a id="patchCourseForumAsync"></a>
 # **patchCourseForumAsync**
-> patchCourseForumAsync(tenantId, forumId, apiVersion, xApiVersion, operation)
+> patchCourseForumAsync(tenantId, forumId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course forum
 
@@ -378,9 +382,9 @@ public class Example {
     String forumId = "forumId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchCourseForumAsync(tenantId, forumId, apiVersion, xApiVersion, operation);
+      apiInstance.patchCourseForumAsync(tenantId, forumId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseForumsApi#patchCourseForumAsync");
       System.err.println("Status code: " + e.getCode());
@@ -400,7 +404,7 @@ public class Example {
 | **forumId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

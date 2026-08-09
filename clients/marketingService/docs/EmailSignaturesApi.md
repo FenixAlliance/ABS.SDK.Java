@@ -228,7 +228,7 @@ No authorization required
 
 <a id="getEmailSignaturesCountAsync"></a>
 # **getEmailSignaturesCountAsync**
-> Int32Envelope getEmailSignaturesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getEmailSignaturesCountAsync(tenantId, apiVersion, xApiVersion, emailSignatureDtoCollectionQueryParameters)
 
 Get email signatures count
 
@@ -252,8 +252,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    EmailSignatureDtoCollectionQueryParameters emailSignatureDtoCollectionQueryParameters = new EmailSignatureDtoCollectionQueryParameters(); // EmailSignatureDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getEmailSignaturesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getEmailSignaturesCountAsync(tenantId, apiVersion, xApiVersion, emailSignatureDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailSignaturesApi#getEmailSignaturesCountAsync");
@@ -273,6 +274,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **emailSignatureDtoCollectionQueryParameters** | [**EmailSignatureDtoCollectionQueryParameters**](EmailSignatureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -284,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -297,7 +299,7 @@ No authorization required
 
 <a id="getEmailSignaturesODataAsync"></a>
 # **getEmailSignaturesODataAsync**
-> EmailSignatureDtoListEnvelope getEmailSignaturesODataAsync(tenantId, apiVersion, xApiVersion)
+> EmailSignatureDtoListEnvelope getEmailSignaturesODataAsync(tenantId, apiVersion, xApiVersion, emailSignatureDtoCollectionQueryParameters)
 
 Get email signatures
 
@@ -321,8 +323,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    EmailSignatureDtoCollectionQueryParameters emailSignatureDtoCollectionQueryParameters = new EmailSignatureDtoCollectionQueryParameters(); // EmailSignatureDtoCollectionQueryParameters | 
     try {
-      EmailSignatureDtoListEnvelope result = apiInstance.getEmailSignaturesODataAsync(tenantId, apiVersion, xApiVersion);
+      EmailSignatureDtoListEnvelope result = apiInstance.getEmailSignaturesODataAsync(tenantId, apiVersion, xApiVersion, emailSignatureDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailSignaturesApi#getEmailSignaturesODataAsync");
@@ -342,6 +345,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **emailSignatureDtoCollectionQueryParameters** | [**EmailSignatureDtoCollectionQueryParameters**](EmailSignatureDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -353,7 +357,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -365,7 +369,7 @@ No authorization required
 
 <a id="patchEmailSignatureAsync"></a>
 # **patchEmailSignatureAsync**
-> EmptyEnvelope patchEmailSignatureAsync(tenantId, emailsignatureId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchEmailSignatureAsync(tenantId, emailsignatureId, apiVersion, xApiVersion, patchOperation)
 
 Patch an email signature
 
@@ -390,9 +394,9 @@ public class Example {
     UUID emailsignatureId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchEmailSignatureAsync(tenantId, emailsignatureId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchEmailSignatureAsync(tenantId, emailsignatureId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailSignaturesApi#patchEmailSignatureAsync");
@@ -413,7 +417,7 @@ public class Example {
 | **emailsignatureId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

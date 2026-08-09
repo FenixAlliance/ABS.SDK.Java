@@ -30,13 +30,16 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
+import org.openapitools.client.model.SocialFeedDtoCollectionQueryParameters;
 import org.openapitools.client.model.SocialFeedDtoEnvelope;
 import org.openapitools.client.model.SocialFeedDtoListEnvelope;
 import org.openapitools.client.model.SocialFeedPostCreateDto;
+import org.openapitools.client.model.SocialFeedPostDtoCollectionQueryParameters;
 import org.openapitools.client.model.SocialFeedPostDtoEnvelope;
 import org.openapitools.client.model.SocialFeedPostDtoListEnvelope;
 import org.openapitools.client.model.SocialFeedPostUpdateDto;
+import org.openapitools.client.model.StringEnvelope;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -97,7 +100,7 @@ public class SocialFeedsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createFeedPostAsyncCall(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostCreateDto socialFeedPostCreateDto, final ApiCallback _callback) throws ApiException {
@@ -184,18 +187,18 @@ public class SocialFeedsApi {
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialFeedPostCreateDto  (optional)
-     * @return SocialFeedPostDtoEnvelope
+     * @return StringEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SocialFeedPostDtoEnvelope createFeedPostAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostCreateDto socialFeedPostCreateDto) throws ApiException {
-        ApiResponse<SocialFeedPostDtoEnvelope> localVarResp = createFeedPostAsyncWithHttpInfo(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostCreateDto);
+    public StringEnvelope createFeedPostAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostCreateDto socialFeedPostCreateDto) throws ApiException {
+        ApiResponse<StringEnvelope> localVarResp = createFeedPostAsyncWithHttpInfo(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostCreateDto);
         return localVarResp.getData();
     }
 
@@ -207,19 +210,19 @@ public class SocialFeedsApi {
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param socialFeedPostCreateDto  (optional)
-     * @return ApiResponse&lt;SocialFeedPostDtoEnvelope&gt;
+     * @return ApiResponse&lt;StringEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SocialFeedPostDtoEnvelope> createFeedPostAsyncWithHttpInfo(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostCreateDto socialFeedPostCreateDto) throws ApiException {
+    public ApiResponse<StringEnvelope> createFeedPostAsyncWithHttpInfo(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostCreateDto socialFeedPostCreateDto) throws ApiException {
         okhttp3.Call localVarCall = createFeedPostAsyncValidateBeforeCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostCreateDto, null);
-        Type localVarReturnType = new TypeToken<SocialFeedPostDtoEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<StringEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -239,13 +242,13 @@ public class SocialFeedsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFeedPostAsyncAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostCreateDto socialFeedPostCreateDto, final ApiCallback<SocialFeedPostDtoEnvelope> _callback) throws ApiException {
+    public okhttp3.Call createFeedPostAsyncAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostCreateDto socialFeedPostCreateDto, final ApiCallback<StringEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createFeedPostAsyncValidateBeforeCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostCreateDto, _callback);
-        Type localVarReturnType = new TypeToken<SocialFeedPostDtoEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<StringEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -425,6 +428,7 @@ public class SocialFeedsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -436,7 +440,7 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFeedNotificationsCall(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFeedNotificationsCall(UUID socialProfileId, String apiVersion, String xApiVersion, SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -450,7 +454,7 @@ public class SocialFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialFeedDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialFeeds";
@@ -483,6 +487,8 @@ public class SocialFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -494,13 +500,13 @@ public class SocialFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFeedNotificationsValidateBeforeCall(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedNotificationsValidateBeforeCall(UUID socialProfileId, String apiVersion, String xApiVersion, SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialProfileId' is set
         if (socialProfileId == null) {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getFeedNotifications(Async)");
         }
 
-        return getFeedNotificationsCall(socialProfileId, apiVersion, xApiVersion, _callback);
+        return getFeedNotificationsCall(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -510,6 +516,7 @@ public class SocialFeedsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @return SocialFeedDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -520,8 +527,8 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SocialFeedDtoListEnvelope getFeedNotifications(UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SocialFeedDtoListEnvelope> localVarResp = getFeedNotificationsWithHttpInfo(socialProfileId, apiVersion, xApiVersion);
+    public SocialFeedDtoListEnvelope getFeedNotifications(UUID socialProfileId, String apiVersion, String xApiVersion, SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SocialFeedDtoListEnvelope> localVarResp = getFeedNotificationsWithHttpInfo(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -531,6 +538,7 @@ public class SocialFeedsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SocialFeedDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -541,8 +549,8 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SocialFeedDtoListEnvelope> getFeedNotificationsWithHttpInfo(UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFeedNotificationsValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, null);
+    public ApiResponse<SocialFeedDtoListEnvelope> getFeedNotificationsWithHttpInfo(UUID socialProfileId, String apiVersion, String xApiVersion, SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getFeedNotificationsValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SocialFeedDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -553,6 +561,7 @@ public class SocialFeedsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -564,9 +573,9 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFeedNotificationsAsync(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback<SocialFeedDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getFeedNotificationsAsync(UUID socialProfileId, String apiVersion, String xApiVersion, SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters, final ApiCallback<SocialFeedDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFeedNotificationsValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFeedNotificationsValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SocialFeedDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -748,6 +757,7 @@ public class SocialFeedsApi {
      * @param socialFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -759,7 +769,7 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFeedPostsAsyncCall(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFeedPostsAsyncCall(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -773,7 +783,7 @@ public class SocialFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialFeedPostDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts"
@@ -807,6 +817,8 @@ public class SocialFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -818,7 +830,7 @@ public class SocialFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFeedPostsAsyncValidateBeforeCall(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsAsyncValidateBeforeCall(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialProfileId' is set
         if (socialProfileId == null) {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getFeedPostsAsync(Async)");
@@ -829,7 +841,7 @@ public class SocialFeedsApi {
             throw new ApiException("Missing the required parameter 'socialFeedId' when calling getFeedPostsAsync(Async)");
         }
 
-        return getFeedPostsAsyncCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, _callback);
+        return getFeedPostsAsyncCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -840,6 +852,7 @@ public class SocialFeedsApi {
      * @param socialFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @return SocialFeedPostDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -850,8 +863,8 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SocialFeedPostDtoListEnvelope getFeedPostsAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SocialFeedPostDtoListEnvelope> localVarResp = getFeedPostsAsyncWithHttpInfo(socialProfileId, socialFeedId, apiVersion, xApiVersion);
+    public SocialFeedPostDtoListEnvelope getFeedPostsAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SocialFeedPostDtoListEnvelope> localVarResp = getFeedPostsAsyncWithHttpInfo(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -862,6 +875,7 @@ public class SocialFeedsApi {
      * @param socialFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SocialFeedPostDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -872,8 +886,8 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SocialFeedPostDtoListEnvelope> getFeedPostsAsyncWithHttpInfo(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFeedPostsAsyncValidateBeforeCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, null);
+    public ApiResponse<SocialFeedPostDtoListEnvelope> getFeedPostsAsyncWithHttpInfo(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getFeedPostsAsyncValidateBeforeCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SocialFeedPostDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -885,6 +899,7 @@ public class SocialFeedsApi {
      * @param socialFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -896,9 +911,9 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFeedPostsAsyncAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, final ApiCallback<SocialFeedPostDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getFeedPostsAsyncAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters, final ApiCallback<SocialFeedPostDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFeedPostsAsyncValidateBeforeCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFeedPostsAsyncValidateBeforeCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SocialFeedPostDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -909,6 +924,7 @@ public class SocialFeedsApi {
      * @param socialFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -920,7 +936,7 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFeedPostsCountAsyncCall(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFeedPostsCountAsyncCall(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -934,7 +950,7 @@ public class SocialFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialFeedPostDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/Count"
@@ -968,6 +984,8 @@ public class SocialFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -979,7 +997,7 @@ public class SocialFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFeedPostsCountAsyncValidateBeforeCall(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsCountAsyncValidateBeforeCall(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialProfileId' is set
         if (socialProfileId == null) {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getFeedPostsCountAsync(Async)");
@@ -990,7 +1008,7 @@ public class SocialFeedsApi {
             throw new ApiException("Missing the required parameter 'socialFeedId' when calling getFeedPostsCountAsync(Async)");
         }
 
-        return getFeedPostsCountAsyncCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, _callback);
+        return getFeedPostsCountAsyncCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1001,6 +1019,7 @@ public class SocialFeedsApi {
      * @param socialFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1011,8 +1030,8 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getFeedPostsCountAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getFeedPostsCountAsyncWithHttpInfo(socialProfileId, socialFeedId, apiVersion, xApiVersion);
+    public Int32Envelope getFeedPostsCountAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getFeedPostsCountAsyncWithHttpInfo(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1023,6 +1042,7 @@ public class SocialFeedsApi {
      * @param socialFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1033,8 +1053,8 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getFeedPostsCountAsyncWithHttpInfo(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getFeedPostsCountAsyncValidateBeforeCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getFeedPostsCountAsyncWithHttpInfo(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getFeedPostsCountAsyncValidateBeforeCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1046,6 +1066,7 @@ public class SocialFeedsApi {
      * @param socialFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedPostDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1057,9 +1078,9 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFeedPostsCountAsyncAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getFeedPostsCountAsyncAsync(UUID socialProfileId, UUID socialFeedId, String apiVersion, String xApiVersion, SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFeedPostsCountAsyncValidateBeforeCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getFeedPostsCountAsyncValidateBeforeCall(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1230,6 +1251,7 @@ public class SocialFeedsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1241,7 +1263,7 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationsCountAsyncCall(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getNotificationsCountAsyncCall(UUID socialProfileId, String apiVersion, String xApiVersion, SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1255,7 +1277,7 @@ public class SocialFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = socialFeedDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialFeeds/Count";
@@ -1288,6 +1310,8 @@ public class SocialFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1299,13 +1323,13 @@ public class SocialFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNotificationsCountAsyncValidateBeforeCall(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNotificationsCountAsyncValidateBeforeCall(UUID socialProfileId, String apiVersion, String xApiVersion, SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialProfileId' is set
         if (socialProfileId == null) {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling getNotificationsCountAsync(Async)");
         }
 
-        return getNotificationsCountAsyncCall(socialProfileId, apiVersion, xApiVersion, _callback);
+        return getNotificationsCountAsyncCall(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1315,6 +1339,7 @@ public class SocialFeedsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1325,8 +1350,8 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getNotificationsCountAsync(UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getNotificationsCountAsyncWithHttpInfo(socialProfileId, apiVersion, xApiVersion);
+    public Int32Envelope getNotificationsCountAsync(UUID socialProfileId, String apiVersion, String xApiVersion, SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getNotificationsCountAsyncWithHttpInfo(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1336,6 +1361,7 @@ public class SocialFeedsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1346,8 +1372,8 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getNotificationsCountAsyncWithHttpInfo(UUID socialProfileId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getNotificationsCountAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getNotificationsCountAsyncWithHttpInfo(UUID socialProfileId, String apiVersion, String xApiVersion, SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getNotificationsCountAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1358,6 +1384,7 @@ public class SocialFeedsApi {
      * @param socialProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param socialFeedDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1369,9 +1396,9 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationsCountAsyncAsync(UUID socialProfileId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getNotificationsCountAsyncAsync(UUID socialProfileId, String apiVersion, String xApiVersion, SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getNotificationsCountAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getNotificationsCountAsyncValidateBeforeCall(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1383,7 +1410,7 @@ public class SocialFeedsApi {
      * @param feedPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1395,7 +1422,7 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchFeedPostAsyncCall(UUID socialProfileId, UUID socialFeedId, UUID feedPostId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchFeedPostAsyncCall(UUID socialProfileId, UUID socialFeedId, UUID feedPostId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1409,7 +1436,7 @@ public class SocialFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/{feedPostId}"
@@ -1457,7 +1484,7 @@ public class SocialFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchFeedPostAsyncValidateBeforeCall(UUID socialProfileId, UUID socialFeedId, UUID feedPostId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchFeedPostAsyncValidateBeforeCall(UUID socialProfileId, UUID socialFeedId, UUID feedPostId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'socialProfileId' is set
         if (socialProfileId == null) {
             throw new ApiException("Missing the required parameter 'socialProfileId' when calling patchFeedPostAsync(Async)");
@@ -1473,7 +1500,7 @@ public class SocialFeedsApi {
             throw new ApiException("Missing the required parameter 'feedPostId' when calling patchFeedPostAsync(Async)");
         }
 
-        return patchFeedPostAsyncCall(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, operation, _callback);
+        return patchFeedPostAsyncCall(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1485,7 +1512,7 @@ public class SocialFeedsApi {
      * @param feedPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1496,8 +1523,8 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchFeedPostAsync(UUID socialProfileId, UUID socialFeedId, UUID feedPostId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchFeedPostAsyncWithHttpInfo(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchFeedPostAsync(UUID socialProfileId, UUID socialFeedId, UUID feedPostId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchFeedPostAsyncWithHttpInfo(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1509,7 +1536,7 @@ public class SocialFeedsApi {
      * @param feedPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1520,8 +1547,8 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchFeedPostAsyncWithHttpInfo(UUID socialProfileId, UUID socialFeedId, UUID feedPostId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchFeedPostAsyncValidateBeforeCall(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchFeedPostAsyncWithHttpInfo(UUID socialProfileId, UUID socialFeedId, UUID feedPostId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchFeedPostAsyncValidateBeforeCall(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1534,7 +1561,7 @@ public class SocialFeedsApi {
      * @param feedPostId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1546,9 +1573,9 @@ public class SocialFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchFeedPostAsyncAsync(UUID socialProfileId, UUID socialFeedId, UUID feedPostId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchFeedPostAsyncAsync(UUID socialProfileId, UUID socialFeedId, UUID feedPostId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchFeedPostAsyncValidateBeforeCall(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchFeedPostAsyncValidateBeforeCall(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

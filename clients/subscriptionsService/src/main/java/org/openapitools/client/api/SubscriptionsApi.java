@@ -31,8 +31,9 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.Envelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SubscriptionCreateDto;
+import org.openapitools.client.model.SubscriptionDtoCollectionQueryParameters;
 import org.openapitools.client.model.SubscriptionDtoEnvelope;
 import org.openapitools.client.model.SubscriptionDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.SubscriptionUpdateDto;
@@ -565,6 +566,7 @@ public class SubscriptionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -576,7 +578,7 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -590,7 +592,7 @@ public class SubscriptionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = subscriptionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SubscriptionsService/Subscriptions";
@@ -623,6 +625,8 @@ public class SubscriptionsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -634,13 +638,13 @@ public class SubscriptionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubscriptionsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSubscriptionsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSubscriptionsAsync(Async)");
         }
 
-        return getSubscriptionsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSubscriptionsAsyncCall(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -650,6 +654,7 @@ public class SubscriptionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @return SubscriptionDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -660,8 +665,8 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SubscriptionDtoIReadOnlyListEnvelope getSubscriptionsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SubscriptionDtoIReadOnlyListEnvelope> localVarResp = getSubscriptionsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SubscriptionDtoIReadOnlyListEnvelope getSubscriptionsAsync(UUID tenantId, String apiVersion, String xApiVersion, SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SubscriptionDtoIReadOnlyListEnvelope> localVarResp = getSubscriptionsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -671,6 +676,7 @@ public class SubscriptionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SubscriptionDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -681,8 +687,8 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SubscriptionDtoIReadOnlyListEnvelope> getSubscriptionsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSubscriptionsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<SubscriptionDtoIReadOnlyListEnvelope> getSubscriptionsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSubscriptionsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SubscriptionDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -693,6 +699,7 @@ public class SubscriptionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -704,9 +711,9 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SubscriptionDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters, final ApiCallback<SubscriptionDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubscriptionsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSubscriptionsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -716,6 +723,7 @@ public class SubscriptionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -727,7 +735,7 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -741,7 +749,7 @@ public class SubscriptionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = subscriptionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SubscriptionsService/Subscriptions/Count";
@@ -774,6 +782,8 @@ public class SubscriptionsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -785,13 +795,13 @@ public class SubscriptionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubscriptionsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSubscriptionsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSubscriptionsCountAsync(Async)");
         }
 
-        return getSubscriptionsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSubscriptionsCountAsyncCall(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -801,6 +811,7 @@ public class SubscriptionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -811,8 +822,8 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSubscriptionsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSubscriptionsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getSubscriptionsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSubscriptionsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -822,6 +833,7 @@ public class SubscriptionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -832,8 +844,8 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSubscriptionsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSubscriptionsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSubscriptionsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSubscriptionsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -844,6 +856,7 @@ public class SubscriptionsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param subscriptionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -855,9 +868,9 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubscriptionsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSubscriptionsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -868,7 +881,7 @@ public class SubscriptionsApi {
      * @param subscriptionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -880,7 +893,7 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSubscriptionAsyncCall(UUID tenantId, UUID subscriptionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchSubscriptionAsyncCall(UUID tenantId, UUID subscriptionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -894,7 +907,7 @@ public class SubscriptionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SubscriptionsService/Subscriptions/{subscriptionId}"
@@ -941,7 +954,7 @@ public class SubscriptionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchSubscriptionAsyncValidateBeforeCall(UUID tenantId, UUID subscriptionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSubscriptionAsyncValidateBeforeCall(UUID tenantId, UUID subscriptionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchSubscriptionAsync(Async)");
@@ -952,7 +965,7 @@ public class SubscriptionsApi {
             throw new ApiException("Missing the required parameter 'subscriptionId' when calling patchSubscriptionAsync(Async)");
         }
 
-        return patchSubscriptionAsyncCall(tenantId, subscriptionId, apiVersion, xApiVersion, operation, _callback);
+        return patchSubscriptionAsyncCall(tenantId, subscriptionId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -963,7 +976,7 @@ public class SubscriptionsApi {
      * @param subscriptionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -974,8 +987,8 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchSubscriptionAsync(UUID tenantId, UUID subscriptionId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchSubscriptionAsyncWithHttpInfo(tenantId, subscriptionId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchSubscriptionAsync(UUID tenantId, UUID subscriptionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchSubscriptionAsyncWithHttpInfo(tenantId, subscriptionId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -986,7 +999,7 @@ public class SubscriptionsApi {
      * @param subscriptionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -997,8 +1010,8 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchSubscriptionAsyncWithHttpInfo(UUID tenantId, UUID subscriptionId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchSubscriptionAsyncValidateBeforeCall(tenantId, subscriptionId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchSubscriptionAsyncWithHttpInfo(UUID tenantId, UUID subscriptionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchSubscriptionAsyncValidateBeforeCall(tenantId, subscriptionId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1010,7 +1023,7 @@ public class SubscriptionsApi {
      * @param subscriptionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1022,9 +1035,9 @@ public class SubscriptionsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSubscriptionAsyncAsync(UUID tenantId, UUID subscriptionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchSubscriptionAsyncAsync(UUID tenantId, UUID subscriptionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchSubscriptionAsyncValidateBeforeCall(tenantId, subscriptionId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchSubscriptionAsyncValidateBeforeCall(tenantId, subscriptionId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

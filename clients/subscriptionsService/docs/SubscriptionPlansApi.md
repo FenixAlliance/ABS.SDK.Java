@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getSubscriptionPlansAsync"></a>
 # **getSubscriptionPlansAsync**
-> SubscriptionPlanDtoIReadOnlyListEnvelope getSubscriptionPlansAsync(tenantId, apiVersion, xApiVersion)
+> SubscriptionPlanDtoIReadOnlyListEnvelope getSubscriptionPlansAsync(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters)
 
 Get all subscription plans
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters = new SubscriptionDtoCollectionQueryParameters(); // SubscriptionDtoCollectionQueryParameters | 
     try {
-      SubscriptionPlanDtoIReadOnlyListEnvelope result = apiInstance.getSubscriptionPlansAsync(tenantId, apiVersion, xApiVersion);
+      SubscriptionPlanDtoIReadOnlyListEnvelope result = apiInstance.getSubscriptionPlansAsync(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SubscriptionPlansApi#getSubscriptionPlansAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **subscriptionDtoCollectionQueryParameters** | [**SubscriptionDtoCollectionQueryParameters**](SubscriptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getSubscriptionPlansCountAsync"></a>
 # **getSubscriptionPlansCountAsync**
-> Int32Envelope getSubscriptionPlansCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSubscriptionPlansCountAsync(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters)
 
 Get subscription plans count
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SubscriptionDtoCollectionQueryParameters subscriptionDtoCollectionQueryParameters = new SubscriptionDtoCollectionQueryParameters(); // SubscriptionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSubscriptionPlansCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSubscriptionPlansCountAsync(tenantId, apiVersion, xApiVersion, subscriptionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SubscriptionPlansApi#getSubscriptionPlansCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **subscriptionDtoCollectionQueryParameters** | [**SubscriptionDtoCollectionQueryParameters**](SubscriptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchSubscriptionPlanAsync"></a>
 # **patchSubscriptionPlanAsync**
-> EmptyEnvelope patchSubscriptionPlanAsync(tenantId, planId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSubscriptionPlanAsync(tenantId, planId, apiVersion, xApiVersion, patchOperation)
 
 Patch a subscription plan
 
@@ -386,9 +390,9 @@ public class Example {
     UUID planId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSubscriptionPlanAsync(tenantId, planId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSubscriptionPlanAsync(tenantId, planId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SubscriptionPlansApi#patchSubscriptionPlanAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **planId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

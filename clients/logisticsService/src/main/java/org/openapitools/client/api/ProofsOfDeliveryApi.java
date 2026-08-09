@@ -32,11 +32,13 @@ import org.openapitools.client.model.DisputeProofOfDeliveryRequest;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ProofOfDeliveryCreateDto;
+import org.openapitools.client.model.ProofOfDeliveryDtoCollectionQueryParameters;
 import org.openapitools.client.model.ProofOfDeliveryDtoEnvelope;
 import org.openapitools.client.model.ProofOfDeliveryDtoListEnvelope;
 import org.openapitools.client.model.ProofOfDeliveryLineCreateDto;
+import org.openapitools.client.model.ProofOfDeliveryLineDtoCollectionQueryParameters;
 import org.openapitools.client.model.ProofOfDeliveryLineDtoListEnvelope;
 import org.openapitools.client.model.ProofOfDeliveryLineUpdateDto;
 import org.openapitools.client.model.ProofOfDeliveryUpdateDto;
@@ -1534,6 +1536,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1544,7 +1547,7 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProofOfDeliveryLinesAsyncCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProofOfDeliveryLinesAsyncCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1558,7 +1561,7 @@ public class ProofsOfDeliveryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = proofOfDeliveryLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines"
@@ -1592,6 +1595,8 @@ public class ProofsOfDeliveryApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1603,7 +1608,7 @@ public class ProofsOfDeliveryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProofOfDeliveryLinesAsyncValidateBeforeCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProofOfDeliveryLinesAsyncValidateBeforeCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProofOfDeliveryLinesAsync(Async)");
@@ -1614,7 +1619,7 @@ public class ProofsOfDeliveryApi {
             throw new ApiException("Missing the required parameter 'podId' when calling getProofOfDeliveryLinesAsync(Async)");
         }
 
-        return getProofOfDeliveryLinesAsyncCall(tenantId, podId, apiVersion, xApiVersion, _callback);
+        return getProofOfDeliveryLinesAsyncCall(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1625,6 +1630,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @return ProofOfDeliveryLineDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1634,8 +1640,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ProofOfDeliveryLineDtoListEnvelope getProofOfDeliveryLinesAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ProofOfDeliveryLineDtoListEnvelope> localVarResp = getProofOfDeliveryLinesAsyncWithHttpInfo(tenantId, podId, apiVersion, xApiVersion);
+    public ProofOfDeliveryLineDtoListEnvelope getProofOfDeliveryLinesAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ProofOfDeliveryLineDtoListEnvelope> localVarResp = getProofOfDeliveryLinesAsyncWithHttpInfo(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1646,6 +1652,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ProofOfDeliveryLineDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1655,8 +1662,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProofOfDeliveryLineDtoListEnvelope> getProofOfDeliveryLinesAsyncWithHttpInfo(UUID tenantId, UUID podId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getProofOfDeliveryLinesAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, null);
+    public ApiResponse<ProofOfDeliveryLineDtoListEnvelope> getProofOfDeliveryLinesAsyncWithHttpInfo(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProofOfDeliveryLinesAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ProofOfDeliveryLineDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1668,6 +1675,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1678,9 +1686,9 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProofOfDeliveryLinesAsyncAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, final ApiCallback<ProofOfDeliveryLineDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getProofOfDeliveryLinesAsyncAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters, final ApiCallback<ProofOfDeliveryLineDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProofOfDeliveryLinesAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getProofOfDeliveryLinesAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ProofOfDeliveryLineDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1691,6 +1699,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1701,7 +1710,7 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProofOfDeliveryLinesCountAsyncCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProofOfDeliveryLinesCountAsyncCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1715,7 +1724,7 @@ public class ProofsOfDeliveryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = proofOfDeliveryLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/Count"
@@ -1749,6 +1758,8 @@ public class ProofsOfDeliveryApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1760,7 +1771,7 @@ public class ProofsOfDeliveryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProofOfDeliveryLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProofOfDeliveryLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProofOfDeliveryLinesCountAsync(Async)");
@@ -1771,7 +1782,7 @@ public class ProofsOfDeliveryApi {
             throw new ApiException("Missing the required parameter 'podId' when calling getProofOfDeliveryLinesCountAsync(Async)");
         }
 
-        return getProofOfDeliveryLinesCountAsyncCall(tenantId, podId, apiVersion, xApiVersion, _callback);
+        return getProofOfDeliveryLinesCountAsyncCall(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1782,6 +1793,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1791,8 +1803,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getProofOfDeliveryLinesCountAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getProofOfDeliveryLinesCountAsyncWithHttpInfo(tenantId, podId, apiVersion, xApiVersion);
+    public Int32Envelope getProofOfDeliveryLinesCountAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getProofOfDeliveryLinesCountAsyncWithHttpInfo(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1803,6 +1815,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1812,8 +1825,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getProofOfDeliveryLinesCountAsyncWithHttpInfo(UUID tenantId, UUID podId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getProofOfDeliveryLinesCountAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getProofOfDeliveryLinesCountAsyncWithHttpInfo(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProofOfDeliveryLinesCountAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1825,6 +1838,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1835,9 +1849,9 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProofOfDeliveryLinesCountAsyncAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getProofOfDeliveryLinesCountAsyncAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, ProofOfDeliveryLineDtoCollectionQueryParameters proofOfDeliveryLineDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProofOfDeliveryLinesCountAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getProofOfDeliveryLinesCountAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, proofOfDeliveryLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1847,6 +1861,7 @@ public class ProofsOfDeliveryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1858,7 +1873,7 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProofsOfDeliveryAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProofsOfDeliveryAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1872,7 +1887,7 @@ public class ProofsOfDeliveryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = proofOfDeliveryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ProofsOfDelivery";
@@ -1905,6 +1920,8 @@ public class ProofsOfDeliveryApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1916,13 +1933,13 @@ public class ProofsOfDeliveryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProofsOfDeliveryAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProofsOfDeliveryAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProofsOfDeliveryAsync(Async)");
         }
 
-        return getProofsOfDeliveryAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getProofsOfDeliveryAsyncCall(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1932,6 +1949,7 @@ public class ProofsOfDeliveryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @return ProofOfDeliveryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1942,8 +1960,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ProofOfDeliveryDtoListEnvelope getProofsOfDeliveryAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ProofOfDeliveryDtoListEnvelope> localVarResp = getProofsOfDeliveryAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ProofOfDeliveryDtoListEnvelope getProofsOfDeliveryAsync(UUID tenantId, String apiVersion, String xApiVersion, ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ProofOfDeliveryDtoListEnvelope> localVarResp = getProofsOfDeliveryAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1953,6 +1971,7 @@ public class ProofsOfDeliveryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ProofOfDeliveryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1963,8 +1982,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProofOfDeliveryDtoListEnvelope> getProofsOfDeliveryAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getProofsOfDeliveryAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ProofOfDeliveryDtoListEnvelope> getProofsOfDeliveryAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProofsOfDeliveryAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ProofOfDeliveryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1975,6 +1994,7 @@ public class ProofsOfDeliveryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1986,9 +2006,9 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProofsOfDeliveryAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ProofOfDeliveryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getProofsOfDeliveryAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters, final ApiCallback<ProofOfDeliveryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProofsOfDeliveryAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getProofsOfDeliveryAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ProofOfDeliveryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1998,6 +2018,7 @@ public class ProofsOfDeliveryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2008,7 +2029,7 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProofsOfDeliveryCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProofsOfDeliveryCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2022,7 +2043,7 @@ public class ProofsOfDeliveryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = proofOfDeliveryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ProofsOfDelivery/Count";
@@ -2055,6 +2076,8 @@ public class ProofsOfDeliveryApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2066,13 +2089,13 @@ public class ProofsOfDeliveryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProofsOfDeliveryCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProofsOfDeliveryCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getProofsOfDeliveryCountAsync(Async)");
         }
 
-        return getProofsOfDeliveryCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getProofsOfDeliveryCountAsyncCall(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2082,6 +2105,7 @@ public class ProofsOfDeliveryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2091,8 +2115,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getProofsOfDeliveryCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getProofsOfDeliveryCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getProofsOfDeliveryCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getProofsOfDeliveryCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2102,6 +2126,7 @@ public class ProofsOfDeliveryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2111,8 +2136,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getProofsOfDeliveryCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getProofsOfDeliveryCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getProofsOfDeliveryCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getProofsOfDeliveryCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2123,6 +2148,7 @@ public class ProofsOfDeliveryApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param proofOfDeliveryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2133,9 +2159,9 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProofsOfDeliveryCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getProofsOfDeliveryCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ProofOfDeliveryDtoCollectionQueryParameters proofOfDeliveryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProofsOfDeliveryCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getProofsOfDeliveryCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, proofOfDeliveryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2146,7 +2172,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2159,7 +2185,7 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchProofOfDeliveryAsyncCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchProofOfDeliveryAsyncCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2173,7 +2199,7 @@ public class ProofsOfDeliveryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ProofsOfDelivery/{podId}"
@@ -2220,7 +2246,7 @@ public class ProofsOfDeliveryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchProofOfDeliveryAsyncValidateBeforeCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchProofOfDeliveryAsyncValidateBeforeCall(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchProofOfDeliveryAsync(Async)");
@@ -2231,7 +2257,7 @@ public class ProofsOfDeliveryApi {
             throw new ApiException("Missing the required parameter 'podId' when calling patchProofOfDeliveryAsync(Async)");
         }
 
-        return patchProofOfDeliveryAsyncCall(tenantId, podId, apiVersion, xApiVersion, operation, _callback);
+        return patchProofOfDeliveryAsyncCall(tenantId, podId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2242,7 +2268,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2254,8 +2280,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchProofOfDeliveryAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchProofOfDeliveryAsyncWithHttpInfo(tenantId, podId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchProofOfDeliveryAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchProofOfDeliveryAsyncWithHttpInfo(tenantId, podId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2266,7 +2292,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2278,8 +2304,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchProofOfDeliveryAsyncWithHttpInfo(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchProofOfDeliveryAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchProofOfDeliveryAsyncWithHttpInfo(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchProofOfDeliveryAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2291,7 +2317,7 @@ public class ProofsOfDeliveryApi {
      * @param podId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2304,9 +2330,9 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchProofOfDeliveryAsyncAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchProofOfDeliveryAsyncAsync(UUID tenantId, UUID podId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchProofOfDeliveryAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchProofOfDeliveryAsyncValidateBeforeCall(tenantId, podId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2318,7 +2344,7 @@ public class ProofsOfDeliveryApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2331,7 +2357,7 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchProofOfDeliveryLineAsyncCall(UUID tenantId, UUID podId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchProofOfDeliveryLineAsyncCall(UUID tenantId, UUID podId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2345,7 +2371,7 @@ public class ProofsOfDeliveryApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/{lineId}"
@@ -2393,7 +2419,7 @@ public class ProofsOfDeliveryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchProofOfDeliveryLineAsyncValidateBeforeCall(UUID tenantId, UUID podId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchProofOfDeliveryLineAsyncValidateBeforeCall(UUID tenantId, UUID podId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchProofOfDeliveryLineAsync(Async)");
@@ -2409,7 +2435,7 @@ public class ProofsOfDeliveryApi {
             throw new ApiException("Missing the required parameter 'lineId' when calling patchProofOfDeliveryLineAsync(Async)");
         }
 
-        return patchProofOfDeliveryLineAsyncCall(tenantId, podId, lineId, apiVersion, xApiVersion, operation, _callback);
+        return patchProofOfDeliveryLineAsyncCall(tenantId, podId, lineId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2421,7 +2447,7 @@ public class ProofsOfDeliveryApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2433,8 +2459,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchProofOfDeliveryLineAsync(UUID tenantId, UUID podId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchProofOfDeliveryLineAsyncWithHttpInfo(tenantId, podId, lineId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchProofOfDeliveryLineAsync(UUID tenantId, UUID podId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchProofOfDeliveryLineAsyncWithHttpInfo(tenantId, podId, lineId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2446,7 +2472,7 @@ public class ProofsOfDeliveryApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2458,8 +2484,8 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchProofOfDeliveryLineAsyncWithHttpInfo(UUID tenantId, UUID podId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchProofOfDeliveryLineAsyncValidateBeforeCall(tenantId, podId, lineId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchProofOfDeliveryLineAsyncWithHttpInfo(UUID tenantId, UUID podId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchProofOfDeliveryLineAsyncValidateBeforeCall(tenantId, podId, lineId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2472,7 +2498,7 @@ public class ProofsOfDeliveryApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2485,9 +2511,9 @@ public class ProofsOfDeliveryApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchProofOfDeliveryLineAsyncAsync(UUID tenantId, UUID podId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchProofOfDeliveryLineAsyncAsync(UUID tenantId, UUID podId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchProofOfDeliveryLineAsyncValidateBeforeCall(tenantId, podId, lineId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchProofOfDeliveryLineAsyncValidateBeforeCall(tenantId, podId, lineId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

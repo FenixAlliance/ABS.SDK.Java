@@ -36,7 +36,7 @@ docs/ItemToCompareCartRecordDtoEnvelope.md
 docs/ItemToCompareCartRecordDtoListEnvelope.md
 docs/LoginRequest.md
 docs/NewWishListRequest.md
-docs/Operation.md
+docs/PatchOperation.md
 docs/ProductToWishListRequest.md
 docs/RecordsApi.md
 docs/RefreshRequest.md
@@ -110,7 +110,7 @@ src/main/java/org/openapitools/client/model/ItemToCompareCartRecordDtoEnvelope.j
 src/main/java/org/openapitools/client/model/ItemToCompareCartRecordDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/LoginRequest.java
 src/main/java/org/openapitools/client/model/NewWishListRequest.java
-src/main/java/org/openapitools/client/model/Operation.java
+src/main/java/org/openapitools/client/model/PatchOperation.java
 src/main/java/org/openapitools/client/model/ProductToWishListRequest.java
 src/main/java/org/openapitools/client/model/RefreshRequest.java
 src/main/java/org/openapitools/client/model/RegisterRequest.java
@@ -122,3 +122,4 @@ src/main/java/org/openapitools/client/model/WishListDto.java
 src/main/java/org/openapitools/client/model/WishListDtoEnvelope.java
 src/main/java/org/openapitools/client/model/WishListItemRecordDto.java
 src/main/java/org/openapitools/client/model/WishListUpdateDto.java
+src/test/java/org/openapitools/client/model/PatchOperationTest.java

@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * FiscalPeriodDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:25:56.899133-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class FiscalPeriodDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -83,6 +83,64 @@ public class FiscalPeriodDto {
   public static final String SERIALIZED_NAME_FISCAL_YEAR_ID = "fiscalYearId";
   @SerializedName(SERIALIZED_NAME_FISCAL_YEAR_ID)
   private String fiscalYearId;
+
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    OPEN("Open"),
+    
+    CLOSED("Closed"),
+    
+    LOCKED("Locked");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StatusEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      StatusEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private StatusEnum status;
 
   public FiscalPeriodDto() {
   }
@@ -239,6 +297,25 @@ public class FiscalPeriodDto {
   }
 
 
+  public FiscalPeriodDto status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+   */
+  @javax.annotation.Nullable
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -256,7 +333,8 @@ public class FiscalPeriodDto {
         Objects.equals(this.toDate, fiscalPeriodDto.toDate) &&
         Objects.equals(this.tenantId, fiscalPeriodDto.tenantId) &&
         Objects.equals(this.enrollmentId, fiscalPeriodDto.enrollmentId) &&
-        Objects.equals(this.fiscalYearId, fiscalPeriodDto.fiscalYearId);
+        Objects.equals(this.fiscalYearId, fiscalPeriodDto.fiscalYearId) &&
+        Objects.equals(this.status, fiscalPeriodDto.status);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -265,7 +343,7 @@ public class FiscalPeriodDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, fromDate, toDate, tenantId, enrollmentId, fiscalYearId);
+    return Objects.hash(id, timestamp, name, fromDate, toDate, tenantId, enrollmentId, fiscalYearId, status);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -287,6 +365,7 @@ public class FiscalPeriodDto {
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    fiscalYearId: ").append(toIndentedString(fiscalYearId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -317,6 +396,7 @@ public class FiscalPeriodDto {
     openapiFields.add("tenantId");
     openapiFields.add("enrollmentId");
     openapiFields.add("fiscalYearId");
+    openapiFields.add("status");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -357,6 +437,13 @@ public class FiscalPeriodDto {
       }
       if ((jsonObj.get("fiscalYearId") != null && !jsonObj.get("fiscalYearId").isJsonNull()) && !jsonObj.get("fiscalYearId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fiscalYearId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiscalYearId").toString()));
+      }
+      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      // validate the optional field `status`
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+        StatusEnum.validateJsonElement(jsonObj.get("status"));
       }
   }
 

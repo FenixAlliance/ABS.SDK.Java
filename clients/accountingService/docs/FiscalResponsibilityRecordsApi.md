@@ -229,7 +229,7 @@ No authorization required
 
 <a id="getFiscalResponsibilityRecords"></a>
 # **getFiscalResponsibilityRecords**
-> FiscalResponsibilityRecordDtoListEnvelope getFiscalResponsibilityRecords(tenantId, fiscalAuthorityId, fiscalResponsibilityId, apiVersion, xApiVersion)
+> FiscalResponsibilityRecordDtoListEnvelope getFiscalResponsibilityRecords(tenantId, fiscalAuthorityId, fiscalResponsibilityId, apiVersion, xApiVersion, fiscalResponsibilityRecordDtoCollectionQueryParameters)
 
 Get fiscal responsibility records
 
@@ -255,8 +255,9 @@ public class Example {
     UUID fiscalResponsibilityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalResponsibilityRecordDtoCollectionQueryParameters fiscalResponsibilityRecordDtoCollectionQueryParameters = new FiscalResponsibilityRecordDtoCollectionQueryParameters(); // FiscalResponsibilityRecordDtoCollectionQueryParameters | 
     try {
-      FiscalResponsibilityRecordDtoListEnvelope result = apiInstance.getFiscalResponsibilityRecords(tenantId, fiscalAuthorityId, fiscalResponsibilityId, apiVersion, xApiVersion);
+      FiscalResponsibilityRecordDtoListEnvelope result = apiInstance.getFiscalResponsibilityRecords(tenantId, fiscalAuthorityId, fiscalResponsibilityId, apiVersion, xApiVersion, fiscalResponsibilityRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalResponsibilityRecordsApi#getFiscalResponsibilityRecords");
@@ -278,6 +279,7 @@ public class Example {
 | **fiscalResponsibilityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalResponsibilityRecordDtoCollectionQueryParameters** | [**FiscalResponsibilityRecordDtoCollectionQueryParameters**](FiscalResponsibilityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -289,7 +291,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -301,7 +303,7 @@ No authorization required
 
 <a id="getFiscalResponsibilityRecordsCount"></a>
 # **getFiscalResponsibilityRecordsCount**
-> Int32Envelope getFiscalResponsibilityRecordsCount(tenantId, fiscalAuthorityId, fiscalResponsibilityId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalResponsibilityRecordsCount(tenantId, fiscalAuthorityId, fiscalResponsibilityId, apiVersion, xApiVersion, fiscalResponsibilityRecordDtoCollectionQueryParameters)
 
 Get fiscal responsibility records count
 
@@ -327,8 +329,9 @@ public class Example {
     UUID fiscalResponsibilityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalResponsibilityRecordDtoCollectionQueryParameters fiscalResponsibilityRecordDtoCollectionQueryParameters = new FiscalResponsibilityRecordDtoCollectionQueryParameters(); // FiscalResponsibilityRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getFiscalResponsibilityRecordsCount(tenantId, fiscalAuthorityId, fiscalResponsibilityId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFiscalResponsibilityRecordsCount(tenantId, fiscalAuthorityId, fiscalResponsibilityId, apiVersion, xApiVersion, fiscalResponsibilityRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalResponsibilityRecordsApi#getFiscalResponsibilityRecordsCount");
@@ -350,6 +353,7 @@ public class Example {
 | **fiscalResponsibilityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalResponsibilityRecordDtoCollectionQueryParameters** | [**FiscalResponsibilityRecordDtoCollectionQueryParameters**](FiscalResponsibilityRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -361,7 +365,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -373,7 +377,7 @@ No authorization required
 
 <a id="patchFiscalResponsibilityRecordAsync"></a>
 # **patchFiscalResponsibilityRecordAsync**
-> EmptyEnvelope patchFiscalResponsibilityRecordAsync(tenantId, fiscalResponsibilityRecordId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalResponsibilityRecordAsync(tenantId, fiscalResponsibilityRecordId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal responsibility record
 
@@ -398,9 +402,9 @@ public class Example {
     UUID fiscalResponsibilityRecordId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchFiscalResponsibilityRecordAsync(tenantId, fiscalResponsibilityRecordId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchFiscalResponsibilityRecordAsync(tenantId, fiscalResponsibilityRecordId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalResponsibilityRecordsApi#patchFiscalResponsibilityRecordAsync");
@@ -421,7 +425,7 @@ public class Example {
 | **fiscalResponsibilityRecordId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

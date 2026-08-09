@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getLedgersAsync"></a>
 # **getLedgersAsync**
-> LedgerDtoIReadOnlyListEnvelope getLedgersAsync(tenantId, apiVersion, xApiVersion)
+> LedgerDtoIReadOnlyListEnvelope getLedgersAsync(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters)
 
 Retrieves all ledgers
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters = new LedgerDtoCollectionQueryParameters(); // LedgerDtoCollectionQueryParameters | 
     try {
-      LedgerDtoIReadOnlyListEnvelope result = apiInstance.getLedgersAsync(tenantId, apiVersion, xApiVersion);
+      LedgerDtoIReadOnlyListEnvelope result = apiInstance.getLedgersAsync(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LedgersApi#getLedgersAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **ledgerDtoCollectionQueryParameters** | [**LedgerDtoCollectionQueryParameters**](LedgerDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getLedgersCountAsync"></a>
 # **getLedgersCountAsync**
-> Int32Envelope getLedgersCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLedgersCountAsync(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters)
 
 Counts ledgers
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LedgerDtoCollectionQueryParameters ledgerDtoCollectionQueryParameters = new LedgerDtoCollectionQueryParameters(); // LedgerDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLedgersCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLedgersCountAsync(tenantId, apiVersion, xApiVersion, ledgerDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LedgersApi#getLedgersCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **ledgerDtoCollectionQueryParameters** | [**LedgerDtoCollectionQueryParameters**](LedgerDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchLedgerAsync"></a>
 # **patchLedgerAsync**
-> EmptyEnvelope patchLedgerAsync(tenantId, ledgerId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLedgerAsync(tenantId, ledgerId, apiVersion, xApiVersion, patchOperation)
 
 Patches a ledger
 
@@ -386,9 +390,9 @@ public class Example {
     UUID ledgerId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchLedgerAsync(tenantId, ledgerId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchLedgerAsync(tenantId, ledgerId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LedgersApi#patchLedgerAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **ledgerId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

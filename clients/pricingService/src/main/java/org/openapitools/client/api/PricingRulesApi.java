@@ -29,8 +29,9 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.PricingRuleCreateDto;
+import org.openapitools.client.model.PricingRuleDtoCollectionQueryParameters;
 import org.openapitools.client.model.PricingRuleDtoEnvelope;
 import org.openapitools.client.model.PricingRuleDtoListEnvelope;
 import org.openapitools.client.model.PricingRuleUpdateDto;
@@ -559,6 +560,7 @@ public class PricingRulesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -570,7 +572,7 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPricingRulesCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPricingRulesCall(UUID tenantId, String apiVersion, String xApiVersion, PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -584,7 +586,7 @@ public class PricingRulesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = pricingRuleDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/PricingRules";
@@ -617,6 +619,8 @@ public class PricingRulesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -628,13 +632,13 @@ public class PricingRulesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPricingRulesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPricingRulesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPricingRules(Async)");
         }
 
-        return getPricingRulesCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getPricingRulesCall(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -644,6 +648,7 @@ public class PricingRulesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @return PricingRuleDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -654,8 +659,8 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PricingRuleDtoListEnvelope getPricingRules(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<PricingRuleDtoListEnvelope> localVarResp = getPricingRulesWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public PricingRuleDtoListEnvelope getPricingRules(UUID tenantId, String apiVersion, String xApiVersion, PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PricingRuleDtoListEnvelope> localVarResp = getPricingRulesWithHttpInfo(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -665,6 +670,7 @@ public class PricingRulesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PricingRuleDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -675,8 +681,8 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PricingRuleDtoListEnvelope> getPricingRulesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getPricingRulesValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<PricingRuleDtoListEnvelope> getPricingRulesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPricingRulesValidateBeforeCall(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PricingRuleDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -687,6 +693,7 @@ public class PricingRulesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -698,9 +705,9 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPricingRulesAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<PricingRuleDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getPricingRulesAsync(UUID tenantId, String apiVersion, String xApiVersion, PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters, final ApiCallback<PricingRuleDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPricingRulesValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getPricingRulesValidateBeforeCall(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PricingRuleDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -710,6 +717,7 @@ public class PricingRulesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -720,7 +728,7 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPricingRulesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPricingRulesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -734,7 +742,7 @@ public class PricingRulesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = pricingRuleDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/PricingRules/Count";
@@ -767,6 +775,8 @@ public class PricingRulesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -778,13 +788,13 @@ public class PricingRulesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPricingRulesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPricingRulesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPricingRulesCountAsync(Async)");
         }
 
-        return getPricingRulesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getPricingRulesCountAsyncCall(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -794,6 +804,7 @@ public class PricingRulesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -803,8 +814,8 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getPricingRulesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getPricingRulesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getPricingRulesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getPricingRulesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -814,6 +825,7 @@ public class PricingRulesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -823,8 +835,8 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getPricingRulesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getPricingRulesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getPricingRulesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPricingRulesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -835,6 +847,7 @@ public class PricingRulesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param pricingRuleDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -845,9 +858,9 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPricingRulesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getPricingRulesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, PricingRuleDtoCollectionQueryParameters pricingRuleDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPricingRulesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getPricingRulesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, pricingRuleDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -858,7 +871,7 @@ public class PricingRulesApi {
      * @param pricingRuleId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -870,7 +883,7 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPricingRuleCall(UUID tenantId, UUID pricingRuleId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchPricingRuleCall(UUID tenantId, UUID pricingRuleId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -884,7 +897,7 @@ public class PricingRulesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/PricingService/PricingRules/{pricingRuleId}"
@@ -931,7 +944,7 @@ public class PricingRulesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchPricingRuleValidateBeforeCall(UUID tenantId, UUID pricingRuleId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPricingRuleValidateBeforeCall(UUID tenantId, UUID pricingRuleId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchPricingRule(Async)");
@@ -942,7 +955,7 @@ public class PricingRulesApi {
             throw new ApiException("Missing the required parameter 'pricingRuleId' when calling patchPricingRule(Async)");
         }
 
-        return patchPricingRuleCall(tenantId, pricingRuleId, apiVersion, xApiVersion, operation, _callback);
+        return patchPricingRuleCall(tenantId, pricingRuleId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -953,7 +966,7 @@ public class PricingRulesApi {
      * @param pricingRuleId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -963,8 +976,8 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public void patchPricingRule(UUID tenantId, UUID pricingRuleId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        patchPricingRuleWithHttpInfo(tenantId, pricingRuleId, apiVersion, xApiVersion, operation);
+    public void patchPricingRule(UUID tenantId, UUID pricingRuleId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        patchPricingRuleWithHttpInfo(tenantId, pricingRuleId, apiVersion, xApiVersion, patchOperation);
     }
 
     /**
@@ -974,7 +987,7 @@ public class PricingRulesApi {
      * @param pricingRuleId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -985,8 +998,8 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> patchPricingRuleWithHttpInfo(UUID tenantId, UUID pricingRuleId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchPricingRuleValidateBeforeCall(tenantId, pricingRuleId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<Void> patchPricingRuleWithHttpInfo(UUID tenantId, UUID pricingRuleId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchPricingRuleValidateBeforeCall(tenantId, pricingRuleId, apiVersion, xApiVersion, patchOperation, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -997,7 +1010,7 @@ public class PricingRulesApi {
      * @param pricingRuleId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1009,9 +1022,9 @@ public class PricingRulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPricingRuleAsync(UUID tenantId, UUID pricingRuleId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call patchPricingRuleAsync(UUID tenantId, UUID pricingRuleId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchPricingRuleValidateBeforeCall(tenantId, pricingRuleId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchPricingRuleValidateBeforeCall(tenantId, pricingRuleId, apiVersion, xApiVersion, patchOperation, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

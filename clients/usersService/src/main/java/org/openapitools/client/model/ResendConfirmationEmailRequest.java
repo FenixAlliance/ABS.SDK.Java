@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ResendConfirmationEmailRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:01:35.328545800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:28:34.716473500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ResendConfirmationEmailRequest {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)

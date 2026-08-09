@@ -29,12 +29,13 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ContactsGroupCreateDto;
 import org.openapitools.client.model.ContactsGroupDto;
+import org.openapitools.client.model.ContactsGroupDtoCollectionQueryParameters;
 import org.openapitools.client.model.ContactsGroupDtoListEnvelope;
 import org.openapitools.client.model.ContactsGroupUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -556,6 +557,7 @@ public class ContactGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactsGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -566,7 +568,7 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactGroupsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getContactGroupsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -580,7 +582,7 @@ public class ContactGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = contactsGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/ContactGroups";
@@ -613,6 +615,8 @@ public class ContactGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -624,13 +628,13 @@ public class ContactGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getContactGroupsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getContactGroupsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getContactGroupsAsync(Async)");
         }
 
-        return getContactGroupsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getContactGroupsAsyncCall(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -640,6 +644,7 @@ public class ContactGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactsGroupDtoCollectionQueryParameters  (optional)
      * @return ContactsGroupDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -649,8 +654,8 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ContactsGroupDtoListEnvelope getContactGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ContactsGroupDtoListEnvelope> localVarResp = getContactGroupsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ContactsGroupDtoListEnvelope getContactGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ContactsGroupDtoListEnvelope> localVarResp = getContactGroupsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -660,6 +665,7 @@ public class ContactGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactsGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ContactsGroupDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -669,8 +675,8 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ContactsGroupDtoListEnvelope> getContactGroupsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getContactGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ContactsGroupDtoListEnvelope> getContactGroupsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getContactGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ContactsGroupDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -681,6 +687,7 @@ public class ContactGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactsGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -691,9 +698,9 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactGroupsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ContactsGroupDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getContactGroupsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters, final ApiCallback<ContactsGroupDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getContactGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getContactGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ContactsGroupDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -703,6 +710,7 @@ public class ContactGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactsGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -713,7 +721,7 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactGroupsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getContactGroupsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -727,7 +735,7 @@ public class ContactGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = contactsGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/ContactGroups/Count";
@@ -760,6 +768,8 @@ public class ContactGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -771,13 +781,13 @@ public class ContactGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getContactGroupsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getContactGroupsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getContactGroupsCountAsync(Async)");
         }
 
-        return getContactGroupsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getContactGroupsCountAsyncCall(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -787,6 +797,7 @@ public class ContactGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactsGroupDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -796,8 +807,8 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getContactGroupsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getContactGroupsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getContactGroupsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getContactGroupsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -807,6 +818,7 @@ public class ContactGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactsGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -816,8 +828,8 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getContactGroupsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getContactGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getContactGroupsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getContactGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,6 +840,7 @@ public class ContactGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param contactsGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -838,9 +851,9 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactGroupsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getContactGroupsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getContactGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getContactGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -851,7 +864,7 @@ public class ContactGroupsApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -863,7 +876,7 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchContactGroupAsyncCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchContactGroupAsyncCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -877,7 +890,7 @@ public class ContactGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CrmService/ContactGroups/{id}"
@@ -924,7 +937,7 @@ public class ContactGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchContactGroupAsyncValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchContactGroupAsyncValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchContactGroupAsync(Async)");
@@ -935,7 +948,7 @@ public class ContactGroupsApi {
             throw new ApiException("Missing the required parameter 'id' when calling patchContactGroupAsync(Async)");
         }
 
-        return patchContactGroupAsyncCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        return patchContactGroupAsyncCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -946,7 +959,7 @@ public class ContactGroupsApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -957,8 +970,8 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchContactGroupAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchContactGroupAsyncWithHttpInfo(tenantId, id, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchContactGroupAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchContactGroupAsyncWithHttpInfo(tenantId, id, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -969,7 +982,7 @@ public class ContactGroupsApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -980,8 +993,8 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchContactGroupAsyncWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchContactGroupAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchContactGroupAsyncWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchContactGroupAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -993,7 +1006,7 @@ public class ContactGroupsApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1005,9 +1018,9 @@ public class ContactGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchContactGroupAsyncAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchContactGroupAsyncAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchContactGroupAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchContactGroupAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

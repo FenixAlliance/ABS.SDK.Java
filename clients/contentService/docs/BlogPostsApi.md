@@ -496,7 +496,7 @@ No authorization required
 
 <a id="getBlogPostsAsync"></a>
 # **getBlogPostsAsync**
-> BlogPostDtoListEnvelope getBlogPostsAsync(tenantId)
+> BlogPostDtoListEnvelope getBlogPostsAsync(tenantId, blogPostDtoCollectionQueryParameters)
 
 Retrieve a list of blog posts
 
@@ -518,8 +518,9 @@ public class Example {
 
     BlogPostsApi apiInstance = new BlogPostsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters = new BlogPostDtoCollectionQueryParameters(); // BlogPostDtoCollectionQueryParameters | 
     try {
-      BlogPostDtoListEnvelope result = apiInstance.getBlogPostsAsync(tenantId);
+      BlogPostDtoListEnvelope result = apiInstance.getBlogPostsAsync(tenantId, blogPostDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostsApi#getBlogPostsAsync");
@@ -537,6 +538,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | [optional] |
+| **blogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -548,7 +550,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -560,7 +562,7 @@ No authorization required
 
 <a id="getBlogPostsCountAsync"></a>
 # **getBlogPostsCountAsync**
-> Int32Envelope getBlogPostsCountAsync(tenantId)
+> Int32Envelope getBlogPostsCountAsync(tenantId, blogPostDtoCollectionQueryParameters)
 
 Get the count of blog posts
 
@@ -582,8 +584,9 @@ public class Example {
 
     BlogPostsApi apiInstance = new BlogPostsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters = new BlogPostDtoCollectionQueryParameters(); // BlogPostDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBlogPostsCountAsync(tenantId);
+      Int32Envelope result = apiInstance.getBlogPostsCountAsync(tenantId, blogPostDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostsApi#getBlogPostsCountAsync");
@@ -601,6 +604,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | [optional] |
+| **blogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -612,7 +616,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -624,7 +628,7 @@ No authorization required
 
 <a id="getCategoriesForBlogPostAsync"></a>
 # **getCategoriesForBlogPostAsync**
-> BlogPostCategoryDtoListEnvelope getCategoriesForBlogPostAsync(blogPostId)
+> BlogPostCategoryDtoListEnvelope getCategoriesForBlogPostAsync(blogPostId, blogPostCategoryDtoCollectionQueryParameters)
 
 Get categories for a blog post
 
@@ -646,8 +650,9 @@ public class Example {
 
     BlogPostsApi apiInstance = new BlogPostsApi(defaultClient);
     UUID blogPostId = UUID.randomUUID(); // UUID | 
+    BlogPostCategoryDtoCollectionQueryParameters blogPostCategoryDtoCollectionQueryParameters = new BlogPostCategoryDtoCollectionQueryParameters(); // BlogPostCategoryDtoCollectionQueryParameters | 
     try {
-      BlogPostCategoryDtoListEnvelope result = apiInstance.getCategoriesForBlogPostAsync(blogPostId);
+      BlogPostCategoryDtoListEnvelope result = apiInstance.getCategoriesForBlogPostAsync(blogPostId, blogPostCategoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostsApi#getCategoriesForBlogPostAsync");
@@ -665,6 +670,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **blogPostId** | **UUID**|  | |
+| **blogPostCategoryDtoCollectionQueryParameters** | [**BlogPostCategoryDtoCollectionQueryParameters**](BlogPostCategoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -676,7 +682,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -688,7 +694,7 @@ No authorization required
 
 <a id="getCommentsForBlogPostAsync"></a>
 # **getCommentsForBlogPostAsync**
-> BlogPostCommentDtoListEnvelope getCommentsForBlogPostAsync(blogPostId)
+> BlogPostCommentDtoListEnvelope getCommentsForBlogPostAsync(blogPostId, blogPostCommentDtoCollectionQueryParameters)
 
 Get comments for a blog post
 
@@ -710,8 +716,9 @@ public class Example {
 
     BlogPostsApi apiInstance = new BlogPostsApi(defaultClient);
     UUID blogPostId = UUID.randomUUID(); // UUID | 
+    BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters = new BlogPostCommentDtoCollectionQueryParameters(); // BlogPostCommentDtoCollectionQueryParameters | 
     try {
-      BlogPostCommentDtoListEnvelope result = apiInstance.getCommentsForBlogPostAsync(blogPostId);
+      BlogPostCommentDtoListEnvelope result = apiInstance.getCommentsForBlogPostAsync(blogPostId, blogPostCommentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostsApi#getCommentsForBlogPostAsync");
@@ -729,6 +736,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **blogPostId** | **UUID**|  | |
+| **blogPostCommentDtoCollectionQueryParameters** | [**BlogPostCommentDtoCollectionQueryParameters**](BlogPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -740,7 +748,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -752,7 +760,7 @@ No authorization required
 
 <a id="getRepliesForCommentAsync"></a>
 # **getRepliesForCommentAsync**
-> BlogPostCommentDtoListEnvelope getRepliesForCommentAsync(commentId, blogPostId)
+> BlogPostCommentDtoListEnvelope getRepliesForCommentAsync(commentId, blogPostId, blogPostCommentDtoCollectionQueryParameters)
 
 Get replies for a comment
 
@@ -775,8 +783,9 @@ public class Example {
     BlogPostsApi apiInstance = new BlogPostsApi(defaultClient);
     UUID commentId = UUID.randomUUID(); // UUID | 
     String blogPostId = "blogPostId_example"; // String | 
+    BlogPostCommentDtoCollectionQueryParameters blogPostCommentDtoCollectionQueryParameters = new BlogPostCommentDtoCollectionQueryParameters(); // BlogPostCommentDtoCollectionQueryParameters | 
     try {
-      BlogPostCommentDtoListEnvelope result = apiInstance.getRepliesForCommentAsync(commentId, blogPostId);
+      BlogPostCommentDtoListEnvelope result = apiInstance.getRepliesForCommentAsync(commentId, blogPostId, blogPostCommentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostsApi#getRepliesForCommentAsync");
@@ -795,6 +804,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **UUID**|  | |
 | **blogPostId** | **String**|  | |
+| **blogPostCommentDtoCollectionQueryParameters** | [**BlogPostCommentDtoCollectionQueryParameters**](BlogPostCommentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -806,7 +816,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -818,7 +828,7 @@ No authorization required
 
 <a id="getTagsForBlogPostAsync"></a>
 # **getTagsForBlogPostAsync**
-> BlogPostTagDtoListEnvelope getTagsForBlogPostAsync(blogPostId)
+> BlogPostTagDtoListEnvelope getTagsForBlogPostAsync(blogPostId, blogPostTagDtoCollectionQueryParameters)
 
 Get tags for a blog post
 
@@ -840,8 +850,9 @@ public class Example {
 
     BlogPostsApi apiInstance = new BlogPostsApi(defaultClient);
     UUID blogPostId = UUID.randomUUID(); // UUID | 
+    BlogPostTagDtoCollectionQueryParameters blogPostTagDtoCollectionQueryParameters = new BlogPostTagDtoCollectionQueryParameters(); // BlogPostTagDtoCollectionQueryParameters | 
     try {
-      BlogPostTagDtoListEnvelope result = apiInstance.getTagsForBlogPostAsync(blogPostId);
+      BlogPostTagDtoListEnvelope result = apiInstance.getTagsForBlogPostAsync(blogPostId, blogPostTagDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostsApi#getTagsForBlogPostAsync");
@@ -859,6 +870,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **blogPostId** | **UUID**|  | |
+| **blogPostTagDtoCollectionQueryParameters** | [**BlogPostTagDtoCollectionQueryParameters**](BlogPostTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -870,7 +882,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -882,7 +894,7 @@ No authorization required
 
 <a id="patchBlogPostAsync"></a>
 # **patchBlogPostAsync**
-> EmptyEnvelope patchBlogPostAsync(tenantId, blogPostId, operation)
+> EmptyEnvelope patchBlogPostAsync(tenantId, blogPostId, patchOperation)
 
 Patch a blog post
 
@@ -905,9 +917,9 @@ public class Example {
     BlogPostsApi apiInstance = new BlogPostsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID blogPostId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBlogPostAsync(tenantId, blogPostId, operation);
+      EmptyEnvelope result = apiInstance.patchBlogPostAsync(tenantId, blogPostId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostsApi#patchBlogPostAsync");
@@ -926,7 +938,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **blogPostId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

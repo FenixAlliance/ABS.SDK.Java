@@ -30,10 +30,11 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.InvoiceEnumerationRangeCreateDto;
+import org.openapitools.client.model.InvoiceEnumerationRangeDtoCollectionQueryParameters;
 import org.openapitools.client.model.InvoiceEnumerationRangeDtoEnvelope;
 import org.openapitools.client.model.InvoiceEnumerationRangeDtoListEnvelope;
 import org.openapitools.client.model.InvoiceEnumerationRangeUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -575,6 +576,7 @@ public class InvoiceEnumerationRangesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceEnumerationRangeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -587,7 +589,7 @@ public class InvoiceEnumerationRangesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceEnumerationRangesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvoiceEnumerationRangesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, InvoiceEnumerationRangeDtoCollectionQueryParameters invoiceEnumerationRangeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -601,7 +603,7 @@ public class InvoiceEnumerationRangesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = invoiceEnumerationRangeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/InvoiceEnumerationRanges";
@@ -634,6 +636,8 @@ public class InvoiceEnumerationRangesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -645,13 +649,13 @@ public class InvoiceEnumerationRangesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvoiceEnumerationRangesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInvoiceEnumerationRangesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, InvoiceEnumerationRangeDtoCollectionQueryParameters invoiceEnumerationRangeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getInvoiceEnumerationRangesAsync(Async)");
         }
 
-        return getInvoiceEnumerationRangesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getInvoiceEnumerationRangesAsyncCall(tenantId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -661,6 +665,7 @@ public class InvoiceEnumerationRangesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceEnumerationRangeDtoCollectionQueryParameters  (optional)
      * @return InvoiceEnumerationRangeDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -672,8 +677,8 @@ public class InvoiceEnumerationRangesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRangesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<InvoiceEnumerationRangeDtoListEnvelope> localVarResp = getInvoiceEnumerationRangesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRangesAsync(UUID tenantId, String apiVersion, String xApiVersion, InvoiceEnumerationRangeDtoCollectionQueryParameters invoiceEnumerationRangeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<InvoiceEnumerationRangeDtoListEnvelope> localVarResp = getInvoiceEnumerationRangesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -683,6 +688,7 @@ public class InvoiceEnumerationRangesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceEnumerationRangeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;InvoiceEnumerationRangeDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -694,8 +700,8 @@ public class InvoiceEnumerationRangesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InvoiceEnumerationRangeDtoListEnvelope> getInvoiceEnumerationRangesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getInvoiceEnumerationRangesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<InvoiceEnumerationRangeDtoListEnvelope> getInvoiceEnumerationRangesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, InvoiceEnumerationRangeDtoCollectionQueryParameters invoiceEnumerationRangeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getInvoiceEnumerationRangesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<InvoiceEnumerationRangeDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -706,6 +712,7 @@ public class InvoiceEnumerationRangesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param invoiceEnumerationRangeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -718,9 +725,9 @@ public class InvoiceEnumerationRangesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvoiceEnumerationRangesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<InvoiceEnumerationRangeDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getInvoiceEnumerationRangesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, InvoiceEnumerationRangeDtoCollectionQueryParameters invoiceEnumerationRangeDtoCollectionQueryParameters, final ApiCallback<InvoiceEnumerationRangeDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvoiceEnumerationRangesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getInvoiceEnumerationRangesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, invoiceEnumerationRangeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<InvoiceEnumerationRangeDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -731,7 +738,7 @@ public class InvoiceEnumerationRangesApi {
      * @param rangeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -743,7 +750,7 @@ public class InvoiceEnumerationRangesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceEnumerationRangeAsyncCall(UUID tenantId, UUID rangeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceEnumerationRangeAsyncCall(UUID tenantId, UUID rangeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -757,7 +764,7 @@ public class InvoiceEnumerationRangesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId}"
@@ -804,7 +811,7 @@ public class InvoiceEnumerationRangesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchInvoiceEnumerationRangeAsyncValidateBeforeCall(UUID tenantId, UUID rangeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchInvoiceEnumerationRangeAsyncValidateBeforeCall(UUID tenantId, UUID rangeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchInvoiceEnumerationRangeAsync(Async)");
@@ -815,7 +822,7 @@ public class InvoiceEnumerationRangesApi {
             throw new ApiException("Missing the required parameter 'rangeId' when calling patchInvoiceEnumerationRangeAsync(Async)");
         }
 
-        return patchInvoiceEnumerationRangeAsyncCall(tenantId, rangeId, apiVersion, xApiVersion, operation, _callback);
+        return patchInvoiceEnumerationRangeAsyncCall(tenantId, rangeId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -826,7 +833,7 @@ public class InvoiceEnumerationRangesApi {
      * @param rangeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -837,8 +844,8 @@ public class InvoiceEnumerationRangesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchInvoiceEnumerationRangeAsync(UUID tenantId, UUID rangeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceEnumerationRangeAsyncWithHttpInfo(tenantId, rangeId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchInvoiceEnumerationRangeAsync(UUID tenantId, UUID rangeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchInvoiceEnumerationRangeAsyncWithHttpInfo(tenantId, rangeId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -849,7 +856,7 @@ public class InvoiceEnumerationRangesApi {
      * @param rangeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -860,8 +867,8 @@ public class InvoiceEnumerationRangesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchInvoiceEnumerationRangeAsyncWithHttpInfo(UUID tenantId, UUID rangeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchInvoiceEnumerationRangeAsyncValidateBeforeCall(tenantId, rangeId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchInvoiceEnumerationRangeAsyncWithHttpInfo(UUID tenantId, UUID rangeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchInvoiceEnumerationRangeAsyncValidateBeforeCall(tenantId, rangeId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -873,7 +880,7 @@ public class InvoiceEnumerationRangesApi {
      * @param rangeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -885,9 +892,9 @@ public class InvoiceEnumerationRangesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchInvoiceEnumerationRangeAsyncAsync(UUID tenantId, UUID rangeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchInvoiceEnumerationRangeAsyncAsync(UUID tenantId, UUID rangeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchInvoiceEnumerationRangeAsyncValidateBeforeCall(tenantId, rangeId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchInvoiceEnumerationRangeAsyncValidateBeforeCall(tenantId, rangeId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

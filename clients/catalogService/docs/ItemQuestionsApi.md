@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getItemQuestionsAsync"></a>
 # **getItemQuestionsAsync**
-> ItemQuestionDtoListEnvelope getItemQuestionsAsync(tenantId, apiVersion, xApiVersion)
+> ItemQuestionDtoListEnvelope getItemQuestionsAsync(tenantId, apiVersion, xApiVersion, itemQuestionDtoCollectionQueryParameters)
 
 Get all item questions
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemQuestionDtoCollectionQueryParameters itemQuestionDtoCollectionQueryParameters = new ItemQuestionDtoCollectionQueryParameters(); // ItemQuestionDtoCollectionQueryParameters | 
     try {
-      ItemQuestionDtoListEnvelope result = apiInstance.getItemQuestionsAsync(tenantId, apiVersion, xApiVersion);
+      ItemQuestionDtoListEnvelope result = apiInstance.getItemQuestionsAsync(tenantId, apiVersion, xApiVersion, itemQuestionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemQuestionsApi#getItemQuestionsAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemQuestionDtoCollectionQueryParameters** | [**ItemQuestionDtoCollectionQueryParameters**](ItemQuestionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -291,7 +293,7 @@ No authorization required
 
 <a id="patchItemQuestionAsync"></a>
 # **patchItemQuestionAsync**
-> patchItemQuestionAsync(tenantId, itemQuestionId, apiVersion, xApiVersion, operation)
+> patchItemQuestionAsync(tenantId, itemQuestionId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item question
 
@@ -316,9 +318,9 @@ public class Example {
     UUID itemQuestionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      apiInstance.patchItemQuestionAsync(tenantId, itemQuestionId, apiVersion, xApiVersion, operation);
+      apiInstance.patchItemQuestionAsync(tenantId, itemQuestionId, apiVersion, xApiVersion, patchOperation);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemQuestionsApi#patchItemQuestionAsync");
       System.err.println("Status code: " + e.getCode());
@@ -338,7 +340,7 @@ public class Example {
 | **itemQuestionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -666,7 +666,7 @@ No authorization required
 
 <a id="getRolesAsync"></a>
 # **getRolesAsync**
-> SecurityRoleDtoListEnvelope getRolesAsync(tenantId, apiVersion, xApiVersion)
+> SecurityRoleDtoListEnvelope getRolesAsync(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters)
 
 Get all roles
 
@@ -690,8 +690,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters = new SecurityRoleDtoCollectionQueryParameters(); // SecurityRoleDtoCollectionQueryParameters | 
     try {
-      SecurityRoleDtoListEnvelope result = apiInstance.getRolesAsync(tenantId, apiVersion, xApiVersion);
+      SecurityRoleDtoListEnvelope result = apiInstance.getRolesAsync(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RolesApi#getRolesAsync");
@@ -711,6 +712,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **securityRoleDtoCollectionQueryParameters** | [**SecurityRoleDtoCollectionQueryParameters**](SecurityRoleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -722,7 +724,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -804,7 +806,7 @@ No authorization required
 
 <a id="getRolesCountAsync"></a>
 # **getRolesCountAsync**
-> Int32Envelope getRolesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRolesCountAsync(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters)
 
 Get roles count
 
@@ -828,8 +830,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters = new SecurityRoleDtoCollectionQueryParameters(); // SecurityRoleDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getRolesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getRolesCountAsync(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RolesApi#getRolesCountAsync");
@@ -849,6 +852,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **securityRoleDtoCollectionQueryParameters** | [**SecurityRoleDtoCollectionQueryParameters**](SecurityRoleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -860,7 +864,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -872,7 +876,7 @@ No authorization required
 
 <a id="patchRoleAsync"></a>
 # **patchRoleAsync**
-> EmptyEnvelope patchRoleAsync(tenantId, securityRoleId, operation, apiVersion, xApiVersion)
+> EmptyEnvelope patchRoleAsync(tenantId, securityRoleId, patchOperation, apiVersion, xApiVersion)
 
 Patch an existing role
 
@@ -895,11 +899,11 @@ public class Example {
     RolesApi apiInstance = new RolesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String securityRoleId = "securityRoleId_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.patchRoleAsync(tenantId, securityRoleId, operation, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.patchRoleAsync(tenantId, securityRoleId, patchOperation, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RolesApi#patchRoleAsync");
@@ -918,7 +922,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **securityRoleId** | **String**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 

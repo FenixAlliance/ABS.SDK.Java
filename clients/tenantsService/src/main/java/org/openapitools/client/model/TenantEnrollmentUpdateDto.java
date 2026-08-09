@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * TenantEnrollmentUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:08:50.723508900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:34:04.803533600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TenantEnrollmentUpdateDto {
   public static final String SERIALIZED_NAME_IS_ADMIN = "isAdmin";
   @SerializedName(SERIALIZED_NAME_IS_ADMIN)

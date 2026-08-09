@@ -44,7 +44,7 @@ import org.openapitools.client.model.ItemToCompareCartRecordDto;
 import org.openapitools.client.model.ItemToCompareCartRecordDtoEnvelope;
 import org.openapitools.client.model.ItemToCompareCartRecordDtoListEnvelope;
 import org.openapitools.client.model.NewWishListRequest;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ProductToWishListRequest;
 import java.util.UUID;
 import org.openapitools.client.model.WishListDto;
@@ -4906,7 +4906,7 @@ public class CartsApi {
      * @param cartId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4918,7 +4918,7 @@ public class CartsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCartAsyncCall(UUID cartId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchCartAsyncCall(UUID cartId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4932,7 +4932,7 @@ public class CartsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/CartService/Carts/{cartId}"
@@ -4975,13 +4975,13 @@ public class CartsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchCartAsyncValidateBeforeCall(UUID cartId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchCartAsyncValidateBeforeCall(UUID cartId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'cartId' is set
         if (cartId == null) {
             throw new ApiException("Missing the required parameter 'cartId' when calling patchCartAsync(Async)");
         }
 
-        return patchCartAsyncCall(cartId, apiVersion, xApiVersion, operation, _callback);
+        return patchCartAsyncCall(cartId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -4991,7 +4991,7 @@ public class CartsApi {
      * @param cartId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5002,8 +5002,8 @@ public class CartsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchCartAsync(UUID cartId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchCartAsyncWithHttpInfo(cartId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchCartAsync(UUID cartId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchCartAsyncWithHttpInfo(cartId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -5013,7 +5013,7 @@ public class CartsApi {
      * @param cartId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5024,8 +5024,8 @@ public class CartsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchCartAsyncWithHttpInfo(UUID cartId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchCartAsyncValidateBeforeCall(cartId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchCartAsyncWithHttpInfo(UUID cartId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchCartAsyncValidateBeforeCall(cartId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5036,7 +5036,7 @@ public class CartsApi {
      * @param cartId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5048,9 +5048,9 @@ public class CartsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCartAsyncAsync(UUID cartId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchCartAsyncAsync(UUID cartId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchCartAsyncValidateBeforeCall(cartId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchCartAsyncValidateBeforeCall(cartId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

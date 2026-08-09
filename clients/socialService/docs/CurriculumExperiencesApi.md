@@ -239,7 +239,7 @@ No authorization required
 
 <a id="getCurriculumExperiencesAsync"></a>
 # **getCurriculumExperiencesAsync**
-> CurriculumExperienceDtoListEnvelope getCurriculumExperiencesAsync(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion)
+> CurriculumExperienceDtoListEnvelope getCurriculumExperiencesAsync(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters)
 
 Get curriculum experiences
 
@@ -265,8 +265,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters = new CurriculumExperienceDtoCollectionQueryParameters(); // CurriculumExperienceDtoCollectionQueryParameters | 
     try {
-      CurriculumExperienceDtoListEnvelope result = apiInstance.getCurriculumExperiencesAsync(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion);
+      CurriculumExperienceDtoListEnvelope result = apiInstance.getCurriculumExperiencesAsync(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CurriculumExperiencesApi#getCurriculumExperiencesAsync");
@@ -288,6 +289,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **curriculumExperienceDtoCollectionQueryParameters** | [**CurriculumExperienceDtoCollectionQueryParameters**](CurriculumExperienceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -299,7 +301,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -311,7 +313,7 @@ No authorization required
 
 <a id="getCurriculumExperiencesCountAsync"></a>
 # **getCurriculumExperiencesCountAsync**
-> Int32Envelope getCurriculumExperiencesCountAsync(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion)
+> Int32Envelope getCurriculumExperiencesCountAsync(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters)
 
 Count curriculum experiences
 
@@ -337,8 +339,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CurriculumExperienceDtoCollectionQueryParameters curriculumExperienceDtoCollectionQueryParameters = new CurriculumExperienceDtoCollectionQueryParameters(); // CurriculumExperienceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getCurriculumExperiencesCountAsync(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getCurriculumExperiencesCountAsync(curriculumId, socialProfileId, tenantId, apiVersion, xApiVersion, curriculumExperienceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CurriculumExperiencesApi#getCurriculumExperiencesCountAsync");
@@ -360,6 +363,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **curriculumExperienceDtoCollectionQueryParameters** | [**CurriculumExperienceDtoCollectionQueryParameters**](CurriculumExperienceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -371,7 +375,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -383,7 +387,7 @@ No authorization required
 
 <a id="patchCurriculumExperienceAsync"></a>
 # **patchCurriculumExperienceAsync**
-> EmptyEnvelope patchCurriculumExperienceAsync(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCurriculumExperienceAsync(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a curriculum experience
 
@@ -410,9 +414,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCurriculumExperienceAsync(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCurriculumExperienceAsync(curriculumId, experienceId, socialProfileId, tenantId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CurriculumExperiencesApi#patchCurriculumExperienceAsync");
@@ -435,7 +439,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

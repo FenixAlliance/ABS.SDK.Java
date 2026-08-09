@@ -588,7 +588,7 @@ No authorization required
 
 <a id="getCostCentreBudgets"></a>
 # **getCostCentreBudgets**
-> CostCentreBudgetDtoListEnvelope getCostCentreBudgets(tenantId, apiVersion, xApiVersion)
+> CostCentreBudgetDtoListEnvelope getCostCentreBudgets(tenantId, apiVersion, xApiVersion, costCentreBudgetDtoCollectionQueryParameters)
 
 Get all cost centre budgets for a tenant
 
@@ -612,8 +612,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CostCentreBudgetDtoCollectionQueryParameters costCentreBudgetDtoCollectionQueryParameters = new CostCentreBudgetDtoCollectionQueryParameters(); // CostCentreBudgetDtoCollectionQueryParameters | 
     try {
-      CostCentreBudgetDtoListEnvelope result = apiInstance.getCostCentreBudgets(tenantId, apiVersion, xApiVersion);
+      CostCentreBudgetDtoListEnvelope result = apiInstance.getCostCentreBudgets(tenantId, apiVersion, xApiVersion, costCentreBudgetDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CostCentresApi#getCostCentreBudgets");
@@ -633,6 +634,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **costCentreBudgetDtoCollectionQueryParameters** | [**CostCentreBudgetDtoCollectionQueryParameters**](CostCentreBudgetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -644,7 +646,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -726,7 +728,7 @@ No authorization required
 
 <a id="getCostCentreGroups"></a>
 # **getCostCentreGroups**
-> CostCentreGroupDtoListEnvelope getCostCentreGroups(tenantId, apiVersion, xApiVersion)
+> CostCentreGroupDtoListEnvelope getCostCentreGroups(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters)
 
 Get all cost centre groups for a tenant
 
@@ -750,8 +752,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters = new CostCentreGroupDtoCollectionQueryParameters(); // CostCentreGroupDtoCollectionQueryParameters | 
     try {
-      CostCentreGroupDtoListEnvelope result = apiInstance.getCostCentreGroups(tenantId, apiVersion, xApiVersion);
+      CostCentreGroupDtoListEnvelope result = apiInstance.getCostCentreGroups(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CostCentresApi#getCostCentreGroups");
@@ -771,6 +774,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **costCentreGroupDtoCollectionQueryParameters** | [**CostCentreGroupDtoCollectionQueryParameters**](CostCentreGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -782,7 +786,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -794,7 +798,7 @@ No authorization required
 
 <a id="getCostCentreGroupsCount"></a>
 # **getCostCentreGroupsCount**
-> Int32Envelope getCostCentreGroupsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getCostCentreGroupsCount(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters)
 
 Get the count of cost centre groups for a tenant
 
@@ -818,8 +822,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CostCentreGroupDtoCollectionQueryParameters costCentreGroupDtoCollectionQueryParameters = new CostCentreGroupDtoCollectionQueryParameters(); // CostCentreGroupDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getCostCentreGroupsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getCostCentreGroupsCount(tenantId, apiVersion, xApiVersion, costCentreGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CostCentresApi#getCostCentreGroupsCount");
@@ -839,6 +844,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **costCentreGroupDtoCollectionQueryParameters** | [**CostCentreGroupDtoCollectionQueryParameters**](CostCentreGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -850,7 +856,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -862,7 +868,7 @@ No authorization required
 
 <a id="getCostCentres"></a>
 # **getCostCentres**
-> CostCentreDtoListEnvelope getCostCentres(tenantId, apiVersion, xApiVersion)
+> CostCentreDtoListEnvelope getCostCentres(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters)
 
 Get all cost centres for a tenant
 
@@ -886,8 +892,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters = new CostCentreDtoCollectionQueryParameters(); // CostCentreDtoCollectionQueryParameters | 
     try {
-      CostCentreDtoListEnvelope result = apiInstance.getCostCentres(tenantId, apiVersion, xApiVersion);
+      CostCentreDtoListEnvelope result = apiInstance.getCostCentres(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CostCentresApi#getCostCentres");
@@ -907,6 +914,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **costCentreDtoCollectionQueryParameters** | [**CostCentreDtoCollectionQueryParameters**](CostCentreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -918,7 +926,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -930,7 +938,7 @@ No authorization required
 
 <a id="getCostCentresCount"></a>
 # **getCostCentresCount**
-> Int32Envelope getCostCentresCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getCostCentresCount(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters)
 
 Get the count of cost centres for a tenant
 
@@ -954,8 +962,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CostCentreDtoCollectionQueryParameters costCentreDtoCollectionQueryParameters = new CostCentreDtoCollectionQueryParameters(); // CostCentreDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getCostCentresCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getCostCentresCount(tenantId, apiVersion, xApiVersion, costCentreDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CostCentresApi#getCostCentresCount");
@@ -975,6 +984,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **costCentreDtoCollectionQueryParameters** | [**CostCentreDtoCollectionQueryParameters**](CostCentreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -986,7 +996,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -998,7 +1008,7 @@ No authorization required
 
 <a id="patchCostCentre"></a>
 # **patchCostCentre**
-> EmptyEnvelope patchCostCentre(tenantId, costCentreId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCostCentre(tenantId, costCentreId, apiVersion, xApiVersion, patchOperation)
 
 Patch a cost centre
 
@@ -1023,9 +1033,9 @@ public class Example {
     UUID costCentreId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCostCentre(tenantId, costCentreId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCostCentre(tenantId, costCentreId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CostCentresApi#patchCostCentre");
@@ -1046,7 +1056,7 @@ public class Example {
 | **costCentreId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1070,7 +1080,7 @@ No authorization required
 
 <a id="patchCostCentreBudget"></a>
 # **patchCostCentreBudget**
-> EmptyEnvelope patchCostCentreBudget(tenantId, budgetId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCostCentreBudget(tenantId, budgetId, apiVersion, xApiVersion, patchOperation)
 
 Patch a cost centre budget
 
@@ -1095,9 +1105,9 @@ public class Example {
     UUID budgetId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCostCentreBudget(tenantId, budgetId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCostCentreBudget(tenantId, budgetId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CostCentresApi#patchCostCentreBudget");
@@ -1118,7 +1128,7 @@ public class Example {
 | **budgetId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1142,7 +1152,7 @@ No authorization required
 
 <a id="patchCostCentreGroup"></a>
 # **patchCostCentreGroup**
-> EmptyEnvelope patchCostCentreGroup(tenantId, groupId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCostCentreGroup(tenantId, groupId, apiVersion, xApiVersion, patchOperation)
 
 Patch a cost centre group
 
@@ -1167,9 +1177,9 @@ public class Example {
     UUID groupId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCostCentreGroup(tenantId, groupId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCostCentreGroup(tenantId, groupId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CostCentresApi#patchCostCentreGroup");
@@ -1190,7 +1200,7 @@ public class Example {
 | **groupId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

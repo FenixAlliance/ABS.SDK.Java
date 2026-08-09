@@ -151,7 +151,7 @@ No authorization required
 
 <a id="getReturnPoliciesAsync"></a>
 # **getReturnPoliciesAsync**
-> ItemReturnPolicyDtoListEnvelope getReturnPoliciesAsync(tenantId, apiVersion, xApiVersion)
+> ItemReturnPolicyDtoListEnvelope getReturnPoliciesAsync(tenantId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters)
 
 Retrieve a list of return policies
 
@@ -173,8 +173,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters = new ItemReturnPolicyDtoCollectionQueryParameters(); // ItemReturnPolicyDtoCollectionQueryParameters | 
     try {
-      ItemReturnPolicyDtoListEnvelope result = apiInstance.getReturnPoliciesAsync(tenantId, apiVersion, xApiVersion);
+      ItemReturnPolicyDtoListEnvelope result = apiInstance.getReturnPoliciesAsync(tenantId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReturnPoliciesApi#getReturnPoliciesAsync");
@@ -194,6 +195,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemReturnPolicyDtoCollectionQueryParameters** | [**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -205,7 +207,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -217,7 +219,7 @@ No authorization required
 
 <a id="getReturnPoliciesCountAsync"></a>
 # **getReturnPoliciesCountAsync**
-> Int32Envelope getReturnPoliciesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getReturnPoliciesCountAsync(tenantId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters)
 
 Get the count of return policies
 
@@ -239,8 +241,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemReturnPolicyDtoCollectionQueryParameters itemReturnPolicyDtoCollectionQueryParameters = new ItemReturnPolicyDtoCollectionQueryParameters(); // ItemReturnPolicyDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getReturnPoliciesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getReturnPoliciesCountAsync(tenantId, apiVersion, xApiVersion, itemReturnPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReturnPoliciesApi#getReturnPoliciesCountAsync");
@@ -260,6 +263,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemReturnPolicyDtoCollectionQueryParameters** | [**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -271,7 +275,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -351,7 +355,7 @@ No authorization required
 
 <a id="patchReturnPolicyAsync"></a>
 # **patchReturnPolicyAsync**
-> EmptyEnvelope patchReturnPolicyAsync(tenantId, returnPolicyId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchReturnPolicyAsync(tenantId, returnPolicyId, apiVersion, xApiVersion, patchOperation)
 
 Patch a return policy
 
@@ -376,9 +380,9 @@ public class Example {
     UUID returnPolicyId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchReturnPolicyAsync(tenantId, returnPolicyId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchReturnPolicyAsync(tenantId, returnPolicyId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReturnPoliciesApi#patchReturnPolicyAsync");
@@ -399,7 +403,7 @@ public class Example {
 | **returnPolicyId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

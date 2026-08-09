@@ -76,6 +76,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurriculumExperienceDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurriculumExperienceDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -107,6 +115,7 @@ paths:
       summary: Get curriculum experiences
       tags:
       - CurriculumExperiences
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -248,6 +257,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurriculumExperienceDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurriculumExperienceDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -279,6 +296,7 @@ paths:
       summary: Count curriculum experiences
       tags:
       - CurriculumExperiences
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -515,12 +533,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -704,6 +722,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurriculumDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurriculumDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -735,6 +761,7 @@ paths:
       summary: Get curricula
       tags:
       - Curriculums
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -860,6 +887,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurriculumDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurriculumDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -891,6 +926,7 @@ paths:
       summary: Count curricula
       tags:
       - Curriculums
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1105,12 +1141,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1638,6 +1674,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SkillDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1669,6 +1713,7 @@ paths:
       summary: Get skills
       tags:
       - Skills
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1777,6 +1822,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SkillDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1808,6 +1861,7 @@ paths:
       summary: Count skills
       tags:
       - Skills
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1996,12 +2050,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2160,6 +2214,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialFeedDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialFeedDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2191,6 +2253,7 @@ paths:
       summary: Get social feeds
       tags:
       - SocialFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2221,6 +2284,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialFeedDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialFeedDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2252,6 +2323,7 @@ paths:
       summary: Count social feeds
       tags:
       - SocialFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2359,6 +2431,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialFeedPostDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialFeedPostDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2390,6 +2470,7 @@ paths:
       summary: Get social feed posts
       tags:
       - SocialFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2454,15 +2535,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
-        "201":
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SocialFeedPostDtoEnvelope'
+                $ref: '#/components/schemas/StringEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/SocialFeedPostDtoEnvelope'
-          description: Created
+                $ref: '#/components/schemas/StringEnvelope'
+          description: OK
       summary: Create a social feed post
       tags:
       - SocialFeeds
@@ -2505,6 +2586,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialFeedPostDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialFeedPostDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2536,6 +2625,7 @@ paths:
       summary: Count social feed posts
       tags:
       - SocialFeeds
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2740,12 +2830,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2894,6 +2984,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialGroupDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialGroupDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2925,6 +3023,7 @@ paths:
       summary: Get social groups
       tags:
       - SocialGroups
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3032,6 +3131,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialGroupDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialGroupDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3063,6 +3170,7 @@ paths:
       summary: Count social groups
       tags:
       - SocialGroups
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3258,12 +3366,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3412,6 +3520,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3443,6 +3559,7 @@ paths:
       summary: Get social posts
       tags:
       - SocialPosts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3542,6 +3659,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3573,6 +3698,7 @@ paths:
       summary: Count social posts
       tags:
       - SocialPosts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3753,12 +3879,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -3899,6 +4025,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostAttachmentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostAttachmentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3930,6 +4064,7 @@ paths:
       summary: Get social post attachments
       tags:
       - SocialPosts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4037,6 +4172,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostAttachmentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostAttachmentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4068,6 +4211,7 @@ paths:
       summary: Count social post attachments
       tags:
       - SocialPosts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4301,6 +4445,106 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image:
+    post:
+      description: "Uploads an image and attaches it to a social post, storing the\
+        \ bytes through the storage spine."
+      operationId: UploadSocialPostImageAttachmentAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              file:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UploadSocialPostImageAttachmentAsync_request'
+          application/json:
+            encoding:
+              file:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UploadSocialPostImageAttachmentAsync_request'
+          application/xml:
+            encoding:
+              file:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UploadSocialPostImageAttachmentAsync_request'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialPostAttachmentDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialPostAttachmentDtoEnvelope'
+          description: OK
+      summary: Upload a social post image attachment
+      tags:
+      - SocialPosts
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions:
     get:
       description: Retrieves a list of reactions for a specific social post.
@@ -4336,6 +4580,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostReactionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostReactionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4367,6 +4619,7 @@ paths:
       summary: Get social post reactions
       tags:
       - SocialPosts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4431,15 +4684,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
-        "201":
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SocialReactionDtoEnvelope'
+                $ref: '#/components/schemas/SocialPostReactionDtoEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/SocialReactionDtoEnvelope'
-          description: Created
+                $ref: '#/components/schemas/SocialPostReactionDtoEnvelope'
+          description: OK
       summary: Create a social post reaction
       tags:
       - SocialPosts
@@ -4482,6 +4735,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostReactionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostReactionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4513,6 +4774,7 @@ paths:
       summary: Count social post reactions
       tags:
       - SocialPosts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4734,10 +4996,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EmptyEnvelope'
+                $ref: '#/components/schemas/SocialPostReactionDtoEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/EmptyEnvelope'
+                $ref: '#/components/schemas/SocialPostReactionDtoEnvelope'
           description: OK
       summary: Update a social post reaction
       tags:
@@ -4769,6 +5031,13 @@ paths:
         style: simple
       - explode: true
         in: query
+        name: parentCommentId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: api-version
         required: false
         schema:
@@ -4781,6 +5050,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostCommentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostCommentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4812,6 +5089,7 @@ paths:
       summary: Get social post comments
       tags:
       - SocialPosts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4915,6 +5193,13 @@ paths:
         style: simple
       - explode: true
         in: query
+        name: parentCommentId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: api-version
         required: false
         schema:
@@ -4927,6 +5212,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostCommentDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostCommentDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4958,6 +5251,7 @@ paths:
       summary: Count social post comments
       tags:
       - SocialPosts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5199,6 +5493,517 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions:
+    get:
+      description: Retrieves a list of reactions for a specific social comment.
+      operationId: GetSocialCommentReactionsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialCommentReactionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialCommentReactionDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialCommentReactionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialCommentReactionDtoListEnvelope'
+          description: OK
+      summary: Get social comment reactions
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new reaction on a specific social comment.
+      operationId: CreateSocialCommentReactionAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialReactionCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialReactionCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialCommentReactionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialCommentReactionDtoEnvelope'
+          description: OK
+      summary: Create a social comment reaction
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count:
+    get:
+      description: Returns the count of reactions for a specific social comment.
+      operationId: GetSocialCommentReactionsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialCommentReactionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialCommentReactionDtoCollectionQueryParameters'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count social comment reactions
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}:
+    delete:
+      description: Deletes a reaction from a specific social comment.
+      operationId: DeleteSocialCommentReactionAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: reactionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a social comment reaction
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific reaction from a social comment by its ID.
+      operationId: GetSocialCommentReactionAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: reactionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialCommentReactionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialCommentReactionDtoEnvelope'
+          description: OK
+      summary: Get social comment reaction by ID
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing reaction on a specific social comment.
+      operationId: UpdateSocialCommentReactionAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: reactionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialReactionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialReactionUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialCommentReactionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialCommentReactionDtoEnvelope'
+          description: OK
+      summary: Update a social comment reaction
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SocialService/SocialProfiles:
     get:
       description: Get a list of social profiles.
@@ -5218,6 +6023,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5249,6 +6062,7 @@ paths:
       summary: Get Social Profiles
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5271,6 +6085,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5302,6 +6124,7 @@ paths:
       summary: Count Social Profiles
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5393,6 +6216,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FollowRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/FollowRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5424,6 +6255,7 @@ paths:
       summary: Get Followers
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5454,6 +6286,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FollowRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/FollowRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5485,6 +6325,7 @@ paths:
       summary: Count Followers
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5515,6 +6356,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5546,6 +6395,7 @@ paths:
       summary: Get Follower Profiles
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5576,6 +6426,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5607,6 +6465,7 @@ paths:
       summary: Count Follower Profiles
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5637,6 +6496,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FollowRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/FollowRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5668,6 +6535,7 @@ paths:
       summary: Get Follows
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5698,6 +6566,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FollowRecordDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/FollowRecordDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5729,6 +6605,7 @@ paths:
       summary: Count Follows
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5759,6 +6636,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5790,6 +6675,7 @@ paths:
       summary: Get Followed Profiles
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5820,6 +6706,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5851,6 +6745,7 @@ paths:
       summary: Count Followed Profiles
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6086,6 +6981,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NotificationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6117,6 +7020,7 @@ paths:
       summary: Get Notifications
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6147,6 +7051,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NotificationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6178,6 +7090,7 @@ paths:
       summary: Count Notifications
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6277,6 +7190,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ConversationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6308,6 +7229,7 @@ paths:
       summary: Get Conversations
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6407,6 +7329,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ConversationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6438,6 +7368,80 @@ paths:
       summary: Count Conversations
       tags:
       - SocialProfiles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct:
+    post:
+      description: Get or create the direct two-party conversation between the acting
+        profile and a counterparty.
+      operationId: GetOrCreateDirectConversationAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              format: uuid
+              type: string
+          application/xml:
+            schema:
+              format: uuid
+              type: string
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ConversationDtoEnvelope'
+          description: OK
+      summary: Get or Create Direct Conversation
+      tags:
+      - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6476,6 +7480,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrivateMessageDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PrivateMessageDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6507,6 +7519,7 @@ paths:
       summary: Get Messages
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6622,6 +7635,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrivateMessageDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PrivateMessageDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -6653,6 +7674,7 @@ paths:
       summary: Count Messages
       tags:
       - SocialProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6851,8 +7873,14 @@ components:
       example:
         result: true
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6869,6 +7897,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -6939,6 +7982,108 @@ components:
           nullable: true
           type: string
       type: object
+    ConversationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    ConversationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          subject: subject
+          lastMessageTimestamp: 2000-01-23T04:56:07.000+00:00
+          lastMessage: lastMessage
+          id: id
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          startedTimestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ConversationDto'
+      type: object
     ConversationDtoListEnvelope:
       additionalProperties: false
       example:
@@ -6962,8 +8107,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           startedTimestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6980,6 +8131,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7171,6 +8337,48 @@ components:
         customerSuccessRepresentative:
           type: boolean
       type: object
+    CurriculumDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     CurriculumDtoEnvelope:
       additionalProperties: false
       example:
@@ -7203,8 +8411,14 @@ components:
           undergraduate: true
           finance: true
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7221,6 +8435,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7287,8 +8516,14 @@ components:
           undergraduate: true
           finance: true
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7305,6 +8540,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7409,7 +8659,7 @@ components:
         description: description
         curriculumId: curriculumId
         title: title
-        priority: 0.8008281904610115
+        priority: 1.4658129805029452
         dateFrom: 2000-01-23T04:56:07.000+00:00
         countryLanguageId: countryLanguageId
         current: true
@@ -7480,6 +8730,48 @@ components:
           nullable: true
           type: string
       type: object
+    CurriculumExperienceDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     CurriculumExperienceDtoEnvelope:
       additionalProperties: false
       example:
@@ -7493,7 +8785,7 @@ components:
           description: description
           curriculumId: curriculumId
           title: title
-          priority: 0.8008281904610115
+          priority: 1.4658129805029452
           dateFrom: 2000-01-23T04:56:07.000+00:00
           countryLanguageId: countryLanguageId
           current: true
@@ -7505,8 +8797,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7523,6 +8821,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7543,7 +8856,7 @@ components:
           description: description
           curriculumId: curriculumId
           title: title
-          priority: 0.8008281904610115
+          priority: 1.4658129805029452
           dateFrom: 2000-01-23T04:56:07.000+00:00
           countryLanguageId: countryLanguageId
           current: true
@@ -7563,7 +8876,7 @@ components:
           description: description
           curriculumId: curriculumId
           title: title
-          priority: 0.8008281904610115
+          priority: 1.4658129805029452
           dateFrom: 2000-01-23T04:56:07.000+00:00
           countryLanguageId: countryLanguageId
           current: true
@@ -7575,8 +8888,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7593,6 +8912,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7755,8 +9089,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7773,6 +9113,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7782,8 +9137,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7800,6 +9161,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7834,6 +9210,48 @@ components:
         alerts:
           type: boolean
       type: object
+    FollowRecordDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     FollowRecordDtoListEnvelope:
       additionalProperties: false
       example:
@@ -7851,8 +9269,14 @@ components:
           followedId: followedId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7869,6 +9293,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7952,10 +9391,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7972,6 +9417,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8056,6 +9516,48 @@ components:
           format: date-time
           type: string
       type: object
+    NotificationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     NotificationDtoEnvelope:
       additionalProperties: false
       example:
@@ -8072,8 +9574,14 @@ components:
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8090,6 +9598,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8124,8 +9647,14 @@ components:
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8142,6 +9671,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8152,30 +9696,18 @@ components:
           nullable: true
           type: array
       type: object
-    Operation:
+    PatchOperation:
       additionalProperties: false
       example:
-        path: path
         op: op
-        operationType: Add
+        path: path
         from: from
         value: ""
       properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
+        op:
           nullable: true
           type: string
-        op:
+        path:
           nullable: true
           type: string
         from:
@@ -8225,11 +9757,14 @@ components:
         receivedTimestamp: 2000-01-23T04:56:07.000+00:00
         conversationId: conversationId
         sentTimestamp: 2000-01-23T04:56:07.000+00:00
+        title: title
+        message: message
+        socialProfileType: User
+        socialProfileName: socialProfileName
+        socialProfileAvatarUrl: socialProfileAvatarUrl
         senderSocialProfileId: senderSocialProfileId
         receiverSocialProfileId: receiverSocialProfileId
         id: id
-        title: title
-        message: message
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -8265,6 +9800,61 @@ components:
         receivedTimestamp:
           format: date-time
           type: string
+        socialProfileName:
+          nullable: true
+          type: string
+        socialProfileAvatarUrl:
+          nullable: true
+          type: string
+        socialProfileType:
+          enum:
+          - User
+          - Tenant
+          - Contact
+          nullable: true
+          type: string
+      type: object
+    PrivateMessageDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
       type: object
     PrivateMessageDtoListEnvelope:
       additionalProperties: false
@@ -8275,26 +9865,38 @@ components:
           receivedTimestamp: 2000-01-23T04:56:07.000+00:00
           conversationId: conversationId
           sentTimestamp: 2000-01-23T04:56:07.000+00:00
+          title: title
+          message: message
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
           senderSocialProfileId: senderSocialProfileId
           receiverSocialProfileId: receiverSocialProfileId
           id: id
-          title: title
-          message: message
           timestamp: 2000-01-23T04:56:07.000+00:00
         - readTimestamp: 2000-01-23T04:56:07.000+00:00
           read: true
           receivedTimestamp: 2000-01-23T04:56:07.000+00:00
           conversationId: conversationId
           sentTimestamp: 2000-01-23T04:56:07.000+00:00
+          title: title
+          message: message
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
           senderSocialProfileId: senderSocialProfileId
           receiverSocialProfileId: receiverSocialProfileId
           id: id
-          title: title
-          message: message
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8311,6 +9913,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8456,6 +10073,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         name:
           nullable: true
@@ -8484,6 +10102,48 @@ components:
           nullable: true
           type: string
       type: object
+    SkillDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SkillDtoEnvelope:
       additionalProperties: false
       example:
@@ -8499,8 +10159,14 @@ components:
           url: url
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8517,6 +10183,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8549,8 +10230,14 @@ components:
           url: url
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8567,6 +10254,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8612,11 +10314,239 @@ components:
           - Certification
           type: string
       type: object
+    SocialCommentReactionDto:
+      additionalProperties: false
+      example:
+        socialCommentId: socialCommentId
+        socialProfileName: socialProfileName
+        reaction: Like
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        reactionValue: reactionValue
+        id: id
+        socialProfileId: socialProfileId
+        socialProfileType: User
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        reaction:
+          enum:
+          - Like
+          - Happy
+          - HaHa
+          - Love
+          - Sad
+          - Angry
+          - Wow
+          - Afraid
+          type: string
+        reactionValue:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        socialProfileName:
+          nullable: true
+          type: string
+        socialProfileAvatarUrl:
+          nullable: true
+          type: string
+        socialProfileType:
+          enum:
+          - User
+          - Tenant
+          - Contact
+          nullable: true
+          type: string
+        socialCommentId:
+          nullable: true
+          type: string
+      type: object
+    SocialCommentReactionDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    SocialCommentReactionDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          socialCommentId: socialCommentId
+          socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionValue: reactionValue
+          id: id
+          socialProfileId: socialProfileId
+          socialProfileType: User
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialCommentReactionDto'
+      type: object
+    SocialCommentReactionDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - socialCommentId: socialCommentId
+          socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionValue: reactionValue
+          id: id
+          socialProfileId: socialProfileId
+          socialProfileType: User
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - socialCommentId: socialCommentId
+          socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionValue: reactionValue
+          id: id
+          socialProfileId: socialProfileId
+          socialProfileType: User
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialCommentReactionDto'
+          nullable: true
+          type: array
+      type: object
     SocialFeedDto:
       additionalProperties: false
       example:
         id: id
-        socialPostsCount: 0
+        socialPostsCount: 6
         socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8634,17 +10564,65 @@ components:
           nullable: true
           type: string
       type: object
+    SocialFeedDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SocialFeedDtoEnvelope:
       additionalProperties: false
       example:
         result:
           id: id
-          socialPostsCount: 0
+          socialPostsCount: 6
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8661,6 +10639,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8673,16 +10666,22 @@ components:
       example:
         result:
         - id: id
-          socialPostsCount: 0
+          socialPostsCount: 6
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - id: id
-          socialPostsCount: 0
+          socialPostsCount: 6
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8699,6 +10698,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8713,10 +10727,13 @@ components:
       additionalProperties: false
       example:
         socialFeedId: socialFeedId
+        backgroundStyle: backgroundStyle
+        bodyHtml: bodyHtml
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
         message: message
         socialProfileId: socialProfileId
+        bodyFormat: PlainText
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -8737,18 +10754,58 @@ components:
         socialProfileId:
           nullable: true
           type: string
+        bodyHtml:
+          maxLength: 8000
+          nullable: true
+          type: string
+        bodyFormat:
+          enum:
+          - PlainText
+          - Html
+          nullable: true
+          type: string
+        backgroundStyle:
+          maxLength: 64
+          nullable: true
+          type: string
       type: object
     SocialFeedPostDto:
       additionalProperties: false
       example:
-        socialProfileName: socialProfileName
-        socialProfileAvatarUrl: socialProfileAvatarUrl
-        reactionsCount: 6
-        socialFeedId: socialFeedId
-        commentsCount: 0
-        id: id
+        attachments:
+        - fileUrl: fileUrl
+          id: id
+          title: title
+          contentType: contentType
+        - fileUrl: fileUrl
+          id: id
+          title: title
+          contentType: contentType
+        reactionsCount: 1
+        facepile:
+        - socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          socialProfileId: socialProfileId
+          socialProfileType: User
+        - socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          socialProfileId: socialProfileId
+          socialProfileType: User
         title: title
         message: message
+        bodyFormat: PlainText
+        socialProfileType: User
+        socialProfileName: socialProfileName
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        socialFeedId: socialFeedId
+        commentsCount: 6
+        myReaction: Like
+        backgroundStyle: backgroundStyle
+        bodyHtml: bodyHtml
+        myReactionId: myReactionId
+        id: id
         socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8780,27 +10837,145 @@ components:
         reactionsCount:
           format: int32
           type: integer
+        socialProfileType:
+          enum:
+          - User
+          - Tenant
+          - Contact
+          nullable: true
+          type: string
+        bodyHtml:
+          nullable: true
+          type: string
+        bodyFormat:
+          enum:
+          - PlainText
+          - Html
+          nullable: true
+          type: string
+        backgroundStyle:
+          nullable: true
+          type: string
         socialFeedId:
           nullable: true
           type: string
+        facepile:
+          items:
+            $ref: '#/components/schemas/SocialPostReactionFacepileDto'
+          nullable: true
+          type: array
+        attachments:
+          items:
+            $ref: '#/components/schemas/SocialPostAttachmentRefDto'
+          nullable: true
+          type: array
+        myReaction:
+          enum:
+          - Like
+          - Happy
+          - HaHa
+          - Love
+          - Sad
+          - Angry
+          - Wow
+          - Afraid
+          nullable: true
+          type: string
+        myReactionId:
+          nullable: true
+          type: string
+      type: object
+    SocialFeedPostDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
       type: object
     SocialFeedPostDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          socialProfileName: socialProfileName
-          socialProfileAvatarUrl: socialProfileAvatarUrl
-          reactionsCount: 6
-          socialFeedId: socialFeedId
-          commentsCount: 0
-          id: id
+          attachments:
+          - fileUrl: fileUrl
+            id: id
+            title: title
+            contentType: contentType
+          - fileUrl: fileUrl
+            id: id
+            title: title
+            contentType: contentType
+          reactionsCount: 1
+          facepile:
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
           title: title
           message: message
+          bodyFormat: PlainText
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          socialFeedId: socialFeedId
+          commentsCount: 6
+          myReaction: Like
+          backgroundStyle: backgroundStyle
+          bodyHtml: bodyHtml
+          myReactionId: myReactionId
+          id: id
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8817,6 +10992,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8828,29 +11018,87 @@ components:
       additionalProperties: false
       example:
         result:
-        - socialProfileName: socialProfileName
-          socialProfileAvatarUrl: socialProfileAvatarUrl
-          reactionsCount: 6
-          socialFeedId: socialFeedId
-          commentsCount: 0
-          id: id
+        - attachments:
+          - fileUrl: fileUrl
+            id: id
+            title: title
+            contentType: contentType
+          - fileUrl: fileUrl
+            id: id
+            title: title
+            contentType: contentType
+          reactionsCount: 1
+          facepile:
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
           title: title
           message: message
+          bodyFormat: PlainText
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          socialFeedId: socialFeedId
+          commentsCount: 6
+          myReaction: Like
+          backgroundStyle: backgroundStyle
+          bodyHtml: bodyHtml
+          myReactionId: myReactionId
+          id: id
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - socialProfileName: socialProfileName
-          socialProfileAvatarUrl: socialProfileAvatarUrl
-          reactionsCount: 6
-          socialFeedId: socialFeedId
-          commentsCount: 0
-          id: id
+        - attachments:
+          - fileUrl: fileUrl
+            id: id
+            title: title
+            contentType: contentType
+          - fileUrl: fileUrl
+            id: id
+            title: title
+            contentType: contentType
+          reactionsCount: 1
+          facepile:
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
           title: title
           message: message
+          bodyFormat: PlainText
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          socialFeedId: socialFeedId
+          commentsCount: 6
+          myReaction: Like
+          backgroundStyle: backgroundStyle
+          bodyHtml: bodyHtml
+          myReactionId: myReactionId
+          id: id
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8867,6 +11115,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8880,13 +11143,30 @@ components:
     SocialFeedPostUpdateDto:
       additionalProperties: false
       example:
+        backgroundStyle: backgroundStyle
+        bodyHtml: bodyHtml
         title: title
         message: message
+        bodyFormat: PlainText
       properties:
         title:
           nullable: true
           type: string
         message:
+          nullable: true
+          type: string
+        bodyHtml:
+          maxLength: 8000
+          nullable: true
+          type: string
+        bodyFormat:
+          enum:
+          - PlainText
+          - Html
+          nullable: true
+          type: string
+        backgroundStyle:
+          maxLength: 64
           nullable: true
           type: string
       type: object
@@ -8957,6 +11237,48 @@ components:
           nullable: true
           type: string
       type: object
+    SocialGroupDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SocialGroupDtoEnvelope:
       additionalProperties: false
       example:
@@ -8970,8 +11292,14 @@ components:
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8988,6 +11316,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9016,8 +11359,14 @@ components:
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9034,6 +11383,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9140,8 +11504,8 @@ components:
         thumbnailContentType: thumbnailContentType
         socialProfileId: socialProfileId
         contentType: contentType
-        thumbnailHeight: 1
-        fileLength: 0
+        thumbnailHeight: 5
+        fileLength: 6
         timestamp: 2000-01-23T04:56:07.000+00:00
         socialPostId: socialPostId
         keyWords: keyWords
@@ -9152,7 +11516,7 @@ components:
         scanStatus: NotRequired
         thumbnailStorageKey: thumbnailStorageKey
         abstract: abstract
-        thumbnailWidth: 6
+        thumbnailWidth: 1
         storageKey: storageKey
         userId: userId
         isFolder: true
@@ -9275,6 +11639,48 @@ components:
           nullable: true
           type: string
       type: object
+    SocialPostAttachmentDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SocialPostAttachmentDtoEnvelope:
       additionalProperties: false
       example:
@@ -9292,8 +11698,8 @@ components:
           thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          thumbnailHeight: 1
-          fileLength: 0
+          thumbnailHeight: 5
+          fileLength: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
           keyWords: keyWords
@@ -9304,7 +11710,7 @@ components:
           scanStatus: NotRequired
           thumbnailStorageKey: thumbnailStorageKey
           abstract: abstract
-          thumbnailWidth: 6
+          thumbnailWidth: 1
           storageKey: storageKey
           userId: userId
           isFolder: true
@@ -9313,8 +11719,14 @@ components:
           thumbnailStatus: NotRequired
           hash: hash
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9331,6 +11743,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9355,8 +11782,8 @@ components:
           thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          thumbnailHeight: 1
-          fileLength: 0
+          thumbnailHeight: 5
+          fileLength: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
           keyWords: keyWords
@@ -9367,7 +11794,7 @@ components:
           scanStatus: NotRequired
           thumbnailStorageKey: thumbnailStorageKey
           abstract: abstract
-          thumbnailWidth: 6
+          thumbnailWidth: 1
           storageKey: storageKey
           userId: userId
           isFolder: true
@@ -9388,8 +11815,8 @@ components:
           thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          thumbnailHeight: 1
-          fileLength: 0
+          thumbnailHeight: 5
+          fileLength: 6
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
           keyWords: keyWords
@@ -9400,7 +11827,7 @@ components:
           scanStatus: NotRequired
           thumbnailStorageKey: thumbnailStorageKey
           abstract: abstract
-          thumbnailWidth: 6
+          thumbnailWidth: 1
           storageKey: storageKey
           userId: userId
           isFolder: true
@@ -9409,8 +11836,14 @@ components:
           thumbnailStatus: NotRequired
           hash: hash
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9427,6 +11860,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9436,6 +11884,27 @@ components:
             $ref: '#/components/schemas/SocialPostAttachmentDto'
           nullable: true
           type: array
+      type: object
+    SocialPostAttachmentRefDto:
+      additionalProperties: false
+      example:
+        fileUrl: fileUrl
+        id: id
+        title: title
+        contentType: contentType
+      properties:
+        id:
+          nullable: true
+          type: string
+        fileUrl:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        contentType:
+          nullable: true
+          type: string
       type: object
     SocialPostAttachmentUpdateDto:
       additionalProperties: false
@@ -9504,9 +11973,7 @@ components:
           format: date-time
           type: string
         message:
-          maxLength: 280
-          minLength: 1
-          pattern: "^[\\w\\s\\.\\,\\!\\?\\-\\(\\)\\[\\]\\{\\}\\'\\\"\\:\\;]{1,280}$"
+          nullable: true
           type: string
         bodyHtml:
           maxLength: 8000
@@ -9530,21 +11997,35 @@ components:
         socialPostId:
           nullable: true
           type: string
-      required:
-      - message
       type: object
     SocialPostCommentDto:
       additionalProperties: false
       example:
         socialFeedPostId: socialFeedPostId
-        socialProfileName: socialProfileName
-        socialProfileAvatarUrl: socialProfileAvatarUrl
+        reactionsCount: 1
+        facepile:
+        - socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          socialProfileId: socialProfileId
+          socialProfileType: User
+        - socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          socialProfileId: socialProfileId
+          socialProfileType: User
         parentCommentId: parentCommentId
-        bodyHtml: bodyHtml
-        id: id
         message: message
-        socialProfileId: socialProfileId
         bodyFormat: PlainText
+        socialProfileType: User
+        socialProfileName: socialProfileName
+        replyCount: 6
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        myReaction: Like
+        bodyHtml: bodyHtml
+        myReactionId: myReactionId
+        id: id
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
         socialPostId: socialPostId
       properties:
@@ -9573,6 +12054,13 @@ components:
         socialProfileAvatarUrl:
           nullable: true
           type: string
+        socialProfileType:
+          enum:
+          - User
+          - Tenant
+          - Contact
+          nullable: true
+          type: string
         bodyHtml:
           nullable: true
           type: string
@@ -9582,28 +12070,118 @@ components:
           - Html
           nullable: true
           type: string
+        replyCount:
+          format: int32
+          type: integer
+        reactionsCount:
+          format: int32
+          type: integer
         socialPostId:
           nullable: true
           type: string
+        facepile:
+          items:
+            $ref: '#/components/schemas/SocialPostReactionFacepileDto'
+          nullable: true
+          type: array
+        myReaction:
+          enum:
+          - Like
+          - Happy
+          - HaHa
+          - Love
+          - Sad
+          - Angry
+          - Wow
+          - Afraid
+          nullable: true
+          type: string
+        myReactionId:
+          nullable: true
+          type: string
+      type: object
+    SocialPostCommentDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
       type: object
     SocialPostCommentDtoEnvelope:
       additionalProperties: false
       example:
         result:
           socialFeedPostId: socialFeedPostId
-          socialProfileName: socialProfileName
-          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionsCount: 1
+          facepile:
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
           parentCommentId: parentCommentId
-          bodyHtml: bodyHtml
-          id: id
           message: message
-          socialProfileId: socialProfileId
           bodyFormat: PlainText
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          replyCount: 6
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          myReaction: Like
+          bodyHtml: bodyHtml
+          myReactionId: myReactionId
+          id: id
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9620,6 +12198,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9632,30 +12225,68 @@ components:
       example:
         result:
         - socialFeedPostId: socialFeedPostId
-          socialProfileName: socialProfileName
-          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionsCount: 1
+          facepile:
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
           parentCommentId: parentCommentId
-          bodyHtml: bodyHtml
-          id: id
           message: message
-          socialProfileId: socialProfileId
           bodyFormat: PlainText
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          replyCount: 6
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          myReaction: Like
+          bodyHtml: bodyHtml
+          myReactionId: myReactionId
+          id: id
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
         - socialFeedPostId: socialFeedPostId
-          socialProfileName: socialProfileName
-          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionsCount: 1
+          facepile:
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
+          - socialProfileName: socialProfileName
+            reaction: Like
+            socialProfileAvatarUrl: socialProfileAvatarUrl
+            socialProfileId: socialProfileId
+            socialProfileType: User
           parentCommentId: parentCommentId
-          bodyHtml: bodyHtml
-          id: id
           message: message
-          socialProfileId: socialProfileId
           bodyFormat: PlainText
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          replyCount: 6
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          myReaction: Like
+          bodyHtml: bodyHtml
+          myReactionId: myReactionId
+          id: id
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9672,6 +12303,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9727,13 +12373,17 @@ components:
     SocialPostDto:
       additionalProperties: false
       example:
-        socialProfileName: socialProfileName
-        socialProfileAvatarUrl: socialProfileAvatarUrl
-        reactionsCount: 6
-        commentsCount: 0
-        id: id
+        reactionsCount: 1
         title: title
         message: message
+        bodyFormat: PlainText
+        socialProfileType: User
+        socialProfileName: socialProfileName
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        commentsCount: 6
+        backgroundStyle: backgroundStyle
+        bodyHtml: bodyHtml
+        id: id
         socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9765,23 +12415,94 @@ components:
         reactionsCount:
           format: int32
           type: integer
+        socialProfileType:
+          enum:
+          - User
+          - Tenant
+          - Contact
+          nullable: true
+          type: string
+        bodyHtml:
+          nullable: true
+          type: string
+        bodyFormat:
+          enum:
+          - PlainText
+          - Html
+          nullable: true
+          type: string
+        backgroundStyle:
+          nullable: true
+          type: string
+      type: object
+    SocialPostDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
       type: object
     SocialPostDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          socialProfileName: socialProfileName
-          socialProfileAvatarUrl: socialProfileAvatarUrl
-          reactionsCount: 6
-          commentsCount: 0
-          id: id
+          reactionsCount: 1
           title: title
           message: message
+          bodyFormat: PlainText
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          commentsCount: 6
+          backgroundStyle: backgroundStyle
+          bodyHtml: bodyHtml
+          id: id
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9798,6 +12519,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9809,27 +12545,41 @@ components:
       additionalProperties: false
       example:
         result:
-        - socialProfileName: socialProfileName
-          socialProfileAvatarUrl: socialProfileAvatarUrl
-          reactionsCount: 6
-          commentsCount: 0
-          id: id
+        - reactionsCount: 1
           title: title
           message: message
+          bodyFormat: PlainText
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          commentsCount: 6
+          backgroundStyle: backgroundStyle
+          bodyHtml: bodyHtml
+          id: id
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - socialProfileName: socialProfileName
-          socialProfileAvatarUrl: socialProfileAvatarUrl
-          reactionsCount: 6
-          commentsCount: 0
-          id: id
+        - reactionsCount: 1
           title: title
           message: message
+          bodyFormat: PlainText
+          socialProfileType: User
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          commentsCount: 6
+          backgroundStyle: backgroundStyle
+          bodyHtml: bodyHtml
+          id: id
           socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9846,6 +12596,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9855,6 +12620,199 @@ components:
             $ref: '#/components/schemas/SocialPostDto'
           nullable: true
           type: array
+      type: object
+    SocialPostReactionDto:
+      additionalProperties: false
+      example:
+        socialProfileName: socialProfileName
+        reaction: Like
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        reactionValue: reactionValue
+        id: id
+        socialProfileId: socialProfileId
+        socialProfileType: User
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        socialPostId: socialPostId
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        reaction:
+          enum:
+          - Like
+          - Happy
+          - HaHa
+          - Love
+          - Sad
+          - Angry
+          - Wow
+          - Afraid
+          type: string
+        reactionValue:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        socialProfileName:
+          nullable: true
+          type: string
+        socialProfileAvatarUrl:
+          nullable: true
+          type: string
+        socialProfileType:
+          enum:
+          - User
+          - Tenant
+          - Contact
+          nullable: true
+          type: string
+        socialPostId:
+          nullable: true
+          type: string
+      type: object
+    SocialPostReactionDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    SocialPostReactionDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionValue: reactionValue
+          id: id
+          socialProfileId: socialProfileId
+          socialProfileType: User
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          socialPostId: socialPostId
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialPostReactionDto'
+      type: object
+    SocialPostReactionFacepileDto:
+      additionalProperties: false
+      example:
+        socialProfileName: socialProfileName
+        reaction: Like
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        socialProfileId: socialProfileId
+        socialProfileType: User
+      properties:
+        socialProfileId:
+          nullable: true
+          type: string
+        socialProfileName:
+          nullable: true
+          type: string
+        socialProfileAvatarUrl:
+          nullable: true
+          type: string
+        socialProfileType:
+          enum:
+          - User
+          - Tenant
+          - Contact
+          nullable: true
+          type: string
+        reaction:
+          enum:
+          - Like
+          - Happy
+          - HaHa
+          - Love
+          - Sad
+          - Angry
+          - Wow
+          - Afraid
+          type: string
       type: object
     SocialPostUpdateDto:
       additionalProperties: false
@@ -9876,18 +12834,18 @@ components:
         notes: notes
         twitterUrl: twitterUrl
         about: about
-        unreadMessagesCount: 2
+        unreadMessagesCount: 7
         type: User
         countryId: countryId
         cover: cover
         facebookURL: facebookURL
         youtubeURL: youtubeURL
-        followsCount: 0
+        followsCount: 6
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
         pinterestURL: pinterestURL
         linkedInURL: linkedInURL
-        unreadNotificationsCount: 5
+        unreadNotificationsCount: 2
         notificationsCount: 5
         avatar: avatar
         socialFeedId: socialFeedId
@@ -9896,8 +12854,8 @@ components:
         name: name
         dribbleURL: dribbleURL
         countryName: countryName
-        messagesCount: 6
-        followersCount: 1
+        messagesCount: 1
+        followersCount: 5
       properties:
         id:
           nullable: true
@@ -9989,6 +12947,48 @@ components:
           nullable: true
           type: string
       type: object
+    SocialProfileDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     SocialProfileDtoEnvelope:
       additionalProperties: false
       example:
@@ -9997,18 +12997,18 @@ components:
           notes: notes
           twitterUrl: twitterUrl
           about: about
-          unreadMessagesCount: 2
+          unreadMessagesCount: 7
           type: User
           countryId: countryId
           cover: cover
           facebookURL: facebookURL
           youtubeURL: youtubeURL
-          followsCount: 0
+          followsCount: 6
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
           pinterestURL: pinterestURL
           linkedInURL: linkedInURL
-          unreadNotificationsCount: 5
+          unreadNotificationsCount: 2
           notificationsCount: 5
           avatar: avatar
           socialFeedId: socialFeedId
@@ -10017,11 +13017,17 @@ components:
           name: name
           dribbleURL: dribbleURL
           countryName: countryName
-          messagesCount: 6
-          followersCount: 1
+          messagesCount: 1
+          followersCount: 5
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10038,6 +13044,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10053,18 +13074,18 @@ components:
           notes: notes
           twitterUrl: twitterUrl
           about: about
-          unreadMessagesCount: 2
+          unreadMessagesCount: 7
           type: User
           countryId: countryId
           cover: cover
           facebookURL: facebookURL
           youtubeURL: youtubeURL
-          followsCount: 0
+          followsCount: 6
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
           pinterestURL: pinterestURL
           linkedInURL: linkedInURL
-          unreadNotificationsCount: 5
+          unreadNotificationsCount: 2
           notificationsCount: 5
           avatar: avatar
           socialFeedId: socialFeedId
@@ -10073,24 +13094,24 @@ components:
           name: name
           dribbleURL: dribbleURL
           countryName: countryName
-          messagesCount: 6
-          followersCount: 1
+          messagesCount: 1
+          followersCount: 5
         - githubURL: githubURL
           notes: notes
           twitterUrl: twitterUrl
           about: about
-          unreadMessagesCount: 2
+          unreadMessagesCount: 7
           type: User
           countryId: countryId
           cover: cover
           facebookURL: facebookURL
           youtubeURL: youtubeURL
-          followsCount: 0
+          followsCount: 6
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
           pinterestURL: pinterestURL
           linkedInURL: linkedInURL
-          unreadNotificationsCount: 5
+          unreadNotificationsCount: 2
           notificationsCount: 5
           avatar: avatar
           socialFeedId: socialFeedId
@@ -10099,11 +13120,17 @@ components:
           name: name
           dribbleURL: dribbleURL
           countryName: countryName
-          messagesCount: 6
-          followersCount: 1
+          messagesCount: 1
+          followersCount: 5
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10120,6 +13147,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10172,6 +13214,7 @@ components:
         reactionValue: reactionValue
         id: id
         socialProfileId: socialProfileId
+        socialProfileType: User
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -10204,6 +13247,13 @@ components:
         socialProfileAvatarUrl:
           nullable: true
           type: string
+        socialProfileType:
+          enum:
+          - User
+          - Tenant
+          - Contact
+          nullable: true
+          type: string
       type: object
     SocialReactionDtoEnvelope:
       additionalProperties: false
@@ -10215,10 +13265,17 @@ components:
           reactionValue: reactionValue
           id: id
           socialProfileId: socialProfileId
+          socialProfileType: User
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10235,6 +13292,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10252,6 +13324,7 @@ components:
           reactionValue: reactionValue
           id: id
           socialProfileId: socialProfileId
+          socialProfileType: User
           timestamp: 2000-01-23T04:56:07.000+00:00
         - socialProfileName: socialProfileName
           reaction: Like
@@ -10259,10 +13332,17 @@ components:
           reactionValue: reactionValue
           id: id
           socialProfileId: socialProfileId
+          socialProfileType: User
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10279,6 +13359,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10316,6 +13411,58 @@ components:
           - Afraid
           type: string
         reactionValue:
+          nullable: true
+          type: string
+      type: object
+    StringEnvelope:
+      additionalProperties: false
+      example:
+        result: result
+        activityId: activityId
+        httpStatus: 0
+        errorMessage: errorMessage
+        errorCode: errorCode
+        correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
           nullable: true
           type: string
       type: object
@@ -10388,6 +13535,12 @@ components:
     _Account_Manage_LinkExternalLogin_post_request:
       properties:
         provider:
+          type: string
+      type: object
+    UploadSocialPostImageAttachmentAsync_request:
+      properties:
+        file:
+          format: binary
           type: string
       type: object
 

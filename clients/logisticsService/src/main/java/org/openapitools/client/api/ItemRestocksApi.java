@@ -31,14 +31,16 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.ItemRestockCreateDto;
+import org.openapitools.client.model.ItemRestockDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemRestockDtoEnvelope;
 import org.openapitools.client.model.ItemRestockDtoListEnvelope;
 import org.openapitools.client.model.ItemRestockEntryCreateDto;
+import org.openapitools.client.model.ItemRestockEntryDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemRestockEntryDtoEnvelope;
 import org.openapitools.client.model.ItemRestockEntryDtoListEnvelope;
 import org.openapitools.client.model.ItemRestockEntryUpdateDto;
 import org.openapitools.client.model.ItemRestockUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -887,6 +889,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -896,7 +899,7 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemRestockEntriesAsyncCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemRestockEntriesAsyncCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -910,7 +913,7 @@ public class ItemRestocksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemRestockEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemRestocks/{restockId}/Entries"
@@ -944,6 +947,8 @@ public class ItemRestocksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -955,7 +960,7 @@ public class ItemRestocksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemRestockEntriesAsyncValidateBeforeCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemRestockEntriesAsyncValidateBeforeCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemRestockEntriesAsync(Async)");
@@ -966,7 +971,7 @@ public class ItemRestocksApi {
             throw new ApiException("Missing the required parameter 'restockId' when calling getItemRestockEntriesAsync(Async)");
         }
 
-        return getItemRestockEntriesAsyncCall(tenantId, restockId, apiVersion, xApiVersion, _callback);
+        return getItemRestockEntriesAsyncCall(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -977,6 +982,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @return ItemRestockEntryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -985,8 +991,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemRestockEntryDtoListEnvelope getItemRestockEntriesAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemRestockEntryDtoListEnvelope> localVarResp = getItemRestockEntriesAsyncWithHttpInfo(tenantId, restockId, apiVersion, xApiVersion);
+    public ItemRestockEntryDtoListEnvelope getItemRestockEntriesAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemRestockEntryDtoListEnvelope> localVarResp = getItemRestockEntriesAsyncWithHttpInfo(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -997,6 +1003,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemRestockEntryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1005,8 +1012,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemRestockEntryDtoListEnvelope> getItemRestockEntriesAsyncWithHttpInfo(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemRestockEntriesAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemRestockEntryDtoListEnvelope> getItemRestockEntriesAsyncWithHttpInfo(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemRestockEntriesAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemRestockEntryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1018,6 +1025,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1027,9 +1035,9 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemRestockEntriesAsyncAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, final ApiCallback<ItemRestockEntryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemRestockEntriesAsyncAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters, final ApiCallback<ItemRestockEntryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemRestockEntriesAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemRestockEntriesAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemRestockEntryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1040,6 +1048,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1049,7 +1058,7 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemRestockEntriesCountAsyncCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemRestockEntriesCountAsyncCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1063,7 +1072,7 @@ public class ItemRestocksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemRestockEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/Count"
@@ -1097,6 +1106,8 @@ public class ItemRestocksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1108,7 +1119,7 @@ public class ItemRestocksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemRestockEntriesCountAsyncValidateBeforeCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemRestockEntriesCountAsyncValidateBeforeCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemRestockEntriesCountAsync(Async)");
@@ -1119,7 +1130,7 @@ public class ItemRestocksApi {
             throw new ApiException("Missing the required parameter 'restockId' when calling getItemRestockEntriesCountAsync(Async)");
         }
 
-        return getItemRestockEntriesCountAsyncCall(tenantId, restockId, apiVersion, xApiVersion, _callback);
+        return getItemRestockEntriesCountAsyncCall(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1130,6 +1141,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1138,8 +1150,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getItemRestockEntriesCountAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getItemRestockEntriesCountAsyncWithHttpInfo(tenantId, restockId, apiVersion, xApiVersion);
+    public Int32Envelope getItemRestockEntriesCountAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getItemRestockEntriesCountAsyncWithHttpInfo(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1150,6 +1162,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1158,8 +1171,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getItemRestockEntriesCountAsyncWithHttpInfo(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemRestockEntriesCountAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getItemRestockEntriesCountAsyncWithHttpInfo(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemRestockEntriesCountAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1171,6 +1184,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1180,9 +1194,9 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemRestockEntriesCountAsyncAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getItemRestockEntriesCountAsyncAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemRestockEntriesCountAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemRestockEntriesCountAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1359,6 +1373,7 @@ public class ItemRestocksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1370,7 +1385,7 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemRestocksAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemRestocksAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1384,7 +1399,7 @@ public class ItemRestocksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemRestockDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemRestocks";
@@ -1417,6 +1432,8 @@ public class ItemRestocksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1428,13 +1445,13 @@ public class ItemRestocksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemRestocksAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemRestocksAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemRestocksAsync(Async)");
         }
 
-        return getItemRestocksAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getItemRestocksAsyncCall(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1444,6 +1461,7 @@ public class ItemRestocksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @return ItemRestockDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1454,8 +1472,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemRestockDtoListEnvelope getItemRestocksAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemRestockDtoListEnvelope> localVarResp = getItemRestocksAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ItemRestockDtoListEnvelope getItemRestocksAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemRestockDtoListEnvelope> localVarResp = getItemRestocksAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1465,6 +1483,7 @@ public class ItemRestocksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemRestockDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1475,8 +1494,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemRestockDtoListEnvelope> getItemRestocksAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemRestocksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemRestockDtoListEnvelope> getItemRestocksAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemRestocksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemRestockDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1487,6 +1506,7 @@ public class ItemRestocksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1498,9 +1518,9 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemRestocksAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ItemRestockDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemRestocksAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters, final ApiCallback<ItemRestockDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemRestocksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemRestocksAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemRestockDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1510,6 +1530,7 @@ public class ItemRestocksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1519,7 +1540,7 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemRestocksCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemRestocksCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1533,7 +1554,7 @@ public class ItemRestocksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemRestockDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemRestocks/Count";
@@ -1566,6 +1587,8 @@ public class ItemRestocksApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1577,13 +1600,13 @@ public class ItemRestocksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemRestocksCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getItemRestocksCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getItemRestocksCountAsync(Async)");
         }
 
-        return getItemRestocksCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getItemRestocksCountAsyncCall(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1593,6 +1616,7 @@ public class ItemRestocksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1601,8 +1625,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getItemRestocksCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getItemRestocksCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getItemRestocksCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getItemRestocksCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1612,6 +1636,7 @@ public class ItemRestocksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1620,8 +1645,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getItemRestocksCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemRestocksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getItemRestocksCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemRestocksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1632,6 +1657,7 @@ public class ItemRestocksApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemRestockDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1641,9 +1667,9 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemRestocksCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getItemRestocksCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemRestocksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemRestocksCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1654,7 +1680,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1665,7 +1691,7 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemRestockAsyncCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemRestockAsyncCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1679,7 +1705,7 @@ public class ItemRestocksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemRestocks/{restockId}"
@@ -1726,7 +1752,7 @@ public class ItemRestocksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemRestockAsyncValidateBeforeCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemRestockAsyncValidateBeforeCall(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemRestockAsync(Async)");
@@ -1737,7 +1763,7 @@ public class ItemRestocksApi {
             throw new ApiException("Missing the required parameter 'restockId' when calling patchItemRestockAsync(Async)");
         }
 
-        return patchItemRestockAsyncCall(tenantId, restockId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemRestockAsyncCall(tenantId, restockId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1748,7 +1774,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1758,8 +1784,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchItemRestockAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchItemRestockAsyncWithHttpInfo(tenantId, restockId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchItemRestockAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchItemRestockAsyncWithHttpInfo(tenantId, restockId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1770,7 +1796,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1780,8 +1806,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchItemRestockAsyncWithHttpInfo(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemRestockAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchItemRestockAsyncWithHttpInfo(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemRestockAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1793,7 +1819,7 @@ public class ItemRestocksApi {
      * @param restockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1804,9 +1830,9 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemRestockAsyncAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchItemRestockAsyncAsync(UUID tenantId, UUID restockId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemRestockAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemRestockAsyncValidateBeforeCall(tenantId, restockId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1818,7 +1844,7 @@ public class ItemRestocksApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1829,7 +1855,7 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemRestockEntryAsyncCall(UUID tenantId, UUID restockId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchItemRestockEntryAsyncCall(UUID tenantId, UUID restockId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1843,7 +1869,7 @@ public class ItemRestocksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/{entryId}"
@@ -1891,7 +1917,7 @@ public class ItemRestocksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchItemRestockEntryAsyncValidateBeforeCall(UUID tenantId, UUID restockId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchItemRestockEntryAsyncValidateBeforeCall(UUID tenantId, UUID restockId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchItemRestockEntryAsync(Async)");
@@ -1907,7 +1933,7 @@ public class ItemRestocksApi {
             throw new ApiException("Missing the required parameter 'entryId' when calling patchItemRestockEntryAsync(Async)");
         }
 
-        return patchItemRestockEntryAsyncCall(tenantId, restockId, entryId, apiVersion, xApiVersion, operation, _callback);
+        return patchItemRestockEntryAsyncCall(tenantId, restockId, entryId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1919,7 +1945,7 @@ public class ItemRestocksApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1929,8 +1955,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchItemRestockEntryAsync(UUID tenantId, UUID restockId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchItemRestockEntryAsyncWithHttpInfo(tenantId, restockId, entryId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchItemRestockEntryAsync(UUID tenantId, UUID restockId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchItemRestockEntryAsyncWithHttpInfo(tenantId, restockId, entryId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1942,7 +1968,7 @@ public class ItemRestocksApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1952,8 +1978,8 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchItemRestockEntryAsyncWithHttpInfo(UUID tenantId, UUID restockId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchItemRestockEntryAsyncValidateBeforeCall(tenantId, restockId, entryId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchItemRestockEntryAsyncWithHttpInfo(UUID tenantId, UUID restockId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchItemRestockEntryAsyncValidateBeforeCall(tenantId, restockId, entryId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1966,7 +1992,7 @@ public class ItemRestocksApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1977,9 +2003,9 @@ public class ItemRestocksApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchItemRestockEntryAsyncAsync(UUID tenantId, UUID restockId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchItemRestockEntryAsyncAsync(UUID tenantId, UUID restockId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchItemRestockEntryAsyncValidateBeforeCall(tenantId, restockId, entryId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchItemRestockEntryAsyncValidateBeforeCall(tenantId, restockId, entryId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

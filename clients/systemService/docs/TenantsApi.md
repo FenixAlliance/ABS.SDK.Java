@@ -12,8 +12,10 @@ All URIs are relative to *https://absuite.net*
 | [**getAllTenants**](TenantsApi.md#getAllTenants) | **GET** /api/v2/SystemService/Tenants | Get all tenants available on this suite server instance. |
 | [**getExtendedTenantsCount**](TenantsApi.md#getExtendedTenantsCount) | **GET** /api/v2/SystemService/Tenants/Extended/Count | Get the total count of extended tenants available on this suite server instance. |
 | [**getTenant**](TenantsApi.md#getTenant) | **GET** /api/v2/SystemService/Tenants/{tenantId} | Get a specific tenant by ID. |
+| [**getTenantModuleGrants**](TenantsApi.md#getTenantModuleGrants) | **GET** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Get the per-tenant admin module grants for a specific tenant. |
 | [**getTenantsCount**](TenantsApi.md#getTenantsCount) | **GET** /api/v2/SystemService/Tenants/Count | Get the total count of tenants available on this suite server instance. |
 | [**patchTenant**](TenantsApi.md#patchTenant) | **PATCH** /api/v2/SystemService/Tenants/{tenantId} | Partially update a specific tenant by ID. |
+| [**setTenantModuleGrants**](TenantsApi.md#setTenantModuleGrants) | **PUT** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Replace the per-tenant admin module grants for a specific tenant. |
 | [**updateTenant**](TenantsApi.md#updateTenant) | **PUT** /api/v2/SystemService/Tenants/{tenantId} | Update a specific tenant by ID. |
 
 
@@ -289,7 +291,7 @@ No authorization required
 
 <a id="getAllExtendedTenants"></a>
 # **getAllExtendedTenants**
-> ExtendedTenantDtoListEnvelope getAllExtendedTenants(apiVersion, xApiVersion)
+> ExtendedTenantDtoListEnvelope getAllExtendedTenants(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters)
 
 Get all extended tenants available on this suite server instance.
 
@@ -312,8 +314,9 @@ public class Example {
     TenantsApi apiInstance = new TenantsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters = new ExtendedTenantDtoCollectionQueryParameters(); // ExtendedTenantDtoCollectionQueryParameters | 
     try {
-      ExtendedTenantDtoListEnvelope result = apiInstance.getAllExtendedTenants(apiVersion, xApiVersion);
+      ExtendedTenantDtoListEnvelope result = apiInstance.getAllExtendedTenants(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantsApi#getAllExtendedTenants");
@@ -332,6 +335,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **extendedTenantDtoCollectionQueryParameters** | [**ExtendedTenantDtoCollectionQueryParameters**](ExtendedTenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -343,7 +347,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -355,7 +359,7 @@ No authorization required
 
 <a id="getAllTenants"></a>
 # **getAllTenants**
-> TenantDtoListEnvelope getAllTenants(apiVersion, xApiVersion)
+> TenantDtoListEnvelope getAllTenants(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
 
 Get all tenants available on this suite server instance.
 
@@ -378,8 +382,9 @@ public class Example {
     TenantsApi apiInstance = new TenantsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters = new TenantDtoCollectionQueryParameters(); // TenantDtoCollectionQueryParameters | 
     try {
-      TenantDtoListEnvelope result = apiInstance.getAllTenants(apiVersion, xApiVersion);
+      TenantDtoListEnvelope result = apiInstance.getAllTenants(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantsApi#getAllTenants");
@@ -398,6 +403,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -409,7 +415,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -421,7 +427,7 @@ No authorization required
 
 <a id="getExtendedTenantsCount"></a>
 # **getExtendedTenantsCount**
-> Int32Envelope getExtendedTenantsCount(apiVersion, xApiVersion)
+> Int32Envelope getExtendedTenantsCount(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters)
 
 Get the total count of extended tenants available on this suite server instance.
 
@@ -444,8 +450,9 @@ public class Example {
     TenantsApi apiInstance = new TenantsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExtendedTenantDtoCollectionQueryParameters extendedTenantDtoCollectionQueryParameters = new ExtendedTenantDtoCollectionQueryParameters(); // ExtendedTenantDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getExtendedTenantsCount(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getExtendedTenantsCount(apiVersion, xApiVersion, extendedTenantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantsApi#getExtendedTenantsCount");
@@ -464,6 +471,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **extendedTenantDtoCollectionQueryParameters** | [**ExtendedTenantDtoCollectionQueryParameters**](ExtendedTenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -475,7 +483,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -553,9 +561,77 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
+<a id="getTenantModuleGrants"></a>
+# **getTenantModuleGrants**
+> ModuleGrantDtoListEnvelope getTenantModuleGrants(tenantId, apiVersion, xApiVersion)
+
+Get the per-tenant admin module grants for a specific tenant.
+
+This action is only available for global administrators.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TenantsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    TenantsApi apiInstance = new TenantsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      ModuleGrantDtoListEnvelope result = apiInstance.getTenantModuleGrants(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TenantsApi#getTenantModuleGrants");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**ModuleGrantDtoListEnvelope**](ModuleGrantDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
 <a id="getTenantsCount"></a>
 # **getTenantsCount**
-> Int32Envelope getTenantsCount(apiVersion, xApiVersion)
+> Int32Envelope getTenantsCount(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters)
 
 Get the total count of tenants available on this suite server instance.
 
@@ -578,8 +654,9 @@ public class Example {
     TenantsApi apiInstance = new TenantsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantDtoCollectionQueryParameters tenantDtoCollectionQueryParameters = new TenantDtoCollectionQueryParameters(); // TenantDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantsCount(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantsCount(apiVersion, xApiVersion, tenantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantsApi#getTenantsCount");
@@ -598,6 +675,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantDtoCollectionQueryParameters** | [**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -609,7 +687,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -621,7 +699,7 @@ No authorization required
 
 <a id="patchTenant"></a>
 # **patchTenant**
-> EmptyEnvelope patchTenant(tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenant(tenantId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a specific tenant by ID.
 
@@ -645,9 +723,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenant(tenantId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenant(tenantId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantsApi#patchTenant");
@@ -667,7 +745,77 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="setTenantModuleGrants"></a>
+# **setTenantModuleGrants**
+> EmptyEnvelope setTenantModuleGrants(tenantId, apiVersion, xApiVersion, moduleGrantDto)
+
+Replace the per-tenant admin module grants for a specific tenant.
+
+This action is only available for global administrators. Grants supplement licensing.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TenantsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    TenantsApi apiInstance = new TenantsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<ModuleGrantDto> moduleGrantDto = Arrays.asList(); // List<ModuleGrantDto> | 
+    try {
+      EmptyEnvelope result = apiInstance.setTenantModuleGrants(tenantId, apiVersion, xApiVersion, moduleGrantDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TenantsApi#setTenantModuleGrants");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **moduleGrantDto** | [**List&lt;ModuleGrantDto&gt;**](ModuleGrantDto.md)|  | [optional] |
 
 ### Return type
 

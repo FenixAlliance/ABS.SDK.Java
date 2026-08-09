@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getTaxRates"></a>
 # **getTaxRates**
-> TaxRateDtoListEnvelope getTaxRates(tenantId, apiVersion, xApiVersion)
+> TaxRateDtoListEnvelope getTaxRates(tenantId, apiVersion, xApiVersion, taxRateDtoCollectionQueryParameters)
 
 Get all tax rates for a tenant
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TaxRateDtoCollectionQueryParameters taxRateDtoCollectionQueryParameters = new TaxRateDtoCollectionQueryParameters(); // TaxRateDtoCollectionQueryParameters | 
     try {
-      TaxRateDtoListEnvelope result = apiInstance.getTaxRates(tenantId, apiVersion, xApiVersion);
+      TaxRateDtoListEnvelope result = apiInstance.getTaxRates(tenantId, apiVersion, xApiVersion, taxRateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxRatesApi#getTaxRates");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **taxRateDtoCollectionQueryParameters** | [**TaxRateDtoCollectionQueryParameters**](TaxRateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getTaxRatesCount"></a>
 # **getTaxRatesCount**
-> Int32Envelope getTaxRatesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTaxRatesCount(tenantId, apiVersion, xApiVersion, taxRateDtoCollectionQueryParameters)
 
 Get tax rates count
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TaxRateDtoCollectionQueryParameters taxRateDtoCollectionQueryParameters = new TaxRateDtoCollectionQueryParameters(); // TaxRateDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTaxRatesCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTaxRatesCount(tenantId, apiVersion, xApiVersion, taxRateDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxRatesApi#getTaxRatesCount");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **taxRateDtoCollectionQueryParameters** | [**TaxRateDtoCollectionQueryParameters**](TaxRateDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchTaxRate"></a>
 # **patchTaxRate**
-> EmptyEnvelope patchTaxRate(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTaxRate(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a tax rate
 
@@ -386,9 +390,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTaxRate(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTaxRate(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxRatesApi#patchTaxRate");
@@ -409,7 +413,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

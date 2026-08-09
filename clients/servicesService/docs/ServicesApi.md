@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getServicesAsync"></a>
 # **getServicesAsync**
-> ServiceDtoIReadOnlyListEnvelope getServicesAsync(tenantId, apiVersion, xApiVersion)
+> ServiceDtoIReadOnlyListEnvelope getServicesAsync(tenantId, apiVersion, xApiVersion, serviceDtoCollectionQueryParameters)
 
 Get all services
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceDtoCollectionQueryParameters serviceDtoCollectionQueryParameters = new ServiceDtoCollectionQueryParameters(); // ServiceDtoCollectionQueryParameters | 
     try {
-      ServiceDtoIReadOnlyListEnvelope result = apiInstance.getServicesAsync(tenantId, apiVersion, xApiVersion);
+      ServiceDtoIReadOnlyListEnvelope result = apiInstance.getServicesAsync(tenantId, apiVersion, xApiVersion, serviceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServicesApi#getServicesAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceDtoCollectionQueryParameters** | [**ServiceDtoCollectionQueryParameters**](ServiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getServicesCountAsync"></a>
 # **getServicesCountAsync**
-> Int32Envelope getServicesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getServicesCountAsync(tenantId, apiVersion, xApiVersion, serviceDtoCollectionQueryParameters)
 
 Get services count
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ServiceDtoCollectionQueryParameters serviceDtoCollectionQueryParameters = new ServiceDtoCollectionQueryParameters(); // ServiceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getServicesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getServicesCountAsync(tenantId, apiVersion, xApiVersion, serviceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServicesApi#getServicesCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **serviceDtoCollectionQueryParameters** | [**ServiceDtoCollectionQueryParameters**](ServiceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchServiceAsync"></a>
 # **patchServiceAsync**
-> Envelope patchServiceAsync(tenantId, serviceId, apiVersion, xApiVersion, operation)
+> Envelope patchServiceAsync(tenantId, serviceId, apiVersion, xApiVersion, patchOperation)
 
 Patch a service
 
@@ -386,9 +390,9 @@ public class Example {
     UUID serviceId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      Envelope result = apiInstance.patchServiceAsync(tenantId, serviceId, apiVersion, xApiVersion, operation);
+      Envelope result = apiInstance.patchServiceAsync(tenantId, serviceId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServicesApi#patchServiceAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **serviceId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

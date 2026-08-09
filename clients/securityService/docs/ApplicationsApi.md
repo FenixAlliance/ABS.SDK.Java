@@ -229,7 +229,7 @@ No authorization required
 
 <a id="getBusinessApplicationsAsync"></a>
 # **getBusinessApplicationsAsync**
-> BusinessApplicationDtoListEnvelope getBusinessApplicationsAsync(tenantId, apiVersion, xApiVersion)
+> BusinessApplicationDtoListEnvelope getBusinessApplicationsAsync(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters)
 
 Get all business applications
 
@@ -253,8 +253,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters = new BusinessApplicationDtoCollectionQueryParameters(); // BusinessApplicationDtoCollectionQueryParameters | 
     try {
-      BusinessApplicationDtoListEnvelope result = apiInstance.getBusinessApplicationsAsync(tenantId, apiVersion, xApiVersion);
+      BusinessApplicationDtoListEnvelope result = apiInstance.getBusinessApplicationsAsync(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApplicationsApi#getBusinessApplicationsAsync");
@@ -274,6 +275,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **businessApplicationDtoCollectionQueryParameters** | [**BusinessApplicationDtoCollectionQueryParameters**](BusinessApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -285,7 +287,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -297,7 +299,7 @@ No authorization required
 
 <a id="getBusinessApplicationsCountAsync"></a>
 # **getBusinessApplicationsCountAsync**
-> Int32Envelope getBusinessApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBusinessApplicationsCountAsync(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters)
 
 Get business applications count
 
@@ -321,8 +323,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BusinessApplicationDtoCollectionQueryParameters businessApplicationDtoCollectionQueryParameters = new BusinessApplicationDtoCollectionQueryParameters(); // BusinessApplicationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBusinessApplicationsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBusinessApplicationsCountAsync(tenantId, apiVersion, xApiVersion, businessApplicationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApplicationsApi#getBusinessApplicationsCountAsync");
@@ -342,6 +345,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **businessApplicationDtoCollectionQueryParameters** | [**BusinessApplicationDtoCollectionQueryParameters**](BusinessApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -353,7 +357,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -505,7 +509,7 @@ No authorization required
 
 <a id="patchBusinessApplicationAsync"></a>
 # **patchBusinessApplicationAsync**
-> EmptyEnvelope patchBusinessApplicationAsync(tenantId, applicationId, operation, apiVersion, xApiVersion)
+> EmptyEnvelope patchBusinessApplicationAsync(tenantId, applicationId, patchOperation, apiVersion, xApiVersion)
 
 Patch an existing business application
 
@@ -528,11 +532,11 @@ public class Example {
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String applicationId = "applicationId_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.patchBusinessApplicationAsync(tenantId, applicationId, operation, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.patchBusinessApplicationAsync(tenantId, applicationId, patchOperation, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApplicationsApi#patchBusinessApplicationAsync");
@@ -551,7 +555,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **applicationId** | **String**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 

@@ -1348,7 +1348,7 @@ No authorization required
 
 <a id="getTenantNotificationsAsync"></a>
 # **getTenantNotificationsAsync**
-> NotificationDtoListEnvelope getTenantNotificationsAsync(tenantId, apiVersion, xApiVersion)
+> NotificationDtoListEnvelope getTenantNotificationsAsync(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Get the list of notifications for a tenant
 
@@ -1372,8 +1372,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters = new NotificationDtoCollectionQueryParameters(); // NotificationDtoCollectionQueryParameters | 
     try {
-      NotificationDtoListEnvelope result = apiInstance.getTenantNotificationsAsync(tenantId, apiVersion, xApiVersion);
+      NotificationDtoListEnvelope result = apiInstance.getTenantNotificationsAsync(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantsApi#getTenantNotificationsAsync");
@@ -1393,6 +1394,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1404,7 +1406,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1416,7 +1418,7 @@ No authorization required
 
 <a id="getTenantNotificationsCountAsync"></a>
 # **getTenantNotificationsCountAsync**
-> Int32Envelope getTenantNotificationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantNotificationsCountAsync(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Get the count of notifications for a tenant
 
@@ -1440,8 +1442,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters = new NotificationDtoCollectionQueryParameters(); // NotificationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantNotificationsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantNotificationsCountAsync(tenantId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantsApi#getTenantNotificationsCountAsync");
@@ -1461,6 +1464,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1472,7 +1476,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1960,7 +1964,7 @@ No authorization required
 
 <a id="patchTenantAsync"></a>
 # **patchTenantAsync**
-> EmptyEnvelope patchTenantAsync(tenantId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantAsync(tenantId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant&#39;s profile
 
@@ -1984,9 +1988,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantAsync(tenantId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantAsync(tenantId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantsApi#patchTenantAsync");
@@ -2006,7 +2010,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

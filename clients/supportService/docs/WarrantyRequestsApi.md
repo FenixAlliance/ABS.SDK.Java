@@ -213,7 +213,7 @@ No authorization required
 
 <a id="getWarrantyRequestsAsync"></a>
 # **getWarrantyRequestsAsync**
-> WarrantyRequestDtoListEnvelope getWarrantyRequestsAsync(tenantId, apiVersion, xApiVersion)
+> WarrantyRequestDtoListEnvelope getWarrantyRequestsAsync(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters)
 
 Retrieve warranty requests
 
@@ -235,8 +235,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters = new WarrantyRequestDtoCollectionQueryParameters(); // WarrantyRequestDtoCollectionQueryParameters | 
     try {
-      WarrantyRequestDtoListEnvelope result = apiInstance.getWarrantyRequestsAsync(tenantId, apiVersion, xApiVersion);
+      WarrantyRequestDtoListEnvelope result = apiInstance.getWarrantyRequestsAsync(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WarrantyRequestsApi#getWarrantyRequestsAsync");
@@ -256,6 +257,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **warrantyRequestDtoCollectionQueryParameters** | [**WarrantyRequestDtoCollectionQueryParameters**](WarrantyRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -267,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -277,7 +279,7 @@ No authorization required
 
 <a id="getWarrantyRequestsCountAsync"></a>
 # **getWarrantyRequestsCountAsync**
-> Int32Envelope getWarrantyRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getWarrantyRequestsCountAsync(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters)
 
 Get warranty requests count
 
@@ -299,8 +301,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WarrantyRequestDtoCollectionQueryParameters warrantyRequestDtoCollectionQueryParameters = new WarrantyRequestDtoCollectionQueryParameters(); // WarrantyRequestDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getWarrantyRequestsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWarrantyRequestsCountAsync(tenantId, apiVersion, xApiVersion, warrantyRequestDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WarrantyRequestsApi#getWarrantyRequestsCountAsync");
@@ -320,6 +323,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **warrantyRequestDtoCollectionQueryParameters** | [**WarrantyRequestDtoCollectionQueryParameters**](WarrantyRequestDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -331,7 +335,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -341,7 +345,7 @@ No authorization required
 
 <a id="patchWarrantyRequestAsync"></a>
 # **patchWarrantyRequestAsync**
-> EmptyEnvelope patchWarrantyRequestAsync(tenantId, warrantyRequestId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWarrantyRequestAsync(tenantId, warrantyRequestId, apiVersion, xApiVersion, patchOperation)
 
 Patch a warranty request
 
@@ -366,9 +370,9 @@ public class Example {
     UUID warrantyRequestId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWarrantyRequestAsync(tenantId, warrantyRequestId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchWarrantyRequestAsync(tenantId, warrantyRequestId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WarrantyRequestsApi#patchWarrantyRequestAsync");
@@ -389,7 +393,7 @@ public class Example {
 | **warrantyRequestId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

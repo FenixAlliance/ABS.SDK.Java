@@ -30,9 +30,10 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 import org.openapitools.client.model.WebContentCreateDto;
+import org.openapitools.client.model.WebContentDtoCollectionQueryParameters;
 import org.openapitools.client.model.WebContentDtoEnvelope;
 import org.openapitools.client.model.WebContentDtoListEnvelope;
 import org.openapitools.client.model.WebContentUpdateDto;
@@ -85,6 +86,7 @@ public class WebContentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webContentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -96,7 +98,7 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countWebContentsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countWebContentsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -110,7 +112,7 @@ public class WebContentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = webContentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebContents/Count";
@@ -143,6 +145,8 @@ public class WebContentsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -154,13 +158,13 @@ public class WebContentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countWebContentsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countWebContentsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countWebContentsAsync(Async)");
         }
 
-        return countWebContentsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return countWebContentsAsyncCall(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -170,6 +174,7 @@ public class WebContentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webContentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -180,8 +185,8 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countWebContentsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countWebContentsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope countWebContentsAsync(UUID tenantId, String apiVersion, String xApiVersion, WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countWebContentsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -191,6 +196,7 @@ public class WebContentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webContentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -201,8 +207,8 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countWebContentsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countWebContentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countWebContentsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countWebContentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -213,6 +219,7 @@ public class WebContentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webContentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -224,9 +231,9 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countWebContentsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countWebContentsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countWebContentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countWebContentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -715,6 +722,7 @@ public class WebContentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webContentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -726,7 +734,7 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebContentsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWebContentsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -740,7 +748,7 @@ public class WebContentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = webContentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebContents";
@@ -773,6 +781,8 @@ public class WebContentsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -784,13 +794,13 @@ public class WebContentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWebContentsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebContentsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWebContentsAsync(Async)");
         }
 
-        return getWebContentsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getWebContentsAsyncCall(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -800,6 +810,7 @@ public class WebContentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webContentDtoCollectionQueryParameters  (optional)
      * @return WebContentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -810,8 +821,8 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WebContentDtoListEnvelope getWebContentsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WebContentDtoListEnvelope> localVarResp = getWebContentsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public WebContentDtoListEnvelope getWebContentsAsync(UUID tenantId, String apiVersion, String xApiVersion, WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WebContentDtoListEnvelope> localVarResp = getWebContentsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -821,6 +832,7 @@ public class WebContentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webContentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WebContentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -831,8 +843,8 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebContentDtoListEnvelope> getWebContentsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWebContentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<WebContentDtoListEnvelope> getWebContentsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getWebContentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WebContentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -843,6 +855,7 @@ public class WebContentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param webContentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -854,9 +867,9 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebContentsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<WebContentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWebContentsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, WebContentDtoCollectionQueryParameters webContentDtoCollectionQueryParameters, final ApiCallback<WebContentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWebContentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWebContentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, webContentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WebContentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -867,7 +880,7 @@ public class WebContentsApi {
      * @param webContentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +892,7 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWebContentAsyncCall(UUID tenantId, UUID webContentId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchWebContentAsyncCall(UUID tenantId, UUID webContentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +906,7 @@ public class WebContentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ContentService/WebContents/{webContentId}"
@@ -940,7 +953,7 @@ public class WebContentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchWebContentAsyncValidateBeforeCall(UUID tenantId, UUID webContentId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchWebContentAsyncValidateBeforeCall(UUID tenantId, UUID webContentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchWebContentAsync(Async)");
@@ -951,7 +964,7 @@ public class WebContentsApi {
             throw new ApiException("Missing the required parameter 'webContentId' when calling patchWebContentAsync(Async)");
         }
 
-        return patchWebContentAsyncCall(tenantId, webContentId, apiVersion, xApiVersion, operation, _callback);
+        return patchWebContentAsyncCall(tenantId, webContentId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -962,7 +975,7 @@ public class WebContentsApi {
      * @param webContentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -973,8 +986,8 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchWebContentAsync(UUID tenantId, UUID webContentId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchWebContentAsyncWithHttpInfo(tenantId, webContentId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchWebContentAsync(UUID tenantId, UUID webContentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchWebContentAsyncWithHttpInfo(tenantId, webContentId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -985,7 +998,7 @@ public class WebContentsApi {
      * @param webContentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -996,8 +1009,8 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchWebContentAsyncWithHttpInfo(UUID tenantId, UUID webContentId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchWebContentAsyncValidateBeforeCall(tenantId, webContentId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchWebContentAsyncWithHttpInfo(UUID tenantId, UUID webContentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchWebContentAsyncValidateBeforeCall(tenantId, webContentId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +1022,7 @@ public class WebContentsApi {
      * @param webContentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1021,9 +1034,9 @@ public class WebContentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchWebContentAsyncAsync(UUID tenantId, UUID webContentId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchWebContentAsyncAsync(UUID tenantId, UUID webContentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchWebContentAsyncValidateBeforeCall(tenantId, webContentId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchWebContentAsyncValidateBeforeCall(tenantId, webContentId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

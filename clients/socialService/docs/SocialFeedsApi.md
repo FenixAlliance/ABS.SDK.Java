@@ -18,7 +18,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="createFeedPostAsync"></a>
 # **createFeedPostAsync**
-> SocialFeedPostDtoEnvelope createFeedPostAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostCreateDto)
+> StringEnvelope createFeedPostAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostCreateDto)
 
 Create a social feed post
 
@@ -45,7 +45,7 @@ public class Example {
     String xApiVersion = "xApiVersion_example"; // String | 
     SocialFeedPostCreateDto socialFeedPostCreateDto = new SocialFeedPostCreateDto(); // SocialFeedPostCreateDto | 
     try {
-      SocialFeedPostDtoEnvelope result = apiInstance.createFeedPostAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostCreateDto);
+      StringEnvelope result = apiInstance.createFeedPostAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialFeedsApi#createFeedPostAsync");
@@ -70,7 +70,7 @@ public class Example {
 
 ### Return type
 
-[**SocialFeedPostDtoEnvelope**](SocialFeedPostDtoEnvelope.md)
+[**StringEnvelope**](StringEnvelope.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-| **201** | Created |  -  |
+| **200** | OK |  -  |
 
 <a id="deleteFeedPostAsync"></a>
 # **deleteFeedPostAsync**
@@ -162,7 +162,7 @@ No authorization required
 
 <a id="getFeedNotifications"></a>
 # **getFeedNotifications**
-> SocialFeedDtoListEnvelope getFeedNotifications(socialProfileId, apiVersion, xApiVersion)
+> SocialFeedDtoListEnvelope getFeedNotifications(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters)
 
 Get social feeds
 
@@ -186,8 +186,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters = new SocialFeedDtoCollectionQueryParameters(); // SocialFeedDtoCollectionQueryParameters | 
     try {
-      SocialFeedDtoListEnvelope result = apiInstance.getFeedNotifications(socialProfileId, apiVersion, xApiVersion);
+      SocialFeedDtoListEnvelope result = apiInstance.getFeedNotifications(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialFeedsApi#getFeedNotifications");
@@ -207,6 +208,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialFeedDtoCollectionQueryParameters** | [**SocialFeedDtoCollectionQueryParameters**](SocialFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -218,7 +220,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -302,7 +304,7 @@ No authorization required
 
 <a id="getFeedPostsAsync"></a>
 # **getFeedPostsAsync**
-> SocialFeedPostDtoListEnvelope getFeedPostsAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion)
+> SocialFeedPostDtoListEnvelope getFeedPostsAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters)
 
 Get social feed posts
 
@@ -327,8 +329,9 @@ public class Example {
     UUID socialFeedId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters = new SocialFeedPostDtoCollectionQueryParameters(); // SocialFeedPostDtoCollectionQueryParameters | 
     try {
-      SocialFeedPostDtoListEnvelope result = apiInstance.getFeedPostsAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion);
+      SocialFeedPostDtoListEnvelope result = apiInstance.getFeedPostsAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialFeedsApi#getFeedPostsAsync");
@@ -349,6 +352,7 @@ public class Example {
 | **socialFeedId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialFeedPostDtoCollectionQueryParameters** | [**SocialFeedPostDtoCollectionQueryParameters**](SocialFeedPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -360,7 +364,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -372,7 +376,7 @@ No authorization required
 
 <a id="getFeedPostsCountAsync"></a>
 # **getFeedPostsCountAsync**
-> Int32Envelope getFeedPostsCountAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion)
+> Int32Envelope getFeedPostsCountAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters)
 
 Count social feed posts
 
@@ -397,8 +401,9 @@ public class Example {
     UUID socialFeedId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialFeedPostDtoCollectionQueryParameters socialFeedPostDtoCollectionQueryParameters = new SocialFeedPostDtoCollectionQueryParameters(); // SocialFeedPostDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getFeedPostsCountAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFeedPostsCountAsync(socialProfileId, socialFeedId, apiVersion, xApiVersion, socialFeedPostDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialFeedsApi#getFeedPostsCountAsync");
@@ -419,6 +424,7 @@ public class Example {
 | **socialFeedId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialFeedPostDtoCollectionQueryParameters** | [**SocialFeedPostDtoCollectionQueryParameters**](SocialFeedPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -430,7 +436,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -512,7 +518,7 @@ No authorization required
 
 <a id="getNotificationsCountAsync"></a>
 # **getNotificationsCountAsync**
-> Int32Envelope getNotificationsCountAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope getNotificationsCountAsync(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters)
 
 Count social feeds
 
@@ -536,8 +542,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialFeedDtoCollectionQueryParameters socialFeedDtoCollectionQueryParameters = new SocialFeedDtoCollectionQueryParameters(); // SocialFeedDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getNotificationsCountAsync(socialProfileId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getNotificationsCountAsync(socialProfileId, apiVersion, xApiVersion, socialFeedDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialFeedsApi#getNotificationsCountAsync");
@@ -557,6 +564,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialFeedDtoCollectionQueryParameters** | [**SocialFeedDtoCollectionQueryParameters**](SocialFeedDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -568,7 +576,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -580,7 +588,7 @@ No authorization required
 
 <a id="patchFeedPostAsync"></a>
 # **patchFeedPostAsync**
-> EmptyEnvelope patchFeedPostAsync(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFeedPostAsync(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, patchOperation)
 
 Patch a social feed post
 
@@ -606,9 +614,9 @@ public class Example {
     UUID feedPostId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchFeedPostAsync(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchFeedPostAsync(socialProfileId, socialFeedId, feedPostId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialFeedsApi#patchFeedPostAsync");
@@ -630,7 +638,7 @@ public class Example {
 | **feedPostId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

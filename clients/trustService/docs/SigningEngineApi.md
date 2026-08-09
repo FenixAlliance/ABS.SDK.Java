@@ -11,7 +11,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getProvidersAsync"></a>
 # **getProvidersAsync**
-> TrustSigningProviderDescriptorDtoListEnvelope getProvidersAsync(tenantId, apiVersion, xApiVersion)
+> TrustSigningProviderDescriptorDtoListEnvelope getProvidersAsync(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters)
 
 List signing providers
 
@@ -35,8 +35,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters = new TrustSigningProviderDescriptorDtoCollectionQueryParameters(); // TrustSigningProviderDescriptorDtoCollectionQueryParameters | 
     try {
-      TrustSigningProviderDescriptorDtoListEnvelope result = apiInstance.getProvidersAsync(tenantId, apiVersion, xApiVersion);
+      TrustSigningProviderDescriptorDtoListEnvelope result = apiInstance.getProvidersAsync(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningEngineApi#getProvidersAsync");
@@ -56,6 +57,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **trustSigningProviderDescriptorDtoCollectionQueryParameters** | [**TrustSigningProviderDescriptorDtoCollectionQueryParameters**](TrustSigningProviderDescriptorDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -67,7 +69,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -78,7 +80,7 @@ No authorization required
 
 <a id="getProvidersCountAsync"></a>
 # **getProvidersCountAsync**
-> Int32Envelope getProvidersCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getProvidersCountAsync(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters)
 
 Count signing providers
 
@@ -102,8 +104,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TrustSigningProviderDescriptorDtoCollectionQueryParameters trustSigningProviderDescriptorDtoCollectionQueryParameters = new TrustSigningProviderDescriptorDtoCollectionQueryParameters(); // TrustSigningProviderDescriptorDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getProvidersCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getProvidersCountAsync(tenantId, apiVersion, xApiVersion, trustSigningProviderDescriptorDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningEngineApi#getProvidersCountAsync");
@@ -123,6 +126,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **trustSigningProviderDescriptorDtoCollectionQueryParameters** | [**TrustSigningProviderDescriptorDtoCollectionQueryParameters**](TrustSigningProviderDescriptorDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -134,7 +138,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

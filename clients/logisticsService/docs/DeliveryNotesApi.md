@@ -221,7 +221,7 @@ No authorization required
 
 <a id="getDeliveryNotesAsync"></a>
 # **getDeliveryNotesAsync**
-> DeliveryNoteDtoListEnvelope getDeliveryNotesAsync(tenantId, apiVersion, xApiVersion)
+> DeliveryNoteDtoListEnvelope getDeliveryNotesAsync(tenantId, apiVersion, xApiVersion, deliveryNoteDtoCollectionQueryParameters)
 
 Get all delivery notes
 
@@ -245,8 +245,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    DeliveryNoteDtoCollectionQueryParameters deliveryNoteDtoCollectionQueryParameters = new DeliveryNoteDtoCollectionQueryParameters(); // DeliveryNoteDtoCollectionQueryParameters | 
     try {
-      DeliveryNoteDtoListEnvelope result = apiInstance.getDeliveryNotesAsync(tenantId, apiVersion, xApiVersion);
+      DeliveryNoteDtoListEnvelope result = apiInstance.getDeliveryNotesAsync(tenantId, apiVersion, xApiVersion, deliveryNoteDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DeliveryNotesApi#getDeliveryNotesAsync");
@@ -266,6 +267,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **deliveryNoteDtoCollectionQueryParameters** | [**DeliveryNoteDtoCollectionQueryParameters**](DeliveryNoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -277,7 +279,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -289,7 +291,7 @@ No authorization required
 
 <a id="getDeliveryNotesCountAsync"></a>
 # **getDeliveryNotesCountAsync**
-> Int32Envelope getDeliveryNotesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getDeliveryNotesCountAsync(tenantId, apiVersion, xApiVersion, deliveryNoteDtoCollectionQueryParameters)
 
 Get delivery notes count
 
@@ -313,8 +315,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    DeliveryNoteDtoCollectionQueryParameters deliveryNoteDtoCollectionQueryParameters = new DeliveryNoteDtoCollectionQueryParameters(); // DeliveryNoteDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getDeliveryNotesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getDeliveryNotesCountAsync(tenantId, apiVersion, xApiVersion, deliveryNoteDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DeliveryNotesApi#getDeliveryNotesCountAsync");
@@ -334,6 +337,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **deliveryNoteDtoCollectionQueryParameters** | [**DeliveryNoteDtoCollectionQueryParameters**](DeliveryNoteDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -345,7 +349,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

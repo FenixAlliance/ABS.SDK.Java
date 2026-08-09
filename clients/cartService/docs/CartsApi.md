@@ -2207,7 +2207,7 @@ No authorization required
 
 <a id="patchCartAsync"></a>
 # **patchCartAsync**
-> EmptyEnvelope patchCartAsync(cartId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCartAsync(cartId, apiVersion, xApiVersion, patchOperation)
 
 Patch a cart
 
@@ -2231,9 +2231,9 @@ public class Example {
     UUID cartId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCartAsync(cartId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCartAsync(cartId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CartsApi#patchCartAsync");
@@ -2253,7 +2253,7 @@ public class Example {
 | **cartId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * PrivateMessageDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T12:05:02.483445100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:33:07.422324400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PrivateMessageDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -95,6 +95,72 @@ public class PrivateMessageDto {
   public static final String SERIALIZED_NAME_RECEIVED_TIMESTAMP = "receivedTimestamp";
   @SerializedName(SERIALIZED_NAME_RECEIVED_TIMESTAMP)
   private OffsetDateTime receivedTimestamp;
+
+  public static final String SERIALIZED_NAME_SOCIAL_PROFILE_NAME = "socialProfileName";
+  @SerializedName(SERIALIZED_NAME_SOCIAL_PROFILE_NAME)
+  private String socialProfileName;
+
+  public static final String SERIALIZED_NAME_SOCIAL_PROFILE_AVATAR_URL = "socialProfileAvatarUrl";
+  @SerializedName(SERIALIZED_NAME_SOCIAL_PROFILE_AVATAR_URL)
+  private String socialProfileAvatarUrl;
+
+  /**
+   * Gets or Sets socialProfileType
+   */
+  @JsonAdapter(SocialProfileTypeEnum.Adapter.class)
+  public enum SocialProfileTypeEnum {
+    USER("User"),
+    
+    TENANT("Tenant"),
+    
+    CONTACT("Contact");
+
+    private String value;
+
+    SocialProfileTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SocialProfileTypeEnum fromValue(String value) {
+      for (SocialProfileTypeEnum b : SocialProfileTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<SocialProfileTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SocialProfileTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SocialProfileTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SocialProfileTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SocialProfileTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SOCIAL_PROFILE_TYPE = "socialProfileType";
+  @SerializedName(SERIALIZED_NAME_SOCIAL_PROFILE_TYPE)
+  private SocialProfileTypeEnum socialProfileType;
 
   public PrivateMessageDto() {
   }
@@ -308,6 +374,63 @@ public class PrivateMessageDto {
   }
 
 
+  public PrivateMessageDto socialProfileName(String socialProfileName) {
+    this.socialProfileName = socialProfileName;
+    return this;
+  }
+
+  /**
+   * Get socialProfileName
+   * @return socialProfileName
+   */
+  @javax.annotation.Nullable
+  public String getSocialProfileName() {
+    return socialProfileName;
+  }
+
+  public void setSocialProfileName(String socialProfileName) {
+    this.socialProfileName = socialProfileName;
+  }
+
+
+  public PrivateMessageDto socialProfileAvatarUrl(String socialProfileAvatarUrl) {
+    this.socialProfileAvatarUrl = socialProfileAvatarUrl;
+    return this;
+  }
+
+  /**
+   * Get socialProfileAvatarUrl
+   * @return socialProfileAvatarUrl
+   */
+  @javax.annotation.Nullable
+  public String getSocialProfileAvatarUrl() {
+    return socialProfileAvatarUrl;
+  }
+
+  public void setSocialProfileAvatarUrl(String socialProfileAvatarUrl) {
+    this.socialProfileAvatarUrl = socialProfileAvatarUrl;
+  }
+
+
+  public PrivateMessageDto socialProfileType(SocialProfileTypeEnum socialProfileType) {
+    this.socialProfileType = socialProfileType;
+    return this;
+  }
+
+  /**
+   * Get socialProfileType
+   * @return socialProfileType
+   */
+  @javax.annotation.Nullable
+  public SocialProfileTypeEnum getSocialProfileType() {
+    return socialProfileType;
+  }
+
+  public void setSocialProfileType(SocialProfileTypeEnum socialProfileType) {
+    this.socialProfileType = socialProfileType;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -328,7 +451,10 @@ public class PrivateMessageDto {
         Objects.equals(this.receiverSocialProfileId, privateMessageDto.receiverSocialProfileId) &&
         Objects.equals(this.sentTimestamp, privateMessageDto.sentTimestamp) &&
         Objects.equals(this.readTimestamp, privateMessageDto.readTimestamp) &&
-        Objects.equals(this.receivedTimestamp, privateMessageDto.receivedTimestamp);
+        Objects.equals(this.receivedTimestamp, privateMessageDto.receivedTimestamp) &&
+        Objects.equals(this.socialProfileName, privateMessageDto.socialProfileName) &&
+        Objects.equals(this.socialProfileAvatarUrl, privateMessageDto.socialProfileAvatarUrl) &&
+        Objects.equals(this.socialProfileType, privateMessageDto.socialProfileType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -337,7 +463,7 @@ public class PrivateMessageDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, read, title, message, conversationId, senderSocialProfileId, receiverSocialProfileId, sentTimestamp, readTimestamp, receivedTimestamp);
+    return Objects.hash(id, timestamp, read, title, message, conversationId, senderSocialProfileId, receiverSocialProfileId, sentTimestamp, readTimestamp, receivedTimestamp, socialProfileName, socialProfileAvatarUrl, socialProfileType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -362,6 +488,9 @@ public class PrivateMessageDto {
     sb.append("    sentTimestamp: ").append(toIndentedString(sentTimestamp)).append("\n");
     sb.append("    readTimestamp: ").append(toIndentedString(readTimestamp)).append("\n");
     sb.append("    receivedTimestamp: ").append(toIndentedString(receivedTimestamp)).append("\n");
+    sb.append("    socialProfileName: ").append(toIndentedString(socialProfileName)).append("\n");
+    sb.append("    socialProfileAvatarUrl: ").append(toIndentedString(socialProfileAvatarUrl)).append("\n");
+    sb.append("    socialProfileType: ").append(toIndentedString(socialProfileType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -395,6 +524,9 @@ public class PrivateMessageDto {
     openapiFields.add("sentTimestamp");
     openapiFields.add("readTimestamp");
     openapiFields.add("receivedTimestamp");
+    openapiFields.add("socialProfileName");
+    openapiFields.add("socialProfileAvatarUrl");
+    openapiFields.add("socialProfileType");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -438,6 +570,19 @@ public class PrivateMessageDto {
       }
       if ((jsonObj.get("receiverSocialProfileId") != null && !jsonObj.get("receiverSocialProfileId").isJsonNull()) && !jsonObj.get("receiverSocialProfileId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `receiverSocialProfileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiverSocialProfileId").toString()));
+      }
+      if ((jsonObj.get("socialProfileName") != null && !jsonObj.get("socialProfileName").isJsonNull()) && !jsonObj.get("socialProfileName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `socialProfileName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialProfileName").toString()));
+      }
+      if ((jsonObj.get("socialProfileAvatarUrl") != null && !jsonObj.get("socialProfileAvatarUrl").isJsonNull()) && !jsonObj.get("socialProfileAvatarUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `socialProfileAvatarUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialProfileAvatarUrl").toString()));
+      }
+      if ((jsonObj.get("socialProfileType") != null && !jsonObj.get("socialProfileType").isJsonNull()) && !jsonObj.get("socialProfileType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `socialProfileType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialProfileType").toString()));
+      }
+      // validate the optional field `socialProfileType`
+      if (jsonObj.get("socialProfileType") != null && !jsonObj.get("socialProfileType").isJsonNull()) {
+        SocialProfileTypeEnum.validateJsonElement(jsonObj.get("socialProfileType"));
       }
   }
 

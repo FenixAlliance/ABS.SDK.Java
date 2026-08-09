@@ -27,13 +27,16 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.ActivityFeedDtoCollectionQueryParameters;
 import org.openapitools.client.model.ActivityFeedDtoEnvelope;
 import org.openapitools.client.model.ActivityFeedDtoListEnvelope;
 import org.openapitools.client.model.ActivityRecordCreateDto;
+import org.openapitools.client.model.ActivityRecordDtoCollectionQueryParameters;
 import org.openapitools.client.model.ActivityRecordDtoEnvelope;
 import org.openapitools.client.model.ActivityRecordDtoListEnvelope;
 import org.openapitools.client.model.ActivityRecordUpdateDto;
 import org.openapitools.client.model.ActivityTypeCreateDto;
+import org.openapitools.client.model.ActivityTypeDtoCollectionQueryParameters;
 import org.openapitools.client.model.ActivityTypeDtoEnvelope;
 import org.openapitools.client.model.ActivityTypeDtoListEnvelope;
 import org.openapitools.client.model.ActivityTypeUpdateDto;
@@ -41,7 +44,7 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.Envelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -92,6 +95,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -103,7 +107,7 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countActivityTypesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call countActivityTypesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -117,7 +121,7 @@ public class ActivityFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = activityTypeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ActivitiesService/ActivityTypes/Count";
@@ -150,6 +154,8 @@ public class ActivityFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -161,13 +167,13 @@ public class ActivityFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call countActivityTypesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call countActivityTypesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling countActivityTypesAsync(Async)");
         }
 
-        return countActivityTypesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return countActivityTypesAsyncCall(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -177,6 +183,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -187,8 +194,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope countActivityTypesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = countActivityTypesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope countActivityTypesAsync(UUID tenantId, String apiVersion, String xApiVersion, ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countActivityTypesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -198,6 +205,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -208,8 +216,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> countActivityTypesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = countActivityTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> countActivityTypesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = countActivityTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -220,6 +228,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -231,9 +240,9 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call countActivityTypesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call countActivityTypesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = countActivityTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = countActivityTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -900,6 +909,7 @@ public class ActivityFeedsApi {
      * @param activityFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -911,7 +921,7 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivitiesAsyncCall(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getActivitiesAsyncCall(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -925,7 +935,7 @@ public class ActivityFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = activityRecordDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities"
@@ -959,6 +969,8 @@ public class ActivityFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -970,7 +982,7 @@ public class ActivityFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getActivitiesAsyncValidateBeforeCall(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getActivitiesAsyncValidateBeforeCall(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getActivitiesAsync(Async)");
@@ -981,7 +993,7 @@ public class ActivityFeedsApi {
             throw new ApiException("Missing the required parameter 'activityFeedId' when calling getActivitiesAsync(Async)");
         }
 
-        return getActivitiesAsyncCall(tenantId, activityFeedId, apiVersion, xApiVersion, _callback);
+        return getActivitiesAsyncCall(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -992,6 +1004,7 @@ public class ActivityFeedsApi {
      * @param activityFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return ActivityRecordDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1002,8 +1015,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ActivityRecordDtoListEnvelope getActivitiesAsync(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ActivityRecordDtoListEnvelope> localVarResp = getActivitiesAsyncWithHttpInfo(tenantId, activityFeedId, apiVersion, xApiVersion);
+    public ActivityRecordDtoListEnvelope getActivitiesAsync(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ActivityRecordDtoListEnvelope> localVarResp = getActivitiesAsyncWithHttpInfo(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1014,6 +1027,7 @@ public class ActivityFeedsApi {
      * @param activityFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ActivityRecordDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1024,8 +1038,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ActivityRecordDtoListEnvelope> getActivitiesAsyncWithHttpInfo(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getActivitiesAsyncValidateBeforeCall(tenantId, activityFeedId, apiVersion, xApiVersion, null);
+    public ApiResponse<ActivityRecordDtoListEnvelope> getActivitiesAsyncWithHttpInfo(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getActivitiesAsyncValidateBeforeCall(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ActivityRecordDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1037,6 +1051,7 @@ public class ActivityFeedsApi {
      * @param activityFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1048,9 +1063,9 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivitiesAsyncAsync(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, final ApiCallback<ActivityRecordDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getActivitiesAsyncAsync(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters, final ApiCallback<ActivityRecordDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getActivitiesAsyncValidateBeforeCall(tenantId, activityFeedId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getActivitiesAsyncValidateBeforeCall(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ActivityRecordDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1061,6 +1076,7 @@ public class ActivityFeedsApi {
      * @param activityFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1072,7 +1088,7 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivitiesCountAsyncCall(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getActivitiesCountAsyncCall(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1086,7 +1102,7 @@ public class ActivityFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = activityRecordDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities/Count"
@@ -1120,6 +1136,8 @@ public class ActivityFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1131,7 +1149,7 @@ public class ActivityFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getActivitiesCountAsyncValidateBeforeCall(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getActivitiesCountAsyncValidateBeforeCall(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getActivitiesCountAsync(Async)");
@@ -1142,7 +1160,7 @@ public class ActivityFeedsApi {
             throw new ApiException("Missing the required parameter 'activityFeedId' when calling getActivitiesCountAsync(Async)");
         }
 
-        return getActivitiesCountAsyncCall(tenantId, activityFeedId, apiVersion, xApiVersion, _callback);
+        return getActivitiesCountAsyncCall(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1153,6 +1171,7 @@ public class ActivityFeedsApi {
      * @param activityFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1163,8 +1182,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getActivitiesCountAsync(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getActivitiesCountAsyncWithHttpInfo(tenantId, activityFeedId, apiVersion, xApiVersion);
+    public Int32Envelope getActivitiesCountAsync(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getActivitiesCountAsyncWithHttpInfo(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1175,6 +1194,7 @@ public class ActivityFeedsApi {
      * @param activityFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1185,8 +1205,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getActivitiesCountAsyncWithHttpInfo(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getActivitiesCountAsyncValidateBeforeCall(tenantId, activityFeedId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getActivitiesCountAsyncWithHttpInfo(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getActivitiesCountAsyncValidateBeforeCall(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1198,6 +1218,7 @@ public class ActivityFeedsApi {
      * @param activityFeedId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1209,9 +1230,9 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivitiesCountAsyncAsync(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getActivitiesCountAsyncAsync(UUID tenantId, UUID activityFeedId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getActivitiesCountAsyncValidateBeforeCall(tenantId, activityFeedId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getActivitiesCountAsyncValidateBeforeCall(tenantId, activityFeedId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1553,6 +1574,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1564,7 +1586,7 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivityFeedsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getActivityFeedsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1578,7 +1600,7 @@ public class ActivityFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = activityFeedDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ActivitiesService/ActivityFeeds";
@@ -1611,6 +1633,8 @@ public class ActivityFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1622,13 +1646,13 @@ public class ActivityFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getActivityFeedsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getActivityFeedsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getActivityFeedsAsync(Async)");
         }
 
-        return getActivityFeedsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getActivityFeedsAsyncCall(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1638,6 +1662,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @return ActivityFeedDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1648,8 +1673,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ActivityFeedDtoListEnvelope getActivityFeedsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ActivityFeedDtoListEnvelope> localVarResp = getActivityFeedsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ActivityFeedDtoListEnvelope getActivityFeedsAsync(UUID tenantId, String apiVersion, String xApiVersion, ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ActivityFeedDtoListEnvelope> localVarResp = getActivityFeedsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1659,6 +1684,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ActivityFeedDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1669,8 +1695,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ActivityFeedDtoListEnvelope> getActivityFeedsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getActivityFeedsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ActivityFeedDtoListEnvelope> getActivityFeedsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getActivityFeedsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ActivityFeedDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1681,6 +1707,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1692,9 +1719,9 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivityFeedsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ActivityFeedDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getActivityFeedsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters, final ApiCallback<ActivityFeedDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getActivityFeedsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getActivityFeedsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ActivityFeedDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1704,6 +1731,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1715,7 +1743,7 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivityFeedsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getActivityFeedsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1729,7 +1757,7 @@ public class ActivityFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = activityFeedDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ActivitiesService/ActivityFeeds/Count";
@@ -1762,6 +1790,8 @@ public class ActivityFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1773,13 +1803,13 @@ public class ActivityFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getActivityFeedsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getActivityFeedsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getActivityFeedsCountAsync(Async)");
         }
 
-        return getActivityFeedsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getActivityFeedsCountAsyncCall(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1789,6 +1819,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1799,8 +1830,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getActivityFeedsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getActivityFeedsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getActivityFeedsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getActivityFeedsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1810,6 +1841,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1820,8 +1852,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getActivityFeedsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getActivityFeedsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getActivityFeedsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getActivityFeedsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1832,6 +1864,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityFeedDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1843,9 +1876,9 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivityFeedsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getActivityFeedsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ActivityFeedDtoCollectionQueryParameters activityFeedDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getActivityFeedsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getActivityFeedsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, activityFeedDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1855,6 +1888,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1866,7 +1900,7 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivityRecordsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getActivityRecordsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1880,7 +1914,7 @@ public class ActivityFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = activityRecordDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ActivitiesService/Activities/Count";
@@ -1913,6 +1947,8 @@ public class ActivityFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1924,13 +1960,13 @@ public class ActivityFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getActivityRecordsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getActivityRecordsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getActivityRecordsCountAsync(Async)");
         }
 
-        return getActivityRecordsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getActivityRecordsCountAsyncCall(tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1940,6 +1976,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1950,8 +1987,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getActivityRecordsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getActivityRecordsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getActivityRecordsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getActivityRecordsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1961,6 +1998,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1971,8 +2009,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getActivityRecordsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getActivityRecordsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getActivityRecordsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getActivityRecordsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1983,6 +2021,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityRecordDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1994,9 +2033,9 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivityRecordsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getActivityRecordsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ActivityRecordDtoCollectionQueryParameters activityRecordDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getActivityRecordsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getActivityRecordsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, activityRecordDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2167,6 +2206,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2178,7 +2218,7 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivityTypesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getActivityTypesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2192,7 +2232,7 @@ public class ActivityFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = activityTypeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ActivitiesService/ActivityTypes";
@@ -2225,6 +2265,8 @@ public class ActivityFeedsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2236,13 +2278,13 @@ public class ActivityFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getActivityTypesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getActivityTypesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getActivityTypesAsync(Async)");
         }
 
-        return getActivityTypesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getActivityTypesAsyncCall(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2252,6 +2294,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @return ActivityTypeDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2262,8 +2305,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ActivityTypeDtoListEnvelope getActivityTypesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ActivityTypeDtoListEnvelope> localVarResp = getActivityTypesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ActivityTypeDtoListEnvelope getActivityTypesAsync(UUID tenantId, String apiVersion, String xApiVersion, ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ActivityTypeDtoListEnvelope> localVarResp = getActivityTypesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2273,6 +2316,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ActivityTypeDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2283,8 +2327,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ActivityTypeDtoListEnvelope> getActivityTypesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getActivityTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ActivityTypeDtoListEnvelope> getActivityTypesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getActivityTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ActivityTypeDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2295,6 +2339,7 @@ public class ActivityFeedsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param activityTypeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2306,9 +2351,9 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getActivityTypesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ActivityTypeDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getActivityTypesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ActivityTypeDtoCollectionQueryParameters activityTypeDtoCollectionQueryParameters, final ApiCallback<ActivityTypeDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getActivityTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getActivityTypesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, activityTypeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ActivityTypeDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2320,7 +2365,7 @@ public class ActivityFeedsApi {
      * @param activityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2332,7 +2377,7 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchActivityAsyncCall(UUID tenantId, UUID activityFeedId, UUID activityId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchActivityAsyncCall(UUID tenantId, UUID activityFeedId, UUID activityId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2346,7 +2391,7 @@ public class ActivityFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities/{activityId}"
@@ -2394,7 +2439,7 @@ public class ActivityFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchActivityAsyncValidateBeforeCall(UUID tenantId, UUID activityFeedId, UUID activityId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchActivityAsyncValidateBeforeCall(UUID tenantId, UUID activityFeedId, UUID activityId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchActivityAsync(Async)");
@@ -2410,7 +2455,7 @@ public class ActivityFeedsApi {
             throw new ApiException("Missing the required parameter 'activityId' when calling patchActivityAsync(Async)");
         }
 
-        return patchActivityAsyncCall(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, operation, _callback);
+        return patchActivityAsyncCall(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2422,7 +2467,7 @@ public class ActivityFeedsApi {
      * @param activityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2433,8 +2478,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchActivityAsync(UUID tenantId, UUID activityFeedId, UUID activityId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchActivityAsyncWithHttpInfo(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchActivityAsync(UUID tenantId, UUID activityFeedId, UUID activityId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchActivityAsyncWithHttpInfo(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2446,7 +2491,7 @@ public class ActivityFeedsApi {
      * @param activityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2457,8 +2502,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchActivityAsyncWithHttpInfo(UUID tenantId, UUID activityFeedId, UUID activityId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchActivityAsyncValidateBeforeCall(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchActivityAsyncWithHttpInfo(UUID tenantId, UUID activityFeedId, UUID activityId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchActivityAsyncValidateBeforeCall(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2471,7 +2516,7 @@ public class ActivityFeedsApi {
      * @param activityId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2483,9 +2528,9 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchActivityAsyncAsync(UUID tenantId, UUID activityFeedId, UUID activityId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchActivityAsyncAsync(UUID tenantId, UUID activityFeedId, UUID activityId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchActivityAsyncValidateBeforeCall(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchActivityAsyncValidateBeforeCall(tenantId, activityFeedId, activityId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2496,7 +2541,7 @@ public class ActivityFeedsApi {
      * @param activityTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2508,7 +2553,7 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchActivityTypeAsyncCall(UUID tenantId, UUID activityTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchActivityTypeAsyncCall(UUID tenantId, UUID activityTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2522,7 +2567,7 @@ public class ActivityFeedsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ActivitiesService/ActivityTypes/{activityTypeId}"
@@ -2569,7 +2614,7 @@ public class ActivityFeedsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchActivityTypeAsyncValidateBeforeCall(UUID tenantId, UUID activityTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchActivityTypeAsyncValidateBeforeCall(UUID tenantId, UUID activityTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchActivityTypeAsync(Async)");
@@ -2580,7 +2625,7 @@ public class ActivityFeedsApi {
             throw new ApiException("Missing the required parameter 'activityTypeId' when calling patchActivityTypeAsync(Async)");
         }
 
-        return patchActivityTypeAsyncCall(tenantId, activityTypeId, apiVersion, xApiVersion, operation, _callback);
+        return patchActivityTypeAsyncCall(tenantId, activityTypeId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2591,7 +2636,7 @@ public class ActivityFeedsApi {
      * @param activityTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2602,8 +2647,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchActivityTypeAsync(UUID tenantId, UUID activityTypeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchActivityTypeAsyncWithHttpInfo(tenantId, activityTypeId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchActivityTypeAsync(UUID tenantId, UUID activityTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchActivityTypeAsyncWithHttpInfo(tenantId, activityTypeId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2614,7 +2659,7 @@ public class ActivityFeedsApi {
      * @param activityTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2625,8 +2670,8 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchActivityTypeAsyncWithHttpInfo(UUID tenantId, UUID activityTypeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchActivityTypeAsyncValidateBeforeCall(tenantId, activityTypeId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchActivityTypeAsyncWithHttpInfo(UUID tenantId, UUID activityTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchActivityTypeAsyncValidateBeforeCall(tenantId, activityTypeId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2638,7 +2683,7 @@ public class ActivityFeedsApi {
      * @param activityTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2650,9 +2695,9 @@ public class ActivityFeedsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchActivityTypeAsyncAsync(UUID tenantId, UUID activityTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchActivityTypeAsyncAsync(UUID tenantId, UUID activityTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchActivityTypeAsyncValidateBeforeCall(tenantId, activityTypeId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchActivityTypeAsyncValidateBeforeCall(tenantId, activityTypeId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getEmployeeAppraisalSessionsAsync"></a>
 # **getEmployeeAppraisalSessionsAsync**
-> EmployeeAppraisalSessionDtoListEnvelope getEmployeeAppraisalSessionsAsync(tenantId, apiVersion, xApiVersion)
+> EmployeeAppraisalSessionDtoListEnvelope getEmployeeAppraisalSessionsAsync(tenantId, apiVersion, xApiVersion, employeeAppraisalSessionDtoCollectionQueryParameters)
 
 Get employee appraisal sessions
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    EmployeeAppraisalSessionDtoCollectionQueryParameters employeeAppraisalSessionDtoCollectionQueryParameters = new EmployeeAppraisalSessionDtoCollectionQueryParameters(); // EmployeeAppraisalSessionDtoCollectionQueryParameters | 
     try {
-      EmployeeAppraisalSessionDtoListEnvelope result = apiInstance.getEmployeeAppraisalSessionsAsync(tenantId, apiVersion, xApiVersion);
+      EmployeeAppraisalSessionDtoListEnvelope result = apiInstance.getEmployeeAppraisalSessionsAsync(tenantId, apiVersion, xApiVersion, employeeAppraisalSessionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeeAppraisalSessionsApi#getEmployeeAppraisalSessionsAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **employeeAppraisalSessionDtoCollectionQueryParameters** | [**EmployeeAppraisalSessionDtoCollectionQueryParameters**](EmployeeAppraisalSessionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getEmployeeAppraisalSessionsCountAsync"></a>
 # **getEmployeeAppraisalSessionsCountAsync**
-> Int32Envelope getEmployeeAppraisalSessionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getEmployeeAppraisalSessionsCountAsync(tenantId, apiVersion, xApiVersion, employeeAppraisalSessionDtoCollectionQueryParameters)
 
 Count employee appraisal sessions
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    EmployeeAppraisalSessionDtoCollectionQueryParameters employeeAppraisalSessionDtoCollectionQueryParameters = new EmployeeAppraisalSessionDtoCollectionQueryParameters(); // EmployeeAppraisalSessionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getEmployeeAppraisalSessionsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getEmployeeAppraisalSessionsCountAsync(tenantId, apiVersion, xApiVersion, employeeAppraisalSessionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeeAppraisalSessionsApi#getEmployeeAppraisalSessionsCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **employeeAppraisalSessionDtoCollectionQueryParameters** | [**EmployeeAppraisalSessionDtoCollectionQueryParameters**](EmployeeAppraisalSessionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchEmployeeAppraisalSessionAsync"></a>
 # **patchEmployeeAppraisalSessionAsync**
-> EmptyEnvelope patchEmployeeAppraisalSessionAsync(tenantId, sessionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchEmployeeAppraisalSessionAsync(tenantId, sessionId, apiVersion, xApiVersion, patchOperation)
 
 Patch an employee appraisal session
 
@@ -388,9 +392,9 @@ public class Example {
     UUID sessionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchEmployeeAppraisalSessionAsync(tenantId, sessionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchEmployeeAppraisalSessionAsync(tenantId, sessionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeeAppraisalSessionsApi#patchEmployeeAppraisalSessionAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **sessionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

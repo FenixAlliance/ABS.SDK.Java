@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getSupportRequestAttachmentsAsync"></a>
 # **getSupportRequestAttachmentsAsync**
-> SupportRequestAttachmentDtoListEnvelope getSupportRequestAttachmentsAsync(tenantId, apiVersion, xApiVersion)
+> SupportRequestAttachmentDtoListEnvelope getSupportRequestAttachmentsAsync(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters)
 
 Retrieve a list of support request attachments
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters = new SupportRequestAttachmentDtoCollectionQueryParameters(); // SupportRequestAttachmentDtoCollectionQueryParameters | 
     try {
-      SupportRequestAttachmentDtoListEnvelope result = apiInstance.getSupportRequestAttachmentsAsync(tenantId, apiVersion, xApiVersion);
+      SupportRequestAttachmentDtoListEnvelope result = apiInstance.getSupportRequestAttachmentsAsync(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportRequestAttachmentsApi#getSupportRequestAttachmentsAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportRequestAttachmentDtoCollectionQueryParameters** | [**SupportRequestAttachmentDtoCollectionQueryParameters**](SupportRequestAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getSupportRequestAttachmentsCountAsync"></a>
 # **getSupportRequestAttachmentsCountAsync**
-> Int32Envelope getSupportRequestAttachmentsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSupportRequestAttachmentsCountAsync(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters)
 
 Get the count of support request attachments
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters = new SupportRequestAttachmentDtoCollectionQueryParameters(); // SupportRequestAttachmentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSupportRequestAttachmentsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSupportRequestAttachmentsCountAsync(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportRequestAttachmentsApi#getSupportRequestAttachmentsCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportRequestAttachmentDtoCollectionQueryParameters** | [**SupportRequestAttachmentDtoCollectionQueryParameters**](SupportRequestAttachmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchSupportRequestAttachmentAsync"></a>
 # **patchSupportRequestAttachmentAsync**
-> EmptyEnvelope patchSupportRequestAttachmentAsync(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSupportRequestAttachmentAsync(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, patchOperation)
 
 Patch a support request attachment
 
@@ -386,9 +390,9 @@ public class Example {
     UUID supportRequestAttachmentId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSupportRequestAttachmentAsync(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSupportRequestAttachmentAsync(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportRequestAttachmentsApi#patchSupportRequestAttachmentAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **supportRequestAttachmentId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

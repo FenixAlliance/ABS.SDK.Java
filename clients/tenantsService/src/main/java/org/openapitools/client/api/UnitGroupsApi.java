@@ -30,12 +30,14 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 import org.openapitools.client.model.UnitCreateDto;
+import org.openapitools.client.model.UnitDtoCollectionQueryParameters;
 import org.openapitools.client.model.UnitDtoEnvelope;
 import org.openapitools.client.model.UnitDtoListEnvelope;
 import org.openapitools.client.model.UnitGroupCreateDto;
+import org.openapitools.client.model.UnitGroupDtoCollectionQueryParameters;
 import org.openapitools.client.model.UnitGroupDtoEnvelope;
 import org.openapitools.client.model.UnitGroupDtoListEnvelope;
 import org.openapitools.client.model.UnitGroupUpdateDto;
@@ -1077,6 +1079,7 @@ public class UnitGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1088,7 +1091,7 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUnitGroupsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUnitGroupsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1102,7 +1105,7 @@ public class UnitGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = unitGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/UnitGroups";
@@ -1135,6 +1138,8 @@ public class UnitGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1146,13 +1151,13 @@ public class UnitGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUnitGroupsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUnitGroupsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUnitGroupsAsync(Async)");
         }
 
-        return getUnitGroupsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getUnitGroupsAsyncCall(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1162,6 +1167,7 @@ public class UnitGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @return UnitGroupDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1172,8 +1178,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public UnitGroupDtoListEnvelope getUnitGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<UnitGroupDtoListEnvelope> localVarResp = getUnitGroupsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public UnitGroupDtoListEnvelope getUnitGroupsAsync(UUID tenantId, String apiVersion, String xApiVersion, UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<UnitGroupDtoListEnvelope> localVarResp = getUnitGroupsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1183,6 +1189,7 @@ public class UnitGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;UnitGroupDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1193,8 +1200,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UnitGroupDtoListEnvelope> getUnitGroupsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getUnitGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<UnitGroupDtoListEnvelope> getUnitGroupsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getUnitGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<UnitGroupDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1205,6 +1212,7 @@ public class UnitGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1216,9 +1224,9 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUnitGroupsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<UnitGroupDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getUnitGroupsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters, final ApiCallback<UnitGroupDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUnitGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getUnitGroupsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<UnitGroupDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1228,6 +1236,7 @@ public class UnitGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1239,7 +1248,7 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUnitGroupsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUnitGroupsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1253,7 +1262,7 @@ public class UnitGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = unitGroupDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/UnitGroups/Count";
@@ -1286,6 +1295,8 @@ public class UnitGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1297,13 +1308,13 @@ public class UnitGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUnitGroupsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUnitGroupsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUnitGroupsCountAsync(Async)");
         }
 
-        return getUnitGroupsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getUnitGroupsCountAsyncCall(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1313,6 +1324,7 @@ public class UnitGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1323,8 +1335,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getUnitGroupsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getUnitGroupsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getUnitGroupsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getUnitGroupsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1334,6 +1346,7 @@ public class UnitGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1344,8 +1357,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getUnitGroupsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getUnitGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getUnitGroupsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getUnitGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1356,6 +1369,7 @@ public class UnitGroupsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitGroupDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1367,9 +1381,9 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUnitGroupsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getUnitGroupsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, UnitGroupDtoCollectionQueryParameters unitGroupDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUnitGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getUnitGroupsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, unitGroupDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1380,6 +1394,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1391,7 +1406,7 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUnitsAsyncCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUnitsAsyncCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1405,7 +1420,7 @@ public class UnitGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = unitDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/UnitGroups/{unitGroupId}/Units"
@@ -1439,6 +1454,8 @@ public class UnitGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1450,7 +1467,7 @@ public class UnitGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUnitsAsyncValidateBeforeCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUnitsAsyncValidateBeforeCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUnitsAsync(Async)");
@@ -1461,7 +1478,7 @@ public class UnitGroupsApi {
             throw new ApiException("Missing the required parameter 'unitGroupId' when calling getUnitsAsync(Async)");
         }
 
-        return getUnitsAsyncCall(tenantId, unitGroupId, apiVersion, xApiVersion, _callback);
+        return getUnitsAsyncCall(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1472,6 +1489,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @return UnitDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1482,8 +1500,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public UnitDtoListEnvelope getUnitsAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<UnitDtoListEnvelope> localVarResp = getUnitsAsyncWithHttpInfo(tenantId, unitGroupId, apiVersion, xApiVersion);
+    public UnitDtoListEnvelope getUnitsAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<UnitDtoListEnvelope> localVarResp = getUnitsAsyncWithHttpInfo(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1494,6 +1512,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;UnitDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1504,8 +1523,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UnitDtoListEnvelope> getUnitsAsyncWithHttpInfo(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getUnitsAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, null);
+    public ApiResponse<UnitDtoListEnvelope> getUnitsAsyncWithHttpInfo(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getUnitsAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<UnitDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1517,6 +1536,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1528,9 +1548,9 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUnitsAsyncAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, final ApiCallback<UnitDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getUnitsAsyncAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters, final ApiCallback<UnitDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUnitsAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getUnitsAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<UnitDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1541,6 +1561,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1552,7 +1573,7 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUnitsCountAsyncCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUnitsCountAsyncCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1566,7 +1587,7 @@ public class UnitGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = unitDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/Count"
@@ -1600,6 +1621,8 @@ public class UnitGroupsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1611,7 +1634,7 @@ public class UnitGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUnitsCountAsyncValidateBeforeCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUnitsCountAsyncValidateBeforeCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUnitsCountAsync(Async)");
@@ -1622,7 +1645,7 @@ public class UnitGroupsApi {
             throw new ApiException("Missing the required parameter 'unitGroupId' when calling getUnitsCountAsync(Async)");
         }
 
-        return getUnitsCountAsyncCall(tenantId, unitGroupId, apiVersion, xApiVersion, _callback);
+        return getUnitsCountAsyncCall(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1633,6 +1656,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1643,8 +1667,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getUnitsCountAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getUnitsCountAsyncWithHttpInfo(tenantId, unitGroupId, apiVersion, xApiVersion);
+    public Int32Envelope getUnitsCountAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getUnitsCountAsyncWithHttpInfo(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1655,6 +1679,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1665,8 +1690,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getUnitsCountAsyncWithHttpInfo(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getUnitsCountAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getUnitsCountAsyncWithHttpInfo(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getUnitsCountAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1678,6 +1703,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param unitDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1689,9 +1715,9 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUnitsCountAsyncAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getUnitsCountAsyncAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, UnitDtoCollectionQueryParameters unitDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUnitsCountAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getUnitsCountAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, unitDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1703,7 +1729,7 @@ public class UnitGroupsApi {
      * @param unitId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1715,7 +1741,7 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchUnitAsyncCall(UUID tenantId, String unitGroupId, String unitId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchUnitAsyncCall(UUID tenantId, String unitGroupId, String unitId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1729,7 +1755,7 @@ public class UnitGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/{unitId}"
@@ -1777,7 +1803,7 @@ public class UnitGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchUnitAsyncValidateBeforeCall(UUID tenantId, String unitGroupId, String unitId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchUnitAsyncValidateBeforeCall(UUID tenantId, String unitGroupId, String unitId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchUnitAsync(Async)");
@@ -1793,7 +1819,7 @@ public class UnitGroupsApi {
             throw new ApiException("Missing the required parameter 'unitId' when calling patchUnitAsync(Async)");
         }
 
-        return patchUnitAsyncCall(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, operation, _callback);
+        return patchUnitAsyncCall(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1805,7 +1831,7 @@ public class UnitGroupsApi {
      * @param unitId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1816,8 +1842,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchUnitAsync(UUID tenantId, String unitGroupId, String unitId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchUnitAsyncWithHttpInfo(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchUnitAsync(UUID tenantId, String unitGroupId, String unitId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchUnitAsyncWithHttpInfo(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1829,7 +1855,7 @@ public class UnitGroupsApi {
      * @param unitId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1840,8 +1866,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchUnitAsyncWithHttpInfo(UUID tenantId, String unitGroupId, String unitId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchUnitAsyncValidateBeforeCall(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchUnitAsyncWithHttpInfo(UUID tenantId, String unitGroupId, String unitId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchUnitAsyncValidateBeforeCall(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1854,7 +1880,7 @@ public class UnitGroupsApi {
      * @param unitId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1866,9 +1892,9 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchUnitAsyncAsync(UUID tenantId, String unitGroupId, String unitId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchUnitAsyncAsync(UUID tenantId, String unitGroupId, String unitId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchUnitAsyncValidateBeforeCall(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchUnitAsyncValidateBeforeCall(tenantId, unitGroupId, unitId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1879,7 +1905,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1891,7 +1917,7 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchUnitGroupAsyncCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchUnitGroupAsyncCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1905,7 +1931,7 @@ public class UnitGroupsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/TenantsService/UnitGroups/{unitGroupId}"
@@ -1952,7 +1978,7 @@ public class UnitGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchUnitGroupAsyncValidateBeforeCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchUnitGroupAsyncValidateBeforeCall(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchUnitGroupAsync(Async)");
@@ -1963,7 +1989,7 @@ public class UnitGroupsApi {
             throw new ApiException("Missing the required parameter 'unitGroupId' when calling patchUnitGroupAsync(Async)");
         }
 
-        return patchUnitGroupAsyncCall(tenantId, unitGroupId, apiVersion, xApiVersion, operation, _callback);
+        return patchUnitGroupAsyncCall(tenantId, unitGroupId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1974,7 +2000,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1985,8 +2011,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchUnitGroupAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchUnitGroupAsyncWithHttpInfo(tenantId, unitGroupId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchUnitGroupAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchUnitGroupAsyncWithHttpInfo(tenantId, unitGroupId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1997,7 +2023,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2008,8 +2034,8 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchUnitGroupAsyncWithHttpInfo(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchUnitGroupAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchUnitGroupAsyncWithHttpInfo(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchUnitGroupAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2021,7 +2047,7 @@ public class UnitGroupsApi {
      * @param unitGroupId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2033,9 +2059,9 @@ public class UnitGroupsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchUnitGroupAsyncAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchUnitGroupAsyncAsync(UUID tenantId, String unitGroupId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchUnitGroupAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchUnitGroupAsyncValidateBeforeCall(tenantId, unitGroupId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

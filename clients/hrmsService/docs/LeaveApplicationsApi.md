@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getLeaveApplicationsAsync"></a>
 # **getLeaveApplicationsAsync**
-> LeaveApplicationDtoListEnvelope getLeaveApplicationsAsync(tenantId, apiVersion, xApiVersion)
+> LeaveApplicationDtoListEnvelope getLeaveApplicationsAsync(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters)
 
 Get leave applications
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters = new LeaveApplicationDtoCollectionQueryParameters(); // LeaveApplicationDtoCollectionQueryParameters | 
     try {
-      LeaveApplicationDtoListEnvelope result = apiInstance.getLeaveApplicationsAsync(tenantId, apiVersion, xApiVersion);
+      LeaveApplicationDtoListEnvelope result = apiInstance.getLeaveApplicationsAsync(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LeaveApplicationsApi#getLeaveApplicationsAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **leaveApplicationDtoCollectionQueryParameters** | [**LeaveApplicationDtoCollectionQueryParameters**](LeaveApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getLeaveApplicationsCountAsync"></a>
 # **getLeaveApplicationsCountAsync**
-> Int32Envelope getLeaveApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getLeaveApplicationsCountAsync(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters)
 
 Count leave applications
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    LeaveApplicationDtoCollectionQueryParameters leaveApplicationDtoCollectionQueryParameters = new LeaveApplicationDtoCollectionQueryParameters(); // LeaveApplicationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getLeaveApplicationsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getLeaveApplicationsCountAsync(tenantId, apiVersion, xApiVersion, leaveApplicationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LeaveApplicationsApi#getLeaveApplicationsCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **leaveApplicationDtoCollectionQueryParameters** | [**LeaveApplicationDtoCollectionQueryParameters**](LeaveApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchLeaveApplicationAsync"></a>
 # **patchLeaveApplicationAsync**
-> EmptyEnvelope patchLeaveApplicationAsync(tenantId, leaveApplicationId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchLeaveApplicationAsync(tenantId, leaveApplicationId, apiVersion, xApiVersion, patchOperation)
 
 Patch a leave application
 
@@ -388,9 +392,9 @@ public class Example {
     UUID leaveApplicationId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchLeaveApplicationAsync(tenantId, leaveApplicationId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchLeaveApplicationAsync(tenantId, leaveApplicationId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LeaveApplicationsApi#patchLeaveApplicationAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **leaveApplicationId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

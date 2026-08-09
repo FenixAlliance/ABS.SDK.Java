@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getSigningProfileGraphicalRepresentationsAsync"></a>
 # **getSigningProfileGraphicalRepresentationsAsync**
-> SigningProfileGraphicalRepresentationDtoListEnvelope getSigningProfileGraphicalRepresentationsAsync(tenantId, apiVersion, xApiVersion)
+> SigningProfileGraphicalRepresentationDtoListEnvelope getSigningProfileGraphicalRepresentationsAsync(tenantId, apiVersion, xApiVersion, signingProfileGraphicalRepresentationDtoCollectionQueryParameters)
 
 Get all signature representations
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SigningProfileGraphicalRepresentationDtoCollectionQueryParameters signingProfileGraphicalRepresentationDtoCollectionQueryParameters = new SigningProfileGraphicalRepresentationDtoCollectionQueryParameters(); // SigningProfileGraphicalRepresentationDtoCollectionQueryParameters | 
     try {
-      SigningProfileGraphicalRepresentationDtoListEnvelope result = apiInstance.getSigningProfileGraphicalRepresentationsAsync(tenantId, apiVersion, xApiVersion);
+      SigningProfileGraphicalRepresentationDtoListEnvelope result = apiInstance.getSigningProfileGraphicalRepresentationsAsync(tenantId, apiVersion, xApiVersion, signingProfileGraphicalRepresentationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningProfileGraphicalRepresentationsApi#getSigningProfileGraphicalRepresentationsAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signingProfileGraphicalRepresentationDtoCollectionQueryParameters** | [**SigningProfileGraphicalRepresentationDtoCollectionQueryParameters**](SigningProfileGraphicalRepresentationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getSigningProfileGraphicalRepresentationsCountAsync"></a>
 # **getSigningProfileGraphicalRepresentationsCountAsync**
-> Int32Envelope getSigningProfileGraphicalRepresentationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSigningProfileGraphicalRepresentationsCountAsync(tenantId, apiVersion, xApiVersion, signingProfileGraphicalRepresentationDtoCollectionQueryParameters)
 
 Get signature representations count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SigningProfileGraphicalRepresentationDtoCollectionQueryParameters signingProfileGraphicalRepresentationDtoCollectionQueryParameters = new SigningProfileGraphicalRepresentationDtoCollectionQueryParameters(); // SigningProfileGraphicalRepresentationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSigningProfileGraphicalRepresentationsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSigningProfileGraphicalRepresentationsCountAsync(tenantId, apiVersion, xApiVersion, signingProfileGraphicalRepresentationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningProfileGraphicalRepresentationsApi#getSigningProfileGraphicalRepresentationsCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signingProfileGraphicalRepresentationDtoCollectionQueryParameters** | [**SigningProfileGraphicalRepresentationDtoCollectionQueryParameters**](SigningProfileGraphicalRepresentationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchSigningProfileGraphicalRepresentationAsync"></a>
 # **patchSigningProfileGraphicalRepresentationAsync**
-> EmptyEnvelope patchSigningProfileGraphicalRepresentationAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSigningProfileGraphicalRepresentationAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a signature representation
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSigningProfileGraphicalRepresentationAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSigningProfileGraphicalRepresentationAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningProfileGraphicalRepresentationsApi#patchSigningProfileGraphicalRepresentationAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

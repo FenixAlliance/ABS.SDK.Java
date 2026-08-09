@@ -60,6 +60,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactsGroupDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactsGroupDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -82,6 +90,7 @@ paths:
       summary: Get all contact groups
       tags:
       - ContactGroups
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -174,6 +183,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactsGroupDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactsGroupDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -196,6 +213,7 @@ paths:
       summary: Get contact groups count
       tags:
       - ContactGroups
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -368,12 +386,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -507,6 +525,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -529,6 +555,7 @@ paths:
       summary: Get all contact profiles
       tags:
       - ContactProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -622,6 +649,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -644,6 +679,7 @@ paths:
       summary: Get contact profiles count
       tags:
       - ContactProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -675,6 +711,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -697,6 +741,7 @@ paths:
       summary: Get patient profiles count
       tags:
       - ContactProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -728,6 +773,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -750,6 +803,7 @@ paths:
       summary: Get partner profiles count
       tags:
       - ContactProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -922,12 +976,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1061,6 +1115,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRelationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactRelationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1083,6 +1145,7 @@ paths:
       summary: Get all contact relations
       tags:
       - ContactRelations
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1175,6 +1238,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRelationDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactRelationDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1197,6 +1268,7 @@ paths:
       summary: Get contact relations count
       tags:
       - ContactRelations
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1369,12 +1441,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1508,6 +1580,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRelationTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactRelationTypeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1530,6 +1610,7 @@ paths:
       summary: Get all contact relation types
       tags:
       - ContactRelationTypes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1622,6 +1703,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRelationTypeDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactRelationTypeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1644,6 +1733,7 @@ paths:
       summary: Get contact relation types count
       tags:
       - ContactRelationTypes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1816,12 +1906,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -1955,6 +2045,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1986,6 +2084,7 @@ paths:
       summary: Get all business owned contacts
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2085,6 +2184,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2116,6 +2223,7 @@ paths:
       summary: Get all business owned contacts count
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2146,6 +2254,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExtendedContactDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ExtendedContactDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2177,6 +2293,7 @@ paths:
       summary: Get all business owned contacts
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2356,12 +2473,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -2571,6 +2688,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2602,6 +2727,7 @@ paths:
       summary: Get all contacts of type individual
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2632,6 +2758,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2663,6 +2797,7 @@ paths:
       summary: Get all contacts of type individual count
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2693,6 +2828,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExtendedContactDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ExtendedContactDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2724,6 +2867,7 @@ paths:
       summary: Get all contacts of type individual
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2832,6 +2976,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2867,6 +3019,7 @@ paths:
       summary: Get all contacts of type organization
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2897,6 +3050,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2928,6 +3089,7 @@ paths:
       summary: Get all contacts of type organization count
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2958,6 +3120,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExtendedContactDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ExtendedContactDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -2989,6 +3159,7 @@ paths:
       summary: Get all contacts of type organization
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3567,6 +3738,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactProfileDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactProfileDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -3589,6 +3768,7 @@ paths:
       summary: Get contact profiles count
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4357,6 +4537,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactEmailDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactEmailDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4388,6 +4576,7 @@ paths:
       summary: Get a contact's email addresses
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4426,6 +4615,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactEmailDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactEmailDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4448,6 +4645,7 @@ paths:
       summary: Get contact email addresses count
       tags:
       - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4639,12 +4837,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -4858,6 +5056,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactSourceDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactSourceDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4880,6 +5086,7 @@ paths:
       summary: Get all contact sources
       tags:
       - ContactSources
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4972,6 +5179,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactSourceDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactSourceDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -4994,6 +5209,7 @@ paths:
       summary: Get contact sources count
       tags:
       - ContactSources
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5166,12 +5382,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -5289,23 +5505,6 @@ paths:
       - application/json
   /health:
     get:
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           description: OK
@@ -5698,6 +5897,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5729,6 +5936,7 @@ paths:
       summary: Retrieve a list of contact options
       tags:
       - Options
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5867,6 +6075,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -5898,6 +6114,7 @@ paths:
       summary: Get the count of contact options
       tags:
       - Options
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6101,12 +6318,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -6358,12 +6575,12 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
           application/xml:
             schema:
               items:
-                $ref: '#/components/schemas/Operation'
+                $ref: '#/components/schemas/PatchOperation'
               type: array
       responses:
         "403":
@@ -6786,14 +7003,14 @@ components:
     CartDto:
       additionalProperties: false
       example:
-        total: 0.8008281904610115
-        itemCartRecordsCount: 5
+        total: 6.027456183070403
+        itemCartRecordsCount: 2
         ip: ip
-        freight: 1.4658129805029452
-        itemToCompareRecordsCount: 2
-        taxes: 6.027456183070403
+        freight: 5.962133916683182
+        itemToCompareRecordsCount: 7
+        taxes: 1.4658129805029452
         id: id
-        subTotal: 5.962133916683182
+        subTotal: 5.637376656633329
         type: type
         currencyId: currencyId
         countryId: countryId
@@ -6843,21 +7060,27 @@ components:
       additionalProperties: false
       example:
         result:
-          total: 0.8008281904610115
-          itemCartRecordsCount: 5
+          total: 6.027456183070403
+          itemCartRecordsCount: 2
           ip: ip
-          freight: 1.4658129805029452
-          itemToCompareRecordsCount: 2
-          taxes: 6.027456183070403
+          freight: 5.962133916683182
+          itemToCompareRecordsCount: 7
+          taxes: 1.4658129805029452
           id: id
-          subTotal: 5.962133916683182
+          subTotal: 5.637376656633329
           type: type
           currencyId: currencyId
           countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6874,6 +7097,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7336,6 +7574,48 @@ components:
           nullable: true
           type: string
       type: object
+    ContactDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ContactDtoEnvelope:
       additionalProperties: false
       example:
@@ -7400,8 +7680,14 @@ components:
           faxNumber: faxNumber
           instagramUrl: https://openapi-generator.tech
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7418,6 +7704,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7548,8 +7849,14 @@ components:
           faxNumber: faxNumber
           instagramUrl: https://openapi-generator.tech
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7566,6 +7873,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -7710,6 +8032,48 @@ components:
           type: string
         contact:
           $ref: '#/components/schemas/ContactDto'
+      type: object
+    ContactEmailDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
       type: object
     ContactEmailDtoListEnvelope:
       additionalProperties: false
@@ -7856,8 +8220,14 @@ components:
           label: label
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -7874,6 +8244,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8251,6 +8636,48 @@ components:
           nullable: true
           type: string
       type: object
+    ContactProfileDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ContactProfileDtoListEnvelope:
       additionalProperties: false
       example:
@@ -8440,8 +8867,14 @@ components:
           tenantId: tenantId
           data7Label: data7Label
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8458,6 +8891,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8640,6 +9088,48 @@ components:
           nullable: true
           type: string
       type: object
+    ContactRelationDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ContactRelationDtoListEnvelope:
       additionalProperties: false
       example:
@@ -8665,8 +9155,14 @@ components:
           contactRelationTypeName: contactRelationTypeName
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8683,6 +9179,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8755,6 +9266,48 @@ components:
           nullable: true
           type: string
       type: object
+    ContactRelationTypeDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ContactRelationTypeDtoListEnvelope:
       additionalProperties: false
       example:
@@ -8772,8 +9325,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8790,6 +9349,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -8893,6 +9467,48 @@ components:
           nullable: true
           type: string
       type: object
+    ContactSourceDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ContactSourceDtoListEnvelope:
       additionalProperties: false
       example:
@@ -8908,8 +9524,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -8926,6 +9548,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9198,6 +9835,48 @@ components:
           nullable: true
           type: string
       type: object
+    ContactsGroupDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ContactsGroupDtoListEnvelope:
       additionalProperties: false
       example:
@@ -9215,8 +9894,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9233,6 +9918,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9362,8 +10062,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9380,6 +10086,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9390,8 +10111,14 @@ components:
       example:
         result: result
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9408,6 +10135,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9420,8 +10162,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -9438,6 +10186,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -9458,14 +10221,14 @@ components:
         type: Individual
         identityProvider: identityProvider
         cart:
-          total: 0.8008281904610115
-          itemCartRecordsCount: 5
+          total: 6.027456183070403
+          itemCartRecordsCount: 2
           ip: ip
-          freight: 1.4658129805029452
-          itemToCompareRecordsCount: 2
-          taxes: 6.027456183070403
+          freight: 5.962133916683182
+          itemToCompareRecordsCount: 7
+          taxes: 1.4658129805029452
           id: id
-          subTotal: 5.962133916683182
+          subTotal: 5.637376656633329
           type: type
           currencyId: currencyId
           countryId: countryId
@@ -9540,7 +10303,7 @@ components:
           notes: notes
           twitterUrl: twitterUrl
           about: about
-          unreadMessagesCount: 1
+          unreadMessagesCount: 4
           type: User
           countryId: countryId
           cover: cover
@@ -9551,8 +10314,8 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           pinterestURL: pinterestURL
           linkedInURL: linkedInURL
-          unreadNotificationsCount: 7
-          notificationsCount: 6
+          unreadNotificationsCount: 1
+          notificationsCount: 7
           avatar: avatar
           socialFeedId: socialFeedId
           identityId: identityId
@@ -9561,26 +10324,26 @@ components:
           dribbleURL: dribbleURL
           countryName: countryName
           messagesCount: 1
-          followersCount: 1
+          followersCount: 6
         socialProfileId: socialProfileId
         email: email
         timestamp: 2000-01-23T04:56:07.000+00:00
         partnerProfileId: partnerProfileId
         wallet:
           verified: true
-          balanceInUsd: 2.027123023002322
+          balanceInUsd: 4.145608029883936
           type: type
           ethereumPrivateKey: ethereumPrivateKey
-          balance: 7.061401241503109
-          forexRate: 3.616076749251911
+          balance: 9.301444243932576
+          forexRate: 2.027123023002322
           ethereumAddress: ethereumAddress
           ethereumPublicKey: ethereumPublicKey
           testMode: true
           id: id
           currencyId: currencyId
-          rollingReservePercent: 7.386281948385884
-          cryptoBalance: 9.301444243932576
-          mainNetEtherBalance: 4.145608029883936
+          rollingReservePercent: 1.2315135367772556
+          cryptoBalance: 3.616076749251911
+          mainNetEtherBalance: 7.386281948385884
           timestamp: 2000-01-23T04:56:07.000+00:00
         stateId: stateId
         languageId: languageId
@@ -9828,6 +10591,48 @@ components:
         primaryContact:
           $ref: '#/components/schemas/SimpleContactDto'
       type: object
+    ExtendedContactDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     ExtendedContactDtoEnvelope:
       additionalProperties: false
       example:
@@ -9844,14 +10649,14 @@ components:
           type: Individual
           identityProvider: identityProvider
           cart:
-            total: 0.8008281904610115
-            itemCartRecordsCount: 5
+            total: 6.027456183070403
+            itemCartRecordsCount: 2
             ip: ip
-            freight: 1.4658129805029452
-            itemToCompareRecordsCount: 2
-            taxes: 6.027456183070403
+            freight: 5.962133916683182
+            itemToCompareRecordsCount: 7
+            taxes: 1.4658129805029452
             id: id
-            subTotal: 5.962133916683182
+            subTotal: 5.637376656633329
             type: type
             currencyId: currencyId
             countryId: countryId
@@ -9926,7 +10731,7 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 1
+            unreadMessagesCount: 4
             type: User
             countryId: countryId
             cover: cover
@@ -9937,8 +10742,8 @@ components:
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 7
-            notificationsCount: 6
+            unreadNotificationsCount: 1
+            notificationsCount: 7
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -9947,26 +10752,26 @@ components:
             dribbleURL: dribbleURL
             countryName: countryName
             messagesCount: 1
-            followersCount: 1
+            followersCount: 6
           socialProfileId: socialProfileId
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           partnerProfileId: partnerProfileId
           wallet:
             verified: true
-            balanceInUsd: 2.027123023002322
+            balanceInUsd: 4.145608029883936
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 7.061401241503109
-            forexRate: 3.616076749251911
+            balance: 9.301444243932576
+            forexRate: 2.027123023002322
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 7.386281948385884
-            cryptoBalance: 9.301444243932576
-            mainNetEtherBalance: 4.145608029883936
+            rollingReservePercent: 1.2315135367772556
+            cryptoBalance: 3.616076749251911
+            mainNetEtherBalance: 7.386281948385884
             timestamp: 2000-01-23T04:56:07.000+00:00
           stateId: stateId
           languageId: languageId
@@ -10008,8 +10813,14 @@ components:
           faxNumber: faxNumber
           instagramUrl: https://openapi-generator.tech
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10026,6 +10837,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10049,14 +10875,14 @@ components:
           type: Individual
           identityProvider: identityProvider
           cart:
-            total: 0.8008281904610115
-            itemCartRecordsCount: 5
+            total: 6.027456183070403
+            itemCartRecordsCount: 2
             ip: ip
-            freight: 1.4658129805029452
-            itemToCompareRecordsCount: 2
-            taxes: 6.027456183070403
+            freight: 5.962133916683182
+            itemToCompareRecordsCount: 7
+            taxes: 1.4658129805029452
             id: id
-            subTotal: 5.962133916683182
+            subTotal: 5.637376656633329
             type: type
             currencyId: currencyId
             countryId: countryId
@@ -10131,7 +10957,7 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 1
+            unreadMessagesCount: 4
             type: User
             countryId: countryId
             cover: cover
@@ -10142,8 +10968,8 @@ components:
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 7
-            notificationsCount: 6
+            unreadNotificationsCount: 1
+            notificationsCount: 7
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -10152,26 +10978,26 @@ components:
             dribbleURL: dribbleURL
             countryName: countryName
             messagesCount: 1
-            followersCount: 1
+            followersCount: 6
           socialProfileId: socialProfileId
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           partnerProfileId: partnerProfileId
           wallet:
             verified: true
-            balanceInUsd: 2.027123023002322
+            balanceInUsd: 4.145608029883936
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 7.061401241503109
-            forexRate: 3.616076749251911
+            balance: 9.301444243932576
+            forexRate: 2.027123023002322
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 7.386281948385884
-            cryptoBalance: 9.301444243932576
-            mainNetEtherBalance: 4.145608029883936
+            rollingReservePercent: 1.2315135367772556
+            cryptoBalance: 3.616076749251911
+            mainNetEtherBalance: 7.386281948385884
             timestamp: 2000-01-23T04:56:07.000+00:00
           stateId: stateId
           languageId: languageId
@@ -10224,14 +11050,14 @@ components:
           type: Individual
           identityProvider: identityProvider
           cart:
-            total: 0.8008281904610115
-            itemCartRecordsCount: 5
+            total: 6.027456183070403
+            itemCartRecordsCount: 2
             ip: ip
-            freight: 1.4658129805029452
-            itemToCompareRecordsCount: 2
-            taxes: 6.027456183070403
+            freight: 5.962133916683182
+            itemToCompareRecordsCount: 7
+            taxes: 1.4658129805029452
             id: id
-            subTotal: 5.962133916683182
+            subTotal: 5.637376656633329
             type: type
             currencyId: currencyId
             countryId: countryId
@@ -10306,7 +11132,7 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 1
+            unreadMessagesCount: 4
             type: User
             countryId: countryId
             cover: cover
@@ -10317,8 +11143,8 @@ components:
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 7
-            notificationsCount: 6
+            unreadNotificationsCount: 1
+            notificationsCount: 7
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -10327,26 +11153,26 @@ components:
             dribbleURL: dribbleURL
             countryName: countryName
             messagesCount: 1
-            followersCount: 1
+            followersCount: 6
           socialProfileId: socialProfileId
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           partnerProfileId: partnerProfileId
           wallet:
             verified: true
-            balanceInUsd: 2.027123023002322
+            balanceInUsd: 4.145608029883936
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 7.061401241503109
-            forexRate: 3.616076749251911
+            balance: 9.301444243932576
+            forexRate: 2.027123023002322
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 7.386281948385884
-            cryptoBalance: 9.301444243932576
-            mainNetEtherBalance: 4.145608029883936
+            rollingReservePercent: 1.2315135367772556
+            cryptoBalance: 3.616076749251911
+            mainNetEtherBalance: 7.386281948385884
             timestamp: 2000-01-23T04:56:07.000+00:00
           stateId: stateId
           languageId: languageId
@@ -10388,8 +11214,14 @@ components:
           faxNumber: faxNumber
           instagramUrl: https://openapi-generator.tech
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10406,6 +11238,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10489,10 +11336,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10509,6 +11362,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10540,38 +11408,6 @@ components:
       required:
       - email
       - password
-      type: object
-    Operation:
-      additionalProperties: false
-      example:
-        path: path
-        op: op
-        operationType: Add
-        from: from
-        value: ""
-      properties:
-        operationType:
-          enum:
-          - Add
-          - Remove
-          - Replace
-          - Move
-          - Copy
-          - Test
-          - Invalid
-          readOnly: true
-          type: string
-        path:
-          nullable: true
-          type: string
-        op:
-          nullable: true
-          type: string
-        from:
-          nullable: true
-          type: string
-        value:
-          nullable: true
       type: object
     OptionCreateDto:
       additionalProperties: false
@@ -10621,7 +11457,7 @@ components:
         portalId: portalId
         frozen: true
         autoload: true
-        expiration: 0
+        expiration: 6
         id: id
         value: value
         key: key
@@ -10653,6 +11489,48 @@ components:
           format: int32
           type: integer
       type: object
+    OptionDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     OptionDtoEnvelope:
       additionalProperties: false
       example:
@@ -10661,14 +11539,20 @@ components:
           portalId: portalId
           frozen: true
           autoload: true
-          expiration: 0
+          expiration: 6
           id: id
           value: value
           key: key
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10685,6 +11569,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10700,7 +11599,7 @@ components:
           portalId: portalId
           frozen: true
           autoload: true
-          expiration: 0
+          expiration: 6
           id: id
           value: value
           key: key
@@ -10709,14 +11608,20 @@ components:
           portalId: portalId
           frozen: true
           autoload: true
-          expiration: 0
+          expiration: 6
           id: id
           value: value
           key: key
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10733,6 +11638,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -10772,6 +11692,26 @@ components:
         expiration:
           format: int32
           type: integer
+      type: object
+    PatchOperation:
+      additionalProperties: false
+      example:
+        op: op
+        path: path
+        from: from
+        value: ""
+      properties:
+        op:
+          nullable: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
       type: object
     RefreshRequest:
       additionalProperties: false
@@ -10977,7 +11917,7 @@ components:
         notes: notes
         twitterUrl: twitterUrl
         about: about
-        unreadMessagesCount: 1
+        unreadMessagesCount: 4
         type: User
         countryId: countryId
         cover: cover
@@ -10988,8 +11928,8 @@ components:
         timestamp: 2000-01-23T04:56:07.000+00:00
         pinterestURL: pinterestURL
         linkedInURL: linkedInURL
-        unreadNotificationsCount: 7
-        notificationsCount: 6
+        unreadNotificationsCount: 1
+        notificationsCount: 7
         avatar: avatar
         socialFeedId: socialFeedId
         identityId: identityId
@@ -10998,7 +11938,7 @@ components:
         dribbleURL: dribbleURL
         countryName: countryName
         messagesCount: 1
-        followersCount: 1
+        followersCount: 6
       properties:
         id:
           nullable: true
@@ -11098,7 +12038,7 @@ components:
           notes: notes
           twitterUrl: twitterUrl
           about: about
-          unreadMessagesCount: 1
+          unreadMessagesCount: 4
           type: User
           countryId: countryId
           cover: cover
@@ -11109,8 +12049,8 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           pinterestURL: pinterestURL
           linkedInURL: linkedInURL
-          unreadNotificationsCount: 7
-          notificationsCount: 6
+          unreadNotificationsCount: 1
+          notificationsCount: 7
           avatar: avatar
           socialFeedId: socialFeedId
           identityId: identityId
@@ -11119,10 +12059,16 @@ components:
           dribbleURL: dribbleURL
           countryName: countryName
           messagesCount: 1
-          followersCount: 1
+          followersCount: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -11139,6 +12085,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -11204,19 +12165,19 @@ components:
       additionalProperties: false
       example:
         verified: true
-        balanceInUsd: 2.027123023002322
+        balanceInUsd: 4.145608029883936
         type: type
         ethereumPrivateKey: ethereumPrivateKey
-        balance: 7.061401241503109
-        forexRate: 3.616076749251911
+        balance: 9.301444243932576
+        forexRate: 2.027123023002322
         ethereumAddress: ethereumAddress
         ethereumPublicKey: ethereumPublicKey
         testMode: true
         id: id
         currencyId: currencyId
-        rollingReservePercent: 7.386281948385884
-        cryptoBalance: 9.301444243932576
-        mainNetEtherBalance: 4.145608029883936
+        rollingReservePercent: 1.2315135367772556
+        cryptoBalance: 3.616076749251911
+        mainNetEtherBalance: 7.386281948385884
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -11269,23 +12230,29 @@ components:
       example:
         result:
           verified: true
-          balanceInUsd: 2.027123023002322
+          balanceInUsd: 4.145608029883936
           type: type
           ethereumPrivateKey: ethereumPrivateKey
-          balance: 7.061401241503109
-          forexRate: 3.616076749251911
+          balance: 9.301444243932576
+          forexRate: 2.027123023002322
           ethereumAddress: ethereumAddress
           ethereumPublicKey: ethereumPublicKey
           testMode: true
           id: id
           currencyId: currencyId
-          rollingReservePercent: 7.386281948385884
-          cryptoBalance: 9.301444243932576
-          mainNetEtherBalance: 4.145608029883936
+          rollingReservePercent: 1.2315135367772556
+          cryptoBalance: 3.616076749251911
+          mainNetEtherBalance: 7.386281948385884
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -11302,6 +12269,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

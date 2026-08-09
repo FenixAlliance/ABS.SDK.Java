@@ -27,10 +27,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.CartDtoCollectionQueryParameters;
 import org.openapitools.client.model.CartDtoEnvelope;
 import org.openapitools.client.model.CartDtoListEnvelope;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.GuestCartPurgeResultDtoEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import java.util.UUID;
 
@@ -377,6 +379,7 @@ public class CartsApi {
      * Build call for getSystemCarts
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -388,7 +391,7 @@ public class CartsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemCartsCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSystemCartsCall(String apiVersion, String xApiVersion, CartDtoCollectionQueryParameters cartDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -402,7 +405,7 @@ public class CartsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = cartDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SystemService/Carts";
@@ -431,6 +434,8 @@ public class CartsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -442,8 +447,8 @@ public class CartsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSystemCartsValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getSystemCartsCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getSystemCartsValidateBeforeCall(String apiVersion, String xApiVersion, CartDtoCollectionQueryParameters cartDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getSystemCartsCall(apiVersion, xApiVersion, cartDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -452,6 +457,7 @@ public class CartsApi {
      * Retrieve a list of all carts in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
      * @return CartDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -462,8 +468,8 @@ public class CartsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CartDtoListEnvelope getSystemCarts(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CartDtoListEnvelope> localVarResp = getSystemCartsWithHttpInfo(apiVersion, xApiVersion);
+    public CartDtoListEnvelope getSystemCarts(String apiVersion, String xApiVersion, CartDtoCollectionQueryParameters cartDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<CartDtoListEnvelope> localVarResp = getSystemCartsWithHttpInfo(apiVersion, xApiVersion, cartDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -472,6 +478,7 @@ public class CartsApi {
      * Retrieve a list of all carts in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;CartDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -482,8 +489,8 @@ public class CartsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CartDtoListEnvelope> getSystemCartsWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSystemCartsValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<CartDtoListEnvelope> getSystemCartsWithHttpInfo(String apiVersion, String xApiVersion, CartDtoCollectionQueryParameters cartDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSystemCartsValidateBeforeCall(apiVersion, xApiVersion, cartDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<CartDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -493,6 +500,7 @@ public class CartsApi {
      * Retrieve a list of all carts in the system
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -504,15 +512,159 @@ public class CartsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemCartsAsync(String apiVersion, String xApiVersion, final ApiCallback<CartDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSystemCartsAsync(String apiVersion, String xApiVersion, CartDtoCollectionQueryParameters cartDtoCollectionQueryParameters, final ApiCallback<CartDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSystemCartsValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSystemCartsValidateBeforeCall(apiVersion, xApiVersion, cartDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<CartDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getSystemCartsCount
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSystemCartsCountCall(String apiVersion, String xApiVersion, CartDtoCollectionQueryParameters cartDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = cartDtoCollectionQueryParameters;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SystemService/Carts/Count";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSystemCartsCountValidateBeforeCall(String apiVersion, String xApiVersion, CartDtoCollectionQueryParameters cartDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getSystemCartsCountCall(apiVersion, xApiVersion, cartDtoCollectionQueryParameters, _callback);
+
+    }
+
+    /**
+     * Get the count of system carts
+     * Get the count of all carts in the system
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
+     * @return Int32Envelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public Int32Envelope getSystemCartsCount(String apiVersion, String xApiVersion, CartDtoCollectionQueryParameters cartDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSystemCartsCountWithHttpInfo(apiVersion, xApiVersion, cartDtoCollectionQueryParameters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the count of system carts
+     * Get the count of all carts in the system
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
+     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Int32Envelope> getSystemCartsCountWithHttpInfo(String apiVersion, String xApiVersion, CartDtoCollectionQueryParameters cartDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSystemCartsCountValidateBeforeCall(apiVersion, xApiVersion, cartDtoCollectionQueryParameters, null);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the count of system carts (asynchronously)
+     * Get the count of all carts in the system
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param cartDtoCollectionQueryParameters  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSystemCartsCountAsync(String apiVersion, String xApiVersion, CartDtoCollectionQueryParameters cartDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSystemCartsCountValidateBeforeCall(apiVersion, xApiVersion, cartDtoCollectionQueryParameters, _callback);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for purgeSystemGuestCarts
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -526,7 +678,7 @@ public class CartsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemCartsCountCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call purgeSystemGuestCartsCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -543,7 +695,7 @@ public class CartsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/v2/SystemService/Carts/Count";
+        String localVarPath = "/api/v2/SystemService/Carts/Guests";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -576,21 +728,21 @@ public class CartsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSystemCartsCountValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getSystemCartsCountCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call purgeSystemGuestCartsValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        return purgeSystemGuestCartsCall(apiVersion, xApiVersion, _callback);
 
     }
 
     /**
-     * Get the count of system carts
-     * Get the count of all carts in the system
+     * Purge all guest carts
+     * Deletes every guest cart, cascading its item cart records, compare records and wish lists, and returns the removed-row counts. Idempotent.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return Int32Envelope
+     * @return GuestCartPurgeResultDtoEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -600,17 +752,17 @@ public class CartsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSystemCartsCount(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSystemCartsCountWithHttpInfo(apiVersion, xApiVersion);
+    public GuestCartPurgeResultDtoEnvelope purgeSystemGuestCarts(String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<GuestCartPurgeResultDtoEnvelope> localVarResp = purgeSystemGuestCartsWithHttpInfo(apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
     /**
-     * Get the count of system carts
-     * Get the count of all carts in the system
+     * Purge all guest carts
+     * Deletes every guest cart, cascading its item cart records, compare records and wish lists, and returns the removed-row counts. Idempotent.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @return ApiResponse&lt;GuestCartPurgeResultDtoEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -620,15 +772,15 @@ public class CartsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSystemCartsCountWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSystemCartsCountValidateBeforeCall(apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+    public ApiResponse<GuestCartPurgeResultDtoEnvelope> purgeSystemGuestCartsWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = purgeSystemGuestCartsValidateBeforeCall(apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<GuestCartPurgeResultDtoEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get the count of system carts (asynchronously)
-     * Get the count of all carts in the system
+     * Purge all guest carts (asynchronously)
+     * Deletes every guest cart, cascading its item cart records, compare records and wish lists, and returns the removed-row counts. Idempotent.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -642,10 +794,10 @@ public class CartsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSystemCartsCountAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call purgeSystemGuestCartsAsync(String apiVersion, String xApiVersion, final ApiCallback<GuestCartPurgeResultDtoEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSystemCartsCountValidateBeforeCall(apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        okhttp3.Call localVarCall = purgeSystemGuestCartsValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<GuestCartPurgeResultDtoEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

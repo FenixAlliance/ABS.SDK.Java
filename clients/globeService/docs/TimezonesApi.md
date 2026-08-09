@@ -11,7 +11,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countTimezonesAsync"></a>
 # **countTimezonesAsync**
-> Int32Envelope countTimezonesAsync(apiVersion, xApiVersion)
+> Int32Envelope countTimezonesAsync(apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
 
 Count timezones
 
@@ -34,8 +34,9 @@ public class Example {
     TimezonesApi apiInstance = new TimezonesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters = new TimezoneDtoCollectionQueryParameters(); // TimezoneDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countTimezonesAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countTimezonesAsync(apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TimezonesApi#countTimezonesAsync");
@@ -54,6 +55,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **timezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -65,7 +67,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -145,7 +147,7 @@ No authorization required
 
 <a id="getTimeZonesAsync"></a>
 # **getTimeZonesAsync**
-> TimezoneDtoListEnvelope getTimeZonesAsync(apiVersion, xApiVersion)
+> TimezoneDtoListEnvelope getTimeZonesAsync(apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters)
 
 Get all timezones
 
@@ -168,8 +170,9 @@ public class Example {
     TimezonesApi apiInstance = new TimezonesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TimezoneDtoCollectionQueryParameters timezoneDtoCollectionQueryParameters = new TimezoneDtoCollectionQueryParameters(); // TimezoneDtoCollectionQueryParameters | 
     try {
-      TimezoneDtoListEnvelope result = apiInstance.getTimeZonesAsync(apiVersion, xApiVersion);
+      TimezoneDtoListEnvelope result = apiInstance.getTimeZonesAsync(apiVersion, xApiVersion, timezoneDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TimezonesApi#getTimeZonesAsync");
@@ -188,6 +191,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **timezoneDtoCollectionQueryParameters** | [**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -199,7 +203,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

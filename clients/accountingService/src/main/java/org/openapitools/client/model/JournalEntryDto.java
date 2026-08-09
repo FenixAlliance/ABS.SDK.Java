@@ -54,11 +54,15 @@ import org.openapitools.client.JSON;
 /**
  * JournalEntryDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:25:56.899133-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class JournalEntryDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+  @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+  private OffsetDateTime timestamp;
 
   public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
@@ -252,10 +256,6 @@ public class JournalEntryDto {
   @SerializedName(SERIALIZED_NAME_FOREX_RATES_SNAPSHOT)
   private String forexRatesSnapshot;
 
-  public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-  @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-  private OffsetDateTime timestamp;
-
   public static final String SERIALIZED_NAME_DEBIT_IN_USD = "debitInUsd";
   @SerializedName(SERIALIZED_NAME_DEBIT_IN_USD)
   private Double debitInUsd;
@@ -283,6 +283,14 @@ public class JournalEntryDto {
   public static final String SERIALIZED_NAME_TOTAL_CREDIT_AMOUNT = "totalCreditAmount";
   @SerializedName(SERIALIZED_NAME_TOTAL_CREDIT_AMOUNT)
   private Money totalCreditAmount;
+
+  public static final String SERIALIZED_NAME_DEBIT_IN_USD_AMOUNT = "debitInUsdAmount";
+  @SerializedName(SERIALIZED_NAME_DEBIT_IN_USD_AMOUNT)
+  private Money debitInUsdAmount;
+
+  public static final String SERIALIZED_NAME_CREDIT_IN_USD_AMOUNT = "creditInUsdAmount";
+  @SerializedName(SERIALIZED_NAME_CREDIT_IN_USD_AMOUNT)
+  private Money creditInUsdAmount;
 
   public JournalEntryDto() {
   }
@@ -312,6 +320,25 @@ public class JournalEntryDto {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public JournalEntryDto timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * Get timestamp
+   * @return timestamp
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
   }
 
 
@@ -695,25 +722,6 @@ public class JournalEntryDto {
   }
 
 
-  public JournalEntryDto timestamp(OffsetDateTime timestamp) {
-    this.timestamp = timestamp;
-    return this;
-  }
-
-  /**
-   * Get timestamp
-   * @return timestamp
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getTimestamp() {
-    return timestamp;
-  }
-
-  public void setTimestamp(OffsetDateTime timestamp) {
-    this.timestamp = timestamp;
-  }
-
-
   public JournalEntryDto debitInUsd(Double debitInUsd) {
     this.debitInUsd = debitInUsd;
     return this;
@@ -839,6 +847,44 @@ public class JournalEntryDto {
   }
 
 
+  public JournalEntryDto debitInUsdAmount(Money debitInUsdAmount) {
+    this.debitInUsdAmount = debitInUsdAmount;
+    return this;
+  }
+
+  /**
+   * Get debitInUsdAmount
+   * @return debitInUsdAmount
+   */
+  @javax.annotation.Nullable
+  public Money getDebitInUsdAmount() {
+    return debitInUsdAmount;
+  }
+
+  public void setDebitInUsdAmount(Money debitInUsdAmount) {
+    this.debitInUsdAmount = debitInUsdAmount;
+  }
+
+
+  public JournalEntryDto creditInUsdAmount(Money creditInUsdAmount) {
+    this.creditInUsdAmount = creditInUsdAmount;
+    return this;
+  }
+
+  /**
+   * Get creditInUsdAmount
+   * @return creditInUsdAmount
+   */
+  @javax.annotation.Nullable
+  public Money getCreditInUsdAmount() {
+    return creditInUsdAmount;
+  }
+
+  public void setCreditInUsdAmount(Money creditInUsdAmount) {
+    this.creditInUsdAmount = creditInUsdAmount;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -850,6 +896,7 @@ public class JournalEntryDto {
     }
     JournalEntryDto journalEntryDto = (JournalEntryDto) o;
     return Objects.equals(this.id, journalEntryDto.id) &&
+        Objects.equals(this.timestamp, journalEntryDto.timestamp) &&
         Objects.equals(this.tenantId, journalEntryDto.tenantId) &&
         Objects.equals(this.enrollmentId, journalEntryDto.enrollmentId) &&
         Objects.equals(this.journalId, journalEntryDto.journalId) &&
@@ -870,14 +917,15 @@ public class JournalEntryDto {
         Objects.equals(this.postedBy, journalEntryDto.postedBy) &&
         Objects.equals(this.forexRate, journalEntryDto.forexRate) &&
         Objects.equals(this.forexRatesSnapshot, journalEntryDto.forexRatesSnapshot) &&
-        Objects.equals(this.timestamp, journalEntryDto.timestamp) &&
         Objects.equals(this.debitInUsd, journalEntryDto.debitInUsd) &&
         Objects.equals(this.creditInUsd, journalEntryDto.creditInUsd) &&
         Objects.equals(this.accountingEntries, journalEntryDto.accountingEntries) &&
         Objects.equals(this.totalDebit, journalEntryDto.totalDebit) &&
         Objects.equals(this.totalCredit, journalEntryDto.totalCredit) &&
         Objects.equals(this.totalDebitAmount, journalEntryDto.totalDebitAmount) &&
-        Objects.equals(this.totalCreditAmount, journalEntryDto.totalCreditAmount);
+        Objects.equals(this.totalCreditAmount, journalEntryDto.totalCreditAmount) &&
+        Objects.equals(this.debitInUsdAmount, journalEntryDto.debitInUsdAmount) &&
+        Objects.equals(this.creditInUsdAmount, journalEntryDto.creditInUsdAmount);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -886,7 +934,7 @@ public class JournalEntryDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, enrollmentId, journalId, journalName, journalCode, fiscalPeriodId, financialBookId, description, entryType, status, postingDate, isOpeningBalance, transactionCurrencyId, sourceDocumentType, sourceDocumentId, idempotencyKey, reversalOfJournalEntryId, postedBy, forexRate, forexRatesSnapshot, timestamp, debitInUsd, creditInUsd, accountingEntries, totalDebit, totalCredit, totalDebitAmount, totalCreditAmount);
+    return Objects.hash(id, timestamp, tenantId, enrollmentId, journalId, journalName, journalCode, fiscalPeriodId, financialBookId, description, entryType, status, postingDate, isOpeningBalance, transactionCurrencyId, sourceDocumentType, sourceDocumentId, idempotencyKey, reversalOfJournalEntryId, postedBy, forexRate, forexRatesSnapshot, debitInUsd, creditInUsd, accountingEntries, totalDebit, totalCredit, totalDebitAmount, totalCreditAmount, debitInUsdAmount, creditInUsdAmount);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -901,6 +949,7 @@ public class JournalEntryDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class JournalEntryDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    journalId: ").append(toIndentedString(journalId)).append("\n");
@@ -921,7 +970,6 @@ public class JournalEntryDto {
     sb.append("    postedBy: ").append(toIndentedString(postedBy)).append("\n");
     sb.append("    forexRate: ").append(toIndentedString(forexRate)).append("\n");
     sb.append("    forexRatesSnapshot: ").append(toIndentedString(forexRatesSnapshot)).append("\n");
-    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    debitInUsd: ").append(toIndentedString(debitInUsd)).append("\n");
     sb.append("    creditInUsd: ").append(toIndentedString(creditInUsd)).append("\n");
     sb.append("    accountingEntries: ").append(toIndentedString(accountingEntries)).append("\n");
@@ -929,6 +977,8 @@ public class JournalEntryDto {
     sb.append("    totalCredit: ").append(toIndentedString(totalCredit)).append("\n");
     sb.append("    totalDebitAmount: ").append(toIndentedString(totalDebitAmount)).append("\n");
     sb.append("    totalCreditAmount: ").append(toIndentedString(totalCreditAmount)).append("\n");
+    sb.append("    debitInUsdAmount: ").append(toIndentedString(debitInUsdAmount)).append("\n");
+    sb.append("    creditInUsdAmount: ").append(toIndentedString(creditInUsdAmount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -952,6 +1002,7 @@ public class JournalEntryDto {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("timestamp");
     openapiFields.add("tenantId");
     openapiFields.add("enrollmentId");
     openapiFields.add("journalId");
@@ -972,7 +1023,6 @@ public class JournalEntryDto {
     openapiFields.add("postedBy");
     openapiFields.add("forexRate");
     openapiFields.add("forexRatesSnapshot");
-    openapiFields.add("timestamp");
     openapiFields.add("debitInUsd");
     openapiFields.add("creditInUsd");
     openapiFields.add("accountingEntries");
@@ -980,6 +1030,8 @@ public class JournalEntryDto {
     openapiFields.add("totalCredit");
     openapiFields.add("totalDebitAmount");
     openapiFields.add("totalCreditAmount");
+    openapiFields.add("debitInUsdAmount");
+    openapiFields.add("creditInUsdAmount");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1089,6 +1141,14 @@ public class JournalEntryDto {
       // validate the optional field `totalCreditAmount`
       if (jsonObj.get("totalCreditAmount") != null && !jsonObj.get("totalCreditAmount").isJsonNull()) {
         Money.validateJsonElement(jsonObj.get("totalCreditAmount"));
+      }
+      // validate the optional field `debitInUsdAmount`
+      if (jsonObj.get("debitInUsdAmount") != null && !jsonObj.get("debitInUsdAmount").isJsonNull()) {
+        Money.validateJsonElement(jsonObj.get("debitInUsdAmount"));
+      }
+      // validate the optional field `creditInUsdAmount`
+      if (jsonObj.get("creditInUsdAmount") != null && !jsonObj.get("creditInUsdAmount").isJsonNull()) {
+        Money.validateJsonElement(jsonObj.get("creditInUsdAmount"));
       }
   }
 

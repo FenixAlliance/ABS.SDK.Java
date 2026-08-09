@@ -155,7 +155,7 @@ No authorization required
 
 <a id="getRoundingPoliciesAsync"></a>
 # **getRoundingPoliciesAsync**
-> RoundingPolicyDtoListEnvelope getRoundingPoliciesAsync(tenantId, apiVersion, xApiVersion)
+> RoundingPolicyDtoListEnvelope getRoundingPoliciesAsync(tenantId, apiVersion, xApiVersion, roundingPolicyDtoCollectionQueryParameters)
 
 Gets all rounding policies
 
@@ -179,8 +179,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    RoundingPolicyDtoCollectionQueryParameters roundingPolicyDtoCollectionQueryParameters = new RoundingPolicyDtoCollectionQueryParameters(); // RoundingPolicyDtoCollectionQueryParameters | 
     try {
-      RoundingPolicyDtoListEnvelope result = apiInstance.getRoundingPoliciesAsync(tenantId, apiVersion, xApiVersion);
+      RoundingPolicyDtoListEnvelope result = apiInstance.getRoundingPoliciesAsync(tenantId, apiVersion, xApiVersion, roundingPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RoundingPoliciesApi#getRoundingPoliciesAsync");
@@ -200,6 +201,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **roundingPolicyDtoCollectionQueryParameters** | [**RoundingPolicyDtoCollectionQueryParameters**](RoundingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -211,7 +213,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -223,7 +225,7 @@ No authorization required
 
 <a id="getRoundingPoliciesCountAsync"></a>
 # **getRoundingPoliciesCountAsync**
-> Int32Envelope getRoundingPoliciesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRoundingPoliciesCountAsync(tenantId, apiVersion, xApiVersion, roundingPolicyDtoCollectionQueryParameters)
 
 Counts rounding policies
 
@@ -247,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    RoundingPolicyDtoCollectionQueryParameters roundingPolicyDtoCollectionQueryParameters = new RoundingPolicyDtoCollectionQueryParameters(); // RoundingPolicyDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getRoundingPoliciesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getRoundingPoliciesCountAsync(tenantId, apiVersion, xApiVersion, roundingPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RoundingPoliciesApi#getRoundingPoliciesCountAsync");
@@ -268,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **roundingPolicyDtoCollectionQueryParameters** | [**RoundingPolicyDtoCollectionQueryParameters**](RoundingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchRoundingPolicyAsync"></a>
 # **patchRoundingPolicyAsync**
-> EmptyEnvelope patchRoundingPolicyAsync(tenantId, roundingPolicyId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRoundingPolicyAsync(tenantId, roundingPolicyId, apiVersion, xApiVersion, patchOperation)
 
 Patches a rounding policy
 
@@ -386,9 +390,9 @@ public class Example {
     UUID roundingPolicyId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchRoundingPolicyAsync(tenantId, roundingPolicyId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchRoundingPolicyAsync(tenantId, roundingPolicyId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RoundingPoliciesApi#patchRoundingPolicyAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **roundingPolicyId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

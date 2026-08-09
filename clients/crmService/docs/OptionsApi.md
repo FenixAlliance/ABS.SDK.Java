@@ -312,7 +312,7 @@ No authorization required
 
 <a id="getContactOptions"></a>
 # **getContactOptions**
-> OptionDtoListEnvelope getContactOptions(tenantId, contactId, portalId, apiVersion, xApiVersion)
+> OptionDtoListEnvelope getContactOptions(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
 
 Retrieve a list of contact options
 
@@ -338,8 +338,9 @@ public class Example {
     UUID portalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters = new OptionDtoCollectionQueryParameters(); // OptionDtoCollectionQueryParameters | 
     try {
-      OptionDtoListEnvelope result = apiInstance.getContactOptions(tenantId, contactId, portalId, apiVersion, xApiVersion);
+      OptionDtoListEnvelope result = apiInstance.getContactOptions(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OptionsApi#getContactOptions");
@@ -361,6 +362,7 @@ public class Example {
 | **portalId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -372,7 +374,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -384,7 +386,7 @@ No authorization required
 
 <a id="getContactOptionsCount"></a>
 # **getContactOptionsCount**
-> Int32Envelope getContactOptionsCount(tenantId, contactId, portalId, apiVersion, xApiVersion)
+> Int32Envelope getContactOptionsCount(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
 
 Get the count of contact options
 
@@ -410,8 +412,9 @@ public class Example {
     UUID portalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters = new OptionDtoCollectionQueryParameters(); // OptionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getContactOptionsCount(tenantId, contactId, portalId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getContactOptionsCount(tenantId, contactId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OptionsApi#getContactOptionsCount");
@@ -433,6 +436,7 @@ public class Example {
 | **portalId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -444,7 +448,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -456,7 +460,7 @@ No authorization required
 
 <a id="patchContactOptionAsync"></a>
 # **patchContactOptionAsync**
-> EmptyEnvelope patchContactOptionAsync(tenantId, contactId, optionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactOptionAsync(tenantId, contactId, optionId, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact option
 
@@ -482,9 +486,9 @@ public class Example {
     UUID optionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchContactOptionAsync(tenantId, contactId, optionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchContactOptionAsync(tenantId, contactId, optionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OptionsApi#patchContactOptionAsync");
@@ -506,7 +510,7 @@ public class Example {
 | **optionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -530,7 +534,7 @@ No authorization required
 
 <a id="patchContactOptionByKeyAsync"></a>
 # **patchContactOptionByKeyAsync**
-> EmptyEnvelope patchContactOptionByKeyAsync(tenantId, contactId, key, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactOptionByKeyAsync(tenantId, contactId, key, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact option by key
 
@@ -556,9 +560,9 @@ public class Example {
     String key = "key_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchContactOptionByKeyAsync(tenantId, contactId, key, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchContactOptionByKeyAsync(tenantId, contactId, key, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OptionsApi#patchContactOptionByKeyAsync");
@@ -580,7 +584,7 @@ public class Example {
 | **key** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

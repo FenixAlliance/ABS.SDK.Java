@@ -596,7 +596,7 @@ No authorization required
 
 <a id="getPermissionsAsync"></a>
 # **getPermissionsAsync**
-> SecurityPermissionDtoListEnvelope getPermissionsAsync(tenantId, apiVersion, xApiVersion)
+> SecurityPermissionDtoListEnvelope getPermissionsAsync(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters)
 
 Get all permissions
 
@@ -620,8 +620,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters = new SecurityPermissionDtoCollectionQueryParameters(); // SecurityPermissionDtoCollectionQueryParameters | 
     try {
-      SecurityPermissionDtoListEnvelope result = apiInstance.getPermissionsAsync(tenantId, apiVersion, xApiVersion);
+      SecurityPermissionDtoListEnvelope result = apiInstance.getPermissionsAsync(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PermissionsApi#getPermissionsAsync");
@@ -641,6 +642,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **securityPermissionDtoCollectionQueryParameters** | [**SecurityPermissionDtoCollectionQueryParameters**](SecurityPermissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -652,7 +654,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -734,7 +736,7 @@ No authorization required
 
 <a id="getPermissionsCountAsync"></a>
 # **getPermissionsCountAsync**
-> Int32Envelope getPermissionsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPermissionsCountAsync(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters)
 
 Get permissions count
 
@@ -758,8 +760,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SecurityPermissionDtoCollectionQueryParameters securityPermissionDtoCollectionQueryParameters = new SecurityPermissionDtoCollectionQueryParameters(); // SecurityPermissionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getPermissionsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getPermissionsCountAsync(tenantId, apiVersion, xApiVersion, securityPermissionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PermissionsApi#getPermissionsCountAsync");
@@ -779,6 +782,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **securityPermissionDtoCollectionQueryParameters** | [**SecurityPermissionDtoCollectionQueryParameters**](SecurityPermissionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -790,7 +794,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -872,7 +876,7 @@ No authorization required
 
 <a id="patchPermissionAsync"></a>
 # **patchPermissionAsync**
-> EmptyEnvelope patchPermissionAsync(tenantId, securityPermissionId, operation, apiVersion, xApiVersion)
+> EmptyEnvelope patchPermissionAsync(tenantId, securityPermissionId, patchOperation, apiVersion, xApiVersion)
 
 Patch an existing permission
 
@@ -895,11 +899,11 @@ public class Example {
     PermissionsApi apiInstance = new PermissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String securityPermissionId = "securityPermissionId_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.patchPermissionAsync(tenantId, securityPermissionId, operation, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.patchPermissionAsync(tenantId, securityPermissionId, patchOperation, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PermissionsApi#patchPermissionAsync");
@@ -918,7 +922,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **securityPermissionId** | **String**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 

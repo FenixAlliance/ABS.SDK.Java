@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SupportRequestAttachmentCreateDto;
+import org.openapitools.client.model.SupportRequestAttachmentDtoCollectionQueryParameters;
 import org.openapitools.client.model.SupportRequestAttachmentDtoEnvelope;
 import org.openapitools.client.model.SupportRequestAttachmentDtoListEnvelope;
 import org.openapitools.client.model.SupportRequestAttachmentUpdateDto;
@@ -564,6 +565,7 @@ public class SupportRequestAttachmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -575,7 +577,7 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupportRequestAttachmentsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSupportRequestAttachmentsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -589,7 +591,7 @@ public class SupportRequestAttachmentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = supportRequestAttachmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/SupportRequestAttachments";
@@ -622,6 +624,8 @@ public class SupportRequestAttachmentsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -633,13 +637,13 @@ public class SupportRequestAttachmentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSupportRequestAttachmentsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSupportRequestAttachmentsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSupportRequestAttachmentsAsync(Async)");
         }
 
-        return getSupportRequestAttachmentsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSupportRequestAttachmentsAsyncCall(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -649,6 +653,7 @@ public class SupportRequestAttachmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentDtoCollectionQueryParameters  (optional)
      * @return SupportRequestAttachmentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -659,8 +664,8 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SupportRequestAttachmentDtoListEnvelope getSupportRequestAttachmentsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SupportRequestAttachmentDtoListEnvelope> localVarResp = getSupportRequestAttachmentsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SupportRequestAttachmentDtoListEnvelope getSupportRequestAttachmentsAsync(UUID tenantId, String apiVersion, String xApiVersion, SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SupportRequestAttachmentDtoListEnvelope> localVarResp = getSupportRequestAttachmentsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -670,6 +675,7 @@ public class SupportRequestAttachmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SupportRequestAttachmentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -680,8 +686,8 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SupportRequestAttachmentDtoListEnvelope> getSupportRequestAttachmentsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSupportRequestAttachmentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<SupportRequestAttachmentDtoListEnvelope> getSupportRequestAttachmentsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSupportRequestAttachmentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SupportRequestAttachmentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -692,6 +698,7 @@ public class SupportRequestAttachmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -703,9 +710,9 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupportRequestAttachmentsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SupportRequestAttachmentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSupportRequestAttachmentsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters, final ApiCallback<SupportRequestAttachmentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSupportRequestAttachmentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSupportRequestAttachmentsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SupportRequestAttachmentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -715,6 +722,7 @@ public class SupportRequestAttachmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -726,7 +734,7 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupportRequestAttachmentsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSupportRequestAttachmentsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -740,7 +748,7 @@ public class SupportRequestAttachmentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = supportRequestAttachmentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/SupportRequestAttachments/Count";
@@ -773,6 +781,8 @@ public class SupportRequestAttachmentsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -784,13 +794,13 @@ public class SupportRequestAttachmentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSupportRequestAttachmentsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSupportRequestAttachmentsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSupportRequestAttachmentsCountAsync(Async)");
         }
 
-        return getSupportRequestAttachmentsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSupportRequestAttachmentsCountAsyncCall(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -800,6 +810,7 @@ public class SupportRequestAttachmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -810,8 +821,8 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSupportRequestAttachmentsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSupportRequestAttachmentsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getSupportRequestAttachmentsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSupportRequestAttachmentsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -821,6 +832,7 @@ public class SupportRequestAttachmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -831,8 +843,8 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSupportRequestAttachmentsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSupportRequestAttachmentsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSupportRequestAttachmentsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSupportRequestAttachmentsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -843,6 +855,7 @@ public class SupportRequestAttachmentsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supportRequestAttachmentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -854,9 +867,9 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupportRequestAttachmentsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSupportRequestAttachmentsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SupportRequestAttachmentDtoCollectionQueryParameters supportRequestAttachmentDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSupportRequestAttachmentsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSupportRequestAttachmentsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supportRequestAttachmentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -867,7 +880,7 @@ public class SupportRequestAttachmentsApi {
      * @param supportRequestAttachmentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +892,7 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSupportRequestAttachmentAsyncCall(UUID tenantId, UUID supportRequestAttachmentId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchSupportRequestAttachmentAsyncCall(UUID tenantId, UUID supportRequestAttachmentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +906,7 @@ public class SupportRequestAttachmentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId}"
@@ -940,7 +953,7 @@ public class SupportRequestAttachmentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchSupportRequestAttachmentAsyncValidateBeforeCall(UUID tenantId, UUID supportRequestAttachmentId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSupportRequestAttachmentAsyncValidateBeforeCall(UUID tenantId, UUID supportRequestAttachmentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchSupportRequestAttachmentAsync(Async)");
@@ -951,7 +964,7 @@ public class SupportRequestAttachmentsApi {
             throw new ApiException("Missing the required parameter 'supportRequestAttachmentId' when calling patchSupportRequestAttachmentAsync(Async)");
         }
 
-        return patchSupportRequestAttachmentAsyncCall(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, operation, _callback);
+        return patchSupportRequestAttachmentAsyncCall(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -962,7 +975,7 @@ public class SupportRequestAttachmentsApi {
      * @param supportRequestAttachmentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -973,8 +986,8 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchSupportRequestAttachmentAsync(UUID tenantId, UUID supportRequestAttachmentId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchSupportRequestAttachmentAsyncWithHttpInfo(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchSupportRequestAttachmentAsync(UUID tenantId, UUID supportRequestAttachmentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchSupportRequestAttachmentAsyncWithHttpInfo(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -985,7 +998,7 @@ public class SupportRequestAttachmentsApi {
      * @param supportRequestAttachmentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -996,8 +1009,8 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchSupportRequestAttachmentAsyncWithHttpInfo(UUID tenantId, UUID supportRequestAttachmentId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchSupportRequestAttachmentAsyncValidateBeforeCall(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchSupportRequestAttachmentAsyncWithHttpInfo(UUID tenantId, UUID supportRequestAttachmentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchSupportRequestAttachmentAsyncValidateBeforeCall(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +1022,7 @@ public class SupportRequestAttachmentsApi {
      * @param supportRequestAttachmentId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1021,9 +1034,9 @@ public class SupportRequestAttachmentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSupportRequestAttachmentAsyncAsync(UUID tenantId, UUID supportRequestAttachmentId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchSupportRequestAttachmentAsyncAsync(UUID tenantId, UUID supportRequestAttachmentId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchSupportRequestAttachmentAsyncValidateBeforeCall(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchSupportRequestAttachmentAsyncValidateBeforeCall(tenantId, supportRequestAttachmentId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

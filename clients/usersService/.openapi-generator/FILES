@@ -7,6 +7,7 @@ build.gradle
 build.sbt
 docs/AccessTokenResponse.md
 docs/AddressDto.md
+docs/AddressDtoCollectionQueryParameters.md
 docs/AddressDtoListEnvelope.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
@@ -20,6 +21,7 @@ docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
 docs/FenixAllianceAbsWebApi.md
 docs/FollowRecordDto.md
+docs/FollowRecordDtoCollectionQueryParameters.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -28,14 +30,16 @@ docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
 docs/NotificationDto.md
+docs/NotificationDtoCollectionQueryParameters.md
 docs/NotificationDtoListEnvelope.md
-docs/Operation.md
 docs/OptionCreateDto.md
 docs/OptionDto.md
+docs/OptionDtoCollectionQueryParameters.md
 docs/OptionDtoEnvelope.md
 docs/OptionDtoListEnvelope.md
 docs/OptionUpdateDto.md
 docs/OptionsApi.md
+docs/PatchOperation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -43,6 +47,7 @@ docs/ResetPasswordRequest.md
 docs/SocialProfileDto.md
 docs/SocialProfileDtoEnvelope.md
 docs/TenantDto.md
+docs/TenantDtoCollectionQueryParameters.md
 docs/TenantDtoListEnvelope.md
 docs/TenantEnrollmentDto.md
 docs/TenantEnrollmentDtoEnvelope.md
@@ -93,6 +98,7 @@ src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/AccessTokenResponse.java
 src/main/java/org/openapitools/client/model/AddressDto.java
+src/main/java/org/openapitools/client/model/AddressDtoCollectionQueryParameters.java
 src/main/java/org/openapitools/client/model/AddressDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/CartDto.java
 src/main/java/org/openapitools/client/model/CartDtoEnvelope.java
@@ -105,6 +111,7 @@ src/main/java/org/openapitools/client/model/ExtendedTenantEnrollmentDtoListEnvel
 src/main/java/org/openapitools/client/model/ExtendedUserDto.java
 src/main/java/org/openapitools/client/model/ExtendedUserDtoEnvelope.java
 src/main/java/org/openapitools/client/model/FollowRecordDto.java
+src/main/java/org/openapitools/client/model/FollowRecordDtoCollectionQueryParameters.java
 src/main/java/org/openapitools/client/model/FollowRecordDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/ForgotPasswordRequest.java
 src/main/java/org/openapitools/client/model/HttpValidationProblemDetails.java
@@ -113,13 +120,15 @@ src/main/java/org/openapitools/client/model/InfoResponse.java
 src/main/java/org/openapitools/client/model/Int32Envelope.java
 src/main/java/org/openapitools/client/model/LoginRequest.java
 src/main/java/org/openapitools/client/model/NotificationDto.java
+src/main/java/org/openapitools/client/model/NotificationDtoCollectionQueryParameters.java
 src/main/java/org/openapitools/client/model/NotificationDtoListEnvelope.java
-src/main/java/org/openapitools/client/model/Operation.java
 src/main/java/org/openapitools/client/model/OptionCreateDto.java
 src/main/java/org/openapitools/client/model/OptionDto.java
+src/main/java/org/openapitools/client/model/OptionDtoCollectionQueryParameters.java
 src/main/java/org/openapitools/client/model/OptionDtoEnvelope.java
 src/main/java/org/openapitools/client/model/OptionDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/OptionUpdateDto.java
+src/main/java/org/openapitools/client/model/PatchOperation.java
 src/main/java/org/openapitools/client/model/RefreshRequest.java
 src/main/java/org/openapitools/client/model/RegisterRequest.java
 src/main/java/org/openapitools/client/model/ResendConfirmationEmailRequest.java
@@ -127,6 +136,7 @@ src/main/java/org/openapitools/client/model/ResetPasswordRequest.java
 src/main/java/org/openapitools/client/model/SocialProfileDto.java
 src/main/java/org/openapitools/client/model/SocialProfileDtoEnvelope.java
 src/main/java/org/openapitools/client/model/TenantDto.java
+src/main/java/org/openapitools/client/model/TenantDtoCollectionQueryParameters.java
 src/main/java/org/openapitools/client/model/TenantDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/TenantEnrollmentDto.java
 src/main/java/org/openapitools/client/model/TenantEnrollmentDtoEnvelope.java
@@ -144,3 +154,9 @@ src/main/java/org/openapitools/client/model/UserSettingsUpdateDto.java
 src/main/java/org/openapitools/client/model/UserUpdateDto.java
 src/main/java/org/openapitools/client/model/WalletDto.java
 src/main/java/org/openapitools/client/model/WalletDtoEnvelope.java
+src/test/java/org/openapitools/client/model/AddressDtoCollectionQueryParametersTest.java
+src/test/java/org/openapitools/client/model/FollowRecordDtoCollectionQueryParametersTest.java
+src/test/java/org/openapitools/client/model/NotificationDtoCollectionQueryParametersTest.java
+src/test/java/org/openapitools/client/model/OptionDtoCollectionQueryParametersTest.java
+src/test/java/org/openapitools/client/model/PatchOperationTest.java
+src/test/java/org/openapitools/client/model/TenantDtoCollectionQueryParametersTest.java

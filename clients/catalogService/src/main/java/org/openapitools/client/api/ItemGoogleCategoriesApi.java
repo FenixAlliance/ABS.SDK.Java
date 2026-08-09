@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.ItemGoogleCategoryDtoCollectionQueryParameters;
 import org.openapitools.client.model.ItemGoogleCategoryDtoEnvelope;
 import org.openapitools.client.model.ItemGoogleCategoryDtoListEnvelope;
 import java.util.UUID;
@@ -366,6 +367,7 @@ public class ItemGoogleCategoriesApi {
      * Build call for getItemGoogleCategoriesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -377,7 +379,7 @@ public class ItemGoogleCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemGoogleCategoriesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemGoogleCategoriesAsyncCall(String apiVersion, String xApiVersion, ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -391,7 +393,7 @@ public class ItemGoogleCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemGoogleCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemGoogleCategories";
@@ -420,6 +422,8 @@ public class ItemGoogleCategoriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -431,8 +435,8 @@ public class ItemGoogleCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemGoogleCategoriesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getItemGoogleCategoriesAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getItemGoogleCategoriesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getItemGoogleCategoriesAsyncCall(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -441,6 +445,7 @@ public class ItemGoogleCategoriesApi {
      * Retrieves all Google item categories using OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return ItemGoogleCategoryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -451,8 +456,8 @@ public class ItemGoogleCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemGoogleCategoryDtoListEnvelope getItemGoogleCategoriesAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemGoogleCategoryDtoListEnvelope> localVarResp = getItemGoogleCategoriesAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public ItemGoogleCategoryDtoListEnvelope getItemGoogleCategoriesAsync(String apiVersion, String xApiVersion, ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ItemGoogleCategoryDtoListEnvelope> localVarResp = getItemGoogleCategoriesAsyncWithHttpInfo(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -461,6 +466,7 @@ public class ItemGoogleCategoriesApi {
      * Retrieves all Google item categories using OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ItemGoogleCategoryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -471,8 +477,8 @@ public class ItemGoogleCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemGoogleCategoryDtoListEnvelope> getItemGoogleCategoriesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemGoogleCategoriesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<ItemGoogleCategoryDtoListEnvelope> getItemGoogleCategoriesAsyncWithHttpInfo(String apiVersion, String xApiVersion, ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemGoogleCategoriesAsyncValidateBeforeCall(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ItemGoogleCategoryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -482,6 +488,7 @@ public class ItemGoogleCategoriesApi {
      * Retrieves all Google item categories using OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -493,9 +500,9 @@ public class ItemGoogleCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemGoogleCategoriesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<ItemGoogleCategoryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getItemGoogleCategoriesAsyncAsync(String apiVersion, String xApiVersion, ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters, final ApiCallback<ItemGoogleCategoryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemGoogleCategoriesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemGoogleCategoriesAsyncValidateBeforeCall(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ItemGoogleCategoryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -504,6 +511,7 @@ public class ItemGoogleCategoriesApi {
      * Build call for getItemGoogleCategoriesCountAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -515,7 +523,7 @@ public class ItemGoogleCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemGoogleCategoriesCountAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getItemGoogleCategoriesCountAsyncCall(String apiVersion, String xApiVersion, ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -529,7 +537,7 @@ public class ItemGoogleCategoriesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = itemGoogleCategoryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/CatalogService/ItemGoogleCategories/Count";
@@ -558,6 +566,8 @@ public class ItemGoogleCategoriesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -569,8 +579,8 @@ public class ItemGoogleCategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemGoogleCategoriesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getItemGoogleCategoriesCountAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getItemGoogleCategoriesCountAsyncValidateBeforeCall(String apiVersion, String xApiVersion, ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
+        return getItemGoogleCategoriesCountAsyncCall(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -579,6 +589,7 @@ public class ItemGoogleCategoriesApi {
      * Retrieves the count of Google item categories using OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -589,8 +600,8 @@ public class ItemGoogleCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getItemGoogleCategoriesCountAsync(String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getItemGoogleCategoriesCountAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public Int32Envelope getItemGoogleCategoriesCountAsync(String apiVersion, String xApiVersion, ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getItemGoogleCategoriesCountAsyncWithHttpInfo(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -599,6 +610,7 @@ public class ItemGoogleCategoriesApi {
      * Retrieves the count of Google item categories using OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -609,8 +621,8 @@ public class ItemGoogleCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getItemGoogleCategoriesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemGoogleCategoriesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getItemGoogleCategoriesCountAsyncWithHttpInfo(String apiVersion, String xApiVersion, ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getItemGoogleCategoriesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -620,6 +632,7 @@ public class ItemGoogleCategoriesApi {
      * Retrieves the count of Google item categories using OData query options.
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param itemGoogleCategoryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -631,9 +644,9 @@ public class ItemGoogleCategoriesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemGoogleCategoriesCountAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getItemGoogleCategoriesCountAsyncAsync(String apiVersion, String xApiVersion, ItemGoogleCategoryDtoCollectionQueryParameters itemGoogleCategoryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemGoogleCategoriesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getItemGoogleCategoriesCountAsyncValidateBeforeCall(apiVersion, xApiVersion, itemGoogleCategoryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

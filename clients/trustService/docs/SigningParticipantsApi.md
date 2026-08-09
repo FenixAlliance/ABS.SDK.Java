@@ -80,7 +80,7 @@ No authorization required
 
 <a id="getSigningParticipantsAsync"></a>
 # **getSigningParticipantsAsync**
-> SigningParticipantDtoListEnvelope getSigningParticipantsAsync(tenantId, apiVersion, xApiVersion)
+> SigningParticipantDtoListEnvelope getSigningParticipantsAsync(tenantId, apiVersion, xApiVersion, signingParticipantDtoCollectionQueryParameters)
 
 Get all signing participants
 
@@ -102,8 +102,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SigningParticipantDtoCollectionQueryParameters signingParticipantDtoCollectionQueryParameters = new SigningParticipantDtoCollectionQueryParameters(); // SigningParticipantDtoCollectionQueryParameters | 
     try {
-      SigningParticipantDtoListEnvelope result = apiInstance.getSigningParticipantsAsync(tenantId, apiVersion, xApiVersion);
+      SigningParticipantDtoListEnvelope result = apiInstance.getSigningParticipantsAsync(tenantId, apiVersion, xApiVersion, signingParticipantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningParticipantsApi#getSigningParticipantsAsync");
@@ -123,6 +124,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signingParticipantDtoCollectionQueryParameters** | [**SigningParticipantDtoCollectionQueryParameters**](SigningParticipantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -134,7 +136,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -145,7 +147,7 @@ No authorization required
 
 <a id="getSigningParticipantsCountAsync"></a>
 # **getSigningParticipantsCountAsync**
-> Int32Envelope getSigningParticipantsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSigningParticipantsCountAsync(tenantId, apiVersion, xApiVersion, signingParticipantDtoCollectionQueryParameters)
 
 Get signing participants count
 
@@ -167,8 +169,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SigningParticipantDtoCollectionQueryParameters signingParticipantDtoCollectionQueryParameters = new SigningParticipantDtoCollectionQueryParameters(); // SigningParticipantDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSigningParticipantsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSigningParticipantsCountAsync(tenantId, apiVersion, xApiVersion, signingParticipantDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningParticipantsApi#getSigningParticipantsCountAsync");
@@ -188,6 +191,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signingParticipantDtoCollectionQueryParameters** | [**SigningParticipantDtoCollectionQueryParameters**](SigningParticipantDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -199,7 +203,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

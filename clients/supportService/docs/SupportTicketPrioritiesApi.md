@@ -155,7 +155,7 @@ No authorization required
 
 <a id="getSupportTicketPrioritiesAsync"></a>
 # **getSupportTicketPrioritiesAsync**
-> SupportTicketPriorityDtoListEnvelope getSupportTicketPrioritiesAsync(tenantId, apiVersion, xApiVersion)
+> SupportTicketPriorityDtoListEnvelope getSupportTicketPrioritiesAsync(tenantId, apiVersion, xApiVersion, supportTicketPriorityDtoCollectionQueryParameters)
 
 Retrieve a list of support ticket priorities
 
@@ -179,8 +179,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupportTicketPriorityDtoCollectionQueryParameters supportTicketPriorityDtoCollectionQueryParameters = new SupportTicketPriorityDtoCollectionQueryParameters(); // SupportTicketPriorityDtoCollectionQueryParameters | 
     try {
-      SupportTicketPriorityDtoListEnvelope result = apiInstance.getSupportTicketPrioritiesAsync(tenantId, apiVersion, xApiVersion);
+      SupportTicketPriorityDtoListEnvelope result = apiInstance.getSupportTicketPrioritiesAsync(tenantId, apiVersion, xApiVersion, supportTicketPriorityDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportTicketPrioritiesApi#getSupportTicketPrioritiesAsync");
@@ -200,6 +201,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportTicketPriorityDtoCollectionQueryParameters** | [**SupportTicketPriorityDtoCollectionQueryParameters**](SupportTicketPriorityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -211,7 +213,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -223,7 +225,7 @@ No authorization required
 
 <a id="getSupportTicketPrioritiesCountAsync"></a>
 # **getSupportTicketPrioritiesCountAsync**
-> Int32Envelope getSupportTicketPrioritiesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSupportTicketPrioritiesCountAsync(tenantId, apiVersion, xApiVersion, supportTicketPriorityDtoCollectionQueryParameters)
 
 Get the count of support ticket priorities
 
@@ -247,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupportTicketPriorityDtoCollectionQueryParameters supportTicketPriorityDtoCollectionQueryParameters = new SupportTicketPriorityDtoCollectionQueryParameters(); // SupportTicketPriorityDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSupportTicketPrioritiesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSupportTicketPrioritiesCountAsync(tenantId, apiVersion, xApiVersion, supportTicketPriorityDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportTicketPrioritiesApi#getSupportTicketPrioritiesCountAsync");
@@ -268,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportTicketPriorityDtoCollectionQueryParameters** | [**SupportTicketPriorityDtoCollectionQueryParameters**](SupportTicketPriorityDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchSupportTicketPriorityAsync"></a>
 # **patchSupportTicketPriorityAsync**
-> EmptyEnvelope patchSupportTicketPriorityAsync(tenantId, supportTicketPriorityId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSupportTicketPriorityAsync(tenantId, supportTicketPriorityId, apiVersion, xApiVersion, patchOperation)
 
 Patch a support ticket priority
 
@@ -386,9 +390,9 @@ public class Example {
     UUID supportTicketPriorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSupportTicketPriorityAsync(tenantId, supportTicketPriorityId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSupportTicketPriorityAsync(tenantId, supportTicketPriorityId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SupportTicketPrioritiesApi#patchSupportTicketPriorityAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **supportTicketPriorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

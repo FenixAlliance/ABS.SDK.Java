@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * SocialReactionDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T12:05:02.483445100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:33:07.422324400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SocialReactionDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -143,6 +143,64 @@ public class SocialReactionDto {
   public static final String SERIALIZED_NAME_SOCIAL_PROFILE_AVATAR_URL = "socialProfileAvatarUrl";
   @SerializedName(SERIALIZED_NAME_SOCIAL_PROFILE_AVATAR_URL)
   private String socialProfileAvatarUrl;
+
+  /**
+   * Gets or Sets socialProfileType
+   */
+  @JsonAdapter(SocialProfileTypeEnum.Adapter.class)
+  public enum SocialProfileTypeEnum {
+    USER("User"),
+    
+    TENANT("Tenant"),
+    
+    CONTACT("Contact");
+
+    private String value;
+
+    SocialProfileTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SocialProfileTypeEnum fromValue(String value) {
+      for (SocialProfileTypeEnum b : SocialProfileTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<SocialProfileTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SocialProfileTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SocialProfileTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SocialProfileTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SocialProfileTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SOCIAL_PROFILE_TYPE = "socialProfileType";
+  @SerializedName(SERIALIZED_NAME_SOCIAL_PROFILE_TYPE)
+  private SocialProfileTypeEnum socialProfileType;
 
   public SocialReactionDto() {
   }
@@ -280,6 +338,25 @@ public class SocialReactionDto {
   }
 
 
+  public SocialReactionDto socialProfileType(SocialProfileTypeEnum socialProfileType) {
+    this.socialProfileType = socialProfileType;
+    return this;
+  }
+
+  /**
+   * Get socialProfileType
+   * @return socialProfileType
+   */
+  @javax.annotation.Nullable
+  public SocialProfileTypeEnum getSocialProfileType() {
+    return socialProfileType;
+  }
+
+  public void setSocialProfileType(SocialProfileTypeEnum socialProfileType) {
+    this.socialProfileType = socialProfileType;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -296,7 +373,8 @@ public class SocialReactionDto {
         Objects.equals(this.reactionValue, socialReactionDto.reactionValue) &&
         Objects.equals(this.socialProfileId, socialReactionDto.socialProfileId) &&
         Objects.equals(this.socialProfileName, socialReactionDto.socialProfileName) &&
-        Objects.equals(this.socialProfileAvatarUrl, socialReactionDto.socialProfileAvatarUrl);
+        Objects.equals(this.socialProfileAvatarUrl, socialReactionDto.socialProfileAvatarUrl) &&
+        Objects.equals(this.socialProfileType, socialReactionDto.socialProfileType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -305,7 +383,7 @@ public class SocialReactionDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, reaction, reactionValue, socialProfileId, socialProfileName, socialProfileAvatarUrl);
+    return Objects.hash(id, timestamp, reaction, reactionValue, socialProfileId, socialProfileName, socialProfileAvatarUrl, socialProfileType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -326,6 +404,7 @@ public class SocialReactionDto {
     sb.append("    socialProfileId: ").append(toIndentedString(socialProfileId)).append("\n");
     sb.append("    socialProfileName: ").append(toIndentedString(socialProfileName)).append("\n");
     sb.append("    socialProfileAvatarUrl: ").append(toIndentedString(socialProfileAvatarUrl)).append("\n");
+    sb.append("    socialProfileType: ").append(toIndentedString(socialProfileType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -355,6 +434,7 @@ public class SocialReactionDto {
     openapiFields.add("socialProfileId");
     openapiFields.add("socialProfileName");
     openapiFields.add("socialProfileAvatarUrl");
+    openapiFields.add("socialProfileType");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -402,6 +482,13 @@ public class SocialReactionDto {
       }
       if ((jsonObj.get("socialProfileAvatarUrl") != null && !jsonObj.get("socialProfileAvatarUrl").isJsonNull()) && !jsonObj.get("socialProfileAvatarUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `socialProfileAvatarUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialProfileAvatarUrl").toString()));
+      }
+      if ((jsonObj.get("socialProfileType") != null && !jsonObj.get("socialProfileType").isJsonNull()) && !jsonObj.get("socialProfileType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `socialProfileType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialProfileType").toString()));
+      }
+      // validate the optional field `socialProfileType`
+      if (jsonObj.get("socialProfileType") != null && !jsonObj.get("socialProfileType").isJsonNull()) {
+        SocialProfileTypeEnum.validateJsonElement(jsonObj.get("socialProfileType"));
       }
   }
 

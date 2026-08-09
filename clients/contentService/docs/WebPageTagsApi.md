@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countWebPageTagsAsync"></a>
 # **countWebPageTagsAsync**
-> Int32Envelope countWebPageTagsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countWebPageTagsAsync(tenantId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters)
 
 Count web page tags
 
@@ -39,8 +39,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebPageTagDtoCollectionQueryParameters webPageTagDtoCollectionQueryParameters = new WebPageTagDtoCollectionQueryParameters(); // WebPageTagDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countWebPageTagsAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countWebPageTagsAsync(tenantId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebPageTagsApi#countWebPageTagsAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webPageTagDtoCollectionQueryParameters** | [**WebPageTagDtoCollectionQueryParameters**](WebPageTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getWebPageTagsAsync"></a>
 # **getWebPageTagsAsync**
-> WebPageTagDtoListEnvelope getWebPageTagsAsync(tenantId, apiVersion, xApiVersion)
+> WebPageTagDtoListEnvelope getWebPageTagsAsync(tenantId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters)
 
 Get web page tags
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    WebPageTagDtoCollectionQueryParameters webPageTagDtoCollectionQueryParameters = new WebPageTagDtoCollectionQueryParameters(); // WebPageTagDtoCollectionQueryParameters | 
     try {
-      WebPageTagDtoListEnvelope result = apiInstance.getWebPageTagsAsync(tenantId, apiVersion, xApiVersion);
+      WebPageTagDtoListEnvelope result = apiInstance.getWebPageTagsAsync(tenantId, apiVersion, xApiVersion, webPageTagDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebPageTagsApi#getWebPageTagsAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **webPageTagDtoCollectionQueryParameters** | [**WebPageTagDtoCollectionQueryParameters**](WebPageTagDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchWebPageTagAsync"></a>
 # **patchWebPageTagAsync**
-> EmptyEnvelope patchWebPageTagAsync(tenantId, webPageTagId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchWebPageTagAsync(tenantId, webPageTagId, apiVersion, xApiVersion, patchOperation)
 
 Patch a web page tag
 
@@ -386,9 +390,9 @@ public class Example {
     UUID webPageTagId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchWebPageTagAsync(tenantId, webPageTagId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchWebPageTagAsync(tenantId, webPageTagId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebPageTagsApi#patchWebPageTagAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **webPageTagId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

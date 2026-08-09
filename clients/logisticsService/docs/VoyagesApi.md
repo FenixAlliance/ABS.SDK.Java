@@ -511,7 +511,7 @@ No authorization required
 
 <a id="getVoyagePortCallsAsync"></a>
 # **getVoyagePortCallsAsync**
-> VoyagePortCallDtoListEnvelope getVoyagePortCallsAsync(tenantId, voyageId, apiVersion, xApiVersion)
+> VoyagePortCallDtoListEnvelope getVoyagePortCallsAsync(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters)
 
 Get voyage port calls
 
@@ -536,8 +536,9 @@ public class Example {
     UUID voyageId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters = new VoyagePortCallDtoCollectionQueryParameters(); // VoyagePortCallDtoCollectionQueryParameters | 
     try {
-      VoyagePortCallDtoListEnvelope result = apiInstance.getVoyagePortCallsAsync(tenantId, voyageId, apiVersion, xApiVersion);
+      VoyagePortCallDtoListEnvelope result = apiInstance.getVoyagePortCallsAsync(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VoyagesApi#getVoyagePortCallsAsync");
@@ -558,6 +559,7 @@ public class Example {
 | **voyageId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **voyagePortCallDtoCollectionQueryParameters** | [**VoyagePortCallDtoCollectionQueryParameters**](VoyagePortCallDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -569,7 +571,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -580,7 +582,7 @@ No authorization required
 
 <a id="getVoyagePortCallsCountAsync"></a>
 # **getVoyagePortCallsCountAsync**
-> Int32Envelope getVoyagePortCallsCountAsync(tenantId, voyageId, apiVersion, xApiVersion)
+> Int32Envelope getVoyagePortCallsCountAsync(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters)
 
 Get voyage port calls count
 
@@ -605,8 +607,9 @@ public class Example {
     UUID voyageId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    VoyagePortCallDtoCollectionQueryParameters voyagePortCallDtoCollectionQueryParameters = new VoyagePortCallDtoCollectionQueryParameters(); // VoyagePortCallDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getVoyagePortCallsCountAsync(tenantId, voyageId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getVoyagePortCallsCountAsync(tenantId, voyageId, apiVersion, xApiVersion, voyagePortCallDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VoyagesApi#getVoyagePortCallsCountAsync");
@@ -627,6 +630,7 @@ public class Example {
 | **voyageId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **voyagePortCallDtoCollectionQueryParameters** | [**VoyagePortCallDtoCollectionQueryParameters**](VoyagePortCallDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -638,7 +642,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -649,7 +653,7 @@ No authorization required
 
 <a id="getVoyagesAsync"></a>
 # **getVoyagesAsync**
-> VoyageDtoListEnvelope getVoyagesAsync(tenantId, apiVersion, xApiVersion)
+> VoyageDtoListEnvelope getVoyagesAsync(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters)
 
 Get all voyages
 
@@ -673,8 +677,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters = new VoyageDtoCollectionQueryParameters(); // VoyageDtoCollectionQueryParameters | 
     try {
-      VoyageDtoListEnvelope result = apiInstance.getVoyagesAsync(tenantId, apiVersion, xApiVersion);
+      VoyageDtoListEnvelope result = apiInstance.getVoyagesAsync(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VoyagesApi#getVoyagesAsync");
@@ -694,6 +699,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **voyageDtoCollectionQueryParameters** | [**VoyageDtoCollectionQueryParameters**](VoyageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -705,7 +711,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -717,7 +723,7 @@ No authorization required
 
 <a id="getVoyagesCountAsync"></a>
 # **getVoyagesCountAsync**
-> Int32Envelope getVoyagesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getVoyagesCountAsync(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters)
 
 Get voyages count
 
@@ -741,8 +747,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    VoyageDtoCollectionQueryParameters voyageDtoCollectionQueryParameters = new VoyageDtoCollectionQueryParameters(); // VoyageDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getVoyagesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getVoyagesCountAsync(tenantId, apiVersion, xApiVersion, voyageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VoyagesApi#getVoyagesCountAsync");
@@ -762,6 +769,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **voyageDtoCollectionQueryParameters** | [**VoyageDtoCollectionQueryParameters**](VoyageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -773,7 +781,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -784,7 +792,7 @@ No authorization required
 
 <a id="patchVoyageAsync"></a>
 # **patchVoyageAsync**
-> EmptyEnvelope patchVoyageAsync(tenantId, voyageId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchVoyageAsync(tenantId, voyageId, apiVersion, xApiVersion, patchOperation)
 
 Patch a voyage
 
@@ -809,9 +817,9 @@ public class Example {
     UUID voyageId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchVoyageAsync(tenantId, voyageId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchVoyageAsync(tenantId, voyageId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VoyagesApi#patchVoyageAsync");
@@ -832,7 +840,7 @@ public class Example {
 | **voyageId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -857,7 +865,7 @@ No authorization required
 
 <a id="patchVoyagePortCallAsync"></a>
 # **patchVoyagePortCallAsync**
-> EmptyEnvelope patchVoyagePortCallAsync(tenantId, voyageId, portCallId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchVoyagePortCallAsync(tenantId, voyageId, portCallId, apiVersion, xApiVersion, patchOperation)
 
 Patch a voyage port call
 
@@ -883,9 +891,9 @@ public class Example {
     UUID portCallId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchVoyagePortCallAsync(tenantId, voyageId, portCallId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchVoyagePortCallAsync(tenantId, voyageId, portCallId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VoyagesApi#patchVoyagePortCallAsync");
@@ -907,7 +915,7 @@ public class Example {
 | **portCallId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

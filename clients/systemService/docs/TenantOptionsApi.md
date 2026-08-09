@@ -229,7 +229,7 @@ No authorization required
 
 <a id="getSystemTenantOptions"></a>
 # **getSystemTenantOptions**
-> OptionDtoListEnvelope getSystemTenantOptions(tenantId, portalId, apiVersion, xApiVersion)
+> OptionDtoListEnvelope getSystemTenantOptions(tenantId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
 
 Retrieve a list of tenant options (admin)
 
@@ -254,8 +254,9 @@ public class Example {
     UUID portalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters = new OptionDtoCollectionQueryParameters(); // OptionDtoCollectionQueryParameters | 
     try {
-      OptionDtoListEnvelope result = apiInstance.getSystemTenantOptions(tenantId, portalId, apiVersion, xApiVersion);
+      OptionDtoListEnvelope result = apiInstance.getSystemTenantOptions(tenantId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantOptionsApi#getSystemTenantOptions");
@@ -276,6 +277,7 @@ public class Example {
 | **portalId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -287,7 +289,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -299,7 +301,7 @@ No authorization required
 
 <a id="getSystemTenantOptionsCount"></a>
 # **getSystemTenantOptionsCount**
-> Int32Envelope getSystemTenantOptionsCount(tenantId, portalId, apiVersion, xApiVersion)
+> Int32Envelope getSystemTenantOptionsCount(tenantId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters)
 
 Get the count of tenant options (admin)
 
@@ -324,8 +326,9 @@ public class Example {
     UUID portalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    OptionDtoCollectionQueryParameters optionDtoCollectionQueryParameters = new OptionDtoCollectionQueryParameters(); // OptionDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSystemTenantOptionsCount(tenantId, portalId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSystemTenantOptionsCount(tenantId, portalId, apiVersion, xApiVersion, optionDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantOptionsApi#getSystemTenantOptionsCount");
@@ -346,6 +349,7 @@ public class Example {
 | **portalId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **optionDtoCollectionQueryParameters** | [**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -357,7 +361,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -369,7 +373,7 @@ No authorization required
 
 <a id="patchSystemTenantOption"></a>
 # **patchSystemTenantOption**
-> EmptyEnvelope patchSystemTenantOption(tenantId, optionId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchSystemTenantOption(tenantId, optionId, apiVersion, xApiVersion, patchOperation)
 
 Partially update a tenant option (admin)
 
@@ -394,9 +398,9 @@ public class Example {
     UUID optionId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchSystemTenantOption(tenantId, optionId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchSystemTenantOption(tenantId, optionId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantOptionsApi#patchSystemTenantOption");
@@ -417,7 +421,7 @@ public class Example {
 | **optionId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

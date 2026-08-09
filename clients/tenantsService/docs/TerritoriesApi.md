@@ -155,7 +155,7 @@ No authorization required
 
 <a id="getTenantTerritories"></a>
 # **getTenantTerritories**
-> TenantTerritoryDtoListEnvelope getTenantTerritories(tenantId, apiVersion, xApiVersion)
+> TenantTerritoryDtoListEnvelope getTenantTerritories(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters)
 
 Retrieve a list of tenant territories
 
@@ -179,8 +179,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters = new TenantTerritoryDtoCollectionQueryParameters(); // TenantTerritoryDtoCollectionQueryParameters | 
     try {
-      TenantTerritoryDtoListEnvelope result = apiInstance.getTenantTerritories(tenantId, apiVersion, xApiVersion);
+      TenantTerritoryDtoListEnvelope result = apiInstance.getTenantTerritories(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TerritoriesApi#getTenantTerritories");
@@ -200,6 +201,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantTerritoryDtoCollectionQueryParameters** | [**TenantTerritoryDtoCollectionQueryParameters**](TenantTerritoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -211,7 +213,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -223,7 +225,7 @@ No authorization required
 
 <a id="getTenantTerritoriesCount"></a>
 # **getTenantTerritoriesCount**
-> Int32Envelope getTenantTerritoriesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantTerritoriesCount(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters)
 
 Get the count of tenant territories
 
@@ -247,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantTerritoryDtoCollectionQueryParameters tenantTerritoryDtoCollectionQueryParameters = new TenantTerritoryDtoCollectionQueryParameters(); // TenantTerritoryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantTerritoriesCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantTerritoriesCount(tenantId, apiVersion, xApiVersion, tenantTerritoryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TerritoriesApi#getTenantTerritoriesCount");
@@ -268,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantTerritoryDtoCollectionQueryParameters** | [**TenantTerritoryDtoCollectionQueryParameters**](TenantTerritoryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchTenantTerritory"></a>
 # **patchTenantTerritory**
-> EmptyEnvelope patchTenantTerritory(tenantId, tenantTerritoryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantTerritory(tenantId, tenantTerritoryId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant territory
 
@@ -386,9 +390,9 @@ public class Example {
     UUID tenantTerritoryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantTerritory(tenantId, tenantTerritoryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantTerritory(tenantId, tenantTerritoryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TerritoriesApi#patchTenantTerritory");
@@ -409,7 +413,7 @@ public class Example {
 | **tenantTerritoryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

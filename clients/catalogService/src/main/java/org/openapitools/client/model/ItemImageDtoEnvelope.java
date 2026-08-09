@@ -22,6 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.openapitools.client.model.ItemImageDto;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -51,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemImageDtoEnvelope
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:59:28.456266300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:27:00.581507700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemImageDtoEnvelope {
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)
@@ -68,6 +71,18 @@ public class ItemImageDtoEnvelope {
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
+
+  public static final String SERIALIZED_NAME_HTTP_STATUS = "httpStatus";
+  @SerializedName(SERIALIZED_NAME_HTTP_STATUS)
+  private Integer httpStatus;
+
+  public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
+  @SerializedName(SERIALIZED_NAME_ERROR_CODE)
+  private String errorCode;
+
+  public static final String SERIALIZED_NAME_VALIDATION_DETAILS = "validationDetails";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_DETAILS)
+  private Map<String, List<String>> validationDetails;
 
   public static final String SERIALIZED_NAME_ACTIVITY_ID = "activityId";
   @SerializedName(SERIALIZED_NAME_ACTIVITY_ID)
@@ -151,6 +166,71 @@ public class ItemImageDtoEnvelope {
 
 
 
+  public ItemImageDtoEnvelope httpStatus(Integer httpStatus) {
+    this.httpStatus = httpStatus;
+    return this;
+  }
+
+  /**
+   * Get httpStatus
+   * @return httpStatus
+   */
+  @javax.annotation.Nullable
+  public Integer getHttpStatus() {
+    return httpStatus;
+  }
+
+  public void setHttpStatus(Integer httpStatus) {
+    this.httpStatus = httpStatus;
+  }
+
+
+  public ItemImageDtoEnvelope errorCode(String errorCode) {
+    this.errorCode = errorCode;
+    return this;
+  }
+
+  /**
+   * Get errorCode
+   * @return errorCode
+   */
+  @javax.annotation.Nullable
+  public String getErrorCode() {
+    return errorCode;
+  }
+
+  public void setErrorCode(String errorCode) {
+    this.errorCode = errorCode;
+  }
+
+
+  public ItemImageDtoEnvelope validationDetails(Map<String, List<String>> validationDetails) {
+    this.validationDetails = validationDetails;
+    return this;
+  }
+
+  public ItemImageDtoEnvelope putValidationDetailsItem(String key, List<String> validationDetailsItem) {
+    if (this.validationDetails == null) {
+      this.validationDetails = new HashMap<>();
+    }
+    this.validationDetails.put(key, validationDetailsItem);
+    return this;
+  }
+
+  /**
+   * Get validationDetails
+   * @return validationDetails
+   */
+  @javax.annotation.Nullable
+  public Map<String, List<String>> getValidationDetails() {
+    return validationDetails;
+  }
+
+  public void setValidationDetails(Map<String, List<String>> validationDetails) {
+    this.validationDetails = validationDetails;
+  }
+
+
   /**
    * Get activityId
    * @return activityId
@@ -195,6 +275,9 @@ public class ItemImageDtoEnvelope {
         Objects.equals(this.errorMessage, itemImageDtoEnvelope.errorMessage) &&
         Objects.equals(this.correlationId, itemImageDtoEnvelope.correlationId) &&
         Objects.equals(this.timestamp, itemImageDtoEnvelope.timestamp) &&
+        Objects.equals(this.httpStatus, itemImageDtoEnvelope.httpStatus) &&
+        Objects.equals(this.errorCode, itemImageDtoEnvelope.errorCode) &&
+        Objects.equals(this.validationDetails, itemImageDtoEnvelope.validationDetails) &&
         Objects.equals(this.activityId, itemImageDtoEnvelope.activityId) &&
         Objects.equals(this.result, itemImageDtoEnvelope.result);
   }
@@ -205,7 +288,7 @@ public class ItemImageDtoEnvelope {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isSuccess, errorMessage, correlationId, timestamp, activityId, result);
+    return Objects.hash(isSuccess, errorMessage, correlationId, timestamp, httpStatus, errorCode, validationDetails, activityId, result);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -223,6 +306,9 @@ public class ItemImageDtoEnvelope {
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    correlationId: ").append(toIndentedString(correlationId)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    httpStatus: ").append(toIndentedString(httpStatus)).append("\n");
+    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+    sb.append("    validationDetails: ").append(toIndentedString(validationDetails)).append("\n");
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
@@ -251,6 +337,9 @@ public class ItemImageDtoEnvelope {
     openapiFields.add("errorMessage");
     openapiFields.add("correlationId");
     openapiFields.add("timestamp");
+    openapiFields.add("httpStatus");
+    openapiFields.add("errorCode");
+    openapiFields.add("validationDetails");
     openapiFields.add("activityId");
     openapiFields.add("result");
 
@@ -284,6 +373,9 @@ public class ItemImageDtoEnvelope {
       }
       if ((jsonObj.get("correlationId") != null && !jsonObj.get("correlationId").isJsonNull()) && !jsonObj.get("correlationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `correlationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("correlationId").toString()));
+      }
+      if ((jsonObj.get("errorCode") != null && !jsonObj.get("errorCode").isJsonNull()) && !jsonObj.get("errorCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `errorCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorCode").toString()));
       }
       if ((jsonObj.get("activityId") != null && !jsonObj.get("activityId").isJsonNull()) && !jsonObj.get("activityId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `activityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("activityId").toString()));

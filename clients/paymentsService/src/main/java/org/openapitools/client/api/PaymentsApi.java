@@ -29,8 +29,9 @@ import java.io.IOException;
 
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.PaymentCreateDto;
+import org.openapitools.client.model.PaymentDtoCollectionQueryParameters;
 import org.openapitools.client.model.PaymentDtoListEnvelope;
 import org.openapitools.client.model.PaymentUpdateDto;
 import java.util.UUID;
@@ -674,6 +675,7 @@ public class PaymentsApi {
     /**
      * Build call for getPaymentsAsync
      * @param tenantId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -686,7 +688,7 @@ public class PaymentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPaymentsAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPaymentsAsyncCall(UUID tenantId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -700,7 +702,7 @@ public class PaymentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = paymentDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/PaymentsService/Payments";
@@ -725,6 +727,8 @@ public class PaymentsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -736,13 +740,13 @@ public class PaymentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPaymentsAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPaymentsAsyncValidateBeforeCall(UUID tenantId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPaymentsAsync(Async)");
         }
 
-        return getPaymentsAsyncCall(tenantId, _callback);
+        return getPaymentsAsyncCall(tenantId, paymentDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -750,6 +754,7 @@ public class PaymentsApi {
      * Retrieves all payments
      * Gets all payments for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return PaymentDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -761,8 +766,8 @@ public class PaymentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentDtoListEnvelope getPaymentsAsync(UUID tenantId) throws ApiException {
-        ApiResponse<PaymentDtoListEnvelope> localVarResp = getPaymentsAsyncWithHttpInfo(tenantId);
+    public PaymentDtoListEnvelope getPaymentsAsync(UUID tenantId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<PaymentDtoListEnvelope> localVarResp = getPaymentsAsyncWithHttpInfo(tenantId, paymentDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -770,6 +775,7 @@ public class PaymentsApi {
      * Retrieves all payments
      * Gets all payments for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;PaymentDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -781,8 +787,8 @@ public class PaymentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentDtoListEnvelope> getPaymentsAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getPaymentsAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<PaymentDtoListEnvelope> getPaymentsAsyncWithHttpInfo(UUID tenantId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getPaymentsAsyncValidateBeforeCall(tenantId, paymentDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<PaymentDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -791,6 +797,7 @@ public class PaymentsApi {
      * Retrieves all payments (asynchronously)
      * Gets all payments for the current tenant with OData support.
      * @param tenantId  (required)
+     * @param paymentDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -803,9 +810,9 @@ public class PaymentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPaymentsAsyncAsync(UUID tenantId, final ApiCallback<PaymentDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getPaymentsAsyncAsync(UUID tenantId, PaymentDtoCollectionQueryParameters paymentDtoCollectionQueryParameters, final ApiCallback<PaymentDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPaymentsAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getPaymentsAsyncValidateBeforeCall(tenantId, paymentDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<PaymentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -814,7 +821,7 @@ public class PaymentsApi {
      * Build call for patchPaymentAsync
      * @param tenantId  (required)
      * @param paymentId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -826,7 +833,7 @@ public class PaymentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPaymentAsyncCall(UUID tenantId, UUID paymentId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchPaymentAsyncCall(UUID tenantId, UUID paymentId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -840,7 +847,7 @@ public class PaymentsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/PaymentsService/Payments/{paymentId}"
@@ -879,7 +886,7 @@ public class PaymentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchPaymentAsyncValidateBeforeCall(UUID tenantId, UUID paymentId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPaymentAsyncValidateBeforeCall(UUID tenantId, UUID paymentId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchPaymentAsync(Async)");
@@ -890,7 +897,7 @@ public class PaymentsApi {
             throw new ApiException("Missing the required parameter 'paymentId' when calling patchPaymentAsync(Async)");
         }
 
-        return patchPaymentAsyncCall(tenantId, paymentId, operation, _callback);
+        return patchPaymentAsyncCall(tenantId, paymentId, patchOperation, _callback);
 
     }
 
@@ -899,7 +906,7 @@ public class PaymentsApi {
      * Patch a payment
      * @param tenantId  (required)
      * @param paymentId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -910,8 +917,8 @@ public class PaymentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchPaymentAsync(UUID tenantId, UUID paymentId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchPaymentAsyncWithHttpInfo(tenantId, paymentId, operation);
+    public EmptyEnvelope patchPaymentAsync(UUID tenantId, UUID paymentId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchPaymentAsyncWithHttpInfo(tenantId, paymentId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -920,7 +927,7 @@ public class PaymentsApi {
      * Patch a payment
      * @param tenantId  (required)
      * @param paymentId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -931,8 +938,8 @@ public class PaymentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchPaymentAsyncWithHttpInfo(UUID tenantId, UUID paymentId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchPaymentAsyncValidateBeforeCall(tenantId, paymentId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchPaymentAsyncWithHttpInfo(UUID tenantId, UUID paymentId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchPaymentAsyncValidateBeforeCall(tenantId, paymentId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -942,7 +949,7 @@ public class PaymentsApi {
      * Patch a payment
      * @param tenantId  (required)
      * @param paymentId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -954,9 +961,9 @@ public class PaymentsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchPaymentAsyncAsync(UUID tenantId, UUID paymentId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchPaymentAsyncAsync(UUID tenantId, UUID paymentId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchPaymentAsyncValidateBeforeCall(tenantId, paymentId, operation, _callback);
+        okhttp3.Call localVarCall = patchPaymentAsyncValidateBeforeCall(tenantId, paymentId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

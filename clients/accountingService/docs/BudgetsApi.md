@@ -305,7 +305,7 @@ No authorization required
 
 <a id="getBudgetAccountEntriesCollectionAsync"></a>
 # **getBudgetAccountEntriesCollectionAsync**
-> BudgetAccountEntryDtoIReadOnlyListEnvelope getBudgetAccountEntriesCollectionAsync(tenantId, budgetId, apiVersion, xApiVersion)
+> BudgetAccountEntryDtoIReadOnlyListEnvelope getBudgetAccountEntriesCollectionAsync(tenantId, budgetId, apiVersion, xApiVersion, budgetAccountEntryDtoCollectionQueryParameters)
 
 Gets all budget account entries
 
@@ -330,8 +330,9 @@ public class Example {
     UUID budgetId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BudgetAccountEntryDtoCollectionQueryParameters budgetAccountEntryDtoCollectionQueryParameters = new BudgetAccountEntryDtoCollectionQueryParameters(); // BudgetAccountEntryDtoCollectionQueryParameters | 
     try {
-      BudgetAccountEntryDtoIReadOnlyListEnvelope result = apiInstance.getBudgetAccountEntriesCollectionAsync(tenantId, budgetId, apiVersion, xApiVersion);
+      BudgetAccountEntryDtoIReadOnlyListEnvelope result = apiInstance.getBudgetAccountEntriesCollectionAsync(tenantId, budgetId, apiVersion, xApiVersion, budgetAccountEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BudgetsApi#getBudgetAccountEntriesCollectionAsync");
@@ -352,6 +353,7 @@ public class Example {
 | **budgetId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **budgetAccountEntryDtoCollectionQueryParameters** | [**BudgetAccountEntryDtoCollectionQueryParameters**](BudgetAccountEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -363,7 +365,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -517,7 +519,7 @@ No authorization required
 
 <a id="getBudgetsAsync"></a>
 # **getBudgetsAsync**
-> BudgetDtoIReadOnlyListEnvelope getBudgetsAsync(tenantId, apiVersion, xApiVersion)
+> BudgetDtoIReadOnlyListEnvelope getBudgetsAsync(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters)
 
 Gets all budgets
 
@@ -541,8 +543,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters = new BudgetDtoCollectionQueryParameters(); // BudgetDtoCollectionQueryParameters | 
     try {
-      BudgetDtoIReadOnlyListEnvelope result = apiInstance.getBudgetsAsync(tenantId, apiVersion, xApiVersion);
+      BudgetDtoIReadOnlyListEnvelope result = apiInstance.getBudgetsAsync(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BudgetsApi#getBudgetsAsync");
@@ -562,6 +565,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **budgetDtoCollectionQueryParameters** | [**BudgetDtoCollectionQueryParameters**](BudgetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -573,7 +577,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -585,7 +589,7 @@ No authorization required
 
 <a id="getBudgetsCountAsync"></a>
 # **getBudgetsCountAsync**
-> Int32Envelope getBudgetsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getBudgetsCountAsync(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters)
 
 Get the count of budgets
 
@@ -609,8 +613,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters = new BudgetDtoCollectionQueryParameters(); // BudgetDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getBudgetsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBudgetsCountAsync(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BudgetsApi#getBudgetsCountAsync");
@@ -630,6 +635,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **budgetDtoCollectionQueryParameters** | [**BudgetDtoCollectionQueryParameters**](BudgetDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -641,7 +647,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -653,7 +659,7 @@ No authorization required
 
 <a id="patchBudgetAccountEntryAsync"></a>
 # **patchBudgetAccountEntryAsync**
-> EmptyEnvelope patchBudgetAccountEntryAsync(tenantId, budgetId, entryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBudgetAccountEntryAsync(tenantId, budgetId, entryId, apiVersion, xApiVersion, patchOperation)
 
 Patches a budget account entry
 
@@ -679,9 +685,9 @@ public class Example {
     UUID entryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBudgetAccountEntryAsync(tenantId, budgetId, entryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBudgetAccountEntryAsync(tenantId, budgetId, entryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BudgetsApi#patchBudgetAccountEntryAsync");
@@ -703,7 +709,7 @@ public class Example {
 | **entryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -728,7 +734,7 @@ No authorization required
 
 <a id="patchBudgetAsync"></a>
 # **patchBudgetAsync**
-> EmptyEnvelope patchBudgetAsync(tenantId, budgetId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchBudgetAsync(tenantId, budgetId, apiVersion, xApiVersion, patchOperation)
 
 Patches a budget
 
@@ -753,9 +759,9 @@ public class Example {
     UUID budgetId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchBudgetAsync(tenantId, budgetId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchBudgetAsync(tenantId, budgetId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BudgetsApi#patchBudgetAsync");
@@ -776,7 +782,7 @@ public class Example {
 | **budgetId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

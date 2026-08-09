@@ -29,16 +29,18 @@ import java.io.IOException;
 
 import org.openapitools.client.model.BlockchainBlockCreateDto;
 import org.openapitools.client.model.BlockchainBlockDto;
+import org.openapitools.client.model.BlockchainBlockDtoCollectionQueryParameters;
 import org.openapitools.client.model.BlockchainBlockDtoListEnvelope;
 import org.openapitools.client.model.BlockchainBlockUpdateDto;
 import org.openapitools.client.model.BlockchainCreateDto;
 import org.openapitools.client.model.BlockchainDto;
+import org.openapitools.client.model.BlockchainDtoCollectionQueryParameters;
 import org.openapitools.client.model.BlockchainDtoListEnvelope;
 import org.openapitools.client.model.BlockchainUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -873,6 +875,7 @@ public class BlockchainsApi {
      * @param blockchainId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -882,7 +885,7 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlockchainBlocksAsyncCall(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBlockchainBlocksAsyncCall(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -896,7 +899,7 @@ public class BlockchainsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blockchainBlockDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/BlockchainsService/Blockchains/{blockchainId}/Blocks"
@@ -930,6 +933,8 @@ public class BlockchainsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -941,7 +946,7 @@ public class BlockchainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBlockchainBlocksAsyncValidateBeforeCall(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBlockchainBlocksAsyncValidateBeforeCall(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBlockchainBlocksAsync(Async)");
@@ -952,7 +957,7 @@ public class BlockchainsApi {
             throw new ApiException("Missing the required parameter 'blockchainId' when calling getBlockchainBlocksAsync(Async)");
         }
 
-        return getBlockchainBlocksAsyncCall(tenantId, blockchainId, apiVersion, xApiVersion, _callback);
+        return getBlockchainBlocksAsyncCall(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -963,6 +968,7 @@ public class BlockchainsApi {
      * @param blockchainId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @return BlockchainBlockDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -971,8 +977,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BlockchainBlockDtoListEnvelope getBlockchainBlocksAsync(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BlockchainBlockDtoListEnvelope> localVarResp = getBlockchainBlocksAsyncWithHttpInfo(tenantId, blockchainId, apiVersion, xApiVersion);
+    public BlockchainBlockDtoListEnvelope getBlockchainBlocksAsync(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BlockchainBlockDtoListEnvelope> localVarResp = getBlockchainBlocksAsyncWithHttpInfo(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -983,6 +989,7 @@ public class BlockchainsApi {
      * @param blockchainId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BlockchainBlockDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -991,8 +998,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BlockchainBlockDtoListEnvelope> getBlockchainBlocksAsyncWithHttpInfo(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBlockchainBlocksAsyncValidateBeforeCall(tenantId, blockchainId, apiVersion, xApiVersion, null);
+    public ApiResponse<BlockchainBlockDtoListEnvelope> getBlockchainBlocksAsyncWithHttpInfo(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBlockchainBlocksAsyncValidateBeforeCall(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BlockchainBlockDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1004,6 +1011,7 @@ public class BlockchainsApi {
      * @param blockchainId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1013,9 +1021,9 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlockchainBlocksAsyncAsync(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, final ApiCallback<BlockchainBlockDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBlockchainBlocksAsyncAsync(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters, final ApiCallback<BlockchainBlockDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBlockchainBlocksAsyncValidateBeforeCall(tenantId, blockchainId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBlockchainBlocksAsyncValidateBeforeCall(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BlockchainBlockDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1026,6 +1034,7 @@ public class BlockchainsApi {
      * @param blockchainId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1035,7 +1044,7 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlockchainBlocksCountAsyncCall(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBlockchainBlocksCountAsyncCall(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1049,7 +1058,7 @@ public class BlockchainsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blockchainBlockDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/BlockchainsService/Blockchains/{blockchainId}/Blocks/Count"
@@ -1083,6 +1092,8 @@ public class BlockchainsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1094,7 +1105,7 @@ public class BlockchainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBlockchainBlocksCountAsyncValidateBeforeCall(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBlockchainBlocksCountAsyncValidateBeforeCall(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBlockchainBlocksCountAsync(Async)");
@@ -1105,7 +1116,7 @@ public class BlockchainsApi {
             throw new ApiException("Missing the required parameter 'blockchainId' when calling getBlockchainBlocksCountAsync(Async)");
         }
 
-        return getBlockchainBlocksCountAsyncCall(tenantId, blockchainId, apiVersion, xApiVersion, _callback);
+        return getBlockchainBlocksCountAsyncCall(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1116,6 +1127,7 @@ public class BlockchainsApi {
      * @param blockchainId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1124,8 +1136,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBlockchainBlocksCountAsync(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBlockchainBlocksCountAsyncWithHttpInfo(tenantId, blockchainId, apiVersion, xApiVersion);
+    public Int32Envelope getBlockchainBlocksCountAsync(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBlockchainBlocksCountAsyncWithHttpInfo(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1136,6 +1148,7 @@ public class BlockchainsApi {
      * @param blockchainId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1144,8 +1157,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBlockchainBlocksCountAsyncWithHttpInfo(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBlockchainBlocksCountAsyncValidateBeforeCall(tenantId, blockchainId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBlockchainBlocksCountAsyncWithHttpInfo(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBlockchainBlocksCountAsyncValidateBeforeCall(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1157,6 +1170,7 @@ public class BlockchainsApi {
      * @param blockchainId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainBlockDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1166,9 +1180,9 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlockchainBlocksCountAsyncAsync(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBlockchainBlocksCountAsyncAsync(UUID tenantId, UUID blockchainId, String apiVersion, String xApiVersion, BlockchainBlockDtoCollectionQueryParameters blockchainBlockDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBlockchainBlocksCountAsyncValidateBeforeCall(tenantId, blockchainId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBlockchainBlocksCountAsyncValidateBeforeCall(tenantId, blockchainId, apiVersion, xApiVersion, blockchainBlockDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1339,6 +1353,7 @@ public class BlockchainsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1349,7 +1364,7 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlockchainsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBlockchainsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1363,7 +1378,7 @@ public class BlockchainsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blockchainDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/BlockchainsService/Blockchains";
@@ -1396,6 +1411,8 @@ public class BlockchainsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1407,13 +1424,13 @@ public class BlockchainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBlockchainsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBlockchainsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBlockchainsAsync(Async)");
         }
 
-        return getBlockchainsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBlockchainsAsyncCall(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1423,6 +1440,7 @@ public class BlockchainsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @return BlockchainDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1432,8 +1450,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BlockchainDtoListEnvelope getBlockchainsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BlockchainDtoListEnvelope> localVarResp = getBlockchainsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public BlockchainDtoListEnvelope getBlockchainsAsync(UUID tenantId, String apiVersion, String xApiVersion, BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BlockchainDtoListEnvelope> localVarResp = getBlockchainsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1443,6 +1461,7 @@ public class BlockchainsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BlockchainDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1452,8 +1471,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BlockchainDtoListEnvelope> getBlockchainsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBlockchainsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<BlockchainDtoListEnvelope> getBlockchainsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBlockchainsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BlockchainDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1464,6 +1483,7 @@ public class BlockchainsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1474,9 +1494,9 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlockchainsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<BlockchainDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBlockchainsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters, final ApiCallback<BlockchainDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBlockchainsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBlockchainsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BlockchainDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1486,6 +1506,7 @@ public class BlockchainsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1496,7 +1517,7 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlockchainsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBlockchainsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1510,7 +1531,7 @@ public class BlockchainsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = blockchainDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/BlockchainsService/Blockchains/Count";
@@ -1543,6 +1564,8 @@ public class BlockchainsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1554,13 +1577,13 @@ public class BlockchainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBlockchainsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBlockchainsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBlockchainsCountAsync(Async)");
         }
 
-        return getBlockchainsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBlockchainsCountAsyncCall(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1570,6 +1593,7 @@ public class BlockchainsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1579,8 +1603,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBlockchainsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBlockchainsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getBlockchainsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBlockchainsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1590,6 +1614,7 @@ public class BlockchainsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1599,8 +1624,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBlockchainsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBlockchainsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBlockchainsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBlockchainsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1611,6 +1636,7 @@ public class BlockchainsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param blockchainDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1621,9 +1647,9 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBlockchainsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBlockchainsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BlockchainDtoCollectionQueryParameters blockchainDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBlockchainsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBlockchainsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, blockchainDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1634,7 +1660,7 @@ public class BlockchainsApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1646,7 +1672,7 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBlockchainAsyncCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBlockchainAsyncCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1660,7 +1686,7 @@ public class BlockchainsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/BlockchainsService/Blockchains/{id}"
@@ -1707,7 +1733,7 @@ public class BlockchainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBlockchainAsyncValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBlockchainAsyncValidateBeforeCall(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBlockchainAsync(Async)");
@@ -1718,7 +1744,7 @@ public class BlockchainsApi {
             throw new ApiException("Missing the required parameter 'id' when calling patchBlockchainAsync(Async)");
         }
 
-        return patchBlockchainAsyncCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        return patchBlockchainAsyncCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1729,7 +1755,7 @@ public class BlockchainsApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1740,8 +1766,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBlockchainAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBlockchainAsyncWithHttpInfo(tenantId, id, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBlockchainAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBlockchainAsyncWithHttpInfo(tenantId, id, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1752,7 +1778,7 @@ public class BlockchainsApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1763,8 +1789,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBlockchainAsyncWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBlockchainAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBlockchainAsyncWithHttpInfo(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBlockchainAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1776,7 +1802,7 @@ public class BlockchainsApi {
      * @param id  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1788,9 +1814,9 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBlockchainAsyncAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBlockchainAsyncAsync(UUID tenantId, UUID id, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBlockchainAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBlockchainAsyncValidateBeforeCall(tenantId, id, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1802,7 +1828,7 @@ public class BlockchainsApi {
      * @param blockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1814,7 +1840,7 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBlockchainBlockAsyncCall(UUID tenantId, UUID blockchainId, UUID blockId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBlockchainBlockAsyncCall(UUID tenantId, UUID blockchainId, UUID blockId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1828,7 +1854,7 @@ public class BlockchainsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/BlockchainsService/Blockchains/{blockchainId}/Blocks/{blockId}"
@@ -1876,7 +1902,7 @@ public class BlockchainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBlockchainBlockAsyncValidateBeforeCall(UUID tenantId, UUID blockchainId, UUID blockId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBlockchainBlockAsyncValidateBeforeCall(UUID tenantId, UUID blockchainId, UUID blockId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBlockchainBlockAsync(Async)");
@@ -1892,7 +1918,7 @@ public class BlockchainsApi {
             throw new ApiException("Missing the required parameter 'blockId' when calling patchBlockchainBlockAsync(Async)");
         }
 
-        return patchBlockchainBlockAsyncCall(tenantId, blockchainId, blockId, apiVersion, xApiVersion, operation, _callback);
+        return patchBlockchainBlockAsyncCall(tenantId, blockchainId, blockId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1904,7 +1930,7 @@ public class BlockchainsApi {
      * @param blockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1915,8 +1941,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBlockchainBlockAsync(UUID tenantId, UUID blockchainId, UUID blockId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBlockchainBlockAsyncWithHttpInfo(tenantId, blockchainId, blockId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBlockchainBlockAsync(UUID tenantId, UUID blockchainId, UUID blockId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBlockchainBlockAsyncWithHttpInfo(tenantId, blockchainId, blockId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1928,7 +1954,7 @@ public class BlockchainsApi {
      * @param blockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1939,8 +1965,8 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBlockchainBlockAsyncWithHttpInfo(UUID tenantId, UUID blockchainId, UUID blockId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBlockchainBlockAsyncValidateBeforeCall(tenantId, blockchainId, blockId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBlockchainBlockAsyncWithHttpInfo(UUID tenantId, UUID blockchainId, UUID blockId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBlockchainBlockAsyncValidateBeforeCall(tenantId, blockchainId, blockId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1953,7 +1979,7 @@ public class BlockchainsApi {
      * @param blockId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1965,9 +1991,9 @@ public class BlockchainsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBlockchainBlockAsyncAsync(UUID tenantId, UUID blockchainId, UUID blockId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBlockchainBlockAsyncAsync(UUID tenantId, UUID blockchainId, UUID blockId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBlockchainBlockAsyncValidateBeforeCall(tenantId, blockchainId, blockId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBlockchainBlockAsyncValidateBeforeCall(tenantId, blockchainId, blockId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

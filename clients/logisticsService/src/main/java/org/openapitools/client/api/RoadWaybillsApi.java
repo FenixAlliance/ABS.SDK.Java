@@ -30,13 +30,15 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.RoadWaybillCreateDto;
+import org.openapitools.client.model.RoadWaybillDtoCollectionQueryParameters;
 import org.openapitools.client.model.RoadWaybillDtoEnvelope;
 import org.openapitools.client.model.RoadWaybillDtoListEnvelope;
 import org.openapitools.client.model.RoadWaybillUpdateDto;
 import java.util.UUID;
 import org.openapitools.client.model.WaybillLineCreateDto;
+import org.openapitools.client.model.WaybillLineDtoCollectionQueryParameters;
 import org.openapitools.client.model.WaybillLineDtoListEnvelope;
 import org.openapitools.client.model.WaybillLineUpdateDto;
 
@@ -1033,6 +1035,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1043,7 +1046,7 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoadWaybillLinesAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRoadWaybillLinesAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1057,7 +1060,7 @@ public class RoadWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = waybillLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RoadWaybills/{waybillId}/Lines"
@@ -1091,6 +1094,8 @@ public class RoadWaybillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1102,7 +1107,7 @@ public class RoadWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRoadWaybillLinesAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRoadWaybillLinesAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRoadWaybillLinesAsync(Async)");
@@ -1113,7 +1118,7 @@ public class RoadWaybillsApi {
             throw new ApiException("Missing the required parameter 'waybillId' when calling getRoadWaybillLinesAsync(Async)");
         }
 
-        return getRoadWaybillLinesAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, _callback);
+        return getRoadWaybillLinesAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1124,6 +1129,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return WaybillLineDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1133,8 +1139,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WaybillLineDtoListEnvelope getRoadWaybillLinesAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WaybillLineDtoListEnvelope> localVarResp = getRoadWaybillLinesAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion);
+    public WaybillLineDtoListEnvelope getRoadWaybillLinesAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<WaybillLineDtoListEnvelope> localVarResp = getRoadWaybillLinesAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1145,6 +1151,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;WaybillLineDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1154,8 +1161,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WaybillLineDtoListEnvelope> getRoadWaybillLinesAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRoadWaybillLinesAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, null);
+    public ApiResponse<WaybillLineDtoListEnvelope> getRoadWaybillLinesAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRoadWaybillLinesAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<WaybillLineDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1167,6 +1174,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1177,9 +1185,9 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoadWaybillLinesAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback<WaybillLineDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getRoadWaybillLinesAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback<WaybillLineDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRoadWaybillLinesAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRoadWaybillLinesAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<WaybillLineDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1190,6 +1198,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1200,7 +1209,7 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoadWaybillLinesCountAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRoadWaybillLinesCountAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1214,7 +1223,7 @@ public class RoadWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = waybillLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RoadWaybills/{waybillId}/Lines/Count"
@@ -1248,6 +1257,8 @@ public class RoadWaybillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1259,7 +1270,7 @@ public class RoadWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRoadWaybillLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRoadWaybillLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRoadWaybillLinesCountAsync(Async)");
@@ -1270,7 +1281,7 @@ public class RoadWaybillsApi {
             throw new ApiException("Missing the required parameter 'waybillId' when calling getRoadWaybillLinesCountAsync(Async)");
         }
 
-        return getRoadWaybillLinesCountAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, _callback);
+        return getRoadWaybillLinesCountAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1281,6 +1292,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1290,8 +1302,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getRoadWaybillLinesCountAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getRoadWaybillLinesCountAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion);
+    public Int32Envelope getRoadWaybillLinesCountAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getRoadWaybillLinesCountAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1302,6 +1314,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1311,8 +1324,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getRoadWaybillLinesCountAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRoadWaybillLinesCountAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getRoadWaybillLinesCountAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRoadWaybillLinesCountAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1324,6 +1337,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param waybillLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1334,9 +1348,9 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoadWaybillLinesCountAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getRoadWaybillLinesCountAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, WaybillLineDtoCollectionQueryParameters waybillLineDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRoadWaybillLinesCountAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRoadWaybillLinesCountAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, waybillLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1346,6 +1360,7 @@ public class RoadWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param roadWaybillDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1357,7 +1372,7 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoadWaybillsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRoadWaybillsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1371,7 +1386,7 @@ public class RoadWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = roadWaybillDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RoadWaybills";
@@ -1404,6 +1419,8 @@ public class RoadWaybillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1415,13 +1432,13 @@ public class RoadWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRoadWaybillsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRoadWaybillsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRoadWaybillsAsync(Async)");
         }
 
-        return getRoadWaybillsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getRoadWaybillsAsyncCall(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1431,6 +1448,7 @@ public class RoadWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param roadWaybillDtoCollectionQueryParameters  (optional)
      * @return RoadWaybillDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1441,8 +1459,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public RoadWaybillDtoListEnvelope getRoadWaybillsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<RoadWaybillDtoListEnvelope> localVarResp = getRoadWaybillsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public RoadWaybillDtoListEnvelope getRoadWaybillsAsync(UUID tenantId, String apiVersion, String xApiVersion, RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<RoadWaybillDtoListEnvelope> localVarResp = getRoadWaybillsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1452,6 +1470,7 @@ public class RoadWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param roadWaybillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;RoadWaybillDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1462,8 +1481,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RoadWaybillDtoListEnvelope> getRoadWaybillsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRoadWaybillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<RoadWaybillDtoListEnvelope> getRoadWaybillsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRoadWaybillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<RoadWaybillDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1474,6 +1493,7 @@ public class RoadWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param roadWaybillDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1485,9 +1505,9 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoadWaybillsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<RoadWaybillDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getRoadWaybillsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters, final ApiCallback<RoadWaybillDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRoadWaybillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRoadWaybillsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<RoadWaybillDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1497,6 +1517,7 @@ public class RoadWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param roadWaybillDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1507,7 +1528,7 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoadWaybillsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRoadWaybillsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1521,7 +1542,7 @@ public class RoadWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = roadWaybillDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RoadWaybills/Count";
@@ -1554,6 +1575,8 @@ public class RoadWaybillsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1565,13 +1588,13 @@ public class RoadWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRoadWaybillsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRoadWaybillsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRoadWaybillsCountAsync(Async)");
         }
 
-        return getRoadWaybillsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getRoadWaybillsCountAsyncCall(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1581,6 +1604,7 @@ public class RoadWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param roadWaybillDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1590,8 +1614,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getRoadWaybillsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getRoadWaybillsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getRoadWaybillsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getRoadWaybillsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1601,6 +1625,7 @@ public class RoadWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param roadWaybillDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1610,8 +1635,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getRoadWaybillsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRoadWaybillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getRoadWaybillsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRoadWaybillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1622,6 +1647,7 @@ public class RoadWaybillsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param roadWaybillDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1632,9 +1658,9 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoadWaybillsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getRoadWaybillsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, RoadWaybillDtoCollectionQueryParameters roadWaybillDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRoadWaybillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRoadWaybillsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, roadWaybillDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2116,7 +2142,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2127,7 +2153,7 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRoadWaybillAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchRoadWaybillAsyncCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2141,7 +2167,7 @@ public class RoadWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RoadWaybills/{waybillId}"
@@ -2188,7 +2214,7 @@ public class RoadWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchRoadWaybillAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchRoadWaybillAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchRoadWaybillAsync(Async)");
@@ -2199,7 +2225,7 @@ public class RoadWaybillsApi {
             throw new ApiException("Missing the required parameter 'waybillId' when calling patchRoadWaybillAsync(Async)");
         }
 
-        return patchRoadWaybillAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, operation, _callback);
+        return patchRoadWaybillAsyncCall(tenantId, waybillId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2210,7 +2236,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2220,8 +2246,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchRoadWaybillAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchRoadWaybillAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchRoadWaybillAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchRoadWaybillAsyncWithHttpInfo(tenantId, waybillId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2232,7 +2258,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2242,8 +2268,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchRoadWaybillAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchRoadWaybillAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchRoadWaybillAsyncWithHttpInfo(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchRoadWaybillAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2255,7 +2281,7 @@ public class RoadWaybillsApi {
      * @param waybillId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2266,9 +2292,9 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRoadWaybillAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchRoadWaybillAsyncAsync(UUID tenantId, UUID waybillId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchRoadWaybillAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchRoadWaybillAsyncValidateBeforeCall(tenantId, waybillId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2280,7 +2306,7 @@ public class RoadWaybillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2291,7 +2317,7 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRoadWaybillLineAsyncCall(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchRoadWaybillLineAsyncCall(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2305,7 +2331,7 @@ public class RoadWaybillsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/RoadWaybills/{waybillId}/Lines/{lineId}"
@@ -2353,7 +2379,7 @@ public class RoadWaybillsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchRoadWaybillLineAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchRoadWaybillLineAsyncValidateBeforeCall(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchRoadWaybillLineAsync(Async)");
@@ -2369,7 +2395,7 @@ public class RoadWaybillsApi {
             throw new ApiException("Missing the required parameter 'lineId' when calling patchRoadWaybillLineAsync(Async)");
         }
 
-        return patchRoadWaybillLineAsyncCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation, _callback);
+        return patchRoadWaybillLineAsyncCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -2381,7 +2407,7 @@ public class RoadWaybillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2391,8 +2417,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchRoadWaybillLineAsync(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchRoadWaybillLineAsyncWithHttpInfo(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchRoadWaybillLineAsync(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchRoadWaybillLineAsyncWithHttpInfo(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -2404,7 +2430,7 @@ public class RoadWaybillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2414,8 +2440,8 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchRoadWaybillLineAsyncWithHttpInfo(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchRoadWaybillLineAsyncValidateBeforeCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchRoadWaybillLineAsyncWithHttpInfo(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchRoadWaybillLineAsyncValidateBeforeCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2428,7 +2454,7 @@ public class RoadWaybillsApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2439,9 +2465,9 @@ public class RoadWaybillsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRoadWaybillLineAsyncAsync(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchRoadWaybillLineAsyncAsync(UUID tenantId, UUID waybillId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchRoadWaybillLineAsyncValidateBeforeCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchRoadWaybillLineAsyncValidateBeforeCall(tenantId, waybillId, lineId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

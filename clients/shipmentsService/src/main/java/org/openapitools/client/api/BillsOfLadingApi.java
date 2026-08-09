@@ -28,9 +28,11 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.BillOfLadingCreateDto;
+import org.openapitools.client.model.BillOfLadingDtoCollectionQueryParameters;
 import org.openapitools.client.model.BillOfLadingDtoEnvelope;
 import org.openapitools.client.model.BillOfLadingDtoListEnvelope;
 import org.openapitools.client.model.BillOfLadingLineCreateDto;
+import org.openapitools.client.model.BillOfLadingLineDtoCollectionQueryParameters;
 import org.openapitools.client.model.BillOfLadingLineDtoEnvelope;
 import org.openapitools.client.model.BillOfLadingLineDtoListEnvelope;
 import org.openapitools.client.model.BillOfLadingLineUpdateDto;
@@ -38,7 +40,7 @@ import org.openapitools.client.model.BillOfLadingUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -1054,6 +1056,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1064,7 +1067,7 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillOfLadingLinesAsyncCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBillOfLadingLinesAsyncCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1078,7 +1081,7 @@ public class BillsOfLadingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = billOfLadingLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines"
@@ -1112,6 +1115,8 @@ public class BillsOfLadingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1123,7 +1128,7 @@ public class BillsOfLadingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBillOfLadingLinesAsyncValidateBeforeCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBillOfLadingLinesAsyncValidateBeforeCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBillOfLadingLinesAsync(Async)");
@@ -1134,7 +1139,7 @@ public class BillsOfLadingApi {
             throw new ApiException("Missing the required parameter 'billOfLadingId' when calling getBillOfLadingLinesAsync(Async)");
         }
 
-        return getBillOfLadingLinesAsyncCall(tenantId, billOfLadingId, apiVersion, xApiVersion, _callback);
+        return getBillOfLadingLinesAsyncCall(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1145,6 +1150,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @return BillOfLadingLineDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1154,8 +1160,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BillOfLadingLineDtoListEnvelope getBillOfLadingLinesAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BillOfLadingLineDtoListEnvelope> localVarResp = getBillOfLadingLinesAsyncWithHttpInfo(tenantId, billOfLadingId, apiVersion, xApiVersion);
+    public BillOfLadingLineDtoListEnvelope getBillOfLadingLinesAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BillOfLadingLineDtoListEnvelope> localVarResp = getBillOfLadingLinesAsyncWithHttpInfo(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1166,6 +1172,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BillOfLadingLineDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1175,8 +1182,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BillOfLadingLineDtoListEnvelope> getBillOfLadingLinesAsyncWithHttpInfo(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBillOfLadingLinesAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, null);
+    public ApiResponse<BillOfLadingLineDtoListEnvelope> getBillOfLadingLinesAsyncWithHttpInfo(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBillOfLadingLinesAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BillOfLadingLineDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1188,6 +1195,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1198,9 +1206,9 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillOfLadingLinesAsyncAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, final ApiCallback<BillOfLadingLineDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBillOfLadingLinesAsyncAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters, final ApiCallback<BillOfLadingLineDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBillOfLadingLinesAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBillOfLadingLinesAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BillOfLadingLineDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1211,6 +1219,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1220,7 +1229,7 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillOfLadingLinesCountAsyncCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBillOfLadingLinesCountAsyncCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1234,7 +1243,7 @@ public class BillsOfLadingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = billOfLadingLineDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/Count"
@@ -1268,6 +1277,8 @@ public class BillsOfLadingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1279,7 +1290,7 @@ public class BillsOfLadingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBillOfLadingLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBillOfLadingLinesCountAsyncValidateBeforeCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBillOfLadingLinesCountAsync(Async)");
@@ -1290,7 +1301,7 @@ public class BillsOfLadingApi {
             throw new ApiException("Missing the required parameter 'billOfLadingId' when calling getBillOfLadingLinesCountAsync(Async)");
         }
 
-        return getBillOfLadingLinesCountAsyncCall(tenantId, billOfLadingId, apiVersion, xApiVersion, _callback);
+        return getBillOfLadingLinesCountAsyncCall(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1301,6 +1312,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1309,8 +1321,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBillOfLadingLinesCountAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBillOfLadingLinesCountAsyncWithHttpInfo(tenantId, billOfLadingId, apiVersion, xApiVersion);
+    public Int32Envelope getBillOfLadingLinesCountAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBillOfLadingLinesCountAsyncWithHttpInfo(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1321,6 +1333,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1329,8 +1342,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBillOfLadingLinesCountAsyncWithHttpInfo(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBillOfLadingLinesCountAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBillOfLadingLinesCountAsyncWithHttpInfo(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBillOfLadingLinesCountAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1342,6 +1355,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingLineDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1351,9 +1365,9 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillOfLadingLinesCountAsyncAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBillOfLadingLinesCountAsyncAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, BillOfLadingLineDtoCollectionQueryParameters billOfLadingLineDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBillOfLadingLinesCountAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBillOfLadingLinesCountAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, billOfLadingLineDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1363,6 +1377,7 @@ public class BillsOfLadingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1374,7 +1389,7 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillsOfLadingAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBillsOfLadingAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1388,7 +1403,7 @@ public class BillsOfLadingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = billOfLadingDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ShipmentsService/BillsOfLading";
@@ -1421,6 +1436,8 @@ public class BillsOfLadingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1432,13 +1449,13 @@ public class BillsOfLadingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBillsOfLadingAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBillsOfLadingAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBillsOfLadingAsync(Async)");
         }
 
-        return getBillsOfLadingAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBillsOfLadingAsyncCall(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1448,6 +1465,7 @@ public class BillsOfLadingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @return BillOfLadingDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1458,8 +1476,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BillOfLadingDtoListEnvelope getBillsOfLadingAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BillOfLadingDtoListEnvelope> localVarResp = getBillsOfLadingAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public BillOfLadingDtoListEnvelope getBillsOfLadingAsync(UUID tenantId, String apiVersion, String xApiVersion, BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BillOfLadingDtoListEnvelope> localVarResp = getBillsOfLadingAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1469,6 +1487,7 @@ public class BillsOfLadingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BillOfLadingDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1479,8 +1498,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BillOfLadingDtoListEnvelope> getBillsOfLadingAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBillsOfLadingAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<BillOfLadingDtoListEnvelope> getBillsOfLadingAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBillsOfLadingAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BillOfLadingDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1491,6 +1510,7 @@ public class BillsOfLadingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1502,9 +1522,9 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillsOfLadingAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<BillOfLadingDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBillsOfLadingAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters, final ApiCallback<BillOfLadingDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBillsOfLadingAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBillsOfLadingAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BillOfLadingDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1514,6 +1534,7 @@ public class BillsOfLadingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1524,7 +1545,7 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillsOfLadingCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBillsOfLadingCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1538,7 +1559,7 @@ public class BillsOfLadingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = billOfLadingDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ShipmentsService/BillsOfLading/Count";
@@ -1571,6 +1592,8 @@ public class BillsOfLadingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1582,13 +1605,13 @@ public class BillsOfLadingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBillsOfLadingCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBillsOfLadingCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBillsOfLadingCountAsync(Async)");
         }
 
-        return getBillsOfLadingCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBillsOfLadingCountAsyncCall(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1598,6 +1621,7 @@ public class BillsOfLadingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1607,8 +1631,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBillsOfLadingCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBillsOfLadingCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getBillsOfLadingCountAsync(UUID tenantId, String apiVersion, String xApiVersion, BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBillsOfLadingCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1618,6 +1642,7 @@ public class BillsOfLadingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1627,8 +1652,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBillsOfLadingCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBillsOfLadingCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBillsOfLadingCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBillsOfLadingCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1639,6 +1664,7 @@ public class BillsOfLadingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param billOfLadingDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1649,9 +1675,9 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillsOfLadingCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBillsOfLadingCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BillOfLadingDtoCollectionQueryParameters billOfLadingDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBillsOfLadingCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBillsOfLadingCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, billOfLadingDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1662,7 +1688,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1675,7 +1701,7 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBillOfLadingAsyncCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBillOfLadingAsyncCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1689,7 +1715,7 @@ public class BillsOfLadingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}"
@@ -1736,7 +1762,7 @@ public class BillsOfLadingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBillOfLadingAsyncValidateBeforeCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBillOfLadingAsyncValidateBeforeCall(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBillOfLadingAsync(Async)");
@@ -1747,7 +1773,7 @@ public class BillsOfLadingApi {
             throw new ApiException("Missing the required parameter 'billOfLadingId' when calling patchBillOfLadingAsync(Async)");
         }
 
-        return patchBillOfLadingAsyncCall(tenantId, billOfLadingId, apiVersion, xApiVersion, operation, _callback);
+        return patchBillOfLadingAsyncCall(tenantId, billOfLadingId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1758,7 +1784,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1770,8 +1796,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBillOfLadingAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBillOfLadingAsyncWithHttpInfo(tenantId, billOfLadingId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBillOfLadingAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBillOfLadingAsyncWithHttpInfo(tenantId, billOfLadingId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1782,7 +1808,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1794,8 +1820,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBillOfLadingAsyncWithHttpInfo(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBillOfLadingAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBillOfLadingAsyncWithHttpInfo(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBillOfLadingAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1807,7 +1833,7 @@ public class BillsOfLadingApi {
      * @param billOfLadingId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1820,9 +1846,9 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBillOfLadingAsyncAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBillOfLadingAsyncAsync(UUID tenantId, UUID billOfLadingId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBillOfLadingAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBillOfLadingAsyncValidateBeforeCall(tenantId, billOfLadingId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1834,7 +1860,7 @@ public class BillsOfLadingApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1847,7 +1873,7 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBillOfLadingLineAsyncCall(UUID tenantId, UUID billOfLadingId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBillOfLadingLineAsyncCall(UUID tenantId, UUID billOfLadingId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1861,7 +1887,7 @@ public class BillsOfLadingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/{lineId}"
@@ -1909,7 +1935,7 @@ public class BillsOfLadingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBillOfLadingLineAsyncValidateBeforeCall(UUID tenantId, UUID billOfLadingId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBillOfLadingLineAsyncValidateBeforeCall(UUID tenantId, UUID billOfLadingId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBillOfLadingLineAsync(Async)");
@@ -1925,7 +1951,7 @@ public class BillsOfLadingApi {
             throw new ApiException("Missing the required parameter 'lineId' when calling patchBillOfLadingLineAsync(Async)");
         }
 
-        return patchBillOfLadingLineAsyncCall(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, operation, _callback);
+        return patchBillOfLadingLineAsyncCall(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1937,7 +1963,7 @@ public class BillsOfLadingApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1949,8 +1975,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBillOfLadingLineAsync(UUID tenantId, UUID billOfLadingId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBillOfLadingLineAsyncWithHttpInfo(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBillOfLadingLineAsync(UUID tenantId, UUID billOfLadingId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBillOfLadingLineAsyncWithHttpInfo(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1962,7 +1988,7 @@ public class BillsOfLadingApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1974,8 +2000,8 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBillOfLadingLineAsyncWithHttpInfo(UUID tenantId, UUID billOfLadingId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBillOfLadingLineAsyncValidateBeforeCall(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBillOfLadingLineAsyncWithHttpInfo(UUID tenantId, UUID billOfLadingId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBillOfLadingLineAsyncValidateBeforeCall(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1988,7 +2014,7 @@ public class BillsOfLadingApi {
      * @param lineId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2001,9 +2027,9 @@ public class BillsOfLadingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBillOfLadingLineAsyncAsync(UUID tenantId, UUID billOfLadingId, UUID lineId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBillOfLadingLineAsyncAsync(UUID tenantId, UUID billOfLadingId, UUID lineId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBillOfLadingLineAsyncValidateBeforeCall(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBillOfLadingLineAsyncValidateBeforeCall(tenantId, billOfLadingId, lineId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

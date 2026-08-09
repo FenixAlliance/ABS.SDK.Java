@@ -529,7 +529,7 @@ No authorization required
 
 <a id="getAppliedTaxPolicyRecords"></a>
 # **getAppliedTaxPolicyRecords**
-> AppliedTaxPolicyRecordDtoListEnvelope getAppliedTaxPolicyRecords(tenantId, taxPolicyId, apiVersion, xApiVersion)
+> AppliedTaxPolicyRecordDtoListEnvelope getAppliedTaxPolicyRecords(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters)
 
 Get applied tax policy records
 
@@ -554,8 +554,9 @@ public class Example {
     UUID taxPolicyId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters = new AppliedTaxPolicyRecordDtoCollectionQueryParameters(); // AppliedTaxPolicyRecordDtoCollectionQueryParameters | 
     try {
-      AppliedTaxPolicyRecordDtoListEnvelope result = apiInstance.getAppliedTaxPolicyRecords(tenantId, taxPolicyId, apiVersion, xApiVersion);
+      AppliedTaxPolicyRecordDtoListEnvelope result = apiInstance.getAppliedTaxPolicyRecords(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxPoliciesApi#getAppliedTaxPolicyRecords");
@@ -576,6 +577,7 @@ public class Example {
 | **taxPolicyId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **appliedTaxPolicyRecordDtoCollectionQueryParameters** | [**AppliedTaxPolicyRecordDtoCollectionQueryParameters**](AppliedTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -587,7 +589,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -599,7 +601,7 @@ No authorization required
 
 <a id="getAppliedTaxPolicyRecordsCount"></a>
 # **getAppliedTaxPolicyRecordsCount**
-> Int32Envelope getAppliedTaxPolicyRecordsCount(tenantId, taxPolicyId, apiVersion, xApiVersion)
+> Int32Envelope getAppliedTaxPolicyRecordsCount(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters)
 
 Get applied tax policy records count
 
@@ -624,8 +626,9 @@ public class Example {
     UUID taxPolicyId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    AppliedTaxPolicyRecordDtoCollectionQueryParameters appliedTaxPolicyRecordDtoCollectionQueryParameters = new AppliedTaxPolicyRecordDtoCollectionQueryParameters(); // AppliedTaxPolicyRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAppliedTaxPolicyRecordsCount(tenantId, taxPolicyId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAppliedTaxPolicyRecordsCount(tenantId, taxPolicyId, apiVersion, xApiVersion, appliedTaxPolicyRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxPoliciesApi#getAppliedTaxPolicyRecordsCount");
@@ -646,6 +649,7 @@ public class Example {
 | **taxPolicyId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **appliedTaxPolicyRecordDtoCollectionQueryParameters** | [**AppliedTaxPolicyRecordDtoCollectionQueryParameters**](AppliedTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -657,7 +661,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -741,7 +745,7 @@ No authorization required
 
 <a id="getItemTaxPolicyRecords"></a>
 # **getItemTaxPolicyRecords**
-> ItemTaxPolicyRecordDtoListEnvelope getItemTaxPolicyRecords(tenantId, taxPolicyId, apiVersion, xApiVersion)
+> ItemTaxPolicyRecordDtoListEnvelope getItemTaxPolicyRecords(tenantId, taxPolicyId, apiVersion, xApiVersion, itemTaxPolicyRecordDtoCollectionQueryParameters)
 
 Get item tax policy records
 
@@ -766,8 +770,9 @@ public class Example {
     UUID taxPolicyId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemTaxPolicyRecordDtoCollectionQueryParameters itemTaxPolicyRecordDtoCollectionQueryParameters = new ItemTaxPolicyRecordDtoCollectionQueryParameters(); // ItemTaxPolicyRecordDtoCollectionQueryParameters | 
     try {
-      ItemTaxPolicyRecordDtoListEnvelope result = apiInstance.getItemTaxPolicyRecords(tenantId, taxPolicyId, apiVersion, xApiVersion);
+      ItemTaxPolicyRecordDtoListEnvelope result = apiInstance.getItemTaxPolicyRecords(tenantId, taxPolicyId, apiVersion, xApiVersion, itemTaxPolicyRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxPoliciesApi#getItemTaxPolicyRecords");
@@ -788,6 +793,7 @@ public class Example {
 | **taxPolicyId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemTaxPolicyRecordDtoCollectionQueryParameters** | [**ItemTaxPolicyRecordDtoCollectionQueryParameters**](ItemTaxPolicyRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -799,7 +805,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -811,7 +817,7 @@ No authorization required
 
 <a id="getTaxPolicies"></a>
 # **getTaxPolicies**
-> TaxPolicyDtoListEnvelope getTaxPolicies(tenantId, apiVersion, xApiVersion)
+> TaxPolicyDtoListEnvelope getTaxPolicies(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters)
 
 Get all tax policies for a tenant
 
@@ -835,8 +841,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters = new TaxPolicyDtoCollectionQueryParameters(); // TaxPolicyDtoCollectionQueryParameters | 
     try {
-      TaxPolicyDtoListEnvelope result = apiInstance.getTaxPolicies(tenantId, apiVersion, xApiVersion);
+      TaxPolicyDtoListEnvelope result = apiInstance.getTaxPolicies(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxPoliciesApi#getTaxPolicies");
@@ -856,6 +863,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **taxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -867,7 +875,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -879,7 +887,7 @@ No authorization required
 
 <a id="getTaxPoliciesByAuthority"></a>
 # **getTaxPoliciesByAuthority**
-> TaxPolicyDtoListEnvelope getTaxPoliciesByAuthority(tenantId, authorityId, apiVersion, xApiVersion)
+> TaxPolicyDtoListEnvelope getTaxPoliciesByAuthority(tenantId, authorityId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters)
 
 Get tax policies by fiscal authority
 
@@ -904,8 +912,9 @@ public class Example {
     UUID authorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters = new TaxPolicyDtoCollectionQueryParameters(); // TaxPolicyDtoCollectionQueryParameters | 
     try {
-      TaxPolicyDtoListEnvelope result = apiInstance.getTaxPoliciesByAuthority(tenantId, authorityId, apiVersion, xApiVersion);
+      TaxPolicyDtoListEnvelope result = apiInstance.getTaxPoliciesByAuthority(tenantId, authorityId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxPoliciesApi#getTaxPoliciesByAuthority");
@@ -926,6 +935,7 @@ public class Example {
 | **authorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **taxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -937,7 +947,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -949,7 +959,7 @@ No authorization required
 
 <a id="getTaxPoliciesCount"></a>
 # **getTaxPoliciesCount**
-> Int32Envelope getTaxPoliciesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTaxPoliciesCount(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters)
 
 Get tax policies count
 
@@ -973,8 +983,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TaxPolicyDtoCollectionQueryParameters taxPolicyDtoCollectionQueryParameters = new TaxPolicyDtoCollectionQueryParameters(); // TaxPolicyDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTaxPoliciesCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTaxPoliciesCount(tenantId, apiVersion, xApiVersion, taxPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxPoliciesApi#getTaxPoliciesCount");
@@ -994,6 +1005,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **taxPolicyDtoCollectionQueryParameters** | [**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1005,7 +1017,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1087,7 +1099,7 @@ No authorization required
 
 <a id="patchAppliedTaxPolicyRecord"></a>
 # **patchAppliedTaxPolicyRecord**
-> EmptyEnvelope patchAppliedTaxPolicyRecord(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchAppliedTaxPolicyRecord(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation)
 
 Patch an applied tax policy record
 
@@ -1113,9 +1125,9 @@ public class Example {
     UUID appliedTaxPolicyRecordId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAppliedTaxPolicyRecord(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchAppliedTaxPolicyRecord(tenantId, taxPolicyId, appliedTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxPoliciesApi#patchAppliedTaxPolicyRecord");
@@ -1137,7 +1149,7 @@ public class Example {
 | **appliedTaxPolicyRecordId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1161,7 +1173,7 @@ No authorization required
 
 <a id="patchItemTaxPolicyRecord"></a>
 # **patchItemTaxPolicyRecord**
-> EmptyEnvelope patchItemTaxPolicyRecord(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemTaxPolicyRecord(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item tax policy record
 
@@ -1187,9 +1199,9 @@ public class Example {
     UUID itemTaxPolicyRecordId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemTaxPolicyRecord(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemTaxPolicyRecord(tenantId, taxPolicyId, itemTaxPolicyRecordId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxPoliciesApi#patchItemTaxPolicyRecord");
@@ -1211,7 +1223,7 @@ public class Example {
 | **itemTaxPolicyRecordId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1235,7 +1247,7 @@ No authorization required
 
 <a id="patchTaxPolicy"></a>
 # **patchTaxPolicy**
-> EmptyEnvelope patchTaxPolicy(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTaxPolicy(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a tax policy
 
@@ -1260,9 +1272,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTaxPolicy(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTaxPolicy(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TaxPoliciesApi#patchTaxPolicy");
@@ -1283,7 +1295,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

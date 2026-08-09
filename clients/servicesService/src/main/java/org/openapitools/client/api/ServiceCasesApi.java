@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.Envelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ServiceCaseCreateDto;
+import org.openapitools.client.model.ServiceCaseDtoCollectionQueryParameters;
 import org.openapitools.client.model.ServiceCaseDtoEnvelope;
 import org.openapitools.client.model.ServiceCaseDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.ServiceCaseUpdateDto;
@@ -564,6 +565,7 @@ public class ServiceCasesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceCaseDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -575,7 +577,7 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServiceCasesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getServiceCasesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ServiceCaseDtoCollectionQueryParameters serviceCaseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -589,7 +591,7 @@ public class ServiceCasesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = serviceCaseDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ServicesService/ServiceCases";
@@ -622,6 +624,8 @@ public class ServiceCasesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -633,13 +637,13 @@ public class ServiceCasesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getServiceCasesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getServiceCasesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ServiceCaseDtoCollectionQueryParameters serviceCaseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getServiceCasesAsync(Async)");
         }
 
-        return getServiceCasesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getServiceCasesAsyncCall(tenantId, apiVersion, xApiVersion, serviceCaseDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -649,6 +653,7 @@ public class ServiceCasesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceCaseDtoCollectionQueryParameters  (optional)
      * @return ServiceCaseDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -659,8 +664,8 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ServiceCaseDtoIReadOnlyListEnvelope getServiceCasesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ServiceCaseDtoIReadOnlyListEnvelope> localVarResp = getServiceCasesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ServiceCaseDtoIReadOnlyListEnvelope getServiceCasesAsync(UUID tenantId, String apiVersion, String xApiVersion, ServiceCaseDtoCollectionQueryParameters serviceCaseDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ServiceCaseDtoIReadOnlyListEnvelope> localVarResp = getServiceCasesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, serviceCaseDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -670,6 +675,7 @@ public class ServiceCasesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceCaseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ServiceCaseDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -680,8 +686,8 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ServiceCaseDtoIReadOnlyListEnvelope> getServiceCasesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getServiceCasesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ServiceCaseDtoIReadOnlyListEnvelope> getServiceCasesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ServiceCaseDtoCollectionQueryParameters serviceCaseDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getServiceCasesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, serviceCaseDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ServiceCaseDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -692,6 +698,7 @@ public class ServiceCasesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceCaseDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -703,9 +710,9 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServiceCasesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ServiceCaseDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getServiceCasesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ServiceCaseDtoCollectionQueryParameters serviceCaseDtoCollectionQueryParameters, final ApiCallback<ServiceCaseDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getServiceCasesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getServiceCasesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, serviceCaseDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ServiceCaseDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -715,6 +722,7 @@ public class ServiceCasesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceCaseDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -726,7 +734,7 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServiceCasesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getServiceCasesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, ServiceCaseDtoCollectionQueryParameters serviceCaseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -740,7 +748,7 @@ public class ServiceCasesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = serviceCaseDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/ServicesService/ServiceCases/Count";
@@ -773,6 +781,8 @@ public class ServiceCasesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -784,13 +794,13 @@ public class ServiceCasesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getServiceCasesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getServiceCasesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ServiceCaseDtoCollectionQueryParameters serviceCaseDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getServiceCasesCountAsync(Async)");
         }
 
-        return getServiceCasesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getServiceCasesCountAsyncCall(tenantId, apiVersion, xApiVersion, serviceCaseDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -800,6 +810,7 @@ public class ServiceCasesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceCaseDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -810,8 +821,8 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getServiceCasesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getServiceCasesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getServiceCasesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ServiceCaseDtoCollectionQueryParameters serviceCaseDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getServiceCasesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, serviceCaseDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -821,6 +832,7 @@ public class ServiceCasesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceCaseDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -831,8 +843,8 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getServiceCasesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getServiceCasesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getServiceCasesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ServiceCaseDtoCollectionQueryParameters serviceCaseDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getServiceCasesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, serviceCaseDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -843,6 +855,7 @@ public class ServiceCasesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param serviceCaseDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -854,9 +867,9 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServiceCasesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getServiceCasesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, ServiceCaseDtoCollectionQueryParameters serviceCaseDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getServiceCasesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getServiceCasesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, serviceCaseDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -867,7 +880,7 @@ public class ServiceCasesApi {
      * @param serviceCaseId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -879,7 +892,7 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchServiceCaseAsyncCall(UUID tenantId, UUID serviceCaseId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchServiceCaseAsyncCall(UUID tenantId, UUID serviceCaseId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,7 +906,7 @@ public class ServiceCasesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/ServicesService/ServiceCases/{serviceCaseId}"
@@ -940,7 +953,7 @@ public class ServiceCasesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchServiceCaseAsyncValidateBeforeCall(UUID tenantId, UUID serviceCaseId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchServiceCaseAsyncValidateBeforeCall(UUID tenantId, UUID serviceCaseId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchServiceCaseAsync(Async)");
@@ -951,7 +964,7 @@ public class ServiceCasesApi {
             throw new ApiException("Missing the required parameter 'serviceCaseId' when calling patchServiceCaseAsync(Async)");
         }
 
-        return patchServiceCaseAsyncCall(tenantId, serviceCaseId, apiVersion, xApiVersion, operation, _callback);
+        return patchServiceCaseAsyncCall(tenantId, serviceCaseId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -962,7 +975,7 @@ public class ServiceCasesApi {
      * @param serviceCaseId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -973,8 +986,8 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Envelope patchServiceCaseAsync(UUID tenantId, UUID serviceCaseId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<Envelope> localVarResp = patchServiceCaseAsyncWithHttpInfo(tenantId, serviceCaseId, apiVersion, xApiVersion, operation);
+    public Envelope patchServiceCaseAsync(UUID tenantId, UUID serviceCaseId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<Envelope> localVarResp = patchServiceCaseAsyncWithHttpInfo(tenantId, serviceCaseId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -985,7 +998,7 @@ public class ServiceCasesApi {
      * @param serviceCaseId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -996,8 +1009,8 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Envelope> patchServiceCaseAsyncWithHttpInfo(UUID tenantId, UUID serviceCaseId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchServiceCaseAsyncValidateBeforeCall(tenantId, serviceCaseId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<Envelope> patchServiceCaseAsyncWithHttpInfo(UUID tenantId, UUID serviceCaseId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchServiceCaseAsyncValidateBeforeCall(tenantId, serviceCaseId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +1022,7 @@ public class ServiceCasesApi {
      * @param serviceCaseId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1021,9 +1034,9 @@ public class ServiceCasesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchServiceCaseAsyncAsync(UUID tenantId, UUID serviceCaseId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Envelope> _callback) throws ApiException {
+    public okhttp3.Call patchServiceCaseAsyncAsync(UUID tenantId, UUID serviceCaseId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchServiceCaseAsyncValidateBeforeCall(tenantId, serviceCaseId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchServiceCaseAsyncValidateBeforeCall(tenantId, serviceCaseId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

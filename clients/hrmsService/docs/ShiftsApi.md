@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getShiftsAsync"></a>
 # **getShiftsAsync**
-> ShiftDtoListEnvelope getShiftsAsync(tenantId, apiVersion, xApiVersion)
+> ShiftDtoListEnvelope getShiftsAsync(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters)
 
 Get shifts
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters = new ShiftDtoCollectionQueryParameters(); // ShiftDtoCollectionQueryParameters | 
     try {
-      ShiftDtoListEnvelope result = apiInstance.getShiftsAsync(tenantId, apiVersion, xApiVersion);
+      ShiftDtoListEnvelope result = apiInstance.getShiftsAsync(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShiftsApi#getShiftsAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shiftDtoCollectionQueryParameters** | [**ShiftDtoCollectionQueryParameters**](ShiftDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getShiftsCountAsync"></a>
 # **getShiftsCountAsync**
-> Int32Envelope getShiftsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getShiftsCountAsync(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters)
 
 Count shifts
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ShiftDtoCollectionQueryParameters shiftDtoCollectionQueryParameters = new ShiftDtoCollectionQueryParameters(); // ShiftDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getShiftsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getShiftsCountAsync(tenantId, apiVersion, xApiVersion, shiftDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShiftsApi#getShiftsCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **shiftDtoCollectionQueryParameters** | [**ShiftDtoCollectionQueryParameters**](ShiftDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchShiftAsync"></a>
 # **patchShiftAsync**
-> EmptyEnvelope patchShiftAsync(tenantId, shiftId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchShiftAsync(tenantId, shiftId, apiVersion, xApiVersion, patchOperation)
 
 Patch a shift
 
@@ -388,9 +392,9 @@ public class Example {
     UUID shiftId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchShiftAsync(tenantId, shiftId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchShiftAsync(tenantId, shiftId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ShiftsApi#patchShiftAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **shiftId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -418,7 +418,7 @@ No authorization required
 
 <a id="getPriceListPricesAsync"></a>
 # **getPriceListPricesAsync**
-> ItemPriceDtoListEnvelope getPriceListPricesAsync(tenantId, priceListId, itemId)
+> ItemPriceDtoListEnvelope getPriceListPricesAsync(tenantId, priceListId, itemId, itemPriceDtoCollectionQueryParameters)
 
 Retrieves prices in a price list
 
@@ -442,8 +442,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
+    ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters = new ItemPriceDtoCollectionQueryParameters(); // ItemPriceDtoCollectionQueryParameters | 
     try {
-      ItemPriceDtoListEnvelope result = apiInstance.getPriceListPricesAsync(tenantId, priceListId, itemId);
+      ItemPriceDtoListEnvelope result = apiInstance.getPriceListPricesAsync(tenantId, priceListId, itemId, itemPriceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PriceListsApi#getPriceListPricesAsync");
@@ -463,6 +464,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | |
 | **itemId** | **UUID**|  | [optional] |
+| **itemPriceDtoCollectionQueryParameters** | [**ItemPriceDtoCollectionQueryParameters**](ItemPriceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -474,7 +476,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -485,7 +487,7 @@ No authorization required
 
 <a id="getPriceListPricesCountAsync"></a>
 # **getPriceListPricesCountAsync**
-> Int32Envelope getPriceListPricesCountAsync(tenantId, priceListId)
+> Int32Envelope getPriceListPricesCountAsync(tenantId, priceListId, itemPriceDtoCollectionQueryParameters)
 
 Counts prices in a price list
 
@@ -508,8 +510,9 @@ public class Example {
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
+    ItemPriceDtoCollectionQueryParameters itemPriceDtoCollectionQueryParameters = new ItemPriceDtoCollectionQueryParameters(); // ItemPriceDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getPriceListPricesCountAsync(tenantId, priceListId);
+      Int32Envelope result = apiInstance.getPriceListPricesCountAsync(tenantId, priceListId, itemPriceDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PriceListsApi#getPriceListPricesCountAsync");
@@ -528,6 +531,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | |
+| **itemPriceDtoCollectionQueryParameters** | [**ItemPriceDtoCollectionQueryParameters**](ItemPriceDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -539,7 +543,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -550,7 +554,7 @@ No authorization required
 
 <a id="getPriceListsAsync"></a>
 # **getPriceListsAsync**
-> PriceListDtoListEnvelope getPriceListsAsync(tenantId)
+> PriceListDtoListEnvelope getPriceListsAsync(tenantId, priceListDtoCollectionQueryParameters)
 
 Retrieves all price lists
 
@@ -572,8 +576,9 @@ public class Example {
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters = new PriceListDtoCollectionQueryParameters(); // PriceListDtoCollectionQueryParameters | 
     try {
-      PriceListDtoListEnvelope result = apiInstance.getPriceListsAsync(tenantId);
+      PriceListDtoListEnvelope result = apiInstance.getPriceListsAsync(tenantId, priceListDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PriceListsApi#getPriceListsAsync");
@@ -591,6 +596,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **priceListDtoCollectionQueryParameters** | [**PriceListDtoCollectionQueryParameters**](PriceListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -602,7 +608,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -613,7 +619,7 @@ No authorization required
 
 <a id="getPriceListsCountAsync"></a>
 # **getPriceListsCountAsync**
-> Int32Envelope getPriceListsCountAsync(tenantId)
+> Int32Envelope getPriceListsCountAsync(tenantId, priceListDtoCollectionQueryParameters)
 
 Counts price lists
 
@@ -635,8 +641,9 @@ public class Example {
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    PriceListDtoCollectionQueryParameters priceListDtoCollectionQueryParameters = new PriceListDtoCollectionQueryParameters(); // PriceListDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getPriceListsCountAsync(tenantId);
+      Int32Envelope result = apiInstance.getPriceListsCountAsync(tenantId, priceListDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PriceListsApi#getPriceListsCountAsync");
@@ -654,6 +661,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **priceListDtoCollectionQueryParameters** | [**PriceListDtoCollectionQueryParameters**](PriceListDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -665,7 +673,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -676,7 +684,7 @@ No authorization required
 
 <a id="patchPriceListAsync"></a>
 # **patchPriceListAsync**
-> EmptyEnvelope patchPriceListAsync(tenantId, priceListId, operation)
+> EmptyEnvelope patchPriceListAsync(tenantId, priceListId, patchOperation)
 
 Patches a price list
 
@@ -699,9 +707,9 @@ public class Example {
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchPriceListAsync(tenantId, priceListId, operation);
+      EmptyEnvelope result = apiInstance.patchPriceListAsync(tenantId, priceListId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PriceListsApi#patchPriceListAsync");
@@ -720,7 +728,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -743,7 +751,7 @@ No authorization required
 
 <a id="patchPriceListPriceAsync"></a>
 # **patchPriceListPriceAsync**
-> EmptyEnvelope patchPriceListPriceAsync(tenantId, priceListId, priceId, operation)
+> EmptyEnvelope patchPriceListPriceAsync(tenantId, priceListId, priceId, patchOperation)
 
 Patches a price list entry
 
@@ -767,9 +775,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
     UUID priceId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchPriceListPriceAsync(tenantId, priceListId, priceId, operation);
+      EmptyEnvelope result = apiInstance.patchPriceListPriceAsync(tenantId, priceListId, priceId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PriceListsApi#patchPriceListPriceAsync");
@@ -789,7 +797,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | |
 | **priceId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

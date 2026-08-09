@@ -11,7 +11,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countCurrenciesAsync"></a>
 # **countCurrenciesAsync**
-> Int32Envelope countCurrenciesAsync(apiVersion, xApiVersion)
+> Int32Envelope countCurrenciesAsync(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters)
 
 Count currencies
 
@@ -34,8 +34,9 @@ public class Example {
     CurrenciesApi apiInstance = new CurrenciesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters = new CurrencyDtoCollectionQueryParameters(); // CurrencyDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countCurrenciesAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countCurrenciesAsync(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CurrenciesApi#countCurrenciesAsync");
@@ -54,6 +55,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **currencyDtoCollectionQueryParameters** | [**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -65,7 +67,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -145,7 +147,7 @@ No authorization required
 
 <a id="getEnabledCurrenciesAsync"></a>
 # **getEnabledCurrenciesAsync**
-> CurrencyDtoListEnvelope getEnabledCurrenciesAsync(apiVersion, xApiVersion)
+> CurrencyDtoListEnvelope getEnabledCurrenciesAsync(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters)
 
 Get all currencies
 
@@ -168,8 +170,9 @@ public class Example {
     CurrenciesApi apiInstance = new CurrenciesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CurrencyDtoCollectionQueryParameters currencyDtoCollectionQueryParameters = new CurrencyDtoCollectionQueryParameters(); // CurrencyDtoCollectionQueryParameters | 
     try {
-      CurrencyDtoListEnvelope result = apiInstance.getEnabledCurrenciesAsync(apiVersion, xApiVersion);
+      CurrencyDtoListEnvelope result = apiInstance.getEnabledCurrenciesAsync(apiVersion, xApiVersion, currencyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CurrenciesApi#getEnabledCurrenciesAsync");
@@ -188,6 +191,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **currencyDtoCollectionQueryParameters** | [**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -199,7 +203,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

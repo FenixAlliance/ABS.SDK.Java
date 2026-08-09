@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.ReceiptCreateDto;
+import org.openapitools.client.model.ReceiptDtoCollectionQueryParameters;
 import org.openapitools.client.model.ReceiptDtoEnvelope;
 import org.openapitools.client.model.ReceiptDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.ReceiptUpdateDto;
@@ -495,6 +496,7 @@ public class ReceiptsApi {
     /**
      * Build call for getReceiptsAsync
      * @param tenantId  (required)
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -504,7 +506,7 @@ public class ReceiptsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReceiptsAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getReceiptsAsyncCall(UUID tenantId, ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -518,7 +520,7 @@ public class ReceiptsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = receiptDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Receipts";
@@ -543,6 +545,8 @@ public class ReceiptsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -554,13 +558,13 @@ public class ReceiptsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getReceiptsAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getReceiptsAsyncValidateBeforeCall(UUID tenantId, ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getReceiptsAsync(Async)");
         }
 
-        return getReceiptsAsyncCall(tenantId, _callback);
+        return getReceiptsAsyncCall(tenantId, receiptDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -568,6 +572,7 @@ public class ReceiptsApi {
      * Retrieves tenant receipts
      * Fetches all receipts for a given tenant with OData support.
      * @param tenantId  (required)
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @return ReceiptDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -576,8 +581,8 @@ public class ReceiptsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ReceiptDtoIReadOnlyListEnvelope getReceiptsAsync(UUID tenantId) throws ApiException {
-        ApiResponse<ReceiptDtoIReadOnlyListEnvelope> localVarResp = getReceiptsAsyncWithHttpInfo(tenantId);
+    public ReceiptDtoIReadOnlyListEnvelope getReceiptsAsync(UUID tenantId, ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ReceiptDtoIReadOnlyListEnvelope> localVarResp = getReceiptsAsyncWithHttpInfo(tenantId, receiptDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -585,6 +590,7 @@ public class ReceiptsApi {
      * Retrieves tenant receipts
      * Fetches all receipts for a given tenant with OData support.
      * @param tenantId  (required)
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ReceiptDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -593,8 +599,8 @@ public class ReceiptsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ReceiptDtoIReadOnlyListEnvelope> getReceiptsAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getReceiptsAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<ReceiptDtoIReadOnlyListEnvelope> getReceiptsAsyncWithHttpInfo(UUID tenantId, ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getReceiptsAsyncValidateBeforeCall(tenantId, receiptDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ReceiptDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -603,6 +609,7 @@ public class ReceiptsApi {
      * Retrieves tenant receipts (asynchronously)
      * Fetches all receipts for a given tenant with OData support.
      * @param tenantId  (required)
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -612,9 +619,9 @@ public class ReceiptsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReceiptsAsyncAsync(UUID tenantId, final ApiCallback<ReceiptDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getReceiptsAsyncAsync(UUID tenantId, ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters, final ApiCallback<ReceiptDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getReceiptsAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getReceiptsAsyncValidateBeforeCall(tenantId, receiptDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ReceiptDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -622,6 +629,7 @@ public class ReceiptsApi {
     /**
      * Build call for getReceiptsCountAsync
      * @param tenantId  (required)
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -631,7 +639,7 @@ public class ReceiptsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReceiptsCountAsyncCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getReceiptsCountAsyncCall(UUID tenantId, ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -645,7 +653,7 @@ public class ReceiptsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = receiptDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Receipts/Count";
@@ -670,6 +678,8 @@ public class ReceiptsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -681,13 +691,13 @@ public class ReceiptsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getReceiptsCountAsyncValidateBeforeCall(UUID tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getReceiptsCountAsyncValidateBeforeCall(UUID tenantId, ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getReceiptsCountAsync(Async)");
         }
 
-        return getReceiptsCountAsyncCall(tenantId, _callback);
+        return getReceiptsCountAsyncCall(tenantId, receiptDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -695,6 +705,7 @@ public class ReceiptsApi {
      * Gets count of tenant receipts
      * Returns total number of receipts for the tenant with OData filter support.
      * @param tenantId  (required)
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -703,8 +714,8 @@ public class ReceiptsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getReceiptsCountAsync(UUID tenantId) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getReceiptsCountAsyncWithHttpInfo(tenantId);
+    public Int32Envelope getReceiptsCountAsync(UUID tenantId, ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getReceiptsCountAsyncWithHttpInfo(tenantId, receiptDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -712,6 +723,7 @@ public class ReceiptsApi {
      * Gets count of tenant receipts
      * Returns total number of receipts for the tenant with OData filter support.
      * @param tenantId  (required)
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -720,8 +732,8 @@ public class ReceiptsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getReceiptsCountAsyncWithHttpInfo(UUID tenantId) throws ApiException {
-        okhttp3.Call localVarCall = getReceiptsCountAsyncValidateBeforeCall(tenantId, null);
+    public ApiResponse<Int32Envelope> getReceiptsCountAsyncWithHttpInfo(UUID tenantId, ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getReceiptsCountAsyncValidateBeforeCall(tenantId, receiptDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -730,6 +742,7 @@ public class ReceiptsApi {
      * Gets count of tenant receipts (asynchronously)
      * Returns total number of receipts for the tenant with OData filter support.
      * @param tenantId  (required)
+     * @param receiptDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -739,9 +752,9 @@ public class ReceiptsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReceiptsCountAsyncAsync(UUID tenantId, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getReceiptsCountAsyncAsync(UUID tenantId, ReceiptDtoCollectionQueryParameters receiptDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getReceiptsCountAsyncValidateBeforeCall(tenantId, _callback);
+        okhttp3.Call localVarCall = getReceiptsCountAsyncValidateBeforeCall(tenantId, receiptDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -750,7 +763,7 @@ public class ReceiptsApi {
      * Build call for patchReceiptAsync
      * @param tenantId  (required)
      * @param receiptId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -762,7 +775,7 @@ public class ReceiptsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchReceiptAsyncCall(UUID tenantId, UUID receiptId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchReceiptAsyncCall(UUID tenantId, UUID receiptId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -776,7 +789,7 @@ public class ReceiptsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Receipts/{receiptId}"
@@ -815,7 +828,7 @@ public class ReceiptsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchReceiptAsyncValidateBeforeCall(UUID tenantId, UUID receiptId, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchReceiptAsyncValidateBeforeCall(UUID tenantId, UUID receiptId, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchReceiptAsync(Async)");
@@ -826,7 +839,7 @@ public class ReceiptsApi {
             throw new ApiException("Missing the required parameter 'receiptId' when calling patchReceiptAsync(Async)");
         }
 
-        return patchReceiptAsyncCall(tenantId, receiptId, operation, _callback);
+        return patchReceiptAsyncCall(tenantId, receiptId, patchOperation, _callback);
 
     }
 
@@ -835,7 +848,7 @@ public class ReceiptsApi {
      * Partially updates the specified receipt using a JSON Patch document.
      * @param tenantId  (required)
      * @param receiptId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -846,8 +859,8 @@ public class ReceiptsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchReceiptAsync(UUID tenantId, UUID receiptId, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchReceiptAsyncWithHttpInfo(tenantId, receiptId, operation);
+    public EmptyEnvelope patchReceiptAsync(UUID tenantId, UUID receiptId, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchReceiptAsyncWithHttpInfo(tenantId, receiptId, patchOperation);
         return localVarResp.getData();
     }
 
@@ -856,7 +869,7 @@ public class ReceiptsApi {
      * Partially updates the specified receipt using a JSON Patch document.
      * @param tenantId  (required)
      * @param receiptId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -867,8 +880,8 @@ public class ReceiptsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchReceiptAsyncWithHttpInfo(UUID tenantId, UUID receiptId, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchReceiptAsyncValidateBeforeCall(tenantId, receiptId, operation, null);
+    public ApiResponse<EmptyEnvelope> patchReceiptAsyncWithHttpInfo(UUID tenantId, UUID receiptId, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchReceiptAsyncValidateBeforeCall(tenantId, receiptId, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -878,7 +891,7 @@ public class ReceiptsApi {
      * Partially updates the specified receipt using a JSON Patch document.
      * @param tenantId  (required)
      * @param receiptId  (required)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -890,9 +903,9 @@ public class ReceiptsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchReceiptAsyncAsync(UUID tenantId, UUID receiptId, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchReceiptAsyncAsync(UUID tenantId, UUID receiptId, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchReceiptAsyncValidateBeforeCall(tenantId, receiptId, operation, _callback);
+        okhttp3.Call localVarCall = patchReceiptAsyncValidateBeforeCall(tenantId, receiptId, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

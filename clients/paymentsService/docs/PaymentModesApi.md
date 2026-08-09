@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getPaymentModesAsync"></a>
 # **getPaymentModesAsync**
-> PaymentModeDtoIReadOnlyListEnvelope getPaymentModesAsync(tenantId, apiVersion, xApiVersion)
+> PaymentModeDtoIReadOnlyListEnvelope getPaymentModesAsync(tenantId, apiVersion, xApiVersion, paymentModeDtoCollectionQueryParameters)
 
 Retrieves all payment modes
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentModeDtoCollectionQueryParameters paymentModeDtoCollectionQueryParameters = new PaymentModeDtoCollectionQueryParameters(); // PaymentModeDtoCollectionQueryParameters | 
     try {
-      PaymentModeDtoIReadOnlyListEnvelope result = apiInstance.getPaymentModesAsync(tenantId, apiVersion, xApiVersion);
+      PaymentModeDtoIReadOnlyListEnvelope result = apiInstance.getPaymentModesAsync(tenantId, apiVersion, xApiVersion, paymentModeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentModesApi#getPaymentModesAsync");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentModeDtoCollectionQueryParameters** | [**PaymentModeDtoCollectionQueryParameters**](PaymentModeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getPaymentModesCountAsync"></a>
 # **getPaymentModesCountAsync**
-> Int32Envelope getPaymentModesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getPaymentModesCountAsync(tenantId, apiVersion, xApiVersion, paymentModeDtoCollectionQueryParameters)
 
 Counts payment modes
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PaymentModeDtoCollectionQueryParameters paymentModeDtoCollectionQueryParameters = new PaymentModeDtoCollectionQueryParameters(); // PaymentModeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getPaymentModesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getPaymentModesCountAsync(tenantId, apiVersion, xApiVersion, paymentModeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentModesApi#getPaymentModesCountAsync");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **paymentModeDtoCollectionQueryParameters** | [**PaymentModeDtoCollectionQueryParameters**](PaymentModeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchPaymentModeAsync"></a>
 # **patchPaymentModeAsync**
-> EmptyEnvelope patchPaymentModeAsync(tenantId, paymentModeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchPaymentModeAsync(tenantId, paymentModeId, apiVersion, xApiVersion, patchOperation)
 
 Patch a payment mode
 
@@ -386,9 +390,9 @@ public class Example {
     UUID paymentModeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchPaymentModeAsync(tenantId, paymentModeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchPaymentModeAsync(tenantId, paymentModeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentModesApi#patchPaymentModeAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **paymentModeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -25,6 +25,7 @@ All URIs are relative to *https://absuite.net*
 | [**getMessagesAsync**](SocialProfilesApi.md#getMessagesAsync) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages |
 | [**getNotificationByIdAsync**](SocialProfilesApi.md#getNotificationByIdAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification |
 | [**getNotificationsAsync**](SocialProfilesApi.md#getNotificationsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications |
+| [**getOrCreateDirectConversationAsync**](SocialProfilesApi.md#getOrCreateDirectConversationAsync) | **POST** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct | Get or Create Direct Conversation |
 | [**getSocialProfileAsync**](SocialProfilesApi.md#getSocialProfileAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile |
 | [**getSocialProfilesAsync**](SocialProfilesApi.md#getSocialProfilesAsync) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles |
 | [**unfollowAsync**](SocialProfilesApi.md#unfollowAsync) | **DELETE** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/{followedSocialProfileId} | Unfollow |
@@ -33,7 +34,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countConversationsAsync"></a>
 # **countConversationsAsync**
-> Int32Envelope countConversationsAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countConversationsAsync(socialProfileId, apiVersion, xApiVersion, conversationDtoCollectionQueryParameters)
 
 Count Conversations
 
@@ -57,8 +58,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ConversationDtoCollectionQueryParameters conversationDtoCollectionQueryParameters = new ConversationDtoCollectionQueryParameters(); // ConversationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countConversationsAsync(socialProfileId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countConversationsAsync(socialProfileId, apiVersion, xApiVersion, conversationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#countConversationsAsync");
@@ -78,6 +80,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **conversationDtoCollectionQueryParameters** | [**ConversationDtoCollectionQueryParameters**](ConversationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -89,7 +92,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -101,7 +104,7 @@ No authorization required
 
 <a id="countFollowedProfilesAsync"></a>
 # **countFollowedProfilesAsync**
-> Int32Envelope countFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Count Followed Profiles
 
@@ -125,8 +128,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialProfileDtoCollectionQueryParameters socialProfileDtoCollectionQueryParameters = new SocialProfileDtoCollectionQueryParameters(); // SocialProfileDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#countFollowedProfilesAsync");
@@ -146,6 +150,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -157,7 +162,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -169,7 +174,7 @@ No authorization required
 
 <a id="countFollowerProfilesAsync"></a>
 # **countFollowerProfilesAsync**
-> Int32Envelope countFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Count Follower Profiles
 
@@ -193,8 +198,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialProfileDtoCollectionQueryParameters socialProfileDtoCollectionQueryParameters = new SocialProfileDtoCollectionQueryParameters(); // SocialProfileDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#countFollowerProfilesAsync");
@@ -214,6 +220,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -225,7 +232,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -237,7 +244,7 @@ No authorization required
 
 <a id="countFollowersAsync"></a>
 # **countFollowersAsync**
-> Int32Envelope countFollowersAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countFollowersAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Count Followers
 
@@ -261,8 +268,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters = new FollowRecordDtoCollectionQueryParameters(); // FollowRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countFollowersAsync(socialProfileId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countFollowersAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#countFollowersAsync");
@@ -282,6 +290,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -293,7 +302,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -305,7 +314,7 @@ No authorization required
 
 <a id="countFollowsAsync"></a>
 # **countFollowsAsync**
-> Int32Envelope countFollowsAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countFollowsAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Count Follows
 
@@ -329,8 +338,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters = new FollowRecordDtoCollectionQueryParameters(); // FollowRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countFollowsAsync(socialProfileId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countFollowsAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#countFollowsAsync");
@@ -350,6 +360,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -361,7 +372,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -373,7 +384,7 @@ No authorization required
 
 <a id="countMessagesAsync"></a>
 # **countMessagesAsync**
-> Int32Envelope countMessagesAsync(socialProfileId, conversationId, apiVersion, xApiVersion)
+> Int32Envelope countMessagesAsync(socialProfileId, conversationId, apiVersion, xApiVersion, privateMessageDtoCollectionQueryParameters)
 
 Count Messages
 
@@ -398,8 +409,9 @@ public class Example {
     UUID conversationId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PrivateMessageDtoCollectionQueryParameters privateMessageDtoCollectionQueryParameters = new PrivateMessageDtoCollectionQueryParameters(); // PrivateMessageDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countMessagesAsync(socialProfileId, conversationId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countMessagesAsync(socialProfileId, conversationId, apiVersion, xApiVersion, privateMessageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#countMessagesAsync");
@@ -420,6 +432,7 @@ public class Example {
 | **conversationId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **privateMessageDtoCollectionQueryParameters** | [**PrivateMessageDtoCollectionQueryParameters**](PrivateMessageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -431,7 +444,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -443,7 +456,7 @@ No authorization required
 
 <a id="countNotificationsAsync"></a>
 # **countNotificationsAsync**
-> Int32Envelope countNotificationsAsync(socialProfileId, apiVersion, xApiVersion)
+> Int32Envelope countNotificationsAsync(socialProfileId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Count Notifications
 
@@ -467,8 +480,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters = new NotificationDtoCollectionQueryParameters(); // NotificationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countNotificationsAsync(socialProfileId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countNotificationsAsync(socialProfileId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#countNotificationsAsync");
@@ -488,6 +502,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -499,7 +514,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -511,7 +526,7 @@ No authorization required
 
 <a id="countSocialProfilesAsync"></a>
 # **countSocialProfilesAsync**
-> Int32Envelope countSocialProfilesAsync(apiVersion, xApiVersion)
+> Int32Envelope countSocialProfilesAsync(apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Count Social Profiles
 
@@ -534,8 +549,9 @@ public class Example {
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialProfileDtoCollectionQueryParameters socialProfileDtoCollectionQueryParameters = new SocialProfileDtoCollectionQueryParameters(); // SocialProfileDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countSocialProfilesAsync(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countSocialProfilesAsync(apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#countSocialProfilesAsync");
@@ -554,6 +570,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -565,7 +582,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -931,7 +948,7 @@ No authorization required
 
 <a id="getConversationsAsync"></a>
 # **getConversationsAsync**
-> ConversationDtoListEnvelope getConversationsAsync(socialProfileId, apiVersion, xApiVersion)
+> ConversationDtoListEnvelope getConversationsAsync(socialProfileId, apiVersion, xApiVersion, conversationDtoCollectionQueryParameters)
 
 Get Conversations
 
@@ -955,8 +972,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ConversationDtoCollectionQueryParameters conversationDtoCollectionQueryParameters = new ConversationDtoCollectionQueryParameters(); // ConversationDtoCollectionQueryParameters | 
     try {
-      ConversationDtoListEnvelope result = apiInstance.getConversationsAsync(socialProfileId, apiVersion, xApiVersion);
+      ConversationDtoListEnvelope result = apiInstance.getConversationsAsync(socialProfileId, apiVersion, xApiVersion, conversationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#getConversationsAsync");
@@ -976,6 +994,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **conversationDtoCollectionQueryParameters** | [**ConversationDtoCollectionQueryParameters**](ConversationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -987,7 +1006,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -999,7 +1018,7 @@ No authorization required
 
 <a id="getFollowedProfilesAsync"></a>
 # **getFollowedProfilesAsync**
-> SocialProfileDtoListEnvelope getFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+> SocialProfileDtoListEnvelope getFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Get Followed Profiles
 
@@ -1023,8 +1042,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialProfileDtoCollectionQueryParameters socialProfileDtoCollectionQueryParameters = new SocialProfileDtoCollectionQueryParameters(); // SocialProfileDtoCollectionQueryParameters | 
     try {
-      SocialProfileDtoListEnvelope result = apiInstance.getFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion);
+      SocialProfileDtoListEnvelope result = apiInstance.getFollowedProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#getFollowedProfilesAsync");
@@ -1044,6 +1064,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1055,7 +1076,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1067,7 +1088,7 @@ No authorization required
 
 <a id="getFollowerProfilesAsync"></a>
 # **getFollowerProfilesAsync**
-> SocialProfileDtoListEnvelope getFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion)
+> SocialProfileDtoListEnvelope getFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Get Follower Profiles
 
@@ -1091,8 +1112,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialProfileDtoCollectionQueryParameters socialProfileDtoCollectionQueryParameters = new SocialProfileDtoCollectionQueryParameters(); // SocialProfileDtoCollectionQueryParameters | 
     try {
-      SocialProfileDtoListEnvelope result = apiInstance.getFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion);
+      SocialProfileDtoListEnvelope result = apiInstance.getFollowerProfilesAsync(socialProfileId, apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#getFollowerProfilesAsync");
@@ -1112,6 +1134,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1123,7 +1146,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1135,7 +1158,7 @@ No authorization required
 
 <a id="getFollowersAsync"></a>
 # **getFollowersAsync**
-> FollowRecordDtoListEnvelope getFollowersAsync(socialProfileId, apiVersion, xApiVersion)
+> FollowRecordDtoListEnvelope getFollowersAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Get Followers
 
@@ -1159,8 +1182,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters = new FollowRecordDtoCollectionQueryParameters(); // FollowRecordDtoCollectionQueryParameters | 
     try {
-      FollowRecordDtoListEnvelope result = apiInstance.getFollowersAsync(socialProfileId, apiVersion, xApiVersion);
+      FollowRecordDtoListEnvelope result = apiInstance.getFollowersAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#getFollowersAsync");
@@ -1180,6 +1204,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1191,7 +1216,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1203,7 +1228,7 @@ No authorization required
 
 <a id="getFollowsAsync"></a>
 # **getFollowsAsync**
-> FollowRecordDtoListEnvelope getFollowsAsync(socialProfileId, apiVersion, xApiVersion)
+> FollowRecordDtoListEnvelope getFollowsAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters)
 
 Get Follows
 
@@ -1227,8 +1252,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FollowRecordDtoCollectionQueryParameters followRecordDtoCollectionQueryParameters = new FollowRecordDtoCollectionQueryParameters(); // FollowRecordDtoCollectionQueryParameters | 
     try {
-      FollowRecordDtoListEnvelope result = apiInstance.getFollowsAsync(socialProfileId, apiVersion, xApiVersion);
+      FollowRecordDtoListEnvelope result = apiInstance.getFollowsAsync(socialProfileId, apiVersion, xApiVersion, followRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#getFollowsAsync");
@@ -1248,6 +1274,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **followRecordDtoCollectionQueryParameters** | [**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1259,7 +1286,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1271,7 +1298,7 @@ No authorization required
 
 <a id="getMessagesAsync"></a>
 # **getMessagesAsync**
-> PrivateMessageDtoListEnvelope getMessagesAsync(socialProfileId, conversationId, apiVersion, xApiVersion)
+> PrivateMessageDtoListEnvelope getMessagesAsync(socialProfileId, conversationId, apiVersion, xApiVersion, privateMessageDtoCollectionQueryParameters)
 
 Get Messages
 
@@ -1296,8 +1323,9 @@ public class Example {
     UUID conversationId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    PrivateMessageDtoCollectionQueryParameters privateMessageDtoCollectionQueryParameters = new PrivateMessageDtoCollectionQueryParameters(); // PrivateMessageDtoCollectionQueryParameters | 
     try {
-      PrivateMessageDtoListEnvelope result = apiInstance.getMessagesAsync(socialProfileId, conversationId, apiVersion, xApiVersion);
+      PrivateMessageDtoListEnvelope result = apiInstance.getMessagesAsync(socialProfileId, conversationId, apiVersion, xApiVersion, privateMessageDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#getMessagesAsync");
@@ -1318,6 +1346,7 @@ public class Example {
 | **conversationId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **privateMessageDtoCollectionQueryParameters** | [**PrivateMessageDtoCollectionQueryParameters**](PrivateMessageDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1329,7 +1358,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1411,7 +1440,7 @@ No authorization required
 
 <a id="getNotificationsAsync"></a>
 # **getNotificationsAsync**
-> NotificationDtoListEnvelope getNotificationsAsync(socialProfileId, apiVersion, xApiVersion)
+> NotificationDtoListEnvelope getNotificationsAsync(socialProfileId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters)
 
 Get Notifications
 
@@ -1435,8 +1464,9 @@ public class Example {
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    NotificationDtoCollectionQueryParameters notificationDtoCollectionQueryParameters = new NotificationDtoCollectionQueryParameters(); // NotificationDtoCollectionQueryParameters | 
     try {
-      NotificationDtoListEnvelope result = apiInstance.getNotificationsAsync(socialProfileId, apiVersion, xApiVersion);
+      NotificationDtoListEnvelope result = apiInstance.getNotificationsAsync(socialProfileId, apiVersion, xApiVersion, notificationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#getNotificationsAsync");
@@ -1456,6 +1486,7 @@ public class Example {
 | **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **notificationDtoCollectionQueryParameters** | [**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1467,7 +1498,77 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getOrCreateDirectConversationAsync"></a>
+# **getOrCreateDirectConversationAsync**
+> ConversationDtoEnvelope getOrCreateDirectConversationAsync(socialProfileId, apiVersion, xApiVersion, body)
+
+Get or Create Direct Conversation
+
+Get or create the direct two-party conversation between the acting profile and a counterparty.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SocialProfilesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
+    UUID socialProfileId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    UUID body = UUID.randomUUID(); // UUID | 
+    try {
+      ConversationDtoEnvelope result = apiInstance.getOrCreateDirectConversationAsync(socialProfileId, apiVersion, xApiVersion, body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SocialProfilesApi#getOrCreateDirectConversationAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **socialProfileId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **body** | **UUID**|  | [optional] |
+
+### Return type
+
+[**ConversationDtoEnvelope**](ConversationDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -1547,7 +1648,7 @@ No authorization required
 
 <a id="getSocialProfilesAsync"></a>
 # **getSocialProfilesAsync**
-> SocialProfileDtoListEnvelope getSocialProfilesAsync(apiVersion, xApiVersion)
+> SocialProfileDtoListEnvelope getSocialProfilesAsync(apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters)
 
 Get Social Profiles
 
@@ -1570,8 +1671,9 @@ public class Example {
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SocialProfileDtoCollectionQueryParameters socialProfileDtoCollectionQueryParameters = new SocialProfileDtoCollectionQueryParameters(); // SocialProfileDtoCollectionQueryParameters | 
     try {
-      SocialProfileDtoListEnvelope result = apiInstance.getSocialProfilesAsync(apiVersion, xApiVersion);
+      SocialProfileDtoListEnvelope result = apiInstance.getSocialProfilesAsync(apiVersion, xApiVersion, socialProfileDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialProfilesApi#getSocialProfilesAsync");
@@ -1590,6 +1692,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **socialProfileDtoCollectionQueryParameters** | [**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -1601,7 +1704,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

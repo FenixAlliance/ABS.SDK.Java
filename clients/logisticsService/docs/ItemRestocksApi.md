@@ -371,7 +371,7 @@ No authorization required
 
 <a id="getItemRestockEntriesAsync"></a>
 # **getItemRestockEntriesAsync**
-> ItemRestockEntryDtoListEnvelope getItemRestockEntriesAsync(tenantId, restockId, apiVersion, xApiVersion)
+> ItemRestockEntryDtoListEnvelope getItemRestockEntriesAsync(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters)
 
 Get restock entries
 
@@ -396,8 +396,9 @@ public class Example {
     UUID restockId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters = new ItemRestockEntryDtoCollectionQueryParameters(); // ItemRestockEntryDtoCollectionQueryParameters | 
     try {
-      ItemRestockEntryDtoListEnvelope result = apiInstance.getItemRestockEntriesAsync(tenantId, restockId, apiVersion, xApiVersion);
+      ItemRestockEntryDtoListEnvelope result = apiInstance.getItemRestockEntriesAsync(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRestocksApi#getItemRestockEntriesAsync");
@@ -418,6 +419,7 @@ public class Example {
 | **restockId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemRestockEntryDtoCollectionQueryParameters** | [**ItemRestockEntryDtoCollectionQueryParameters**](ItemRestockEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -429,7 +431,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -439,7 +441,7 @@ No authorization required
 
 <a id="getItemRestockEntriesCountAsync"></a>
 # **getItemRestockEntriesCountAsync**
-> Int32Envelope getItemRestockEntriesCountAsync(tenantId, restockId, apiVersion, xApiVersion)
+> Int32Envelope getItemRestockEntriesCountAsync(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters)
 
 Get restock entries count
 
@@ -464,8 +466,9 @@ public class Example {
     UUID restockId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemRestockEntryDtoCollectionQueryParameters itemRestockEntryDtoCollectionQueryParameters = new ItemRestockEntryDtoCollectionQueryParameters(); // ItemRestockEntryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemRestockEntriesCountAsync(tenantId, restockId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemRestockEntriesCountAsync(tenantId, restockId, apiVersion, xApiVersion, itemRestockEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRestocksApi#getItemRestockEntriesCountAsync");
@@ -486,6 +489,7 @@ public class Example {
 | **restockId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemRestockEntryDtoCollectionQueryParameters** | [**ItemRestockEntryDtoCollectionQueryParameters**](ItemRestockEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -497,7 +501,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -578,7 +582,7 @@ No authorization required
 
 <a id="getItemRestocksAsync"></a>
 # **getItemRestocksAsync**
-> ItemRestockDtoListEnvelope getItemRestocksAsync(tenantId, apiVersion, xApiVersion)
+> ItemRestockDtoListEnvelope getItemRestocksAsync(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters)
 
 Get all item restocks
 
@@ -602,8 +606,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters = new ItemRestockDtoCollectionQueryParameters(); // ItemRestockDtoCollectionQueryParameters | 
     try {
-      ItemRestockDtoListEnvelope result = apiInstance.getItemRestocksAsync(tenantId, apiVersion, xApiVersion);
+      ItemRestockDtoListEnvelope result = apiInstance.getItemRestocksAsync(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRestocksApi#getItemRestocksAsync");
@@ -623,6 +628,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemRestockDtoCollectionQueryParameters** | [**ItemRestockDtoCollectionQueryParameters**](ItemRestockDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -634,7 +640,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -646,7 +652,7 @@ No authorization required
 
 <a id="getItemRestocksCountAsync"></a>
 # **getItemRestocksCountAsync**
-> Int32Envelope getItemRestocksCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getItemRestocksCountAsync(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters)
 
 Get item restocks count
 
@@ -670,8 +676,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemRestockDtoCollectionQueryParameters itemRestockDtoCollectionQueryParameters = new ItemRestockDtoCollectionQueryParameters(); // ItemRestockDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getItemRestocksCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getItemRestocksCountAsync(tenantId, apiVersion, xApiVersion, itemRestockDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRestocksApi#getItemRestocksCountAsync");
@@ -691,6 +698,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemRestockDtoCollectionQueryParameters** | [**ItemRestockDtoCollectionQueryParameters**](ItemRestockDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -702,7 +710,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -712,7 +720,7 @@ No authorization required
 
 <a id="patchItemRestockAsync"></a>
 # **patchItemRestockAsync**
-> EmptyEnvelope patchItemRestockAsync(tenantId, restockId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemRestockAsync(tenantId, restockId, apiVersion, xApiVersion, patchOperation)
 
 Patch an item restock
 
@@ -737,9 +745,9 @@ public class Example {
     UUID restockId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemRestockAsync(tenantId, restockId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemRestockAsync(tenantId, restockId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRestocksApi#patchItemRestockAsync");
@@ -760,7 +768,7 @@ public class Example {
 | **restockId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -783,7 +791,7 @@ No authorization required
 
 <a id="patchItemRestockEntryAsync"></a>
 # **patchItemRestockEntryAsync**
-> EmptyEnvelope patchItemRestockEntryAsync(tenantId, restockId, entryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchItemRestockEntryAsync(tenantId, restockId, entryId, apiVersion, xApiVersion, patchOperation)
 
 Patch a restock entry
 
@@ -809,9 +817,9 @@ public class Example {
     UUID entryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchItemRestockEntryAsync(tenantId, restockId, entryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchItemRestockEntryAsync(tenantId, restockId, entryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRestocksApi#patchItemRestockEntryAsync");
@@ -833,7 +841,7 @@ public class Example {
 | **entryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

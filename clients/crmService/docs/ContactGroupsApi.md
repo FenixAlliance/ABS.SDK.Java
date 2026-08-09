@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getContactGroupsAsync"></a>
 # **getContactGroupsAsync**
-> ContactsGroupDtoListEnvelope getContactGroupsAsync(tenantId, apiVersion, xApiVersion)
+> ContactsGroupDtoListEnvelope getContactGroupsAsync(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters)
 
 Get all contact groups
 
@@ -247,8 +247,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters = new ContactsGroupDtoCollectionQueryParameters(); // ContactsGroupDtoCollectionQueryParameters | 
     try {
-      ContactsGroupDtoListEnvelope result = apiInstance.getContactGroupsAsync(tenantId, apiVersion, xApiVersion);
+      ContactsGroupDtoListEnvelope result = apiInstance.getContactGroupsAsync(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactGroupsApi#getContactGroupsAsync");
@@ -268,6 +269,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactsGroupDtoCollectionQueryParameters** | [**ContactsGroupDtoCollectionQueryParameters**](ContactsGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -279,7 +281,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getContactGroupsCountAsync"></a>
 # **getContactGroupsCountAsync**
-> Int32Envelope getContactGroupsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getContactGroupsCountAsync(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters)
 
 Get contact groups count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ContactsGroupDtoCollectionQueryParameters contactsGroupDtoCollectionQueryParameters = new ContactsGroupDtoCollectionQueryParameters(); // ContactsGroupDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getContactGroupsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getContactGroupsCountAsync(tenantId, apiVersion, xApiVersion, contactsGroupDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactGroupsApi#getContactGroupsCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **contactsGroupDtoCollectionQueryParameters** | [**ContactsGroupDtoCollectionQueryParameters**](ContactsGroupDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchContactGroupAsync"></a>
 # **patchContactGroupAsync**
-> EmptyEnvelope patchContactGroupAsync(tenantId, id, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchContactGroupAsync(tenantId, id, apiVersion, xApiVersion, patchOperation)
 
 Patch a contact group
 
@@ -382,9 +386,9 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchContactGroupAsync(tenantId, id, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchContactGroupAsync(tenantId, id, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContactGroupsApi#patchContactGroupAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **id** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

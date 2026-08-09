@@ -487,7 +487,7 @@ No authorization required
 
 <a id="getDealUnitLinesAsync"></a>
 # **getDealUnitLinesAsync**
-> DealUnitLineDtoListEnvelope getDealUnitLinesAsync(tenantId, dealUnitId, itemId)
+> DealUnitLineDtoListEnvelope getDealUnitLinesAsync(tenantId, dealUnitId, itemId, dealUnitLineDtoCollectionQueryParameters)
 
 Get deal unit lines
 
@@ -511,8 +511,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID dealUnitId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
+    DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters = new DealUnitLineDtoCollectionQueryParameters(); // DealUnitLineDtoCollectionQueryParameters | 
     try {
-      DealUnitLineDtoListEnvelope result = apiInstance.getDealUnitLinesAsync(tenantId, dealUnitId, itemId);
+      DealUnitLineDtoListEnvelope result = apiInstance.getDealUnitLinesAsync(tenantId, dealUnitId, itemId, dealUnitLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitsApi#getDealUnitLinesAsync");
@@ -532,6 +533,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **dealUnitId** | **UUID**|  | |
 | **itemId** | **UUID**|  | [optional] |
+| **dealUnitLineDtoCollectionQueryParameters** | [**DealUnitLineDtoCollectionQueryParameters**](DealUnitLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -543,7 +545,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -554,7 +556,7 @@ No authorization required
 
 <a id="getDealUnitLinesCountAsync"></a>
 # **getDealUnitLinesCountAsync**
-> Int32Envelope getDealUnitLinesCountAsync(tenantId, dealUnitId)
+> Int32Envelope getDealUnitLinesCountAsync(tenantId, dealUnitId, dealUnitLineDtoCollectionQueryParameters)
 
 Get deal unit lines count
 
@@ -577,8 +579,9 @@ public class Example {
     DealUnitsApi apiInstance = new DealUnitsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID dealUnitId = UUID.randomUUID(); // UUID | 
+    DealUnitLineDtoCollectionQueryParameters dealUnitLineDtoCollectionQueryParameters = new DealUnitLineDtoCollectionQueryParameters(); // DealUnitLineDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getDealUnitLinesCountAsync(tenantId, dealUnitId);
+      Int32Envelope result = apiInstance.getDealUnitLinesCountAsync(tenantId, dealUnitId, dealUnitLineDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitsApi#getDealUnitLinesCountAsync");
@@ -597,6 +600,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **dealUnitId** | **UUID**|  | |
+| **dealUnitLineDtoCollectionQueryParameters** | [**DealUnitLineDtoCollectionQueryParameters**](DealUnitLineDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -608,7 +612,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -686,7 +690,7 @@ No authorization required
 
 <a id="getDealUnitsAsync"></a>
 # **getDealUnitsAsync**
-> DealUnitDtoListEnvelope getDealUnitsAsync(tenantId)
+> DealUnitDtoListEnvelope getDealUnitsAsync(tenantId, dealUnitDtoCollectionQueryParameters)
 
 Get deal units
 
@@ -708,8 +712,9 @@ public class Example {
 
     DealUnitsApi apiInstance = new DealUnitsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters = new DealUnitDtoCollectionQueryParameters(); // DealUnitDtoCollectionQueryParameters | 
     try {
-      DealUnitDtoListEnvelope result = apiInstance.getDealUnitsAsync(tenantId);
+      DealUnitDtoListEnvelope result = apiInstance.getDealUnitsAsync(tenantId, dealUnitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitsApi#getDealUnitsAsync");
@@ -727,6 +732,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **dealUnitDtoCollectionQueryParameters** | [**DealUnitDtoCollectionQueryParameters**](DealUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -738,7 +744,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -749,7 +755,7 @@ No authorization required
 
 <a id="getDealUnitsCountAsync"></a>
 # **getDealUnitsCountAsync**
-> Int32Envelope getDealUnitsCountAsync(tenantId)
+> Int32Envelope getDealUnitsCountAsync(tenantId, dealUnitDtoCollectionQueryParameters)
 
 Get deal units count
 
@@ -771,8 +777,9 @@ public class Example {
 
     DealUnitsApi apiInstance = new DealUnitsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    DealUnitDtoCollectionQueryParameters dealUnitDtoCollectionQueryParameters = new DealUnitDtoCollectionQueryParameters(); // DealUnitDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getDealUnitsCountAsync(tenantId);
+      Int32Envelope result = apiInstance.getDealUnitsCountAsync(tenantId, dealUnitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitsApi#getDealUnitsCountAsync");
@@ -790,6 +797,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **dealUnitDtoCollectionQueryParameters** | [**DealUnitDtoCollectionQueryParameters**](DealUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -801,7 +809,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -877,7 +885,7 @@ No authorization required
 
 <a id="getExtendedDealUnitsAsync"></a>
 # **getExtendedDealUnitsAsync**
-> ExtendedDealUnitDtoListEnvelope getExtendedDealUnitsAsync(tenantId)
+> ExtendedDealUnitDtoListEnvelope getExtendedDealUnitsAsync(tenantId, extendedDealUnitDtoCollectionQueryParameters)
 
 Get extended deal units
 
@@ -899,8 +907,9 @@ public class Example {
 
     DealUnitsApi apiInstance = new DealUnitsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    ExtendedDealUnitDtoCollectionQueryParameters extendedDealUnitDtoCollectionQueryParameters = new ExtendedDealUnitDtoCollectionQueryParameters(); // ExtendedDealUnitDtoCollectionQueryParameters | 
     try {
-      ExtendedDealUnitDtoListEnvelope result = apiInstance.getExtendedDealUnitsAsync(tenantId);
+      ExtendedDealUnitDtoListEnvelope result = apiInstance.getExtendedDealUnitsAsync(tenantId, extendedDealUnitDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitsApi#getExtendedDealUnitsAsync");
@@ -918,6 +927,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **extendedDealUnitDtoCollectionQueryParameters** | [**ExtendedDealUnitDtoCollectionQueryParameters**](ExtendedDealUnitDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -929,7 +939,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -940,7 +950,7 @@ No authorization required
 
 <a id="patchDealUnitAsync"></a>
 # **patchDealUnitAsync**
-> EmptyEnvelope patchDealUnitAsync(tenantId, dealUnitId, operation)
+> EmptyEnvelope patchDealUnitAsync(tenantId, dealUnitId, patchOperation)
 
 Patch a deal unit
 
@@ -963,9 +973,9 @@ public class Example {
     DealUnitsApi apiInstance = new DealUnitsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID dealUnitId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchDealUnitAsync(tenantId, dealUnitId, operation);
+      EmptyEnvelope result = apiInstance.patchDealUnitAsync(tenantId, dealUnitId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitsApi#patchDealUnitAsync");
@@ -984,7 +994,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **dealUnitId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -1007,7 +1017,7 @@ No authorization required
 
 <a id="patchDealUnitLineAsync"></a>
 # **patchDealUnitLineAsync**
-> EmptyEnvelope patchDealUnitLineAsync(tenantId, dealUnitId, dealUnitLineId, operation)
+> EmptyEnvelope patchDealUnitLineAsync(tenantId, dealUnitId, dealUnitLineId, patchOperation)
 
 Patch a deal unit line
 
@@ -1031,9 +1041,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID dealUnitId = UUID.randomUUID(); // UUID | 
     UUID dealUnitLineId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchDealUnitLineAsync(tenantId, dealUnitId, dealUnitLineId, operation);
+      EmptyEnvelope result = apiInstance.patchDealUnitLineAsync(tenantId, dealUnitId, dealUnitLineId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DealUnitsApi#patchDealUnitLineAsync");
@@ -1053,7 +1063,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **dealUnitId** | **UUID**|  | |
 | **dealUnitLineId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

@@ -28,17 +28,19 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.BudgetAccountEntryCreateDto;
+import org.openapitools.client.model.BudgetAccountEntryDtoCollectionQueryParameters;
 import org.openapitools.client.model.BudgetAccountEntryDtoEnvelope;
 import org.openapitools.client.model.BudgetAccountEntryDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.BudgetAccountEntryUpdateDto;
 import org.openapitools.client.model.BudgetCreateDto;
+import org.openapitools.client.model.BudgetDtoCollectionQueryParameters;
 import org.openapitools.client.model.BudgetDtoEnvelope;
 import org.openapitools.client.model.BudgetDtoIReadOnlyListEnvelope;
 import org.openapitools.client.model.BudgetUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -756,6 +758,7 @@ public class BudgetsApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetAccountEntryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -767,7 +770,7 @@ public class BudgetsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBudgetAccountEntriesCollectionAsyncCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBudgetAccountEntriesCollectionAsyncCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, BudgetAccountEntryDtoCollectionQueryParameters budgetAccountEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -781,7 +784,7 @@ public class BudgetsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = budgetAccountEntryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Budgets/{budgetId}/AccountEntries"
@@ -815,6 +818,8 @@ public class BudgetsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -826,7 +831,7 @@ public class BudgetsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBudgetAccountEntriesCollectionAsyncValidateBeforeCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBudgetAccountEntriesCollectionAsyncValidateBeforeCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, BudgetAccountEntryDtoCollectionQueryParameters budgetAccountEntryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBudgetAccountEntriesCollectionAsync(Async)");
@@ -837,7 +842,7 @@ public class BudgetsApi {
             throw new ApiException("Missing the required parameter 'budgetId' when calling getBudgetAccountEntriesCollectionAsync(Async)");
         }
 
-        return getBudgetAccountEntriesCollectionAsyncCall(tenantId, budgetId, apiVersion, xApiVersion, _callback);
+        return getBudgetAccountEntriesCollectionAsyncCall(tenantId, budgetId, apiVersion, xApiVersion, budgetAccountEntryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -848,6 +853,7 @@ public class BudgetsApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetAccountEntryDtoCollectionQueryParameters  (optional)
      * @return BudgetAccountEntryDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -858,8 +864,8 @@ public class BudgetsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public BudgetAccountEntryDtoIReadOnlyListEnvelope getBudgetAccountEntriesCollectionAsync(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BudgetAccountEntryDtoIReadOnlyListEnvelope> localVarResp = getBudgetAccountEntriesCollectionAsyncWithHttpInfo(tenantId, budgetId, apiVersion, xApiVersion);
+    public BudgetAccountEntryDtoIReadOnlyListEnvelope getBudgetAccountEntriesCollectionAsync(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, BudgetAccountEntryDtoCollectionQueryParameters budgetAccountEntryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BudgetAccountEntryDtoIReadOnlyListEnvelope> localVarResp = getBudgetAccountEntriesCollectionAsyncWithHttpInfo(tenantId, budgetId, apiVersion, xApiVersion, budgetAccountEntryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -870,6 +876,7 @@ public class BudgetsApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetAccountEntryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BudgetAccountEntryDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -880,8 +887,8 @@ public class BudgetsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BudgetAccountEntryDtoIReadOnlyListEnvelope> getBudgetAccountEntriesCollectionAsyncWithHttpInfo(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBudgetAccountEntriesCollectionAsyncValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, null);
+    public ApiResponse<BudgetAccountEntryDtoIReadOnlyListEnvelope> getBudgetAccountEntriesCollectionAsyncWithHttpInfo(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, BudgetAccountEntryDtoCollectionQueryParameters budgetAccountEntryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBudgetAccountEntriesCollectionAsyncValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, budgetAccountEntryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BudgetAccountEntryDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -893,6 +900,7 @@ public class BudgetsApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetAccountEntryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -904,9 +912,9 @@ public class BudgetsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBudgetAccountEntriesCollectionAsyncAsync(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, final ApiCallback<BudgetAccountEntryDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBudgetAccountEntriesCollectionAsyncAsync(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, BudgetAccountEntryDtoCollectionQueryParameters budgetAccountEntryDtoCollectionQueryParameters, final ApiCallback<BudgetAccountEntryDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBudgetAccountEntriesCollectionAsyncValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBudgetAccountEntriesCollectionAsyncValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, budgetAccountEntryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BudgetAccountEntryDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1248,6 +1256,7 @@ public class BudgetsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1259,7 +1268,7 @@ public class BudgetsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBudgetsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBudgetsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1273,7 +1282,7 @@ public class BudgetsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = budgetDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Budgets";
@@ -1306,6 +1315,8 @@ public class BudgetsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1317,13 +1328,13 @@ public class BudgetsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBudgetsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBudgetsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBudgetsAsync(Async)");
         }
 
-        return getBudgetsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBudgetsAsyncCall(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1333,6 +1344,7 @@ public class BudgetsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetDtoCollectionQueryParameters  (optional)
      * @return BudgetDtoIReadOnlyListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1343,8 +1355,8 @@ public class BudgetsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public BudgetDtoIReadOnlyListEnvelope getBudgetsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BudgetDtoIReadOnlyListEnvelope> localVarResp = getBudgetsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public BudgetDtoIReadOnlyListEnvelope getBudgetsAsync(UUID tenantId, String apiVersion, String xApiVersion, BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BudgetDtoIReadOnlyListEnvelope> localVarResp = getBudgetsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1354,6 +1366,7 @@ public class BudgetsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BudgetDtoIReadOnlyListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1364,8 +1377,8 @@ public class BudgetsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BudgetDtoIReadOnlyListEnvelope> getBudgetsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBudgetsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<BudgetDtoIReadOnlyListEnvelope> getBudgetsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBudgetsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BudgetDtoIReadOnlyListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1376,6 +1389,7 @@ public class BudgetsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1387,9 +1401,9 @@ public class BudgetsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBudgetsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<BudgetDtoIReadOnlyListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBudgetsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters, final ApiCallback<BudgetDtoIReadOnlyListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBudgetsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBudgetsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BudgetDtoIReadOnlyListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1399,6 +1413,7 @@ public class BudgetsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1410,7 +1425,7 @@ public class BudgetsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBudgetsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBudgetsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1424,7 +1439,7 @@ public class BudgetsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = budgetDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Budgets/Count";
@@ -1457,6 +1472,8 @@ public class BudgetsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1468,13 +1485,13 @@ public class BudgetsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBudgetsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBudgetsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBudgetsCountAsync(Async)");
         }
 
-        return getBudgetsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBudgetsCountAsyncCall(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1484,6 +1501,7 @@ public class BudgetsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1494,8 +1512,8 @@ public class BudgetsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBudgetsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBudgetsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getBudgetsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBudgetsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1505,6 +1523,7 @@ public class BudgetsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1515,8 +1534,8 @@ public class BudgetsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBudgetsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBudgetsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBudgetsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBudgetsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1527,6 +1546,7 @@ public class BudgetsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param budgetDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1538,9 +1558,9 @@ public class BudgetsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBudgetsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBudgetsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, BudgetDtoCollectionQueryParameters budgetDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBudgetsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBudgetsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, budgetDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1552,7 +1572,7 @@ public class BudgetsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1565,7 +1585,7 @@ public class BudgetsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBudgetAccountEntryAsyncCall(UUID tenantId, UUID budgetId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBudgetAccountEntryAsyncCall(UUID tenantId, UUID budgetId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1579,7 +1599,7 @@ public class BudgetsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId}"
@@ -1627,7 +1647,7 @@ public class BudgetsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBudgetAccountEntryAsyncValidateBeforeCall(UUID tenantId, UUID budgetId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBudgetAccountEntryAsyncValidateBeforeCall(UUID tenantId, UUID budgetId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBudgetAccountEntryAsync(Async)");
@@ -1643,7 +1663,7 @@ public class BudgetsApi {
             throw new ApiException("Missing the required parameter 'entryId' when calling patchBudgetAccountEntryAsync(Async)");
         }
 
-        return patchBudgetAccountEntryAsyncCall(tenantId, budgetId, entryId, apiVersion, xApiVersion, operation, _callback);
+        return patchBudgetAccountEntryAsyncCall(tenantId, budgetId, entryId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1655,7 +1675,7 @@ public class BudgetsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1667,8 +1687,8 @@ public class BudgetsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBudgetAccountEntryAsync(UUID tenantId, UUID budgetId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBudgetAccountEntryAsyncWithHttpInfo(tenantId, budgetId, entryId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBudgetAccountEntryAsync(UUID tenantId, UUID budgetId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBudgetAccountEntryAsyncWithHttpInfo(tenantId, budgetId, entryId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1680,7 +1700,7 @@ public class BudgetsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1692,8 +1712,8 @@ public class BudgetsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBudgetAccountEntryAsyncWithHttpInfo(UUID tenantId, UUID budgetId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBudgetAccountEntryAsyncValidateBeforeCall(tenantId, budgetId, entryId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBudgetAccountEntryAsyncWithHttpInfo(UUID tenantId, UUID budgetId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBudgetAccountEntryAsyncValidateBeforeCall(tenantId, budgetId, entryId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1706,7 +1726,7 @@ public class BudgetsApi {
      * @param entryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1719,9 +1739,9 @@ public class BudgetsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBudgetAccountEntryAsyncAsync(UUID tenantId, UUID budgetId, UUID entryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBudgetAccountEntryAsyncAsync(UUID tenantId, UUID budgetId, UUID entryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBudgetAccountEntryAsyncValidateBeforeCall(tenantId, budgetId, entryId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBudgetAccountEntryAsyncValidateBeforeCall(tenantId, budgetId, entryId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1732,7 +1752,7 @@ public class BudgetsApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1745,7 +1765,7 @@ public class BudgetsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBudgetAsyncCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBudgetAsyncCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1759,7 +1779,7 @@ public class BudgetsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Budgets/{budgetId}"
@@ -1806,7 +1826,7 @@ public class BudgetsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBudgetAsyncValidateBeforeCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBudgetAsyncValidateBeforeCall(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBudgetAsync(Async)");
@@ -1817,7 +1837,7 @@ public class BudgetsApi {
             throw new ApiException("Missing the required parameter 'budgetId' when calling patchBudgetAsync(Async)");
         }
 
-        return patchBudgetAsyncCall(tenantId, budgetId, apiVersion, xApiVersion, operation, _callback);
+        return patchBudgetAsyncCall(tenantId, budgetId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -1828,7 +1848,7 @@ public class BudgetsApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1840,8 +1860,8 @@ public class BudgetsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBudgetAsync(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBudgetAsyncWithHttpInfo(tenantId, budgetId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBudgetAsync(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBudgetAsyncWithHttpInfo(tenantId, budgetId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -1852,7 +1872,7 @@ public class BudgetsApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1864,8 +1884,8 @@ public class BudgetsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBudgetAsyncWithHttpInfo(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBudgetAsyncValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBudgetAsyncWithHttpInfo(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBudgetAsyncValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1877,7 +1897,7 @@ public class BudgetsApi {
      * @param budgetId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1890,9 +1910,9 @@ public class BudgetsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBudgetAsyncAsync(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBudgetAsyncAsync(UUID tenantId, UUID budgetId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBudgetAsyncValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBudgetAsyncValidateBeforeCall(tenantId, budgetId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

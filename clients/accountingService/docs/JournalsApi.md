@@ -6,6 +6,7 @@ All URIs are relative to *https://absuite.net*
 |------------- | ------------- | -------------|
 | [**aggregateJournalEntryCreditsAsync**](JournalsApi.md#aggregateJournalEntryCreditsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits |
 | [**aggregateJournalEntryDebitsAsync**](JournalsApi.md#aggregateJournalEntryDebitsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits |
+| [**assignJournalToBookAsync**](JournalsApi.md#assignJournalToBookAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/AssignToBook | Bind a journal to a financial book |
 | [**countJournalsAsync**](JournalsApi.md#countJournalsAsync) | **GET** /api/v2/AccountingService/Journals/Count | Count journals |
 | [**createJournalAsync**](JournalsApi.md#createJournalAsync) | **POST** /api/v2/AccountingService/Journals | Create journal |
 | [**createJournalEntryAsync**](JournalsApi.md#createJournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry |
@@ -26,7 +27,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="aggregateJournalEntryCreditsAsync"></a>
 # **aggregateJournalEntryCreditsAsync**
-> MoneyEnvelope aggregateJournalEntryCreditsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion)
+> MoneyEnvelope aggregateJournalEntryCreditsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Aggregate journal entry credits
 
@@ -52,8 +53,9 @@ public class Example {
     String currencyId = "USD.USA"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters = new JournalEntryDtoCollectionQueryParameters(); // JournalEntryDtoCollectionQueryParameters | 
     try {
-      MoneyEnvelope result = apiInstance.aggregateJournalEntryCreditsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion);
+      MoneyEnvelope result = apiInstance.aggregateJournalEntryCreditsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JournalsApi#aggregateJournalEntryCreditsAsync");
@@ -75,6 +77,7 @@ public class Example {
 | **currencyId** | **String**|  | [optional] [default to USD.USA] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -86,7 +89,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -98,7 +101,7 @@ No authorization required
 
 <a id="aggregateJournalEntryDebitsAsync"></a>
 # **aggregateJournalEntryDebitsAsync**
-> MoneyEnvelope aggregateJournalEntryDebitsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion)
+> MoneyEnvelope aggregateJournalEntryDebitsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Aggregate journal entry debits
 
@@ -124,8 +127,9 @@ public class Example {
     String currencyId = "USD.USA"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters = new JournalEntryDtoCollectionQueryParameters(); // JournalEntryDtoCollectionQueryParameters | 
     try {
-      MoneyEnvelope result = apiInstance.aggregateJournalEntryDebitsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion);
+      MoneyEnvelope result = apiInstance.aggregateJournalEntryDebitsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JournalsApi#aggregateJournalEntryDebitsAsync");
@@ -147,6 +151,7 @@ public class Example {
 | **currencyId** | **String**|  | [optional] [default to USD.USA] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -158,7 +163,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -168,9 +173,82 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 
+<a id="assignJournalToBookAsync"></a>
+# **assignJournalToBookAsync**
+> EmptyEnvelope assignJournalToBookAsync(tenantId, journalId, apiVersion, xApiVersion, assignJournalToBookRequest)
+
+Bind a journal to a financial book
+
+Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.JournalsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    JournalsApi apiInstance = new JournalsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID journalId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    AssignJournalToBookRequest assignJournalToBookRequest = new AssignJournalToBookRequest(); // AssignJournalToBookRequest | 
+    try {
+      EmptyEnvelope result = apiInstance.assignJournalToBookAsync(tenantId, journalId, apiVersion, xApiVersion, assignJournalToBookRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling JournalsApi#assignJournalToBookAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **journalId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **assignJournalToBookRequest** | [**AssignJournalToBookRequest**](AssignJournalToBookRequest.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
 <a id="countJournalsAsync"></a>
 # **countJournalsAsync**
-> Int32Envelope countJournalsAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope countJournalsAsync(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters)
 
 Count journals
 
@@ -194,8 +272,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters = new JournalDtoCollectionQueryParameters(); // JournalDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countJournalsAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countJournalsAsync(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JournalsApi#countJournalsAsync");
@@ -215,6 +294,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **journalDtoCollectionQueryParameters** | [**JournalDtoCollectionQueryParameters**](JournalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -226,7 +306,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -592,7 +672,7 @@ No authorization required
 
 <a id="getJournalEntriesAsync"></a>
 # **getJournalEntriesAsync**
-> JournalEntryDtoIReadOnlyListEnvelope getJournalEntriesAsync(tenantId, journalId, apiVersion, xApiVersion)
+> JournalEntryDtoIReadOnlyListEnvelope getJournalEntriesAsync(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Get journal entries
 
@@ -617,8 +697,9 @@ public class Example {
     UUID journalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters = new JournalEntryDtoCollectionQueryParameters(); // JournalEntryDtoCollectionQueryParameters | 
     try {
-      JournalEntryDtoIReadOnlyListEnvelope result = apiInstance.getJournalEntriesAsync(tenantId, journalId, apiVersion, xApiVersion);
+      JournalEntryDtoIReadOnlyListEnvelope result = apiInstance.getJournalEntriesAsync(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JournalsApi#getJournalEntriesAsync");
@@ -639,6 +720,7 @@ public class Example {
 | **journalId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -650,7 +732,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -662,7 +744,7 @@ No authorization required
 
 <a id="getJournalEntriesCountAsync"></a>
 # **getJournalEntriesCountAsync**
-> Int32Envelope getJournalEntriesCountAsync(tenantId, journalId, apiVersion, xApiVersion)
+> Int32Envelope getJournalEntriesCountAsync(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters)
 
 Count journal entries
 
@@ -687,8 +769,9 @@ public class Example {
     UUID journalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JournalEntryDtoCollectionQueryParameters journalEntryDtoCollectionQueryParameters = new JournalEntryDtoCollectionQueryParameters(); // JournalEntryDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getJournalEntriesCountAsync(tenantId, journalId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getJournalEntriesCountAsync(tenantId, journalId, apiVersion, xApiVersion, journalEntryDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JournalsApi#getJournalEntriesCountAsync");
@@ -709,6 +792,7 @@ public class Example {
 | **journalId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **journalEntryDtoCollectionQueryParameters** | [**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -720,7 +804,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -804,7 +888,7 @@ No authorization required
 
 <a id="getJournalsAsync"></a>
 # **getJournalsAsync**
-> JournalDtoIReadOnlyListEnvelope getJournalsAsync(tenantId, apiVersion, xApiVersion)
+> JournalDtoIReadOnlyListEnvelope getJournalsAsync(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters)
 
 Get all journals
 
@@ -828,8 +912,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    JournalDtoCollectionQueryParameters journalDtoCollectionQueryParameters = new JournalDtoCollectionQueryParameters(); // JournalDtoCollectionQueryParameters | 
     try {
-      JournalDtoIReadOnlyListEnvelope result = apiInstance.getJournalsAsync(tenantId, apiVersion, xApiVersion);
+      JournalDtoIReadOnlyListEnvelope result = apiInstance.getJournalsAsync(tenantId, apiVersion, xApiVersion, journalDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JournalsApi#getJournalsAsync");
@@ -849,6 +934,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **journalDtoCollectionQueryParameters** | [**JournalDtoCollectionQueryParameters**](JournalDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -860,7 +946,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -872,7 +958,7 @@ No authorization required
 
 <a id="patchJournalAsync"></a>
 # **patchJournalAsync**
-> EmptyEnvelope patchJournalAsync(tenantId, journalId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchJournalAsync(tenantId, journalId, apiVersion, xApiVersion, patchOperation)
 
 Patch a journal
 
@@ -897,9 +983,9 @@ public class Example {
     UUID journalId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchJournalAsync(tenantId, journalId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchJournalAsync(tenantId, journalId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JournalsApi#patchJournalAsync");
@@ -920,7 +1006,7 @@ public class Example {
 | **journalId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 
@@ -944,7 +1030,7 @@ No authorization required
 
 <a id="patchJournalEntryAsync"></a>
 # **patchJournalEntryAsync**
-> EmptyEnvelope patchJournalEntryAsync(tenantId, journalId, entryId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchJournalEntryAsync(tenantId, journalId, entryId, apiVersion, xApiVersion, patchOperation)
 
 Patch a journal entry
 
@@ -970,9 +1056,9 @@ public class Example {
     UUID entryId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchJournalEntryAsync(tenantId, journalId, entryId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchJournalEntryAsync(tenantId, journalId, entryId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JournalsApi#patchJournalEntryAsync");
@@ -994,7 +1080,7 @@ public class Example {
 | **entryId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

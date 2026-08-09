@@ -218,7 +218,7 @@ No authorization required
 
 <a id="getCourseUpdatesAsync"></a>
 # **getCourseUpdatesAsync**
-> List&lt;CourseNewsDto&gt; getCourseUpdatesAsync(tenantId, apiVersion, xApiVersion)
+> List&lt;CourseNewsDto&gt; getCourseUpdatesAsync(tenantId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
 
 Get all course updates
 
@@ -242,8 +242,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseNewsDtoCollectionQueryParameters courseNewsDtoCollectionQueryParameters = new CourseNewsDtoCollectionQueryParameters(); // CourseNewsDtoCollectionQueryParameters | 
     try {
-      List<CourseNewsDto> result = apiInstance.getCourseUpdatesAsync(tenantId, apiVersion, xApiVersion);
+      List<CourseNewsDto> result = apiInstance.getCourseUpdatesAsync(tenantId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseUpdatesApi#getCourseUpdatesAsync");
@@ -263,6 +264,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -274,7 +276,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -285,7 +287,7 @@ No authorization required
 
 <a id="getCourseUpdatesCountAsync"></a>
 # **getCourseUpdatesCountAsync**
-> Integer getCourseUpdatesCountAsync(tenantId, apiVersion, xApiVersion)
+> Integer getCourseUpdatesCountAsync(tenantId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters)
 
 Get course updates count
 
@@ -309,8 +311,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    CourseNewsDtoCollectionQueryParameters courseNewsDtoCollectionQueryParameters = new CourseNewsDtoCollectionQueryParameters(); // CourseNewsDtoCollectionQueryParameters | 
     try {
-      Integer result = apiInstance.getCourseUpdatesCountAsync(tenantId, apiVersion, xApiVersion);
+      Integer result = apiInstance.getCourseUpdatesCountAsync(tenantId, apiVersion, xApiVersion, courseNewsDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseUpdatesApi#getCourseUpdatesCountAsync");
@@ -330,6 +333,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **courseNewsDtoCollectionQueryParameters** | [**CourseNewsDtoCollectionQueryParameters**](CourseNewsDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -352,7 +356,7 @@ No authorization required
 
 <a id="patchCourseUpdateAsync"></a>
 # **patchCourseUpdateAsync**
-> EmptyEnvelope patchCourseUpdateAsync(tenantId, updateId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchCourseUpdateAsync(tenantId, updateId, apiVersion, xApiVersion, patchOperation)
 
 Patch a course update
 
@@ -377,9 +381,9 @@ public class Example {
     String updateId = "updateId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchCourseUpdateAsync(tenantId, updateId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchCourseUpdateAsync(tenantId, updateId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CourseUpdatesApi#patchCourseUpdateAsync");
@@ -400,7 +404,7 @@ public class Example {
 | **updateId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

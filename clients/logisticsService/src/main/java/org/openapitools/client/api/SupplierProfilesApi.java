@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SupplierProfileCreateDto;
+import org.openapitools.client.model.SupplierProfileDtoCollectionQueryParameters;
 import org.openapitools.client.model.SupplierProfileDtoEnvelope;
 import org.openapitools.client.model.SupplierProfileDtoListEnvelope;
 import org.openapitools.client.model.SupplierProfileUpdateDto;
@@ -552,6 +553,7 @@ public class SupplierProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supplierProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -563,7 +565,7 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupplierProfilesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSupplierProfilesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -577,7 +579,7 @@ public class SupplierProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = supplierProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/SupplierProfiles";
@@ -610,6 +612,8 @@ public class SupplierProfilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -621,13 +625,13 @@ public class SupplierProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSupplierProfilesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSupplierProfilesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSupplierProfilesAsync(Async)");
         }
 
-        return getSupplierProfilesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSupplierProfilesAsyncCall(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -637,6 +641,7 @@ public class SupplierProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supplierProfileDtoCollectionQueryParameters  (optional)
      * @return SupplierProfileDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -647,8 +652,8 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SupplierProfileDtoListEnvelope getSupplierProfilesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SupplierProfileDtoListEnvelope> localVarResp = getSupplierProfilesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SupplierProfileDtoListEnvelope getSupplierProfilesAsync(UUID tenantId, String apiVersion, String xApiVersion, SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SupplierProfileDtoListEnvelope> localVarResp = getSupplierProfilesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -658,6 +663,7 @@ public class SupplierProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supplierProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SupplierProfileDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -668,8 +674,8 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SupplierProfileDtoListEnvelope> getSupplierProfilesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSupplierProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<SupplierProfileDtoListEnvelope> getSupplierProfilesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSupplierProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SupplierProfileDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -680,6 +686,7 @@ public class SupplierProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supplierProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -691,9 +698,9 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupplierProfilesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SupplierProfileDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSupplierProfilesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters, final ApiCallback<SupplierProfileDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSupplierProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSupplierProfilesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SupplierProfileDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -703,6 +710,7 @@ public class SupplierProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supplierProfileDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -713,7 +721,7 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupplierProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSupplierProfilesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -727,7 +735,7 @@ public class SupplierProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = supplierProfileDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/SupplierProfiles/Count";
@@ -760,6 +768,8 @@ public class SupplierProfilesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -771,13 +781,13 @@ public class SupplierProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSupplierProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSupplierProfilesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSupplierProfilesCountAsync(Async)");
         }
 
-        return getSupplierProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSupplierProfilesCountAsyncCall(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -787,6 +797,7 @@ public class SupplierProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supplierProfileDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -796,8 +807,8 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSupplierProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSupplierProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getSupplierProfilesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSupplierProfilesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -807,6 +818,7 @@ public class SupplierProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supplierProfileDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -816,8 +828,8 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSupplierProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSupplierProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSupplierProfilesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSupplierProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,6 +840,7 @@ public class SupplierProfilesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param supplierProfileDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -838,9 +851,9 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSupplierProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSupplierProfilesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SupplierProfileDtoCollectionQueryParameters supplierProfileDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSupplierProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSupplierProfilesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, supplierProfileDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -851,7 +864,7 @@ public class SupplierProfilesApi {
      * @param supplierProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -862,7 +875,7 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSupplierProfileAsyncCall(UUID tenantId, UUID supplierProfileId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchSupplierProfileAsyncCall(UUID tenantId, UUID supplierProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -876,7 +889,7 @@ public class SupplierProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LogisticsService/SupplierProfiles/{supplierProfileId}"
@@ -923,7 +936,7 @@ public class SupplierProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchSupplierProfileAsyncValidateBeforeCall(UUID tenantId, UUID supplierProfileId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSupplierProfileAsyncValidateBeforeCall(UUID tenantId, UUID supplierProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchSupplierProfileAsync(Async)");
@@ -934,7 +947,7 @@ public class SupplierProfilesApi {
             throw new ApiException("Missing the required parameter 'supplierProfileId' when calling patchSupplierProfileAsync(Async)");
         }
 
-        return patchSupplierProfileAsyncCall(tenantId, supplierProfileId, apiVersion, xApiVersion, operation, _callback);
+        return patchSupplierProfileAsyncCall(tenantId, supplierProfileId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -945,7 +958,7 @@ public class SupplierProfilesApi {
      * @param supplierProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -955,8 +968,8 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchSupplierProfileAsync(UUID tenantId, UUID supplierProfileId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchSupplierProfileAsyncWithHttpInfo(tenantId, supplierProfileId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchSupplierProfileAsync(UUID tenantId, UUID supplierProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchSupplierProfileAsyncWithHttpInfo(tenantId, supplierProfileId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -967,7 +980,7 @@ public class SupplierProfilesApi {
      * @param supplierProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -977,8 +990,8 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchSupplierProfileAsyncWithHttpInfo(UUID tenantId, UUID supplierProfileId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchSupplierProfileAsyncValidateBeforeCall(tenantId, supplierProfileId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchSupplierProfileAsyncWithHttpInfo(UUID tenantId, UUID supplierProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchSupplierProfileAsyncValidateBeforeCall(tenantId, supplierProfileId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -990,7 +1003,7 @@ public class SupplierProfilesApi {
      * @param supplierProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1001,9 +1014,9 @@ public class SupplierProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSupplierProfileAsyncAsync(UUID tenantId, UUID supplierProfileId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchSupplierProfileAsyncAsync(UUID tenantId, UUID supplierProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchSupplierProfileAsyncValidateBeforeCall(tenantId, supplierProfileId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchSupplierProfileAsyncValidateBeforeCall(tenantId, supplierProfileId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -31,9 +31,10 @@ import org.openapitools.client.model.BusinessApplicationSimpleDtoListEnvelope;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SecurityPermissionDtoListEnvelope;
 import org.openapitools.client.model.SecurityRoleCreateDto;
+import org.openapitools.client.model.SecurityRoleDtoCollectionQueryParameters;
 import org.openapitools.client.model.SecurityRoleDtoEnvelope;
 import org.openapitools.client.model.SecurityRoleDtoListEnvelope;
 import org.openapitools.client.model.SecurityRoleUpdateDto;
@@ -1588,6 +1589,7 @@ public class RolesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1599,7 +1601,7 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRolesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRolesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1613,7 +1615,7 @@ public class RolesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = securityRoleDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Roles";
@@ -1646,6 +1648,8 @@ public class RolesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1657,13 +1661,13 @@ public class RolesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRolesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRolesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRolesAsync(Async)");
         }
 
-        return getRolesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getRolesAsyncCall(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1673,6 +1677,7 @@ public class RolesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @return SecurityRoleDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1683,8 +1688,8 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SecurityRoleDtoListEnvelope getRolesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SecurityRoleDtoListEnvelope> localVarResp = getRolesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SecurityRoleDtoListEnvelope getRolesAsync(UUID tenantId, String apiVersion, String xApiVersion, SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SecurityRoleDtoListEnvelope> localVarResp = getRolesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1694,6 +1699,7 @@ public class RolesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SecurityRoleDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1704,8 +1710,8 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SecurityRoleDtoListEnvelope> getRolesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRolesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<SecurityRoleDtoListEnvelope> getRolesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRolesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SecurityRoleDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1716,6 +1722,7 @@ public class RolesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1727,9 +1734,9 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRolesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SecurityRoleDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getRolesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters, final ApiCallback<SecurityRoleDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRolesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRolesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SecurityRoleDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1900,6 +1907,7 @@ public class RolesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1911,7 +1919,7 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRolesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRolesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1925,7 +1933,7 @@ public class RolesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = securityRoleDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Roles/Count";
@@ -1958,6 +1966,8 @@ public class RolesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1969,13 +1979,13 @@ public class RolesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRolesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRolesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getRolesCountAsync(Async)");
         }
 
-        return getRolesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getRolesCountAsyncCall(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1985,6 +1995,7 @@ public class RolesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1995,8 +2006,8 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getRolesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getRolesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getRolesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getRolesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2006,6 +2017,7 @@ public class RolesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2016,8 +2028,8 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getRolesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getRolesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getRolesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getRolesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2028,6 +2040,7 @@ public class RolesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param securityRoleDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2039,9 +2052,9 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRolesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getRolesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SecurityRoleDtoCollectionQueryParameters securityRoleDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRolesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getRolesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, securityRoleDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2050,7 +2063,7 @@ public class RolesApi {
      * Build call for patchRoleAsync
      * @param tenantId  (required)
      * @param securityRoleId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -2065,7 +2078,7 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRoleAsyncCall(UUID tenantId, String securityRoleId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchRoleAsyncCall(UUID tenantId, String securityRoleId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2079,7 +2092,7 @@ public class RolesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Roles/{securityRoleId}"
@@ -2126,7 +2139,7 @@ public class RolesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchRoleAsyncValidateBeforeCall(UUID tenantId, String securityRoleId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchRoleAsyncValidateBeforeCall(UUID tenantId, String securityRoleId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchRoleAsync(Async)");
@@ -2137,12 +2150,12 @@ public class RolesApi {
             throw new ApiException("Missing the required parameter 'securityRoleId' when calling patchRoleAsync(Async)");
         }
 
-        // verify the required parameter 'operation' is set
-        if (operation == null) {
-            throw new ApiException("Missing the required parameter 'operation' when calling patchRoleAsync(Async)");
+        // verify the required parameter 'patchOperation' is set
+        if (patchOperation == null) {
+            throw new ApiException("Missing the required parameter 'patchOperation' when calling patchRoleAsync(Async)");
         }
 
-        return patchRoleAsyncCall(tenantId, securityRoleId, operation, apiVersion, xApiVersion, _callback);
+        return patchRoleAsyncCall(tenantId, securityRoleId, patchOperation, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -2151,7 +2164,7 @@ public class RolesApi {
      * Partially updates an existing security role using a JSON Patch document.
      * @param tenantId  (required)
      * @param securityRoleId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -2165,8 +2178,8 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchRoleAsync(UUID tenantId, String securityRoleId, List<Operation> operation, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchRoleAsyncWithHttpInfo(tenantId, securityRoleId, operation, apiVersion, xApiVersion);
+    public EmptyEnvelope patchRoleAsync(UUID tenantId, String securityRoleId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchRoleAsyncWithHttpInfo(tenantId, securityRoleId, patchOperation, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -2175,7 +2188,7 @@ public class RolesApi {
      * Partially updates an existing security role using a JSON Patch document.
      * @param tenantId  (required)
      * @param securityRoleId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
@@ -2189,8 +2202,8 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchRoleAsyncWithHttpInfo(UUID tenantId, String securityRoleId, List<Operation> operation, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = patchRoleAsyncValidateBeforeCall(tenantId, securityRoleId, operation, apiVersion, xApiVersion, null);
+    public ApiResponse<EmptyEnvelope> patchRoleAsyncWithHttpInfo(UUID tenantId, String securityRoleId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = patchRoleAsyncValidateBeforeCall(tenantId, securityRoleId, patchOperation, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2200,7 +2213,7 @@ public class RolesApi {
      * Partially updates an existing security role using a JSON Patch document.
      * @param tenantId  (required)
      * @param securityRoleId  (required)
-     * @param operation  (required)
+     * @param patchOperation  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2215,9 +2228,9 @@ public class RolesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchRoleAsyncAsync(UUID tenantId, String securityRoleId, List<Operation> operation, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchRoleAsyncAsync(UUID tenantId, String securityRoleId, List<PatchOperation> patchOperation, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchRoleAsyncValidateBeforeCall(tenantId, securityRoleId, operation, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = patchRoleAsyncValidateBeforeCall(tenantId, securityRoleId, patchOperation, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

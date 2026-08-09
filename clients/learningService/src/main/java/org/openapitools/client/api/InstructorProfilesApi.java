@@ -32,7 +32,7 @@ import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.InstructorProfileCreateDto;
 import org.openapitools.client.model.InstructorProfileDto;
 import org.openapitools.client.model.InstructorProfileUpdateDto;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -688,7 +688,7 @@ public class InstructorProfilesApi {
      * @param instructorProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -699,7 +699,7 @@ public class InstructorProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchCall(UUID tenantId, UUID instructorProfileId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchCall(UUID tenantId, UUID instructorProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -713,7 +713,7 @@ public class InstructorProfilesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/InstructorProfiles/{instructorProfileId}"
@@ -760,7 +760,7 @@ public class InstructorProfilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchValidateBeforeCall(UUID tenantId, UUID instructorProfileId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchValidateBeforeCall(UUID tenantId, UUID instructorProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(Async)");
@@ -771,7 +771,7 @@ public class InstructorProfilesApi {
             throw new ApiException("Missing the required parameter 'instructorProfileId' when calling apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(Async)");
         }
 
-        return apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchCall(tenantId, instructorProfileId, apiVersion, xApiVersion, operation, _callback);
+        return apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchCall(tenantId, instructorProfileId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -782,7 +782,7 @@ public class InstructorProfilesApi {
      * @param instructorProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -792,8 +792,8 @@ public class InstructorProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(UUID tenantId, UUID instructorProfileId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchWithHttpInfo(tenantId, instructorProfileId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(UUID tenantId, UUID instructorProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchWithHttpInfo(tenantId, instructorProfileId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -804,7 +804,7 @@ public class InstructorProfilesApi {
      * @param instructorProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -814,8 +814,8 @@ public class InstructorProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchWithHttpInfo(UUID tenantId, UUID instructorProfileId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchValidateBeforeCall(tenantId, instructorProfileId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchWithHttpInfo(UUID tenantId, UUID instructorProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchValidateBeforeCall(tenantId, instructorProfileId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -827,7 +827,7 @@ public class InstructorProfilesApi {
      * @param instructorProfileId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -838,9 +838,9 @@ public class InstructorProfilesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchAsync(UUID tenantId, UUID instructorProfileId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchAsync(UUID tenantId, UUID instructorProfileId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchValidateBeforeCall(tenantId, instructorProfileId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = apiV2LearningServiceInstructorProfilesInstructorProfileIdPatchValidateBeforeCall(tenantId, instructorProfileId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

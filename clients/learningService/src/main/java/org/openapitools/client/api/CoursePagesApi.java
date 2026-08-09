@@ -29,9 +29,10 @@ import java.io.IOException;
 
 import org.openapitools.client.model.CoursePageCreateDto;
 import org.openapitools.client.model.CoursePageDto;
+import org.openapitools.client.model.CoursePageDtoCollectionQueryParameters;
 import org.openapitools.client.model.CoursePageUpdateDto;
 import org.openapitools.client.model.ErrorEnvelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -528,6 +529,7 @@ public class CoursePagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param coursePageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -538,7 +540,7 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCoursePagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCoursePagesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -552,7 +554,7 @@ public class CoursePagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = coursePageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/CoursePages";
@@ -585,6 +587,8 @@ public class CoursePagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -596,13 +600,13 @@ public class CoursePagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCoursePagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCoursePagesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCoursePagesAsync(Async)");
         }
 
-        return getCoursePagesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getCoursePagesAsyncCall(tenantId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -612,6 +616,7 @@ public class CoursePagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param coursePageDtoCollectionQueryParameters  (optional)
      * @return List&lt;CoursePageDto&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -621,8 +626,8 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public List<CoursePageDto> getCoursePagesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<List<CoursePageDto>> localVarResp = getCoursePagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public List<CoursePageDto> getCoursePagesAsync(UUID tenantId, String apiVersion, String xApiVersion, CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<List<CoursePageDto>> localVarResp = getCoursePagesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -632,6 +637,7 @@ public class CoursePagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param coursePageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;List&lt;CoursePageDto&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -641,8 +647,8 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CoursePageDto>> getCoursePagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCoursePagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<List<CoursePageDto>> getCoursePagesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCoursePagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<List<CoursePageDto>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -653,6 +659,7 @@ public class CoursePagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param coursePageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -663,9 +670,9 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCoursePagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<List<CoursePageDto>> _callback) throws ApiException {
+    public okhttp3.Call getCoursePagesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters, final ApiCallback<List<CoursePageDto>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCoursePagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCoursePagesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<List<CoursePageDto>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -675,6 +682,7 @@ public class CoursePagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param coursePageDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -685,7 +693,7 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCoursePagesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCoursePagesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -699,7 +707,7 @@ public class CoursePagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = coursePageDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/CoursePages/Count";
@@ -732,6 +740,8 @@ public class CoursePagesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -743,13 +753,13 @@ public class CoursePagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCoursePagesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCoursePagesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCoursePagesCountAsync(Async)");
         }
 
-        return getCoursePagesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getCoursePagesCountAsyncCall(tenantId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -759,6 +769,7 @@ public class CoursePagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param coursePageDtoCollectionQueryParameters  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -768,8 +779,8 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Integer getCoursePagesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Integer> localVarResp = getCoursePagesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Integer getCoursePagesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Integer> localVarResp = getCoursePagesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -779,6 +790,7 @@ public class CoursePagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param coursePageDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -788,8 +800,8 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Integer> getCoursePagesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getCoursePagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Integer> getCoursePagesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getCoursePagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -800,6 +812,7 @@ public class CoursePagesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param coursePageDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -810,9 +823,9 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCoursePagesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Integer> _callback) throws ApiException {
+    public okhttp3.Call getCoursePagesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, CoursePageDtoCollectionQueryParameters coursePageDtoCollectionQueryParameters, final ApiCallback<Integer> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCoursePagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCoursePagesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, coursePageDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -823,7 +836,7 @@ public class CoursePagesApi {
      * @param pageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -834,7 +847,7 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCoursePageAsyncCall(UUID tenantId, String pageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchCoursePageAsyncCall(UUID tenantId, String pageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -848,7 +861,7 @@ public class CoursePagesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/LearningService/CoursePages/{pageId}"
@@ -895,7 +908,7 @@ public class CoursePagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchCoursePageAsyncValidateBeforeCall(UUID tenantId, String pageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchCoursePageAsyncValidateBeforeCall(UUID tenantId, String pageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchCoursePageAsync(Async)");
@@ -906,7 +919,7 @@ public class CoursePagesApi {
             throw new ApiException("Missing the required parameter 'pageId' when calling patchCoursePageAsync(Async)");
         }
 
-        return patchCoursePageAsyncCall(tenantId, pageId, apiVersion, xApiVersion, operation, _callback);
+        return patchCoursePageAsyncCall(tenantId, pageId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -917,7 +930,7 @@ public class CoursePagesApi {
      * @param pageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -926,8 +939,8 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public void patchCoursePageAsync(UUID tenantId, String pageId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        patchCoursePageAsyncWithHttpInfo(tenantId, pageId, apiVersion, xApiVersion, operation);
+    public void patchCoursePageAsync(UUID tenantId, String pageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        patchCoursePageAsyncWithHttpInfo(tenantId, pageId, apiVersion, xApiVersion, patchOperation);
     }
 
     /**
@@ -937,7 +950,7 @@ public class CoursePagesApi {
      * @param pageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -947,8 +960,8 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> patchCoursePageAsyncWithHttpInfo(UUID tenantId, String pageId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchCoursePageAsyncValidateBeforeCall(tenantId, pageId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<Void> patchCoursePageAsyncWithHttpInfo(UUID tenantId, String pageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchCoursePageAsyncValidateBeforeCall(tenantId, pageId, apiVersion, xApiVersion, patchOperation, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -959,7 +972,7 @@ public class CoursePagesApi {
      * @param pageId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -970,9 +983,9 @@ public class CoursePagesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchCoursePageAsyncAsync(UUID tenantId, String pageId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call patchCoursePageAsyncAsync(UUID tenantId, String pageId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchCoursePageAsyncValidateBeforeCall(tenantId, pageId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchCoursePageAsyncValidateBeforeCall(tenantId, pageId, apiVersion, xApiVersion, patchOperation, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

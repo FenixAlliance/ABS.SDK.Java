@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemShippingPoliciesAsync"></a>
 # **countItemShippingPoliciesAsync**
-> Int32Envelope countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
 
 Count item shipping policies
 
@@ -38,8 +38,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemShippingPolicyDtoCollectionQueryParameters itemShippingPolicyDtoCollectionQueryParameters = new ItemShippingPolicyDtoCollectionQueryParameters(); // ItemShippingPolicyDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemShippingPoliciesApi#countItemShippingPoliciesAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -83,7 +85,7 @@ No authorization required
 
 <a id="getCatalogItemShippingPoliciesAsync"></a>
 # **getCatalogItemShippingPoliciesAsync**
-> ItemShippingPolicyDtoListEnvelope getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+> ItemShippingPolicyDtoListEnvelope getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters)
 
 Get item shipping policies
 
@@ -108,8 +110,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemShippingPolicyDtoCollectionQueryParameters itemShippingPolicyDtoCollectionQueryParameters = new ItemShippingPolicyDtoCollectionQueryParameters(); // ItemShippingPolicyDtoCollectionQueryParameters | 
     try {
-      ItemShippingPolicyDtoListEnvelope result = apiInstance.getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
+      ItemShippingPolicyDtoListEnvelope result = apiInstance.getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemShippingPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemShippingPoliciesApi#getCatalogItemShippingPoliciesAsync");
@@ -130,6 +133,7 @@ public class Example {
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemShippingPolicyDtoCollectionQueryParameters** | [**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -141,7 +145,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

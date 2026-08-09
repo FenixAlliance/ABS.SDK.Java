@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemTaxPoliciesAsync"></a>
 # **countItemTaxPoliciesAsync**
-> Int32Envelope countItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemTaxPolicyDtoCollectionQueryParameters)
 
 Count item tax policies
 
@@ -38,8 +38,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemTaxPolicyDtoCollectionQueryParameters itemTaxPolicyDtoCollectionQueryParameters = new ItemTaxPolicyDtoCollectionQueryParameters(); // ItemTaxPolicyDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemTaxPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTaxPoliciesApi#countItemTaxPoliciesAsync");
@@ -60,6 +61,7 @@ public class Example {
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemTaxPolicyDtoCollectionQueryParameters** | [**ItemTaxPolicyDtoCollectionQueryParameters**](ItemTaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -83,7 +85,7 @@ No authorization required
 
 <a id="getItemTaxPoliciesAsync"></a>
 # **getItemTaxPoliciesAsync**
-> ItemTaxPolicyDtoListEnvelope getItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+> ItemTaxPolicyDtoListEnvelope getItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemTaxPolicyDtoCollectionQueryParameters)
 
 Get item tax policies
 
@@ -108,8 +110,9 @@ public class Example {
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ItemTaxPolicyDtoCollectionQueryParameters itemTaxPolicyDtoCollectionQueryParameters = new ItemTaxPolicyDtoCollectionQueryParameters(); // ItemTaxPolicyDtoCollectionQueryParameters | 
     try {
-      ItemTaxPolicyDtoListEnvelope result = apiInstance.getItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
+      ItemTaxPolicyDtoListEnvelope result = apiInstance.getItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion, itemTaxPolicyDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTaxPoliciesApi#getItemTaxPoliciesAsync");
@@ -130,6 +133,7 @@ public class Example {
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **itemTaxPolicyDtoCollectionQueryParameters** | [**ItemTaxPolicyDtoCollectionQueryParameters**](ItemTaxPolicyDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -141,7 +145,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

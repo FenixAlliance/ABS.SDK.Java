@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getExpenseTypes"></a>
 # **getExpenseTypes**
-> ExpenseTypeDtoListEnvelope getExpenseTypes(tenantId, apiVersion, xApiVersion)
+> ExpenseTypeDtoListEnvelope getExpenseTypes(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters)
 
 Get all expense types for a tenant
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters = new ExpenseTypeDtoCollectionQueryParameters(); // ExpenseTypeDtoCollectionQueryParameters | 
     try {
-      ExpenseTypeDtoListEnvelope result = apiInstance.getExpenseTypes(tenantId, apiVersion, xApiVersion);
+      ExpenseTypeDtoListEnvelope result = apiInstance.getExpenseTypes(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExpenseTypesApi#getExpenseTypes");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **expenseTypeDtoCollectionQueryParameters** | [**ExpenseTypeDtoCollectionQueryParameters**](ExpenseTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getExpenseTypesCount"></a>
 # **getExpenseTypesCount**
-> Int32Envelope getExpenseTypesCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getExpenseTypesCount(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters)
 
 Get the count of expense types for a tenant
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters = new ExpenseTypeDtoCollectionQueryParameters(); // ExpenseTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getExpenseTypesCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getExpenseTypesCount(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExpenseTypesApi#getExpenseTypesCount");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **expenseTypeDtoCollectionQueryParameters** | [**ExpenseTypeDtoCollectionQueryParameters**](ExpenseTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchExpenseType"></a>
 # **patchExpenseType**
-> EmptyEnvelope patchExpenseType(tenantId, expenseTypeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchExpenseType(tenantId, expenseTypeId, apiVersion, xApiVersion, patchOperation)
 
 Patch an expense type
 
@@ -386,9 +390,9 @@ public class Example {
     UUID expenseTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchExpenseType(tenantId, expenseTypeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchExpenseType(tenantId, expenseTypeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExpenseTypesApi#patchExpenseType");
@@ -409,7 +413,7 @@ public class Example {
 | **expenseTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

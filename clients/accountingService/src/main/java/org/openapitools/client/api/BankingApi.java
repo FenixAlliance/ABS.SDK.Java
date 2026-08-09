@@ -28,17 +28,21 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.BankAccountCreateDto;
+import org.openapitools.client.model.BankAccountDtoCollectionQueryParameters;
 import org.openapitools.client.model.BankAccountDtoEnvelope;
 import org.openapitools.client.model.BankAccountDtoListEnvelope;
 import org.openapitools.client.model.BankAccountUpdateDto;
 import org.openapitools.client.model.BankCreateDto;
+import org.openapitools.client.model.BankDtoCollectionQueryParameters;
 import org.openapitools.client.model.BankDtoEnvelope;
 import org.openapitools.client.model.BankDtoListEnvelope;
 import org.openapitools.client.model.BankGuaranteeCreateDto;
+import org.openapitools.client.model.BankGuaranteeDtoCollectionQueryParameters;
 import org.openapitools.client.model.BankGuaranteeDtoEnvelope;
 import org.openapitools.client.model.BankGuaranteeDtoListEnvelope;
 import org.openapitools.client.model.BankGuaranteeUpdateDto;
 import org.openapitools.client.model.BankTransactionCreateDto;
+import org.openapitools.client.model.BankTransactionDtoCollectionQueryParameters;
 import org.openapitools.client.model.BankTransactionDtoEnvelope;
 import org.openapitools.client.model.BankTransactionDtoListEnvelope;
 import org.openapitools.client.model.BankTransactionUpdateDto;
@@ -46,7 +50,7 @@ import org.openapitools.client.model.BankUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -1770,6 +1774,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1781,7 +1786,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankAccountsCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBankAccountsCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1795,7 +1800,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = bankAccountDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/{bankId}/Accounts"
@@ -1829,6 +1834,8 @@ public class BankingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1840,7 +1847,7 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBankAccountsValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBankAccountsValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBankAccounts(Async)");
@@ -1851,7 +1858,7 @@ public class BankingApi {
             throw new ApiException("Missing the required parameter 'bankId' when calling getBankAccounts(Async)");
         }
 
-        return getBankAccountsCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        return getBankAccountsCall(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -1862,6 +1869,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return BankAccountDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1872,8 +1880,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BankAccountDtoListEnvelope getBankAccounts(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BankAccountDtoListEnvelope> localVarResp = getBankAccountsWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion);
+    public BankAccountDtoListEnvelope getBankAccounts(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BankAccountDtoListEnvelope> localVarResp = getBankAccountsWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -1884,6 +1892,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BankAccountDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1894,8 +1903,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BankAccountDtoListEnvelope> getBankAccountsWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBankAccountsValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, null);
+    public ApiResponse<BankAccountDtoListEnvelope> getBankAccountsWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBankAccountsValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BankAccountDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1907,6 +1916,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1918,9 +1928,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankAccountsAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback<BankAccountDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBankAccountsAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback<BankAccountDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBankAccountsValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBankAccountsValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BankAccountDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1931,6 +1941,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1942,7 +1953,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankAccountsCountCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBankAccountsCountCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1956,7 +1967,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = bankAccountDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/{bankId}/Accounts/Count"
@@ -1990,6 +2001,8 @@ public class BankingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2001,7 +2014,7 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBankAccountsCountValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBankAccountsCountValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBankAccountsCount(Async)");
@@ -2012,7 +2025,7 @@ public class BankingApi {
             throw new ApiException("Missing the required parameter 'bankId' when calling getBankAccountsCount(Async)");
         }
 
-        return getBankAccountsCountCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        return getBankAccountsCountCall(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2023,6 +2036,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2033,8 +2047,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBankAccountsCount(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBankAccountsCountWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion);
+    public Int32Envelope getBankAccountsCount(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBankAccountsCountWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2045,6 +2059,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2055,8 +2070,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBankAccountsCountWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBankAccountsCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBankAccountsCountWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBankAccountsCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2068,6 +2083,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankAccountDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2079,9 +2095,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankAccountsCountAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBankAccountsCountAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankAccountDtoCollectionQueryParameters bankAccountDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBankAccountsCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBankAccountsCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankAccountDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2267,6 +2283,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2278,7 +2295,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankGuaranteesCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBankGuaranteesCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2292,7 +2309,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = bankGuaranteeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/{bankId}/Guarantees"
@@ -2326,6 +2343,8 @@ public class BankingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2337,7 +2356,7 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBankGuaranteesValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBankGuaranteesValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBankGuarantees(Async)");
@@ -2348,7 +2367,7 @@ public class BankingApi {
             throw new ApiException("Missing the required parameter 'bankId' when calling getBankGuarantees(Async)");
         }
 
-        return getBankGuaranteesCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        return getBankGuaranteesCall(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2359,6 +2378,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @return BankGuaranteeDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2369,8 +2389,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BankGuaranteeDtoListEnvelope getBankGuarantees(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BankGuaranteeDtoListEnvelope> localVarResp = getBankGuaranteesWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion);
+    public BankGuaranteeDtoListEnvelope getBankGuarantees(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BankGuaranteeDtoListEnvelope> localVarResp = getBankGuaranteesWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2381,6 +2401,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BankGuaranteeDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2391,8 +2412,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BankGuaranteeDtoListEnvelope> getBankGuaranteesWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBankGuaranteesValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, null);
+    public ApiResponse<BankGuaranteeDtoListEnvelope> getBankGuaranteesWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBankGuaranteesValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BankGuaranteeDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2404,6 +2425,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2415,9 +2437,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankGuaranteesAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback<BankGuaranteeDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBankGuaranteesAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters, final ApiCallback<BankGuaranteeDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBankGuaranteesValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBankGuaranteesValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BankGuaranteeDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2428,6 +2450,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2439,7 +2462,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankGuaranteesCountCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBankGuaranteesCountCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2453,7 +2476,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = bankGuaranteeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/{bankId}/Guarantees/Count"
@@ -2487,6 +2510,8 @@ public class BankingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2498,7 +2523,7 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBankGuaranteesCountValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBankGuaranteesCountValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBankGuaranteesCount(Async)");
@@ -2509,7 +2534,7 @@ public class BankingApi {
             throw new ApiException("Missing the required parameter 'bankId' when calling getBankGuaranteesCount(Async)");
         }
 
-        return getBankGuaranteesCountCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        return getBankGuaranteesCountCall(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2520,6 +2545,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2530,8 +2556,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBankGuaranteesCount(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBankGuaranteesCountWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion);
+    public Int32Envelope getBankGuaranteesCount(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBankGuaranteesCountWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2542,6 +2568,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2552,8 +2579,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBankGuaranteesCountWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBankGuaranteesCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBankGuaranteesCountWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBankGuaranteesCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2565,6 +2592,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankGuaranteeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2576,9 +2604,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankGuaranteesCountAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBankGuaranteesCountAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankGuaranteeDtoCollectionQueryParameters bankGuaranteeDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBankGuaranteesCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBankGuaranteesCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankGuaranteeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2764,6 +2792,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2775,7 +2804,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankTransactionsCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBankTransactionsCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2789,7 +2818,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = bankTransactionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/{bankId}/Transactions"
@@ -2823,6 +2852,8 @@ public class BankingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2834,7 +2865,7 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBankTransactionsValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBankTransactionsValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBankTransactions(Async)");
@@ -2845,7 +2876,7 @@ public class BankingApi {
             throw new ApiException("Missing the required parameter 'bankId' when calling getBankTransactions(Async)");
         }
 
-        return getBankTransactionsCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        return getBankTransactionsCall(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -2856,6 +2887,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @return BankTransactionDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2866,8 +2898,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BankTransactionDtoListEnvelope getBankTransactions(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BankTransactionDtoListEnvelope> localVarResp = getBankTransactionsWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion);
+    public BankTransactionDtoListEnvelope getBankTransactions(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BankTransactionDtoListEnvelope> localVarResp = getBankTransactionsWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -2878,6 +2910,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BankTransactionDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2888,8 +2921,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BankTransactionDtoListEnvelope> getBankTransactionsWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBankTransactionsValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, null);
+    public ApiResponse<BankTransactionDtoListEnvelope> getBankTransactionsWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBankTransactionsValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BankTransactionDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2901,6 +2934,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2912,9 +2946,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankTransactionsAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback<BankTransactionDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBankTransactionsAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters, final ApiCallback<BankTransactionDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBankTransactionsValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBankTransactionsValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BankTransactionDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2925,6 +2959,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2936,7 +2971,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankTransactionsCountCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBankTransactionsCountCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2950,7 +2985,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = bankTransactionDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/{bankId}/Transactions/Count"
@@ -2984,6 +3019,8 @@ public class BankingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2995,7 +3032,7 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBankTransactionsCountValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBankTransactionsCountValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBankTransactionsCount(Async)");
@@ -3006,7 +3043,7 @@ public class BankingApi {
             throw new ApiException("Missing the required parameter 'bankId' when calling getBankTransactionsCount(Async)");
         }
 
-        return getBankTransactionsCountCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        return getBankTransactionsCountCall(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3017,6 +3054,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3027,8 +3065,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBankTransactionsCount(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBankTransactionsCountWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion);
+    public Int32Envelope getBankTransactionsCount(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBankTransactionsCountWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3039,6 +3077,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3049,8 +3088,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBankTransactionsCountWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBankTransactionsCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBankTransactionsCountWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBankTransactionsCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3062,6 +3101,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankTransactionDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3073,9 +3113,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankTransactionsCountAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBankTransactionsCountAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, BankTransactionDtoCollectionQueryParameters bankTransactionDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBankTransactionsCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBankTransactionsCountValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, bankTransactionDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3085,6 +3125,7 @@ public class BankingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3096,7 +3137,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBanksCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBanksCall(UUID tenantId, String apiVersion, String xApiVersion, BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3110,7 +3151,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = bankDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking";
@@ -3143,6 +3184,8 @@ public class BankingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3154,13 +3197,13 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBanksValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBanksValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBanks(Async)");
         }
 
-        return getBanksCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBanksCall(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3170,6 +3213,7 @@ public class BankingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @return BankDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3180,8 +3224,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public BankDtoListEnvelope getBanks(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<BankDtoListEnvelope> localVarResp = getBanksWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public BankDtoListEnvelope getBanks(UUID tenantId, String apiVersion, String xApiVersion, BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<BankDtoListEnvelope> localVarResp = getBanksWithHttpInfo(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3191,6 +3235,7 @@ public class BankingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;BankDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3201,8 +3246,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BankDtoListEnvelope> getBanksWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBanksValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<BankDtoListEnvelope> getBanksWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBanksValidateBeforeCall(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<BankDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3213,6 +3258,7 @@ public class BankingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3224,9 +3270,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBanksAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<BankDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getBanksAsync(UUID tenantId, String apiVersion, String xApiVersion, BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters, final ApiCallback<BankDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBanksValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBanksValidateBeforeCall(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<BankDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3236,6 +3282,7 @@ public class BankingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3247,7 +3294,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBanksCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBanksCountCall(UUID tenantId, String apiVersion, String xApiVersion, BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3261,7 +3308,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = bankDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/Count";
@@ -3294,6 +3341,8 @@ public class BankingApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3305,13 +3354,13 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBanksCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBanksCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getBanksCount(Async)");
         }
 
-        return getBanksCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getBanksCountCall(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -3321,6 +3370,7 @@ public class BankingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3331,8 +3381,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getBanksCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getBanksCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getBanksCount(UUID tenantId, String apiVersion, String xApiVersion, BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getBanksCountWithHttpInfo(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -3342,6 +3392,7 @@ public class BankingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3352,8 +3403,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getBanksCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getBanksCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getBanksCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getBanksCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3364,6 +3415,7 @@ public class BankingApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param bankDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3375,9 +3427,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBanksCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getBanksCountAsync(UUID tenantId, String apiVersion, String xApiVersion, BankDtoCollectionQueryParameters bankDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBanksCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getBanksCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, bankDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3388,7 +3440,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3402,7 +3454,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBankCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBankCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3416,7 +3468,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/{bankId}"
@@ -3463,7 +3515,7 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBankValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBankValidateBeforeCall(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBank(Async)");
@@ -3474,7 +3526,7 @@ public class BankingApi {
             throw new ApiException("Missing the required parameter 'bankId' when calling patchBank(Async)");
         }
 
-        return patchBankCall(tenantId, bankId, apiVersion, xApiVersion, operation, _callback);
+        return patchBankCall(tenantId, bankId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -3485,7 +3537,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3498,8 +3550,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBank(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBankWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBank(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBankWithHttpInfo(tenantId, bankId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -3510,7 +3562,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3523,8 +3575,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBankWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBankValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBankWithHttpInfo(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBankValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3536,7 +3588,7 @@ public class BankingApi {
      * @param bankId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3550,9 +3602,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBankAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBankAsync(UUID tenantId, UUID bankId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBankValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBankValidateBeforeCall(tenantId, bankId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3564,7 +3616,7 @@ public class BankingApi {
      * @param accountId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3578,7 +3630,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBankAccountCall(UUID tenantId, UUID bankId, UUID accountId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBankAccountCall(UUID tenantId, UUID bankId, UUID accountId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3592,7 +3644,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/{bankId}/Accounts/{accountId}"
@@ -3640,7 +3692,7 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBankAccountValidateBeforeCall(UUID tenantId, UUID bankId, UUID accountId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBankAccountValidateBeforeCall(UUID tenantId, UUID bankId, UUID accountId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBankAccount(Async)");
@@ -3656,7 +3708,7 @@ public class BankingApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling patchBankAccount(Async)");
         }
 
-        return patchBankAccountCall(tenantId, bankId, accountId, apiVersion, xApiVersion, operation, _callback);
+        return patchBankAccountCall(tenantId, bankId, accountId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -3668,7 +3720,7 @@ public class BankingApi {
      * @param accountId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3681,8 +3733,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBankAccount(UUID tenantId, UUID bankId, UUID accountId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBankAccountWithHttpInfo(tenantId, bankId, accountId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBankAccount(UUID tenantId, UUID bankId, UUID accountId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBankAccountWithHttpInfo(tenantId, bankId, accountId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -3694,7 +3746,7 @@ public class BankingApi {
      * @param accountId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3707,8 +3759,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBankAccountWithHttpInfo(UUID tenantId, UUID bankId, UUID accountId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBankAccountValidateBeforeCall(tenantId, bankId, accountId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBankAccountWithHttpInfo(UUID tenantId, UUID bankId, UUID accountId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBankAccountValidateBeforeCall(tenantId, bankId, accountId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3721,7 +3773,7 @@ public class BankingApi {
      * @param accountId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3735,9 +3787,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBankAccountAsync(UUID tenantId, UUID bankId, UUID accountId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBankAccountAsync(UUID tenantId, UUID bankId, UUID accountId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBankAccountValidateBeforeCall(tenantId, bankId, accountId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBankAccountValidateBeforeCall(tenantId, bankId, accountId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3749,7 +3801,7 @@ public class BankingApi {
      * @param guaranteeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3763,7 +3815,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBankGuaranteeCall(UUID tenantId, UUID bankId, UUID guaranteeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBankGuaranteeCall(UUID tenantId, UUID bankId, UUID guaranteeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3777,7 +3829,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/{bankId}/Guarantees/{guaranteeId}"
@@ -3825,7 +3877,7 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBankGuaranteeValidateBeforeCall(UUID tenantId, UUID bankId, UUID guaranteeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBankGuaranteeValidateBeforeCall(UUID tenantId, UUID bankId, UUID guaranteeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBankGuarantee(Async)");
@@ -3841,7 +3893,7 @@ public class BankingApi {
             throw new ApiException("Missing the required parameter 'guaranteeId' when calling patchBankGuarantee(Async)");
         }
 
-        return patchBankGuaranteeCall(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, operation, _callback);
+        return patchBankGuaranteeCall(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -3853,7 +3905,7 @@ public class BankingApi {
      * @param guaranteeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3866,8 +3918,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBankGuarantee(UUID tenantId, UUID bankId, UUID guaranteeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBankGuaranteeWithHttpInfo(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBankGuarantee(UUID tenantId, UUID bankId, UUID guaranteeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBankGuaranteeWithHttpInfo(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -3879,7 +3931,7 @@ public class BankingApi {
      * @param guaranteeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3892,8 +3944,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBankGuaranteeWithHttpInfo(UUID tenantId, UUID bankId, UUID guaranteeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBankGuaranteeValidateBeforeCall(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBankGuaranteeWithHttpInfo(UUID tenantId, UUID bankId, UUID guaranteeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBankGuaranteeValidateBeforeCall(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3906,7 +3958,7 @@ public class BankingApi {
      * @param guaranteeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3920,9 +3972,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBankGuaranteeAsync(UUID tenantId, UUID bankId, UUID guaranteeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBankGuaranteeAsync(UUID tenantId, UUID bankId, UUID guaranteeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBankGuaranteeValidateBeforeCall(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBankGuaranteeValidateBeforeCall(tenantId, bankId, guaranteeId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3934,7 +3986,7 @@ public class BankingApi {
      * @param transactionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3948,7 +4000,7 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBankTransactionCall(UUID tenantId, UUID bankId, UUID transactionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchBankTransactionCall(UUID tenantId, UUID bankId, UUID transactionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3962,7 +4014,7 @@ public class BankingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Banking/{bankId}/Transactions/{transactionId}"
@@ -4010,7 +4062,7 @@ public class BankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchBankTransactionValidateBeforeCall(UUID tenantId, UUID bankId, UUID transactionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchBankTransactionValidateBeforeCall(UUID tenantId, UUID bankId, UUID transactionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchBankTransaction(Async)");
@@ -4026,7 +4078,7 @@ public class BankingApi {
             throw new ApiException("Missing the required parameter 'transactionId' when calling patchBankTransaction(Async)");
         }
 
-        return patchBankTransactionCall(tenantId, bankId, transactionId, apiVersion, xApiVersion, operation, _callback);
+        return patchBankTransactionCall(tenantId, bankId, transactionId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -4038,7 +4090,7 @@ public class BankingApi {
      * @param transactionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4051,8 +4103,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchBankTransaction(UUID tenantId, UUID bankId, UUID transactionId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchBankTransactionWithHttpInfo(tenantId, bankId, transactionId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchBankTransaction(UUID tenantId, UUID bankId, UUID transactionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchBankTransactionWithHttpInfo(tenantId, bankId, transactionId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -4064,7 +4116,7 @@ public class BankingApi {
      * @param transactionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4077,8 +4129,8 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchBankTransactionWithHttpInfo(UUID tenantId, UUID bankId, UUID transactionId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchBankTransactionValidateBeforeCall(tenantId, bankId, transactionId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchBankTransactionWithHttpInfo(UUID tenantId, UUID bankId, UUID transactionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchBankTransactionValidateBeforeCall(tenantId, bankId, transactionId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4091,7 +4143,7 @@ public class BankingApi {
      * @param transactionId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4105,9 +4157,9 @@ public class BankingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchBankTransactionAsync(UUID tenantId, UUID bankId, UUID transactionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchBankTransactionAsync(UUID tenantId, UUID bankId, UUID transactionId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchBankTransactionValidateBeforeCall(tenantId, bankId, transactionId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchBankTransactionValidateBeforeCall(tenantId, bankId, transactionId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

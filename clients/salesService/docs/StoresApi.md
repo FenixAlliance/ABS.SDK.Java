@@ -15,7 +15,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countStoresAsync"></a>
 # **countStoresAsync**
-> Int32Envelope countStoresAsync(tenantId)
+> Int32Envelope countStoresAsync(tenantId, storeDtoCollectionQueryParameters)
 
 Get stores count
 
@@ -37,8 +37,9 @@ public class Example {
 
     StoresApi apiInstance = new StoresApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters = new StoreDtoCollectionQueryParameters(); // StoreDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countStoresAsync(tenantId);
+      Int32Envelope result = apiInstance.countStoresAsync(tenantId, storeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StoresApi#countStoresAsync");
@@ -56,6 +57,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **storeDtoCollectionQueryParameters** | [**StoreDtoCollectionQueryParameters**](StoreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -67,7 +69,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -273,7 +275,7 @@ No authorization required
 
 <a id="getStoresAsync"></a>
 # **getStoresAsync**
-> StoreDtoListEnvelope getStoresAsync(tenantId)
+> StoreDtoListEnvelope getStoresAsync(tenantId, storeDtoCollectionQueryParameters)
 
 Get stores
 
@@ -295,8 +297,9 @@ public class Example {
 
     StoresApi apiInstance = new StoresApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    StoreDtoCollectionQueryParameters storeDtoCollectionQueryParameters = new StoreDtoCollectionQueryParameters(); // StoreDtoCollectionQueryParameters | 
     try {
-      StoreDtoListEnvelope result = apiInstance.getStoresAsync(tenantId);
+      StoreDtoListEnvelope result = apiInstance.getStoresAsync(tenantId, storeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StoresApi#getStoresAsync");
@@ -314,6 +317,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **storeDtoCollectionQueryParameters** | [**StoreDtoCollectionQueryParameters**](StoreDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -325,7 +329,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -336,7 +340,7 @@ No authorization required
 
 <a id="patchStoreAsync"></a>
 # **patchStoreAsync**
-> EmptyEnvelope patchStoreAsync(tenantId, storeId, operation)
+> EmptyEnvelope patchStoreAsync(tenantId, storeId, patchOperation)
 
 Patch a store
 
@@ -359,9 +363,9 @@ public class Example {
     StoresApi apiInstance = new StoresApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID storeId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchStoreAsync(tenantId, storeId, operation);
+      EmptyEnvelope result = apiInstance.patchStoreAsync(tenantId, storeId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StoresApi#patchStoreAsync");
@@ -380,7 +384,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **storeId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

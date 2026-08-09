@@ -31,6 +31,7 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.TrainingProgramCreateDto;
+import org.openapitools.client.model.TrainingProgramDtoCollectionQueryParameters;
 import org.openapitools.client.model.TrainingProgramDtoEnvelope;
 import org.openapitools.client.model.TrainingProgramDtoListEnvelope;
 import org.openapitools.client.model.TrainingProgramUpdateDto;
@@ -571,6 +572,7 @@ public class TrainingProgramsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -582,7 +584,7 @@ public class TrainingProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrainingProgramsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTrainingProgramsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -596,7 +598,7 @@ public class TrainingProgramsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = trainingProgramDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/TrainingPrograms";
@@ -629,6 +631,8 @@ public class TrainingProgramsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -640,13 +644,13 @@ public class TrainingProgramsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTrainingProgramsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTrainingProgramsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTrainingProgramsAsync(Async)");
         }
 
-        return getTrainingProgramsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTrainingProgramsAsyncCall(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -656,6 +660,7 @@ public class TrainingProgramsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @return TrainingProgramDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -666,8 +671,8 @@ public class TrainingProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TrainingProgramDtoListEnvelope getTrainingProgramsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<TrainingProgramDtoListEnvelope> localVarResp = getTrainingProgramsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public TrainingProgramDtoListEnvelope getTrainingProgramsAsync(UUID tenantId, String apiVersion, String xApiVersion, TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<TrainingProgramDtoListEnvelope> localVarResp = getTrainingProgramsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -677,6 +682,7 @@ public class TrainingProgramsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;TrainingProgramDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -687,8 +693,8 @@ public class TrainingProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TrainingProgramDtoListEnvelope> getTrainingProgramsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTrainingProgramsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<TrainingProgramDtoListEnvelope> getTrainingProgramsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTrainingProgramsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<TrainingProgramDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -699,6 +705,7 @@ public class TrainingProgramsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -710,9 +717,9 @@ public class TrainingProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrainingProgramsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<TrainingProgramDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getTrainingProgramsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters, final ApiCallback<TrainingProgramDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTrainingProgramsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTrainingProgramsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<TrainingProgramDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -722,6 +729,7 @@ public class TrainingProgramsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -733,7 +741,7 @@ public class TrainingProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrainingProgramsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTrainingProgramsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -747,7 +755,7 @@ public class TrainingProgramsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = trainingProgramDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/TrainingPrograms/Count";
@@ -780,6 +788,8 @@ public class TrainingProgramsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -791,13 +801,13 @@ public class TrainingProgramsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTrainingProgramsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTrainingProgramsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTrainingProgramsCountAsync(Async)");
         }
 
-        return getTrainingProgramsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getTrainingProgramsCountAsyncCall(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -807,6 +817,7 @@ public class TrainingProgramsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -817,8 +828,8 @@ public class TrainingProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getTrainingProgramsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getTrainingProgramsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getTrainingProgramsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getTrainingProgramsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -828,6 +839,7 @@ public class TrainingProgramsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -838,8 +850,8 @@ public class TrainingProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getTrainingProgramsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTrainingProgramsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getTrainingProgramsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getTrainingProgramsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -850,6 +862,7 @@ public class TrainingProgramsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param trainingProgramDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -861,9 +874,9 @@ public class TrainingProgramsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrainingProgramsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getTrainingProgramsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, TrainingProgramDtoCollectionQueryParameters trainingProgramDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTrainingProgramsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getTrainingProgramsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, trainingProgramDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

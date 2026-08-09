@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.LogDtoCollectionQueryParameters;
 import org.openapitools.client.model.LogDtoListEnvelope;
 import java.util.UUID;
 
@@ -80,6 +81,7 @@ public class LogsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -91,7 +93,7 @@ public class LogsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLogsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LogDtoCollectionQueryParameters logDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,7 +107,7 @@ public class LogsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = logDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Logs";
@@ -138,6 +140,8 @@ public class LogsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -149,13 +153,13 @@ public class LogsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLogsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLogsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LogDtoCollectionQueryParameters logDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLogsAsync(Async)");
         }
 
-        return getLogsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLogsAsyncCall(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -165,6 +169,7 @@ public class LogsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @return LogDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -175,8 +180,8 @@ public class LogsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public LogDtoListEnvelope getLogsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LogDtoListEnvelope> localVarResp = getLogsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public LogDtoListEnvelope getLogsAsync(UUID tenantId, String apiVersion, String xApiVersion, LogDtoCollectionQueryParameters logDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<LogDtoListEnvelope> localVarResp = getLogsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -186,6 +191,7 @@ public class LogsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;LogDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -196,8 +202,8 @@ public class LogsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LogDtoListEnvelope> getLogsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLogsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<LogDtoListEnvelope> getLogsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LogDtoCollectionQueryParameters logDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLogsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<LogDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -208,6 +214,7 @@ public class LogsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -219,9 +226,9 @@ public class LogsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<LogDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getLogsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LogDtoCollectionQueryParameters logDtoCollectionQueryParameters, final ApiCallback<LogDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLogsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLogsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<LogDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -231,6 +238,7 @@ public class LogsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -242,7 +250,7 @@ public class LogsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLogsCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, LogDtoCollectionQueryParameters logDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -256,7 +264,7 @@ public class LogsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = logDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/SecurityService/Logs/Count";
@@ -289,6 +297,8 @@ public class LogsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -300,13 +310,13 @@ public class LogsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLogsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLogsCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, LogDtoCollectionQueryParameters logDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getLogsCountAsync(Async)");
         }
 
-        return getLogsCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getLogsCountAsyncCall(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -316,6 +326,7 @@ public class LogsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -326,8 +337,8 @@ public class LogsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getLogsCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getLogsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getLogsCountAsync(UUID tenantId, String apiVersion, String xApiVersion, LogDtoCollectionQueryParameters logDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getLogsCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -337,6 +348,7 @@ public class LogsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -347,8 +359,8 @@ public class LogsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getLogsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLogsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getLogsCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, LogDtoCollectionQueryParameters logDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getLogsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -359,6 +371,7 @@ public class LogsApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param logDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -370,9 +383,9 @@ public class LogsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getLogsCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, LogDtoCollectionQueryParameters logDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLogsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getLogsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, logDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

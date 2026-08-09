@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getRequiredSkillsAsync"></a>
 # **getRequiredSkillsAsync**
-> RequiredSkillRecordDtoListEnvelope getRequiredSkillsAsync(tenantId, apiVersion, xApiVersion)
+> RequiredSkillRecordDtoListEnvelope getRequiredSkillsAsync(tenantId, apiVersion, xApiVersion, requiredSkillRecordDtoCollectionQueryParameters)
 
 Get required skills
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    RequiredSkillRecordDtoCollectionQueryParameters requiredSkillRecordDtoCollectionQueryParameters = new RequiredSkillRecordDtoCollectionQueryParameters(); // RequiredSkillRecordDtoCollectionQueryParameters | 
     try {
-      RequiredSkillRecordDtoListEnvelope result = apiInstance.getRequiredSkillsAsync(tenantId, apiVersion, xApiVersion);
+      RequiredSkillRecordDtoListEnvelope result = apiInstance.getRequiredSkillsAsync(tenantId, apiVersion, xApiVersion, requiredSkillRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RequiredSkillsApi#getRequiredSkillsAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **requiredSkillRecordDtoCollectionQueryParameters** | [**RequiredSkillRecordDtoCollectionQueryParameters**](RequiredSkillRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getRequiredSkillsCountAsync"></a>
 # **getRequiredSkillsCountAsync**
-> Int32Envelope getRequiredSkillsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getRequiredSkillsCountAsync(tenantId, apiVersion, xApiVersion, requiredSkillRecordDtoCollectionQueryParameters)
 
 Count required skills
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    RequiredSkillRecordDtoCollectionQueryParameters requiredSkillRecordDtoCollectionQueryParameters = new RequiredSkillRecordDtoCollectionQueryParameters(); // RequiredSkillRecordDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getRequiredSkillsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getRequiredSkillsCountAsync(tenantId, apiVersion, xApiVersion, requiredSkillRecordDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RequiredSkillsApi#getRequiredSkillsCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **requiredSkillRecordDtoCollectionQueryParameters** | [**RequiredSkillRecordDtoCollectionQueryParameters**](RequiredSkillRecordDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchRequiredSkillAsync"></a>
 # **patchRequiredSkillAsync**
-> EmptyEnvelope patchRequiredSkillAsync(tenantId, requiredSkillId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchRequiredSkillAsync(tenantId, requiredSkillId, apiVersion, xApiVersion, patchOperation)
 
 Patch a required skill
 
@@ -388,9 +392,9 @@ public class Example {
     UUID requiredSkillId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchRequiredSkillAsync(tenantId, requiredSkillId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchRequiredSkillAsync(tenantId, requiredSkillId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RequiredSkillsApi#patchRequiredSkillAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **requiredSkillId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

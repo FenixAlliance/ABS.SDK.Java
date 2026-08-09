@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * SecurityPermissionDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:06:48.174947400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-08T20:32:15.336162300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SecurityPermissionDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -67,6 +67,10 @@ public class SecurityPermissionDto {
   public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
   private String tenantId;
+
+  public static final String SERIALIZED_NAME_CATEGORY = "category";
+  @SerializedName(SERIALIZED_NAME_CATEGORY)
+  private String category;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -155,6 +159,25 @@ public class SecurityPermissionDto {
   }
 
 
+  public SecurityPermissionDto category(String category) {
+    this.category = category;
+    return this;
+  }
+
+  /**
+   * Get category
+   * @return category
+   */
+  @javax.annotation.Nullable
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
+
   public SecurityPermissionDto description(String description) {
     this.description = description;
     return this;
@@ -207,6 +230,7 @@ public class SecurityPermissionDto {
         Objects.equals(this.timestamp, securityPermissionDto.timestamp) &&
         Objects.equals(this.name, securityPermissionDto.name) &&
         Objects.equals(this.tenantId, securityPermissionDto.tenantId) &&
+        Objects.equals(this.category, securityPermissionDto.category) &&
         Objects.equals(this.description, securityPermissionDto.description) &&
         Objects.equals(this.isSystemPermission, securityPermissionDto.isSystemPermission);
   }
@@ -217,7 +241,7 @@ public class SecurityPermissionDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, tenantId, description, isSystemPermission);
+    return Objects.hash(id, timestamp, name, tenantId, category, description, isSystemPermission);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -235,6 +259,7 @@ public class SecurityPermissionDto {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isSystemPermission: ").append(toIndentedString(isSystemPermission)).append("\n");
     sb.append("}");
@@ -263,6 +288,7 @@ public class SecurityPermissionDto {
     openapiFields.add("timestamp");
     openapiFields.add("name");
     openapiFields.add("tenantId");
+    openapiFields.add("category");
     openapiFields.add("description");
     openapiFields.add("isSystemPermission");
 
@@ -299,6 +325,9 @@ public class SecurityPermissionDto {
       }
       if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+      }
+      if ((jsonObj.get("category") != null && !jsonObj.get("category").isJsonNull()) && !jsonObj.get("category").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

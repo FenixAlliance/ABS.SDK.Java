@@ -213,7 +213,7 @@ No authorization required
 
 <a id="getAssetTransfersAsync"></a>
 # **getAssetTransfersAsync**
-> AssetTransferDtoListEnvelope getAssetTransfersAsync(tenantId)
+> AssetTransferDtoListEnvelope getAssetTransfersAsync(tenantId, assetTransferDtoCollectionQueryParameters)
 
 Gets a list of asset transfers
 
@@ -235,8 +235,9 @@ public class Example {
 
     AssetTransfersApi apiInstance = new AssetTransfersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters = new AssetTransferDtoCollectionQueryParameters(); // AssetTransferDtoCollectionQueryParameters | 
     try {
-      AssetTransferDtoListEnvelope result = apiInstance.getAssetTransfersAsync(tenantId);
+      AssetTransferDtoListEnvelope result = apiInstance.getAssetTransfersAsync(tenantId, assetTransferDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetTransfersApi#getAssetTransfersAsync");
@@ -254,6 +255,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **assetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -265,7 +267,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -277,7 +279,7 @@ No authorization required
 
 <a id="getAssetTransfersCountAsync"></a>
 # **getAssetTransfersCountAsync**
-> Int32Envelope getAssetTransfersCountAsync(tenantId)
+> Int32Envelope getAssetTransfersCountAsync(tenantId, assetTransferDtoCollectionQueryParameters)
 
 Gets the count of asset transfers
 
@@ -299,8 +301,9 @@ public class Example {
 
     AssetTransfersApi apiInstance = new AssetTransfersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    AssetTransferDtoCollectionQueryParameters assetTransferDtoCollectionQueryParameters = new AssetTransferDtoCollectionQueryParameters(); // AssetTransferDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getAssetTransfersCountAsync(tenantId);
+      Int32Envelope result = apiInstance.getAssetTransfersCountAsync(tenantId, assetTransferDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetTransfersApi#getAssetTransfersCountAsync");
@@ -318,6 +321,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **assetTransferDtoCollectionQueryParameters** | [**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -329,7 +333,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -341,7 +345,7 @@ No authorization required
 
 <a id="patchAssetTransferAsync"></a>
 # **patchAssetTransferAsync**
-> EmptyEnvelope patchAssetTransferAsync(tenantId, transferId, operation)
+> EmptyEnvelope patchAssetTransferAsync(tenantId, transferId, patchOperation)
 
 Partially updates an existing asset transfer
 
@@ -364,9 +368,9 @@ public class Example {
     AssetTransfersApi apiInstance = new AssetTransfersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID transferId = UUID.randomUUID(); // UUID | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchAssetTransferAsync(tenantId, transferId, operation);
+      EmptyEnvelope result = apiInstance.patchAssetTransferAsync(tenantId, transferId, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AssetTransfersApi#patchAssetTransferAsync");
@@ -385,7 +389,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **transferId** | **UUID**|  | |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

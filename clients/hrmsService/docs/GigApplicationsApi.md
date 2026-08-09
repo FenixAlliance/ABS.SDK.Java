@@ -298,7 +298,7 @@ No authorization required
 
 <a id="getGigApplicationsAsync"></a>
 # **getGigApplicationsAsync**
-> GigApplicationDtoListEnvelope getGigApplicationsAsync(tenantId, apiVersion, xApiVersion)
+> GigApplicationDtoListEnvelope getGigApplicationsAsync(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters)
 
 Get gig applications
 
@@ -322,8 +322,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters = new GigApplicationDtoCollectionQueryParameters(); // GigApplicationDtoCollectionQueryParameters | 
     try {
-      GigApplicationDtoListEnvelope result = apiInstance.getGigApplicationsAsync(tenantId, apiVersion, xApiVersion);
+      GigApplicationDtoListEnvelope result = apiInstance.getGigApplicationsAsync(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GigApplicationsApi#getGigApplicationsAsync");
@@ -343,6 +344,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **gigApplicationDtoCollectionQueryParameters** | [**GigApplicationDtoCollectionQueryParameters**](GigApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -354,7 +356,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -366,7 +368,7 @@ No authorization required
 
 <a id="getGigApplicationsCountAsync"></a>
 # **getGigApplicationsCountAsync**
-> Int32Envelope getGigApplicationsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getGigApplicationsCountAsync(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters)
 
 Count gig applications
 
@@ -390,8 +392,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    GigApplicationDtoCollectionQueryParameters gigApplicationDtoCollectionQueryParameters = new GigApplicationDtoCollectionQueryParameters(); // GigApplicationDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getGigApplicationsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getGigApplicationsCountAsync(tenantId, apiVersion, xApiVersion, gigApplicationDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GigApplicationsApi#getGigApplicationsCountAsync");
@@ -411,6 +414,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **gigApplicationDtoCollectionQueryParameters** | [**GigApplicationDtoCollectionQueryParameters**](GigApplicationDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -422,7 +426,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -434,7 +438,7 @@ No authorization required
 
 <a id="patchGigApplicationAsync"></a>
 # **patchGigApplicationAsync**
-> EmptyEnvelope patchGigApplicationAsync(tenantId, gigApplicationId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchGigApplicationAsync(tenantId, gigApplicationId, apiVersion, xApiVersion, patchOperation)
 
 Patch a gig application
 
@@ -459,9 +463,9 @@ public class Example {
     UUID gigApplicationId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchGigApplicationAsync(tenantId, gigApplicationId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchGigApplicationAsync(tenantId, gigApplicationId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GigApplicationsApi#patchGigApplicationAsync");
@@ -482,7 +486,7 @@ public class Example {
 | **gigApplicationId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

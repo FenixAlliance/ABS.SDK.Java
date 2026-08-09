@@ -12,7 +12,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countBlogPostsByAuthorAsync"></a>
 # **countBlogPostsByAuthorAsync**
-> Int32Envelope countBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion)
+> Int32Envelope countBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion, blogPostDtoCollectionQueryParameters)
 
 Count blog posts by author
 
@@ -36,8 +36,9 @@ public class Example {
     UUID authorId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters = new BlogPostDtoCollectionQueryParameters(); // BlogPostDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.countBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion, blogPostDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostAuthorsApi#countBlogPostsByAuthorAsync");
@@ -57,6 +58,7 @@ public class Example {
 | **authorId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -68,7 +70,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -146,7 +148,7 @@ No authorization required
 
 <a id="getBlogAuthorsAsync"></a>
 # **getBlogAuthorsAsync**
-> BlogAuthorDtoListEnvelope getBlogAuthorsAsync(tenantId, apiVersion, xApiVersion)
+> BlogAuthorDtoListEnvelope getBlogAuthorsAsync(tenantId, apiVersion, xApiVersion, blogAuthorDtoCollectionQueryParameters)
 
 Get blog authors
 
@@ -170,8 +172,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlogAuthorDtoCollectionQueryParameters blogAuthorDtoCollectionQueryParameters = new BlogAuthorDtoCollectionQueryParameters(); // BlogAuthorDtoCollectionQueryParameters | 
     try {
-      BlogAuthorDtoListEnvelope result = apiInstance.getBlogAuthorsAsync(tenantId, apiVersion, xApiVersion);
+      BlogAuthorDtoListEnvelope result = apiInstance.getBlogAuthorsAsync(tenantId, apiVersion, xApiVersion, blogAuthorDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostAuthorsApi#getBlogAuthorsAsync");
@@ -191,6 +194,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blogAuthorDtoCollectionQueryParameters** | [**BlogAuthorDtoCollectionQueryParameters**](BlogAuthorDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -202,7 +206,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -213,7 +217,7 @@ No authorization required
 
 <a id="getBlogPostsByAuthorAsync"></a>
 # **getBlogPostsByAuthorAsync**
-> BlogPostDtoListEnvelope getBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion)
+> BlogPostDtoListEnvelope getBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion, blogPostDtoCollectionQueryParameters)
 
 Get blog posts by author
 
@@ -237,8 +241,9 @@ public class Example {
     UUID authorId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    BlogPostDtoCollectionQueryParameters blogPostDtoCollectionQueryParameters = new BlogPostDtoCollectionQueryParameters(); // BlogPostDtoCollectionQueryParameters | 
     try {
-      BlogPostDtoListEnvelope result = apiInstance.getBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion);
+      BlogPostDtoListEnvelope result = apiInstance.getBlogPostsByAuthorAsync(authorId, apiVersion, xApiVersion, blogPostDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlogPostAuthorsApi#getBlogPostsByAuthorAsync");
@@ -258,6 +263,7 @@ public class Example {
 | **authorId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **blogPostDtoCollectionQueryParameters** | [**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -269,7 +275,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

@@ -81,7 +81,7 @@ No authorization required
 
 <a id="getSigningLogsAsync"></a>
 # **getSigningLogsAsync**
-> SigningLogDtoListEnvelope getSigningLogsAsync(tenantId, apiVersion, xApiVersion)
+> SigningLogDtoListEnvelope getSigningLogsAsync(tenantId, apiVersion, xApiVersion, signingLogDtoCollectionQueryParameters)
 
 Get all signing logs
 
@@ -105,8 +105,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SigningLogDtoCollectionQueryParameters signingLogDtoCollectionQueryParameters = new SigningLogDtoCollectionQueryParameters(); // SigningLogDtoCollectionQueryParameters | 
     try {
-      SigningLogDtoListEnvelope result = apiInstance.getSigningLogsAsync(tenantId, apiVersion, xApiVersion);
+      SigningLogDtoListEnvelope result = apiInstance.getSigningLogsAsync(tenantId, apiVersion, xApiVersion, signingLogDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningLogsApi#getSigningLogsAsync");
@@ -126,6 +127,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signingLogDtoCollectionQueryParameters** | [**SigningLogDtoCollectionQueryParameters**](SigningLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -137,7 +139,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -148,7 +150,7 @@ No authorization required
 
 <a id="getSigningLogsCountAsync"></a>
 # **getSigningLogsCountAsync**
-> Int32Envelope getSigningLogsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSigningLogsCountAsync(tenantId, apiVersion, xApiVersion, signingLogDtoCollectionQueryParameters)
 
 Get signing logs count
 
@@ -172,8 +174,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SigningLogDtoCollectionQueryParameters signingLogDtoCollectionQueryParameters = new SigningLogDtoCollectionQueryParameters(); // SigningLogDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSigningLogsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSigningLogsCountAsync(tenantId, apiVersion, xApiVersion, signingLogDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SigningLogsApi#getSigningLogsCountAsync");
@@ -193,6 +196,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **signingLogDtoCollectionQueryParameters** | [**SigningLogDtoCollectionQueryParameters**](SigningLogDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -204,7 +208,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

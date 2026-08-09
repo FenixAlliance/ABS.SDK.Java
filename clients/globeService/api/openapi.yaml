@@ -49,6 +49,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -71,6 +76,7 @@ paths:
       summary: Get all countries
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/Count:
@@ -92,6 +98,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -114,6 +125,7 @@ paths:
       summary: Count countries
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/Search:
@@ -244,6 +256,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryStateDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -266,6 +283,7 @@ paths:
       summary: Get states for a country
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/States/Count:
@@ -295,6 +313,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryStateDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -317,6 +340,7 @@ paths:
       summary: Count states for a country
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}:
@@ -353,6 +377,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryStateDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -375,6 +404,7 @@ paths:
       summary: Get state by ID
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities:
@@ -411,6 +441,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CityDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -433,6 +468,7 @@ paths:
       summary: Get cities for a state
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities/Count:
@@ -469,6 +505,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CityDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -491,6 +532,7 @@ paths:
       summary: Count cities for a state
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/Timezones:
@@ -519,6 +561,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimezoneDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -541,6 +588,7 @@ paths:
       summary: Get timezones for a country
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/Timezones/Count:
@@ -570,6 +618,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimezoneDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -592,6 +645,7 @@ paths:
       summary: Count timezones for a country
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/Currencies:
@@ -620,6 +674,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -642,6 +701,7 @@ paths:
       summary: Get currencies for a country
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains:
@@ -671,6 +731,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryTopLevelDomainDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -693,6 +758,7 @@ paths:
       summary: Get top-level domains for a country
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains/Count:
@@ -722,6 +788,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryTopLevelDomainDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -744,6 +815,7 @@ paths:
       summary: Count top-level domains for a country
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/CallingCodes:
@@ -773,6 +845,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryCallingCodeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -795,6 +872,7 @@ paths:
       summary: Get calling codes for a country
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Countries/{countryId}/CallingCodes/Count:
@@ -824,6 +902,11 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryCallingCodeDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -846,6 +929,7 @@ paths:
       summary: Count calling codes for a country
       tags:
       - Countries
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v2/GlobeService/Currencies:
@@ -868,6 +952,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurrencyDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -899,6 +991,7 @@ paths:
       summary: Get all currencies
       tags:
       - Currencies
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -922,6 +1015,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurrencyDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -953,6 +1054,7 @@ paths:
       summary: Count currencies
       tags:
       - Currencies
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1027,23 +1129,6 @@ paths:
       - application/json
   /health:
     get:
-      responses:
-        "200":
-          description: OK
-      tags:
-      - FenixAlliance.ABS.Web
-      x-accepts:
-      - application/json
-  /api/v2/AIService/Agents/{agentId}/agui:
-    post:
-      parameters:
-      - explode: false
-        in: path
-        name: agentId
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           description: OK
@@ -1413,6 +1498,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryLanguageDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CountryLanguageDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1444,6 +1537,7 @@ paths:
       summary: Get all languages
       tags:
       - Languages
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1467,6 +1561,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryLanguageDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CountryLanguageDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1498,6 +1600,7 @@ paths:
       summary: Count languages
       tags:
       - Languages
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1581,6 +1684,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimezoneDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TimezoneDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1612,6 +1723,7 @@ paths:
       summary: Get all timezones
       tags:
       - Timezones
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1635,6 +1747,14 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimezoneDtoCollectionQueryParameters'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TimezoneDtoCollectionQueryParameters'
       responses:
         "403":
           content:
@@ -1666,6 +1786,7 @@ paths:
       summary: Count timezones
       tags:
       - Timezones
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1795,6 +1916,48 @@ components:
           nullable: true
           type: string
       type: object
+    CityDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     CityDtoListEnvelope:
       additionalProperties: false
       example:
@@ -1816,8 +1979,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           longitude: longitude
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1834,6 +2003,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1848,7 +2032,7 @@ components:
       additionalProperties: false
       example:
         callingCode: callingCode
-        id: 0
+        id: 6
         countryID: countryID
       properties:
         id:
@@ -1861,19 +2045,67 @@ components:
           nullable: true
           type: string
       type: object
+    CountryCallingCodeDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     CountryCallingCodeDtoListEnvelope:
       additionalProperties: false
       example:
         result:
         - callingCode: callingCode
-          id: 0
+          id: 6
           countryID: countryID
         - callingCode: callingCode
-          id: 0
+          id: 6
           countryID: countryID
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1890,6 +2122,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1934,6 +2181,48 @@ components:
           nullable: true
           type: string
       type: object
+    CountryDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     CountryDtoEnvelope:
       additionalProperties: false
       example:
@@ -1946,8 +2235,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           iso3: iso3
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1964,6 +2259,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -1990,8 +2300,14 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           iso3: iso3
         activityId: activityId
+        httpStatus: 6
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2008,6 +2324,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2051,6 +2382,48 @@ components:
           nullable: true
           type: string
       type: object
+    CountryLanguageDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     CountryLanguageDtoEnvelope:
       additionalProperties: false
       example:
@@ -2063,8 +2436,14 @@ components:
           enabled: true
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2081,6 +2460,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2107,8 +2501,14 @@ components:
           enabled: true
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2125,6 +2525,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2161,6 +2576,48 @@ components:
           nullable: true
           type: string
       type: object
+    CountryStateDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     CountryStateDtoEnvelope:
       additionalProperties: false
       example:
@@ -2171,8 +2628,14 @@ components:
           countryID: countryID
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2189,6 +2652,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2211,8 +2689,14 @@ components:
           countryID: countryID
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2229,6 +2713,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2261,6 +2760,48 @@ components:
           nullable: true
           type: string
       type: object
+    CountryTopLevelDomainDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     CountryTopLevelDomainDtoListEnvelope:
       additionalProperties: false
       example:
@@ -2274,8 +2815,14 @@ components:
           countryID: countryID
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2292,6 +2839,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2338,6 +2900,48 @@ components:
         country:
           $ref: '#/components/schemas/CountryDto'
       type: object
+    CurrencyDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     CurrencyDtoEnvelope:
       additionalProperties: false
       example:
@@ -2356,8 +2960,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2374,6 +2984,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2412,8 +3037,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2430,6 +3061,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2444,8 +3090,14 @@ components:
       additionalProperties: false
       example:
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2462,6 +3114,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2540,10 +3207,16 @@ components:
     Int32Envelope:
       additionalProperties: false
       example:
-        result: 0
+        result: 6
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2560,6 +3233,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2678,6 +3366,48 @@ components:
           readOnly: true
           type: string
       type: object
+    TimezoneDtoCollectionQueryParameters:
+      additionalProperties: false
+      example:
+        filter: filter
+        search: search
+        expand: expand
+        select: select
+        top: 0
+        count: true
+        isEmpty: true
+        orderBy: orderBy
+        skip: 6
+      properties:
+        top:
+          format: int32
+          nullable: true
+          type: integer
+        skip:
+          format: int32
+          nullable: true
+          type: integer
+        count:
+          type: boolean
+        filter:
+          nullable: true
+          type: string
+        orderBy:
+          nullable: true
+          type: string
+        search:
+          nullable: true
+          type: string
+        select:
+          nullable: true
+          type: string
+        expand:
+          nullable: true
+          type: string
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
     TimezoneDtoEnvelope:
       additionalProperties: false
       example:
@@ -2688,8 +3418,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2706,6 +3442,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true
@@ -2728,8 +3479,14 @@ components:
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
+        httpStatus: 0
         errorMessage: errorMessage
+        errorCode: errorCode
         correlationId: correlationId
+        validationDetails:
+          key:
+          - validationDetails
+          - validationDetails
         isSuccess: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2746,6 +3503,21 @@ components:
           format: date-time
           readOnly: true
           type: string
+        httpStatus:
+          format: int32
+          nullable: true
+          type: integer
+        errorCode:
+          nullable: true
+          type: string
+        validationDetails:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
         activityId:
           nullable: true
           readOnly: true

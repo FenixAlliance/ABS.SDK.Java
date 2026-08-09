@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getSchedulesAsync"></a>
 # **getSchedulesAsync**
-> ScheduleDtoListEnvelope getSchedulesAsync(tenantId, apiVersion, xApiVersion)
+> ScheduleDtoListEnvelope getSchedulesAsync(tenantId, apiVersion, xApiVersion, scheduleDtoCollectionQueryParameters)
 
 Get schedules
 
@@ -251,8 +251,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ScheduleDtoCollectionQueryParameters scheduleDtoCollectionQueryParameters = new ScheduleDtoCollectionQueryParameters(); // ScheduleDtoCollectionQueryParameters | 
     try {
-      ScheduleDtoListEnvelope result = apiInstance.getSchedulesAsync(tenantId, apiVersion, xApiVersion);
+      ScheduleDtoListEnvelope result = apiInstance.getSchedulesAsync(tenantId, apiVersion, xApiVersion, scheduleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SchedulesApi#getSchedulesAsync");
@@ -272,6 +273,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **scheduleDtoCollectionQueryParameters** | [**ScheduleDtoCollectionQueryParameters**](ScheduleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -283,7 +285,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -295,7 +297,7 @@ No authorization required
 
 <a id="getSchedulesCountAsync"></a>
 # **getSchedulesCountAsync**
-> Int32Envelope getSchedulesCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getSchedulesCountAsync(tenantId, apiVersion, xApiVersion, scheduleDtoCollectionQueryParameters)
 
 Count schedules
 
@@ -319,8 +321,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    ScheduleDtoCollectionQueryParameters scheduleDtoCollectionQueryParameters = new ScheduleDtoCollectionQueryParameters(); // ScheduleDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getSchedulesCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSchedulesCountAsync(tenantId, apiVersion, xApiVersion, scheduleDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SchedulesApi#getSchedulesCountAsync");
@@ -340,6 +343,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **scheduleDtoCollectionQueryParameters** | [**ScheduleDtoCollectionQueryParameters**](ScheduleDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -351,7 +355,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -363,7 +367,7 @@ No authorization required
 
 <a id="patchScheduleAsync"></a>
 # **patchScheduleAsync**
-> EmptyEnvelope patchScheduleAsync(tenantId, scheduleId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchScheduleAsync(tenantId, scheduleId, apiVersion, xApiVersion, patchOperation)
 
 Patch a schedule
 
@@ -388,9 +392,9 @@ public class Example {
     UUID scheduleId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchScheduleAsync(tenantId, scheduleId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchScheduleAsync(tenantId, scheduleId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SchedulesApi#patchScheduleAsync");
@@ -411,7 +415,7 @@ public class Example {
 | **scheduleId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

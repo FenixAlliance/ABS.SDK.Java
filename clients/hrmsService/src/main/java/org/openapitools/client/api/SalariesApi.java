@@ -30,8 +30,9 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import org.openapitools.client.model.SalaryCreateDto;
+import org.openapitools.client.model.SalaryDtoCollectionQueryParameters;
 import org.openapitools.client.model.SalaryDtoEnvelope;
 import org.openapitools.client.model.SalaryDtoListEnvelope;
 import org.openapitools.client.model.SalaryUpdateDto;
@@ -411,6 +412,7 @@ public class SalariesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param salaryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -422,7 +424,7 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSalariesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSalariesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -436,7 +438,7 @@ public class SalariesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = salaryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/Salaries";
@@ -469,6 +471,8 @@ public class SalariesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -480,13 +484,13 @@ public class SalariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSalariesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSalariesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSalariesAsync(Async)");
         }
 
-        return getSalariesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSalariesAsyncCall(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -496,6 +500,7 @@ public class SalariesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param salaryDtoCollectionQueryParameters  (optional)
      * @return SalaryDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -506,8 +511,8 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public SalaryDtoListEnvelope getSalariesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SalaryDtoListEnvelope> localVarResp = getSalariesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SalaryDtoListEnvelope getSalariesAsync(UUID tenantId, String apiVersion, String xApiVersion, SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<SalaryDtoListEnvelope> localVarResp = getSalariesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -517,6 +522,7 @@ public class SalariesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param salaryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;SalaryDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -527,8 +533,8 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SalaryDtoListEnvelope> getSalariesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSalariesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<SalaryDtoListEnvelope> getSalariesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSalariesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<SalaryDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -539,6 +545,7 @@ public class SalariesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param salaryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -550,9 +557,9 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSalariesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SalaryDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSalariesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters, final ApiCallback<SalaryDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSalariesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSalariesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<SalaryDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -562,6 +569,7 @@ public class SalariesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param salaryDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -573,7 +581,7 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSalariesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSalariesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -587,7 +595,7 @@ public class SalariesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = salaryDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/Salaries/Count";
@@ -620,6 +628,8 @@ public class SalariesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -631,13 +641,13 @@ public class SalariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSalariesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSalariesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSalariesCountAsync(Async)");
         }
 
-        return getSalariesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getSalariesCountAsyncCall(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -647,6 +657,7 @@ public class SalariesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param salaryDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -657,8 +668,8 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getSalariesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getSalariesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getSalariesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getSalariesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -668,6 +679,7 @@ public class SalariesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param salaryDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -678,8 +690,8 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getSalariesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getSalariesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getSalariesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getSalariesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -690,6 +702,7 @@ public class SalariesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param salaryDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -701,9 +714,9 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSalariesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getSalariesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, SalaryDtoCollectionQueryParameters salaryDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSalariesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getSalariesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, salaryDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -875,7 +888,7 @@ public class SalariesApi {
      * @param salaryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -888,7 +901,7 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSalaryAsyncCall(UUID tenantId, UUID salaryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchSalaryAsyncCall(UUID tenantId, UUID salaryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -902,7 +915,7 @@ public class SalariesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/HrmsService/Salaries/{salaryId}"
@@ -949,7 +962,7 @@ public class SalariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchSalaryAsyncValidateBeforeCall(UUID tenantId, UUID salaryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSalaryAsyncValidateBeforeCall(UUID tenantId, UUID salaryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchSalaryAsync(Async)");
@@ -960,7 +973,7 @@ public class SalariesApi {
             throw new ApiException("Missing the required parameter 'salaryId' when calling patchSalaryAsync(Async)");
         }
 
-        return patchSalaryAsyncCall(tenantId, salaryId, apiVersion, xApiVersion, operation, _callback);
+        return patchSalaryAsyncCall(tenantId, salaryId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -971,7 +984,7 @@ public class SalariesApi {
      * @param salaryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -983,8 +996,8 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchSalaryAsync(UUID tenantId, UUID salaryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchSalaryAsyncWithHttpInfo(tenantId, salaryId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchSalaryAsync(UUID tenantId, UUID salaryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchSalaryAsyncWithHttpInfo(tenantId, salaryId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -995,7 +1008,7 @@ public class SalariesApi {
      * @param salaryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1007,8 +1020,8 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchSalaryAsyncWithHttpInfo(UUID tenantId, UUID salaryId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchSalaryAsyncValidateBeforeCall(tenantId, salaryId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchSalaryAsyncWithHttpInfo(UUID tenantId, UUID salaryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchSalaryAsyncValidateBeforeCall(tenantId, salaryId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1020,7 +1033,7 @@ public class SalariesApi {
      * @param salaryId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1033,9 +1046,9 @@ public class SalariesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchSalaryAsyncAsync(UUID tenantId, UUID salaryId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchSalaryAsyncAsync(UUID tenantId, UUID salaryId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchSalaryAsyncValidateBeforeCall(tenantId, salaryId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchSalaryAsyncValidateBeforeCall(tenantId, salaryId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

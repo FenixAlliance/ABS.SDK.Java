@@ -418,7 +418,7 @@ No authorization required
 
 <a id="getFilesAsync"></a>
 # **getFilesAsync**
-> FileUploadDtoEnvelope getFilesAsync(tenantId, apiVersion, xApiVersion)
+> FileUploadDtoEnvelope getFilesAsync(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty)
 
 
 
@@ -440,8 +440,17 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    Integer top = 56; // Integer | 
+    Integer skip = 56; // Integer | 
+    Boolean count = true; // Boolean | 
+    String filter = "filter_example"; // String | 
+    String orderBy = "orderBy_example"; // String | 
+    String search = "search_example"; // String | 
+    String select = "select_example"; // String | 
+    String expand = "expand_example"; // String | 
+    Boolean isEmpty = true; // Boolean | 
     try {
-      FileUploadDtoEnvelope result = apiInstance.getFilesAsync(tenantId, apiVersion, xApiVersion);
+      FileUploadDtoEnvelope result = apiInstance.getFilesAsync(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FilesApi#getFilesAsync");
@@ -461,6 +470,15 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **top** | **Integer**|  | [optional] |
+| **skip** | **Integer**|  | [optional] |
+| **count** | **Boolean**|  | [optional] |
+| **filter** | **String**|  | [optional] |
+| **orderBy** | **String**|  | [optional] |
+| **search** | **String**|  | [optional] |
+| **select** | **String**|  | [optional] |
+| **expand** | **String**|  | [optional] |
+| **isEmpty** | **Boolean**|  | [optional] |
 
 ### Return type
 
@@ -472,7 +490,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, image/png
 
 ### HTTP response details
@@ -484,7 +502,7 @@ No authorization required
 
 <a id="getFilesCountAsync"></a>
 # **getFilesCountAsync**
-> Long getFilesCountAsync(tenantId, apiVersion, xApiVersion)
+> Long getFilesCountAsync(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty)
 
 
 
@@ -506,8 +524,17 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    Integer top = 56; // Integer | 
+    Integer skip = 56; // Integer | 
+    Boolean count = true; // Boolean | 
+    String filter = "filter_example"; // String | 
+    String orderBy = "orderBy_example"; // String | 
+    String search = "search_example"; // String | 
+    String select = "select_example"; // String | 
+    String expand = "expand_example"; // String | 
+    Boolean isEmpty = true; // Boolean | 
     try {
-      Long result = apiInstance.getFilesCountAsync(tenantId, apiVersion, xApiVersion);
+      Long result = apiInstance.getFilesCountAsync(tenantId, apiVersion, xApiVersion, top, skip, count, filter, orderBy, search, select, expand, isEmpty);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FilesApi#getFilesCountAsync");
@@ -527,6 +554,15 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **top** | **Integer**|  | [optional] |
+| **skip** | **Integer**|  | [optional] |
+| **count** | **Boolean**|  | [optional] |
+| **filter** | **String**|  | [optional] |
+| **orderBy** | **String**|  | [optional] |
+| **search** | **String**|  | [optional] |
+| **select** | **String**|  | [optional] |
+| **expand** | **String**|  | [optional] |
+| **isEmpty** | **Boolean**|  | [optional] |
 
 ### Return type
 
@@ -538,7 +574,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, image/png
 
 ### HTTP response details

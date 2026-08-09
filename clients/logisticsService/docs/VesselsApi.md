@@ -222,7 +222,7 @@ No authorization required
 
 <a id="getVesselsAsync"></a>
 # **getVesselsAsync**
-> VesselDtoListEnvelope getVesselsAsync(tenantId, apiVersion, xApiVersion)
+> VesselDtoListEnvelope getVesselsAsync(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters)
 
 Get all vessels
 
@@ -246,8 +246,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters = new VesselDtoCollectionQueryParameters(); // VesselDtoCollectionQueryParameters | 
     try {
-      VesselDtoListEnvelope result = apiInstance.getVesselsAsync(tenantId, apiVersion, xApiVersion);
+      VesselDtoListEnvelope result = apiInstance.getVesselsAsync(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VesselsApi#getVesselsAsync");
@@ -267,6 +268,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **vesselDtoCollectionQueryParameters** | [**VesselDtoCollectionQueryParameters**](VesselDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -278,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getVesselsCountAsync"></a>
 # **getVesselsCountAsync**
-> Int32Envelope getVesselsCountAsync(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getVesselsCountAsync(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters)
 
 Get vessels count
 
@@ -314,8 +316,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    VesselDtoCollectionQueryParameters vesselDtoCollectionQueryParameters = new VesselDtoCollectionQueryParameters(); // VesselDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getVesselsCountAsync(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getVesselsCountAsync(tenantId, apiVersion, xApiVersion, vesselDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VesselsApi#getVesselsCountAsync");
@@ -335,6 +338,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **vesselDtoCollectionQueryParameters** | [**VesselDtoCollectionQueryParameters**](VesselDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -357,7 +361,7 @@ No authorization required
 
 <a id="patchVesselAsync"></a>
 # **patchVesselAsync**
-> EmptyEnvelope patchVesselAsync(tenantId, vesselId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchVesselAsync(tenantId, vesselId, apiVersion, xApiVersion, patchOperation)
 
 Patch a vessel
 
@@ -382,9 +386,9 @@ public class Example {
     UUID vesselId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchVesselAsync(tenantId, vesselId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchVesselAsync(tenantId, vesselId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VesselsApi#patchVesselAsync");
@@ -405,7 +409,7 @@ public class Example {
 | **vesselId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

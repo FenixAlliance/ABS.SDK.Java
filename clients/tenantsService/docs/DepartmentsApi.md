@@ -225,7 +225,7 @@ No authorization required
 
 <a id="getTenantDepartments"></a>
 # **getTenantDepartments**
-> TenantDepartmentDtoListEnvelope getTenantDepartments(tenantId, apiVersion, xApiVersion)
+> TenantDepartmentDtoListEnvelope getTenantDepartments(tenantId, apiVersion, xApiVersion, tenantDepartmentDtoCollectionQueryParameters)
 
 Retrieve a list of tenant departments
 
@@ -249,8 +249,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantDepartmentDtoCollectionQueryParameters tenantDepartmentDtoCollectionQueryParameters = new TenantDepartmentDtoCollectionQueryParameters(); // TenantDepartmentDtoCollectionQueryParameters | 
     try {
-      TenantDepartmentDtoListEnvelope result = apiInstance.getTenantDepartments(tenantId, apiVersion, xApiVersion);
+      TenantDepartmentDtoListEnvelope result = apiInstance.getTenantDepartments(tenantId, apiVersion, xApiVersion, tenantDepartmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DepartmentsApi#getTenantDepartments");
@@ -270,6 +271,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantDepartmentDtoCollectionQueryParameters** | [**TenantDepartmentDtoCollectionQueryParameters**](TenantDepartmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -293,7 +295,7 @@ No authorization required
 
 <a id="getTenantDepartmentsCount"></a>
 # **getTenantDepartmentsCount**
-> Int32Envelope getTenantDepartmentsCount(tenantId, apiVersion, xApiVersion)
+> Int32Envelope getTenantDepartmentsCount(tenantId, apiVersion, xApiVersion, tenantDepartmentDtoCollectionQueryParameters)
 
 Get the count of tenant departments
 
@@ -317,8 +319,9 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    TenantDepartmentDtoCollectionQueryParameters tenantDepartmentDtoCollectionQueryParameters = new TenantDepartmentDtoCollectionQueryParameters(); // TenantDepartmentDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getTenantDepartmentsCount(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getTenantDepartmentsCount(tenantId, apiVersion, xApiVersion, tenantDepartmentDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DepartmentsApi#getTenantDepartmentsCount");
@@ -338,6 +341,7 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **tenantDepartmentDtoCollectionQueryParameters** | [**TenantDepartmentDtoCollectionQueryParameters**](TenantDepartmentDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -349,7 +353,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -361,7 +365,7 @@ No authorization required
 
 <a id="patchTenantDepartmentAsync"></a>
 # **patchTenantDepartmentAsync**
-> EmptyEnvelope patchTenantDepartmentAsync(tenantId, tenantDepartmentId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchTenantDepartmentAsync(tenantId, tenantDepartmentId, apiVersion, xApiVersion, patchOperation)
 
 Patch a tenant department
 
@@ -386,9 +390,9 @@ public class Example {
     UUID tenantDepartmentId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchTenantDepartmentAsync(tenantId, tenantDepartmentId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchTenantDepartmentAsync(tenantId, tenantDepartmentId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DepartmentsApi#patchTenantDepartmentAsync");
@@ -409,7 +413,7 @@ public class Example {
 | **tenantDepartmentId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

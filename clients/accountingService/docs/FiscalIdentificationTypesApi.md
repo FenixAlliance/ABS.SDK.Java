@@ -227,7 +227,7 @@ No authorization required
 
 <a id="getFiscalIdentificationTypes"></a>
 # **getFiscalIdentificationTypes**
-> FiscalIdentificationTypeDtoListEnvelope getFiscalIdentificationTypes(tenantId, authorityId, apiVersion, xApiVersion)
+> FiscalIdentificationTypeDtoListEnvelope getFiscalIdentificationTypes(tenantId, authorityId, apiVersion, xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters)
 
 Get fiscal identification types for an authority
 
@@ -252,8 +252,9 @@ public class Example {
     UUID authorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalIdentificationTypeDtoCollectionQueryParameters fiscalIdentificationTypeDtoCollectionQueryParameters = new FiscalIdentificationTypeDtoCollectionQueryParameters(); // FiscalIdentificationTypeDtoCollectionQueryParameters | 
     try {
-      FiscalIdentificationTypeDtoListEnvelope result = apiInstance.getFiscalIdentificationTypes(tenantId, authorityId, apiVersion, xApiVersion);
+      FiscalIdentificationTypeDtoListEnvelope result = apiInstance.getFiscalIdentificationTypes(tenantId, authorityId, apiVersion, xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalIdentificationTypesApi#getFiscalIdentificationTypes");
@@ -274,6 +275,7 @@ public class Example {
 | **authorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalIdentificationTypeDtoCollectionQueryParameters** | [**FiscalIdentificationTypeDtoCollectionQueryParameters**](FiscalIdentificationTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -285,7 +287,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -297,7 +299,7 @@ No authorization required
 
 <a id="getFiscalIdentificationTypesCount"></a>
 # **getFiscalIdentificationTypesCount**
-> Int32Envelope getFiscalIdentificationTypesCount(tenantId, authorityId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalIdentificationTypesCount(tenantId, authorityId, apiVersion, xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters)
 
 Get fiscal identification types count
 
@@ -322,8 +324,9 @@ public class Example {
     UUID authorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    FiscalIdentificationTypeDtoCollectionQueryParameters fiscalIdentificationTypeDtoCollectionQueryParameters = new FiscalIdentificationTypeDtoCollectionQueryParameters(); // FiscalIdentificationTypeDtoCollectionQueryParameters | 
     try {
-      Int32Envelope result = apiInstance.getFiscalIdentificationTypesCount(tenantId, authorityId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFiscalIdentificationTypesCount(tenantId, authorityId, apiVersion, xApiVersion, fiscalIdentificationTypeDtoCollectionQueryParameters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalIdentificationTypesApi#getFiscalIdentificationTypesCount");
@@ -344,6 +347,7 @@ public class Example {
 | **authorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **fiscalIdentificationTypeDtoCollectionQueryParameters** | [**FiscalIdentificationTypeDtoCollectionQueryParameters**](FiscalIdentificationTypeDtoCollectionQueryParameters.md)|  | [optional] |
 
 ### Return type
 
@@ -355,7 +359,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -367,7 +371,7 @@ No authorization required
 
 <a id="patchFiscalIdentificationTypeAsync"></a>
 # **patchFiscalIdentificationTypeAsync**
-> EmptyEnvelope patchFiscalIdentificationTypeAsync(tenantId, identificationTypeId, apiVersion, xApiVersion, operation)
+> EmptyEnvelope patchFiscalIdentificationTypeAsync(tenantId, identificationTypeId, apiVersion, xApiVersion, patchOperation)
 
 Patch a fiscal identification type
 
@@ -392,9 +396,9 @@ public class Example {
     UUID identificationTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    List<PatchOperation> patchOperation = Arrays.asList(); // List<PatchOperation> | 
     try {
-      EmptyEnvelope result = apiInstance.patchFiscalIdentificationTypeAsync(tenantId, identificationTypeId, apiVersion, xApiVersion, operation);
+      EmptyEnvelope result = apiInstance.patchFiscalIdentificationTypeAsync(tenantId, identificationTypeId, apiVersion, xApiVersion, patchOperation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalIdentificationTypesApi#patchFiscalIdentificationTypeAsync");
@@ -415,7 +419,7 @@ public class Example {
 | **identificationTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+| **patchOperation** | [**List&lt;PatchOperation&gt;**](PatchOperation.md)|  | [optional] |
 
 ### Return type
 

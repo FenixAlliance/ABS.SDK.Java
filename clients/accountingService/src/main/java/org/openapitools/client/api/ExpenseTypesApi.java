@@ -30,11 +30,12 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.ExpenseTypeCreateDto;
+import org.openapitools.client.model.ExpenseTypeDtoCollectionQueryParameters;
 import org.openapitools.client.model.ExpenseTypeDtoEnvelope;
 import org.openapitools.client.model.ExpenseTypeDtoListEnvelope;
 import org.openapitools.client.model.ExpenseTypeUpdateDto;
 import org.openapitools.client.model.Int32Envelope;
-import org.openapitools.client.model.Operation;
+import org.openapitools.client.model.PatchOperation;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -569,6 +570,7 @@ public class ExpenseTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param expenseTypeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -580,7 +582,7 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExpenseTypesCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExpenseTypesCall(UUID tenantId, String apiVersion, String xApiVersion, ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -594,7 +596,7 @@ public class ExpenseTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = expenseTypeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/ExpenseTypes";
@@ -627,6 +629,8 @@ public class ExpenseTypesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -638,13 +642,13 @@ public class ExpenseTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExpenseTypesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExpenseTypesValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExpenseTypes(Async)");
         }
 
-        return getExpenseTypesCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getExpenseTypesCall(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -654,6 +658,7 @@ public class ExpenseTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param expenseTypeDtoCollectionQueryParameters  (optional)
      * @return ExpenseTypeDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -664,8 +669,8 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ExpenseTypeDtoListEnvelope getExpenseTypes(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ExpenseTypeDtoListEnvelope> localVarResp = getExpenseTypesWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public ExpenseTypeDtoListEnvelope getExpenseTypes(UUID tenantId, String apiVersion, String xApiVersion, ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<ExpenseTypeDtoListEnvelope> localVarResp = getExpenseTypesWithHttpInfo(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -675,6 +680,7 @@ public class ExpenseTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param expenseTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;ExpenseTypeDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -685,8 +691,8 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExpenseTypeDtoListEnvelope> getExpenseTypesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getExpenseTypesValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<ExpenseTypeDtoListEnvelope> getExpenseTypesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExpenseTypesValidateBeforeCall(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<ExpenseTypeDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -697,6 +703,7 @@ public class ExpenseTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param expenseTypeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -708,9 +715,9 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExpenseTypesAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ExpenseTypeDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getExpenseTypesAsync(UUID tenantId, String apiVersion, String xApiVersion, ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters, final ApiCallback<ExpenseTypeDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExpenseTypesValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getExpenseTypesValidateBeforeCall(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<ExpenseTypeDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -720,6 +727,7 @@ public class ExpenseTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param expenseTypeDtoCollectionQueryParameters  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -731,7 +739,7 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExpenseTypesCountCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExpenseTypesCountCall(UUID tenantId, String apiVersion, String xApiVersion, ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -745,7 +753,7 @@ public class ExpenseTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = expenseTypeDtoCollectionQueryParameters;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/ExpenseTypes/Count";
@@ -778,6 +786,8 @@ public class ExpenseTypesApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -789,13 +799,13 @@ public class ExpenseTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExpenseTypesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExpenseTypesCountValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getExpenseTypesCount(Async)");
         }
 
-        return getExpenseTypesCountCall(tenantId, apiVersion, xApiVersion, _callback);
+        return getExpenseTypesCountCall(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters, _callback);
 
     }
 
@@ -805,6 +815,7 @@ public class ExpenseTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param expenseTypeDtoCollectionQueryParameters  (optional)
      * @return Int32Envelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -815,8 +826,8 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getExpenseTypesCount(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getExpenseTypesCountWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public Int32Envelope getExpenseTypesCount(UUID tenantId, String apiVersion, String xApiVersion, ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getExpenseTypesCountWithHttpInfo(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters);
         return localVarResp.getData();
     }
 
@@ -826,6 +837,7 @@ public class ExpenseTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param expenseTypeDtoCollectionQueryParameters  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -836,8 +848,8 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getExpenseTypesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getExpenseTypesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getExpenseTypesCountWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters) throws ApiException {
+        okhttp3.Call localVarCall = getExpenseTypesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -848,6 +860,7 @@ public class ExpenseTypesApi {
      * @param tenantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
+     * @param expenseTypeDtoCollectionQueryParameters  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -859,9 +872,9 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExpenseTypesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getExpenseTypesCountAsync(UUID tenantId, String apiVersion, String xApiVersion, ExpenseTypeDtoCollectionQueryParameters expenseTypeDtoCollectionQueryParameters, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExpenseTypesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getExpenseTypesCountValidateBeforeCall(tenantId, apiVersion, xApiVersion, expenseTypeDtoCollectionQueryParameters, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -872,7 +885,7 @@ public class ExpenseTypesApi {
      * @param expenseTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -884,7 +897,7 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchExpenseTypeCall(UUID tenantId, UUID expenseTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchExpenseTypeCall(UUID tenantId, UUID expenseTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -898,7 +911,7 @@ public class ExpenseTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = operation;
+        Object localVarPostBody = patchOperation;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/ExpenseTypes/{expenseTypeId}"
@@ -945,7 +958,7 @@ public class ExpenseTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchExpenseTypeValidateBeforeCall(UUID tenantId, UUID expenseTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchExpenseTypeValidateBeforeCall(UUID tenantId, UUID expenseTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchExpenseType(Async)");
@@ -956,7 +969,7 @@ public class ExpenseTypesApi {
             throw new ApiException("Missing the required parameter 'expenseTypeId' when calling patchExpenseType(Async)");
         }
 
-        return patchExpenseTypeCall(tenantId, expenseTypeId, apiVersion, xApiVersion, operation, _callback);
+        return patchExpenseTypeCall(tenantId, expenseTypeId, apiVersion, xApiVersion, patchOperation, _callback);
 
     }
 
@@ -967,7 +980,7 @@ public class ExpenseTypesApi {
      * @param expenseTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -978,8 +991,8 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope patchExpenseType(UUID tenantId, UUID expenseTypeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = patchExpenseTypeWithHttpInfo(tenantId, expenseTypeId, apiVersion, xApiVersion, operation);
+    public EmptyEnvelope patchExpenseType(UUID tenantId, UUID expenseTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchExpenseTypeWithHttpInfo(tenantId, expenseTypeId, apiVersion, xApiVersion, patchOperation);
         return localVarResp.getData();
     }
 
@@ -990,7 +1003,7 @@ public class ExpenseTypesApi {
      * @param expenseTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1001,8 +1014,8 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> patchExpenseTypeWithHttpInfo(UUID tenantId, UUID expenseTypeId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
-        okhttp3.Call localVarCall = patchExpenseTypeValidateBeforeCall(tenantId, expenseTypeId, apiVersion, xApiVersion, operation, null);
+    public ApiResponse<EmptyEnvelope> patchExpenseTypeWithHttpInfo(UUID tenantId, UUID expenseTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation) throws ApiException {
+        okhttp3.Call localVarCall = patchExpenseTypeValidateBeforeCall(tenantId, expenseTypeId, apiVersion, xApiVersion, patchOperation, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1014,7 +1027,7 @@ public class ExpenseTypesApi {
      * @param expenseTypeId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param operation  (optional)
+     * @param patchOperation  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1026,9 +1039,9 @@ public class ExpenseTypesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchExpenseTypeAsync(UUID tenantId, UUID expenseTypeId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call patchExpenseTypeAsync(UUID tenantId, UUID expenseTypeId, String apiVersion, String xApiVersion, List<PatchOperation> patchOperation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchExpenseTypeValidateBeforeCall(tenantId, expenseTypeId, apiVersion, xApiVersion, operation, _callback);
+        okhttp3.Call localVarCall = patchExpenseTypeValidateBeforeCall(tenantId, expenseTypeId, apiVersion, xApiVersion, patchOperation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
